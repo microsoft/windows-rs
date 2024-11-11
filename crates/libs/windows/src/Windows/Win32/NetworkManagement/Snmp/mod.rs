@@ -604,61 +604,61 @@ pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 impl windows_core::TypeKind for SNMP_API_TRANSLATE_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_ERROR(pub u32);
 impl windows_core::TypeKind for SNMP_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_ERROR_STATUS(pub u32);
 impl windows_core::TypeKind for SNMP_ERROR_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_GENERICTRAP(pub u32);
 impl windows_core::TypeKind for SNMP_GENERICTRAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_LOG(pub i32);
 impl windows_core::TypeKind for SNMP_LOG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_PDU_TYPE(pub u32);
 impl windows_core::TypeKind for SNMP_PDU_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SNMP_STATUS(pub u32);
 impl windows_core::TypeKind for SNMP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
@@ -672,7 +672,7 @@ impl windows_core::TypeKind for AsnAny {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,
@@ -697,7 +697,7 @@ impl windows_core::TypeKind for AsnAny_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
@@ -714,7 +714,7 @@ impl windows_core::TypeKind for AsnObjectIdentifier {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
@@ -731,7 +731,7 @@ impl windows_core::TypeKind for AsnObjectIdentifier {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
@@ -749,7 +749,7 @@ impl windows_core::TypeKind for AsnOctetString {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
@@ -766,7 +766,7 @@ impl windows_core::TypeKind for AsnOctetString {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
@@ -781,7 +781,7 @@ impl windows_core::TypeKind for SnmpVarBind {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
@@ -798,7 +798,7 @@ impl windows_core::TypeKind for SnmpVarBindList {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
@@ -814,7 +814,7 @@ impl windows_core::TypeKind for SnmpVarBindList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
@@ -828,7 +828,7 @@ impl windows_core::TypeKind for smiCNTR64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
@@ -842,7 +842,7 @@ impl windows_core::TypeKind for smiOCTETS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
@@ -856,7 +856,7 @@ impl windows_core::TypeKind for smiOID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
@@ -870,7 +870,7 @@ impl windows_core::TypeKind for smiVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
     pub uNumber: u32,
@@ -888,7 +888,7 @@ impl windows_core::TypeKind for smiVALUE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],

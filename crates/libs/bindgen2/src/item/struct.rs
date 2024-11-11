@@ -18,10 +18,10 @@ impl Struct {
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
         // BTreeSet for auto sort?
-        let mut derive = quote! { Clone, Debug, Default, PartialEq, };
+        let mut derive = Derive::from(["Clone", "Debug", "Default", "PartialEq"]);
 
         if is_copyable {
-            derive.combine(quote! { Copy, });
+            derive.add(["Copy"]);
         }
 
         // TODO: add any user-defined derive names
@@ -42,7 +42,7 @@ impl Struct {
 
         quote! {
             #[repr(C)]
-            #[derive(#derive)]
+            #derive
             pub struct #name {
                 #(#fields)*
             }

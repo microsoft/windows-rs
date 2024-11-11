@@ -348,37 +348,37 @@ pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
 pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 pub const _FACDXCORE: u32 = 2176u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterPreference(pub u32);
 impl windows_core::TypeKind for DXCoreAdapterPreference {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProperty(pub u32);
 impl windows_core::TypeKind for DXCoreAdapterProperty {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterState(pub u32);
 impl windows_core::TypeKind for DXCoreAdapterState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreNotificationType(pub u32);
 impl windows_core::TypeKind for DXCoreNotificationType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreSegmentGroup(pub u32);
 impl windows_core::TypeKind for DXCoreSegmentGroup {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {
     pub budget: u64,
     pub currentUsage: u64,
@@ -394,7 +394,7 @@ impl windows_core::TypeKind for DXCoreAdapterMemoryBudget {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     pub nodeIndex: u32,
     pub segmentGroup: DXCoreSegmentGroup,
@@ -408,7 +408,7 @@ impl windows_core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -424,7 +424,7 @@ impl windows_core::TypeKind for DXCoreHardwareID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXCoreHardwareIDParts {
     pub vendorID: u32,
     pub deviceID: u32,

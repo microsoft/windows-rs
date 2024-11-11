@@ -87,7 +87,7 @@ pub struct INotesWindowManagerPreviewStatics_Vtbl {
     pub GetForCurrentApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NotePlacementChangedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotePlacementChangedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl NotePlacementChangedPreviewEventArgs {
@@ -112,7 +112,7 @@ impl windows_core::RuntimeName for NotePlacementChangedPreviewEventArgs {
 unsafe impl Send for NotePlacementChangedPreviewEventArgs {}
 unsafe impl Sync for NotePlacementChangedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NoteVisibilityChangedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NoteVisibilityChangedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl NoteVisibilityChangedPreviewEventArgs {
@@ -144,7 +144,7 @@ impl windows_core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
 unsafe impl Send for NoteVisibilityChangedPreviewEventArgs {}
 unsafe impl Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NotesWindowManagerPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotesWindowManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl NotesWindowManagerPreview {
@@ -302,7 +302,7 @@ impl windows_core::RuntimeName for NotesWindowManagerPreview {
 unsafe impl Send for NotesWindowManagerPreview {}
 unsafe impl Sync for NotesWindowManagerPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotesWindowManagerPreviewShowNoteOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl NotesWindowManagerPreviewShowNoteOptions {

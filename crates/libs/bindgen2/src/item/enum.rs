@@ -70,7 +70,7 @@ impl Enum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(Copy, Clone, Debug, Default, PartialEq)]
+            #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
             pub struct #name(pub #underlying_type);
             impl #name {
                 #(#fields)*

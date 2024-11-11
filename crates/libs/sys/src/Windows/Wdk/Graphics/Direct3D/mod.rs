@@ -2103,7 +2103,7 @@ pub type KMTUMDVERSION = i32;
 pub type KMT_DISPLAY_UMD_VERSION = i32;
 pub type OUTPUTDUPL_CONTEXT_DEBUG_STATUS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
@@ -2120,7 +2120,7 @@ pub struct D3DDDIARG_CREATERESOURCE {
     pub Rotation: D3DDDI_ROTATION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
@@ -2138,87 +2138,87 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCK2FLAGS {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDICB_LOCK2FLAGS_0 {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCKFLAGS {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDICB_LOCKFLAGS_0 {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_SIGNALFLAGS {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDICB_SIGNALFLAGS_0 {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDIRECT {
     pub left: i32,
     pub top: i32,
@@ -2226,7 +2226,7 @@ pub struct D3DDDIRECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO {
     pub hAllocation: u32,
     pub pSystemMem: *const core::ffi::c_void,
@@ -2236,18 +2236,18 @@ pub struct D3DDDI_ALLOCATIONINFO {
     pub Flags: D3DDDI_ALLOCATIONINFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO_0 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub Anonymous1: D3DDDI_ALLOCATIONINFO2_0,
@@ -2260,95 +2260,95 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub Reserved: [usize; 5],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::super::super::Win32::Foundation::HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Priority: u32,
     pub Unused: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONLIST {
     pub hAllocation: u32,
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_CREATECONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWQUEUEFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_CREATENATIVEFENCEINFO {
     pub InitialFenceValue: u64,
     pub pPrivateDriverData: *mut core::ffi::c_void,
@@ -2359,12 +2359,12 @@ pub struct D3DDDI_CREATENATIVEFENCEINFO {
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_DESTROYPAGINGQUEUE {
     pub hPagingQueue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hSyncObject: u32,
@@ -2372,79 +2372,79 @@ pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub Usage: [u32; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hAllocation: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hResource: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_DXGI_RGB {
     pub Red: f32,
     pub Green: f32,
     pub Blue: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ESCAPEFLAGS {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ESCAPEFLAGS_0 {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_EVICT_FLAGS {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_EVICT_FLAGS_0 {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_GAMMA_RAMP_DXGI_1 {
     pub Scale: D3DDDI_DXGI_RGB,
     pub Offset: D3DDDI_DXGI_RGB,
     pub GammaCurve: [D3DDDI_DXGI_RGB; 1025],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: u32,
     pub PrivateDriverDataSize: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -2456,12 +2456,12 @@ pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub MaxFrameAverageLightLevel: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: u32,
     pub DstRect: D3DDDIRECT,
@@ -2470,7 +2470,7 @@ pub struct D3DDDI_KERNELOVERLAYINFO {
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT {
     pub hPagingQueue: u32,
     pub NumAllocations: u32,
@@ -2481,23 +2481,23 @@ pub struct D3DDDI_MAKERESIDENT {
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_MAKERESIDENT_FLAGS_0 {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub hPagingQueue: u32,
     pub BaseAddress: u64,
@@ -2514,43 +2514,43 @@ pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub PagingFenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
     pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: u64,
     pub MonitoredValueGpuVa: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_OFFER_FLAGS {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_OFFER_FLAGS_0 {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: u32,
     pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -2559,7 +2559,7 @@ pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub Reserved: [usize; 6],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_PATCHLOCATIONLIST {
     pub AllocationIndex: u32,
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0,
@@ -2569,34 +2569,34 @@ pub struct D3DDDI_PATCHLOCATIONLIST {
     pub SplitOffset: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_PATCHLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_FLAGS_0 {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub QueryType: D3DDDI_QUERYREGISTRY_TYPE,
     pub QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
@@ -2608,7 +2608,7 @@ pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub Anonymous: D3DDDI_QUERYREGISTRY_INFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_INFO_0 {
     pub OutputDword: u32,
     pub OutputQword: u64,
@@ -2616,13 +2616,13 @@ pub union D3DDDI_QUERYREGISTRY_INFO_0 {
     pub OutputBinary: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub Anonymous1: D3DDDI_RESERVEGPUVIRTUALADDRESS_0,
     pub BaseAddress: u64,
@@ -2635,79 +2635,79 @@ pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub Anonymous4: D3DDDI_RESERVEGPUVIRTUALADDRESS_3,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     pub hPagingQueue: u32,
     pub hAdapter: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     pub ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
     pub Reserved0: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     pub DriverProtection: u64,
     pub Reserved1: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     pub PagingFenceValue: u64,
     pub Reserved2: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS2_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_SEGMENTPREFERENCE_0 {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SURFACEINFO {
     pub Width: u32,
     pub Height: u32,
@@ -2717,36 +2717,36 @@ pub struct D3DDDI_SURFACEINFO {
     pub SysMemSlicePitch: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub Reserved: [u32; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
@@ -2754,7 +2754,7 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub SharedHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1,
@@ -2765,17 +2765,17 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub InitialFenceValue: u64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
@@ -2784,7 +2784,7 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub Padding: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: u32,
     pub VidPnTargetId: u32,
@@ -2795,55 +2795,55 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub Padding: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub hPagingQueue: u32,
     pub hAllocation: u32,
@@ -2854,40 +2854,40 @@ pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0_0,
     pub PropertyMaskValue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     pub OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
     pub Anonymous: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Map: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
     pub MapProtect: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1,
@@ -2895,14 +2895,14 @@ pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: u64,
     pub SizeInBytes: u64,
     pub DestAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
@@ -2913,7 +2913,7 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub DriverProtection: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
@@ -2922,56 +2922,56 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub AllocationSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub SegmentId: u32,
     pub Padding: u32,
     pub SegmentOffset: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -2997,7 +2997,7 @@ pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxSimultaneousTextures: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_D3DEXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -3032,13 +3032,13 @@ pub struct D3DHAL_D3DEXTENDEDCAPS {
     pub dwReserved4: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -3049,7 +3049,7 @@ pub struct D3DHAL_DP2BLT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CLEAR {
     pub dwFlags: u32,
     pub dwFillColor: u32,
@@ -3058,96 +3058,96 @@ pub struct D3DHAL_DP2CLEAR {
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2COMMAND {
     pub bCommand: u8,
     pub bReserved: u8,
     pub Anonymous: D3DHAL_DP2COMMAND_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADER {
     pub dwHandle: u32,
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLELIST {
     pub wV1: u16,
     pub wV2: u16,
@@ -3155,46 +3155,46 @@ pub struct D3DHAL_DP2INDEXEDTRIANGLELIST {
     pub wFlags: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2LINELIST {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2LINESTRIP {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2RESPONSE {
     pub bCommand: u8,
     pub bReserved: u8,
@@ -3202,81 +3202,81 @@ pub struct D3DHAL_DP2RESPONSE {
     pub dwTotalSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub dwDataType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETPALETTE {
     pub dwPaletteHandle: u32,
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETPRIORITY {
     pub dwDDSurface: u32,
     pub dwPriority: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETSTREAMSOURCE {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETSTREAMSOURCE2 {
     pub dwStream: u32,
     pub dwVBHandle: u32,
@@ -3284,36 +3284,36 @@ pub struct D3DHAL_DP2SETSTREAMSOURCE2 {
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2STARTVERTEX {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -3324,7 +3324,7 @@ pub struct D3DHAL_DP2SURFACEBLT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -3333,46 +3333,46 @@ pub struct D3DHAL_DP2TEXBLT {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TEXTURESTAGESTATE {
     pub wStage: u16,
     pub TSState: u16,
     pub dwValue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2UPDATEPALETTE {
     pub dwPaletteHandle: u32,
     pub wStartIndex: u16,
     pub wNumEntries: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2VIEWPORTINFO {
     pub dwX: u32,
     pub dwY: u32,
@@ -3380,19 +3380,19 @@ pub struct D3DHAL_DP2VIEWPORTINFO {
     pub dwHeight: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wNumStateChanges: u16,
     pub wPrimitiveType: u16,
@@ -3400,7 +3400,7 @@ pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wNumVertices: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_DRAWPRIMITIVESDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -3409,21 +3409,21 @@ pub struct D3DHAL_DRAWPRIMITIVESDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub lpDDS: usize,
@@ -3431,7 +3431,7 @@ pub struct D3DHAL_TEXTUREGETSURFDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: u32,
@@ -3439,7 +3439,7 @@ pub struct D3DHAL_TEXTURESWAPDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -3448,20 +3448,20 @@ pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_2DREGION {
     pub cx: u32,
     pub cy: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     pub ColorMatrix3x4: [f32; 12],
     pub ScalarMultiplier: f32,
     pub LookupTable1D: [D3DDDI_DXGI_RGB; 4096],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub StageControlLookupTable1DDegamma: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
     pub LookupTable1DDegamma: [D3DDDI_DXGI_RGB; 4096],
@@ -3471,7 +3471,7 @@ pub struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub LookupTable1DRegamma: [D3DDDI_DXGI_RGB; 4096],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     pub FirstChannel: u32,
     pub SecondChannel: u32,
@@ -3479,13 +3479,13 @@ pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     pub FourthChannel: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_DISPLAYMODE_FLAGS {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinVSyncFreq: D3DDDI_RATIONAL,
     pub MaxVSyncFreq: D3DDDI_RATIONAL,
@@ -3493,14 +3493,14 @@ pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MaxHSyncFreq: D3DDDI_RATIONAL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_GAMMA_RAMP {
     pub Type: D3DDDI_GAMMARAMP_TYPE,
     pub DataSize: usize,
     pub Data: D3DKMDT_GAMMA_RAMP_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
     pub pDxgi1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
@@ -3509,7 +3509,7 @@ pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pRaw: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -3519,23 +3519,23 @@ pub struct D3DKMDT_GDISURFACEDATA {
     pub Pitch: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEFLAGS {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_GDISURFACEFLAGS_0 {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PrimSurfSize: D3DKMDT_2DREGION,
     pub VisibleRegionSize: D3DKMDT_2DREGION,
@@ -3545,7 +3545,7 @@ pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: u32,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
@@ -3554,7 +3554,7 @@ pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
     pub RangeLimits: D3DKMDT_FREQUENCY_RANGE,
@@ -3562,13 +3562,13 @@ pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub Constraint: D3DKMDT_MONITOR_FREQUENCY_RANGE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     pub ActiveSize: D3DKMDT_2DREGION,
     pub MaxPixelRate: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Id: u32,
     pub VideoSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO,
@@ -3578,7 +3578,7 @@ pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Preference: D3DKMDT_MODE_PREFERENCE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_PALETTEDATA {
     pub Red: u8,
     pub Green: u8,
@@ -3586,13 +3586,13 @@ pub struct D3DKMDT_PALETTEDATA {
     pub Unused: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_PREEMPTION_CAPS {
     pub GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -3600,7 +3600,7 @@ pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Pitch: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -3609,20 +3609,20 @@ pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_STAGINGSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
     pub Pitch: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: u32,
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
@@ -3631,7 +3631,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub SupportsSdtvModes: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
     pub TotalSize: D3DKMDT_2DREGION,
@@ -3642,23 +3642,23 @@ pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub Anonymous: D3DKMDT_VIDEO_SIGNAL_INFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO_0_0,
     pub ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub VidPnSourceId: u32,
     pub VidPnTargetId: u32,
@@ -3673,7 +3673,7 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub GammaRamp: D3DKMDT_GAMMA_RAMP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
     pub APSTriggerBits: u32,
@@ -3681,22 +3681,22 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
     pub ScalingSupport: D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT,
@@ -3704,20 +3704,20 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE {
     pub Id: u32,
     pub Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
     pub Format: D3DKMDT_VIDPN_SOURCE_MODE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_SOURCE_MODE_0 {
     pub Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
     pub Text: D3DKMDT_TEXT_RENDERING_FORMAT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Id: u32,
     pub VideoSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO,
@@ -3725,18 +3725,18 @@ pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub MinimumVSyncFreq: D3DDDI_RATIONAL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_VIDPN_TARGET_MODE_0 {
     pub WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
     pub Size: u64,
     pub Alignment: u32,
@@ -3744,18 +3744,18 @@ pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
     pub PrivateDriverData: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     pub Anonymous: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub hKeyedMutex: u32,
     pub Key: u64,
@@ -3763,7 +3763,7 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub hKeyedMutex: u32,
     pub Key: u64,
@@ -3773,20 +3773,20 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub PrivateRuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
     pub Activate: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERADDRESS {
     pub BusNumber: u32,
     pub DeviceNumber: u32,
     pub FunctionNumber: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
@@ -3794,7 +3794,7 @@ pub struct D3DKMT_ADAPTERINFO {
     pub bPrecisePresentRegionsPreferred: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERREGISTRYINFO {
     pub AdapterString: [u16; 260],
     pub BiosString: [u16; 260],
@@ -3802,23 +3802,23 @@ pub struct D3DKMT_ADAPTERREGISTRYINFO {
     pub ChipType: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERTYPE {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTERTYPE_0 {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERTYPE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_PERFDATA {
     pub PhysicalAdapterIndex: u32,
     pub MemoryFrequency: u64,
@@ -3832,7 +3832,7 @@ pub struct D3DKMT_ADAPTER_PERFDATA {
     pub PowerStateOverride: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub PhysicalAdapterIndex: u32,
     pub MaxMemoryBandwidth: u64,
@@ -3842,38 +3842,38 @@ pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub TemperatureWarning: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_VERIFIER_OPTION {
     pub Type: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE,
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_ADAPTER_VERIFIER_OPTION_DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS,
     pub VidMmTrimInterval: D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     pub MinimumTrimInterval: u64,
     pub MaximumTrimInterval: u64,
     pub IdleTrimInterval: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ADJUSTFULLSCREENGAMMA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -3881,24 +3881,24 @@ pub struct D3DKMT_ADJUSTFULLSCREENGAMMA {
     pub Offset: D3DDDI_DXGI_RGB,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO {
     pub size: u32,
     pub r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BLOCKLIST_INFO {
     pub Size: u32,
     pub BlockList: [u16; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -3906,14 +3906,14 @@ pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BRIGHTNESS_INFO {
     pub Type: D3DKMT_BRIGHTNESS_INFO_TYPE,
     pub ChildUid: u32,
     pub Anonymous: D3DKMT_BRIGHTNESS_INFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub PossibleLevels: D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS,
     pub Brightness: u8,
@@ -3927,19 +3927,19 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     pub LevelCount: u8,
     pub BrightnessLevels: [u8; 256],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_BUDGETCHANGENOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Budget: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS {
     pub cbSize: u32,
     pub hDevice: u32,
@@ -3950,24 +3950,24 @@ pub struct D3DKMT_CANCEL_PRESENTS {
     pub BindId: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS {
     pub Anonymous: D3DKMT_CANCEL_PRESENTS_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     pub ReprogramInterrupt: D3DKMT_CANCEL_PRESENTS_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
@@ -3977,7 +3977,7 @@ pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub Pitch: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -3986,13 +3986,13 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub PhysicalAdapterIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMONITORPOWERSTATE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub hDevice: u32,
     pub PlaneCount: u32,
@@ -4001,7 +4001,7 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -4011,7 +4011,7 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -4023,24 +4023,24 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::super::super::Win32::Foundation::HWND,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
     pub hResource: u32,
     pub ClientPid: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub hResource: u32,
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
@@ -4048,7 +4048,7 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -4057,7 +4057,7 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -4066,33 +4066,33 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CLOSEADAPTER {
     pub hAdapter: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     pub hPrivateData: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: u32,
     pub hResource: u32,
@@ -4101,34 +4101,34 @@ pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub AllowAccess: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_CONNECT_DOORBELL_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CPDRIVERNAME {
     pub ContentProtectionFileName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEALLOCATION {
     pub hDevice: u32,
     pub hResource: u32,
@@ -4143,24 +4143,24 @@ pub struct D3DKMT_CREATEALLOCATION {
     pub hPrivateRuntimeResourceHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
     pub pPrivateDriverData: *const core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATEALLOCATION_1 {
     pub pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
     pub pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEALLOCATIONFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATECONTEXT {
     pub hDevice: u32,
     pub NodeOrdinal: u32,
@@ -4179,7 +4179,7 @@ pub struct D3DKMT_CREATECONTEXT {
     pub CommandBuffer: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATECONTEXTVIRTUAL {
     pub hDevice: u32,
     pub NodeOrdinal: u32,
@@ -4192,7 +4192,7 @@ pub struct D3DKMT_CREATECONTEXTVIRTUAL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut core::ffi::c_void,
     pub Format: D3DDDIFORMAT,
@@ -4205,7 +4205,7 @@ pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEDEVICE {
     pub Anonymous: D3DKMT_CREATEDEVICE_0,
     pub Flags: D3DKMT_CREATEDEVICEFLAGS,
@@ -4218,18 +4218,18 @@ pub struct D3DKMT_CREATEDEVICE {
     pub PatchLocationListSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATEDEVICE_0 {
     pub hAdapter: u32,
     pub pAdapter: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEDEVICEFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEHWCONTEXT {
     pub hDevice: u32,
     pub NodeOrdinal: u32,
@@ -4240,7 +4240,7 @@ pub struct D3DKMT_CREATEHWCONTEXT {
     pub hHwContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEHWQUEUE {
     pub hHwContext: u32,
     pub Flags: D3DDDI_CREATEHWQUEUEFLAGS,
@@ -4252,14 +4252,14 @@ pub struct D3DKMT_CREATEHWQUEUE {
     pub HwQueueProgressFenceGPUVirtualAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX {
     pub InitialValue: u64,
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2 {
     pub InitialValue: u64,
     pub hSharedHandle: u32,
@@ -4269,29 +4269,29 @@ pub struct D3DKMT_CREATEKEYEDMUTEX2 {
     pub Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATENATIVEFENCE {
     pub hDevice: u32,
     pub Info: D3DDDI_CREATENATIVEFENCEINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEOVERLAY {
     pub VidPnSourceId: u32,
     pub hDevice: u32,
@@ -4299,7 +4299,7 @@ pub struct D3DKMT_CREATEOVERLAY {
     pub hOverlay: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub hDevice: u32,
     pub Priority: D3DDDI_PAGINGQUEUE_PRIORITY,
@@ -4309,7 +4309,7 @@ pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub PhysicalAdapterIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hDevice: u32,
     pub hSyncObject: u32,
@@ -4320,35 +4320,35 @@ pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATION {
     pub Type: D3DKMT_STANDARDALLOCATIONTYPE,
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATION_0,
     pub Flags: D3DKMT_CREATESTANDARDALLOCATIONFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
     pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESYNCFILE {
     pub hDevice: u32,
     pub hMonitoredFence: u32,
@@ -4356,21 +4356,21 @@ pub struct D3DKMT_CREATESYNCFILE {
     pub hSyncFile: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     pub hDevice: u32,
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO,
     pub hSyncObject: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     pub hDevice: u32,
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
     pub hSyncObject: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL {
     pub hHwQueue: u32,
     pub hRingBuffer: u32,
@@ -4383,23 +4383,23 @@ pub struct D3DKMT_CREATE_DOORBELL {
     pub DoorbellStatusCPUVirtualAddress: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -4409,24 +4409,24 @@ pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     pub SupportTier: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CURRENTDISPLAYMODE {
     pub VidPnSourceId: u32,
     pub DisplayMode: D3DKMT_DISPLAYMODE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     pub Length: u32,
     pub Buffer: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYALLOCATION {
     pub hDevice: u32,
     pub hResource: u32,
@@ -4434,7 +4434,7 @@ pub struct D3DKMT_DESTROYALLOCATION {
     pub AllocationCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYALLOCATION2 {
     pub hDevice: u32,
     pub hResource: u32,
@@ -4443,67 +4443,67 @@ pub struct D3DKMT_DESTROYALLOCATION2 {
     pub Flags: D3DDDICB_DESTROYALLOCATION2FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYCONTEXT {
     pub hContext: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYDEVICE {
     pub hDevice: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYHWCONTEXT {
     pub hHwContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYHWQUEUE {
     pub hHwQueue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYKEYEDMUTEX {
     pub hKeyedMutex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYPROTECTEDSESSION {
     pub hHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     pub hSyncObject: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROY_DOORBELL {
     pub hHwQueue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub bDestroyAllContexts: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
     pub FaultedPrimitiveAPISequenceNumber: u64,
     pub FaultedPipelineStage: DXGK_RENDER_PIPELINE_STAGE,
@@ -4513,58 +4513,58 @@ pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
     pub FaultedVirtualAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: u32,
     pub bQueuedPresentLimitReached: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPRESENT_STATE {
     pub VidPnSourceId: u32,
     pub PresentStats: D3DKMT_PRESENT_STATS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICEPRESENT_STATE_DWM {
     pub VidPnSourceId: u32,
     pub PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICERESET_STATE {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_DEVICERESET_STATE_0 {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICERESET_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICE_ESCAPE {
     pub Type: D3DKMT_DEVICEESCAPE_TYPE,
     pub Anonymous: D3DKMT_DEVICE_ESCAPE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_DEVICE_ESCAPE_0 {
     pub VidPnFromAllocation: D3DKMT_DEVICE_ESCAPE_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICE_ESCAPE_0_0 {
     pub hPrimaryAllocation: u32,
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICE_IDS {
     pub VendorID: u32,
     pub DeviceID: u32,
@@ -4574,18 +4574,18 @@ pub struct D3DKMT_DEVICE_IDS {
     pub BusType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DIRTYREGIONS {
     pub NumRects: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -4598,41 +4598,41 @@ pub struct D3DKMT_DISPLAYMODE {
     pub Flags: D3DKMDT_DISPLAYMODE_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAYMODELIST {
     pub VidPnSourceId: u32,
     pub ModeCount: u32,
     pub pModeList: [D3DKMT_DISPLAYMODE; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_CAPS {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_DISPLAY_CAPS_0 {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0_0,
     pub Value: u64,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     pub Version: KMT_DISPLAY_UMD_VERSION,
     pub UmdFileName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DLIST_DRIVER_NAME {
     pub DListFileName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DMM_ESCAPE {
     pub Type: D3DKMT_DMMESCAPETYPE,
     pub ProvidedBufferSize: usize,
@@ -4640,63 +4640,63 @@ pub struct D3DKMT_DMM_ESCAPE {
     pub Data: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
     pub bForceFullScreenDirty: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_DRIVERCAPS_EXT_0 {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVER_DESCRIPTION {
     pub DriverDescription: [u16; 4096],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS {
     pub NumAdapters: u32,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS2 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS3 {
     pub Filter: D3DKMT_ENUMADAPTERS_FILTER,
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_ENUMADAPTERS_FILTER {
     pub Anonymous: D3DKMT_ENUMADAPTERS_FILTER_0,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ENUMADAPTERS_FILTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ESCAPE {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -4707,7 +4707,7 @@ pub struct D3DKMT_ESCAPE {
     pub hContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
     pub VidPnSourceId: u32,
@@ -4717,7 +4717,7 @@ pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Reserved: [u8; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_EVICT {
     pub hDevice: u32,
     pub NumAllocations: u32,
@@ -4726,40 +4726,40 @@ pub struct D3DKMT_EVICT {
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA {
     pub MinimumSize: u64,
     pub MaximumSize: u64,
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA_0 {
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_EVICTION_CRITERIA_0_0 {
     pub Flags: D3DKMT_EVICTION_CRITERIA_0_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     pub Key: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPINFOFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
     pub flipManagerTracingId: u32,
@@ -4773,25 +4773,25 @@ pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub ConvertedToNonIFlip: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     pub hPrivateData: u64,
     pub PresentAtQpc: u64,
     pub Flags: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     pub Anonymous: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub FenceValue: u64,
     pub hLogicalSurface: u64,
@@ -4825,42 +4825,42 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     pub hSyncObject: super::super::super::Win32::Foundation::HANDLE,
     pub HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     pub HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
     pub HDRMetaDataHDR10Plus: D3DDDI_HDR_METADATA_HDR10PLUS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
@@ -4869,26 +4869,26 @@ pub struct D3DKMT_FLIPOVERLAY {
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPQUEUEINFO {
     pub MaxHardwareFlipQueueLength: u32,
     pub MaxSoftwareFlipQueueLength: u32,
     pub FlipFlags: D3DKMT_FLIPINFOFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FLUSHHEAPTRANSITIONS {
     pub hAdapter: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
     pub hAdapter: u32,
     pub BaseAddress: u64,
     pub Size: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -4897,14 +4897,14 @@ pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     pub hlsurf: u64,
     pub dwDirtyFlags: u32,
     pub uiCookie: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -4913,26 +4913,26 @@ pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub pPriorities: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETDEVICESTATE {
     pub hDevice: u32,
     pub StateType: D3DKMT_DEVICESTATE_TYPE,
     pub Anonymous: D3DKMT_GETDEVICESTATE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_GETDEVICESTATE_0 {
     pub ExecutionState: D3DKMT_DEVICEEXECUTION_STATE,
     pub PresentState: D3DKMT_DEVICEPRESENT_STATE,
@@ -4942,7 +4942,7 @@ pub union D3DKMT_GETDEVICESTATE_0 {
     pub PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETDISPLAYMODELIST {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -4950,7 +4950,7 @@ pub struct D3DKMT_GETDISPLAYMODELIST {
     pub ModeCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -4961,14 +4961,14 @@ pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub MethodCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub OverlayEnabled: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETPRESENTHISTORY {
     pub hAdapter: u32,
     pub ProvidedSize: u32,
@@ -4977,14 +4977,14 @@ pub struct D3DKMT_GETPRESENTHISTORY {
     pub NumTokens: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub Support: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETRUNTIMEDATA {
     pub hAdapter: u32,
     pub hGlobalShare: u32,
@@ -4992,7 +4992,7 @@ pub struct D3DKMT_GETRUNTIMEDATA {
     pub RuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -5000,21 +5000,21 @@ pub struct D3DKMT_GETSCANLINE {
     pub ScanLine: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub hSharedPrimary: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hGlobalShare: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -5022,19 +5022,19 @@ pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub phEvent: *mut isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: u32,
     pub bFailedDwmAcquireVidPn: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -5046,7 +5046,7 @@ pub struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     pub MaxShrinkFactor: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_POST_COMPOSITION_CAPS {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -5054,7 +5054,7 @@ pub struct D3DKMT_GET_POST_COMPOSITION_CAPS {
     pub MaxShrinkFactor: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_PTE {
     pub PhysicalAdapterIndex: u32,
     pub PageTableLevel: u32,
@@ -5065,54 +5065,54 @@ pub struct D3DKMT_GET_PTE {
     pub NumValidEntries: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub NumSegments: u32,
     pub SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GPUMMU_CAPS {
     pub Flags: D3DKMT_GPUMMU_CAPS_0,
     pub VirtualAddressBitCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_GPUMMU_CAPS_0 {
     pub Anonymous: D3DKMT_GPUMMU_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GPUMMU_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_GPUVERSION {
     pub PhysicalAdapterIndex: u32,
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
@@ -5120,24 +5120,24 @@ pub struct D3DKMT_HYBRID_LIST {
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_INVALIDATEACTIVEVIDPN {
     pub hAdapter: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_INVALIDATECACHE {
     pub hDevice: u32,
     pub hAllocation: u32,
@@ -5145,17 +5145,17 @@ pub struct D3DKMT_INVALIDATECACHE {
     pub Length: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_KMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_LOCK {
     pub hDevice: u32,
     pub hAllocation: u32,
@@ -5167,7 +5167,7 @@ pub struct D3DKMT_LOCK {
     pub GpuVirtualAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_LOCK2 {
     pub hDevice: u32,
     pub hAllocation: u32,
@@ -5175,65 +5175,65 @@ pub struct D3DKMT_LOCK2 {
     pub pData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MARKDEVICEASERROR {
     pub hDevice: u32,
     pub Reason: D3DKMT_DEVICE_ERROR_REASON,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     pub MiracastCompanionDriverName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACAST_CHUNK_DATA {
     pub ChunkInfo: DXGK_MIRACAST_CHUNK_INFO,
     pub PrivateDriverDataSize: u32,
     pub PrivateDriverData: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub HdcpSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub DefaultControlPort: u32,
     pub UsesIhvSolution: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     pub State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub TargetId: u32,
     pub StopReason: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::super::super::Win32::Foundation::POINT,
     pub DestRect: super::super::super::Win32::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MPO3DDI_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
@@ -5241,24 +5241,24 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub HudSupported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
@@ -5266,7 +5266,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
@@ -5274,7 +5274,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub LayerIndex: u32,
     pub InputFlags: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS,
@@ -5291,7 +5291,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub FlipAwayFenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -5310,7 +5310,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -5330,7 +5330,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub Reserved1: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -5345,23 +5345,23 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub SDRWhiteLevel: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub Flags: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -5369,42 +5369,42 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub Rotation: D3DDDI_ROTATION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     pub VidPnSourceId: u32,
     pub PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_MULTISAMPLEMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
     pub Reserved: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
     pub NodeData: DXGK_NODEMETADATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_NODE_PERFDATA {
     pub NodeOrdinal: u32,
     pub PhysicalAdapterIndex: u32,
@@ -5417,29 +5417,29 @@ pub struct D3DKMT_NODE_PERFDATA {
     pub MaxTransitionLatency: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OFFERALLOCATIONS {
     pub hDevice: u32,
     pub pResources: *mut u32,
@@ -5449,30 +5449,30 @@ pub struct D3DKMT_OFFERALLOCATIONS {
     pub Flags: D3DKMT_OFFER_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OFFER_FLAGS {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_OFFER_FLAGS_0 {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub pDeviceName: windows_sys::core::PCWSTR,
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub hAdapter: u32,
@@ -5481,7 +5481,7 @@ pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hAdapter: u32,
@@ -5489,26 +5489,26 @@ pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENGLINFO {
     pub UmdOpenGlIcdFileName: [u16; 260],
     pub Version: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENKEYEDMUTEX {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
@@ -5516,7 +5516,7 @@ pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub PrivateRuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hKeyedMutex: u32,
@@ -5524,7 +5524,7 @@ pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub PrivateRuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hDevice: u32,
@@ -5535,20 +5535,20 @@ pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENRESOURCE {
     pub hDevice: u32,
     pub hGlobalShare: u32,
@@ -5563,13 +5563,13 @@ pub struct D3DKMT_OPENRESOURCE {
     pub hResource: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_OPENRESOURCE_0 {
     pub pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
     pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -5588,20 +5588,20 @@ pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hSyncObject: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     pub hSharedHandle: u32,
     pub hSyncObject: u32,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hSyncObject: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hDevice: u32,
@@ -5610,13 +5610,13 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub Anonymous: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     pub MonitoredFence: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
@@ -5624,14 +5624,14 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
     pub Width: u32,
@@ -5640,29 +5640,29 @@ pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub HotSpot: super::super::super::Win32::Foundation::POINT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     pub VidPnSourceId: u32,
     pub OutputDuplicationCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub hContext: u32,
     pub hSource: u32,
@@ -5674,23 +5674,23 @@ pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub hIndirectContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub hSource: u32,
     pub VidPnSourceId: u32,
@@ -5701,7 +5701,7 @@ pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub hIndirectHwQueue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -5713,14 +5713,14 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub PointerShapeBufferSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -5730,12 +5730,12 @@ pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -5745,20 +5745,20 @@ pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub BufferSizeRequired: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::super::super::Win32::Foundation::POINT,
     pub Visible: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub NextKeyMutexIdx: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Size: u32,
     pub SessionProcessCount: u32,
@@ -5769,7 +5769,7 @@ pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub IndexBitCount: u32,
     pub IndexMask: u64,
@@ -5778,67 +5778,67 @@ pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub EntryCoverageInPages: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
     pub Count: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PINDIRECTFLIPRESOURCES {
     pub hDevice: u32,
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_POLLDISPLAYCHILDREN {
     pub hAdapter: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT {
     pub Anonymous1: D3DKMT_PRESENT_0,
     pub hWindow: super::super::super::Win32::Foundation::HWND,
@@ -5867,35 +5867,35 @@ pub struct D3DKMT_PRESENT {
     pub bOptimizeForComposition: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_1 {
     pub hAdapter: u32,
     pub hIndirectContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTFLAGS {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub Model: D3DKMT_PRESENT_MODEL,
     pub TokenSize: u32,
@@ -5903,7 +5903,7 @@ pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub Token: D3DKMT_PRESENTHISTORYTOKEN_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub Flip: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN,
     pub Blt: D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN,
@@ -5916,7 +5916,7 @@ pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0,
     pub BroadcastContextCount: u32,
@@ -5930,13 +5930,13 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub Duration: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub hAdapter: u32,
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0,
@@ -5951,13 +5951,13 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub Duration: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub hAdapter: u32,
     pub ContextCount: u32,
@@ -5975,23 +5975,23 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub BoostRefreshRateMultiplier: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED {
     pub hSyncObj: u32,
     pub hDevice: u32,
@@ -6003,23 +6003,23 @@ pub struct D3DKMT_PRESENT_REDIRECTED {
     pub pPrivateDriverData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_RGNS {
     pub DirtyRectCount: u32,
     pub pDirtyRects: *const super::super::super::Win32::Foundation::RECT,
@@ -6027,7 +6027,7 @@ pub struct D3DKMT_PRESENT_RGNS {
     pub pMoveRects: *const D3DKMT_MOVE_RECT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -6036,7 +6036,7 @@ pub struct D3DKMT_PRESENT_STATS {
     pub SyncGPUTime: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS_DWM {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -6046,7 +6046,7 @@ pub struct D3DKMT_PRESENT_STATS_DWM {
     pub CustomPresentDuration: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub cbSize: u32,
     pub PresentCount: u32,
@@ -6059,7 +6059,7 @@ pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub VirtualSyncQPCTime: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub Type: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE,
@@ -6067,30 +6067,30 @@ pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS,
     pub VidMmRestrictBudget: D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     pub LocalBudget: u64,
     pub NonLocalBudget: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYADAPTERINFO {
     pub hAdapter: u32,
     pub Type: KMTQUERYADAPTERINFOTYPE,
@@ -6098,7 +6098,7 @@ pub struct D3DKMT_QUERYADAPTERINFO {
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -6107,7 +6107,7 @@ pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub pResidencyStatus: *mut D3DKMT_ALLOCATIONRESIDENCYSTATUS,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub hAdapter: u32,
     pub NodeOrdinal: u32,
@@ -6115,7 +6115,7 @@ pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub ClockData: DXGK_GPUCLOCKDATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYFSEBLOCK {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
@@ -6123,18 +6123,18 @@ pub struct D3DKMT_QUERYFSEBLOCK {
     pub Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_QUERYFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_QUERYFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub cbSize: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
@@ -6142,7 +6142,7 @@ pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub DecommittableBytes: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -6151,19 +6151,19 @@ pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub PrivateRuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     pub hHandle: u32,
     pub Status: D3DKMT_PROTECTED_SESSION_STATUS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYRESOURCEINFO {
     pub hDevice: u32,
     pub hGlobalShare: u32,
@@ -6174,7 +6174,7 @@ pub struct D3DKMT_QUERYRESOURCEINFO {
     pub NumAllocations: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -6185,7 +6185,7 @@ pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub NumAllocations: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS {
     pub Type: D3DKMT_QUERYSTATISTICS_TYPE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
@@ -6194,7 +6194,7 @@ pub struct D3DKMT_QUERYSTATISTICS {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QuerySegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
     pub QueryProcessSegment: D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT,
@@ -6215,7 +6215,7 @@ pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     pub NbSegments: u32,
     pub NodeCount: u32,
@@ -6237,42 +6237,42 @@ pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     pub Reserved: [u64; 7],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     pub TotalBytesEvictedFromProcess: u64,
     pub BytesBySegmentPreference: [u64; 5],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_COUNTER {
     pub Count: u32,
     pub Bytes: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     pub Size: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub AllocationListBytes: u32,
     pub PatchLocationListBytes: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
@@ -6280,14 +6280,14 @@ pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     pub PacketFaulted: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
     pub TotalBytesEvicted: u64,
     pub AllocsCommitted: u32,
     pub AllocsResident: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub AllocatedBytes: u64,
     pub FreeBytes: u64,
@@ -6296,7 +6296,7 @@ pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub StandbyBytes: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
@@ -6304,20 +6304,20 @@ pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub Reserved: [u32; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     pub QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
     pub DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub AdapterPerfData: D3DKMT_ADAPTER_PERFDATA,
     pub AdapterPerfDataCaps: D3DKMT_ADAPTER_PERFDATACAPS,
     pub GpuVersion: D3DKMT_GPUVERSION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub PreferApertureForRead: [u64; 5],
     pub PreferAperture: [u64; 5],
@@ -6326,12 +6326,12 @@ pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub MigrationEnabled: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     pub PreemptionCounter: [u32; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub NbSegments: u32,
     pub NodeCount: u32,
@@ -6344,7 +6344,7 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub ClientHint: D3DKMT_CLIENTHINT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     pub NodeCount: u32,
     pub VidPnSourceCount: u32,
@@ -6352,12 +6352,12 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     pub Reserved: [u64; 7],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     pub InterferenceCount: [u64; 9],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub RunningTime: i64,
     pub ContextSwitch: u32,
@@ -6366,7 +6366,7 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     pub Budget: u64,
     pub Requested: u64,
@@ -6374,7 +6374,7 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     pub Demoted: [u64; 5],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub BytesCommitted: u64,
     pub MaximumWorkingSet: u64,
@@ -6386,12 +6386,12 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     pub UseMRU: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub Frame: u32,
     pub CancelledFrame: u32,
@@ -6404,73 +6404,73 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub Reserved: [u64; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     pub PhysicalAdapterIndex: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     pub PhysicalAdapterIndex: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     pub NodeId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     pub PhysicalAdapterIndex: u16,
     pub NodeOrdinal: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     pub PhysicalAdapterIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     pub SegmentId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub AdapterInformation: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION,
     pub PhysAdapterInformation: D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION,
@@ -6487,7 +6487,7 @@ pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub SegmentGroupUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub CommitLimit: u64,
     pub BytesCommitted: u64,
@@ -6501,17 +6501,17 @@ pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub Reserved: [u64; 5],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub BytesAllocated: u64,
     pub BytesReserved: u64,
@@ -6526,7 +6526,7 @@ pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub BytesZeroed: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     pub AllocsCommitted: u32,
     pub AllocsResidentInP: [D3DKMT_QUERYSTATISTICS_COUNTER; 5],
@@ -6534,14 +6534,14 @@ pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     pub TotalBytesEvictedDueToPreparation: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub Created: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub Destroyed: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -6552,7 +6552,7 @@ pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbLocks: u32,
     pub NbLocksWaitFlag: u32,
@@ -6563,7 +6563,7 @@ pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbComplexLocks: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub Faults: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub FaultsFirstTimeAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -6585,7 +6585,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesFilled: u64,
     pub BytesDiscarded: u64,
@@ -6597,7 +6597,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesTransferredFromMemoryToAperture: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub BroadcastStall: u32,
     pub NbDMAPrepared: u32,
@@ -6606,7 +6606,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbCall: u32,
     pub NbAllocationsReferenced: u32,
@@ -6624,7 +6624,7 @@ pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbAllocationInsertedInMigrationTable: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbAllocationsRenamed: u32,
     pub NbAllocationsShrinked: u32,
@@ -6637,13 +6637,13 @@ pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbFailuresDueToNonRetiredLimit: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     pub NbRangesAcquired: u32,
     pub NbRangesReleased: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub TerminatedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub TerminatedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -6651,7 +6651,7 @@ pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub DestroyedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -6663,7 +6663,7 @@ pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub PhysicalAdapterIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hWindow: super::super::super::Win32::Foundation::HWND,
@@ -6672,29 +6672,29 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     pub AdapterUniqueGUID: [u16; 40],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_DEVICE_IDS {
     pub PhysicalAdapterIndex: u32,
     pub DeviceIds: D3DKMT_DEVICE_IDS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub Caps: D3DKMT_GPUMMU_CAPS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     pub MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     pub PhysicalAdapterIndex: u32,
     pub PnPKeyType: D3DKMT_PNP_KEY_TYPE,
@@ -6702,13 +6702,13 @@ pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     pub pCchDest: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_QUERY_SCANOUT_CAPS {
     pub VidPnSourceId: u32,
     pub Caps: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: u32,
     pub pResources: *mut u32,
@@ -6717,7 +6717,7 @@ pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub NumAllocations: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub hPagingQueue: u32,
     pub NumAllocations: u32,
@@ -6727,13 +6727,13 @@ pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub PagingFenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub pResults: *mut D3DDDI_RECLAIM_RESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub hDevice: u32,
     pub Callback: PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK,
@@ -6741,7 +6741,7 @@ pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hDevice: u32,
@@ -6750,14 +6750,14 @@ pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX {
     pub hKeyedMutex: u32,
     pub Key: u64,
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub hKeyedMutex: u32,
     pub Key: u64,
@@ -6766,7 +6766,7 @@ pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub PrivateRuntimeDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RENDER {
     pub Anonymous: D3DKMT_RENDER_0,
     pub CommandOffset: u32,
@@ -6789,25 +6789,25 @@ pub struct D3DKMT_RENDER {
     pub PrivateDriverDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_RENDER_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_RENDERFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     pub Param1: usize,
     pub Param2: usize,
     pub Param3: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SCATTERBLT {
     pub hLogicalSurfaceDestination: u64,
     pub hDestinationCompSurfDWM: i64,
@@ -6816,13 +6816,13 @@ pub struct D3DKMT_SCATTERBLT {
     pub DestinationOffset: super::super::super::Win32::Foundation::POINT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SCATTERBLTS {
     pub NumBlts: u32,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub PhysicalAdapterIndex: u32,
     pub LegacyInfo: D3DKMT_SEGMENTSIZEINFO,
@@ -6831,14 +6831,14 @@ pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub NonBudgetMemory: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SEGMENTSIZEINFO {
     pub DedicatedVideoMemorySize: u64,
     pub DedicatedSystemMemorySize: u64,
     pub SharedSystemMemorySize: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: u64,
     pub PageSize: u32,
@@ -6848,7 +6848,7 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -6857,19 +6857,19 @@ pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub pPriorities: *const u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETDISPLAYMODE {
     pub hDevice: u32,
     pub hPrimaryAllocation: u32,
@@ -6879,20 +6879,20 @@ pub struct D3DKMT_SETDISPLAYMODE {
     pub Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETDISPLAYMODE_FLAGS {
     pub _bitfield1: u8,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     pub hDevice: u32,
     pub VidPnSourceId: u32,
     pub PrivateDriverFormatAttribute: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETFSEBLOCK {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
@@ -6900,18 +6900,18 @@ pub struct D3DKMT_SETFSEBLOCK {
     pub Flags: D3DKMT_SETFSEBLOCKFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SETFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_SETFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETGAMMARAMP {
     pub hDevice: u32,
     pub VidPnSourceId: u32,
@@ -6920,44 +6920,44 @@ pub struct D3DKMT_SETGAMMARAMP {
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SETGAMMARAMP_0 {
     pub pGammaRampRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
     pub pGammaRampDXGI1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: u32,
     pub Recovered: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETQUEUEDLIMIT {
     pub hDevice: u32,
     pub Type: D3DKMT_QUEUEDLIMIT_TYPE,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SETQUEUEDLIMIT_0 {
     pub QueuedPresentLimit: u32,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
     pub VidPnSourceId: u32,
     pub QueuedPendingFlipLimit: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -6965,14 +6965,14 @@ pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub TargetSyncRefreshCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub HwProtected: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub hDevice: u32,
     pub pType: *const D3DKMT_VIDPNSOURCEOWNER_TYPE,
@@ -6980,19 +6980,19 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub VidPnSourceCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER1 {
     pub Version0: D3DKMT_SETVIDPNSOURCEOWNER,
     pub Flags: D3DKMT_VIDPNSOURCEOWNER_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER2 {
     pub Version1: D3DKMT_SETVIDPNSOURCEOWNER1,
     pub pVidPnSourceNtHandles: *const isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnTargetId: u32,
@@ -7001,25 +7001,25 @@ pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub Anonymous: D3DKMT_SET_COLORSPACE_TRANSFORM_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     pub pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub LockRect: super::super::super::Win32::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub hDevice: u32,
     pub hObject: u32,
@@ -7027,7 +7027,7 @@ pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub hVailProcessNtHandle: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -7035,7 +7035,7 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -7046,19 +7046,19 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0,
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     pub hDevice: u32,
     pub ObjectCount: u32,
@@ -7067,7 +7067,7 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -7075,13 +7075,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub ObjectCount: u32,
     pub ObjectHandleArray: *const u32,
@@ -7091,7 +7091,7 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub FenceValue: u64,
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -7099,12 +7099,12 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     pub Size: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITCOMMAND {
     pub Commands: u64,
     pub CommandLength: u32,
@@ -7120,12 +7120,12 @@ pub struct D3DKMT_SUBMITCOMMAND {
     pub HistoryBufferArray: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITCOMMANDFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub hHwQueue: u32,
     pub HwQueueProgressFenceId: u64,
@@ -7137,20 +7137,20 @@ pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub WrittenPrimaries: *const u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     pub hHwQueue: u32,
     pub HwQueueProgressFenceId: u64,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
     pub hHwQueues: *mut u32,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     pub Flags: D3DDDICB_SIGNALFLAGS,
     pub BroadcastHwQueueCount: u32,
@@ -7160,7 +7160,7 @@ pub struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     pub FenceValueArray: *const u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub hHwQueue: u32,
     pub ObjectCount: u32,
@@ -7168,37 +7168,37 @@ pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub FenceValueArray: *const u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_TDRDBGCTRL_ESCAPE {
     pub TdrControl: D3DKMT_TDRDBGCTRLTYPE,
     pub Anonymous: D3DKMT_TDRDBGCTRL_ESCAPE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     pub NodeOrdinal: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub PhysicalAdapterIndex: u32,
     pub EngineType: DXGK_ENGINE_TYPE,
     pub Support: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_TRIMNOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Flags: D3DDDI_TRIMRESIDENCYSET_FLAGS,
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub cbSize: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
@@ -7207,60 +7207,60 @@ pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub NumBytesDecommitted: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     pub Anonymous: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UMDFILENAMEINFO {
     pub Version: KMTUMDVERSION,
     pub UmdFileName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UNLOCK {
     pub hDevice: u32,
     pub NumAllocations: u32,
     pub phAllocations: *const u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UNLOCK2 {
     pub hDevice: u32,
     pub hAllocation: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
     pub hDevice: u32,
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
     pub hDevice: u32,
     pub hContext: u32,
@@ -7273,25 +7273,25 @@ pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
     pub Flags: D3DKMT_UPDATEGPUVIRTUALADDRESS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     pub Anonymous: D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_UPDATEOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VAD_DESC {
     pub VadIndex: u32,
     pub VadAddress: u64,
@@ -7301,7 +7301,7 @@ pub struct D3DKMT_VAD_DESC {
     pub EndAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VA_RANGE_DESC {
     pub VadAddress: u64,
     pub VaRangeIndex: u32,
@@ -7315,18 +7315,18 @@ pub struct D3DKMT_VA_RANGE_DESC {
     pub Protection: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VGPUINTERFACEID {
     pub VirtualGpuIntefaceId: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub SetFault: D3DKMT_VIDMM_ESCAPE_0_0,
     pub Evict: D3DKMT_VIDMM_ESCAPE_0_1,
@@ -7345,7 +7345,7 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_13,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
     pub SegmentId: u32,
@@ -7355,7 +7355,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub LargestGapAfter: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub hPagingQueue: u32,
     pub PhysicalAdapterIndex: u32,
@@ -7363,36 +7363,36 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub PagingFenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub TimerValue: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub NtHandle: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub ResourceHandle: u32,
     pub AllocationHandle: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_3_0,
     pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_3_0 {
     pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_3_0_0,
     pub GetVad: D3DKMT_VAD_DESC,
@@ -7402,85 +7402,85 @@ pub union D3DKMT_VIDMM_ESCAPE_0_3_0 {
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
     pub NumVads: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub MinTrimInterval: u32,
     pub MaxTrimInterval: u32,
     pub IdleTrimInterval: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub SegmentId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub bFlush: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE {
     pub Type: D3DKMT_VIDSCHESCAPETYPE,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0,
     pub VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub PreemptionControl: super::super::super::Win32::Foundation::BOOL,
     pub EnableContextDelay: super::super::super::Win32::Foundation::BOOL,
@@ -7492,46 +7492,46 @@ pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_0 {
     pub TdrControl: u32,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0_0_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     pub NodeOrdinal: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
     pub Count: u32,
     pub Time: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIRTUALADDRESSFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_VIRTUALADDRESSINFO {
     pub VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORIDLE {
     pub hDevice: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     pub hContext: u32,
     pub ObjectCount: u32,
     pub ObjectHandleArray: [u32; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -7539,18 +7539,18 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hDevice: u32,
     pub ObjectCount: u32,
@@ -7560,7 +7560,7 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     pub hContext: u32,
     pub ObjectCount: u32,
@@ -7568,21 +7568,21 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub FenceValue: u64,
     pub Reserved: [u64; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
     pub hAdapter: u32,
     pub hDevice: u32,
     pub VidPnSourceId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -7591,167 +7591,167 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub ObjectHandleArray: [isize; 8],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_2_CAPS {
     pub PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_1_2_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_1_3_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_7_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_9_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_9_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_3_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_3_1_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WORKINGSETFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WORKINGSETINFO {
     pub Flags: D3DKMT_WORKINGSETFLAGS,
     pub MinimumWorkingSetPercentile: u32,
     pub MaximumWorkingSetPercentile: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_WSAUMDIMAGENAME {
     pub WsaUmdImageName: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_XBOX {
     pub IsXBOX: super::super::super::Win32::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -7777,7 +7777,7 @@ pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxSimultaneousTextures: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_D3DEXTENDEDCAPS {
     pub dwSize: u32,
     pub dwMinTextureWidth: u32,
@@ -7812,13 +7812,13 @@ pub struct D3DNTHAL_D3DEXTENDEDCAPS {
     pub dwReserved4: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -7829,7 +7829,7 @@ pub struct D3DNTHAL_DP2BLT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CLEAR {
     pub dwFlags: u32,
     pub dwFillColor: u32,
@@ -7838,96 +7838,96 @@ pub struct D3DNTHAL_DP2CLEAR {
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2COMMAND {
     pub bCommand: u8,
     pub bReserved: u8,
     pub Anonymous: D3DNTHAL_DP2COMMAND_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DNTHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADER {
     pub dwHandle: u32,
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     pub wV1: u16,
     pub wV2: u16,
@@ -7935,46 +7935,46 @@ pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     pub wFlags: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2LINELIST {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2LINESTRIP {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2RESPONSE {
     pub bCommand: u8,
     pub bReserved: u8,
@@ -7982,87 +7982,87 @@ pub struct D3DNTHAL_DP2RESPONSE {
     pub dwTotalSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub Anonymous: D3DNTHAL_DP2SETLIGHT_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DNTHAL_DP2SETLIGHT_0 {
     pub lightData: u32,
     pub dwDataType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETPALETTE {
     pub dwPaletteHandle: u32,
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETPRIORITY {
     pub dwDDDestSurface: u32,
     pub dwPriority: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCE {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCE2 {
     pub dwStream: u32,
     pub dwVBHandle: u32,
@@ -8070,36 +8070,36 @@ pub struct D3DNTHAL_DP2SETSTREAMSOURCE2 {
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2STARTVERTEX {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -8110,7 +8110,7 @@ pub struct D3DNTHAL_DP2SURFACEBLT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -8119,46 +8119,46 @@ pub struct D3DNTHAL_DP2TEXBLT {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TEXTURESTAGESTATE {
     pub wStage: u16,
     pub TSState: u16,
     pub dwValue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2UPDATEPALETTE {
     pub dwPaletteHandle: u32,
     pub wStartIndex: u16,
     pub wNumEntries: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2VIEWPORTINFO {
     pub dwX: u32,
     pub dwY: u32,
@@ -8166,26 +8166,26 @@ pub struct D3DNTHAL_DP2VIEWPORTINFO {
     pub dwHeight: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
@@ -8193,14 +8193,14 @@ pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: usize,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
@@ -8208,7 +8208,7 @@ pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: usize,
@@ -8216,7 +8216,7 @@ pub struct D3DNTHAL_TEXTURESWAPDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -8225,25 +8225,25 @@ pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_DXVERSION {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETADAPTERGROUPDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub ulUniqueAdapterGroupId: usize,
@@ -8251,20 +8251,20 @@ pub struct DDNT_GETADAPTERGROUPDATA {
     pub dwReserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETD3DQUERYCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETDDIVERSIONDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETDRIVERINFO2DATA {
     pub dwReserved: u32,
     pub dwMagic: u32,
@@ -8272,39 +8272,39 @@ pub struct DDNT_GETDRIVERINFO2DATA {
     pub dwExpectedSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETEXTENDEDMODECOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwModeCount: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DDNT_GETFORMATCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_DXVERSION {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETADAPTERGROUPDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub ulUniqueAdapterGroupId: usize,
@@ -8312,20 +8312,20 @@ pub struct DD_GETADAPTERGROUPDATA {
     pub dwReserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETD3DQUERYCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETDDIVERSIONDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETDRIVERINFO2DATA {
     pub dwReserved: u32,
     pub dwMagic: u32,
@@ -8333,21 +8333,21 @@ pub struct DD_GETDRIVERINFO2DATA {
     pub dwExpectedSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETEXTENDEDMODECOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwModeCount: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DD_GETFORMATCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous1: DISPLAYID_DETAILED_TIMING_TYPE_I_0,
     pub HorizontalActivePixels: u16,
@@ -8360,22 +8360,22 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub VerticalSyncWidth: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: u32,
     pub FirstEntry: u32,
@@ -8383,7 +8383,7 @@ pub struct DXGKARG_SETPALETTE {
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -8400,7 +8400,7 @@ pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub ulReserved3: [u32; 4],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -8412,7 +8412,7 @@ pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub ulFrequencyDenominator: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub guidSetting: windows_sys::core::GUID,
@@ -8421,7 +8421,7 @@ pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub abParameters: [u8; 4056],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -8432,7 +8432,7 @@ pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub Reserved3: [u8; 16],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub guidInformation: windows_sys::core::GUID,
@@ -8441,19 +8441,19 @@ pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub abParameters: [u8; 4056],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub TargetId: u32,
     pub Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     pub abEncryptedParameters: [u8; 256],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -8463,36 +8463,36 @@ pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub abParameters: [u8; 4056],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_OMAC {
     pub abOMAC: [u8; 16],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
     pub OutputId: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub omac: DXGKMDT_OPM_OMAC,
     pub cbRequestedInformationSize: u32,
     pub abRequestedInformation: [u8; 4076],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
     pub ulAspectRatioChangeMask1: u32,
@@ -8506,12 +8506,12 @@ pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulReserved3: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
     pub ulProtectionLevel: u32,
@@ -8519,7 +8519,7 @@ pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub Reserved2: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -8528,74 +8528,74 @@ pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub ulReserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_ADAPTER_PERFDATA {
     pub MemoryFrequency: u64,
     pub MaxMemoryFrequency: u64,
@@ -8608,7 +8608,7 @@ pub struct DXGK_ADAPTER_PERFDATA {
     pub PowerStateOverride: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub MaxMemoryBandwidth: u64,
     pub MaxPCIEBandwidth: u64,
@@ -8617,30 +8617,30 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub TemperatureWarning: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightUsersetting: u16,
     pub BacklightEffective: u16,
     pub GammaRamp: D3DDDI_GAMMA_RAMP_RGB256x3x16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_CAPS_0 {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub NormalRangeCount: u32,
     pub RangeCount: u32,
@@ -8648,20 +8648,20 @@ pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_GET_OUT {
     pub CurrentBrightnessMillinits: u32,
     pub TargetBrightnessMillinits: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_NIT_RANGE {
     pub MinimumLevelMillinit: u32,
     pub MaximumLevelMillinit: u32,
     pub StepSizeMillinit: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
     pub Size: u32,
     pub Anonymous: DXGK_BRIGHTNESS_SENSOR_DATA_0,
@@ -8670,47 +8670,47 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
     pub ColorTemperature: f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     pub Flags: DXGK_BRIGHTNESS_SENSOR_DATA_0_0,
     pub ValidSensorValues: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityX: f32,
     pub ChromaticityY: f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SET_IN {
     pub BrightnessMillinits: u32,
     pub TransitionTimeMs: u32,
     pub SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_STATE {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_STATE_0 {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_DISPLAY_INFORMATION {
     pub Width: u32,
     pub Height: u32,
@@ -8721,7 +8721,7 @@ pub struct DXGK_DISPLAY_INFORMATION {
     pub AcpiId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub ReadOnlyMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub NoExecuteMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
@@ -8735,28 +8735,28 @@ pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE {
     pub Anonymous: DXGK_FAULT_ERROR_CODE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_FAULT_ERROR_CODE_0 {
     pub Anonymous1: DXGK_FAULT_ERROR_CODE_0_0,
     pub Anonymous2: DXGK_FAULT_ERROR_CODE_0_1,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA {
     pub GpuFrequency: u64,
     pub GpuClockCounter: u64,
@@ -8764,30 +8764,30 @@ pub struct DXGK_GPUCLOCKDATA {
     pub Flags: DXGK_GPUCLOCKDATA_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_GPUCLOCKDATA_FLAGS_0 {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GPUVERSION {
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
     pub PrivateHandle: *mut core::ffi::c_void,
@@ -8798,7 +8798,7 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut core::ffi::c_void,
     pub InitialGrfxPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
@@ -8806,18 +8806,18 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_MIRACAST_CHUNK_ID {
     pub Anonymous: DXGK_MIRACAST_CHUNK_ID_0,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
     pub ChunkId: DXGK_MIRACAST_CHUNK_ID,
@@ -8825,29 +8825,29 @@ pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub EncodeRate: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_CAPABILITIES {
     pub Anonymous: DXGK_MONITORLINKINFO_CAPABILITIES_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_USAGEHINTS {
     pub Anonymous: DXGK_MONITORLINKINFO_USAGEHINTS_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub FriendlyName: [u16; 32],
@@ -8856,23 +8856,23 @@ pub struct DXGK_NODEMETADATA {
     pub IoMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA_FLAGS {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_NODEMETADATA_FLAGS_0 {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0_0,
     pub Value: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_NODE_PERFDATA {
     pub Frequency: u64,
     pub MaxFrequency: u64,
@@ -8883,42 +8883,42 @@ pub struct DXGK_NODE_PERFDATA {
     pub MaxTransitionLatency: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_PTE {
     pub Anonymous1: DXGK_PTE_0,
     pub Anonymous2: DXGK_PTE_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_PTE_0 {
     pub Anonymous: DXGK_PTE_0_0,
     pub Flags: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXGK_PTE_1 {
     pub PageAddress: u64,
     pub PageTableAddress: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXGK_TARGETMODE_DETAIL_TIMING {
     pub VideoStandard: D3DKMDT_VIDEO_SIGNAL_STANDARD,
     pub TimingId: u32,
     pub DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::super::super::Win32::Foundation::LUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
     pub ProcessID: super::super::super::Win32::Foundation::HANDLE,
@@ -8928,7 +8928,7 @@ pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub ProcessName: [i8; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct _NT_D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,

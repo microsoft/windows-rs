@@ -255,13 +255,13 @@ pub type SNMP_OUTPUT_LOG_TYPE = u32;
 pub type SNMP_PDU_TYPE = u32;
 pub type SNMP_STATUS = u32;
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
     pub asnValue: AsnAny_0,
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,
@@ -278,21 +278,21 @@ pub union AsnAny_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
@@ -300,58 +300,58 @@ pub struct AsnOctetString {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AsnOctetString {
     pub stream: *mut u8,
     pub length: u32,
     pub dynamic: super::super::Foundation::BOOL,
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
     pub value: AsnAny,
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SnmpVarBindList {
     pub list: *mut SnmpVarBind,
     pub len: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
     pub uNumber: u32,
@@ -361,7 +361,7 @@ pub union smiVALUE_0 {
     pub empty: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct smiVENDORINFO {
     pub vendorName: [i8; 64],
     pub vendorContact: [i8; 64],

@@ -218,7 +218,7 @@ pub struct IHidOutputReport_Vtbl {
     pub GetNumericControlByDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidBooleanControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidBooleanControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HidBooleanControl {
@@ -275,7 +275,7 @@ impl windows_core::RuntimeName for HidBooleanControl {
 unsafe impl Send for HidBooleanControl {}
 unsafe impl Sync for HidBooleanControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidBooleanControlDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidBooleanControlDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl HidBooleanControlDescription {
@@ -343,7 +343,7 @@ impl windows_core::RuntimeName for HidBooleanControlDescription {
 unsafe impl Send for HidBooleanControlDescription {}
 unsafe impl Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl HidCollection {
@@ -389,7 +389,7 @@ impl windows_core::RuntimeName for HidCollection {
 unsafe impl Send for HidCollection {}
 unsafe impl Sync for HidCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HidDevice, super::super::Foundation::IClosable);
@@ -576,7 +576,7 @@ impl windows_core::RuntimeName for HidDevice {
 unsafe impl Send for HidDevice {}
 unsafe impl Sync for HidDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidFeatureReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidFeatureReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HidFeatureReport {
@@ -651,7 +651,7 @@ impl windows_core::RuntimeName for HidFeatureReport {
 unsafe impl Send for HidFeatureReport {}
 unsafe impl Sync for HidFeatureReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidInputReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidInputReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HidInputReport {
@@ -734,7 +734,7 @@ impl windows_core::RuntimeName for HidInputReport {
 unsafe impl Send for HidInputReport {}
 unsafe impl Sync for HidInputReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidInputReportReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidInputReportReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HidInputReportReceivedEventArgs {
@@ -759,7 +759,7 @@ impl windows_core::RuntimeName for HidInputReportReceivedEventArgs {
 unsafe impl Send for HidInputReportReceivedEventArgs {}
 unsafe impl Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidNumericControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidNumericControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HidNumericControl {
@@ -834,7 +834,7 @@ impl windows_core::RuntimeName for HidNumericControl {
 unsafe impl Send for HidNumericControl {}
 unsafe impl Sync for HidNumericControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidNumericControlDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidNumericControlDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl HidNumericControlDescription {
@@ -965,7 +965,7 @@ impl windows_core::RuntimeName for HidNumericControlDescription {
 unsafe impl Send for HidNumericControlDescription {}
 unsafe impl Sync for HidNumericControlDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HidOutputReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HidOutputReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HidOutputReport {
@@ -1040,7 +1040,7 @@ impl windows_core::RuntimeName for HidOutputReport {
 unsafe impl Send for HidOutputReport {}
 unsafe impl Sync for HidOutputReport {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
     pub const Physical: Self = Self(0i32);
@@ -1059,7 +1059,7 @@ impl windows_core::RuntimeType for HidCollectionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidCollectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
     pub const Input: Self = Self(0i32);

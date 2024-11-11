@@ -695,73 +695,73 @@ pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(2i32);
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMO_ENUM_FLAGS(pub i32);
 impl windows_core::TypeKind for DMO_ENUM_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMO_REGISTER_FLAGS(pub i32);
 impl windows_core::TypeKind for DMO_REGISTER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_INPLACE_PROCESS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_INPUT_DATA_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_INPUT_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_INPUT_STREAM_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_PROCESS_OUTPUT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_QUALITY_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_SET_TYPE_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_SET_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
 impl windows_core::TypeKind for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -804,7 +804,7 @@ impl windows_core::TypeKind for DMO_OUTPUT_DATA_BUFFER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_core::GUID,
     pub subtype: windows_core::GUID,

@@ -111,7 +111,7 @@ impl IAsyncAction_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IAsyncActionWithProgress<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
 where
     TProgress: windows_core::RuntimeType + 'static;
@@ -377,7 +377,7 @@ impl IAsyncInfo_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IAsyncOperationWithProgress<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -550,7 +550,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IAsyncOperation<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
 where
     TResult: windows_core::RuntimeType + 'static;
@@ -1619,7 +1619,7 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateRectArray: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IReferenceArray<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -1903,7 +1903,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -2380,7 +2380,7 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     CreateWwwFormUrlDecoder: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Deferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Deferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Deferral, IClosable);
@@ -2448,7 +2448,7 @@ impl windows_core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MemoryBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MemoryBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MemoryBuffer, IClosable, IMemoryBuffer);
@@ -2735,7 +2735,7 @@ impl windows_core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Uri, IStringable);
@@ -2931,7 +2931,7 @@ unsafe impl Send for Uri {}
 unsafe impl Sync for Uri {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WwwFormUrlDecoder(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknown, windows_core::IInspectable);
@@ -3014,7 +3014,7 @@ unsafe impl Send for WwwFormUrlDecoder {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for WwwFormUrlDecoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry);
@@ -3107,7 +3107,7 @@ impl<F: FnMut(Option<&IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + 
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncActionProgressHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
 where
     TProgress: windows_core::RuntimeType + 'static;
@@ -3187,7 +3187,7 @@ impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActi
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncActionWithProgressCompletedHandler<TProgress>(windows_core::IUnknown, core::marker::PhantomData<TProgress>)
 where
     TProgress: windows_core::RuntimeType + 'static;
@@ -3266,7 +3266,7 @@ impl<TProgress: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncActi
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncOperationCompletedHandler<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
 where
     TResult: windows_core::RuntimeType + 'static;
@@ -3345,7 +3345,7 @@ impl<TResult: windows_core::RuntimeType + 'static, F: FnMut(Option<&IAsyncOperat
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncOperationProgressHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -3430,7 +3430,7 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(windows_core::IUnknown, core::marker::PhantomData<TResult>, core::marker::PhantomData<TProgress>)
 where
     TResult: windows_core::RuntimeType + 'static,
@@ -3571,7 +3571,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedH
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EventHandler<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -3651,7 +3651,7 @@ impl<T: windows_core::RuntimeType + 'static, F: FnMut(Option<&windows_core::IIns
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TypedEventHandler<TSender, TResult>(windows_core::IUnknown, core::marker::PhantomData<TSender>, core::marker::PhantomData<TResult>)
 where
     TSender: windows_core::RuntimeType + 'static,
@@ -3736,7 +3736,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
     pub const Canceled: Self = Self(2i32);
@@ -3751,7 +3751,7 @@ impl windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -3803,7 +3803,7 @@ impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -3814,7 +3814,7 @@ impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -3825,7 +3825,7 @@ impl windows_core::RuntimeType for EventRegistrationToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -3837,7 +3837,7 @@ impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -3851,7 +3851,7 @@ impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -3863,7 +3863,7 @@ impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TimeSpan {
     pub Duration: i64,
 }

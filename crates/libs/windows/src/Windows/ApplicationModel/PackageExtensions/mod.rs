@@ -122,7 +122,7 @@ pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtension(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtension, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtension {
@@ -207,7 +207,7 @@ impl windows_core::RuntimeName for PackageExtension {
 unsafe impl Send for PackageExtension {}
 unsafe impl Sync for PackageExtension {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionCatalog, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionCatalog {
@@ -328,7 +328,7 @@ impl windows_core::RuntimeName for PackageExtensionCatalog {
 unsafe impl Send for PackageExtensionCatalog {}
 unsafe impl Sync for PackageExtensionCatalog {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionPackageInstalledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageInstalledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageInstalledEventArgs {
@@ -368,7 +368,7 @@ impl windows_core::RuntimeName for PackageExtensionPackageInstalledEventArgs {
 unsafe impl Send for PackageExtensionPackageInstalledEventArgs {}
 unsafe impl Sync for PackageExtensionPackageInstalledEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageStatusChangedEventArgs {
@@ -400,7 +400,7 @@ impl windows_core::RuntimeName for PackageExtensionPackageStatusChangedEventArgs
 unsafe impl Send for PackageExtensionPackageStatusChangedEventArgs {}
 unsafe impl Sync for PackageExtensionPackageStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUninstallingEventArgs {
@@ -432,7 +432,7 @@ impl windows_core::RuntimeName for PackageExtensionPackageUninstallingEventArgs 
 unsafe impl Send for PackageExtensionPackageUninstallingEventArgs {}
 unsafe impl Sync for PackageExtensionPackageUninstallingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUpdatedEventArgs {
@@ -472,7 +472,7 @@ impl windows_core::RuntimeName for PackageExtensionPackageUpdatedEventArgs {
 unsafe impl Send for PackageExtensionPackageUpdatedEventArgs {}
 unsafe impl Sync for PackageExtensionPackageUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageExtensionPackageUpdatingEventArgs {

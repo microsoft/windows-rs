@@ -47,7 +47,7 @@ pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i3
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
 pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreateProcessMethod(pub i32);
 impl windows_core::TypeKind for CreateProcessMethod {
     type TypeKind = windows_core::CopyType;

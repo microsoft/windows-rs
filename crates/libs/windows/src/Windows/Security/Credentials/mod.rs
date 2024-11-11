@@ -294,7 +294,7 @@ pub struct IWebAccountProviderFactory_Vtbl {
     pub CreateWebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredential, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredential {
@@ -353,7 +353,7 @@ impl windows_core::RuntimeName for KeyCredential {
 unsafe impl Send for KeyCredential {}
 unsafe impl Sync for KeyCredential {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyCredentialAttestationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialAttestationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialAttestationResult {
@@ -434,7 +434,7 @@ impl windows_core::RuntimeName for KeyCredentialManager {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyCredentialOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialOperationResult {
@@ -467,7 +467,7 @@ impl windows_core::RuntimeName for KeyCredentialOperationResult {
 unsafe impl Send for KeyCredentialOperationResult {}
 unsafe impl Sync for KeyCredentialOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyCredentialRetrievalResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyCredentialRetrievalResult, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyCredentialRetrievalResult {
@@ -499,7 +499,7 @@ impl windows_core::RuntimeName for KeyCredentialRetrievalResult {
 unsafe impl Send for KeyCredentialRetrievalResult {}
 unsafe impl Sync for KeyCredentialRetrievalResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PasswordCredential(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PasswordCredential, windows_core::IUnknown, windows_core::IInspectable);
 impl PasswordCredential {
@@ -580,7 +580,7 @@ unsafe impl Send for PasswordCredential {}
 unsafe impl Sync for PasswordCredential {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -684,7 +684,7 @@ unsafe impl Send for PasswordCredentialPropertyStore {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PasswordCredentialPropertyStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PasswordVault(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PasswordVault, windows_core::IUnknown, windows_core::IInspectable);
 impl PasswordVault {
@@ -754,7 +754,7 @@ impl windows_core::RuntimeName for PasswordVault {
 unsafe impl Send for PasswordVault {}
 unsafe impl Sync for PasswordVault {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccount, IWebAccount);
@@ -844,7 +844,7 @@ impl windows_core::RuntimeName for WebAccount {
 unsafe impl Send for WebAccount {}
 unsafe impl Sync for WebAccount {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountProvider {
@@ -925,7 +925,7 @@ impl windows_core::RuntimeName for WebAccountProvider {
 unsafe impl Send for WebAccountProvider {}
 unsafe impl Sync for WebAccountProvider {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
     pub const Success: Self = Self(0i32);
@@ -940,7 +940,7 @@ impl windows_core::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
     pub const ReplaceExisting: Self = Self(0i32);
@@ -953,7 +953,7 @@ impl windows_core::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
     pub const Success: Self = Self(0i32);
@@ -971,7 +971,7 @@ impl windows_core::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
     pub const Size64x64: Self = Self(64i32);
@@ -986,7 +986,7 @@ impl windows_core::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {
     pub const None: Self = Self(0i32);

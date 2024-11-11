@@ -733,7 +733,7 @@ pub struct IWebProviderTokenResponseFactory_Vtbl {
     Create: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountClientView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountClientView, windows_core::IUnknown, windows_core::IInspectable);
 impl WebAccountClientView {
@@ -1061,7 +1061,7 @@ impl windows_core::RuntimeName for WebAccountManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderAddAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderAddAccountOperation, IWebAccountProviderOperation);
@@ -1091,7 +1091,7 @@ impl windows_core::RuntimeName for WebAccountProviderAddAccountOperation {
 unsafe impl Send for WebAccountProviderAddAccountOperation {}
 unsafe impl Sync for WebAccountProviderAddAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderDeleteAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderDeleteAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderDeleteAccountOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
@@ -1137,7 +1137,7 @@ impl windows_core::RuntimeName for WebAccountProviderDeleteAccountOperation {
 unsafe impl Send for WebAccountProviderDeleteAccountOperation {}
 unsafe impl Sync for WebAccountProviderDeleteAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderGetTokenSilentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderGetTokenSilentOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderSilentReportOperation, IWebAccountProviderTokenOperation);
@@ -1213,7 +1213,7 @@ impl windows_core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
 unsafe impl Send for WebAccountProviderGetTokenSilentOperation {}
 unsafe impl Sync for WebAccountProviderGetTokenSilentOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderManageAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderManageAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderManageAccountOperation, IWebAccountProviderOperation);
@@ -1251,7 +1251,7 @@ impl windows_core::RuntimeName for WebAccountProviderManageAccountOperation {
 unsafe impl Send for WebAccountProviderManageAccountOperation {}
 unsafe impl Sync for WebAccountProviderManageAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderRequestTokenOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderRequestTokenOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderTokenOperation, IWebAccountProviderUIReportOperation);
@@ -1319,7 +1319,7 @@ impl windows_core::RuntimeName for WebAccountProviderRequestTokenOperation {
 unsafe impl Send for WebAccountProviderRequestTokenOperation {}
 unsafe impl Sync for WebAccountProviderRequestTokenOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderRetrieveCookiesOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderRetrieveCookiesOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderRetrieveCookiesOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
@@ -1393,7 +1393,7 @@ impl windows_core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
 unsafe impl Send for WebAccountProviderRetrieveCookiesOperation {}
 unsafe impl Sync for WebAccountProviderRetrieveCookiesOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderSignOutAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderSignOutAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderSignOutAccountOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
@@ -1453,7 +1453,7 @@ impl windows_core::RuntimeName for WebAccountProviderSignOutAccountOperation {
 unsafe impl Send for WebAccountProviderSignOutAccountOperation {}
 unsafe impl Sync for WebAccountProviderSignOutAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebAccountProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderTriggerDetails, IWebAccountProviderTokenObjects, IWebAccountProviderTokenObjects2);
@@ -1487,7 +1487,7 @@ impl windows_core::RuntimeName for WebAccountProviderTriggerDetails {
 unsafe impl Send for WebAccountProviderTriggerDetails {}
 unsafe impl Sync for WebAccountProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebProviderTokenRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebProviderTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl WebProviderTokenRequest {
@@ -1578,7 +1578,7 @@ impl windows_core::RuntimeName for WebProviderTokenRequest {
 unsafe impl Send for WebProviderTokenRequest {}
 unsafe impl Sync for WebProviderTokenRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebProviderTokenResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebProviderTokenResponse, windows_core::IUnknown, windows_core::IInspectable);
 impl WebProviderTokenResponse {
@@ -1618,7 +1618,7 @@ impl windows_core::RuntimeName for WebProviderTokenResponse {
 unsafe impl Send for WebProviderTokenResponse {}
 unsafe impl Sync for WebProviderTokenResponse {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
     pub const IdOnly: Self = Self(0i32);
@@ -1631,7 +1631,7 @@ impl windows_core::RuntimeType for WebAccountClientViewType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
     pub const RequestToken: Self = Self(0i32);
@@ -1649,7 +1649,7 @@ impl windows_core::RuntimeType for WebAccountProviderOperationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
     pub const PerUser: Self = Self(0i32);
@@ -1662,7 +1662,7 @@ impl windows_core::RuntimeType for WebAccountScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
     pub const Default: Self = Self(0u32);

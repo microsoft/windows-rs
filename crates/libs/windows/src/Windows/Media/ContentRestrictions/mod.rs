@@ -71,7 +71,7 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
     pub CreateWithMaxAgeRating: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentRestrictionsBrowsePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentRestrictionsBrowsePolicy {
@@ -110,7 +110,7 @@ impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
 unsafe impl Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RatedContentDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RatedContentDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl RatedContentDescription {
@@ -203,7 +203,7 @@ impl windows_core::RuntimeName for RatedContentDescription {
 unsafe impl Send for RatedContentDescription {}
 unsafe impl Sync for RatedContentDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RatedContentRestrictions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RatedContentRestrictions, windows_core::IUnknown, windows_core::IInspectable);
 impl RatedContentRestrictions {
@@ -279,7 +279,7 @@ impl windows_core::RuntimeName for RatedContentRestrictions {
 unsafe impl Send for RatedContentRestrictions {}
 unsafe impl Sync for RatedContentRestrictions {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
     pub const Allow: Self = Self(0i32);
@@ -294,7 +294,7 @@ impl windows_core::RuntimeType for ContentAccessRestrictionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
     pub const General: Self = Self(0i32);

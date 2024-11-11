@@ -43423,175 +43423,175 @@ pub const WIN_NT6_1: OS_TYPE = OS_TYPE(8i32);
 pub const WIN_UNDEFINED: OS_TYPE = OS_TYPE(255i32);
 pub const _EXTSAPI_VER_: u32 = 10u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CallingConventionKind(pub i32);
 impl windows_core::TypeKind for CallingConventionKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBGKD_MAJOR_TYPES(pub i32);
 impl windows_core::TypeKind for DBGKD_MAJOR_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_FAILURE_TYPE(pub i32);
 impl windows_core::TypeKind for DEBUG_FAILURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_FLR_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for DEBUG_FLR_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_POOL_REGION(pub i32);
 impl windows_core::TypeKind for DEBUG_POOL_REGION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXT_TDOP(pub i32);
 impl windows_core::TypeKind for EXT_TDOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ErrorClass(pub i32);
 impl windows_core::TypeKind for ErrorClass {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FA_ENTRY_TYPE(pub i32);
 impl windows_core::TypeKind for FA_ENTRY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FA_EXTENSION_PLUGIN_PHASE(pub i32);
 impl windows_core::TypeKind for FA_EXTENSION_PLUGIN_PHASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IntrinsicKind(pub i32);
 impl windows_core::TypeKind for IntrinsicKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LanguageKind(pub i32);
 impl windows_core::TypeKind for LanguageKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationKind(pub i32);
 impl windows_core::TypeKind for LocationKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ModelObjectKind(pub i32);
 impl windows_core::TypeKind for ModelObjectKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OS_TYPE(pub i32);
 impl windows_core::TypeKind for OS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointerKind(pub i32);
 impl windows_core::TypeKind for PointerKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PreferredFormat(pub i32);
 impl windows_core::TypeKind for PreferredFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RawSearchFlags(pub i32);
 impl windows_core::TypeKind for RawSearchFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptChangeKind(pub i32);
 impl windows_core::TypeKind for ScriptChangeKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugEvent(pub i32);
 impl windows_core::TypeKind for ScriptDebugEvent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugEventFilter(pub i32);
 impl windows_core::TypeKind for ScriptDebugEventFilter {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptDebugState(pub i32);
 impl windows_core::TypeKind for ScriptDebugState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScriptExecutionKind(pub i32);
 impl windows_core::TypeKind for ScriptExecutionKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignatureComparison(pub i32);
 impl windows_core::TypeKind for SignatureComparison {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SymbolKind(pub i32);
 impl windows_core::TypeKind for SymbolKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SymbolSearchOptions(pub i32);
 impl windows_core::TypeKind for SymbolSearchOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TANALYZE_RETURN(pub i32);
 impl windows_core::TypeKind for TANALYZE_RETURN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TypeKind(pub i32);
 impl windows_core::TypeKind for TypeKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VarArgsKind(pub i32);
 impl windows_core::TypeKind for VarArgsKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ArrayDimension {
     pub LowerBound: i64,
     pub Length: u64,
@@ -43606,7 +43606,7 @@ impl windows_core::TypeKind for ArrayDimension {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
@@ -43624,7 +43624,7 @@ impl windows_core::TypeKind for BUSDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CKCL_DATA {
     pub NextLogEvent: *mut core::ffi::c_void,
     pub TAnalyzeString: windows_core::PSTR,
@@ -43639,7 +43639,7 @@ impl windows_core::TypeKind for CKCL_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CKCL_LISTHEAD {
     pub LogEventListHead: *mut CKCL_DATA,
     pub Heap: super::super::super::super::Foundation::HANDLE,
@@ -43653,7 +43653,7 @@ impl windows_core::TypeKind for CKCL_LISTHEAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -43670,7 +43670,7 @@ impl windows_core::TypeKind for CPU_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO_v1 {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -43687,7 +43687,7 @@ impl windows_core::TypeKind for CPU_INFO_v1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFO_v2 {
     pub Type: u32,
     pub NumCPUs: u32,
@@ -43705,7 +43705,7 @@ impl windows_core::TypeKind for CPU_INFO_v2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::super::Kernel::LIST_ENTRY32,
     pub OwnerTag: u32,
@@ -43723,7 +43723,7 @@ impl windows_core::TypeKind for DBGKD_DEBUG_DATA_HEADER32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::super::Kernel::LIST_ENTRY64,
     pub OwnerTag: u32,
@@ -43740,7 +43740,7 @@ impl windows_core::TypeKind for DBGKD_DEBUG_DATA_HEADER64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBGKD_GET_VERSION32 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -43766,7 +43766,7 @@ impl windows_core::TypeKind for DBGKD_GET_VERSION32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBGKD_GET_VERSION64 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -43792,7 +43792,7 @@ impl windows_core::TypeKind for DBGKD_GET_VERSION64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DBG_THREAD_ATTRIBUTES {
     pub ThreadIndex: u32,
     pub ProcessID: u64,
@@ -43815,7 +43815,7 @@ impl windows_core::TypeKind for DBG_THREAD_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_ANALYSIS_PROCESSOR_INFO {
     pub SizeOfStruct: u32,
     pub Model: u32,
@@ -43842,7 +43842,7 @@ impl windows_core::TypeKind for DEBUG_ANALYSIS_PROCESSOR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -43866,7 +43866,7 @@ impl windows_core::TypeKind for DEBUG_BREAKPOINT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
@@ -43883,7 +43883,7 @@ impl windows_core::TypeKind for DEBUG_CACHED_SYMBOL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
@@ -43897,7 +43897,7 @@ impl windows_core::TypeKind for DEBUG_CLIENT_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CPU_MICROCODE_VERSION {
     pub SizeOfStruct: u32,
     pub CachedSignature: i64,
@@ -43916,7 +43916,7 @@ impl windows_core::TypeKind for DEBUG_CPU_MICROCODE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CPU_SPEED_INFO {
     pub SizeOfStruct: u32,
     pub CurrentSpeed: u32,
@@ -43932,7 +43932,7 @@ impl windows_core::TypeKind for DEBUG_CPU_SPEED_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
@@ -43948,7 +43948,7 @@ impl windows_core::TypeKind for DEBUG_CREATE_PROCESS_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DECODE_ERROR {
     pub SizeOfStruct: u32,
     pub Code: u32,
@@ -43965,7 +43965,7 @@ impl windows_core::TypeKind for DEBUG_DECODE_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DEVICE_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DevObjAddress: u64,
@@ -43985,7 +43985,7 @@ impl windows_core::TypeKind for DEBUG_DEVICE_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DRIVER_OBJECT_INFO {
     pub SizeOfStruct: u32,
     pub DriverSize: u32,
@@ -44004,7 +44004,7 @@ impl windows_core::TypeKind for DEBUG_DRIVER_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_DRIVER_OBJECT_INFO_0 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -44019,7 +44019,7 @@ impl windows_core::TypeKind for DEBUG_DRIVER_OBJECT_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
@@ -44035,7 +44035,7 @@ impl windows_core::TypeKind for DEBUG_EVENT_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -44053,7 +44053,7 @@ impl windows_core::TypeKind for DEBUG_EXCEPTION_FILTER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub Flags: u32,
     pub MatchCountLimit: u32,
@@ -44068,7 +44068,7 @@ impl windows_core::TypeKind for DEBUG_GET_TEXT_COMPLETIONS_IN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Flags: u32,
     pub ReplaceIndex: u32,
@@ -44085,7 +44085,7 @@ impl windows_core::TypeKind for DEBUG_GET_TEXT_COMPLETIONS_OUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -44103,7 +44103,7 @@ impl windows_core::TypeKind for DEBUG_HANDLE_DATA_BASIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_IRP_INFO {
     pub SizeOfStruct: u32,
     pub IrpAddress: u64,
@@ -44125,7 +44125,7 @@ impl windows_core::TypeKind for DEBUG_IRP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_IRP_STACK_INFO {
     pub Major: u8,
     pub Minor: u8,
@@ -44143,7 +44143,7 @@ impl windows_core::TypeKind for DEBUG_IRP_STACK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
@@ -44156,7 +44156,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::EXCEPTION_RECORD64,
     pub FirstChance: u32,
@@ -44170,7 +44170,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXCEPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
@@ -44183,7 +44183,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
@@ -44196,7 +44196,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
@@ -44209,7 +44209,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
@@ -44224,7 +44224,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
@@ -44238,7 +44238,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
@@ -44251,7 +44251,7 @@ impl windows_core::TypeKind for DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
@@ -44265,7 +44265,7 @@ impl windows_core::TypeKind for DEBUG_MODULE_AND_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_MODULE_PARAMETERS {
     pub Base: u64,
     pub Size: u32,
@@ -44289,7 +44289,7 @@ impl windows_core::TypeKind for DEBUG_MODULE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
@@ -44303,7 +44303,7 @@ impl windows_core::TypeKind for DEBUG_OFFSET_REGION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PNP_TRIAGE_INFO {
     pub SizeOfStruct: u32,
     pub Lock_Address: u64,
@@ -44325,7 +44325,7 @@ impl windows_core::TypeKind for DEBUG_PNP_TRIAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_POOLTAG_DESCRIPTION {
     pub SizeOfStruct: u32,
     pub PoolTag: u32,
@@ -44342,7 +44342,7 @@ impl windows_core::TypeKind for DEBUG_POOLTAG_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_POOL_DATA {
     pub SizeofStruct: u32,
     pub PoolBlock: u64,
@@ -44364,7 +44364,7 @@ impl windows_core::TypeKind for DEBUG_POOL_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUG_POOL_DATA_0 {
     pub Anonymous: DEBUG_POOL_DATA_0_0,
     pub AsUlong: u32,
@@ -44378,7 +44378,7 @@ impl windows_core::TypeKind for DEBUG_POOL_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_POOL_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -44391,7 +44391,7 @@ impl windows_core::TypeKind for DEBUG_POOL_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
     pub Amd64: DEBUG_PROCESSOR_IDENTIFICATION_AMD64,
@@ -44409,7 +44409,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
@@ -44423,7 +44423,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
@@ -44439,7 +44439,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
@@ -44454,7 +44454,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
@@ -44469,7 +44469,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
@@ -44486,7 +44486,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
@@ -44502,7 +44502,7 @@ impl windows_core::TypeKind for DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -44520,7 +44520,7 @@ impl windows_core::TypeKind for DEBUG_READ_USER_MINIDUMP_STREAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -44539,7 +44539,7 @@ impl windows_core::TypeKind for DEBUG_REGISTER_DESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_SMBIOS_INFO {
     pub SizeOfStruct: u32,
     pub SmbiosMajorVersion: u8,
@@ -44571,7 +44571,7 @@ impl windows_core::TypeKind for DEBUG_SMBIOS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -44588,7 +44588,7 @@ impl windows_core::TypeKind for DEBUG_SPECIFIC_FILTER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -44609,7 +44609,7 @@ impl windows_core::TypeKind for DEBUG_STACK_FRAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -44632,7 +44632,7 @@ impl windows_core::TypeKind for DEBUG_STACK_FRAME_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -44656,7 +44656,7 @@ impl windows_core::TypeKind for DEBUG_SYMBOL_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -44674,7 +44674,7 @@ impl windows_core::TypeKind for DEBUG_SYMBOL_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -44698,7 +44698,7 @@ impl windows_core::TypeKind for DEBUG_SYMBOL_SOURCE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -44720,7 +44720,7 @@ impl windows_core::TypeKind for DEBUG_THREAD_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
@@ -44735,7 +44735,7 @@ impl windows_core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     pub SizeOfStruct: u32,
     pub OwnerNameSize: u32,
@@ -44752,7 +44752,7 @@ impl windows_core::TypeKind for DEBUG_TRIAGE_FOLLOWUP_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_TYPED_DATA {
     pub ModBase: u64,
     pub Offset: u64,
@@ -44775,7 +44775,7 @@ impl windows_core::TypeKind for DEBUG_TYPED_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
     pub TailOfRawBytes: u32,
@@ -44790,7 +44790,7 @@ impl windows_core::TypeKind for DEBUG_VALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEBUG_VALUE_0 {
     pub I8: u8,
     pub I16: u16,
@@ -44820,7 +44820,7 @@ impl windows_core::TypeKind for DEBUG_VALUE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: super::super::super::super::Foundation::BOOL,
@@ -44834,7 +44834,7 @@ impl windows_core::TypeKind for DEBUG_VALUE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u64,
     pub HighPart: i64,
@@ -44848,7 +44848,7 @@ impl windows_core::TypeKind for DEBUG_VALUE_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u32,
     pub HighPart: u32,
@@ -44862,7 +44862,7 @@ impl windows_core::TypeKind for DEBUG_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
@@ -44878,7 +44878,7 @@ impl windows_core::TypeKind for EXTSTACKTRACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE32 {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
@@ -44894,7 +44894,7 @@ impl windows_core::TypeKind for EXTSTACKTRACE32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE64 {
     pub FramePointer: u64,
     pub ProgramCounter: u64,
@@ -44910,7 +44910,7 @@ impl windows_core::TypeKind for EXTSTACKTRACE64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -44926,7 +44926,7 @@ impl windows_core::TypeKind for EXT_API_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_CAB_XML_DATA {
     pub SizeOfStruct: u32,
     pub XmlObjectTag: windows_core::PCWSTR,
@@ -44942,7 +44942,7 @@ impl windows_core::TypeKind for EXT_CAB_XML_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_CAB_XML_DATA_0 {
     pub SubTag: windows_core::PCWSTR,
     pub MatchPattern: windows_core::PCWSTR,
@@ -44960,7 +44960,7 @@ impl windows_core::TypeKind for EXT_CAB_XML_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_FIND_FILE {
     pub FileName: windows_core::PCWSTR,
     pub IndexedSize: u64,
@@ -44984,7 +44984,7 @@ impl windows_core::TypeKind for EXT_FIND_FILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: windows_core::PCSTR,
     pub Pattern: windows_core::PCSTR,
@@ -44999,7 +44999,7 @@ impl windows_core::TypeKind for EXT_MATCH_PATTERN_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_TYPED_DATA {
     pub Operation: EXT_TDOP,
     pub Flags: u32,
@@ -45028,7 +45028,7 @@ impl windows_core::TypeKind for EXT_TYPED_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FA_ENTRY {
     pub Tag: DEBUG_FLR_PARAM_TYPE,
     pub FullSize: u16,
@@ -45043,7 +45043,7 @@ impl windows_core::TypeKind for FA_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FIELD_INFO {
     pub fName: *mut u8,
     pub printName: *mut u8,
@@ -45066,7 +45066,7 @@ impl windows_core::TypeKind for FIELD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FIELD_INFO_0 {
     pub fieldCallBack: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
@@ -45080,7 +45080,7 @@ impl windows_core::TypeKind for FIELD_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIELD_INFO_1 {
     pub Position: u16,
     pub Size: u16,
@@ -45094,7 +45094,7 @@ impl windows_core::TypeKind for FIELD_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
@@ -45109,7 +45109,7 @@ impl windows_core::TypeKind for GET_CONTEXT_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CURRENT_PROCESS_ADDRESS {
     pub Processor: u32,
     pub CurrentThread: u64,
@@ -45124,7 +45124,7 @@ impl windows_core::TypeKind for GET_CURRENT_PROCESS_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Processor: u32,
     pub Address: u64,
@@ -45138,7 +45138,7 @@ impl windows_core::TypeKind for GET_CURRENT_THREAD_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_EXPRESSION_EX {
     pub Expression: windows_core::PCSTR,
     pub Remainder: windows_core::PCSTR,
@@ -45153,7 +45153,7 @@ impl windows_core::TypeKind for GET_EXPRESSION_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_INPUT_LINE {
     pub Prompt: windows_core::PCSTR,
     pub Buffer: windows_core::PSTR,
@@ -45169,7 +45169,7 @@ impl windows_core::TypeKind for GET_INPUT_LINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_PEB_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
@@ -45183,7 +45183,7 @@ impl windows_core::TypeKind for GET_PEB_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_SET_SYMPATH {
     pub Args: windows_core::PCSTR,
     pub Result: windows_core::PSTR,
@@ -45198,7 +45198,7 @@ impl windows_core::TypeKind for GET_SET_SYMPATH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
@@ -45211,7 +45211,7 @@ impl windows_core::TypeKind for GET_TEB_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INLINE_FRAME_CONTEXT {
     pub ContextValue: u32,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
@@ -45225,7 +45225,7 @@ impl windows_core::TypeKind for INLINE_FRAME_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
@@ -45240,7 +45240,7 @@ impl windows_core::TypeKind for INLINE_FRAME_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE {
     pub Address: u32,
     pub Length: u32,
@@ -45255,7 +45255,7 @@ impl windows_core::TypeKind for IOSPACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE32 {
     pub Address: u32,
     pub Length: u32,
@@ -45270,7 +45270,7 @@ impl windows_core::TypeKind for IOSPACE32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE64 {
     pub Address: u64,
     pub Length: u32,
@@ -45285,7 +45285,7 @@ impl windows_core::TypeKind for IOSPACE64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE_EX {
     pub Address: u32,
     pub Length: u32,
@@ -45303,7 +45303,7 @@ impl windows_core::TypeKind for IOSPACE_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE_EX32 {
     pub Address: u32,
     pub Length: u32,
@@ -45321,7 +45321,7 @@ impl windows_core::TypeKind for IOSPACE_EX32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IOSPACE_EX64 {
     pub Address: u64,
     pub Length: u32,
@@ -45340,7 +45340,7 @@ impl windows_core::TypeKind for IOSPACE_EX64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
     pub KernBase: u32,
@@ -45421,7 +45421,7 @@ impl windows_core::TypeKind for KDDEBUGGER_DATA32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
     pub KernBase: u64,
@@ -45598,7 +45598,7 @@ impl windows_core::TypeKind for KDDEBUGGER_DATA64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXTS_LOCK_INFO {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -45620,7 +45620,7 @@ impl windows_core::TypeKind for KDEXTS_LOCK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXTS_PTE_INFO {
     pub SizeOfStruct: u32,
     pub VirtualAddress: u64,
@@ -45641,7 +45641,7 @@ impl windows_core::TypeKind for KDEXTS_PTE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_FILELOCK_OWNER {
     pub Sizeofstruct: u32,
     pub FileObject: u64,
@@ -45659,7 +45659,7 @@ impl windows_core::TypeKind for KDEXT_FILELOCK_OWNER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_HANDLE_INFORMATION {
     pub HandleTableEntry: u64,
     pub Handle: u64,
@@ -45678,7 +45678,7 @@ impl windows_core::TypeKind for KDEXT_HANDLE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_PROCESS_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub Pid: u32,
@@ -45694,7 +45694,7 @@ impl windows_core::TypeKind for KDEXT_PROCESS_FIND_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KDEXT_THREAD_FIND_PARAMS {
     pub SizeofStruct: u32,
     pub StackPointer: u64,
@@ -45710,7 +45710,7 @@ impl windows_core::TypeKind for KDEXT_THREAD_FIND_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Location {
     pub HostDefined: u64,
     pub Offset: u64,
@@ -45724,7 +45724,7 @@ impl windows_core::TypeKind for Location {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO {
     pub MajorVer: u32,
     pub MinorVer: u32,
@@ -45753,7 +45753,7 @@ impl windows_core::TypeKind for OS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -45766,7 +45766,7 @@ impl windows_core::TypeKind for OS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OS_INFO_v1 {
     pub Type: OS_TYPE,
     pub Anonymous: OS_INFO_v1_0,
@@ -45787,7 +45787,7 @@ impl windows_core::TypeKind for OS_INFO_v1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OS_INFO_v1_0 {
     pub Version: OS_INFO_v1_0_0,
     pub Ver64: u64,
@@ -45801,7 +45801,7 @@ impl windows_core::TypeKind for OS_INFO_v1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO_v1_0_0 {
     pub Major: u32,
     pub Minor: u32,
@@ -45815,7 +45815,7 @@ impl windows_core::TypeKind for OS_INFO_v1_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OS_INFO_v1_1 {
     pub _bitfield: u32,
 }
@@ -45828,7 +45828,7 @@ impl windows_core::TypeKind for OS_INFO_v1_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL {
     pub Address: u64,
     pub BufLen: u32,
@@ -45843,7 +45843,7 @@ impl windows_core::TypeKind for PHYSICAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_TO_VIRTUAL {
     pub Status: u32,
     pub Size: u32,
@@ -45858,7 +45858,7 @@ impl windows_core::TypeKind for PHYSICAL_TO_VIRTUAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL_WITH_FLAGS {
     pub Address: u64,
     pub BufLen: u32,
@@ -45874,7 +45874,7 @@ impl windows_core::TypeKind for PHYSICAL_WITH_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
     pub Length: u64,
@@ -45894,7 +45894,7 @@ impl windows_core::TypeKind for POINTER_SEARCH_PHYSICAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
@@ -45908,7 +45908,7 @@ impl windows_core::TypeKind for PROCESSORINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_COMMIT_USAGE {
     pub ImageFileName: [u8; 16],
     pub ClientId: u64,
@@ -45927,7 +45927,7 @@ impl windows_core::TypeKind for PROCESS_COMMIT_USAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
@@ -45943,7 +45943,7 @@ impl windows_core::TypeKind for PROCESS_NAME_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READCONTROLSPACE {
     pub Processor: u16,
     pub Address: u32,
@@ -45959,7 +45959,7 @@ impl windows_core::TypeKind for READCONTROLSPACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READCONTROLSPACE32 {
     pub Processor: u16,
     pub Address: u32,
@@ -45975,7 +45975,7 @@ impl windows_core::TypeKind for READCONTROLSPACE32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READCONTROLSPACE64 {
     pub Processor: u16,
     pub Address: u64,
@@ -45991,7 +45991,7 @@ impl windows_core::TypeKind for READCONTROLSPACE64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct READ_WRITE_MSR {
     pub Msr: u32,
     pub Value: i64,
@@ -46005,7 +46005,7 @@ impl windows_core::TypeKind for READ_WRITE_MSR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
     pub SearchLength: u64,
@@ -46022,7 +46022,7 @@ impl windows_core::TypeKind for SEARCHMEMORY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_core::PCWSTR,
     pub ModuleName: windows_core::PCWSTR,
@@ -46040,7 +46040,7 @@ impl windows_core::TypeKind for STACK_SRC_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
@@ -46054,7 +46054,7 @@ impl windows_core::TypeKind for STACK_SYM_FRAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYMBOL_INFO_EX {
     pub SizeOfStruct: u32,
     pub TypeOfInfo: u32,
@@ -46072,7 +46072,7 @@ impl windows_core::TypeKind for SYMBOL_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
     pub sName: *mut u8,
@@ -46098,7 +46098,7 @@ impl windows_core::TypeKind for SYM_DUMP_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SYM_DUMP_PARAM_0 {
     pub Context: *mut core::ffi::c_void,
     pub pBuffer: *mut core::ffi::c_void,
@@ -46112,7 +46112,7 @@ impl windows_core::TypeKind for SYM_DUMP_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ScriptDebugEventInformation {
     pub DebugEvent: ScriptDebugEvent,
     pub EventPosition: ScriptDebugPosition,
@@ -46128,7 +46128,7 @@ impl windows_core::TypeKind for ScriptDebugEventInformation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ScriptDebugEventInformation_0 {
     pub ExceptionInformation: ScriptDebugEventInformation_0_0,
     pub BreakpointInformation: ScriptDebugEventInformation_0_1,
@@ -46142,7 +46142,7 @@ impl windows_core::TypeKind for ScriptDebugEventInformation_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ScriptDebugEventInformation_0_1 {
     pub BreakpointId: u64,
 }
@@ -46155,7 +46155,7 @@ impl windows_core::TypeKind for ScriptDebugEventInformation_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ScriptDebugEventInformation_0_0 {
     pub IsUncaught: u8,
 }
@@ -46168,7 +46168,7 @@ impl windows_core::TypeKind for ScriptDebugEventInformation_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ScriptDebugPosition {
     pub Line: u32,
     pub Column: u32,
@@ -46182,7 +46182,7 @@ impl windows_core::TypeKind for ScriptDebugPosition {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO {
     pub SizeOfStruct: u32,
     pub EntryDate: u64,
@@ -46203,7 +46203,7 @@ impl windows_core::TypeKind for TARGET_DEBUG_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v1 {
     pub SizeOfStruct: u32,
     pub Id: u64,
@@ -46228,7 +46228,7 @@ impl windows_core::TypeKind for TARGET_DEBUG_INFO_v1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TARGET_DEBUG_INFO_v2 {
     pub SizeOfStruct: u32,
     pub EntryDate: u64,
@@ -46249,7 +46249,7 @@ impl windows_core::TypeKind for TARGET_DEBUG_INFO_v2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
@@ -46263,7 +46263,7 @@ impl windows_core::TypeKind for TRANSLATE_VIRTUAL_TO_PHYSICAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIRTUAL_TO_PHYSICAL {
     pub Status: u32,
     pub Size: u32,
@@ -46280,7 +46280,7 @@ impl windows_core::TypeKind for VIRTUAL_TO_PHYSICAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *const windows_core::GUID,
     pub Iface: *mut core::ffi::c_void,
@@ -46294,7 +46294,7 @@ impl windows_core::TypeKind for WDBGEXTS_CLR_DATA_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
     pub InOffset: u64,
     pub OutOffset: u64,
@@ -46315,7 +46315,7 @@ impl windows_core::TypeKind for WDBGEXTS_DISASSEMBLE_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub Start: u64,
     pub End: u64,
@@ -46331,7 +46331,7 @@ impl windows_core::TypeKind for WDBGEXTS_MODULE_IN_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *const windows_core::GUID,
     pub Iface: *mut core::ffi::c_void,
@@ -46345,7 +46345,7 @@ impl windows_core::TypeKind for WDBGEXTS_QUERY_INTERFACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WDBGEXTS_THREAD_OS_INFO {
     pub ThreadId: u32,
     pub ExitStatus: u32,
@@ -46367,7 +46367,7 @@ impl windows_core::TypeKind for WDBGEXTS_THREAD_OS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -46391,7 +46391,7 @@ impl windows_core::TypeKind for WINDBG_EXTENSION_APIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -46415,7 +46415,7 @@ impl windows_core::TypeKind for WINDBG_EXTENSION_APIS32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -46439,7 +46439,7 @@ impl windows_core::TypeKind for WINDBG_EXTENSION_APIS64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -46461,7 +46461,7 @@ impl windows_core::TypeKind for WINDBG_OLDKD_EXTENSION_APIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
     pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
@@ -46479,7 +46479,7 @@ impl windows_core::TypeKind for WINDBG_OLD_EXTENSION_APIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XML_DRIVER_NODE_INFO {
     pub FileName: [i8; 64],
     pub FileSize: u64,

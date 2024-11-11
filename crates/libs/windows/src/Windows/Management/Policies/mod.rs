@@ -65,7 +65,7 @@ impl windows_core::RuntimeName for NamedPolicy {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicy";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NamedPolicyData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedPolicyData, windows_core::IUnknown, windows_core::IInspectable);
 impl NamedPolicyData {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeName for NamedPolicyData {
 unsafe impl Send for NamedPolicyData {}
 unsafe impl Sync for NamedPolicyData {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);

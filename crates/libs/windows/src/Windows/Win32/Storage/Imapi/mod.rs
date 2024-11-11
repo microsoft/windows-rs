@@ -8962,175 +8962,175 @@ pub const RP_UNRESOLVED: u32 = 4144u32;
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 pub const SZ_PROGID_SMTPCAT: windows_core::PCSTR = windows_core::s!("Smtp.Cat");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISC_RECORDER_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for DISC_RECORDER_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmulationType(pub i32);
 impl windows_core::TypeKind for EmulationType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsiFileSystems(pub i32);
 impl windows_core::TypeKind for FsiFileSystems {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FsiItemType(pub i32);
 impl windows_core::TypeKind for FsiItemType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_BURN_VERIFICATION_LEVEL(pub i32);
 impl windows_core::TypeKind for IMAPI_BURN_VERIFICATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_CD_SECTOR_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_CD_SECTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(pub i32);
 impl windows_core::TypeKind for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FEATURE_PAGE_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_FEATURE_PAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FORMAT2_DATA_MEDIA_STATE(pub i32);
 impl windows_core::TypeKind for IMAPI_FORMAT2_DATA_MEDIA_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FORMAT2_DATA_WRITE_ACTION(pub i32);
 impl windows_core::TypeKind for IMAPI_FORMAT2_DATA_WRITE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(pub i32);
 impl windows_core::TypeKind for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_FORMAT2_TAO_WRITE_ACTION(pub i32);
 impl windows_core::TypeKind for IMAPI_FORMAT2_TAO_WRITE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_MEDIA_PHYSICAL_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_MEDIA_PHYSICAL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_MEDIA_WRITE_PROTECT_STATE(pub i32);
 impl windows_core::TypeKind for IMAPI_MEDIA_WRITE_PROTECT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_MODE_PAGE_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_MODE_PAGE_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_MODE_PAGE_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_MODE_PAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_PROFILE_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_PROFILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAPI_READ_TRACK_ADDRESS_TYPE(pub i32);
 impl windows_core::TypeKind for IMAPI_READ_TRACK_ADDRESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_CPV_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_CPV_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_MPV_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_MPV_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_MP_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_MP_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_NMP_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_NMP_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_RPV_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_RPV_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMMPID_RP_ENUM(pub i32);
 impl windows_core::TypeKind for IMMPID_RP_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_FLAGS(pub i32);
 impl windows_core::TypeKind for MEDIA_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_TYPES(pub i32);
 impl windows_core::TypeKind for MEDIA_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlatformId(pub i32);
 impl windows_core::TypeKind for PlatformId {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECORDER_TYPES(pub i32);
 impl windows_core::TypeKind for RECORDER_TYPES {
     type TypeKind = windows_core::CopyType;
@@ -9146,7 +9146,7 @@ pub const FsiFileItem: windows_core::GUID = windows_core::GUID::from_u128(0x2c94
 pub const FsiNamedStreams: windows_core::GUID = windows_core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
 pub const FsiStream: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: windows_core::GUID,
 }
@@ -9187,7 +9187,7 @@ pub const MsftWriteSpeedDescriptor: windows_core::GUID = windows_core::GUID::fro
 pub const ProgressItem: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
 pub const ProgressItems: windows_core::GUID = windows_core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
@@ -9202,7 +9202,7 @@ impl windows_core::TypeKind for SPropAttrArray {
 }
 pub const tagIMMPID_CPV_STRUCT: windows_core::GUID = windows_core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const windows_core::GUID,
     pub dwStart: u32,

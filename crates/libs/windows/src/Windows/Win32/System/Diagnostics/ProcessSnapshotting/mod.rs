@@ -137,7 +137,7 @@ pub const PSS_WALK_HANDLES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CL
 pub const PSS_WALK_THREADS: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(3i32);
 pub const PSS_WALK_VA_SPACE: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
 impl windows_core::TypeKind for PSS_CAPTURE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -176,7 +176,7 @@ impl core::ops::Not for PSS_CAPTURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_DUPLICATE_FLAGS(pub i32);
 impl windows_core::TypeKind for PSS_DUPLICATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -215,7 +215,7 @@ impl core::ops::Not for PSS_DUPLICATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_HANDLE_FLAGS(pub i32);
 impl windows_core::TypeKind for PSS_HANDLE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -254,13 +254,13 @@ impl core::ops::Not for PSS_HANDLE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for PSS_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_PROCESS_FLAGS(pub i32);
 impl windows_core::TypeKind for PSS_PROCESS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -299,13 +299,13 @@ impl core::ops::Not for PSS_PROCESS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for PSS_QUERY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_THREAD_FLAGS(pub i32);
 impl windows_core::TypeKind for PSS_THREAD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -344,7 +344,7 @@ impl core::ops::Not for PSS_THREAD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for PSS_WALK_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
@@ -391,7 +391,7 @@ impl Default for HPSSWALK {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_ALLOCATOR {
     pub Context: *mut core::ffi::c_void,
     pub AllocRoutine: isize,
@@ -406,7 +406,7 @@ impl windows_core::TypeKind for PSS_ALLOCATOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_AUXILIARY_PAGES_INFORMATION {
     pub AuxPagesCaptured: u32,
 }
@@ -420,7 +420,7 @@ impl windows_core::TypeKind for PSS_AUXILIARY_PAGES_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut core::ffi::c_void,
     pub BasicInformation: super::super::Memory::MEMORY_BASIC_INFORMATION,
@@ -439,7 +439,7 @@ impl windows_core::TypeKind for PSS_AUXILIARY_PAGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PSS_HANDLE_ENTRY {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Flags: PSS_HANDLE_FLAGS,
@@ -467,7 +467,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_0,
     pub Thread: PSS_HANDLE_ENTRY_0_1,
@@ -485,7 +485,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
@@ -499,7 +499,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
@@ -515,7 +515,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -534,7 +534,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationAttributes: u32,
@@ -549,7 +549,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
@@ -563,7 +563,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -583,7 +583,7 @@ impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_INFORMATION {
     pub HandlesCaptured: u32,
 }
@@ -596,7 +596,7 @@ impl windows_core::TypeKind for PSS_HANDLE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_HANDLE_TRACE_INFORMATION {
     pub SectionHandle: super::super::super::Foundation::HANDLE,
     pub Size: u32,
@@ -610,7 +610,7 @@ impl windows_core::TypeKind for PSS_HANDLE_TRACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_PERFORMANCE_COUNTERS {
     pub TotalCycleCount: u64,
     pub TotalWallClockPeriod: u64,
@@ -634,7 +634,7 @@ impl windows_core::TypeKind for PSS_PERFORMANCE_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_PROCESS_INFORMATION {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
@@ -673,7 +673,7 @@ impl windows_core::TypeKind for PSS_PROCESS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
@@ -706,7 +706,7 @@ impl windows_core::TypeKind for PSS_THREAD_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_THREAD_INFORMATION {
     pub ThreadsCaptured: u32,
     pub ContextLength: u32,
@@ -720,7 +720,7 @@ impl windows_core::TypeKind for PSS_THREAD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
 }
@@ -733,7 +733,7 @@ impl windows_core::TypeKind for PSS_VA_CLONE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_VA_SPACE_ENTRY {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -758,7 +758,7 @@ impl windows_core::TypeKind for PSS_VA_SPACE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSS_VA_SPACE_INFORMATION {
     pub RegionCount: u32,
 }

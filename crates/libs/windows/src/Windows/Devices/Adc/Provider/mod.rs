@@ -249,7 +249,7 @@ impl IAdcProvider_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);

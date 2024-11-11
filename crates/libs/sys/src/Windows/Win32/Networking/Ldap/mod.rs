@@ -630,12 +630,12 @@ pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 pub type LDAP_RETCODE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BerElement {
     pub opaque: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: windows_sys::core::PSTR,
@@ -655,7 +655,7 @@ pub struct LDAP {
     pub ld_options: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
@@ -663,21 +663,21 @@ pub struct LDAP_0 {
     pub Reserved2: [u8; 24],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PSTR,
     pub ldapaif_version: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PWSTR,
     pub ldapaif_version: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -687,7 +687,7 @@ pub struct LDAPAPIInfoA {
     pub ldapai_vendor_version: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -697,21 +697,21 @@ pub struct LDAPAPIInfoW {
     pub ldapai_vendor_version: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_sys::core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_sys::core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -728,47 +728,47 @@ pub struct LDAPMessage {
     pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPModA {
     pub mod_op: u32,
     pub mod_type: windows_sys::core::PSTR,
     pub mod_vals: LDAPModA_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LDAPModA_0 {
     pub modv_strvals: *mut windows_sys::core::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPModW {
     pub mod_op: u32,
     pub mod_type: windows_sys::core::PWSTR,
     pub mod_vals: LDAPModW_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LDAPModW_0 {
     pub modv_strvals: *mut windows_sys::core::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_sys::core::PSTR,
     pub sk_matchruleoid: windows_sys::core::PSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_sys::core::PWSTR,
     pub sk_matchruleoid: windows_sys::core::PWSTR,
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -780,13 +780,13 @@ pub struct LDAPVLVInfo {
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
@@ -794,13 +794,13 @@ pub struct LDAP_REFERRAL_CALLBACK {
     pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,

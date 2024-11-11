@@ -10,7 +10,7 @@ windows_targets::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformatio
 pub const VER_NT_WORKSTATION: u32 = 1u32;
 pub type NTSTATUS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOEXW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -25,7 +25,7 @@ pub struct OSVERSIONINFOEXW {
     pub wReserved: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OSVERSIONINFOW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,

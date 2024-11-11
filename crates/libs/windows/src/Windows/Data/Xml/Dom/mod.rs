@@ -1712,7 +1712,7 @@ impl IXmlText_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DtdEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DtdEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdEntity, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -1980,7 +1980,7 @@ impl windows_core::RuntimeName for DtdEntity {
 unsafe impl Send for DtdEntity {}
 unsafe impl Sync for DtdEntity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DtdNotation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DtdNotation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdNotation, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -2241,7 +2241,7 @@ impl windows_core::RuntimeName for DtdNotation {
 unsafe impl Send for DtdNotation {}
 unsafe impl Sync for DtdNotation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlAttribute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlAttribute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlAttribute, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -2513,7 +2513,7 @@ impl windows_core::RuntimeName for XmlAttribute {
 unsafe impl Send for XmlAttribute {}
 unsafe impl Sync for XmlAttribute {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlCDataSection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlCDataSection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlCDataSection, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
@@ -2808,7 +2808,7 @@ impl windows_core::RuntimeName for XmlCDataSection {
 unsafe impl Send for XmlCDataSection {}
 unsafe impl Sync for XmlCDataSection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlComment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlComment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlComment, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3096,7 +3096,7 @@ impl windows_core::RuntimeName for XmlComment {
 unsafe impl Send for XmlComment {}
 unsafe impl Sync for XmlComment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlDocument(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocument, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3562,7 +3562,7 @@ impl windows_core::RuntimeName for XmlDocument {
 unsafe impl Send for XmlDocument {}
 unsafe impl Sync for XmlDocument {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlDocumentFragment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocumentFragment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentFragment, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -3809,7 +3809,7 @@ impl windows_core::RuntimeName for XmlDocumentFragment {
 unsafe impl Send for XmlDocumentFragment {}
 unsafe impl Sync for XmlDocumentFragment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlDocumentType(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDocumentType, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentType, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -4079,7 +4079,7 @@ impl windows_core::RuntimeName for XmlDocumentType {
 unsafe impl Send for XmlDocumentType {}
 unsafe impl Sync for XmlDocumentType {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlDomImplementation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlDomImplementation, windows_core::IUnknown, windows_core::IInspectable);
 impl XmlDomImplementation {
@@ -4107,7 +4107,7 @@ impl windows_core::RuntimeName for XmlDomImplementation {
 unsafe impl Send for XmlDomImplementation {}
 unsafe impl Sync for XmlDomImplementation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlElement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlElement, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -4455,7 +4455,7 @@ impl windows_core::RuntimeName for XmlElement {
 unsafe impl Send for XmlElement {}
 unsafe impl Sync for XmlElement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlEntityReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlEntityReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlEntityReference, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -4702,7 +4702,7 @@ impl windows_core::RuntimeName for XmlEntityReference {
 unsafe impl Send for XmlEntityReference {}
 unsafe impl Sync for XmlEntityReference {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlLoadSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlLoadSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl XmlLoadSettings {
@@ -4783,7 +4783,7 @@ unsafe impl Send for XmlLoadSettings {}
 unsafe impl Sync for XmlLoadSettings {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlNamedNodeMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(XmlNamedNodeMap, windows_core::IUnknown, windows_core::IInspectable);
@@ -4918,7 +4918,7 @@ unsafe impl Send for XmlNamedNodeMap {}
 unsafe impl Sync for XmlNamedNodeMap {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlNodeList(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(XmlNodeList, windows_core::IUnknown, windows_core::IInspectable);
@@ -4998,7 +4998,7 @@ unsafe impl Send for XmlNodeList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for XmlNodeList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlProcessingInstruction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlProcessingInstruction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlProcessingInstruction, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
@@ -5263,7 +5263,7 @@ impl windows_core::RuntimeName for XmlProcessingInstruction {
 unsafe impl Send for XmlProcessingInstruction {}
 unsafe impl Sync for XmlProcessingInstruction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XmlText(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XmlText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
@@ -5558,7 +5558,7 @@ impl windows_core::RuntimeName for XmlText {
 unsafe impl Send for XmlText {}
 unsafe impl Sync for XmlText {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NodeType(pub i32);
 impl NodeType {
     pub const Invalid: Self = Self(0i32);

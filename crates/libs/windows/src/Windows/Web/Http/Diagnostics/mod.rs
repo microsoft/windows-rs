@@ -102,7 +102,7 @@ pub struct IHttpDiagnosticSourceLocation_Vtbl {
     pub ColumnNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProvider {
@@ -184,7 +184,7 @@ impl windows_core::RuntimeName for HttpDiagnosticProvider {
 unsafe impl Send for HttpDiagnosticProvider {}
 unsafe impl Sync for HttpDiagnosticProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -252,7 +252,7 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseComplete
 unsafe impl Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
@@ -333,7 +333,7 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestam
 unsafe impl Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderRequestSentEventArgs {
@@ -401,7 +401,7 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
 unsafe impl Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -440,7 +440,7 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventAr
 unsafe impl Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpDiagnosticSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpDiagnosticSourceLocation {
@@ -479,7 +479,7 @@ impl windows_core::RuntimeName for HttpDiagnosticSourceLocation {
 unsafe impl Send for HttpDiagnosticSourceLocation {}
 unsafe impl Sync for HttpDiagnosticSourceLocation {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
     pub const ParsedElement: Self = Self(0i32);

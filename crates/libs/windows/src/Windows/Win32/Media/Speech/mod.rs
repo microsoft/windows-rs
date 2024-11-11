@@ -15386,835 +15386,835 @@ pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = SPPRONUNCIATIONFLAGS(1i32);
 pub const eWORDTYPE_ADDED: SPWORDTYPE = SPWORDTYPE(1i32);
 pub const eWORDTYPE_DELETED: SPWORDTYPE = SPWORDTYPE(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPIDSPRG(pub i32);
 impl windows_core::TypeKind for DISPIDSPRG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPIDSPTSI(pub i32);
 impl windows_core::TypeKind for DISPIDSPTSI {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechAudio(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechAudio {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechAudioBufferInfo(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechAudioBufferInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechAudioFormat(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechAudioFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechAudioStatus(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechAudioStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechBaseStream(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechBaseStream {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechCustomStream(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechCustomStream {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechDataKey(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechDataKey {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechFileStream(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechFileStream {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechGrammarRule(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechGrammarRule {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechGrammarRuleState(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechGrammarRuleState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechGrammarRuleStateTransition(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechGrammarRuleStateTransition {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechGrammarRuleStateTransitions(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechGrammarRuleStateTransitions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechGrammarRules(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechGrammarRules {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechLexicon(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechLexicon {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechLexiconProns(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechLexiconProns {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechLexiconPronunciation(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechLexiconPronunciation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechLexiconWord(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechLexiconWord {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechLexiconWords(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechLexiconWords {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechMMSysAudio(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechMMSysAudio {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechMemoryStream(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechMemoryStream {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechObjectToken(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechObjectToken {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechObjectTokenCategory(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechObjectTokenCategory {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechObjectTokens(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechObjectTokens {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhoneConverter(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhoneConverter {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseAlternate(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseAlternate {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseAlternates(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseAlternates {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseBuilder(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseBuilder {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseElement(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseElement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseElements(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseElements {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseInfo(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseProperties(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseProperties {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseProperty(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseProperty {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseReplacement(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseReplacement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseReplacements(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseReplacements {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseRule(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseRule {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechPhraseRules(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechPhraseRules {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecoContext(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecoContext {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecoContextEvents(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecoContextEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecoResult(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecoResult {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecoResult2(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecoResult2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecoResultTimes(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecoResultTimes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecognizer(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecognizer {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechRecognizerStatus(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechRecognizerStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechVoice(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechVoice {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechVoiceEvent(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechVoiceEvent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechVoiceStatus(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechVoiceStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechWaveFormatEx(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechWaveFormatEx {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_SpeechXMLRecoResult(pub i32);
 impl windows_core::TypeKind for DISPID_SpeechXMLRecoResult {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHONETICALPHABET(pub i32);
 impl windows_core::TypeKind for PHONETICALPHABET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPADAPTATIONRELEVANCE(pub i32);
 impl windows_core::TypeKind for SPADAPTATIONRELEVANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPADAPTATIONSETTINGS(pub i32);
 impl windows_core::TypeKind for SPADAPTATIONSETTINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOOPTIONS(pub i32);
 impl windows_core::TypeKind for SPAUDIOOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOSTATE(pub i32);
 impl windows_core::TypeKind for SPAUDIOSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPBOOKMARKOPTIONS(pub i32);
 impl windows_core::TypeKind for SPBOOKMARKOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPCFGNOTIFY(pub i32);
 impl windows_core::TypeKind for SPCFGNOTIFY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPCFGRULEATTRIBUTES(pub i32);
 impl windows_core::TypeKind for SPCFGRULEATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPCOMMITFLAGS(pub i32);
 impl windows_core::TypeKind for SPCOMMITFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPCONTEXTSTATE(pub i32);
 impl windows_core::TypeKind for SPCONTEXTSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPDATAKEYLOCATION(pub i32);
 impl windows_core::TypeKind for SPDATAKEYLOCATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPDISPLAYATTRIBUTES(pub i32);
 impl windows_core::TypeKind for SPDISPLAYATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEAKFLAGS(pub i32);
 impl windows_core::TypeKind for SPEAKFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPENDSRSTREAMFLAGS(pub i32);
 impl windows_core::TypeKind for SPENDSRSTREAMFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTENUM(pub i32);
 impl windows_core::TypeKind for SPEVENTENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTLPARAMTYPE(pub i32);
 impl windows_core::TypeKind for SPEVENTLPARAMTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPFILEMODE(pub i32);
 impl windows_core::TypeKind for SPFILEMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPGRAMMAROPTIONS(pub i32);
 impl windows_core::TypeKind for SPGRAMMAROPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPGRAMMARSTATE(pub i32);
 impl windows_core::TypeKind for SPGRAMMARSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPGRAMMARWORDTYPE(pub i32);
 impl windows_core::TypeKind for SPGRAMMARWORDTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPINTERFERENCE(pub i32);
 impl windows_core::TypeKind for SPINTERFERENCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPLEXICONTYPE(pub i32);
 impl windows_core::TypeKind for SPLEXICONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPLOADOPTIONS(pub i32);
 impl windows_core::TypeKind for SPLOADOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPMATCHINGMODE(pub i32);
 impl windows_core::TypeKind for SPMATCHINGMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPARTOFSPEECH(pub i32);
 impl windows_core::TypeKind for SPPARTOFSPEECH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEPROPERTYUNIONTYPE(pub i32);
 impl windows_core::TypeKind for SPPHRASEPROPERTYUNIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASERNG(pub i32);
 impl windows_core::TypeKind for SPPHRASERNG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPRONUNCIATIONFLAGS(pub i32);
 impl windows_core::TypeKind for SPPRONUNCIATIONFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPROPSRC(pub i32);
 impl windows_core::TypeKind for SPPROPSRC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRECOEVENTFLAGS(pub i32);
 impl windows_core::TypeKind for SPRECOEVENTFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRECOSTATE(pub i32);
 impl windows_core::TypeKind for SPRECOSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRESULTTYPE(pub i32);
 impl windows_core::TypeKind for SPRESULTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRULEINFOOPT(pub i32);
 impl windows_core::TypeKind for SPRULEINFOOPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRULESTATE(pub i32);
 impl windows_core::TypeKind for SPRULESTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRUNSTATE(pub i32);
 impl windows_core::TypeKind for SPRUNSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSEMANTICFORMAT(pub i32);
 impl windows_core::TypeKind for SPSEMANTICFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSHORTCUTTYPE(pub i32);
 impl windows_core::TypeKind for SPSHORTCUTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSTREAMFORMAT(pub i32);
 impl windows_core::TypeKind for SPSTREAMFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSTREAMFORMATTYPE(pub i32);
 impl windows_core::TypeKind for SPSTREAMFORMATTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPTRANSITIONTYPE(pub i32);
 impl windows_core::TypeKind for SPTRANSITIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVACTIONS(pub i32);
 impl windows_core::TypeKind for SPVACTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVALUETYPE(pub i32);
 impl windows_core::TypeKind for SPVALUETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVESACTIONS(pub i32);
 impl windows_core::TypeKind for SPVESACTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVFEATURE(pub i32);
 impl windows_core::TypeKind for SPVFEATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVISEMES(pub i32);
 impl windows_core::TypeKind for SPVISEMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVLIMITS(pub i32);
 impl windows_core::TypeKind for SPVLIMITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVPRIORITY(pub i32);
 impl windows_core::TypeKind for SPVPRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVSKIPTYPE(pub i32);
 impl windows_core::TypeKind for SPVSKIPTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDINFOOPT(pub i32);
 impl windows_core::TypeKind for SPWORDINFOOPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDPRONOUNCEABLE(pub i32);
 impl windows_core::TypeKind for SPWORDPRONOUNCEABLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPWORDTYPE(pub i32);
 impl windows_core::TypeKind for SPWORDTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPXMLRESULTOPTIONS(pub i32);
 impl windows_core::TypeKind for SPXMLRESULTOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechAudioFormatType(pub i32);
 impl windows_core::TypeKind for SpeechAudioFormatType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechAudioState(pub i32);
 impl windows_core::TypeKind for SpeechAudioState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechBookmarkOptions(pub i32);
 impl windows_core::TypeKind for SpeechBookmarkOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechDataKeyLocation(pub i32);
 impl windows_core::TypeKind for SpeechDataKeyLocation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechDiscardType(pub i32);
 impl windows_core::TypeKind for SpeechDiscardType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechDisplayAttributes(pub i32);
 impl windows_core::TypeKind for SpeechDisplayAttributes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechEmulationCompareFlags(pub i32);
 impl windows_core::TypeKind for SpeechEmulationCompareFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechEngineConfidence(pub i32);
 impl windows_core::TypeKind for SpeechEngineConfidence {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechFormatType(pub i32);
 impl windows_core::TypeKind for SpeechFormatType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechGrammarRuleStateTransitionType(pub i32);
 impl windows_core::TypeKind for SpeechGrammarRuleStateTransitionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechGrammarState(pub i32);
 impl windows_core::TypeKind for SpeechGrammarState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechGrammarWordType(pub i32);
 impl windows_core::TypeKind for SpeechGrammarWordType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechInterference(pub i32);
 impl windows_core::TypeKind for SpeechInterference {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechLexiconType(pub i32);
 impl windows_core::TypeKind for SpeechLexiconType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechLoadOption(pub i32);
 impl windows_core::TypeKind for SpeechLoadOption {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechPartOfSpeech(pub i32);
 impl windows_core::TypeKind for SpeechPartOfSpeech {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecoContextState(pub i32);
 impl windows_core::TypeKind for SpeechRecoContextState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecoEvents(pub i32);
 impl windows_core::TypeKind for SpeechRecoEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionType(pub i32);
 impl windows_core::TypeKind for SpeechRecognitionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognizerState(pub i32);
 impl windows_core::TypeKind for SpeechRecognizerState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRetainedAudioOptions(pub i32);
 impl windows_core::TypeKind for SpeechRetainedAudioOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRuleAttributes(pub i32);
 impl windows_core::TypeKind for SpeechRuleAttributes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRuleState(pub i32);
 impl windows_core::TypeKind for SpeechRuleState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRunState(pub i32);
 impl windows_core::TypeKind for SpeechRunState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechSpecialTransitionType(pub i32);
 impl windows_core::TypeKind for SpeechSpecialTransitionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechStreamFileMode(pub i32);
 impl windows_core::TypeKind for SpeechStreamFileMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechStreamSeekPositionType(pub u32);
 impl windows_core::TypeKind for SpeechStreamSeekPositionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechTokenContext(pub u32);
 impl windows_core::TypeKind for SpeechTokenContext {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechTokenShellFolder(pub i32);
 impl windows_core::TypeKind for SpeechTokenShellFolder {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechVisemeFeature(pub i32);
 impl windows_core::TypeKind for SpeechVisemeFeature {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechVisemeType(pub i32);
 impl windows_core::TypeKind for SpeechVisemeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechVoiceEvents(pub i32);
 impl windows_core::TypeKind for SpeechVoiceEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechVoicePriority(pub i32);
 impl windows_core::TypeKind for SpeechVoicePriority {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechVoiceSpeakFlags(pub i32);
 impl windows_core::TypeKind for SpeechVoiceSpeakFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechWordPronounceable(pub i32);
 impl windows_core::TypeKind for SpeechWordPronounceable {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechWordType(pub i32);
 impl windows_core::TypeKind for SpeechWordType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
@@ -16229,7 +16229,7 @@ impl windows_core::TypeKind for SPAUDIOBUFFERINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -16248,7 +16248,7 @@ impl windows_core::TypeKind for SPAUDIOSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
 }
@@ -16261,7 +16261,7 @@ impl windows_core::TypeKind for SPBINARYGRAMMAR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
     pub pTokens: *mut SPDISPLAYTOKEN,
@@ -16275,7 +16275,7 @@ impl windows_core::TypeKind for SPDISPLAYPHRASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: windows_core::PCWSTR,
     pub pszDisplay: windows_core::PCWSTR,
@@ -16290,7 +16290,7 @@ impl windows_core::TypeKind for SPDISPLAYTOKEN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -16307,7 +16307,7 @@ impl windows_core::TypeKind for SPEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENTEX {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -16325,7 +16325,7 @@ impl windows_core::TypeKind for SPEVENTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
@@ -16356,7 +16356,7 @@ impl Default for SPGRAMMARHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPNORMALIZATIONLIST {
     pub ulSize: u32,
     pub ppszzNormalizedList: *mut *mut u16,
@@ -16370,7 +16370,7 @@ impl windows_core::TypeKind for SPNORMALIZATIONLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPARSEINFO {
     pub cbSize: u32,
     pub hRule: SPRULEHANDLE,
@@ -16392,7 +16392,7 @@ impl windows_core::TypeKind for SPPARSEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPATHENTRY {
     pub hTransition: SPTRANSITIONID,
     pub elem: SPPHRASEELEMENT,
@@ -16407,7 +16407,7 @@ impl windows_core::TypeKind for SPPATHENTRY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_50,
     pub pSML: windows_core::PWSTR,
@@ -16461,7 +16461,7 @@ impl windows_core::TypeKind for SPPHRASEALTREQUEST {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASEELEMENT {
     pub ulAudioTimeOffset: u32,
     pub ulAudioSizeTime: u32,
@@ -16518,7 +16518,7 @@ impl windows_core::TypeKind for SPPHRASEPROPERTY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
@@ -16535,7 +16535,7 @@ impl windows_core::TypeKind for SPPHRASEPROPERTY_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
     pub bReserved: u8,
@@ -16568,7 +16568,7 @@ impl Default for SPPHRASEPROPERTYHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
     pub pszReplacementText: windows_core::PCWSTR,
@@ -16584,7 +16584,7 @@ impl windows_core::TypeKind for SPPHRASEREPLACEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASERULE {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
@@ -16621,7 +16621,7 @@ impl Default for SPPHRASERULEHANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
     pub LangID: u16,
@@ -16692,7 +16692,7 @@ impl Default for SPRECOCONTEXTHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
     pub szRequestTypeOfUI: [u16; 255],
@@ -16708,7 +16708,7 @@ impl windows_core::TypeKind for SPRECOCONTEXTSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
     pub ullRecognitionStreamPos: u64,
@@ -16767,7 +16767,7 @@ impl windows_core::TypeKind for SPRECORESULTINFOEX {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::super::Foundation::FILETIME,
     pub ullLength: u64,
@@ -16783,7 +16783,7 @@ impl windows_core::TypeKind for SPRECORESULTTIMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRULE {
     pub pszRuleName: windows_core::PCWSTR,
     pub ulRuleId: u32,
@@ -16798,7 +16798,7 @@ impl windows_core::TypeKind for SPRULE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPRULEENTRY {
     pub hRule: SPRULEHANDLE,
     pub hInitialState: SPSTATEHANDLE,
@@ -16831,7 +16831,7 @@ impl Default for SPRULEHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
     pub pszScriptLine: windows_core::PWSTR,
@@ -16848,7 +16848,7 @@ impl windows_core::TypeKind for SPSEMANTICERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -16865,7 +16865,7 @@ impl windows_core::TypeKind for SPSERIALIZEDEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -16882,7 +16882,7 @@ impl windows_core::TypeKind for SPSERIALIZEDEVENT64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
 }
@@ -16895,7 +16895,7 @@ impl windows_core::TypeKind for SPSERIALIZEDPHRASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
 }
@@ -16908,7 +16908,7 @@ impl windows_core::TypeKind for SPSERIALIZEDRESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
     pub LangID: u16,
@@ -16925,7 +16925,7 @@ impl windows_core::TypeKind for SPSHORTCUTPAIR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -16956,7 +16956,7 @@ impl Default for SPSTATEHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPSTATEINFO {
     pub cAllocatedEntries: u32,
     pub pTransitions: *mut SPTRANSITIONENTRY,
@@ -16974,7 +16974,7 @@ impl windows_core::TypeKind for SPSTATEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
@@ -16990,7 +16990,7 @@ impl windows_core::TypeKind for SPTEXTSELECTIONINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTMTHREADINFO {
     pub lPoolSize: i32,
     pub lPriority: i32,
@@ -17006,7 +17006,7 @@ impl windows_core::TypeKind for SPTMTHREADINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SPTRANSITIONENTRY {
     pub ID: SPTRANSITIONID,
     pub hNextState: SPSTATEHANDLE,
@@ -17025,7 +17025,7 @@ impl windows_core::TypeKind for SPTRANSITIONENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_0 {
     pub fHasProperty: u32,
 }
@@ -17038,7 +17038,7 @@ impl windows_core::TypeKind for SPTRANSITIONENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SPTRANSITIONENTRY_1 {
     pub Anonymous1: SPTRANSITIONENTRY_1_0,
     pub Anonymous2: SPTRANSITIONENTRY_1_1,
@@ -17053,7 +17053,7 @@ impl windows_core::TypeKind for SPTRANSITIONENTRY_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_0 {
     pub hRuleInitialState: SPSTATEHANDLE,
     pub hRule: SPRULEHANDLE,
@@ -17068,7 +17068,7 @@ impl windows_core::TypeKind for SPTRANSITIONENTRY_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_1 {
     pub hWord: SPWORDHANDLE,
     pub pvClientWordContext: *mut core::ffi::c_void,
@@ -17082,7 +17082,7 @@ impl windows_core::TypeKind for SPTRANSITIONENTRY_1_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPTRANSITIONENTRY_1_2 {
     pub pvGrammarCookie: *mut core::ffi::c_void,
 }
@@ -17135,7 +17135,7 @@ impl windows_core::TypeKind for SPTRANSITIONPROPERTY {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVCONTEXT {
     pub pCategory: windows_core::PCWSTR,
     pub pBefore: windows_core::PCWSTR,
@@ -17150,7 +17150,7 @@ impl windows_core::TypeKind for SPVCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -17175,7 +17175,7 @@ impl windows_core::TypeKind for SPVOICESTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
@@ -17189,7 +17189,7 @@ impl windows_core::TypeKind for SPVPITCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
     pub LangID: u16,
@@ -17212,7 +17212,7 @@ impl windows_core::TypeKind for SPVSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPVTEXTFRAG {
     pub pNext: *mut SPVTEXTFRAG,
     pub State: SPVSTATE,
@@ -17229,7 +17229,7 @@ impl windows_core::TypeKind for SPVTEXTFRAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORD {
     pub pNextWord: *mut SPWORD,
     pub LangID: u16,
@@ -17247,7 +17247,7 @@ impl windows_core::TypeKind for SPWORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDENTRY {
     pub hWord: SPWORDHANDLE,
     pub LangID: u16,
@@ -17281,7 +17281,7 @@ impl Default for SPWORDHANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -17296,7 +17296,7 @@ impl windows_core::TypeKind for SPWORDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
     pub eLexiconType: SPLEXICONTYPE,
@@ -17314,7 +17314,7 @@ impl windows_core::TypeKind for SPWORDPRONUNCIATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SPWORDPRONUNCIATIONLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,

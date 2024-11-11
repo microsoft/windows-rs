@@ -1049,7 +1049,7 @@ pub type REG_SAM_FLAGS = u32;
 pub type REG_SAVE_FORMAT = u32;
 pub type REG_VALUE_TYPE = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1063,7 +1063,7 @@ pub struct DSKTLSYSTEMTIME {
 }
 pub type HKEY = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PVALUEA {
     pub pv_valuename: windows_sys::core::PSTR,
     pub pv_valuelen: i32,
@@ -1071,7 +1071,7 @@ pub struct PVALUEA {
     pub pv_type: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PVALUEW {
     pub pv_valuename: windows_sys::core::PWSTR,
     pub pv_valuelen: i32,
@@ -1079,7 +1079,7 @@ pub struct PVALUEW {
     pub pv_type: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -1089,7 +1089,7 @@ pub struct REG_PROVIDER {
     pub pi_key_context: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VALENTA {
     pub ve_valuename: windows_sys::core::PSTR,
     pub ve_valuelen: u32,
@@ -1097,7 +1097,7 @@ pub struct VALENTA {
     pub ve_type: REG_VALUE_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VALENTW {
     pub ve_valuename: windows_sys::core::PWSTR,
     pub ve_valuelen: u32,
@@ -1105,7 +1105,7 @@ pub struct VALENTW {
     pub ve_type: REG_VALUE_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,

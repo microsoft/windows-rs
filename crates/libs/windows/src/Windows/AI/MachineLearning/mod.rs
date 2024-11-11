@@ -1145,7 +1145,7 @@ pub struct ITensorUInt8BitStatics2_Vtbl {
     CreateFromBuffer: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1229,7 +1229,7 @@ impl windows_core::RuntimeName for ImageFeatureDescriptor {
 unsafe impl Send for ImageFeatureDescriptor {}
 unsafe impl Sync for ImageFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageFeatureValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureValue, ILearningModelFeatureValue);
@@ -1277,7 +1277,7 @@ impl windows_core::RuntimeName for ImageFeatureValue {
 unsafe impl Send for ImageFeatureValue {}
 unsafe impl Sync for ImageFeatureValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModel, super::super::Foundation::IClosable);
@@ -1442,7 +1442,7 @@ unsafe impl Send for LearningModel {}
 unsafe impl Sync for LearningModel {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelBinding(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
@@ -1535,7 +1535,7 @@ unsafe impl Send for LearningModelBinding {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for LearningModelBinding {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelDevice {
@@ -1593,7 +1593,7 @@ impl windows_core::RuntimeName for LearningModelDevice {
 unsafe impl Send for LearningModelDevice {}
 unsafe impl Sync for LearningModelDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelEvaluationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelEvaluationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelEvaluationResult {
@@ -1640,7 +1640,7 @@ impl windows_core::RuntimeName for LearningModelEvaluationResult {
 unsafe impl Send for LearningModelEvaluationResult {}
 unsafe impl Sync for LearningModelEvaluationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelSession, super::super::Foundation::IClosable);
@@ -1767,7 +1767,7 @@ impl windows_core::RuntimeName for LearningModelSession {
 unsafe impl Send for LearningModelSession {}
 unsafe impl Sync for LearningModelSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelSessionOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSessionOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelSessionOptions {
@@ -1818,7 +1818,7 @@ impl windows_core::RuntimeName for LearningModelSessionOptions {
 unsafe impl Send for LearningModelSessionOptions {}
 unsafe impl Sync for LearningModelSessionOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MapFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1879,7 +1879,7 @@ impl windows_core::RuntimeName for MapFeatureDescriptor {
 unsafe impl Send for MapFeatureDescriptor {}
 unsafe impl Sync for MapFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SequenceFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SequenceFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SequenceFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -1933,7 +1933,7 @@ impl windows_core::RuntimeName for SequenceFeatureDescriptor {
 unsafe impl Send for SequenceFeatureDescriptor {}
 unsafe impl Sync for SequenceFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorBoolean(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorBoolean, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorBoolean, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2054,7 +2054,7 @@ impl windows_core::RuntimeName for TensorBoolean {
 unsafe impl Send for TensorBoolean {}
 unsafe impl Sync for TensorBoolean {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorDouble(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorDouble, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorDouble, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2175,7 +2175,7 @@ impl windows_core::RuntimeName for TensorDouble {
 unsafe impl Send for TensorDouble {}
 unsafe impl Sync for TensorDouble {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFeatureDescriptor, ILearningModelFeatureDescriptor);
@@ -2237,7 +2237,7 @@ impl windows_core::RuntimeName for TensorFeatureDescriptor {
 unsafe impl Send for TensorFeatureDescriptor {}
 unsafe impl Sync for TensorFeatureDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFloat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2358,7 +2358,7 @@ impl windows_core::RuntimeName for TensorFloat {
 unsafe impl Send for TensorFloat {}
 unsafe impl Sync for TensorFloat {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorFloat16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2479,7 +2479,7 @@ impl windows_core::RuntimeName for TensorFloat16Bit {
 unsafe impl Send for TensorFloat16Bit {}
 unsafe impl Sync for TensorFloat16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2600,7 +2600,7 @@ impl windows_core::RuntimeName for TensorInt16Bit {
 unsafe impl Send for TensorInt16Bit {}
 unsafe impl Sync for TensorInt16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt32Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2721,7 +2721,7 @@ impl windows_core::RuntimeName for TensorInt32Bit {
 unsafe impl Send for TensorInt32Bit {}
 unsafe impl Sync for TensorInt32Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt64Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2842,7 +2842,7 @@ impl windows_core::RuntimeName for TensorInt64Bit {
 unsafe impl Send for TensorInt64Bit {}
 unsafe impl Sync for TensorInt64Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt8Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -2963,7 +2963,7 @@ impl windows_core::RuntimeName for TensorInt8Bit {
 unsafe impl Send for TensorInt8Bit {}
 unsafe impl Sync for TensorInt8Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorString(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorString, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorString, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -3074,7 +3074,7 @@ impl windows_core::RuntimeName for TensorString {
 unsafe impl Send for TensorString {}
 unsafe impl Sync for TensorString {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -3195,7 +3195,7 @@ impl windows_core::RuntimeName for TensorUInt16Bit {
 unsafe impl Send for TensorUInt16Bit {}
 unsafe impl Sync for TensorUInt16Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt32Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -3316,7 +3316,7 @@ impl windows_core::RuntimeName for TensorUInt32Bit {
 unsafe impl Send for TensorUInt32Bit {}
 unsafe impl Sync for TensorUInt32Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt64Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -3437,7 +3437,7 @@ impl windows_core::RuntimeName for TensorUInt64Bit {
 unsafe impl Send for TensorUInt64Bit {}
 unsafe impl Sync for TensorUInt64Bit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TensorUInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt8Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -3558,7 +3558,7 @@ impl windows_core::RuntimeName for TensorUInt8Bit {
 unsafe impl Send for TensorUInt8Bit {}
 unsafe impl Sync for TensorUInt8Bit {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
     pub const Default: Self = Self(0i32);
@@ -3574,7 +3574,7 @@ impl windows_core::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
     pub const Tensor: Self = Self(0i32);
@@ -3589,7 +3589,7 @@ impl windows_core::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
     pub const ZeroTo255: Self = Self(0i32);
@@ -3603,7 +3603,7 @@ impl windows_core::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
     pub const Undefined: Self = Self(0i32);

@@ -209,7 +209,7 @@ pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMED_PIPE_MODE(pub u32);
 impl windows_core::TypeKind for NAMED_PIPE_MODE {
     type TypeKind = windows_core::CopyType;

@@ -173,7 +173,7 @@ pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBar, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBar {
@@ -332,7 +332,7 @@ impl windows_core::RuntimeName for WebUICommandBar {
 unsafe impl Send for WebUICommandBar {}
 unsafe impl Sync for WebUICommandBar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarBitmapIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarBitmapIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarBitmapIcon, IWebUICommandBarIcon);
@@ -385,7 +385,7 @@ impl windows_core::RuntimeName for WebUICommandBarBitmapIcon {
 unsafe impl Send for WebUICommandBarBitmapIcon {}
 unsafe impl Sync for WebUICommandBarBitmapIcon {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarConfirmationButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarConfirmationButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarConfirmationButton, IWebUICommandBarElement);
@@ -436,7 +436,7 @@ impl windows_core::RuntimeName for WebUICommandBarConfirmationButton {
 unsafe impl Send for WebUICommandBarConfirmationButton {}
 unsafe impl Sync for WebUICommandBarConfirmationButton {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarIconButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarIconButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarIconButton, IWebUICommandBarElement);
@@ -534,7 +534,7 @@ impl windows_core::RuntimeName for WebUICommandBarIconButton {
 unsafe impl Send for WebUICommandBarIconButton {}
 unsafe impl Sync for WebUICommandBarIconButton {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarItemInvokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarItemInvokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBarItemInvokedEventArgs {
@@ -559,7 +559,7 @@ impl windows_core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
 unsafe impl Send for WebUICommandBarItemInvokedEventArgs {}
 unsafe impl Sync for WebUICommandBarItemInvokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarSizeChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarSizeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBarSizeChangedEventArgs {
@@ -584,7 +584,7 @@ impl windows_core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
 unsafe impl Send for WebUICommandBarSizeChangedEventArgs {}
 unsafe impl Sync for WebUICommandBarSizeChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WebUICommandBarSymbolIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarSymbolIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarSymbolIcon, IWebUICommandBarIcon);
@@ -805,7 +805,7 @@ impl<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Res
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {
     pub const Default: Self = Self(0i32);

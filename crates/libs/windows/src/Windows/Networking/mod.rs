@@ -77,7 +77,7 @@ pub struct IHostNameStatics_Vtbl {
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EndpointPair(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 impl EndpointPair {
@@ -159,7 +159,7 @@ impl windows_core::RuntimeName for EndpointPair {
 unsafe impl Send for EndpointPair {}
 unsafe impl Sync for EndpointPair {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HostName(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HostName, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HostName, super::Foundation::IStringable);
@@ -251,7 +251,7 @@ impl windows_core::RuntimeName for HostName {
 unsafe impl Send for HostName {}
 unsafe impl Sync for HostName {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
@@ -264,7 +264,7 @@ impl windows_core::RuntimeType for DomainNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
@@ -310,7 +310,7 @@ impl core::ops::Not for HostNameSortOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
     pub const DomainName: Self = Self(0i32);

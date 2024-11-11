@@ -501,16 +501,16 @@ impl Method {
                 } else if !self.signature.return_type.0.is_convertible() {
                     if self.signature.return_type.0.is_primitive() {
                         quote! {
-                            let mut result__ = core::mem::zeroed();
-                            #vcall
-                            .map(||result__) }
+                        let mut result__ = core::mem::zeroed();
+                        #vcall
+                        .map(||result__) }
                     } else {
-                    quote! {
-                    let mut result__ = core::mem::zeroed();
-                    #vcall
-                    .map(||core::mem::transmute(result__)) }
+                        quote! {
+                        let mut result__ = core::mem::zeroed();
+                        #vcall
+                        .map(||core::mem::transmute(result__)) }
                     }
-                } else { 
+                } else {
                     quote! { let mut result__ = core::mem::zeroed();
                     #vcall.and_then(|| windows_core::Type::from_abi(result__)) }
                 }

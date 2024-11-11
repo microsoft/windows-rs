@@ -131,37 +131,37 @@ pub const tcompTYPE_MSZIP: u32 = 1u32;
 pub const tcompTYPE_NONE: u32 = 0u32;
 pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FCIERROR(pub i32);
 impl windows_core::TypeKind for FCIERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
 impl windows_core::TypeKind for FDICREATE_CPU_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDIDECRYPTTYPE(pub i32);
 impl windows_core::TypeKind for FDIDECRYPTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDIERROR(pub i32);
 impl windows_core::TypeKind for FDIERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
 impl windows_core::TypeKind for FDINOTIFICATIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -185,7 +185,7 @@ impl windows_core::TypeKind for CCAB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
@@ -200,7 +200,7 @@ impl windows_core::TypeKind for ERF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -220,7 +220,7 @@ impl windows_core::TypeKind for FDICABINETINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut core::ffi::c_void,
@@ -235,7 +235,7 @@ impl windows_core::TypeKind for FDIDECRYPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_1,
@@ -250,7 +250,7 @@ impl windows_core::TypeKind for FDIDECRYPT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
@@ -266,7 +266,7 @@ impl windows_core::TypeKind for FDIDECRYPT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -284,7 +284,7 @@ impl windows_core::TypeKind for FDIDECRYPT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
@@ -299,7 +299,7 @@ impl windows_core::TypeKind for FDIDECRYPT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_core::PSTR,
@@ -325,7 +325,7 @@ impl windows_core::TypeKind for FDINOTIFICATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
@@ -342,7 +342,7 @@ impl windows_core::TypeKind for FDISPILLFILE {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,

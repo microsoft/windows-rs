@@ -30,7 +30,7 @@ pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> super::super::sup
     VhfStart(core::mem::transmute(vhfhandle))
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
@@ -45,7 +45,7 @@ impl windows_core::TypeKind for HID_XFER_PACKET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut core::ffi::c_void,

@@ -214,7 +214,7 @@ pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
 pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_WINDOWS_FLAGS(pub u32);
 impl windows_core::TypeKind for EXIT_WINDOWS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -253,7 +253,7 @@ impl core::ops::Not for EXIT_WINDOWS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUTDOWN_FLAGS(pub u32);
 impl windows_core::TypeKind for SHUTDOWN_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -292,7 +292,7 @@ impl core::ops::Not for SHUTDOWN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUTDOWN_REASON(pub u32);
 impl windows_core::TypeKind for SHUTDOWN_REASON {
     type TypeKind = windows_core::CopyType;

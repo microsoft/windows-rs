@@ -2913,25 +2913,25 @@ pub const cObjectInfoCols: u32 = 9u32;
 pub const wrnBTNotVisibleAccumulated: u32 = 353u32;
 pub const wrnBTNotVisibleRejected: u32 = 352u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_ERRCAT(pub i32);
 impl windows_core::TypeKind for JET_ERRCAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_INDEXCHECKING(pub i32);
 impl windows_core::TypeKind for JET_INDEXCHECKING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JET_RELOP(pub i32);
 impl windows_core::TypeKind for JET_RELOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_BKINFO {
     pub lgposMark: JET_LGPOS,
     pub Anonymous: JET_BKINFO_0,
@@ -2947,7 +2947,7 @@ impl windows_core::TypeKind for JET_BKINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
     pub bklogtimeMark: JET_BKLOGTIME,
@@ -2961,7 +2961,7 @@ impl windows_core::TypeKind for JET_BKINFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_BKLOGTIME {
     pub bSeconds: i8,
     pub bMinutes: i8,
@@ -2981,7 +2981,7 @@ impl windows_core::TypeKind for JET_BKLOGTIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_BKLOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_BKLOGTIME_0_0,
@@ -2995,7 +2995,7 @@ impl windows_core::TypeKind for JET_BKLOGTIME_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -3008,7 +3008,7 @@ impl windows_core::TypeKind for JET_BKLOGTIME_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_BKLOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_BKLOGTIME_1_0,
@@ -3022,7 +3022,7 @@ impl windows_core::TypeKind for JET_BKLOGTIME_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -3035,7 +3035,7 @@ impl windows_core::TypeKind for JET_BKLOGTIME_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNBASE_A {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -3058,7 +3058,7 @@ impl windows_core::TypeKind for JET_COLUMNBASE_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNBASE_W {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -3081,7 +3081,7 @@ impl windows_core::TypeKind for JET_COLUMNBASE_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: u32,
     pub szColumnName: windows_core::PSTR,
@@ -3103,7 +3103,7 @@ impl windows_core::TypeKind for JET_COLUMNCREATE_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: u32,
     pub szColumnName: windows_core::PWSTR,
@@ -3125,7 +3125,7 @@ impl windows_core::TypeKind for JET_COLUMNCREATE_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNDEF {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -3147,7 +3147,7 @@ impl windows_core::TypeKind for JET_COLUMNDEF {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -3179,7 +3179,7 @@ impl windows_core::TypeKind for JET_COLUMNLIST {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_COMMIT_ID {
     pub signLog: JET_SIGNATURE,
     pub reserved: i32,
@@ -3197,7 +3197,7 @@ impl windows_core::TypeKind for JET_COMMIT_ID {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_COMMIT_ID {
     pub signLog: JET_SIGNATURE,
     pub reserved: i32,
@@ -3214,7 +3214,7 @@ impl windows_core::TypeKind for JET_COMMIT_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: u32,
     pub szColumnName: windows_core::PSTR,
@@ -3229,7 +3229,7 @@ impl windows_core::TypeKind for JET_CONDITIONALCOLUMN_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: u32,
     pub szColumnName: windows_core::PWSTR,
@@ -3244,7 +3244,7 @@ impl windows_core::TypeKind for JET_CONDITIONALCOLUMN_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_A {
     pub szOldDll: windows_core::PSTR,
     pub Anonymous: JET_CONVERT_A_0,
@@ -3258,7 +3258,7 @@ impl windows_core::TypeKind for JET_CONVERT_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_A_0_0,
@@ -3272,7 +3272,7 @@ impl windows_core::TypeKind for JET_CONVERT_A_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
@@ -3285,7 +3285,7 @@ impl windows_core::TypeKind for JET_CONVERT_A_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_CONVERT_W {
     pub szOldDll: windows_core::PWSTR,
     pub Anonymous: JET_CONVERT_W_0,
@@ -3299,7 +3299,7 @@ impl windows_core::TypeKind for JET_CONVERT_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: JET_CONVERT_W_0_0,
@@ -3313,7 +3313,7 @@ impl windows_core::TypeKind for JET_CONVERT_W_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
@@ -3326,7 +3326,7 @@ impl windows_core::TypeKind for JET_CONVERT_W_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -3359,7 +3359,7 @@ impl windows_core::TypeKind for JET_DBINFOMISC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC2 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -3407,7 +3407,7 @@ impl windows_core::TypeKind for JET_DBINFOMISC2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC3 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -3456,7 +3456,7 @@ impl windows_core::TypeKind for JET_DBINFOMISC3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC4 {
     pub ulVersion: u32,
     pub ulUpdate: u32,
@@ -3507,7 +3507,7 @@ impl windows_core::TypeKind for JET_DBINFOMISC4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_DBINFOUPGRADE {
     pub cbStruct: u32,
     pub cbFilesizeLow: u32,
@@ -3526,7 +3526,7 @@ impl windows_core::TypeKind for JET_DBINFOUPGRADE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_DBINFOUPGRADE_0 {
     pub ulFlags: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
@@ -3540,7 +3540,7 @@ impl windows_core::TypeKind for JET_DBINFOUPGRADE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
@@ -3553,7 +3553,7 @@ impl windows_core::TypeKind for JET_DBINFOUPGRADE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_ENUMCOLUMN {
     pub columnid: u32,
     pub err: i32,
@@ -3568,7 +3568,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_ENUMCOLUMN_0 {
     pub Anonymous1: JET_ENUMCOLUMN_0_0,
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
@@ -3582,7 +3582,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMN_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: u32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
@@ -3596,7 +3596,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMN_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: u32,
     pub pvData: *mut core::ffi::c_void,
@@ -3610,7 +3610,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMN_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: u32,
     pub ctagSequence: u32,
@@ -3625,7 +3625,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMNID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: u32,
     pub err: i32,
@@ -3641,7 +3641,7 @@ impl windows_core::TypeKind for JET_ENUMCOLUMNVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: u32,
     pub errValue: i32,
@@ -3659,7 +3659,7 @@ impl windows_core::TypeKind for JET_ERRINFOBASIC_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE2_A {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PSTR,
@@ -3684,7 +3684,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
@@ -3698,7 +3698,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_A_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3712,7 +3712,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_A_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE2_W {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PWSTR,
@@ -3737,7 +3737,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
@@ -3751,7 +3751,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_W_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3765,7 +3765,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE2_W_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE3_A {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PSTR,
@@ -3790,7 +3790,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE3_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3804,7 +3804,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE3_A_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE3_W {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PWSTR,
@@ -3829,7 +3829,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE3_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3843,7 +3843,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE3_W_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE_A {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PSTR,
@@ -3867,7 +3867,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
@@ -3881,7 +3881,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_A_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3895,7 +3895,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_A_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_INDEXCREATE_W {
     pub cbStruct: u32,
     pub szIndexName: windows_core::PWSTR,
@@ -3919,7 +3919,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
@@ -3933,7 +3933,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_W_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
@@ -3948,7 +3948,7 @@ impl windows_core::TypeKind for JET_INDEXCREATE_W_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 16],
@@ -3965,7 +3965,7 @@ impl windows_core::TypeKind for JET_INDEXID {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 12],
@@ -3982,7 +3982,7 @@ impl windows_core::TypeKind for JET_INDEXID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEXLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -4016,7 +4016,7 @@ impl windows_core::TypeKind for JET_INDEXLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEXRANGE {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -4033,7 +4033,7 @@ impl windows_core::TypeKind for JET_INDEXRANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEX_COLUMN {
     pub columnid: u32,
     pub relop: JET_RELOP,
@@ -4050,7 +4050,7 @@ impl windows_core::TypeKind for JET_INDEX_COLUMN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: u32,
@@ -4087,7 +4087,7 @@ impl windows_core::Free for JET_INSTANCE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: windows_core::PSTR,
@@ -4108,7 +4108,7 @@ impl windows_core::TypeKind for JET_INSTANCE_INFO_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: JET_INSTANCE,
     pub szInstanceName: windows_core::PWSTR,
@@ -4128,7 +4128,7 @@ impl windows_core::TypeKind for JET_INSTANCE_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_LGPOS {
     pub ib: u16,
     pub isec: u16,
@@ -4143,7 +4143,7 @@ impl windows_core::TypeKind for JET_LGPOS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_LOGINFO_A {
     pub cbSize: u32,
     pub ulGenLow: u32,
@@ -4159,7 +4159,7 @@ impl windows_core::TypeKind for JET_LOGINFO_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_LOGINFO_W {
     pub cbSize: u32,
     pub ulGenLow: u32,
@@ -4175,7 +4175,7 @@ impl windows_core::TypeKind for JET_LOGINFO_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_LOGTIME {
     pub bSeconds: i8,
     pub bMinutes: i8,
@@ -4195,7 +4195,7 @@ impl windows_core::TypeKind for JET_LOGTIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_LOGTIME_0 {
     pub bFiller1: i8,
     pub Anonymous: JET_LOGTIME_0_0,
@@ -4209,7 +4209,7 @@ impl windows_core::TypeKind for JET_LOGTIME_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
@@ -4222,7 +4222,7 @@ impl windows_core::TypeKind for JET_LOGTIME_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union JET_LOGTIME_1 {
     pub bFiller2: i8,
     pub Anonymous: JET_LOGTIME_1_0,
@@ -4236,7 +4236,7 @@ impl windows_core::TypeKind for JET_LOGTIME_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
@@ -4261,7 +4261,7 @@ impl JET_LS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -4284,7 +4284,7 @@ impl windows_core::TypeKind for JET_OBJECTINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
     pub objtyp: u32,
@@ -4307,7 +4307,7 @@ impl windows_core::TypeKind for JET_OBJECTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OBJECTLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -4334,7 +4334,7 @@ impl windows_core::TypeKind for JET_OBJECTLIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: u32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -4358,7 +4358,7 @@ impl windows_core::TypeKind for JET_OPENTEMPORARYTABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
     pub prgcolumndef: *const JET_COLUMNDEF,
@@ -4381,7 +4381,7 @@ impl windows_core::TypeKind for JET_OPENTEMPORARYTABLE2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: u32,
     pub nOperationID: u8,
@@ -4410,7 +4410,7 @@ impl JET_OSSNAPID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RECORDLIST {
     pub cbStruct: u32,
     pub tableid: super::StructuredStorage::JET_TABLEID,
@@ -4428,7 +4428,7 @@ impl windows_core::TypeKind for JET_RECORDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RECPOS {
     pub cbStruct: u32,
     pub centriesLT: u32,
@@ -4445,7 +4445,7 @@ impl windows_core::TypeKind for JET_RECPOS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -4466,7 +4466,7 @@ impl windows_core::TypeKind for JET_RECPOS2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_RECPOS2 {
     pub cbStruct: u32,
     pub centriesLTDeprecated: u32,
@@ -4487,7 +4487,7 @@ impl windows_core::TypeKind for JET_RECPOS2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -4510,7 +4510,7 @@ impl windows_core::TypeKind for JET_RECSIZE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -4533,7 +4533,7 @@ impl windows_core::TypeKind for JET_RECSIZE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -4559,7 +4559,7 @@ impl windows_core::TypeKind for JET_RECSIZE2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
     pub cbLongValueData: u64,
@@ -4584,7 +4584,7 @@ impl windows_core::TypeKind for JET_RECSIZE2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -4600,7 +4600,7 @@ impl windows_core::TypeKind for JET_RETINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: u32,
     pub pvData: *mut core::ffi::c_void,
@@ -4621,7 +4621,7 @@ impl windows_core::TypeKind for JET_RETRIEVECOLUMN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_RSTINFO_A {
     pub cbStruct: u32,
     pub rgrstmap: *mut JET_RSTMAP_A,
@@ -4639,7 +4639,7 @@ impl windows_core::TypeKind for JET_RSTINFO_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_RSTINFO_W {
     pub cbStruct: u32,
     pub rgrstmap: *mut JET_RSTMAP_W,
@@ -4657,7 +4657,7 @@ impl windows_core::TypeKind for JET_RSTINFO_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: windows_core::PSTR,
     pub szNewDatabaseName: windows_core::PSTR,
@@ -4671,7 +4671,7 @@ impl windows_core::TypeKind for JET_RSTMAP_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: windows_core::PWSTR,
     pub szNewDatabaseName: windows_core::PWSTR,
@@ -4705,7 +4705,7 @@ impl windows_core::Free for JET_SESID {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SETCOLUMN {
     pub columnid: u32,
     pub pvData: *const core::ffi::c_void,
@@ -4724,7 +4724,7 @@ impl windows_core::TypeKind for JET_SETCOLUMN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -4740,7 +4740,7 @@ impl windows_core::TypeKind for JET_SETINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
@@ -4759,7 +4759,7 @@ impl windows_core::TypeKind for JET_SETSYSPARAM_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: u32,
     pub lParam: super::StructuredStorage::JET_API_PTR,
@@ -4777,7 +4777,7 @@ impl windows_core::TypeKind for JET_SETSYSPARAM_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_SIGNATURE {
     pub ulRandom: u32,
     pub logtimeCreate: JET_LOGTIME,
@@ -4792,7 +4792,7 @@ impl windows_core::TypeKind for JET_SIGNATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SNPROG {
     pub cbStruct: u32,
     pub cunitDone: u32,
@@ -4807,7 +4807,7 @@ impl windows_core::TypeKind for JET_SNPROG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_SPACEHINTS {
     pub cbStruct: u32,
     pub ulInitialDensity: u32,
@@ -4828,7 +4828,7 @@ impl windows_core::TypeKind for JET_SPACEHINTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: u32,
     pub szTableName: windows_core::PSTR,
@@ -4857,7 +4857,7 @@ impl windows_core::TypeKind for JET_TABLECREATE2_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: u32,
     pub szTableName: windows_core::PWSTR,
@@ -4886,7 +4886,7 @@ impl windows_core::TypeKind for JET_TABLECREATE2_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: u32,
     pub szTableName: windows_core::PSTR,
@@ -4918,7 +4918,7 @@ impl windows_core::TypeKind for JET_TABLECREATE3_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: u32,
     pub szTableName: windows_core::PWSTR,
@@ -4950,7 +4950,7 @@ impl windows_core::TypeKind for JET_TABLECREATE3_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: u32,
     pub szTableName: windows_core::PSTR,
@@ -4982,7 +4982,7 @@ impl windows_core::TypeKind for JET_TABLECREATE4_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: u32,
     pub szTableName: windows_core::PWSTR,
@@ -5014,7 +5014,7 @@ impl windows_core::TypeKind for JET_TABLECREATE4_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: u32,
     pub szTableName: windows_core::PSTR,
@@ -5041,7 +5041,7 @@ impl windows_core::TypeKind for JET_TABLECREATE_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: u32,
     pub szTableName: windows_core::PWSTR,
@@ -5067,7 +5067,7 @@ impl windows_core::TypeKind for JET_TABLECREATE_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_THREADSTATS {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -5088,7 +5088,7 @@ impl windows_core::TypeKind for JET_THREADSTATS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -5113,7 +5113,7 @@ impl windows_core::TypeKind for JET_THREADSTATS2 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -5137,7 +5137,7 @@ impl windows_core::TypeKind for JET_THREADSTATS2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: u32,
     pub chLengthMax: u32,
@@ -5154,7 +5154,7 @@ impl windows_core::TypeKind for JET_TUPLELIMITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_UNICODEINDEX {
     pub lcid: u32,
     pub dwMapFlags: u32,
@@ -5168,7 +5168,7 @@ impl windows_core::TypeKind for JET_UNICODEINDEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: windows_core::PWSTR,
     pub dwMapFlags: u32,
@@ -5182,7 +5182,7 @@ impl windows_core::TypeKind for JET_UNICODEINDEX2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: windows_core::PSTR,
     pub pbUserData: *mut u8,
@@ -5198,7 +5198,7 @@ impl windows_core::TypeKind for JET_USERDEFINEDDEFAULT_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: windows_core::PWSTR,
     pub pbUserData: *mut u8,

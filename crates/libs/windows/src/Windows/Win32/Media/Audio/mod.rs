@@ -6792,31 +6792,31 @@ pub const eConsole: ERole = ERole(0i32);
 pub const eMultimedia: ERole = ERole(1i32);
 pub const eRender: EDataFlow = EDataFlow(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
 impl windows_core::TypeKind for AMBISONICS_CHANNEL_ORDERING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_NORMALIZATION(pub i32);
 impl windows_core::TypeKind for AMBISONICS_NORMALIZATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMBISONICS_TYPE(pub i32);
 impl windows_core::TypeKind for AMBISONICS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDCLNT_SHAREMODE(pub i32);
 impl windows_core::TypeKind for AUDCLNT_SHAREMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDCLNT_STREAMOPTIONS(pub i32);
 impl windows_core::TypeKind for AUDCLNT_STREAMOPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -6855,13 +6855,13 @@ impl core::ops::Not for AUDCLNT_STREAMOPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
 impl windows_core::TypeKind for AUDIOCLIENT_ACTIVATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_DUCKING_OPTIONS(pub i32);
 impl windows_core::TypeKind for AUDIO_DUCKING_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -6900,25 +6900,25 @@ impl core::ops::Not for AUDIO_DUCKING_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
 impl windows_core::TypeKind for AUDIO_EFFECT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_STREAM_CATEGORY(pub i32);
 impl windows_core::TypeKind for AUDIO_STREAM_CATEGORY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(pub i32);
 impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioObjectType(pub i32);
 impl windows_core::TypeKind for AudioObjectType {
     type TypeKind = windows_core::CopyType;
@@ -6957,25 +6957,25 @@ impl core::ops::Not for AudioObjectType {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioSessionDisconnectReason(pub i32);
 impl windows_core::TypeKind for AudioSessionDisconnectReason {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioSessionState(pub i32);
 impl windows_core::TypeKind for AudioSessionState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioStateMonitorSoundLevel(pub i32);
 impl windows_core::TypeKind for AudioStateMonitorSoundLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -6989,37 +6989,37 @@ impl windows_core::TypeKind for ConnectorType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_STATE(pub u32);
 impl windows_core::TypeKind for DEVICE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataFlow(pub i32);
 impl windows_core::TypeKind for DataFlow {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDataFlow(pub i32);
 impl windows_core::TypeKind for EDataFlow {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERole(pub i32);
 impl windows_core::TypeKind for ERole {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EndpointFormFactor(pub i32);
 impl windows_core::TypeKind for EndpointFormFactor {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
 impl windows_core::TypeKind for MIDI_WAVE_OPEN_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -7058,25 +7058,25 @@ impl core::ops::Not for MIDI_WAVE_OPEN_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
 impl windows_core::TypeKind for MIXERLINE_COMPONENTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_LOOPBACK_MODE(pub i32);
 impl windows_core::TypeKind for PROCESS_LOOPBACK_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PartType(pub i32);
 impl windows_core::TypeKind for PartType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SND_FLAGS(pub u32);
 impl windows_core::TypeKind for SND_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -7115,7 +7115,7 @@ impl core::ops::Not for SND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub i32);
 impl windows_core::TypeKind for SPATIAL_AUDIO_STREAM_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -7154,44 +7154,44 @@ impl core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
 impl windows_core::TypeKind for SpatialAudioHrtfDirectivityType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
 impl windows_core::TypeKind for SpatialAudioHrtfDistanceDecayType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioHrtfEnvironmentType(pub i32);
 impl windows_core::TypeKind for SpatialAudioHrtfEnvironmentType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioMetadataCopyMode(pub i32);
 impl windows_core::TypeKind for SpatialAudioMetadataCopyMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
 impl windows_core::TypeKind for SpatialAudioMetadataWriterOverflowMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
 impl windows_core::TypeKind for _AUDCLNT_BUFFERFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -7222,7 +7222,7 @@ impl windows_core::TypeKind for ACMDRIVERDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -7252,7 +7252,7 @@ impl windows_core::TypeKind for ACMDRIVERDETAILSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVFORMATSUGGEST {
     pub cbStruct: u32,
     pub fdwSuggest: u32,
@@ -7270,7 +7270,7 @@ impl windows_core::TypeKind for ACMDRVFORMATSUGGEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -7291,7 +7291,7 @@ impl windows_core::TypeKind for ACMDRVOPENDESCA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -7312,7 +7312,7 @@ impl windows_core::TypeKind for ACMDRVOPENDESCW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -7345,7 +7345,7 @@ impl windows_core::TypeKind for ACMDRVSTREAMHEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMINSTANCE {
     pub cbStruct: u32,
     pub pwfxSrc: *mut WAVEFORMATEX,
@@ -7367,7 +7367,7 @@ impl windows_core::TypeKind for ACMDRVSTREAMINSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMSIZE {
     pub cbStruct: u32,
     pub fdwSize: u32,
@@ -7383,7 +7383,7 @@ impl windows_core::TypeKind for ACMDRVSTREAMSIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -7411,7 +7411,7 @@ impl windows_core::TypeKind for ACMFILTERCHOOSEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEW {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -7439,7 +7439,7 @@ impl windows_core::TypeKind for ACMFILTERCHOOSEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -7458,7 +7458,7 @@ impl windows_core::TypeKind for ACMFILTERDETAILSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSW {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -7477,7 +7477,7 @@ impl windows_core::TypeKind for ACMFILTERDETAILSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -7496,7 +7496,7 @@ impl windows_core::TypeKind for ACMFILTERTAGDETAILSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSW {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -7515,7 +7515,7 @@ impl windows_core::TypeKind for ACMFILTERTAGDETAILSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -7543,7 +7543,7 @@ impl windows_core::TypeKind for ACMFORMATCHOOSEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEW {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -7571,7 +7571,7 @@ impl windows_core::TypeKind for ACMFORMATCHOOSEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,
@@ -7590,7 +7590,7 @@ impl windows_core::TypeKind for ACMFORMATDETAILSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -7609,7 +7609,7 @@ impl windows_core::TypeKind for ACMFORMATTAGDETAILSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSW {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -7629,7 +7629,7 @@ impl windows_core::TypeKind for ACMFORMATTAGDETAILSW {
 }
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -7656,7 +7656,7 @@ impl windows_core::TypeKind for ACMSTREAMHEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -7682,7 +7682,7 @@ impl windows_core::TypeKind for ACMSTREAMHEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -7702,7 +7702,7 @@ impl windows_core::TypeKind for AMBISONICS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
@@ -7716,7 +7716,7 @@ impl windows_core::TypeKind for AUDIOCLIENT_ACTIVATION_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
 }
@@ -7729,7 +7729,7 @@ impl windows_core::TypeKind for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
@@ -7743,7 +7743,7 @@ impl windows_core::TypeKind for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_core::GUID,
     pub canSetState: super::super::Foundation::BOOL,
@@ -7758,7 +7758,7 @@ impl windows_core::TypeKind for AUDIO_EFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub guidEventContext: windows_core::GUID,
     pub bMuted: super::super::Foundation::BOOL,
@@ -7775,7 +7775,7 @@ impl windows_core::TypeKind for AUDIO_VOLUME_NOTIFICATION_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -7797,7 +7797,7 @@ impl windows_core::TypeKind for AUXCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -7819,7 +7819,7 @@ impl windows_core::TypeKind for AUXCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -7838,7 +7838,7 @@ impl windows_core::TypeKind for AUXCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -7857,7 +7857,7 @@ impl windows_core::TypeKind for AUXCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
@@ -7870,7 +7870,7 @@ impl windows_core::TypeKind for AudioClient3ActivationParams {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: super::super::Foundation::BOOL,
@@ -7902,7 +7902,7 @@ impl windows_core::TypeKind for AudioExtensionParams {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
     pub guidAudioSession: windows_core::GUID,
@@ -7918,7 +7918,7 @@ impl windows_core::TypeKind for DIRECTX_AUDIO_ACTIVATION_PARAMS {
 }
 pub const DeviceTopology: windows_core::GUID = windows_core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
@@ -8213,7 +8213,7 @@ impl Default for HWAVEOUT {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIEVENT {
     pub dwDeltaTime: u32,
     pub dwStreamID: u32,
@@ -8229,7 +8229,7 @@ impl windows_core::TypeKind for MIDIEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: u32,
@@ -8250,7 +8250,7 @@ impl windows_core::TypeKind for MIDIHDR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -8270,7 +8270,7 @@ impl windows_core::TypeKind for MIDIINCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -8290,7 +8290,7 @@ impl windows_core::TypeKind for MIDIINCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -8307,7 +8307,7 @@ impl windows_core::TypeKind for MIDIINCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -8324,7 +8324,7 @@ impl windows_core::TypeKind for MIDIINCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -8348,7 +8348,7 @@ impl windows_core::TypeKind for MIDIOUTCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -8372,7 +8372,7 @@ impl windows_core::TypeKind for MIDIOUTCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -8393,7 +8393,7 @@ impl windows_core::TypeKind for MIDIOUTCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -8414,7 +8414,7 @@ impl windows_core::TypeKind for MIDIOUTCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIPROPTEMPO {
     pub cbStruct: u32,
     pub dwTempo: u32,
@@ -8428,7 +8428,7 @@ impl windows_core::TypeKind for MIDIPROPTEMPO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIPROPTIMEDIV {
     pub cbStruct: u32,
     pub dwTimeDiv: u32,
@@ -8442,7 +8442,7 @@ impl windows_core::TypeKind for MIDIPROPTIMEDIV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDISTRMBUFFVER {
     pub dwVersion: u32,
     pub dwMid: u32,
@@ -8457,7 +8457,7 @@ impl windows_core::TypeKind for MIDISTRMBUFFVER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -8478,7 +8478,7 @@ impl windows_core::TypeKind for MIXERCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -8499,7 +8499,7 @@ impl windows_core::TypeKind for MIXERCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -8517,7 +8517,7 @@ impl windows_core::TypeKind for MIXERCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -8535,7 +8535,7 @@ impl windows_core::TypeKind for MIXERCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -8556,7 +8556,7 @@ impl windows_core::TypeKind for MIXERCONTROLA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
@@ -8571,7 +8571,7 @@ impl windows_core::TypeKind for MIXERCONTROLA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
@@ -8585,7 +8585,7 @@ impl windows_core::TypeKind for MIXERCONTROLA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
@@ -8599,7 +8599,7 @@ impl windows_core::TypeKind for MIXERCONTROLA_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
@@ -8614,7 +8614,7 @@ impl windows_core::TypeKind for MIXERCONTROLA_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -8632,7 +8632,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
     pub cMultipleItems: u32,
@@ -8646,7 +8646,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
 }
@@ -8659,7 +8659,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_BOOLEAN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
@@ -8674,7 +8674,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_LISTTEXTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub dwParam1: u32,
     pub dwParam2: u32,
@@ -8689,7 +8689,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_LISTTEXTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
@@ -8702,7 +8702,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_SIGNED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
 }
@@ -8715,7 +8715,7 @@ impl windows_core::TypeKind for MIXERCONTROLDETAILS_UNSIGNED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -8736,7 +8736,7 @@ impl windows_core::TypeKind for MIXERCONTROLW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLW_0 {
     pub Anonymous1: MIXERCONTROLW_0_0,
     pub Anonymous2: MIXERCONTROLW_0_1,
@@ -8751,7 +8751,7 @@ impl windows_core::TypeKind for MIXERCONTROLW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
@@ -8765,7 +8765,7 @@ impl windows_core::TypeKind for MIXERCONTROLW_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
@@ -8779,7 +8779,7 @@ impl windows_core::TypeKind for MIXERCONTROLW_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLW_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
@@ -8794,7 +8794,7 @@ impl windows_core::TypeKind for MIXERCONTROLW_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -8819,7 +8819,7 @@ impl windows_core::TypeKind for MIXERLINEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
@@ -8837,7 +8837,7 @@ impl windows_core::TypeKind for MIXERLINEA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -8855,7 +8855,7 @@ impl windows_core::TypeKind for MIXERLINECONTROLSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
@@ -8869,7 +8869,7 @@ impl windows_core::TypeKind for MIXERLINECONTROLSA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSW {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -8887,7 +8887,7 @@ impl windows_core::TypeKind for MIXERLINECONTROLSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSW_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
@@ -8901,7 +8901,7 @@ impl windows_core::TypeKind for MIXERLINECONTROLSW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEW {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -8926,7 +8926,7 @@ impl windows_core::TypeKind for MIXERLINEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEW_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
@@ -8945,7 +8945,7 @@ impl windows_core::TypeKind for MIXERLINEW_0 {
 }
 pub const MMDeviceEnumerator: windows_core::GUID = windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: u16,
@@ -8959,7 +8959,7 @@ impl windows_core::TypeKind for PCMWAVEFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_core::GUID,
     pub appId: windows_core::GUID,
@@ -9022,7 +9022,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfActivationParams2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivity {
     pub Type: SpatialAudioHrtfDirectivityType,
     pub Scaling: f32,
@@ -9036,7 +9036,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfDirectivity {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivityCardioid {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub Order: f32,
@@ -9050,7 +9050,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfDirectivityCardioid {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivityCone {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub InnerAngle: f32,
@@ -9065,7 +9065,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfDirectivityCone {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SpatialAudioHrtfDirectivityUnion {
     pub Cone: SpatialAudioHrtfDirectivityCone,
     pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
@@ -9080,7 +9080,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfDirectivityUnion {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDistanceDecay {
     pub Type: SpatialAudioHrtfDistanceDecayType,
     pub MaxGain: f32,
@@ -9097,7 +9097,7 @@ impl windows_core::TypeKind for SpatialAudioHrtfDistanceDecay {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: u16,
     pub ItemCount: u16,
@@ -9199,7 +9199,7 @@ impl windows_core::TypeKind for SpatialAudioObjectRenderStreamForMetadataActivat
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
@@ -9213,7 +9213,7 @@ impl windows_core::TypeKind for VOLUMEWAVEFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFILTER {
     pub cbStruct: u32,
     pub dwFilterTag: u32,
@@ -9229,7 +9229,7 @@ impl windows_core::TypeKind for WAVEFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMAT {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -9246,7 +9246,7 @@ impl windows_core::TypeKind for WAVEFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -9265,7 +9265,7 @@ impl windows_core::TypeKind for WAVEFORMATEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE {
     pub Format: WAVEFORMATEX,
     pub Samples: WAVEFORMATEXTENSIBLE_0,
@@ -9281,7 +9281,7 @@ impl windows_core::TypeKind for WAVEFORMATEXTENSIBLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WAVEFORMATEXTENSIBLE_0 {
     pub wValidBitsPerSample: u16,
     pub wSamplesPerBlock: u16,
@@ -9296,7 +9296,7 @@ impl windows_core::TypeKind for WAVEFORMATEXTENSIBLE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: u32,
@@ -9316,7 +9316,7 @@ impl windows_core::TypeKind for WAVEHDR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -9338,7 +9338,7 @@ impl windows_core::TypeKind for WAVEINCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -9360,7 +9360,7 @@ impl windows_core::TypeKind for WAVEINCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -9379,7 +9379,7 @@ impl windows_core::TypeKind for WAVEINCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -9398,7 +9398,7 @@ impl windows_core::TypeKind for WAVEINCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -9421,7 +9421,7 @@ impl windows_core::TypeKind for WAVEOUTCAPS2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -9444,7 +9444,7 @@ impl windows_core::TypeKind for WAVEOUTCAPS2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -9464,7 +9464,7 @@ impl windows_core::TypeKind for WAVEOUTCAPSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -9484,7 +9484,7 @@ impl windows_core::TypeKind for WAVEOUTCAPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct tACMFORMATDETAILSW {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,

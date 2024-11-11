@@ -1,7 +1,7 @@
 #[cfg(feature = "ApplicationModel_DataTransfer_DragDrop_Core")]
 pub mod Core;
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
     pub const None: Self = Self(0u32);

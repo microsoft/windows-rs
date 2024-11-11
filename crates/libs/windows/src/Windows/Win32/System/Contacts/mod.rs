@@ -2622,19 +2622,19 @@ pub const CONTACTPROP_PUB_MAILER: windows_core::PCWSTR = windows_core::w!("Maile
 pub const CONTACTPROP_PUB_NOTES: windows_core::PCWSTR = windows_core::w!("Notes");
 pub const CONTACTPROP_PUB_PROGID: windows_core::PCWSTR = windows_core::w!("ProgID");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
 impl windows_core::TypeKind for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(pub i32);
 impl windows_core::TypeKind for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTACT_AGGREGATION_BLOB {
     pub dwCount: u32,
     pub lpb: *mut u8,

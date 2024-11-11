@@ -1603,7 +1603,7 @@ pub struct IUssdSessionStatics_Vtbl {
     pub CreateFromNetworkInterfaceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESim(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESim, windows_core::IUnknown, windows_core::IInspectable);
 impl ESim {
@@ -1741,7 +1741,7 @@ impl windows_core::RuntimeName for ESim {
 unsafe impl Send for ESim {}
 unsafe impl Sync for ESim {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimAddedEventArgs {
@@ -1766,7 +1766,7 @@ impl windows_core::RuntimeName for ESimAddedEventArgs {
 unsafe impl Send for ESimAddedEventArgs {}
 unsafe impl Sync for ESimAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimDiscoverEvent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimDiscoverEvent, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimDiscoverEvent {
@@ -1798,7 +1798,7 @@ impl windows_core::RuntimeName for ESimDiscoverEvent {
 unsafe impl Send for ESimDiscoverEvent {}
 unsafe impl Sync for ESimDiscoverEvent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimDiscoverResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimDiscoverResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimDiscoverResult {
@@ -1845,7 +1845,7 @@ impl windows_core::RuntimeName for ESimDiscoverResult {
 unsafe impl Send for ESimDiscoverResult {}
 unsafe impl Sync for ESimDiscoverResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimDownloadProfileMetadataResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimDownloadProfileMetadataResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimDownloadProfileMetadataResult {
@@ -1911,7 +1911,7 @@ impl windows_core::RuntimeName for ESimManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimOperationResult {
@@ -1936,7 +1936,7 @@ impl windows_core::RuntimeName for ESimOperationResult {
 unsafe impl Send for ESimOperationResult {}
 unsafe impl Sync for ESimOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimPolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimPolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimPolicy {
@@ -1961,7 +1961,7 @@ impl windows_core::RuntimeName for ESimPolicy {
 unsafe impl Send for ESimPolicy {}
 unsafe impl Sync for ESimPolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimProfile, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimProfile {
@@ -2057,7 +2057,7 @@ impl windows_core::RuntimeName for ESimProfile {
 unsafe impl Send for ESimProfile {}
 unsafe impl Sync for ESimProfile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimProfileMetadata(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimProfileMetadata, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimProfileMetadata {
@@ -2167,7 +2167,7 @@ impl windows_core::RuntimeName for ESimProfileMetadata {
 unsafe impl Send for ESimProfileMetadata {}
 unsafe impl Sync for ESimProfileMetadata {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimProfilePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimProfilePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimProfilePolicy {
@@ -2206,7 +2206,7 @@ impl windows_core::RuntimeName for ESimProfilePolicy {
 unsafe impl Send for ESimProfilePolicy {}
 unsafe impl Sync for ESimProfilePolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimRemovedEventArgs {
@@ -2231,7 +2231,7 @@ impl windows_core::RuntimeName for ESimRemovedEventArgs {
 unsafe impl Send for ESimRemovedEventArgs {}
 unsafe impl Sync for ESimRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimServiceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimServiceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimServiceInfo {
@@ -2263,7 +2263,7 @@ impl windows_core::RuntimeName for ESimServiceInfo {
 unsafe impl Send for ESimServiceInfo {}
 unsafe impl Sync for ESimServiceInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimUpdatedEventArgs {
@@ -2288,7 +2288,7 @@ impl windows_core::RuntimeName for ESimUpdatedEventArgs {
 unsafe impl Send for ESimUpdatedEventArgs {}
 unsafe impl Sync for ESimUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ESimWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESimWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl ESimWatcher {
@@ -2407,7 +2407,7 @@ impl windows_core::RuntimeName for FdnAccessManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.FdnAccessManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HotspotAuthenticationContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HotspotAuthenticationContext, windows_core::IUnknown, windows_core::IInspectable);
 impl HotspotAuthenticationContext {
@@ -2493,7 +2493,7 @@ impl windows_core::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HotspotAuthenticationEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HotspotAuthenticationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl HotspotAuthenticationEventDetails {
@@ -2516,7 +2516,7 @@ impl windows_core::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HotspotCredentialsAuthenticationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HotspotCredentialsAuthenticationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl HotspotCredentialsAuthenticationResult {
@@ -2706,7 +2706,7 @@ impl windows_core::RuntimeName for KnownUSimFilePaths {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownUSimFilePaths";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandAccount {
@@ -2789,7 +2789,7 @@ impl windows_core::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandAccountEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandAccountEventArgs {
@@ -2812,7 +2812,7 @@ impl windows_core::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandAccountUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandAccountUpdatedEventArgs {
@@ -2849,7 +2849,7 @@ impl windows_core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandAccountWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandAccountWatcher {
@@ -2957,7 +2957,7 @@ impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandAntennaSar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandAntennaSar, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandAntennaSar {
@@ -2999,7 +2999,7 @@ impl windows_core::RuntimeName for MobileBroadbandAntennaSar {
 unsafe impl Send for MobileBroadbandAntennaSar {}
 unsafe impl Sync for MobileBroadbandAntennaSar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellCdma(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellCdma, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellCdma {
@@ -3073,7 +3073,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellCdma {
 unsafe impl Send for MobileBroadbandCellCdma {}
 unsafe impl Sync for MobileBroadbandCellCdma {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellGsm(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellGsm, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellGsm {
@@ -3140,7 +3140,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellGsm {
 unsafe impl Send for MobileBroadbandCellGsm {}
 unsafe impl Sync for MobileBroadbandCellGsm {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellLte(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellLte, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellLte {
@@ -3214,7 +3214,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellLte {
 unsafe impl Send for MobileBroadbandCellLte {}
 unsafe impl Sync for MobileBroadbandCellLte {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellNR(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellNR, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellNR {
@@ -3295,7 +3295,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellNR {
 unsafe impl Send for MobileBroadbandCellNR {}
 unsafe impl Sync for MobileBroadbandCellNR {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellTdscdma(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellTdscdma {
@@ -3369,7 +3369,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellTdscdma {
 unsafe impl Send for MobileBroadbandCellTdscdma {}
 unsafe impl Sync for MobileBroadbandCellTdscdma {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellUmts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellUmts, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellUmts {
@@ -3443,7 +3443,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellUmts {
 unsafe impl Send for MobileBroadbandCellUmts {}
 unsafe impl Sync for MobileBroadbandCellUmts {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCellsInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellsInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellsInfo {
@@ -3557,7 +3557,7 @@ impl windows_core::RuntimeName for MobileBroadbandCellsInfo {
 unsafe impl Send for MobileBroadbandCellsInfo {}
 unsafe impl Sync for MobileBroadbandCellsInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -3582,7 +3582,7 @@ impl windows_core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventAr
 unsafe impl Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 unsafe impl Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceInformation {
@@ -3747,7 +3747,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceService {
@@ -3794,7 +3794,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceService {
 unsafe impl Send for MobileBroadbandDeviceService {}
 unsafe impl Sync for MobileBroadbandDeviceService {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceCommandEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceCommandEventArgs {
@@ -3841,7 +3841,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs 
 unsafe impl Send for MobileBroadbandDeviceServiceCommandEventArgs {}
 unsafe impl Sync for MobileBroadbandDeviceServiceCommandEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceCommandResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceCommandResult {
@@ -3874,7 +3874,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
 unsafe impl Send for MobileBroadbandDeviceServiceCommandResult {}
 unsafe impl Sync for MobileBroadbandDeviceServiceCommandResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceCommandSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceCommandSession {
@@ -3932,7 +3932,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
 unsafe impl Send for MobileBroadbandDeviceServiceCommandSession {}
 unsafe impl Sync for MobileBroadbandDeviceServiceCommandSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -3958,7 +3958,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEvent
 unsafe impl Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 unsafe impl Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceDataSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceDataSession {
@@ -4005,7 +4005,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
 unsafe impl Send for MobileBroadbandDeviceServiceDataSession {}
 unsafe impl Sync for MobileBroadbandDeviceServiceDataSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceInformation {
@@ -4044,7 +4044,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceInformation {
 unsafe impl Send for MobileBroadbandDeviceServiceInformation {}
 unsafe impl Sync for MobileBroadbandDeviceServiceInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandDeviceServiceTriggerDetails {
@@ -4091,7 +4091,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
 unsafe impl Send for MobileBroadbandDeviceServiceTriggerDetails {}
 unsafe impl Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandModem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandModem, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandModem {
@@ -4272,7 +4272,7 @@ impl windows_core::RuntimeName for MobileBroadbandModem {
 unsafe impl Send for MobileBroadbandModem {}
 unsafe impl Sync for MobileBroadbandModem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandModemConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandModemConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandModemConfiguration {
@@ -4316,7 +4316,7 @@ impl windows_core::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandModemIsolation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandModemIsolation, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandModemIsolation {
@@ -4373,7 +4373,7 @@ impl windows_core::RuntimeName for MobileBroadbandModemIsolation {
 unsafe impl Send for MobileBroadbandModemIsolation {}
 unsafe impl Sync for MobileBroadbandModemIsolation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandNetwork {
@@ -4479,7 +4479,7 @@ impl windows_core::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandNetworkRegistrationStateChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandNetworkRegistrationStateChange {
@@ -4511,7 +4511,7 @@ impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange
 unsafe impl Send for MobileBroadbandNetworkRegistrationStateChange {}
 unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -4537,7 +4537,7 @@ impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange
 unsafe impl Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 unsafe impl Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPco(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPco, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPco {
@@ -4577,7 +4577,7 @@ impl windows_core::RuntimeName for MobileBroadbandPco {
 unsafe impl Send for MobileBroadbandPco {}
 unsafe impl Sync for MobileBroadbandPco {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPcoDataChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPcoDataChangeTriggerDetails {
@@ -4602,7 +4602,7 @@ impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
 unsafe impl Send for MobileBroadbandPcoDataChangeTriggerDetails {}
 unsafe impl Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPin, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPin {
@@ -4704,7 +4704,7 @@ impl windows_core::RuntimeName for MobileBroadbandPin {
 unsafe impl Send for MobileBroadbandPin {}
 unsafe impl Sync for MobileBroadbandPin {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPinLockStateChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChange, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPinLockStateChange {
@@ -4743,7 +4743,7 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChange {
 unsafe impl Send for MobileBroadbandPinLockStateChange {}
 unsafe impl Sync for MobileBroadbandPinLockStateChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPinLockStateChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
@@ -4769,7 +4769,7 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetai
 unsafe impl Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
 unsafe impl Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPinManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPinManager {
@@ -4802,7 +4802,7 @@ impl windows_core::RuntimeName for MobileBroadbandPinManager {
 unsafe impl Send for MobileBroadbandPinManager {}
 unsafe impl Sync for MobileBroadbandPinManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPinOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandPinOperationResult {
@@ -4834,7 +4834,7 @@ impl windows_core::RuntimeName for MobileBroadbandPinOperationResult {
 unsafe impl Send for MobileBroadbandPinOperationResult {}
 unsafe impl Sync for MobileBroadbandPinOperationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandRadioStateChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChange, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandRadioStateChange {
@@ -4866,7 +4866,7 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChange {
 unsafe impl Send for MobileBroadbandRadioStateChange {}
 unsafe impl Sync for MobileBroadbandRadioStateChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandRadioStateChangeTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
@@ -4892,7 +4892,7 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails
 unsafe impl Send for MobileBroadbandRadioStateChangeTriggerDetails {}
 unsafe impl Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandSarManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandSarManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandSarManager {
@@ -5014,7 +5014,7 @@ impl windows_core::RuntimeName for MobileBroadbandSarManager {
 unsafe impl Send for MobileBroadbandSarManager {}
 unsafe impl Sync for MobileBroadbandSarManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandSlotInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandSlotInfo {
@@ -5053,7 +5053,7 @@ impl windows_core::RuntimeName for MobileBroadbandSlotInfo {
 unsafe impl Send for MobileBroadbandSlotInfo {}
 unsafe impl Sync for MobileBroadbandSlotInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandSlotInfoChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandSlotInfoChangedEventArgs {
@@ -5078,7 +5078,7 @@ impl windows_core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
 unsafe impl Send for MobileBroadbandSlotInfoChangedEventArgs {}
 unsafe impl Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandSlotManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandSlotManager {
@@ -5153,7 +5153,7 @@ impl windows_core::RuntimeName for MobileBroadbandSlotManager {
 unsafe impl Send for MobileBroadbandSlotManager {}
 unsafe impl Sync for MobileBroadbandSlotManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandTransmissionStateChangedEventArgs {
@@ -5178,7 +5178,7 @@ impl windows_core::RuntimeName for MobileBroadbandTransmissionStateChangedEventA
 unsafe impl Send for MobileBroadbandTransmissionStateChangedEventArgs {}
 unsafe impl Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandUicc(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandUicc, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandUicc {
@@ -5210,7 +5210,7 @@ impl windows_core::RuntimeName for MobileBroadbandUicc {
 unsafe impl Send for MobileBroadbandUicc {}
 unsafe impl Sync for MobileBroadbandUicc {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandUiccApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccApp, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandUiccApp {
@@ -5265,7 +5265,7 @@ impl windows_core::RuntimeName for MobileBroadbandUiccApp {
 unsafe impl Send for MobileBroadbandUiccApp {}
 unsafe impl Sync for MobileBroadbandUiccApp {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppReadRecordResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandUiccAppReadRecordResult {
@@ -5298,7 +5298,7 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
 unsafe impl Send for MobileBroadbandUiccAppReadRecordResult {}
 unsafe impl Sync for MobileBroadbandUiccAppReadRecordResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppRecordDetailsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandUiccAppRecordDetailsResult {
@@ -5358,7 +5358,7 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
 unsafe impl Send for MobileBroadbandUiccAppRecordDetailsResult {}
 unsafe impl Sync for MobileBroadbandUiccAppRecordDetailsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandUiccAppsResult {
@@ -5391,7 +5391,7 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppsResult {
 unsafe impl Send for MobileBroadbandUiccAppsResult {}
 unsafe impl Sync for MobileBroadbandUiccAppsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorDataUsageTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorDataUsageTriggerDetails {
@@ -5416,7 +5416,7 @@ impl windows_core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
 unsafe impl Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl Sync for NetworkOperatorDataUsageTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorNotificationEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorNotificationEventDetails {
@@ -5481,7 +5481,7 @@ impl windows_core::RuntimeName for NetworkOperatorNotificationEventDetails {
 unsafe impl Send for NetworkOperatorNotificationEventDetails {}
 unsafe impl Sync for NetworkOperatorNotificationEventDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorTetheringAccessPointConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorTetheringAccessPointConfiguration {
@@ -5578,7 +5578,7 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringAccessPointConfigurat
 unsafe impl Send for NetworkOperatorTetheringAccessPointConfiguration {}
 unsafe impl Sync for NetworkOperatorTetheringAccessPointConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorTetheringClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringClient, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorTetheringClient {
@@ -5611,7 +5611,7 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringClient {
 unsafe impl Send for NetworkOperatorTetheringClient {}
 unsafe impl Sync for NetworkOperatorTetheringClient {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorTetheringManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringManager, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorTetheringManager {
@@ -5780,7 +5780,7 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorTetheringOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorTetheringOperationResult {
@@ -5810,7 +5810,7 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorTetheringSessionAccessPointConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkOperatorTetheringSessionAccessPointConfiguration {
@@ -5918,7 +5918,7 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointCon
 unsafe impl Send for NetworkOperatorTetheringSessionAccessPointConfiguration {}
 unsafe impl Sync for NetworkOperatorTetheringSessionAccessPointConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProvisionFromXmlDocumentResults(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProvisionFromXmlDocumentResults, windows_core::IUnknown, windows_core::IInspectable);
 impl ProvisionFromXmlDocumentResults {
@@ -5948,7 +5948,7 @@ impl windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProvisionedProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProvisionedProfile, windows_core::IUnknown, windows_core::IInspectable);
 impl ProvisionedProfile {
@@ -5973,7 +5973,7 @@ impl windows_core::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProvisioningAgent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProvisioningAgent, windows_core::IUnknown, windows_core::IInspectable);
 impl ProvisioningAgent {
@@ -6020,7 +6020,7 @@ impl windows_core::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TetheringEntitlementCheckTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl TetheringEntitlementCheckTriggerDetails {
@@ -6053,7 +6053,7 @@ impl windows_core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
 unsafe impl Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl Sync for TetheringEntitlementCheckTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UssdMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UssdMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl UssdMessage {
@@ -6114,7 +6114,7 @@ impl windows_core::RuntimeName for UssdMessage {
 unsafe impl Send for UssdMessage {}
 unsafe impl Sync for UssdMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UssdReply(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UssdReply, windows_core::IUnknown, windows_core::IInspectable);
 impl UssdReply {
@@ -6144,7 +6144,7 @@ impl windows_core::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UssdSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UssdSession, windows_core::IUnknown, windows_core::IInspectable);
 impl UssdSession {
@@ -6190,7 +6190,7 @@ impl windows_core::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
     pub const None: Self = Self(0u32);
@@ -6251,7 +6251,7 @@ impl core::ops::Not for DataClasses {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
     pub const OnEntry: Self = Self(0i32);
@@ -6265,7 +6265,7 @@ impl windows_core::RuntimeType for ESimAuthenticationPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
     pub const None: Self = Self(0i32);
@@ -6279,7 +6279,7 @@ impl windows_core::RuntimeType for ESimDiscoverResultKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -6319,7 +6319,7 @@ impl windows_core::RuntimeType for ESimOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
     pub const Operational: Self = Self(0i32);
@@ -6333,7 +6333,7 @@ impl windows_core::RuntimeType for ESimProfileClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
     pub const Unknown: Self = Self(0i32);
@@ -6352,7 +6352,7 @@ impl windows_core::RuntimeType for ESimProfileMetadataState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
     pub const Unknown: Self = Self(0i32);
@@ -6367,7 +6367,7 @@ impl windows_core::RuntimeType for ESimProfileState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimState(pub i32);
 impl ESimState {
     pub const Unknown: Self = Self(0i32);
@@ -6382,7 +6382,7 @@ impl windows_core::RuntimeType for ESimState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -6398,7 +6398,7 @@ impl windows_core::RuntimeType for ESimWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
     pub const NoError: Self = Self(0i32);
@@ -6416,7 +6416,7 @@ impl windows_core::RuntimeType for HotspotAuthenticationResponseCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -6432,7 +6432,7 @@ impl windows_core::RuntimeType for MobileBroadbandAccountWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
     pub const Unknown: Self = Self(0i32);
@@ -6447,7 +6447,7 @@ impl windows_core::RuntimeType for MobileBroadbandDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
     pub const Success: Self = Self(0i32);
@@ -6462,7 +6462,7 @@ impl windows_core::RuntimeType for MobileBroadbandModemStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
     pub const Unknown: Self = Self(0i32);
@@ -6476,7 +6476,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
     pub const Unknown: Self = Self(0i32);
@@ -6491,7 +6491,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinLockState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
     pub const None: Self = Self(0i32);
@@ -6513,7 +6513,7 @@ impl windows_core::RuntimeType for MobileBroadbandPinType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
     pub const Off: Self = Self(0i32);
@@ -6526,7 +6526,7 @@ impl windows_core::RuntimeType for MobileBroadbandRadioState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
     pub const Unmanaged: Self = Self(0i32);
@@ -6547,7 +6547,7 @@ impl windows_core::RuntimeType for MobileBroadbandSlotState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -6562,7 +6562,7 @@ impl windows_core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
     pub const DeviceNotReady: Self = Self(0i32);
@@ -6581,7 +6581,7 @@ impl windows_core::RuntimeType for NetworkDeviceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
     pub const DataUsageProgress: Self = Self(0i32);
@@ -6593,7 +6593,7 @@ impl windows_core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
     pub const Gsm: Self = Self(0i32);
@@ -6617,7 +6617,7 @@ impl windows_core::RuntimeType for NetworkOperatorEventMessageType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
     pub const None: Self = Self(0i32);
@@ -6635,7 +6635,7 @@ impl windows_core::RuntimeType for NetworkRegistrationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
     pub const Wlan: Self = Self(0i32);
@@ -6648,7 +6648,7 @@ impl windows_core::RuntimeType for ProfileMediaType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
     pub const Enabled: Self = Self(0i32);
@@ -6667,7 +6667,7 @@ impl windows_core::RuntimeType for TetheringCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -6690,7 +6690,7 @@ impl windows_core::RuntimeType for TetheringOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
     pub const Unknown: Self = Self(0i32);
@@ -6705,7 +6705,7 @@ impl windows_core::RuntimeType for TetheringOperationalState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringOperationalState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiAuthenticationKind(pub i32);
 impl TetheringWiFiAuthenticationKind {
     pub const Wpa2: Self = Self(0i32);
@@ -6719,7 +6719,7 @@ impl windows_core::RuntimeType for TetheringWiFiAuthenticationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiAuthenticationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
     pub const Auto: Self = Self(0i32);
@@ -6734,7 +6734,7 @@ impl windows_core::RuntimeType for TetheringWiFiBand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiBand;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TetheringWiFiPerformancePriority(pub i32);
 impl TetheringWiFiPerformancePriority {
     pub const Default: Self = Self(0i32);
@@ -6747,7 +6747,7 @@ impl windows_core::RuntimeType for TetheringWiFiPerformancePriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringWiFiPerformancePriority;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -6766,7 +6766,7 @@ impl windows_core::RuntimeType for UiccAccessCondition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAccessCondition;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
     pub const Unknown: Self = Self(0i32);
@@ -6784,7 +6784,7 @@ impl windows_core::RuntimeType for UiccAppKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
     pub const Unknown: Self = Self(0i32);
@@ -6798,7 +6798,7 @@ impl windows_core::RuntimeType for UiccAppRecordKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UiccAppRecordKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
     pub const NoActionRequired: Self = Self(0i32);
@@ -6815,7 +6815,7 @@ impl windows_core::RuntimeType for UssdResultCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
@@ -6827,7 +6827,7 @@ impl windows_core::RuntimeType for ESimProfileInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::DateTime,

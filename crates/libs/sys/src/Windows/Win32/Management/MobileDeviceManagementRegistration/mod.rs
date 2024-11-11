@@ -86,7 +86,7 @@ pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_sys::core::HRESULT = 0x8
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = 2i32;
 pub type REGISTRATION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
@@ -94,7 +94,7 @@ pub struct MANAGEMENT_REGISTRATION_INFO {
     pub pszMDMServiceUri: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_sys::core::PWSTR,
     pub pszAuthenticationUri: windows_sys::core::PWSTR,

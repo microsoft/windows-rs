@@ -842,199 +842,199 @@ pub const WPC_SETTING_COUNT: WPC_SETTINGS = WPC_SETTINGS(37i32);
 pub const WPC_SYSTEM: u32 = 23u32;
 pub const WPC_WEB: u32 = 24u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_IM_FEATURE(pub i32);
 impl windows_core::TypeKind for WPCFLAG_IM_FEATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_IM_LEAVE(pub i32);
 impl windows_core::TypeKind for WPCFLAG_IM_LEAVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_ISBLOCKED(pub i32);
 impl windows_core::TypeKind for WPCFLAG_ISBLOCKED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_LOGOFF_TYPE(pub i32);
 impl windows_core::TypeKind for WPCFLAG_LOGOFF_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_OVERRIDE(pub i32);
 impl windows_core::TypeKind for WPCFLAG_OVERRIDE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_RESTRICTION(pub i32);
 impl windows_core::TypeKind for WPCFLAG_RESTRICTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_VISIBILITY(pub i32);
 impl windows_core::TypeKind for WPCFLAG_VISIBILITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPCFLAG_WEB_SETTING(pub i32);
 impl windows_core::TypeKind for WPCFLAG_WEB_SETTING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_APPLICATIONEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_APPLICATIONEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_APPOVERRIDEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_COMPUTERUSAGEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_CONTENTUSAGEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_CONVERSATIONINITEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_CONVERSATIONJOINEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_CUSTOMEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_CUSTOMEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_EMAILCONTACTEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_EMAILSENTEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_EMAILSENTEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_FILEDOWNLOADEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_GAMESTARTEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_GAMESTARTEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_IMCONTACTEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_IMCONTACTEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_IMFEATUREEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_IMFEATUREEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_MEDIADOWNLOADEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_SAFERAPPBLOCKED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_SETTINGSCHANGEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_URLVISITEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_URLVISITEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_WEBOVERRIDEEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(pub i32);
 impl windows_core::TypeKind for WPC_ARGS_WEBSITEVISITEVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_MEDIA_EXPLICIT(pub i32);
 impl windows_core::TypeKind for WPC_MEDIA_EXPLICIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_MEDIA_TYPE(pub i32);
 impl windows_core::TypeKind for WPC_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPC_SETTINGS(pub i32);
 impl windows_core::TypeKind for WPC_SETTINGS {
     type TypeKind = windows_core::CopyType;

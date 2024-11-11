@@ -306,7 +306,7 @@ pub struct IBluetoothLEManufacturerDataFactory_Vtbl {
     Create: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisement, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisement {
@@ -396,7 +396,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisement {
 unsafe impl Send for BluetoothLEAdvertisement {}
 unsafe impl Sync for BluetoothLEAdvertisement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementBytePattern(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementBytePattern {
@@ -473,7 +473,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementBytePattern {
 unsafe impl Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl Sync for BluetoothLEAdvertisementBytePattern {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementDataSection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementDataSection, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementDataSection {
@@ -681,7 +681,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementDataTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementFilter {
@@ -728,7 +728,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementFilter {
 unsafe impl Send for BluetoothLEAdvertisementFilter {}
 unsafe impl Sync for BluetoothLEAdvertisementFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisher, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisher {
@@ -849,7 +849,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisher {
 unsafe impl Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl Sync for BluetoothLEAdvertisementPublisher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
@@ -888,7 +888,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChange
 unsafe impl Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementReceivedEventArgs {
@@ -990,7 +990,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
 unsafe impl Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcher {
@@ -1149,7 +1149,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcher {
 unsafe impl Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl Sync for BluetoothLEAdvertisementWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
@@ -1174,7 +1174,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventAr
 unsafe impl Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEManufacturerData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEManufacturerData, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEManufacturerData {
@@ -1240,7 +1240,7 @@ impl windows_core::RuntimeName for BluetoothLEManufacturerData {
 unsafe impl Send for BluetoothLEManufacturerData {}
 unsafe impl Sync for BluetoothLEManufacturerData {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
     pub const None: Self = Self(0u32);
@@ -1290,7 +1290,7 @@ impl core::ops::Not for BluetoothLEAdvertisementFlags {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
     pub const Created: Self = Self(0i32);
@@ -1307,7 +1307,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
     pub const ConnectableUndirected: Self = Self(0i32);
@@ -1324,7 +1324,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1340,7 +1340,7 @@ impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {
     pub const Passive: Self = Self(0i32);

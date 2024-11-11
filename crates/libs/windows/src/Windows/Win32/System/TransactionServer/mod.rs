@@ -389,19 +389,19 @@ pub const mtsErrUserPasswdNotValid: MTSAdminErrorCodes = MTSAdminErrorCodes(-214
 pub const mtsExportUsers: MTSPackageExportOptions = MTSPackageExportOptions(1i32);
 pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSAdminErrorCodes(pub i32);
 impl windows_core::TypeKind for MTSAdminErrorCodes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSPackageExportOptions(pub i32);
 impl windows_core::TypeKind for MTSPackageExportOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MTSPackageInstallOptions(pub i32);
 impl windows_core::TypeKind for MTSPackageInstallOptions {
     type TypeKind = windows_core::CopyType;

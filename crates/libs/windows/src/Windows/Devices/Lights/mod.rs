@@ -160,7 +160,7 @@ pub struct ILampStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Lamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Lamp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Lamp, super::super::Foundation::IClosable);
@@ -268,7 +268,7 @@ impl windows_core::RuntimeName for Lamp {
 unsafe impl Send for Lamp {}
 unsafe impl Sync for Lamp {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArray(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArray, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArray {
@@ -492,7 +492,7 @@ impl windows_core::RuntimeName for LampArray {
 unsafe impl Send for LampArray {}
 unsafe impl Sync for LampArray {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampAvailabilityChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampAvailabilityChangedEventArgs {
@@ -517,7 +517,7 @@ impl windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
 unsafe impl Send for LampAvailabilityChangedEventArgs {}
 unsafe impl Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LampInfo {
@@ -608,7 +608,7 @@ impl windows_core::RuntimeName for LampInfo {
 unsafe impl Send for LampInfo {}
 unsafe impl Sync for LampInfo {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
     pub const Undefined: Self = Self(0i32);
@@ -633,7 +633,7 @@ impl windows_core::RuntimeType for LampArrayKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
     pub const Undefined: Self = Self(0u32);

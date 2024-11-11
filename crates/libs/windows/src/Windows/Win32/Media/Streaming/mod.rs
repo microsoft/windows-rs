@@ -33,19 +33,19 @@ pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TR
 pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(2i32);
 pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
 impl windows_core::TypeKind for MF_MEDIASOURCE_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
@@ -59,7 +59,7 @@ impl windows_core::TypeKind for CapturedMetadataExposureCompensation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CapturedMetadataISOGains {
     pub AnalogGain: f32,
     pub DigitalGain: f32,
@@ -73,7 +73,7 @@ impl windows_core::TypeKind for CapturedMetadataISOGains {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CapturedMetadataWhiteBalanceGains {
     pub R: f32,
     pub G: f32,
@@ -88,7 +88,7 @@ impl windows_core::TypeKind for CapturedMetadataWhiteBalanceGains {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
@@ -104,7 +104,7 @@ impl windows_core::TypeKind for FaceCharacterization {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -118,7 +118,7 @@ impl windows_core::TypeKind for FaceCharacterizationBlobHeader {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceRectInfo {
     pub Region: super::super::Foundation::RECT,
     pub confidenceLevel: i32,
@@ -132,7 +132,7 @@ impl windows_core::TypeKind for FaceRectInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -146,7 +146,7 @@ impl windows_core::TypeKind for FaceRectInfoBlobHeader {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
@@ -160,7 +160,7 @@ impl windows_core::TypeKind for HistogramBlobHeader {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
@@ -175,7 +175,7 @@ impl windows_core::TypeKind for HistogramDataHeader {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramGrid {
     pub Width: u32,
     pub Height: u32,
@@ -190,7 +190,7 @@ impl windows_core::TypeKind for HistogramGrid {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HistogramHeader {
     pub Size: u32,
     pub Bins: u32,
@@ -207,7 +207,7 @@ impl windows_core::TypeKind for HistogramHeader {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,

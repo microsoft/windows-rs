@@ -611,7 +611,7 @@ pub struct IHttpTransportInformation_Vtbl {
     ServerIntermediateCertificates: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpBufferContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpBufferContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBufferContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
@@ -721,7 +721,7 @@ impl windows_core::RuntimeName for HttpBufferContent {
 unsafe impl Send for HttpBufferContent {}
 unsafe impl Sync for HttpBufferContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpClient, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -997,7 +997,7 @@ impl windows_core::RuntimeName for HttpClient {
 unsafe impl Send for HttpClient {}
 unsafe impl Sync for HttpClient {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookie(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCookie, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCookie, super::super::Foundation::IStringable);
@@ -1102,7 +1102,7 @@ unsafe impl Send for HttpCookie {}
 unsafe impl Sync for HttpCookie {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookieCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -1168,7 +1168,7 @@ unsafe impl Send for HttpCookieCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpCookieCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCookieManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCookieManager, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpCookieManager {
@@ -1224,7 +1224,7 @@ impl windows_core::RuntimeName for HttpCookieManager {
 unsafe impl Send for HttpCookieManager {}
 unsafe impl Sync for HttpCookieManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpFormUrlEncodedContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpFormUrlEncodedContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpFormUrlEncodedContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
@@ -1324,7 +1324,7 @@ impl windows_core::RuntimeName for HttpFormUrlEncodedContent {
 unsafe impl Send for HttpFormUrlEncodedContent {}
 unsafe impl Sync for HttpFormUrlEncodedContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpGetBufferResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpGetBufferResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetBufferResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -1390,7 +1390,7 @@ impl windows_core::RuntimeName for HttpGetBufferResult {
 unsafe impl Send for HttpGetBufferResult {}
 unsafe impl Sync for HttpGetBufferResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpGetInputStreamResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpGetInputStreamResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetInputStreamResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -1456,7 +1456,7 @@ impl windows_core::RuntimeName for HttpGetInputStreamResult {
 unsafe impl Send for HttpGetInputStreamResult {}
 unsafe impl Sync for HttpGetInputStreamResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpGetStringResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpGetStringResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetStringResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -1521,7 +1521,7 @@ impl windows_core::RuntimeName for HttpGetStringResult {
 unsafe impl Send for HttpGetStringResult {}
 unsafe impl Sync for HttpGetStringResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMethod(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpMethod, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpMethod, super::super::Foundation::IStringable);
@@ -1611,7 +1611,7 @@ unsafe impl Send for HttpMethod {}
 unsafe impl Sync for HttpMethod {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartContent(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartContent, windows_core::IUnknown, windows_core::IInspectable);
@@ -1744,7 +1744,7 @@ unsafe impl Send for HttpMultipartContent {}
 unsafe impl Sync for HttpMultipartContent {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpMultipartFormDataContent(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartFormDataContent, windows_core::IUnknown, windows_core::IInspectable);
@@ -1884,7 +1884,7 @@ unsafe impl Send for HttpMultipartFormDataContent {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for HttpMultipartFormDataContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpRequestMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpRequestMessage, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -2011,7 +2011,7 @@ impl windows_core::RuntimeName for HttpRequestMessage {
 unsafe impl Send for HttpRequestMessage {}
 unsafe impl Sync for HttpRequestMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpRequestResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -2069,7 +2069,7 @@ impl windows_core::RuntimeName for HttpRequestResult {
 unsafe impl Send for HttpRequestResult {}
 unsafe impl Sync for HttpRequestResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpResponseMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpResponseMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpResponseMessage, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
@@ -2210,7 +2210,7 @@ impl windows_core::RuntimeName for HttpResponseMessage {
 unsafe impl Send for HttpResponseMessage {}
 unsafe impl Sync for HttpResponseMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpStreamContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpStreamContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpStreamContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
@@ -2310,7 +2310,7 @@ impl windows_core::RuntimeName for HttpStreamContent {
 unsafe impl Send for HttpStreamContent {}
 unsafe impl Sync for HttpStreamContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpStringContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpStringContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpStringContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
@@ -2420,7 +2420,7 @@ impl windows_core::RuntimeName for HttpStringContent {
 unsafe impl Send for HttpStringContent {}
 unsafe impl Sync for HttpStringContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpTransportInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpTransportInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpTransportInformation, super::super::Foundation::IStringable);
@@ -2478,7 +2478,7 @@ impl windows_core::RuntimeName for HttpTransportInformation {
 unsafe impl Send for HttpTransportInformation {}
 unsafe impl Sync for HttpTransportInformation {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
     pub const ResponseContentRead: Self = Self(0i32);
@@ -2491,7 +2491,7 @@ impl windows_core::RuntimeType for HttpCompletionOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpCompletionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);
@@ -2512,7 +2512,7 @@ impl windows_core::RuntimeType for HttpProgressStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
     pub const None: Self = Self(0i32);
@@ -2526,7 +2526,7 @@ impl windows_core::RuntimeType for HttpResponseMessageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpResponseMessageSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
     pub const None: Self = Self(0i32);
@@ -2595,7 +2595,7 @@ impl windows_core::RuntimeType for HttpStatusCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpStatusCode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
     pub const None: Self = Self(0i32);

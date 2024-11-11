@@ -2114,151 +2114,151 @@ pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
 pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
 pub const WARNING_EXTENDED_LESS: i32 = 20026i32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for DHCPV6_STATELESS_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FAILOVER_MODE(pub i32);
 impl windows_core::TypeKind for DHCP_FAILOVER_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FAILOVER_SERVER(pub i32);
 impl windows_core::TypeKind for DHCP_FAILOVER_SERVER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FILTER_LIST_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_FILTER_LIST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FORCE_FLAG(pub i32);
 impl windows_core::TypeKind for DHCP_FORCE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_OPTION_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_OPTION_SCOPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
 impl windows_core::TypeKind for DHCP_OPTION_SCOPE_TYPE6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_OPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
 impl windows_core::TypeKind for DHCP_POLICY_FIELDS_TO_UPDATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_ATTR_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_POL_ATTR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_COMPARATOR(pub i32);
 impl windows_core::TypeKind for DHCP_POL_COMPARATOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_LOGIC_OPER(pub i32);
 impl windows_core::TypeKind for DHCP_POL_LOGIC_OPER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for DHCP_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_PROPERTY_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_PROPERTY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SCAN_FLAG(pub i32);
 impl windows_core::TypeKind for DHCP_SCAN_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_SEARCH_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
 impl windows_core::TypeKind for DHCP_SEARCH_INFO_TYPE_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
 impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
 impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_STATE(pub i32);
 impl windows_core::TypeKind for DHCP_SUBNET_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSM_STATE(pub i32);
 impl windows_core::TypeKind for FSM_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QuarantineStatus(pub i32);
 impl windows_core::TypeKind for QuarantineStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StatusCode(pub i32);
 impl windows_core::TypeKind for StatusCode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DATE_TIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -2272,7 +2272,7 @@ impl windows_core::TypeKind for DATE_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
@@ -2289,7 +2289,7 @@ impl windows_core::TypeKind for DHCPAPI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPCAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
@@ -2304,7 +2304,7 @@ impl windows_core::TypeKind for DHCPCAPI_CLASSID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPCAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPAPI_PARAMS,
@@ -2318,7 +2318,7 @@ impl windows_core::TypeKind for DHCPCAPI_PARAMS_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPDS_SERVER {
     pub Version: u32,
     pub ServerName: windows_core::PWSTR,
@@ -2337,7 +2337,7 @@ impl windows_core::TypeKind for DHCPDS_SERVER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPDS_SERVERS {
     pub Flags: u32,
     pub NumElements: u32,
@@ -2352,7 +2352,7 @@ impl windows_core::TypeKind for DHCPDS_SERVERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -2385,7 +2385,7 @@ impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
@@ -2399,7 +2399,7 @@ impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -2433,7 +2433,7 @@ impl windows_core::TypeKind for DHCPV4_FAILOVER_CLIENT_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6CAPI_CLASSID {
     pub Flags: u32,
     pub Data: *mut u8,
@@ -2448,7 +2448,7 @@ impl windows_core::TypeKind for DHCPV6CAPI_CLASSID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6CAPI_PARAMS {
     pub Flags: u32,
     pub OptionId: u32,
@@ -2465,7 +2465,7 @@ impl windows_core::TypeKind for DHCPV6CAPI_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6CAPI_PARAMS_ARRAY {
     pub nParams: u32,
     pub Params: *mut DHCPV6CAPI_PARAMS,
@@ -2479,7 +2479,7 @@ impl windows_core::TypeKind for DHCPV6CAPI_PARAMS_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6Prefix {
     pub prefix: [u8; 16],
     pub prefixLength: u32,
@@ -2496,7 +2496,7 @@ impl windows_core::TypeKind for DHCPV6Prefix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6PrefixLeaseInformation {
     pub nPrefixes: u32,
     pub prefixArray: *mut DHCPV6Prefix,
@@ -2518,7 +2518,7 @@ impl windows_core::TypeKind for DHCPV6PrefixLeaseInformation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: super::super::Foundation::BOOL,
@@ -2538,7 +2538,7 @@ impl windows_core::TypeKind for DHCPV6_BIND_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCPV6_BIND_ELEMENT,
@@ -2552,7 +2552,7 @@ impl windows_core::TypeKind for DHCPV6_BIND_ELEMENT_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IPV6_ADDRESS,
@@ -2566,7 +2566,7 @@ impl windows_core::TypeKind for DHCPV6_IP_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAMS {
     pub Status: super::super::Foundation::BOOL,
     pub PurgeInterval: u32,
@@ -2580,7 +2580,7 @@ impl windows_core::TypeKind for DHCPV6_STATELESS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub NumStatelessClientsAdded: u64,
@@ -2595,7 +2595,7 @@ impl windows_core::TypeKind for DHCPV6_STATELESS_SCOPE_STATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: u32,
     pub ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
@@ -2609,7 +2609,7 @@ impl windows_core::TypeKind for DHCPV6_STATELESS_STATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ADDR_PATTERN {
     pub MatchHWType: super::super::Foundation::BOOL,
     pub HWType: u8,
@@ -2626,7 +2626,7 @@ impl windows_core::TypeKind for DHCP_ADDR_PATTERN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTIONS {
     pub Flags: u32,
     pub NonVendorOptions: *mut DHCP_OPTION_ARRAY,
@@ -2642,7 +2642,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTIONS_0 {
     pub Option: DHCP_OPTION,
     pub VendorName: windows_core::PWSTR,
@@ -2657,7 +2657,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTIONS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES {
     pub Flags: u32,
     pub NumElements: u32,
@@ -2672,7 +2672,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
@@ -2688,7 +2688,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Flags: u32,
     pub NumElements: u32,
@@ -2703,7 +2703,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_PB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
@@ -2719,7 +2719,7 @@ impl windows_core::TypeKind for DHCP_ALL_OPTION_VALUES_PB_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_ATTRIB {
     pub DhcpAttribId: u32,
     pub DhcpAttribType: u32,
@@ -2734,7 +2734,7 @@ impl windows_core::TypeKind for DHCP_ATTRIB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_ATTRIB_0 {
     pub DhcpAttribBool: super::super::Foundation::BOOL,
     pub DhcpAttribUlong: u32,
@@ -2748,7 +2748,7 @@ impl windows_core::TypeKind for DHCP_ATTRIB_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_ATTRIB_ARRAY {
     pub NumElements: u32,
     pub DhcpAttribs: *mut DHCP_ATTRIB,
@@ -2762,7 +2762,7 @@ impl windows_core::TypeKind for DHCP_ATTRIB_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BINARY_DATA {
     pub DataLength: u32,
     pub Data: *mut u8,
@@ -2776,7 +2776,7 @@ impl windows_core::TypeKind for DHCP_BINARY_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: super::super::Foundation::BOOL,
@@ -2795,7 +2795,7 @@ impl windows_core::TypeKind for DHCP_BIND_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_BIND_ELEMENT,
@@ -2809,7 +2809,7 @@ impl windows_core::TypeKind for DHCP_BIND_ELEMENT_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_BOOTP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
@@ -2825,7 +2825,7 @@ impl windows_core::TypeKind for DHCP_BOOTP_IP_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CALLOUT_TABLE {
     pub DhcpControlHook: LPDHCP_CONTROL,
     pub DhcpNewPktHook: LPDHCP_NEWPKT,
@@ -2847,7 +2847,7 @@ impl windows_core::TypeKind for DHCP_CALLOUT_TABLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
@@ -2865,7 +2865,7 @@ impl windows_core::TypeKind for DHCP_CLASS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO,
@@ -2879,7 +2879,7 @@ impl windows_core::TypeKind for DHCP_CLASS_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Classes: *mut DHCP_CLASS_INFO_V6,
@@ -2893,7 +2893,7 @@ impl windows_core::TypeKind for DHCP_CLASS_INFO_ARRAY_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
@@ -2912,7 +2912,7 @@ impl windows_core::TypeKind for DHCP_CLASS_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -2937,7 +2937,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
@@ -2951,7 +2951,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -2970,7 +2970,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO,
@@ -2984,7 +2984,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V4,
@@ -2998,7 +2998,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V5,
@@ -3012,7 +3012,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_V6,
@@ -3026,7 +3026,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
@@ -3040,7 +3040,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_ARRAY_VQ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_EX {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -3067,7 +3067,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_EX,
@@ -3081,7 +3081,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_EX_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_PB {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -3107,7 +3107,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_PB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut *mut DHCP_CLIENT_INFO_PB,
@@ -3121,7 +3121,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_PB_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V4 {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -3141,7 +3141,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V5 {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -3162,7 +3162,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
@@ -3183,7 +3183,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_CLIENT_INFO_VQ {
     pub ClientIpAddress: u32,
     pub SubnetMask: u32,
@@ -3207,7 +3207,7 @@ impl windows_core::TypeKind for DHCP_CLIENT_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub PrimaryServer: u32,
     pub SecondaryServer: u32,
@@ -3233,7 +3233,7 @@ impl windows_core::TypeKind for DHCP_FAILOVER_RELATIONSHIP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub NumElements: u32,
     pub pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
@@ -3247,7 +3247,7 @@ impl windows_core::TypeKind for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
     pub AddrFree: u32,
@@ -3266,7 +3266,7 @@ impl windows_core::TypeKind for DHCP_FAILOVER_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_ADD_INFO {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_core::PWSTR,
@@ -3281,7 +3281,7 @@ impl windows_core::TypeKind for DHCP_FILTER_ADD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_ENUM_INFO {
     pub NumElements: u32,
     pub pEnumRecords: *mut DHCP_FILTER_RECORD,
@@ -3295,7 +3295,7 @@ impl windows_core::TypeKind for DHCP_FILTER_ENUM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
     pub EnforceAllowList: super::super::Foundation::BOOL,
     pub EnforceDenyList: super::super::Foundation::BOOL,
@@ -3309,7 +3309,7 @@ impl windows_core::TypeKind for DHCP_FILTER_GLOBAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_FILTER_RECORD {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_core::PWSTR,
@@ -3323,7 +3323,7 @@ impl windows_core::TypeKind for DHCP_FILTER_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_HOST_INFO {
     pub IpAddress: u32,
     pub NetBiosName: windows_core::PWSTR,
@@ -3338,7 +3338,7 @@ impl windows_core::TypeKind for DHCP_HOST_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_HOST_INFO_V6 {
     pub IpAddress: DHCP_IPV6_ADDRESS,
     pub NetBiosName: windows_core::PWSTR,
@@ -3353,7 +3353,7 @@ impl windows_core::TypeKind for DHCP_HOST_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IPV6_ADDRESS {
     pub HighOrderBits: u64,
     pub LowOrderBits: u64,
@@ -3367,7 +3367,7 @@ impl windows_core::TypeKind for DHCP_IPV6_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut u32,
@@ -3381,7 +3381,7 @@ impl windows_core::TypeKind for DHCP_IP_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_CLUSTER {
     pub ClusterAddress: u32,
     pub ClusterMask: u32,
@@ -3395,7 +3395,7 @@ impl windows_core::TypeKind for DHCP_IP_CLUSTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RANGE {
     pub StartAddress: u32,
     pub EndAddress: u32,
@@ -3409,7 +3409,7 @@ impl windows_core::TypeKind for DHCP_IP_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_IP_RANGE,
@@ -3423,7 +3423,7 @@ impl windows_core::TypeKind for DHCP_IP_RANGE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RANGE_V6 {
     pub StartAddress: DHCP_IPV6_ADDRESS,
     pub EndAddress: DHCP_IPV6_ADDRESS,
@@ -3437,7 +3437,7 @@ impl windows_core::TypeKind for DHCP_IP_RANGE_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
@@ -3451,7 +3451,7 @@ impl windows_core::TypeKind for DHCP_IP_RESERVATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION_INFO {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: DHCP_BINARY_DATA,
@@ -3469,7 +3469,7 @@ impl windows_core::TypeKind for DHCP_IP_RESERVATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedIpAddress: u32,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
@@ -3484,7 +3484,7 @@ impl windows_core::TypeKind for DHCP_IP_RESERVATION_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_BINARY_DATA,
@@ -3499,7 +3499,7 @@ impl windows_core::TypeKind for DHCP_IP_RESERVATION_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO {
     pub Discovers: u32,
     pub Offers: u32,
@@ -3521,7 +3521,7 @@ impl windows_core::TypeKind for DHCP_MIB_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO_V5 {
     pub Discovers: u32,
     pub Offers: u32,
@@ -3552,7 +3552,7 @@ impl windows_core::TypeKind for DHCP_MIB_INFO_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO_V6 {
     pub Solicits: u32,
     pub Advertises: u32,
@@ -3577,7 +3577,7 @@ impl windows_core::TypeKind for DHCP_MIB_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_MIB_INFO_VQ {
     pub Discovers: u32,
     pub Offers: u32,
@@ -3606,7 +3606,7 @@ impl windows_core::TypeKind for DHCP_MIB_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION {
     pub OptionID: u32,
     pub OptionName: windows_core::PWSTR,
@@ -3623,7 +3623,7 @@ impl windows_core::TypeKind for DHCP_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_ARRAY {
     pub NumElements: u32,
     pub Options: *mut DHCP_OPTION,
@@ -3637,7 +3637,7 @@ impl windows_core::TypeKind for DHCP_OPTION_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_DATA {
     pub NumElements: u32,
     pub Elements: *mut DHCP_OPTION_DATA_ELEMENT,
@@ -3651,7 +3651,7 @@ impl windows_core::TypeKind for DHCP_OPTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_DATA_ELEMENT {
     pub OptionType: DHCP_OPTION_DATA_TYPE,
     pub Element: DHCP_OPTION_DATA_ELEMENT_0,
@@ -3665,7 +3665,7 @@ impl windows_core::TypeKind for DHCP_OPTION_DATA_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub ByteOption: u8,
     pub WordOption: u16,
@@ -3686,7 +3686,7 @@ impl windows_core::TypeKind for DHCP_OPTION_DATA_ELEMENT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_LIST {
     pub NumOptions: u32,
     pub Options: *mut DHCP_OPTION_VALUE,
@@ -3700,7 +3700,7 @@ impl windows_core::TypeKind for DHCP_OPTION_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO_0,
@@ -3714,7 +3714,7 @@ impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub DefaultScopeInfo: *mut core::ffi::c_void,
     pub GlobalScopeInfo: *mut core::ffi::c_void,
@@ -3731,7 +3731,7 @@ impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
@@ -3745,7 +3745,7 @@ impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub DefaultScopeInfo: *mut core::ffi::c_void,
     pub SubnetScopeInfo: DHCP_IPV6_ADDRESS,
@@ -3760,7 +3760,7 @@ impl windows_core::TypeKind for DHCP_OPTION_SCOPE_INFO6_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_VALUE {
     pub OptionID: u32,
     pub Value: DHCP_OPTION_DATA,
@@ -3774,7 +3774,7 @@ impl windows_core::TypeKind for DHCP_OPTION_VALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_OPTION_VALUE_ARRAY {
     pub NumElements: u32,
     pub Values: *mut DHCP_OPTION_VALUE,
@@ -3788,7 +3788,7 @@ impl windows_core::TypeKind for DHCP_OPTION_VALUE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: u32,
     pub dwNumPacketsDuplicate: u32,
@@ -3819,7 +3819,7 @@ impl windows_core::TypeKind for DHCP_PERF_STATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_core::PWSTR,
     pub IsGlobalPolicy: super::super::Foundation::BOOL,
@@ -3840,7 +3840,7 @@ impl windows_core::TypeKind for DHCP_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY,
@@ -3854,7 +3854,7 @@ impl windows_core::TypeKind for DHCP_POLICY_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_core::PWSTR,
     pub IsGlobalPolicy: super::super::Foundation::BOOL,
@@ -3876,7 +3876,7 @@ impl windows_core::TypeKind for DHCP_POLICY_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POLICY_EX,
@@ -3890,7 +3890,7 @@ impl windows_core::TypeKind for DHCP_POLICY_EX_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_COND {
     pub ParentExpr: u32,
     pub Type: DHCP_POL_ATTR_TYPE,
@@ -3910,7 +3910,7 @@ impl windows_core::TypeKind for DHCP_POL_COND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_COND,
@@ -3924,7 +3924,7 @@ impl windows_core::TypeKind for DHCP_POL_COND_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_EXPR {
     pub ParentExpr: u32,
     pub Operator: DHCP_POL_LOGIC_OPER,
@@ -3938,7 +3938,7 @@ impl windows_core::TypeKind for DHCP_POL_EXPR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_POL_EXPR,
@@ -3952,7 +3952,7 @@ impl windows_core::TypeKind for DHCP_POL_EXPR_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_PROPERTY {
     pub ID: DHCP_PROPERTY_ID,
     pub Type: DHCP_PROPERTY_TYPE,
@@ -3967,7 +3967,7 @@ impl windows_core::TypeKind for DHCP_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_PROPERTY_0 {
     pub ByteValue: u8,
     pub WordValue: u16,
@@ -3984,7 +3984,7 @@ impl windows_core::TypeKind for DHCP_PROPERTY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_PROPERTY_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_PROPERTY,
@@ -3998,7 +3998,7 @@ impl windows_core::TypeKind for DHCP_PROPERTY_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
@@ -4012,7 +4012,7 @@ impl windows_core::TypeKind for DHCP_RESERVATION_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE {
     pub ReservedIpAddress: u32,
     pub ReservedIpSubnetAddress: u32,
@@ -4026,7 +4026,7 @@ impl windows_core::TypeKind for DHCP_RESERVED_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
@@ -4040,7 +4040,7 @@ impl windows_core::TypeKind for DHCP_RESERVED_SCOPE6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: u32,
     pub ScanFlag: DHCP_SCAN_FLAG,
@@ -4054,7 +4054,7 @@ impl windows_core::TypeKind for DHCP_SCAN_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SCAN_LIST {
     pub NumScanItems: u32,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
@@ -4068,7 +4068,7 @@ impl windows_core::TypeKind for DHCP_SCAN_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO {
     pub SearchType: DHCP_SEARCH_INFO_TYPE,
     pub SearchInfo: DHCP_SEARCH_INFO_0,
@@ -4082,7 +4082,7 @@ impl windows_core::TypeKind for DHCP_SEARCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_0 {
     pub ClientIpAddress: u32,
     pub ClientHardwareAddress: DHCP_BINARY_DATA,
@@ -4097,7 +4097,7 @@ impl windows_core::TypeKind for DHCP_SEARCH_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SEARCH_INFO_V6 {
     pub SearchType: DHCP_SEARCH_INFO_TYPE_V6,
     pub SearchInfo: DHCP_SEARCH_INFO_V6_0,
@@ -4111,7 +4111,7 @@ impl windows_core::TypeKind for DHCP_SEARCH_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
@@ -4126,7 +4126,7 @@ impl windows_core::TypeKind for DHCP_SEARCH_INFO_V6_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -4147,7 +4147,7 @@ impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -4172,7 +4172,7 @@ impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub UnicastFlag: super::super::Foundation::BOOL,
     pub RapidCommitFlag: super::super::Foundation::BOOL,
@@ -4193,7 +4193,7 @@ impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -4221,7 +4221,7 @@ impl windows_core::TypeKind for DHCP_SERVER_CONFIG_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_OPTIONS {
     pub MessageType: *mut u8,
     pub SubnetMask: *mut u32,
@@ -4258,7 +4258,7 @@ impl windows_core::TypeKind for DHCP_SERVER_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: windows_core::PWSTR,
     pub DefaultUserClassName: windows_core::PWSTR,
@@ -4272,7 +4272,7 @@ impl windows_core::TypeKind for DHCP_SERVER_SPECIFIC_STRINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_0,
@@ -4286,7 +4286,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -4303,7 +4303,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V4 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V4_0,
@@ -4317,7 +4317,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -4334,7 +4334,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V5 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V5_0,
@@ -4348,7 +4348,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub IpRange: *mut DHCP_BOOTP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -4365,7 +4365,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DHCP_SUBNET_ELEMENT_DATA_V6 {
     pub ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
     pub Element: DHCP_SUBNET_ELEMENT_DATA_V6_0,
@@ -4379,7 +4379,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     pub IpRange: *mut DHCP_IP_RANGE_V6,
     pub ReservedIp: *mut DHCP_IP_RESERVATION_V6,
@@ -4394,7 +4394,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
@@ -4408,7 +4408,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
@@ -4422,7 +4422,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
@@ -4436,7 +4436,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
@@ -4450,7 +4450,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_INFO {
     pub SubnetAddress: u32,
     pub SubnetMask: u32,
@@ -4468,7 +4468,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_INFO_V6 {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub Prefix: u32,
@@ -4487,7 +4487,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUBNET_INFO_VQ {
     pub SubnetAddress: u32,
     pub SubnetMask: u32,
@@ -4510,7 +4510,7 @@ impl windows_core::TypeKind for DHCP_SUBNET_INFO_VQ {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE {
     pub cEntries: u32,
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
@@ -4524,7 +4524,7 @@ impl windows_core::TypeKind for DHCP_SUPER_SCOPE_TABLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SubnetAddress: u32,
     pub SuperScopeNumber: u32,
@@ -4540,7 +4540,7 @@ impl windows_core::TypeKind for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWORD_DWORD {
     pub DWord1: u32,
     pub DWord2: u32,
@@ -4554,7 +4554,7 @@ impl windows_core::TypeKind for DWORD_DWORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
@@ -4570,7 +4570,7 @@ impl windows_core::TypeKind for SCOPE_MIB_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO_V5 {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,
@@ -4586,7 +4586,7 @@ impl windows_core::TypeKind for SCOPE_MIB_INFO_V5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO_V6 {
     pub Subnet: DHCP_IPV6_ADDRESS,
     pub NumAddressesInuse: u64,
@@ -4602,7 +4602,7 @@ impl windows_core::TypeKind for SCOPE_MIB_INFO_V6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_MIB_INFO_VQ {
     pub Subnet: u32,
     pub NumAddressesInuse: u32,

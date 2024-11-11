@@ -170,7 +170,7 @@ pub struct IWorkflowPrintTicketValidationResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketCapabilities {
@@ -329,7 +329,7 @@ impl windows_core::RuntimeName for PrintTicketCapabilities {
 unsafe impl Send for PrintTicketCapabilities {}
 unsafe impl Sync for PrintTicketCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketFeature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketFeature, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketFeature {
@@ -412,7 +412,7 @@ impl windows_core::RuntimeName for PrintTicketFeature {
 unsafe impl Send for PrintTicketFeature {}
 unsafe impl Sync for PrintTicketFeature {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketOption(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketOption, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketOption {
@@ -489,7 +489,7 @@ impl windows_core::RuntimeName for PrintTicketOption {
 unsafe impl Send for PrintTicketOption {}
 unsafe impl Sync for PrintTicketOption {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketParameterDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketParameterDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketParameterDefinition {
@@ -557,7 +557,7 @@ impl windows_core::RuntimeName for PrintTicketParameterDefinition {
 unsafe impl Send for PrintTicketParameterDefinition {}
 unsafe impl Sync for PrintTicketParameterDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketParameterInitializer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketParameterInitializer, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketParameterInitializer {
@@ -611,7 +611,7 @@ impl windows_core::RuntimeName for PrintTicketParameterInitializer {
 unsafe impl Send for PrintTicketParameterInitializer {}
 unsafe impl Sync for PrintTicketParameterInitializer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTicketValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTicketValue, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTicketValue {
@@ -650,7 +650,7 @@ impl windows_core::RuntimeName for PrintTicketValue {
 unsafe impl Send for PrintTicketValue {}
 unsafe impl Sync for PrintTicketValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WorkflowPrintTicket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WorkflowPrintTicket, windows_core::IUnknown, windows_core::IInspectable);
 impl WorkflowPrintTicket {
@@ -854,7 +854,7 @@ impl windows_core::RuntimeName for WorkflowPrintTicket {
 unsafe impl Send for WorkflowPrintTicket {}
 unsafe impl Sync for WorkflowPrintTicket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WorkflowPrintTicketValidationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WorkflowPrintTicketValidationResult {
@@ -886,7 +886,7 @@ impl windows_core::RuntimeName for WorkflowPrintTicketValidationResult {
 unsafe impl Send for WorkflowPrintTicketValidationResult {}
 unsafe impl Sync for WorkflowPrintTicketValidationResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
     pub const PickOne: Self = Self(0i32);
@@ -899,7 +899,7 @@ impl windows_core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
     pub const Integer: Self = Self(0i32);
@@ -913,7 +913,7 @@ impl windows_core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
     pub const Integer: Self = Self(0i32);

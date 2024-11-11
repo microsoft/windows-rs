@@ -376,7 +376,7 @@ pub struct ISceneVisualStatics_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneObject, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -503,7 +503,7 @@ impl windows_core::RuntimeName for SceneObject {
 unsafe impl Send for SceneObject {}
 unsafe impl Sync for SceneObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneBoundingBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneBoundingBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneBoundingBox, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -670,7 +670,7 @@ impl windows_core::RuntimeName for SceneBoundingBox {
 unsafe impl Send for SceneBoundingBox {}
 unsafe impl Sync for SceneBoundingBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneComponent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -805,7 +805,7 @@ unsafe impl Send for SceneComponent {}
 unsafe impl Sync for SceneComponent {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneComponentCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -1024,7 +1024,7 @@ unsafe impl Send for SceneComponentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneComponentCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMaterial(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -1151,7 +1151,7 @@ impl windows_core::RuntimeName for SceneMaterial {
 unsafe impl Send for SceneMaterial {}
 unsafe impl Sync for SceneMaterial {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMaterialInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMaterialInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMaterialInput, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -1278,7 +1278,7 @@ impl windows_core::RuntimeName for SceneMaterialInput {
 unsafe impl Send for SceneMaterialInput {}
 unsafe impl Sync for SceneMaterialInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMesh(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMesh, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMesh, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -1447,7 +1447,7 @@ unsafe impl Send for SceneMesh {}
 unsafe impl Sync for SceneMesh {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMeshMaterialAttributeMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneMeshMaterialAttributeMap, windows_core::IUnknown, windows_core::IInspectable);
@@ -1632,7 +1632,7 @@ unsafe impl Send for SceneMeshMaterialAttributeMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneMeshMaterialAttributeMap {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneRendererComponent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneRendererComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -1766,7 +1766,7 @@ impl windows_core::RuntimeName for SceneRendererComponent {
 unsafe impl Send for SceneRendererComponent {}
 unsafe impl Sync for SceneRendererComponent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMeshRendererComponent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMeshRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMeshRendererComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -1949,7 +1949,7 @@ impl windows_core::RuntimeName for SceneMeshRendererComponent {
 unsafe impl Send for SceneMeshRendererComponent {}
 unsafe impl Sync for SceneMeshRendererComponent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScenePbrMaterial(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScenePbrMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScenePbrMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -2186,7 +2186,7 @@ impl windows_core::RuntimeName for ScenePbrMaterial {
 unsafe impl Send for ScenePbrMaterial {}
 unsafe impl Sync for ScenePbrMaterial {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMetallicRoughnessMaterial(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMetallicRoughnessMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMetallicRoughnessMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -2499,7 +2499,7 @@ impl windows_core::RuntimeName for SceneMetallicRoughnessMaterial {
 unsafe impl Send for SceneMetallicRoughnessMaterial {}
 unsafe impl Sync for SceneMetallicRoughnessMaterial {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneModelTransform(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneModelTransform, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneModelTransform, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -2700,7 +2700,7 @@ impl windows_core::RuntimeName for SceneModelTransform {
 unsafe impl Send for SceneModelTransform {}
 unsafe impl Sync for SceneModelTransform {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneNode, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -2878,7 +2878,7 @@ unsafe impl Send for SceneNode {}
 unsafe impl Sync for SceneNode {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneNodeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -3097,7 +3097,7 @@ unsafe impl Send for SceneNodeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for SceneNodeCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneSurfaceMaterialInput(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneSurfaceMaterialInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneSurfaceMaterialInput, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -3284,7 +3284,7 @@ impl windows_core::RuntimeName for SceneSurfaceMaterialInput {
 unsafe impl Send for SceneSurfaceMaterialInput {}
 unsafe impl Sync for SceneSurfaceMaterialInput {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneVisual, super::super::super::Foundation::IClosable, super::IAnimationObject);
@@ -3710,7 +3710,7 @@ impl windows_core::RuntimeName for SceneVisual {
 unsafe impl Send for SceneVisual {}
 unsafe impl Sync for SceneVisual {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
     pub const Opaque: Self = Self(0i32);
@@ -3724,7 +3724,7 @@ impl windows_core::RuntimeType for SceneAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
     pub const Index: Self = Self(0i32);
@@ -3742,7 +3742,7 @@ impl windows_core::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
     pub const MeshRendererComponent: Self = Self(0i32);
@@ -3754,7 +3754,7 @@ impl windows_core::RuntimeType for SceneComponentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
     pub const ClampToEdge: Self = Self(0i32);

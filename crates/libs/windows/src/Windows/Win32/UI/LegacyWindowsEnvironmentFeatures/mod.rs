@@ -495,13 +495,13 @@ pub const REC_S_NOTCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0x410
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: windows_core::HRESULT = windows_core::HRESULT(0x41002_u32 as _);
 pub const STATEBITS_FLAT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMPTY_VOLUME_CACHE_FLAGS(pub u32);
 impl windows_core::TypeKind for EMPTY_VOLUME_CACHE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECONCILEF(pub i32);
 impl windows_core::TypeKind for RECONCILEF {
     type TypeKind = windows_core::CopyType;

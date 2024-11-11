@@ -34,7 +34,7 @@ pub struct ISceneLightingEffect2_Vtbl {
 }
 #[cfg(feature = "Graphics_Effects")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneLightingEffect(windows_core::IUnknown);
 #[cfg(feature = "Graphics_Effects")]
 windows_core::imp::interface_hierarchy!(SceneLightingEffect, windows_core::IUnknown, windows_core::IInspectable);
@@ -148,7 +148,7 @@ unsafe impl Send for SceneLightingEffect {}
 #[cfg(feature = "Graphics_Effects")]
 unsafe impl Sync for SceneLightingEffect {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {
     pub const BlinnPhong: Self = Self(0i32);

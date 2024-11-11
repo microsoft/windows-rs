@@ -1377,7 +1377,7 @@ pub struct ISmsWapMessage_Vtbl {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeleteSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1456,7 +1456,7 @@ impl windows_core::RuntimeName for DeleteSmsMessageOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeleteSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1535,7 +1535,7 @@ impl windows_core::RuntimeName for DeleteSmsMessagesOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GetSmsDeviceOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(GetSmsDeviceOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1617,7 +1617,7 @@ impl windows_core::RuntimeName for GetSmsDeviceOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GetSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(GetSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1699,7 +1699,7 @@ impl windows_core::RuntimeName for GetSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GetSmsMessagesOperation(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(GetSmsMessagesOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1797,7 +1797,7 @@ impl windows_core::RuntimeName for GetSmsMessagesOperation {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SendSmsMessageOperation(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SendSmsMessageOperation, windows_core::IUnknown, windows_core::IInspectable);
@@ -1875,7 +1875,7 @@ impl windows_core::RuntimeName for SendSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.SendSmsMessageOperation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsAppMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsAppMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsAppMessage, ISmsMessageBase);
@@ -2066,7 +2066,7 @@ unsafe impl Send for SmsAppMessage {}
 unsafe impl Sync for SmsAppMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsBinaryMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsBinaryMessage, windows_core::IUnknown, windows_core::IInspectable);
@@ -2142,7 +2142,7 @@ unsafe impl Send for SmsBinaryMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsBinaryMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsBroadcastMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsBroadcastMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsBroadcastMessage, ISmsMessageBase);
@@ -2267,7 +2267,7 @@ unsafe impl Send for SmsBroadcastMessage {}
 unsafe impl Sync for SmsBroadcastMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsDevice(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDevice, windows_core::IUnknown, windows_core::IInspectable);
@@ -2412,7 +2412,7 @@ impl windows_core::RuntimeName for SmsDevice {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsDevice2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsDevice2, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsDevice2 {
@@ -2537,7 +2537,7 @@ impl windows_core::RuntimeName for SmsDevice2 {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsDeviceMessageStore(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsDeviceMessageStore, windows_core::IUnknown, windows_core::IInspectable);
@@ -2598,7 +2598,7 @@ impl windows_core::RuntimeName for SmsDeviceMessageStore {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDeviceMessageStore";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsFilterRule(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRule, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRule {
@@ -2732,7 +2732,7 @@ impl windows_core::RuntimeName for SmsFilterRule {
 unsafe impl Send for SmsFilterRule {}
 unsafe impl Sync for SmsFilterRule {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsFilterRules(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsFilterRules, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsFilterRules {
@@ -2776,7 +2776,7 @@ unsafe impl Send for SmsFilterRules {}
 unsafe impl Sync for SmsFilterRules {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsMessageReceivedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -2813,7 +2813,7 @@ impl windows_core::RuntimeName for SmsMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsMessageReceivedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageReceivedTriggerDetails {
@@ -2888,7 +2888,7 @@ impl windows_core::RuntimeName for SmsMessageReceivedTriggerDetails {
 unsafe impl Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl Sync for SmsMessageReceivedTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsMessageRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageRegistration, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsMessageRegistration {
@@ -2950,7 +2950,7 @@ impl windows_core::RuntimeName for SmsMessageRegistration {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsReceivedEventDetails(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsReceivedEventDetails, windows_core::IUnknown, windows_core::IInspectable);
@@ -3007,7 +3007,7 @@ unsafe impl Send for SmsReceivedEventDetails {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsReceivedEventDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsSendMessageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsSendMessageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SmsSendMessageResult {
@@ -3075,7 +3075,7 @@ impl windows_core::RuntimeName for SmsSendMessageResult {
 unsafe impl Send for SmsSendMessageResult {}
 unsafe impl Sync for SmsSendMessageResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsStatusMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsStatusMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsStatusMessage, ISmsMessageBase);
@@ -3179,7 +3179,7 @@ unsafe impl Send for SmsStatusMessage {}
 unsafe impl Sync for SmsStatusMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsTextMessage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SmsTextMessage, windows_core::IUnknown, windows_core::IInspectable);
@@ -3342,7 +3342,7 @@ unsafe impl Send for SmsTextMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SmsTextMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsTextMessage2(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsTextMessage2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsTextMessage2, ISmsMessageBase);
@@ -3497,7 +3497,7 @@ impl windows_core::RuntimeName for SmsTextMessage2 {
 unsafe impl Send for SmsTextMessage2 {}
 unsafe impl Sync for SmsTextMessage2 {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsVoicemailMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsVoicemailMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsVoicemailMessage, ISmsMessageBase);
@@ -3579,7 +3579,7 @@ impl windows_core::RuntimeName for SmsVoicemailMessage {
 unsafe impl Send for SmsVoicemailMessage {}
 unsafe impl Sync for SmsVoicemailMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsWapMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsWapMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsWapMessage, ISmsMessageBase);
@@ -3817,7 +3817,7 @@ impl<F: FnMut(Option<&SmsDevice>, Option<&SmsMessageReceivedEventArgs>) -> windo
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
     pub const None: Self = Self(0i32);
@@ -3831,7 +3831,7 @@ impl windows_core::RuntimeType for CellularClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.CellularClass;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
     pub const Other: Self = Self(0i32);
@@ -3857,7 +3857,7 @@ impl windows_core::RuntimeType for SmsBroadcastType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsBroadcastType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
     pub const Unknown: Self = Self(0i32);
@@ -3873,7 +3873,7 @@ impl windows_core::RuntimeType for SmsDataFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
     pub const Off: Self = Self(0i32);
@@ -3892,7 +3892,7 @@ impl windows_core::RuntimeType for SmsDeviceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsDeviceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
     pub const Unknown: Self = Self(0i32);
@@ -3914,7 +3914,7 @@ impl windows_core::RuntimeType for SmsEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsEncoding;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
     pub const AcceptImmediately: Self = Self(0i32);
@@ -3929,7 +3929,7 @@ impl windows_core::RuntimeType for SmsFilterActionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsFilterActionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
     pub const None: Self = Self(0i32);
@@ -3945,7 +3945,7 @@ impl windows_core::RuntimeType for SmsGeographicalScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsGeographicalScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
     pub const None: Self = Self(0i32);
@@ -3961,7 +3961,7 @@ impl windows_core::RuntimeType for SmsMessageClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageClass;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageFilter(pub i32);
 impl SmsMessageFilter {
     pub const All: Self = Self(0i32);
@@ -3977,7 +3977,7 @@ impl windows_core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
     pub const Binary: Self = Self(0i32);
@@ -3995,7 +3995,7 @@ impl windows_core::RuntimeType for SmsMessageType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
     pub const Other: Self = Self(0i32);
@@ -4018,7 +4018,7 @@ impl windows_core::RuntimeType for SmsModemErrorCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsModemErrorCode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,

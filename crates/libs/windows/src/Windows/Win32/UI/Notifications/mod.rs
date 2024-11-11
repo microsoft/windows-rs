@@ -31,7 +31,7 @@ impl INotificationActivationCallback_Vtbl {
 }
 impl windows_core::RuntimeName for INotificationActivationCallback {}
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,

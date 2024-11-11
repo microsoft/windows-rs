@@ -1434,295 +1434,295 @@ pub const rrrcAccountUnknown: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_C
 pub const rrrcAuthenticationFailure: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(4i32);
 pub const rrrcUndefined: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCOUNTINGPROPERTIES(pub i32);
 impl windows_core::TypeKind for ACCOUNTINGPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTEFILTER(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTEID(pub u32);
 impl windows_core::TypeKind for ATTRIBUTEID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTEINFO(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTEPROPERTIES(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTERESTRICTIONS(pub i32);
 impl windows_core::TypeKind for ATTRIBUTERESTRICTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTESYNTAX(pub i32);
 impl windows_core::TypeKind for ATTRIBUTESYNTAX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_TYPE(pub i32);
 impl windows_core::TypeKind for AUTHENTICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIENTPROPERTIES(pub i32);
 impl windows_core::TypeKind for CLIENTPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONDITIONPROPERTIES(pub i32);
 impl windows_core::TypeKind for CONDITIONPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DICTIONARYPROPERTIES(pub i32);
 impl windows_core::TypeKind for DICTIONARYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASCOMMONPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASCOMMONPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASCOMPONENTPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASCOMPONENTPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASDATASTORE(pub i32);
 impl windows_core::TypeKind for IASDATASTORE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASDOMAINTYPE(pub i32);
 impl windows_core::TypeKind for IASDOMAINTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASOSTYPE(pub i32);
 impl windows_core::TypeKind for IASOSTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IASPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDENTITY_TYPE(pub i32);
 impl windows_core::TypeKind for IDENTITY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPFILTERPROPERTIES(pub i32);
 impl windows_core::TypeKind for IPFILTERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMESPROPERTIES(pub i32);
 impl windows_core::TypeKind for NAMESPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAPPROPERTIES(pub i32);
 impl windows_core::TypeKind for NAPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEW_LOG_FILE_FREQUENCY(pub i32);
 impl windows_core::TypeKind for NEW_LOG_FILE_FREQUENCY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTEVENTLOGPROPERTIES(pub i32);
 impl windows_core::TypeKind for NTEVENTLOGPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSAMPROPERTIES(pub i32);
 impl windows_core::TypeKind for NTSAMPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICYPROPERTIES(pub i32);
 impl windows_core::TypeKind for POLICYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILEPROPERTIES(pub i32);
 impl windows_core::TypeKind for PROFILEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOLPROPERTIES(pub i32);
 impl windows_core::TypeKind for PROTOCOLPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUSPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUSPROXYPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSPROXYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUSSERVERGROUPPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSSERVERGROUPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUSSERVERPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSSERVERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_ACTION(pub i32);
 impl windows_core::TypeKind for RADIUS_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for RADIUS_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_AUTHENTICATION_PROVIDER(pub i32);
 impl windows_core::TypeKind for RADIUS_AUTHENTICATION_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_CODE(pub i32);
 impl windows_core::TypeKind for RADIUS_CODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for RADIUS_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
 impl windows_core::TypeKind for RADIUS_EXTENSION_POINT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIUS_REJECT_REASON_CODE(pub i32);
 impl windows_core::TypeKind for RADIUS_REJECT_REASON_CODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMEDIATIONSERVERGROUPPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERGROUPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMEDIATIONSERVERPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMEDIATIONSERVERSPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERSPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHAREDSECRETPROPERTIES(pub i32);
 impl windows_core::TypeKind for SHAREDSECRETPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHVTEMPLATEPROPERTIES(pub i32);
 impl windows_core::TypeKind for SHVTEMPLATEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHV_COMBINATION_TYPE(pub i32);
 impl windows_core::TypeKind for SHV_COMBINATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEMPLATESPROPERTIES(pub i32);
 impl windows_core::TypeKind for TEMPLATESPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERPROPERTIES(pub i32);
 impl windows_core::TypeKind for USERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VENDORPROPERTIES(pub i32);
 impl windows_core::TypeKind for VENDORPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RADIUS_ATTRIBUTE {
     pub dwAttrType: u32,
     pub fDataType: RADIUS_DATA_TYPE,
@@ -1738,7 +1738,7 @@ impl windows_core::TypeKind for RADIUS_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RADIUS_ATTRIBUTE_0 {
     pub dwValue: u32,
     pub lpValue: *const u8,
@@ -1752,7 +1752,7 @@ impl windows_core::TypeKind for RADIUS_ATTRIBUTE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
@@ -1771,7 +1771,7 @@ impl windows_core::TypeKind for RADIUS_ATTRIBUTE_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -1791,7 +1791,7 @@ impl windows_core::TypeKind for RADIUS_EXTENSION_CONTROL_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RADIUS_VSA_FORMAT {
     pub VendorId: [u8; 4],
     pub VendorType: u8,

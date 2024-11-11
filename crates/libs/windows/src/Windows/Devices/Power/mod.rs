@@ -73,7 +73,7 @@ pub struct IPowerGridForecastStatics_Vtbl {
     pub RemoveForecastUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Battery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 impl Battery {
@@ -141,7 +141,7 @@ impl windows_core::RuntimeName for Battery {
 unsafe impl Send for Battery {}
 unsafe impl Sync for Battery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BatteryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BatteryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl BatteryReport {
@@ -195,7 +195,7 @@ impl windows_core::RuntimeName for BatteryReport {
 unsafe impl Send for BatteryReport {}
 unsafe impl Sync for BatteryReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PowerGridData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridData, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridData {
@@ -227,7 +227,7 @@ impl windows_core::RuntimeName for PowerGridData {
 unsafe impl Send for PowerGridData {}
 unsafe impl Sync for PowerGridData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PowerGridForecast(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridForecast {

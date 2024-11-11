@@ -77,7 +77,7 @@ pub type DESKTOP_ACCESS_FLAGS = u32;
 pub type DESKTOP_CONTROL_FLAGS = u32;
 pub type USER_OBJECT_INFORMATION_INDEX = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
@@ -87,7 +87,7 @@ pub struct BSMINFO {
 pub type HDESK = *mut core::ffi::c_void;
 pub type HWINSTA = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
     pub fReserved: super::super::Foundation::BOOL,

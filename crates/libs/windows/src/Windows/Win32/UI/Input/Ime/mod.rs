@@ -5335,43 +5335,43 @@ pub const szImeKorea: windows_core::PCWSTR = windows_core::w!("MSIME.Korea");
 pub const szImeTaiwan: windows_core::PCWSTR = windows_core::w!("MSIME.Taiwan");
 pub const wchPrivate1: u32 = 57344u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_CONVERSION_LIST_FLAG(pub u32);
 impl windows_core::TypeKind for GET_CONVERSION_LIST_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_GUIDE_LINE_TYPE(pub u32);
 impl windows_core::TypeKind for GET_GUIDE_LINE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEFMT(pub i32);
 impl windows_core::TypeKind for IMEFMT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEREG(pub i32);
 impl windows_core::TypeKind for IMEREG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEREL(pub i32);
 impl windows_core::TypeKind for IMEREL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEUCT(pub i32);
 impl windows_core::TypeKind for IMEUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_COMPOSITION_STRING(pub u32);
 impl windows_core::TypeKind for IME_COMPOSITION_STRING {
     type TypeKind = windows_core::CopyType;
@@ -5410,7 +5410,7 @@ impl core::ops::Not for IME_COMPOSITION_STRING {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_CONVERSION_MODE(pub u32);
 impl windows_core::TypeKind for IME_CONVERSION_MODE {
     type TypeKind = windows_core::CopyType;
@@ -5449,25 +5449,25 @@ impl core::ops::Not for IME_CONVERSION_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_ESCAPE(pub u32);
 impl windows_core::TypeKind for IME_ESCAPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_HOTKEY_IDENTIFIER(pub u32);
 impl windows_core::TypeKind for IME_HOTKEY_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_PAD_REQUEST_FLAGS(pub u32);
 impl windows_core::TypeKind for IME_PAD_REQUEST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IME_SENTENCE_MODE(pub u32);
 impl windows_core::TypeKind for IME_SENTENCE_MODE {
     type TypeKind = windows_core::CopyType;
@@ -5506,25 +5506,25 @@ impl core::ops::Not for IME_SENTENCE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_ACTION(pub u32);
 impl windows_core::TypeKind for NOTIFY_IME_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_INDEX(pub u32);
 impl windows_core::TypeKind for NOTIFY_IME_INDEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
 impl windows_core::TypeKind for SET_COMPOSITION_STRING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut windows_core::GUID,
@@ -5538,7 +5538,7 @@ impl windows_core::TypeKind for APPLETIDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPLYCANDEXPARAM {
     pub dwSize: u32,
     pub lpwstrDisplay: windows_core::PWSTR,
@@ -5554,7 +5554,7 @@ impl windows_core::TypeKind for APPLYCANDEXPARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
@@ -5570,7 +5570,7 @@ impl windows_core::TypeKind for CANDIDATEFORM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CANDIDATEINFO {
     pub dwSize: u32,
     pub dwCount: u32,
@@ -5587,7 +5587,7 @@ impl windows_core::TypeKind for CANDIDATEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -5607,7 +5607,7 @@ impl windows_core::TypeKind for CANDIDATELIST {
 }
 pub const CActiveIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4955dd33_b159_11d0_8fcf_00aa006bcc59);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::super::super::Foundation::POINT,
@@ -5622,7 +5622,7 @@ impl windows_core::TypeKind for COMPOSITIONFORM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -5659,7 +5659,7 @@ impl windows_core::TypeKind for COMPOSITIONSTRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -5720,7 +5720,7 @@ impl Default for HIMCC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEAPPLETCFG {
     pub dwConfig: u32,
     pub wchTitle: [u16; 64],
@@ -5743,7 +5743,7 @@ impl windows_core::TypeKind for IMEAPPLETCFG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEAPPLETUI {
     pub hwnd: super::super::super::Foundation::HWND,
     pub dwStyle: u32,
@@ -5765,7 +5765,7 @@ impl windows_core::TypeKind for IMEAPPLETUI {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
@@ -5779,7 +5779,7 @@ impl windows_core::TypeKind for IMECHARINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -5796,7 +5796,7 @@ impl windows_core::TypeKind for IMECHARPOSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -5814,7 +5814,7 @@ impl windows_core::TypeKind for IMECOMPOSITIONSTRINGINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
     pub hwnd: super::super::super::Foundation::HWND,
@@ -5830,7 +5830,7 @@ impl windows_core::TypeKind for IMEDLG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
     pub wrdModifiee: IMEWRD,
@@ -5845,7 +5845,7 @@ impl windows_core::TypeKind for IMEDP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEFAREASTINFO {
     pub dwSize: u32,
     pub dwType: u32,
@@ -5860,7 +5860,7 @@ impl windows_core::TypeKind for IMEFAREASTINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -5879,7 +5879,7 @@ impl windows_core::TypeKind for IMEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEITEM {
     pub cbSize: i32,
     pub iType: i32,
@@ -5894,7 +5894,7 @@ impl windows_core::TypeKind for IMEITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
@@ -5908,7 +5908,7 @@ impl windows_core::TypeKind for IMEITEMCANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -5924,7 +5924,7 @@ impl windows_core::TypeKind for IMEKMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
@@ -5940,7 +5940,7 @@ impl windows_core::TypeKind for IMEKMSFUNCDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
@@ -5954,7 +5954,7 @@ impl windows_core::TypeKind for IMEKMSINIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -5969,7 +5969,7 @@ impl windows_core::TypeKind for IMEKMSINVK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
     pub dwCompStatus: u32,
@@ -5986,7 +5986,7 @@ impl windows_core::TypeKind for IMEKMSKEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
@@ -6000,7 +6000,7 @@ impl windows_core::TypeKind for IMEKMSKEY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
@@ -6014,7 +6014,7 @@ impl windows_core::TypeKind for IMEKMSKEY_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -6033,7 +6033,7 @@ impl windows_core::TypeKind for IMEKMSKMP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -6049,7 +6049,7 @@ impl windows_core::TypeKind for IMEKMSNTFY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -6073,7 +6073,7 @@ impl windows_core::TypeKind for IMEMENUITEMINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
     pub fType: u32,
@@ -6096,7 +6096,7 @@ impl windows_core::TypeKind for IMEMENUITEMINFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
@@ -6113,7 +6113,7 @@ impl windows_core::TypeKind for IMESHF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
     pub lpwstr: [windows_core::PWSTR; 1],
@@ -6127,7 +6127,7 @@ impl windows_core::TypeKind for IMESTRINGCANDIDATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
     pub lpFarEastInfo: *mut IMEFAREASTINFO,
@@ -6145,7 +6145,7 @@ impl windows_core::TypeKind for IMESTRINGCANDIDATEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMESTRINGINFO {
     pub dwFarEastId: u32,
     pub lpwstr: windows_core::PWSTR,
@@ -6159,7 +6159,7 @@ impl windows_core::TypeKind for IMESTRINGINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_core::PWSTR,
     pub pwchDisplay: windows_core::PWSTR,
@@ -6178,7 +6178,7 @@ impl windows_core::TypeKind for IMEWRD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
@@ -6192,7 +6192,7 @@ impl windows_core::TypeKind for IMEWRD_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
@@ -6207,7 +6207,7 @@ impl windows_core::TypeKind for IMEWRD_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
     pub fOpen: super::super::super::Foundation::BOOL,
@@ -6239,7 +6239,7 @@ impl windows_core::TypeKind for INPUTCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
@@ -6255,7 +6255,7 @@ impl windows_core::TypeKind for INPUTCONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
     pub pwchOutput: windows_core::PWSTR,
@@ -6280,7 +6280,7 @@ impl windows_core::TypeKind for MORRSLT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_core::PWSTR,
     pub pwchComp: windows_core::PWSTR,
@@ -6294,7 +6294,7 @@ impl windows_core::TypeKind for MORRSLT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
@@ -6308,7 +6308,7 @@ impl windows_core::TypeKind for MORRSLT_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
@@ -6322,7 +6322,7 @@ impl windows_core::TypeKind for MORRSLT_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
@@ -6336,7 +6336,7 @@ impl windows_core::TypeKind for POSTBL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -6356,7 +6356,7 @@ impl windows_core::TypeKind for RECONVERTSTRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_core::PSTR,
     pub lpWord: windows_core::PSTR,
@@ -6370,7 +6370,7 @@ impl windows_core::TypeKind for REGISTERWORDA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_core::PWSTR,
     pub lpWord: windows_core::PWSTR,
@@ -6384,7 +6384,7 @@ impl windows_core::TypeKind for REGISTERWORDW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
@@ -6398,7 +6398,7 @@ impl windows_core::TypeKind for SOFTKBDDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
@@ -6412,7 +6412,7 @@ impl windows_core::TypeKind for STYLEBUFA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
@@ -6426,7 +6426,7 @@ impl windows_core::TypeKind for STYLEBUFW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSMSG {
     pub message: u32,
     pub wParam: super::super::super::Foundation::WPARAM,
@@ -6441,7 +6441,7 @@ impl windows_core::TypeKind for TRANSMSG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
     pub TransMsg: [TRANSMSG; 1],
@@ -6455,7 +6455,7 @@ impl windows_core::TypeKind for TRANSMSGLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
     pub Anonymous1: WDD_0,
@@ -6475,7 +6475,7 @@ impl windows_core::TypeKind for WDD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
@@ -6489,7 +6489,7 @@ impl windows_core::TypeKind for WDD_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,

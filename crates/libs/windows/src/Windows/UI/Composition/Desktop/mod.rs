@@ -8,7 +8,7 @@ pub struct IDesktopWindowTarget_Vtbl {
     pub IsTopmost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DesktopWindowTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DesktopWindowTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DesktopWindowTarget, super::super::super::Foundation::IClosable, super::IAnimationObject);

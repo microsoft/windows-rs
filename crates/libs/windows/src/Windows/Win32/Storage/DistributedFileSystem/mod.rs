@@ -254,19 +254,19 @@ pub const NET_DFS_SETDC_FLAGS: u32 = 0u32;
 pub const NET_DFS_SETDC_INITPKT: u32 = 2u32;
 pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
 impl windows_core::TypeKind for DFS_NAMESPACE_VERSION_ORIGIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
 impl windows_core::TypeKind for DFS_TARGET_PRIORITY_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub DfsEntryPathLen: u16,
     pub ServerNameLen: u16,
@@ -283,7 +283,7 @@ impl windows_core::TypeKind for DFS_GET_PKT_ENTRY_STATE_ARG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_1 {
     pub EntryPath: windows_core::PWSTR,
 }
@@ -296,7 +296,7 @@ impl windows_core::TypeKind for DFS_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_100 {
     pub Comment: windows_core::PWSTR,
 }
@@ -309,7 +309,7 @@ impl windows_core::TypeKind for DFS_INFO_100 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
@@ -322,7 +322,7 @@ impl windows_core::TypeKind for DFS_INFO_101 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
@@ -335,7 +335,7 @@ impl windows_core::TypeKind for DFS_INFO_102 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
@@ -349,7 +349,7 @@ impl windows_core::TypeKind for DFS_INFO_103 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
@@ -362,7 +362,7 @@ impl windows_core::TypeKind for DFS_INFO_104 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_105 {
     pub Comment: windows_core::PWSTR,
     pub State: u32,
@@ -379,7 +379,7 @@ impl windows_core::TypeKind for DFS_INFO_105 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
@@ -394,7 +394,7 @@ impl windows_core::TypeKind for DFS_INFO_106 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_107 {
     pub Comment: windows_core::PWSTR,
     pub State: u32,
@@ -416,7 +416,7 @@ impl windows_core::TypeKind for DFS_INFO_107 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
@@ -433,7 +433,7 @@ impl windows_core::TypeKind for DFS_INFO_150 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
@@ -448,7 +448,7 @@ impl windows_core::TypeKind for DFS_INFO_1_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_2 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -464,7 +464,7 @@ impl windows_core::TypeKind for DFS_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_200 {
     pub FtDfsName: windows_core::PWSTR,
 }
@@ -478,7 +478,7 @@ impl windows_core::TypeKind for DFS_INFO_200 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -496,7 +496,7 @@ impl windows_core::TypeKind for DFS_INFO_2_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_3 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -513,7 +513,7 @@ impl windows_core::TypeKind for DFS_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_300 {
     pub Flags: u32,
     pub DfsName: windows_core::PWSTR,
@@ -528,7 +528,7 @@ impl windows_core::TypeKind for DFS_INFO_300 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -547,7 +547,7 @@ impl windows_core::TypeKind for DFS_INFO_3_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_4 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -567,7 +567,7 @@ impl windows_core::TypeKind for DFS_INFO_4 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -588,7 +588,7 @@ impl windows_core::TypeKind for DFS_INFO_4_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_5 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -608,7 +608,7 @@ impl windows_core::TypeKind for DFS_INFO_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
@@ -623,7 +623,7 @@ impl windows_core::TypeKind for DFS_INFO_50 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_6 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -644,7 +644,7 @@ impl windows_core::TypeKind for DFS_INFO_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: windows_core::GUID,
 }
@@ -658,7 +658,7 @@ impl windows_core::TypeKind for DFS_INFO_7 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_8 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -683,7 +683,7 @@ impl windows_core::TypeKind for DFS_INFO_8 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_INFO_9 {
     pub EntryPath: windows_core::PWSTR,
     pub Comment: windows_core::PWSTR,
@@ -708,7 +708,7 @@ impl windows_core::TypeKind for DFS_INFO_9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SITELIST_INFO {
     pub cSites: u32,
     pub Site: [DFS_SITENAME_INFO; 1],
@@ -722,7 +722,7 @@ impl windows_core::TypeKind for DFS_SITELIST_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
     pub SiteName: windows_core::PWSTR,
@@ -736,7 +736,7 @@ impl windows_core::TypeKind for DFS_SITENAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO {
     pub State: u32,
     pub ServerName: windows_core::PWSTR,
@@ -752,7 +752,7 @@ impl windows_core::TypeKind for DFS_STORAGE_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
@@ -769,7 +769,7 @@ impl windows_core::TypeKind for DFS_STORAGE_INFO_0_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_STORAGE_INFO_1 {
     pub State: u32,
     pub ServerName: windows_core::PWSTR,
@@ -785,7 +785,7 @@ impl windows_core::TypeKind for DFS_STORAGE_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
     pub DomainDfsMinorVersion: u32,
@@ -803,7 +803,7 @@ impl windows_core::TypeKind for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,

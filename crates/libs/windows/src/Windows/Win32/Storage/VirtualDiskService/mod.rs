@@ -6346,463 +6346,463 @@ pub const VDS_VT_STRIPE: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(12i32);
 pub const VDS_VT_UNKNOWN: VDS_VOLUME_TYPE = VDS_VOLUME_TYPE(0i32);
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_CONTROLLER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_EXTENT_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_DISK_EXTENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_DISK_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_OFFLINE_REASON(pub i32);
 impl windows_core::TypeKind for VDS_DISK_OFFLINE_REASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_DISK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_DRIVE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_DRIVE_LETTER_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_DRIVE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_PROP_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FORMAT_OPTION_FLAGS(pub i32);
 impl windows_core::TypeKind for VDS_FORMAT_OPTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_HBAPORT_SPEED_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HBAPORT_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_HBAPORT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HBAPORT_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_HBAPORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HEALTH(pub i32);
 impl windows_core::TypeKind for VDS_HEALTH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HWPROVIDER_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_HWPROVIDER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_INTERCONNECT_ADDRESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_INTERCONNECT_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_IPADDRESS_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_IPADDRESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_ISCSI_AUTH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_ISCSI_IPSEC_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_ISCSI_LOGIN_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_LOGIN_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_ISCSI_LOGIN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_ISCSI_PORTAL_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
 impl windows_core::TypeKind for VDS_LOADBALANCE_POLICY_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_LUN_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_LUN_PLEX_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_LUN_PLEX_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_LUN_PLEX_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_RESERVE_MODE(pub i32);
 impl windows_core::TypeKind for VDS_LUN_RESERVE_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_LUN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_LUN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_MAINTENANCE_OPERATION(pub i32);
 impl windows_core::TypeKind for VDS_MAINTENANCE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_CONTROLLER(pub u32);
 impl windows_core::TypeKind for VDS_NF_CONTROLLER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_DISK(pub u32);
 impl windows_core::TypeKind for VDS_NF_DISK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_DRIVE(pub u32);
 impl windows_core::TypeKind for VDS_NF_DRIVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_FILE_SYSTEM(pub u32);
 impl windows_core::TypeKind for VDS_NF_FILE_SYSTEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_LUN(pub u32);
 impl windows_core::TypeKind for VDS_NF_LUN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_PACK(pub u32);
 impl windows_core::TypeKind for VDS_NF_PACK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NF_PORT(pub u32);
 impl windows_core::TypeKind for VDS_NF_PORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_NOTIFICATION_TARGET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PACK_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_PACK_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PACK_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_PACK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PARTITION_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_PARTITION_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PARTITION_STYLE(pub i32);
 impl windows_core::TypeKind for VDS_PARTITION_STYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PATH_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_PATH_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PORT_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_PORT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PROVIDER_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_PROVIDER_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PROVIDER_LBSUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_PROVIDER_LBSUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PROVIDER_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_PROVIDER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_QUERY_PROVIDER_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_QUERY_PROVIDER_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_RAID_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_RAID_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_RECOVER_ACTION(pub i32);
 impl windows_core::TypeKind for VDS_RECOVER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SAN_POLICY(pub i32);
 impl windows_core::TypeKind for VDS_SAN_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SERVICE_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_SERVICE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_BUS_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_STORAGE_BUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
 impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER_CODE_SET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_STORAGE_POOL_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_STORAGE_POOL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_SUB_SYSTEM_SUPPORTED_RAID_TYPE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_TRANSITION_STATE(pub i32);
 impl windows_core::TypeKind for VDS_TRANSITION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VDISK_STATE(pub i32);
 impl windows_core::TypeKind for VDS_VDISK_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VERSION_SUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_VERSION_SUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_FLAG(pub i32);
 impl windows_core::TypeKind for VDS_VOLUME_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_VOLUME_PLEX_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_VOLUME_PLEX_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_STATUS(pub i32);
 impl windows_core::TypeKind for VDS_VOLUME_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_TYPE(pub i32);
 impl windows_core::TypeKind for VDS_VOLUME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct __VDS_PARTITION_STYLE(pub i32);
 impl windows_core::TypeKind for __VDS_PARTITION_STYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CHANGE_ATTRIBUTES_PARAMETERS_0,
@@ -6816,7 +6816,7 @@ impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
     pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
@@ -6830,7 +6830,7 @@ impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub attributes: u64,
 }
@@ -6843,7 +6843,7 @@ impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub bootIndicator: super::super::Foundation::BOOLEAN,
 }
@@ -6856,7 +6856,7 @@ impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CHANGE_PARTITION_TYPE_PARAMETERS_0,
@@ -6870,7 +6870,7 @@ impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
     pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
@@ -6884,7 +6884,7 @@ impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
 }
@@ -6897,7 +6897,7 @@ impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     pub partitionType: u8,
 }
@@ -6910,7 +6910,7 @@ impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CREATE_PARTITION_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
     pub Anonymous: CREATE_PARTITION_PARAMETERS_0,
@@ -6924,7 +6924,7 @@ impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CREATE_PARTITION_PARAMETERS_0 {
     pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
     pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
@@ -6938,7 +6938,7 @@ impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
@@ -6954,7 +6954,7 @@ impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
     pub bootIndicator: super::super::Foundation::BOOLEAN,
@@ -6968,7 +6968,7 @@ impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_ADVANCEDDISK_PROP {
     pub pwszId: windows_core::PWSTR,
     pub pwszPathname: windows_core::PWSTR,
@@ -7003,7 +7003,7 @@ impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_ADVANCEDDISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
@@ -7085,7 +7085,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_4 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
     pub ullOffset: u64,
     pub volumeId: windows_core::GUID,
@@ -7151,7 +7151,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub ullReclaimedBytes: u64,
 }
@@ -7164,7 +7164,7 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CONTROLLER_NOTIFICATION {
     pub ulEvent: VDS_NF_CONTROLLER,
     pub controllerId: windows_core::GUID,
@@ -7178,7 +7178,7 @@ impl windows_core::TypeKind for VDS_CONTROLLER_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CONTROLLER_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7196,7 +7196,7 @@ impl windows_core::TypeKind for VDS_CONTROLLER_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -7214,7 +7214,7 @@ impl windows_core::TypeKind for VDS_CREATE_VDISK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_EXTENT {
     pub diskId: windows_core::GUID,
     pub r#type: VDS_DISK_EXTENT_TYPE,
@@ -7233,7 +7233,7 @@ impl windows_core::TypeKind for VDS_DISK_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_FREE_EXTENT {
     pub diskId: windows_core::GUID,
     pub ullOffset: u64,
@@ -7248,7 +7248,7 @@ impl windows_core::TypeKind for VDS_DISK_FREE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DISK_NOTIFICATION {
     pub ulEvent: VDS_NF_DISK,
     pub diskId: windows_core::GUID,
@@ -7262,7 +7262,7 @@ impl windows_core::TypeKind for VDS_DISK_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP {
     pub id: windows_core::GUID,
     pub status: VDS_DISK_STATUS,
@@ -7293,7 +7293,7 @@ impl windows_core::TypeKind for VDS_DISK_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_DISK_PROP_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
@@ -7307,7 +7307,7 @@ impl windows_core::TypeKind for VDS_DISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP2 {
     pub id: windows_core::GUID,
     pub status: VDS_DISK_STATUS,
@@ -7340,7 +7340,7 @@ impl windows_core::TypeKind for VDS_DISK_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_DISK_PROP2_0 {
     pub dwSignature: u32,
     pub DiskGuid: windows_core::GUID,
@@ -7354,7 +7354,7 @@ impl windows_core::TypeKind for VDS_DISK_PROP2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub LunId: windows_core::GUID,
@@ -7370,7 +7370,7 @@ impl windows_core::TypeKind for VDS_DRIVE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION {
     pub ulEvent: u32,
     pub wcLetter: u16,
@@ -7385,7 +7385,7 @@ impl windows_core::TypeKind for VDS_DRIVE_LETTER_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
     pub volumeId: windows_core::GUID,
@@ -7401,7 +7401,7 @@ impl windows_core::TypeKind for VDS_DRIVE_LETTER_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_NOTIFICATION {
     pub ulEvent: VDS_NF_DRIVE,
     pub driveId: windows_core::GUID,
@@ -7415,7 +7415,7 @@ impl windows_core::TypeKind for VDS_DRIVE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7436,7 +7436,7 @@ impl windows_core::TypeKind for VDS_DRIVE_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7460,7 +7460,7 @@ impl windows_core::TypeKind for VDS_DRIVE_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     pub ulFlags: u32,
     pub usRevision: u16,
@@ -7477,7 +7477,7 @@ impl windows_core::TypeKind for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION {
     pub ulEvent: VDS_NF_FILE_SYSTEM,
     pub volumeId: windows_core::GUID,
@@ -7492,7 +7492,7 @@ impl windows_core::TypeKind for VDS_FILE_SYSTEM_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_FILE_SYSTEM_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub volumeId: windows_core::GUID,
@@ -7511,7 +7511,7 @@ impl windows_core::TypeKind for VDS_FILE_SYSTEM_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_FILE_SYSTEM_TYPE_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub wszName: [u16; 8],
@@ -7529,7 +7529,7 @@ impl windows_core::TypeKind for VDS_FILE_SYSTEM_TYPE_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_HBAPORT_PROP {
     pub id: windows_core::GUID,
     pub wwnNode: VDS_WWN,
@@ -7548,7 +7548,7 @@ impl windows_core::TypeKind for VDS_HBAPORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_HINTS {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -7578,7 +7578,7 @@ impl windows_core::TypeKind for VDS_HINTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -7621,7 +7621,7 @@ impl windows_core::TypeKind for VDS_HINTS2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_INPUT_DISK {
     pub diskId: windows_core::GUID,
     pub ullSize: u64,
@@ -7637,7 +7637,7 @@ impl windows_core::TypeKind for VDS_INPUT_DISK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
     pub m_cbPort: u32,
@@ -7654,7 +7654,7 @@ impl windows_core::TypeKind for VDS_INTERCONNECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_IPADDRESS {
     pub r#type: VDS_IPADDRESS_TYPE,
     pub ipv4Address: u32,
@@ -7673,7 +7673,7 @@ impl windows_core::TypeKind for VDS_IPADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
@@ -7687,7 +7687,7 @@ impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
@@ -7702,7 +7702,7 @@ impl windows_core::TypeKind for VDS_ISCSI_INITIATOR_PORTAL_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut u8,
     pub ulKeySize: u32,
@@ -7716,7 +7716,7 @@ impl windows_core::TypeKind for VDS_ISCSI_IPSEC_KEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_PORTALGROUP_PROP {
     pub id: windows_core::GUID,
     pub tag: u16,
@@ -7730,7 +7730,7 @@ impl windows_core::TypeKind for VDS_ISCSI_PORTALGROUP_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_PROP {
     pub id: windows_core::GUID,
     pub address: VDS_IPADDRESS,
@@ -7745,7 +7745,7 @@ impl windows_core::TypeKind for VDS_ISCSI_PORTAL_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut u8,
     pub ulSharedSecretSize: u32,
@@ -7759,7 +7759,7 @@ impl windows_core::TypeKind for VDS_ISCSI_SHARED_SECRET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: windows_core::GUID,
     pub pwszIscsiName: windows_core::PWSTR,
@@ -7775,7 +7775,7 @@ impl windows_core::TypeKind for VDS_ISCSI_TARGET_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
     pub m_DeviceType: u8,
@@ -7800,7 +7800,7 @@ impl windows_core::TypeKind for VDS_LUN_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_LUN_NOTIFICATION {
     pub ulEvent: VDS_NF_LUN,
     pub LunId: windows_core::GUID,
@@ -7814,7 +7814,7 @@ impl windows_core::TypeKind for VDS_LUN_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_LUN_PLEX_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7835,7 +7835,7 @@ impl windows_core::TypeKind for VDS_LUN_PLEX_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_LUN_PROP {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -7858,7 +7858,7 @@ impl windows_core::TypeKind for VDS_LUN_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_MOUNT_POINT_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
@@ -7872,7 +7872,7 @@ impl windows_core::TypeKind for VDS_MOUNT_POINT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_NOTIFICATION {
     pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
     pub Anonymous: VDS_NOTIFICATION_0,
@@ -7886,7 +7886,7 @@ impl windows_core::TypeKind for VDS_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_NOTIFICATION_0 {
     pub Pack: VDS_PACK_NOTIFICATION,
     pub Disk: VDS_DISK_NOTIFICATION,
@@ -7914,7 +7914,7 @@ impl windows_core::TypeKind for VDS_NOTIFICATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PACK_NOTIFICATION {
     pub ulEvent: VDS_NF_PACK,
     pub packId: windows_core::GUID,
@@ -7928,7 +7928,7 @@ impl windows_core::TypeKind for VDS_PACK_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PACK_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
@@ -7944,7 +7944,7 @@ impl windows_core::TypeKind for VDS_PACK_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_PARTITION_INFORMATION_EX {
     pub dwPartitionStyle: __VDS_PARTITION_STYLE,
     pub ullStartingOffset: u64,
@@ -7962,7 +7962,7 @@ impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_PARTITION_INFORMATION_EX_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
@@ -7976,7 +7976,7 @@ impl windows_core::TypeKind for VDS_PARTITION_INFORMATION_EX_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PARTITION_INFO_GPT {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
@@ -7992,7 +7992,7 @@ impl windows_core::TypeKind for VDS_PARTITION_INFO_GPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
     pub bootIndicator: super::super::Foundation::BOOLEAN,
@@ -8008,7 +8008,7 @@ impl windows_core::TypeKind for VDS_PARTITION_INFO_MBR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PARTITION_NOTIFICATION {
     pub ulEvent: u32,
     pub diskId: windows_core::GUID,
@@ -8023,7 +8023,7 @@ impl windows_core::TypeKind for VDS_PARTITION_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_PARTITION_PROP {
     pub PartitionStyle: VDS_PARTITION_STYLE,
     pub ulFlags: u32,
@@ -8041,7 +8041,7 @@ impl windows_core::TypeKind for VDS_PARTITION_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_PARTITION_PROP_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
     pub Gpt: VDS_PARTITION_INFO_GPT,
@@ -8055,7 +8055,7 @@ impl windows_core::TypeKind for VDS_PARTITION_PROP_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PATH_ID {
     pub ullSourceId: u64,
     pub ullPathId: u64,
@@ -8069,7 +8069,7 @@ impl windows_core::TypeKind for VDS_PATH_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VDS_PATH_INFO {
     pub pathId: VDS_PATH_ID,
     pub r#type: VDS_HWPROVIDER_TYPE,
@@ -8087,7 +8087,7 @@ impl windows_core::TypeKind for VDS_PATH_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_0 {
     pub controllerPortId: windows_core::GUID,
     pub targetPortalId: windows_core::GUID,
@@ -8101,7 +8101,7 @@ impl windows_core::TypeKind for VDS_PATH_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_1 {
     pub hbaPortId: windows_core::GUID,
     pub initiatorAdapterId: windows_core::GUID,
@@ -8115,7 +8115,7 @@ impl windows_core::TypeKind for VDS_PATH_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VDS_PATH_INFO_2 {
     pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
     pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
@@ -8129,7 +8129,7 @@ impl windows_core::TypeKind for VDS_PATH_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
     pub bPrimaryPath: super::super::Foundation::BOOL,
@@ -8144,7 +8144,7 @@ impl windows_core::TypeKind for VDS_PATH_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
     pub raidType: VDS_RAID_TYPE,
@@ -8194,7 +8194,7 @@ impl windows_core::TypeKind for VDS_POOL_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -8208,7 +8208,7 @@ impl windows_core::TypeKind for VDS_POOL_CUSTOM_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION {
     pub ulEvent: u32,
     pub portalGroupId: windows_core::GUID,
@@ -8222,7 +8222,7 @@ impl windows_core::TypeKind for VDS_PORTAL_GROUP_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORTAL_NOTIFICATION {
     pub ulEvent: u32,
     pub portalId: windows_core::GUID,
@@ -8236,7 +8236,7 @@ impl windows_core::TypeKind for VDS_PORTAL_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORT_NOTIFICATION {
     pub ulEvent: VDS_NF_PORT,
     pub portId: windows_core::GUID,
@@ -8250,7 +8250,7 @@ impl windows_core::TypeKind for VDS_PORT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PORT_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -8266,7 +8266,7 @@ impl windows_core::TypeKind for VDS_PORT_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_PROVIDER_PROP {
     pub id: windows_core::GUID,
     pub pwszName: windows_core::PWSTR,
@@ -8286,7 +8286,7 @@ impl windows_core::TypeKind for VDS_PROVIDER_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_REPARSE_POINT_PROP {
     pub SourceVolumeId: windows_core::GUID,
     pub pwszPath: windows_core::PWSTR,
@@ -8300,7 +8300,7 @@ impl windows_core::TypeKind for VDS_REPARSE_POINT_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SERVICE_NOTIFICATION {
     pub ulEvent: u32,
     pub action: VDS_RECOVER_ACTION,
@@ -8314,7 +8314,7 @@ impl windows_core::TypeKind for VDS_SERVICE_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SERVICE_PROP {
     pub pwszVersion: windows_core::PWSTR,
     pub ulFlags: u32,
@@ -8328,7 +8328,7 @@ impl windows_core::TypeKind for VDS_SERVICE_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     pub m_version: u32,
     pub m_cIdentifiers: u32,
@@ -8343,7 +8343,7 @@ impl windows_core::TypeKind for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
@@ -8359,7 +8359,7 @@ impl windows_core::TypeKind for VDS_STORAGE_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: windows_core::GUID,
     pub ullSize: u64,
@@ -8374,7 +8374,7 @@ impl windows_core::TypeKind for VDS_STORAGE_POOL_DRIVE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: windows_core::GUID,
     pub status: VDS_STORAGE_POOL_STATUS,
@@ -8395,7 +8395,7 @@ impl windows_core::TypeKind for VDS_STORAGE_POOL_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SUB_SYSTEM_NOTIFICATION {
     pub ulEvent: u32,
     pub subSystemId: windows_core::GUID,
@@ -8409,7 +8409,7 @@ impl windows_core::TypeKind for VDS_SUB_SYSTEM_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -8432,7 +8432,7 @@ impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: windows_core::GUID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -8457,7 +8457,7 @@ impl windows_core::TypeKind for VDS_SUB_SYSTEM_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_TARGET_NOTIFICATION {
     pub ulEvent: u32,
     pub targetId: windows_core::GUID,
@@ -8472,7 +8472,7 @@ impl windows_core::TypeKind for VDS_TARGET_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: windows_core::GUID,
     pub State: VDS_VDISK_STATE,
@@ -8496,7 +8496,7 @@ impl windows_core::TypeKind for VDS_VDISK_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: windows_core::GUID,
@@ -8512,7 +8512,7 @@ impl windows_core::TypeKind for VDS_VOLUME_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_PLEX_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_PLEX_TYPE,
@@ -8532,7 +8532,7 @@ impl windows_core::TypeKind for VDS_VOLUME_PLEX_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_PROP {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -8553,7 +8553,7 @@ impl windows_core::TypeKind for VDS_VOLUME_PROP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: windows_core::GUID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -8576,7 +8576,7 @@ impl windows_core::TypeKind for VDS_VOLUME_PROP2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VDS_WWN {
     pub rguchWwn: [u8; 8],
 }

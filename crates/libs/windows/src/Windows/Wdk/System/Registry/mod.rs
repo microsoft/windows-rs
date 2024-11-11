@@ -451,25 +451,25 @@ pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(10i32);
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(7i32);
 pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(6i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for KEY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_SET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for KEY_SET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for KEY_VALUE_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub DataLength: u32,
@@ -485,7 +485,7 @@ impl windows_core::TypeKind for KEY_VALUE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -506,7 +506,7 @@ impl windows_core::TypeKind for REG_ENUMERATE_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -527,7 +527,7 @@ impl windows_core::TypeKind for REG_ENUMERATE_VALUE_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -547,7 +547,7 @@ impl windows_core::TypeKind for REG_QUERY_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: *mut KEY_VALUE_ENTRY,
@@ -568,7 +568,7 @@ impl windows_core::TypeKind for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -589,7 +589,7 @@ impl windows_core::TypeKind for REG_QUERY_VALUE_KEY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,

@@ -122,7 +122,7 @@ pub struct IWorkspace_Vtbl {
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AtomPubClient(windows_core::IUnknown);
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(AtomPubClient, windows_core::IUnknown, windows_core::IInspectable);
@@ -369,7 +369,7 @@ unsafe impl Send for AtomPubClient {}
 unsafe impl Sync for AtomPubClient {}
 #[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceCollection(windows_core::IUnknown);
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(ResourceCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -510,7 +510,7 @@ unsafe impl Send for ResourceCollection {}
 unsafe impl Sync for ResourceCollection {}
 #[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ServiceDocument(windows_core::IUnknown);
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(ServiceDocument, windows_core::IUnknown, windows_core::IInspectable);
@@ -628,7 +628,7 @@ unsafe impl Send for ServiceDocument {}
 unsafe impl Sync for ServiceDocument {}
 #[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Workspace(windows_core::IUnknown);
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(Workspace, windows_core::IUnknown, windows_core::IInspectable);

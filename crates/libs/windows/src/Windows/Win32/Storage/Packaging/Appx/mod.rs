@@ -6594,19 +6594,19 @@ pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i3
 pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1i32);
 pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
 impl windows_core::TypeKind for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
 impl windows_core::TypeKind for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_CAPABILITIES(pub i32);
 impl windows_core::TypeKind for APPX_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
@@ -6645,19 +6645,19 @@ impl core::ops::Not for APPX_CAPABILITIES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
 impl windows_core::TypeKind for APPX_CAPABILITY_CLASS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_COMPRESSION_OPTION(pub i32);
 impl windows_core::TypeKind for APPX_COMPRESSION_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub i32);
 impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -6696,25 +6696,25 @@ impl core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
 impl windows_core::TypeKind for APPX_FOOTPRINT_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
 impl windows_core::TypeKind for APPX_PACKAGE_ARCHITECTURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
 impl windows_core::TypeKind for APPX_PACKAGE_ARCHITECTURE2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub i32);
 impl windows_core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -6753,19 +6753,19 @@ impl core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
 impl windows_core::TypeKind for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AddPackageDependencyOptions(pub i32);
 impl windows_core::TypeKind for AddPackageDependencyOptions {
     type TypeKind = windows_core::CopyType;
@@ -6804,55 +6804,55 @@ impl core::ops::Not for AddPackageDependencyOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyClrCompat(pub i32);
 impl windows_core::TypeKind for AppPolicyClrCompat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyCreateFileAccess(pub i32);
 impl windows_core::TypeKind for AppPolicyCreateFileAccess {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyLifecycleManagement(pub i32);
 impl windows_core::TypeKind for AppPolicyLifecycleManagement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
 impl windows_core::TypeKind for AppPolicyMediaFoundationCodecLoading {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyProcessTerminationMethod(pub i32);
 impl windows_core::TypeKind for AppPolicyProcessTerminationMethod {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
 impl windows_core::TypeKind for AppPolicyShowDeveloperDiagnostic {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyThreadInitializationType(pub i32);
 impl windows_core::TypeKind for AppPolicyThreadInitializationType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppPolicyWindowingModel(pub i32);
 impl windows_core::TypeKind for AppPolicyWindowingModel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreatePackageDependencyOptions(pub i32);
 impl windows_core::TypeKind for CreatePackageDependencyOptions {
     type TypeKind = windows_core::CopyType;
@@ -6891,19 +6891,19 @@ impl core::ops::Not for CreatePackageDependencyOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DX_FEATURE_LEVEL(pub i32);
 impl windows_core::TypeKind for DX_FEATURE_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageDependencyLifetimeKind(pub i32);
 impl windows_core::TypeKind for PackageDependencyLifetimeKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageDependencyProcessorArchitectures(pub i32);
 impl windows_core::TypeKind for PackageDependencyProcessorArchitectures {
     type TypeKind = windows_core::CopyType;
@@ -6942,25 +6942,25 @@ impl core::ops::Not for PackageDependencyProcessorArchitectures {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageInfo3Type(pub i32);
 impl windows_core::TypeKind for PackageInfo3Type {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageOrigin(pub i32);
 impl windows_core::TypeKind for PackageOrigin {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackagePathType(pub i32);
 impl windows_core::TypeKind for PackagePathType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *const windows_core::PCWSTR,
@@ -7012,7 +7012,7 @@ impl windows_core::TypeKind for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
@@ -7086,7 +7086,7 @@ impl Default for PACKAGEDEPENDENCY_CONTEXT {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -7108,7 +7108,7 @@ impl windows_core::TypeKind for PACKAGE_ID {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -7130,7 +7130,7 @@ impl windows_core::TypeKind for PACKAGE_ID {
 }
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -7151,7 +7151,7 @@ impl windows_core::TypeKind for PACKAGE_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -7171,7 +7171,7 @@ impl windows_core::TypeKind for PACKAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
 }
@@ -7184,7 +7184,7 @@ impl windows_core::TypeKind for PACKAGE_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,
     pub Anonymous: PACKAGE_VERSION_0_0,
@@ -7198,7 +7198,7 @@ impl windows_core::TypeKind for PACKAGE_VERSION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -7230,7 +7230,7 @@ impl Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
 }

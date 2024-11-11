@@ -1590,7 +1590,7 @@ pub struct IPinnedContactManagerStatics_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AggregateContactManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AggregateContactManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AggregateContactManager {
@@ -1658,7 +1658,7 @@ impl windows_core::RuntimeName for AggregateContactManager {
 unsafe impl Send for AggregateContactManager {}
 unsafe impl Sync for AggregateContactManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Contact(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Contact, windows_core::IUnknown, windows_core::IInspectable);
 impl Contact {
@@ -2058,7 +2058,7 @@ impl windows_core::RuntimeName for Contact {
 unsafe impl Send for Contact {}
 unsafe impl Sync for Contact {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAddress {
@@ -2160,7 +2160,7 @@ impl windows_core::RuntimeName for ContactAddress {
 unsafe impl Send for ContactAddress {}
 unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAnnotation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotation, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAnnotation {
@@ -2258,7 +2258,7 @@ impl windows_core::RuntimeName for ContactAnnotation {
 unsafe impl Send for ContactAnnotation {}
 unsafe impl Sync for ContactAnnotation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAnnotationList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotationList, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAnnotationList {
@@ -2347,7 +2347,7 @@ impl windows_core::RuntimeName for ContactAnnotationList {
 unsafe impl Send for ContactAnnotationList {}
 unsafe impl Sync for ContactAnnotationList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactAnnotationStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactAnnotationStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactAnnotationStore {
@@ -2439,7 +2439,7 @@ impl windows_core::RuntimeName for ContactAnnotationStore {
 unsafe impl Send for ContactAnnotationStore {}
 unsafe impl Sync for ContactAnnotationStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactBatch {
@@ -2472,7 +2472,7 @@ impl windows_core::RuntimeName for ContactBatch {
 unsafe impl Send for ContactBatch {}
 unsafe impl Sync for ContactBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactCardDelayedDataLoader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactCardDelayedDataLoader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactCardDelayedDataLoader, super::super::Foundation::IClosable);
@@ -2502,7 +2502,7 @@ impl windows_core::RuntimeName for ContactCardDelayedDataLoader {
 unsafe impl Send for ContactCardDelayedDataLoader {}
 unsafe impl Sync for ContactCardDelayedDataLoader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactCardOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactCardOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactCardOptions {
@@ -2557,7 +2557,7 @@ impl windows_core::RuntimeName for ContactCardOptions {
 unsafe impl Send for ContactCardOptions {}
 unsafe impl Sync for ContactCardOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChange, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChange {
@@ -2589,7 +2589,7 @@ impl windows_core::RuntimeName for ContactChange {
 unsafe impl Send for ContactChange {}
 unsafe impl Sync for ContactChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChangeReader {
@@ -2626,7 +2626,7 @@ impl windows_core::RuntimeName for ContactChangeReader {
 unsafe impl Send for ContactChangeReader {}
 unsafe impl Sync for ContactChangeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChangeTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChangeTracker {
@@ -2666,7 +2666,7 @@ impl windows_core::RuntimeName for ContactChangeTracker {
 unsafe impl Send for ContactChangeTracker {}
 unsafe impl Sync for ContactChangeTracker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChangedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChangedDeferral {
@@ -2688,7 +2688,7 @@ impl windows_core::RuntimeName for ContactChangedDeferral {
 unsafe impl Send for ContactChangedDeferral {}
 unsafe impl Sync for ContactChangedDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactChangedEventArgs {
@@ -2713,7 +2713,7 @@ impl windows_core::RuntimeName for ContactChangedEventArgs {
 unsafe impl Send for ContactChangedEventArgs {}
 unsafe impl Sync for ContactChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactConnectedServiceAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactConnectedServiceAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactConnectedServiceAccount {
@@ -2760,7 +2760,7 @@ impl windows_core::RuntimeName for ContactConnectedServiceAccount {
 unsafe impl Send for ContactConnectedServiceAccount {}
 unsafe impl Sync for ContactConnectedServiceAccount {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactDate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDate, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDate {
@@ -2849,7 +2849,7 @@ impl windows_core::RuntimeName for ContactDate {
 unsafe impl Send for ContactDate {}
 unsafe impl Sync for ContactDate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactEmail(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactEmail, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactEmail {
@@ -2907,7 +2907,7 @@ impl windows_core::RuntimeName for ContactEmail {
 unsafe impl Send for ContactEmail {}
 unsafe impl Sync for ContactEmail {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactField, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactField, IContactField, IContactFieldFactory);
@@ -2976,7 +2976,7 @@ impl windows_core::RuntimeName for ContactField {
 unsafe impl Send for ContactField {}
 unsafe impl Sync for ContactField {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactFieldFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactFieldFactory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactFieldFactory, IContactFieldFactory, IContactInstantMessageFieldFactory, IContactLocationFieldFactory);
@@ -3068,7 +3068,7 @@ impl windows_core::RuntimeName for ContactFieldFactory {
 unsafe impl Send for ContactFieldFactory {}
 unsafe impl Sync for ContactFieldFactory {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactGroup {}
@@ -3085,7 +3085,7 @@ impl windows_core::RuntimeName for ContactGroup {
 unsafe impl Send for ContactGroup {}
 unsafe impl Sync for ContactGroup {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactInformation {
@@ -3164,7 +3164,7 @@ impl windows_core::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactInstantMessageField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactInstantMessageField, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactInstantMessageField, IContactField, IContactInstantMessageFieldFactory);
@@ -3264,7 +3264,7 @@ impl windows_core::RuntimeName for ContactInstantMessageField {
 unsafe impl Send for ContactInstantMessageField {}
 unsafe impl Sync for ContactInstantMessageField {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactJobInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactJobInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactJobInfo {
@@ -3417,7 +3417,7 @@ impl windows_core::RuntimeName for ContactLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactList, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactList {
@@ -3639,7 +3639,7 @@ impl windows_core::RuntimeName for ContactList {
 unsafe impl Send for ContactList {}
 unsafe impl Sync for ContactList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactListLimitedWriteOperations(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListLimitedWriteOperations, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListLimitedWriteOperations {
@@ -3674,7 +3674,7 @@ impl windows_core::RuntimeName for ContactListLimitedWriteOperations {
 unsafe impl Send for ContactListLimitedWriteOperations {}
 unsafe impl Sync for ContactListLimitedWriteOperations {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactListSyncConstraints(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncConstraints, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncConstraints {
@@ -4081,7 +4081,7 @@ impl windows_core::RuntimeName for ContactListSyncConstraints {
 unsafe impl Send for ContactListSyncConstraints {}
 unsafe impl Sync for ContactListSyncConstraints {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactListSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncManager {
@@ -4153,7 +4153,7 @@ impl windows_core::RuntimeName for ContactListSyncManager {
 unsafe impl Send for ContactListSyncManager {}
 unsafe impl Sync for ContactListSyncManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactLocationField(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactLocationField, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactLocationField, IContactField, IContactLocationFieldFactory);
@@ -4442,7 +4442,7 @@ impl windows_core::RuntimeName for ContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactManagerForUser {
@@ -4545,7 +4545,7 @@ impl windows_core::RuntimeName for ContactManagerForUser {
 unsafe impl Send for ContactManagerForUser {}
 unsafe impl Sync for ContactManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactMatchReason(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactMatchReason, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactMatchReason {
@@ -4585,7 +4585,7 @@ impl windows_core::RuntimeName for ContactMatchReason {
 unsafe impl Send for ContactMatchReason {}
 unsafe impl Sync for ContactMatchReason {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPanel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPanel, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPanel {
@@ -4651,7 +4651,7 @@ impl windows_core::RuntimeName for ContactPanel {
 unsafe impl Send for ContactPanel {}
 unsafe impl Sync for ContactPanel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPanelClosingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPanelClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPanelClosingEventArgs {
@@ -4676,7 +4676,7 @@ impl windows_core::RuntimeName for ContactPanelClosingEventArgs {
 unsafe impl Send for ContactPanelClosingEventArgs {}
 unsafe impl Sync for ContactPanelClosingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPanelLaunchFullAppRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
@@ -4705,7 +4705,7 @@ impl windows_core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
 unsafe impl Send for ContactPanelLaunchFullAppRequestedEventArgs {}
 unsafe impl Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPhone(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPhone, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPhone {
@@ -4763,7 +4763,7 @@ impl windows_core::RuntimeName for ContactPhone {
 unsafe impl Send for ContactPhone {}
 unsafe impl Sync for ContactPhone {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactPicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactPicker, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactPicker {
@@ -4882,7 +4882,7 @@ impl windows_core::RuntimeName for ContactPicker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPicker";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactQueryOptions {
@@ -4979,7 +4979,7 @@ impl windows_core::RuntimeName for ContactQueryOptions {
 unsafe impl Send for ContactQueryOptions {}
 unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactQueryTextSearch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactQueryTextSearch {
@@ -5030,7 +5030,7 @@ impl windows_core::RuntimeName for ContactQueryTextSearch {
 unsafe impl Send for ContactQueryTextSearch {}
 unsafe impl Sync for ContactQueryTextSearch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactReader, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactReader {
@@ -5066,7 +5066,7 @@ impl windows_core::RuntimeName for ContactReader {
 unsafe impl Send for ContactReader {}
 unsafe impl Sync for ContactReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactSignificantOther(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactSignificantOther, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactSignificantOther {
@@ -5124,7 +5124,7 @@ impl windows_core::RuntimeName for ContactSignificantOther {
 unsafe impl Send for ContactSignificantOther {}
 unsafe impl Sync for ContactSignificantOther {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStore, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactStore {
@@ -5253,7 +5253,7 @@ impl windows_core::RuntimeName for ContactStore {
 unsafe impl Send for ContactStore {}
 unsafe impl Sync for ContactStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactStoreNotificationTriggerDetails {}
@@ -5270,7 +5270,7 @@ impl windows_core::RuntimeName for ContactStoreNotificationTriggerDetails {
 unsafe impl Send for ContactStoreNotificationTriggerDetails {}
 unsafe impl Sync for ContactStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactWebsite(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactWebsite, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactWebsite {
@@ -5331,7 +5331,7 @@ impl windows_core::RuntimeName for ContactWebsite {
 unsafe impl Send for ContactWebsite {}
 unsafe impl Sync for ContactWebsite {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FullContactCardOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullContactCardOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FullContactCardOptions {
@@ -5424,7 +5424,7 @@ impl windows_core::RuntimeName for KnownContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PinnedContactIdsQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinnedContactIdsQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PinnedContactIdsQueryResult {
@@ -5450,7 +5450,7 @@ impl windows_core::RuntimeName for PinnedContactIdsQueryResult {
 unsafe impl Send for PinnedContactIdsQueryResult {}
 unsafe impl Sync for PinnedContactIdsQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PinnedContactManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinnedContactManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PinnedContactManager {
@@ -5564,7 +5564,7 @@ impl windows_core::RuntimeName for PinnedContactManager {
 unsafe impl Send for PinnedContactManager {}
 unsafe impl Sync for PinnedContactManager {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
     pub const Home: Self = Self(0i32);
@@ -5578,7 +5578,7 @@ impl windows_core::RuntimeType for ContactAddressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAddressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
     pub const None: Self = Self(0u32);
@@ -5629,7 +5629,7 @@ impl core::ops::Not for ContactAnnotationOperations {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
     pub const AppAnnotationsReadWrite: Self = Self(0i32);
@@ -5642,7 +5642,7 @@ impl windows_core::RuntimeType for ContactAnnotationStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -5656,7 +5656,7 @@ impl windows_core::RuntimeType for ContactBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
     pub const Default: Self = Self(0i32);
@@ -5670,7 +5670,7 @@ impl windows_core::RuntimeType for ContactCardHeaderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardHeaderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
     pub const Default: Self = Self(0i32);
@@ -5687,7 +5687,7 @@ impl windows_core::RuntimeType for ContactCardTabKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactCardTabKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
     pub const Created: Self = Self(0i32);
@@ -5702,7 +5702,7 @@ impl windows_core::RuntimeType for ContactChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
     pub const Birthday: Self = Self(0i32);
@@ -5716,7 +5716,7 @@ impl windows_core::RuntimeType for ContactDateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactDateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
     pub const Personal: Self = Self(0i32);
@@ -5730,7 +5730,7 @@ impl windows_core::RuntimeType for ContactEmailKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactEmailKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
     pub const None: Self = Self(0i32);
@@ -5746,7 +5746,7 @@ impl windows_core::RuntimeType for ContactFieldCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
     pub const Email: Self = Self(0i32);
@@ -5769,7 +5769,7 @@ impl windows_core::RuntimeType for ContactFieldType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactFieldType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -5784,7 +5784,7 @@ impl windows_core::RuntimeType for ContactListOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -5798,7 +5798,7 @@ impl windows_core::RuntimeType for ContactListOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -5816,7 +5816,7 @@ impl windows_core::RuntimeType for ContactListSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactListSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
     pub const Name: Self = Self(0i32);
@@ -5833,7 +5833,7 @@ impl windows_core::RuntimeType for ContactMatchReasonKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactMatchReasonKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
     pub const FirstNameLastName: Self = Self(0i32);
@@ -5846,7 +5846,7 @@ impl windows_core::RuntimeType for ContactNameOrder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactNameOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
     pub const Home: Self = Self(0i32);
@@ -5867,7 +5867,7 @@ impl windows_core::RuntimeType for ContactPhoneKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactPhoneKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
     pub const None: Self = Self(0u32);
@@ -5915,7 +5915,7 @@ impl core::ops::Not for ContactQueryDesiredFields {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -5964,7 +5964,7 @@ impl core::ops::Not for ContactQuerySearchFields {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -5977,7 +5977,7 @@ impl windows_core::RuntimeType for ContactQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
     pub const Other: Self = Self(0i32);
@@ -5994,7 +5994,7 @@ impl windows_core::RuntimeType for ContactRelationship {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactRelationship;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
     pub const Contacts: Self = Self(0i32);
@@ -6007,7 +6007,7 @@ impl windows_core::RuntimeType for ContactSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
     pub const AppContactsReadWrite: Self = Self(0i32);
@@ -6021,7 +6021,7 @@ impl windows_core::RuntimeType for ContactStoreAccessType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.ContactStoreAccessType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
     pub const StartMenu: Self = Self(0i32);

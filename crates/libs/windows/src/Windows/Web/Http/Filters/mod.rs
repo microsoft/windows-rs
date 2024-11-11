@@ -193,7 +193,7 @@ pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpBaseProtocolFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpBaseProtocolFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBaseProtocolFilter, super::super::super::Foundation::IClosable, IHttpFilter);
@@ -420,7 +420,7 @@ impl windows_core::RuntimeName for HttpBaseProtocolFilter {
 unsafe impl Send for HttpBaseProtocolFilter {}
 unsafe impl Sync for HttpBaseProtocolFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpCacheControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCacheControl, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpCacheControl {
@@ -460,7 +460,7 @@ impl windows_core::RuntimeName for HttpCacheControl {
 unsafe impl Send for HttpCacheControl {}
 unsafe impl Sync for HttpCacheControl {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HttpServerCustomValidationRequestedEventArgs {
@@ -528,7 +528,7 @@ impl windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArgs 
 unsafe impl Send for HttpServerCustomValidationRequestedEventArgs {}
 unsafe impl Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
     pub const Default: Self = Self(0i32);
@@ -543,7 +543,7 @@ impl windows_core::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
     pub const Default: Self = Self(0i32);
@@ -556,7 +556,7 @@ impl windows_core::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
     pub const Default: Self = Self(0i32);

@@ -222,7 +222,7 @@ pub struct IResourceQualifier_Vtbl {
     pub Score: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NamedResource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedResource, windows_core::IUnknown, windows_core::IInspectable);
 impl NamedResource {
@@ -291,7 +291,7 @@ impl windows_core::RuntimeName for NamedResource {
 unsafe impl Send for NamedResource {}
 unsafe impl Sync for NamedResource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceCandidate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceCandidate, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceCandidate {
@@ -376,7 +376,7 @@ unsafe impl Send for ResourceCandidate {}
 unsafe impl Sync for ResourceCandidate {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceCandidateVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceCandidateVectorView, windows_core::IUnknown, windows_core::IInspectable);
@@ -442,7 +442,7 @@ unsafe impl Send for ResourceCandidateVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceCandidateVectorView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceContext {
@@ -583,7 +583,7 @@ unsafe impl Send for ResourceContext {}
 unsafe impl Sync for ResourceContext {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceContextLanguagesVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceContextLanguagesVectorView, windows_core::IUnknown, windows_core::IInspectable);
@@ -646,7 +646,7 @@ unsafe impl Send for ResourceContextLanguagesVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceContextLanguagesVectorView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceManager {
@@ -736,7 +736,7 @@ unsafe impl Send for ResourceManager {}
 unsafe impl Sync for ResourceManager {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceMap, windows_core::IUnknown, windows_core::IInspectable);
@@ -828,7 +828,7 @@ unsafe impl Send for ResourceMap {}
 unsafe impl Sync for ResourceMap {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMapIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceMapIterator, windows_core::IUnknown, windows_core::IInspectable);
@@ -884,7 +884,7 @@ unsafe impl Send for ResourceMapIterator {}
 unsafe impl Sync for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMapMapView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceMapMapView, windows_core::IUnknown, windows_core::IInspectable);
@@ -945,7 +945,7 @@ unsafe impl Send for ResourceMapMapView {}
 unsafe impl Sync for ResourceMapMapView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMapMapViewIterator(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceMapMapViewIterator, windows_core::IUnknown, windows_core::IInspectable);
@@ -1000,7 +1000,7 @@ unsafe impl Send for ResourceMapMapViewIterator {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceMapMapViewIterator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceQualifier, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceQualifier {
@@ -1054,7 +1054,7 @@ unsafe impl Send for ResourceQualifier {}
 unsafe impl Sync for ResourceQualifier {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierMapView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceQualifierMapView, windows_core::IUnknown, windows_core::IInspectable);
@@ -1115,7 +1115,7 @@ unsafe impl Send for ResourceQualifierMapView {}
 unsafe impl Sync for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierObservableMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceQualifierObservableMap, windows_core::IUnknown, windows_core::IInspectable);
@@ -1210,7 +1210,7 @@ unsafe impl Send for ResourceQualifierObservableMap {}
 unsafe impl Sync for ResourceQualifierObservableMap {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierVectorView(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ResourceQualifierVectorView, windows_core::IUnknown, windows_core::IInspectable);
@@ -1276,7 +1276,7 @@ unsafe impl Send for ResourceQualifierVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ResourceQualifierVectorView {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
     pub const String: Self = Self(0i32);
@@ -1290,7 +1290,7 @@ impl windows_core::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
     pub const None: Self = Self(0i32);
@@ -1303,7 +1303,7 @@ impl windows_core::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,

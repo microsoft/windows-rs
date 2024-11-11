@@ -800,7 +800,7 @@ pub struct ISoftwareBitmapStatics_Vtbl {
     CreateCopyWithAlphaFromSurfaceAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapBuffer, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
@@ -844,7 +844,7 @@ impl windows_core::RuntimeName for BitmapBuffer {
 unsafe impl Send for BitmapBuffer {}
 unsafe impl Sync for BitmapBuffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapCodecInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapCodecInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapCodecInformation {
@@ -892,7 +892,7 @@ impl windows_core::RuntimeName for BitmapCodecInformation {
 unsafe impl Send for BitmapCodecInformation {}
 unsafe impl Sync for BitmapCodecInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapDecoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapDecoder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapDecoder, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
@@ -1148,7 +1148,7 @@ impl windows_core::RuntimeName for BitmapDecoder {
 unsafe impl Send for BitmapDecoder {}
 unsafe impl Sync for BitmapDecoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapEncoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapEncoder, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapEncoder {
@@ -1361,7 +1361,7 @@ impl windows_core::RuntimeName for BitmapEncoder {
 unsafe impl Send for BitmapEncoder {}
 unsafe impl Sync for BitmapEncoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
@@ -1492,7 +1492,7 @@ impl windows_core::RuntimeName for BitmapFrame {
 unsafe impl Send for BitmapFrame {}
 unsafe impl Sync for BitmapFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapProperties, IBitmapPropertiesView);
@@ -1533,7 +1533,7 @@ impl windows_core::RuntimeName for BitmapProperties {
 unsafe impl Send for BitmapProperties {}
 unsafe impl Sync for BitmapProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
@@ -1564,7 +1564,7 @@ unsafe impl Send for BitmapPropertiesView {}
 unsafe impl Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable);
@@ -1653,7 +1653,7 @@ unsafe impl Send for BitmapPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for BitmapPropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapTransform(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapTransform {
@@ -1744,7 +1744,7 @@ impl windows_core::RuntimeName for BitmapTransform {
 unsafe impl Send for BitmapTransform {}
 unsafe impl Sync for BitmapTransform {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapTypedValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BitmapTypedValue, windows_core::IUnknown, windows_core::IInspectable);
 impl BitmapTypedValue {
@@ -1790,7 +1790,7 @@ unsafe impl Send for BitmapTypedValue {}
 unsafe impl Sync for BitmapTypedValue {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageStream(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable);
@@ -1914,7 +1914,7 @@ unsafe impl Send for ImageStream {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for ImageStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PixelDataProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PixelDataProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl PixelDataProvider {
@@ -1939,7 +1939,7 @@ impl windows_core::RuntimeName for PixelDataProvider {
 unsafe impl Send for PixelDataProvider {}
 unsafe impl Sync for PixelDataProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SoftwareBitmap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SoftwareBitmap, super::super::Foundation::IClosable);
@@ -2143,7 +2143,7 @@ impl windows_core::RuntimeName for SoftwareBitmap {
 unsafe impl Send for SoftwareBitmap {}
 unsafe impl Sync for SoftwareBitmap {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
     pub const Premultiplied: Self = Self(0i32);
@@ -2157,7 +2157,7 @@ impl windows_core::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
     pub const Read: Self = Self(0i32);
@@ -2171,7 +2171,7 @@ impl windows_core::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
     pub const None: Self = Self(0i32);
@@ -2185,7 +2185,7 @@ impl windows_core::RuntimeType for BitmapFlip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -2200,7 +2200,7 @@ impl windows_core::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -2220,7 +2220,7 @@ impl windows_core::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
     pub const None: Self = Self(0i32);
@@ -2235,7 +2235,7 @@ impl windows_core::RuntimeType for BitmapRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
     pub const DoNotColorManage: Self = Self(0i32);
@@ -2248,7 +2248,7 @@ impl windows_core::RuntimeType for ColorManagementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
     pub const IgnoreExifOrientation: Self = Self(0i32);
@@ -2261,7 +2261,7 @@ impl windows_core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
     pub const Default: Self = Self(0i32);
@@ -2276,7 +2276,7 @@ impl windows_core::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
     pub const Automatic: Self = Self(0i32);
@@ -2294,7 +2294,7 @@ impl windows_core::RuntimeType for PngFilterMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
     pub const Automatic: Self = Self(0i32);
@@ -2313,7 +2313,7 @@ impl windows_core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -2327,7 +2327,7 @@ impl windows_core::RuntimeType for BitmapBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -2341,7 +2341,7 @@ impl windows_core::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,

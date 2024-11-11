@@ -506,7 +506,7 @@ pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(1i32);
 pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(5i32);
 pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for SECURITY_INFO_PAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -545,7 +545,7 @@ impl core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_OBJECT_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for SI_OBJECT_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -584,19 +584,19 @@ impl core::ops::Not for SI_OBJECT_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_PAGE_ACTIVATED(pub i32);
 impl windows_core::TypeKind for SI_PAGE_ACTIVATED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SI_PAGE_TYPE(pub i32);
 impl windows_core::TypeKind for SI_PAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFFPERM_RESULT_LIST {
     pub fEvaluated: super::super::super::Foundation::BOOLEAN,
     pub cObjectTypeListLength: u32,
@@ -612,7 +612,7 @@ impl windows_core::TypeKind for EFFPERM_RESULT_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURITY_OBJECT {
     pub pwszName: windows_core::PWSTR,
     pub pData: *mut core::ffi::c_void,
@@ -631,7 +631,7 @@ impl windows_core::TypeKind for SECURITY_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_INFO {
     pub pSid: super::super::PSID,
     pub pwzCommonName: windows_core::PWSTR,
@@ -647,7 +647,7 @@ impl windows_core::TypeKind for SID_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SID_INFO_LIST {
     pub cItems: u32,
     pub aSidInfo: [SID_INFO; 1],
@@ -661,7 +661,7 @@ impl windows_core::TypeKind for SID_INFO_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_ACCESS {
     pub pguid: *const windows_core::GUID,
     pub mask: u32,
@@ -677,7 +677,7 @@ impl windows_core::TypeKind for SI_ACCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_INHERIT_TYPE {
     pub pguid: *const windows_core::GUID,
     pub dwFlags: super::super::ACE_FLAGS,
@@ -692,7 +692,7 @@ impl windows_core::TypeKind for SI_INHERIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
     pub hInstance: super::super::super::Foundation::HINSTANCE,

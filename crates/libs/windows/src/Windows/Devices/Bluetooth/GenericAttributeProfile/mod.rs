@@ -932,7 +932,7 @@ pub struct IGattWriteResult_Vtbl {
     pub ProtocolError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattCharacteristic(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristic {
@@ -1651,7 +1651,7 @@ impl windows_core::RuntimeName for GattCharacteristicUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattCharacteristicsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristicsResult {
@@ -1691,7 +1691,7 @@ impl windows_core::RuntimeName for GattCharacteristicsResult {
 unsafe impl Send for GattCharacteristicsResult {}
 unsafe impl Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattClientNotificationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattClientNotificationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattClientNotificationResult {
@@ -1737,7 +1737,7 @@ impl windows_core::RuntimeName for GattClientNotificationResult {
 unsafe impl Send for GattClientNotificationResult {}
 unsafe impl Sync for GattClientNotificationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDescriptor {
@@ -1872,7 +1872,7 @@ impl windows_core::RuntimeName for GattDescriptorUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorUuids";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattDescriptorsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDescriptorsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDescriptorsResult {
@@ -1912,7 +1912,7 @@ impl windows_core::RuntimeName for GattDescriptorsResult {
 unsafe impl Send for GattDescriptorsResult {}
 unsafe impl Sync for GattDescriptorsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattDeviceService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::Foundation::IClosable);
@@ -2170,7 +2170,7 @@ impl windows_core::RuntimeName for GattDeviceService {
 unsafe impl Send for GattDeviceService {}
 unsafe impl Sync for GattDeviceService {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattDeviceServicesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDeviceServicesResult {
@@ -2210,7 +2210,7 @@ impl windows_core::RuntimeName for GattDeviceServicesResult {
 unsafe impl Send for GattDeviceServicesResult {}
 unsafe impl Sync for GattDeviceServicesResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalCharacteristic(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristic {
@@ -2370,7 +2370,7 @@ impl windows_core::RuntimeName for GattLocalCharacteristic {
 unsafe impl Send for GattLocalCharacteristic {}
 unsafe impl Sync for GattLocalCharacteristic {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalCharacteristicParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristicParameters {
@@ -2463,7 +2463,7 @@ impl windows_core::RuntimeName for GattLocalCharacteristicParameters {
 unsafe impl Send for GattLocalCharacteristicParameters {}
 unsafe impl Sync for GattLocalCharacteristicParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalCharacteristicResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristicResult {
@@ -2495,7 +2495,7 @@ impl windows_core::RuntimeName for GattLocalCharacteristicResult {
 unsafe impl Send for GattLocalCharacteristicResult {}
 unsafe impl Sync for GattLocalCharacteristicResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptor {
@@ -2570,7 +2570,7 @@ impl windows_core::RuntimeName for GattLocalDescriptor {
 unsafe impl Send for GattLocalDescriptor {}
 unsafe impl Sync for GattLocalDescriptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalDescriptorParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptorParameters {
@@ -2633,7 +2633,7 @@ impl windows_core::RuntimeName for GattLocalDescriptorParameters {
 unsafe impl Send for GattLocalDescriptorParameters {}
 unsafe impl Sync for GattLocalDescriptorParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalDescriptorResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptorResult {
@@ -2665,7 +2665,7 @@ impl windows_core::RuntimeName for GattLocalDescriptorResult {
 unsafe impl Send for GattLocalDescriptorResult {}
 unsafe impl Sync for GattLocalDescriptorResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattLocalService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalService, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalService {
@@ -2708,7 +2708,7 @@ impl windows_core::RuntimeName for GattLocalService {
 unsafe impl Send for GattLocalService {}
 unsafe impl Sync for GattLocalService {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattPresentationFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattPresentationFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl GattPresentationFormat {
@@ -3065,7 +3065,7 @@ impl windows_core::RuntimeName for GattProtocolError {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3104,7 +3104,7 @@ impl windows_core::RuntimeName for GattReadClientCharacteristicConfigurationDesc
 unsafe impl Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattReadRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadRequest {
@@ -3169,7 +3169,7 @@ impl windows_core::RuntimeName for GattReadRequest {
 unsafe impl Send for GattReadRequest {}
 unsafe impl Sync for GattReadRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattReadRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadRequestedEventArgs {
@@ -3208,7 +3208,7 @@ impl windows_core::RuntimeName for GattReadRequestedEventArgs {
 unsafe impl Send for GattReadRequestedEventArgs {}
 unsafe impl Sync for GattReadRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattReadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadResult {
@@ -3248,7 +3248,7 @@ impl windows_core::RuntimeName for GattReadResult {
 unsafe impl Send for GattReadResult {}
 unsafe impl Sync for GattReadResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattReliableWriteTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReliableWriteTransaction {
@@ -3296,7 +3296,7 @@ impl windows_core::RuntimeName for GattReliableWriteTransaction {
 unsafe impl Send for GattReliableWriteTransaction {}
 unsafe impl Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattRequestStateChangedEventArgs {
@@ -3328,7 +3328,7 @@ impl windows_core::RuntimeName for GattRequestStateChangedEventArgs {
 unsafe impl Send for GattRequestStateChangedEventArgs {}
 unsafe impl Sync for GattRequestStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProvider {
@@ -3399,7 +3399,7 @@ impl windows_core::RuntimeName for GattServiceProvider {
 unsafe impl Send for GattServiceProvider {}
 unsafe impl Sync for GattServiceProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -3431,7 +3431,7 @@ impl windows_core::RuntimeName for GattServiceProviderAdvertisementStatusChanged
 unsafe impl Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderAdvertisingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderAdvertisingParameters {
@@ -3494,7 +3494,7 @@ impl windows_core::RuntimeName for GattServiceProviderAdvertisingParameters {
 unsafe impl Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl Sync for GattServiceProviderAdvertisingParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderResult {
@@ -3672,7 +3672,7 @@ impl windows_core::RuntimeName for GattServiceUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSession, super::super::super::Foundation::IClosable);
@@ -3775,7 +3775,7 @@ impl windows_core::RuntimeName for GattSession {
 unsafe impl Send for GattSession {}
 unsafe impl Sync for GattSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattSessionStatusChangedEventArgs {
@@ -3807,7 +3807,7 @@ impl windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
 unsafe impl Send for GattSessionStatusChangedEventArgs {}
 unsafe impl Sync for GattSessionStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattSubscribedClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSubscribedClient, windows_core::IUnknown, windows_core::IInspectable);
 impl GattSubscribedClient {
@@ -3853,7 +3853,7 @@ impl windows_core::RuntimeName for GattSubscribedClient {
 unsafe impl Send for GattSubscribedClient {}
 unsafe impl Sync for GattSubscribedClient {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattValueChangedEventArgs {
@@ -3886,7 +3886,7 @@ impl windows_core::RuntimeName for GattValueChangedEventArgs {
 unsafe impl Send for GattValueChangedEventArgs {}
 unsafe impl Sync for GattValueChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattWriteRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteRequest {
@@ -3955,7 +3955,7 @@ impl windows_core::RuntimeName for GattWriteRequest {
 unsafe impl Send for GattWriteRequest {}
 unsafe impl Sync for GattWriteRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattWriteRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteRequestedEventArgs {
@@ -3994,7 +3994,7 @@ impl windows_core::RuntimeName for GattWriteRequestedEventArgs {
 unsafe impl Send for GattWriteRequestedEventArgs {}
 unsafe impl Sync for GattWriteRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattWriteResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteResult {
@@ -4026,7 +4026,7 @@ impl windows_core::RuntimeName for GattWriteResult {
 unsafe impl Send for GattWriteResult {}
 unsafe impl Sync for GattWriteResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
     pub const None: Self = Self(0u32);
@@ -4081,7 +4081,7 @@ impl core::ops::Not for GattCharacteristicProperties {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
     pub const None: Self = Self(0i32);
@@ -4095,7 +4095,7 @@ impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescript
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
     pub const Success: Self = Self(0i32);
@@ -4110,7 +4110,7 @@ impl windows_core::RuntimeType for GattCommunicationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -4127,7 +4127,7 @@ impl windows_core::RuntimeType for GattOpenStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
     pub const Plain: Self = Self(0i32);
@@ -4142,7 +4142,7 @@ impl windows_core::RuntimeType for GattProtectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
     pub const Pending: Self = Self(0i32);
@@ -4156,7 +4156,7 @@ impl windows_core::RuntimeType for GattRequestState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
     pub const Created: Self = Self(0i32);
@@ -4172,7 +4172,7 @@ impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
     pub const Closed: Self = Self(0i32);
@@ -4185,7 +4185,7 @@ impl windows_core::RuntimeType for GattSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
     pub const Unspecified: Self = Self(0i32);
@@ -4200,7 +4200,7 @@ impl windows_core::RuntimeType for GattSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
     pub const WriteWithResponse: Self = Self(0i32);

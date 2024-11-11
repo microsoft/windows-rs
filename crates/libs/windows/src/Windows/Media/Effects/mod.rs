@@ -933,7 +933,7 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
     SetViewOrientation: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AcousticEchoCancellationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AcousticEchoCancellationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl AcousticEchoCancellationConfiguration {
@@ -955,7 +955,7 @@ impl windows_core::RuntimeName for AcousticEchoCancellationConfiguration {
 unsafe impl Send for AcousticEchoCancellationConfiguration {}
 unsafe impl Sync for AcousticEchoCancellationConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioCaptureEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioCaptureEffectsManager {
@@ -995,7 +995,7 @@ impl windows_core::RuntimeName for AudioCaptureEffectsManager {
 unsafe impl Send for AudioCaptureEffectsManager {}
 unsafe impl Sync for AudioCaptureEffectsManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioEffect {
@@ -1045,7 +1045,7 @@ impl windows_core::RuntimeName for AudioEffect {
 unsafe impl Send for AudioEffect {}
 unsafe impl Sync for AudioEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEffectDefinition, IAudioEffectDefinition);
@@ -1137,7 +1137,7 @@ impl windows_core::RuntimeName for AudioEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioRenderEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioRenderEffectsManager {
@@ -1196,7 +1196,7 @@ impl windows_core::RuntimeName for AudioRenderEffectsManager {
 unsafe impl Send for AudioRenderEffectsManager {}
 unsafe impl Sync for AudioRenderEffectsManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositeVideoFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositeVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositeVideoFrameContext {
@@ -1247,7 +1247,7 @@ impl windows_core::RuntimeName for CompositeVideoFrameContext {
 unsafe impl Send for CompositeVideoFrameContext {}
 unsafe impl Sync for CompositeVideoFrameContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProcessAudioFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessAudioFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessAudioFrameContext {
@@ -1279,7 +1279,7 @@ impl windows_core::RuntimeName for ProcessAudioFrameContext {
 unsafe impl Send for ProcessAudioFrameContext {}
 unsafe impl Sync for ProcessAudioFrameContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProcessVideoFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessVideoFrameContext {
@@ -1311,7 +1311,7 @@ impl windows_core::RuntimeName for ProcessVideoFrameContext {
 unsafe impl Send for ProcessVideoFrameContext {}
 unsafe impl Sync for ProcessVideoFrameContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SlowMotionEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SlowMotionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlowMotionEffectDefinition, IVideoEffectDefinition);
@@ -1363,7 +1363,7 @@ impl windows_core::RuntimeName for SlowMotionEffectDefinition {
 unsafe impl Send for SlowMotionEffectDefinition {}
 unsafe impl Sync for SlowMotionEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoCompositorDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoCompositorDefinition, IVideoCompositorDefinition);
@@ -1417,7 +1417,7 @@ impl windows_core::RuntimeName for VideoCompositorDefinition {
 unsafe impl Send for VideoCompositorDefinition {}
 unsafe impl Sync for VideoCompositorDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoEffectDefinition, IVideoEffectDefinition);
@@ -1471,7 +1471,7 @@ impl windows_core::RuntimeName for VideoEffectDefinition {
 unsafe impl Send for VideoEffectDefinition {}
 unsafe impl Sync for VideoEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoTransformEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTransformEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoTransformEffectDefinition, IVideoEffectDefinition);
@@ -1593,7 +1593,7 @@ impl windows_core::RuntimeName for VideoTransformEffectDefinition {
 unsafe impl Send for VideoTransformEffectDefinition {}
 unsafe impl Sync for VideoTransformEffectDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoTransformSphericalProjection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTransformSphericalProjection, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoTransformSphericalProjection {
@@ -1672,7 +1672,7 @@ impl windows_core::RuntimeName for VideoTransformSphericalProjection {
 unsafe impl Send for VideoTransformSphericalProjection {}
 unsafe impl Sync for VideoTransformSphericalProjection {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEffectState(pub i32);
 impl AudioEffectState {
     pub const Off: Self = Self(0i32);
@@ -1685,7 +1685,7 @@ impl windows_core::RuntimeType for AudioEffectState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
     pub const Other: Self = Self(0i32);
@@ -1716,7 +1716,7 @@ impl windows_core::RuntimeType for AudioEffectType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
     pub const Done: Self = Self(0i32);
@@ -1731,7 +1731,7 @@ impl windows_core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
     pub const Gpu: Self = Self(0i32);

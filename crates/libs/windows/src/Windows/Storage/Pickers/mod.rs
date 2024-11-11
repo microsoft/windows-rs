@@ -234,7 +234,7 @@ pub struct IFolderPickerStatics_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileExtensionVector(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(FileExtensionVector, windows_core::IUnknown, windows_core::IInspectable);
@@ -333,7 +333,7 @@ unsafe impl Send for FileExtensionVector {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for FileExtensionVector {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileOpenPicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileOpenPicker, windows_core::IUnknown, windows_core::IInspectable);
 impl FileOpenPicker {
@@ -484,7 +484,7 @@ unsafe impl Send for FileOpenPicker {}
 unsafe impl Sync for FileOpenPicker {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerFileTypesOrderedMap(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(FilePickerFileTypesOrderedMap, windows_core::IUnknown, windows_core::IInspectable);
@@ -567,7 +567,7 @@ unsafe impl Send for FilePickerFileTypesOrderedMap {}
 unsafe impl Sync for FilePickerFileTypesOrderedMap {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerSelectedFilesArray(windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 windows_core::imp::interface_hierarchy!(FilePickerSelectedFilesArray, windows_core::IUnknown, windows_core::IInspectable);
@@ -633,7 +633,7 @@ unsafe impl Send for FilePickerSelectedFilesArray {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 unsafe impl Sync for FilePickerSelectedFilesArray {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileSavePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileSavePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl FileSavePicker {
@@ -790,7 +790,7 @@ impl windows_core::RuntimeName for FileSavePicker {
 unsafe impl Send for FileSavePicker {}
 unsafe impl Sync for FileSavePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FolderPicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FolderPicker, windows_core::IUnknown, windows_core::IInspectable);
 impl FolderPicker {
@@ -909,7 +909,7 @@ impl windows_core::RuntimeName for FolderPicker {
 unsafe impl Send for FolderPicker {}
 unsafe impl Sync for FolderPicker {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
     pub const DocumentsLibrary: Self = Self(0i32);
@@ -930,7 +930,7 @@ impl windows_core::RuntimeType for PickerLocationId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {
     pub const List: Self = Self(0i32);

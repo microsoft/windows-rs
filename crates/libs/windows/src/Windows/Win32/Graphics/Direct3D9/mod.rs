@@ -4505,386 +4505,386 @@ pub const PROCESSIDTYPE_HANDLE: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 
 pub const PROCESSIDTYPE_UNKNOWN: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(0i32);
 pub const _FACD3D: u32 = 2166u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DANTIALIASMODE(pub i32);
 impl windows_core::TypeKind for D3DANTIALIASMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNELTYPE(pub i32);
 impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNELTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(pub i32);
 impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBACKBUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for D3DBACKBUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBASISTYPE(pub i32);
 impl windows_core::TypeKind for D3DBASISTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBLEND(pub i32);
 impl windows_core::TypeKind for D3DBLEND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBLENDOP(pub i32);
 impl windows_core::TypeKind for D3DBLENDOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBUSTYPE(pub i32);
 impl windows_core::TypeKind for D3DBUSTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCMPFUNC(pub i32);
 impl windows_core::TypeKind for D3DCMPFUNC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCOMPOSERECTSOP(pub i32);
 impl windows_core::TypeKind for D3DCOMPOSERECTSOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCUBEMAP_FACES(pub i32);
 impl windows_core::TypeKind for D3DCUBEMAP_FACES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCULL(pub i32);
 impl windows_core::TypeKind for D3DCULL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEBUGMONITORTOKENS(pub i32);
 impl windows_core::TypeKind for D3DDEBUGMONITORTOKENS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDECLMETHOD(pub i32);
 impl windows_core::TypeKind for D3DDECLMETHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDECLTYPE(pub i32);
 impl windows_core::TypeKind for D3DDECLTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDECLUSAGE(pub i32);
 impl windows_core::TypeKind for D3DDECLUSAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEGREETYPE(pub i32);
 impl windows_core::TypeKind for D3DDEGREETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEVTYPE(pub i32);
 impl windows_core::TypeKind for D3DDEVTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDISPLAYROTATION(pub i32);
 impl windows_core::TypeKind for D3DDISPLAYROTATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DFILLMODE(pub i32);
 impl windows_core::TypeKind for D3DFILLMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DFOGMODE(pub i32);
 impl windows_core::TypeKind for D3DFOGMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DFORMAT(pub u32);
 impl windows_core::TypeKind for D3DFORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DLIGHTSTATETYPE(pub i32);
 impl windows_core::TypeKind for D3DLIGHTSTATETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DLIGHTTYPE(pub i32);
 impl windows_core::TypeKind for D3DLIGHTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DMATERIALCOLORSOURCE(pub i32);
 impl windows_core::TypeKind for D3DMATERIALCOLORSOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DMULTISAMPLE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DMULTISAMPLE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DOPCODE(pub i32);
 impl windows_core::TypeKind for D3DOPCODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPATCHEDGESTYLE(pub i32);
 impl windows_core::TypeKind for D3DPATCHEDGESTYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPOOL(pub i32);
 impl windows_core::TypeKind for D3DPOOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPRIMITIVETYPE(pub i32);
 impl windows_core::TypeKind for D3DPRIMITIVETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DQUERYTYPE(pub i32);
 impl windows_core::TypeKind for D3DQUERYTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRENDERSTATETYPE(pub i32);
 impl windows_core::TypeKind for D3DRENDERSTATETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRESOURCETYPE(pub i32);
 impl windows_core::TypeKind for D3DRESOURCETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSAMPLERSTATETYPE(pub i32);
 impl windows_core::TypeKind for D3DSAMPLERSTATETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSAMPLER_TEXTURE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DSAMPLER_TEXTURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSCANLINEORDERING(pub i32);
 impl windows_core::TypeKind for D3DSCANLINEORDERING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADEMODE(pub i32);
 impl windows_core::TypeKind for D3DSHADEMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_ADDRESSMODE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DSHADER_ADDRESSMODE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_COMPARISON(pub i32);
 impl windows_core::TypeKind for D3DSHADER_COMPARISON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_INSTRUCTION_OPCODE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_MIN_PRECISION(pub i32);
 impl windows_core::TypeKind for D3DSHADER_MIN_PRECISION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_MISCTYPE_OFFSETS(pub i32);
 impl windows_core::TypeKind for D3DSHADER_MISCTYPE_OFFSETS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_PARAM_REGISTER_TYPE(pub i32);
 impl windows_core::TypeKind for D3DSHADER_PARAM_REGISTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSHADER_PARAM_SRCMOD_TYPE(pub i32);
 impl windows_core::TypeKind for D3DSHADER_PARAM_SRCMOD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSTATEBLOCKTYPE(pub i32);
 impl windows_core::TypeKind for D3DSTATEBLOCKTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSTENCILOP(pub i32);
 impl windows_core::TypeKind for D3DSTENCILOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSWAPEFFECT(pub i32);
 impl windows_core::TypeKind for D3DSWAPEFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREADDRESS(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREBLEND(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREBLEND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREFILTER(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREFILTERTYPE(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREFILTERTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREMAGFILTER(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREMAGFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREMINFILTER(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREMINFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREMIPFILTER(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREMIPFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTUREOP(pub i32);
 impl windows_core::TypeKind for D3DTEXTUREOP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTURESTAGESTATETYPE(pub i32);
 impl windows_core::TypeKind for D3DTEXTURESTAGESTATETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTEXTURETRANSFORMFLAGS(pub i32);
 impl windows_core::TypeKind for D3DTEXTURETRANSFORMFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTRANSFORMSTATETYPE(pub i32);
 impl windows_core::TypeKind for D3DTRANSFORMSTATETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVERTEXBLENDFLAGS(pub i32);
 impl windows_core::TypeKind for D3DVERTEXBLENDFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVERTEXTYPE(pub i32);
 impl windows_core::TypeKind for D3DVERTEXTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVS_ADDRESSMODE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DVS_ADDRESSMODE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVS_RASTOUT_OFFSETS(pub i32);
 impl windows_core::TypeKind for D3DVS_RASTOUT_OFFSETS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DZBUFFERTYPE(pub i32);
 impl windows_core::TypeKind for D3DZBUFFERTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [i8; 512],
     pub Description: [i8; 512],
@@ -4909,7 +4909,7 @@ impl windows_core::TypeKind for D3DADAPTER_IDENTIFIER9 {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [i8; 512],
     pub Description: [i8; 512],
@@ -4934,7 +4934,7 @@ impl windows_core::TypeKind for D3DADAPTER_IDENTIFIER9 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -4951,7 +4951,7 @@ impl windows_core::TypeKind for D3DAES_CTR_IV {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -4967,7 +4967,7 @@ impl windows_core::TypeKind for D3DAES_CTR_IV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -4983,7 +4983,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub StartSequenceQuery: u32,
@@ -4998,7 +4998,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -5012,7 +5012,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
@@ -5028,7 +5028,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub EncryptionGuid: windows_core::GUID,
@@ -5042,7 +5042,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENC
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -5058,7 +5058,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -5075,7 +5075,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0,
 }
@@ -5088,7 +5088,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0,
     pub Value: u32,
@@ -5102,7 +5102,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -5115,7 +5115,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
@@ -5129,7 +5129,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -5143,7 +5143,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
@@ -5159,7 +5159,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPU
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5173,7 +5173,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumEncryptionGuids: u32,
@@ -5187,7 +5187,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONG
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
@@ -5201,7 +5201,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONG
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuidIndex: u32,
@@ -5216,7 +5216,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONG
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub BusType: D3DBUSTYPE,
@@ -5232,7 +5232,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5247,7 +5247,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5263,7 +5263,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPU
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5280,7 +5280,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5300,7 +5300,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::super::Foundation::HANDLE,
@@ -5319,7 +5319,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -5333,7 +5333,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumRestrictedSharedResourceProcesses: u32,
@@ -5347,7 +5347,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRES
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub ProcessIndex: u32,
@@ -5361,7 +5361,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRES
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProcessIndex: u32,
@@ -5377,7 +5377,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRES
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuid: windows_core::GUID,
@@ -5391,7 +5391,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumUnrestrictedProtectedSharedResources: u32,
@@ -5405,7 +5405,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: windows_core::GUID,
     pub hChannel: super::super::Foundation::HANDLE,
@@ -5420,7 +5420,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
     pub QueryType: windows_core::GUID,
@@ -5437,7 +5437,7 @@ impl windows_core::TypeKind for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DBOX {
     pub Left: u32,
     pub Top: u32,
@@ -5455,7 +5455,7 @@ impl windows_core::TypeKind for D3DBOX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DBRANCH {
     pub dwMask: u32,
     pub dwValue: u32,
@@ -5471,7 +5471,7 @@ impl windows_core::TypeKind for D3DBRANCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCAPS9 {
     pub DeviceType: D3DDEVTYPE,
     pub AdapterOrdinal: u32,
@@ -5552,7 +5552,7 @@ impl windows_core::TypeKind for D3DCAPS9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCLIPSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -5572,7 +5572,7 @@ impl windows_core::TypeKind for D3DCLIPSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCLIPSTATUS9 {
     pub ClipUnion: u32,
     pub ClipIntersection: u32,
@@ -5586,7 +5586,7 @@ impl windows_core::TypeKind for D3DCLIPSTATUS9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCOLORVALUE {
     pub r: f32,
     pub g: f32,
@@ -5602,7 +5602,7 @@ impl windows_core::TypeKind for D3DCOLORVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCOMPOSERECTDESC {
     pub X: u16,
     pub Y: u16,
@@ -5618,7 +5618,7 @@ impl windows_core::TypeKind for D3DCOMPOSERECTDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCOMPOSERECTDESTINATION {
     pub SrcRectIndex: u16,
     pub Reserved: u16,
@@ -5634,7 +5634,7 @@ impl windows_core::TypeKind for D3DCOMPOSERECTDESTINATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVICEDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5680,7 +5680,7 @@ impl windows_core::TypeKind for D3DDEVICEDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVICEDESC7 {
     pub dwDevCaps: u32,
     pub dpcLineCaps: D3DPRIMCAPS,
@@ -5724,7 +5724,7 @@ impl windows_core::TypeKind for D3DDEVICEDESC7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
     pub DeviceType: D3DDEVTYPE,
@@ -5740,7 +5740,7 @@ impl windows_core::TypeKind for D3DDEVICE_CREATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     pub MaxBandwidthUtilized: f32,
     pub FrontEndUploadMemoryUtilizedPercent: f32,
@@ -5757,7 +5757,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3D9CACHEUTILIZATION {
     pub TextureCacheHitRate: f32,
     pub PostTransformVertexCacheHitRate: f32,
@@ -5771,7 +5771,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3D9CACHEUTILIZATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3D9INTERFACETIMINGS {
     pub WaitingForGPUToUseApplicationResourceTimePercent: f32,
     pub WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
@@ -5788,7 +5788,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3D9INTERFACETIMINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3D9PIPELINETIMINGS {
     pub VertexProcessingTimePercent: f32,
     pub PixelProcessingTimePercent: f32,
@@ -5804,7 +5804,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3D9PIPELINETIMINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3D9STAGETIMINGS {
     pub MemoryProcessingPercent: f32,
     pub ComputationProcessingPercent: f32,
@@ -5818,7 +5818,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3D9STAGETIMINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_D3DVERTEXSTATS {
     pub NumRenderedTriangles: u32,
     pub NumExtraClippingTriangles: u32,
@@ -5832,7 +5832,7 @@ impl windows_core::TypeKind for D3DDEVINFO_D3DVERTEXSTATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_RESOURCEMANAGER {
     pub stats: [D3DRESOURCESTATS; 8],
 }
@@ -5845,7 +5845,7 @@ impl windows_core::TypeKind for D3DDEVINFO_RESOURCEMANAGER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDEVINFO_VCACHE {
     pub Pattern: u32,
     pub OptMethod: u32,
@@ -5861,7 +5861,7 @@ impl windows_core::TypeKind for D3DDEVINFO_VCACHE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -5877,7 +5877,7 @@ impl windows_core::TypeKind for D3DDISPLAYMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDISPLAYMODEEX {
     pub Size: u32,
     pub Width: u32,
@@ -5895,7 +5895,7 @@ impl windows_core::TypeKind for D3DDISPLAYMODEEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDISPLAYMODEFILTER {
     pub Size: u32,
     pub Format: D3DFORMAT,
@@ -5910,7 +5910,7 @@ impl windows_core::TypeKind for D3DDISPLAYMODEFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDP_PTRSTRIDE {
     pub lpvData: *mut core::ffi::c_void,
     pub dwStride: u32,
@@ -5924,7 +5924,7 @@ impl windows_core::TypeKind for D3DDP_PTRSTRIDE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DDRAWPRIMITIVESTRIDEDDATA {
     pub position: D3DDP_PTRSTRIDE,
     pub normal: D3DDP_PTRSTRIDE,
@@ -5941,7 +5941,7 @@ impl windows_core::TypeKind for D3DDRAWPRIMITIVESTRIDEDDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
@@ -5956,7 +5956,7 @@ impl windows_core::TypeKind for D3DENCRYPTED_BLOCK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DEXECUTEBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5973,7 +5973,7 @@ impl windows_core::TypeKind for D3DEXECUTEBUFFERDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DEXECUTEDATA {
     pub dwSize: u32,
     pub dwVertexOffset: u32,
@@ -5992,7 +5992,7 @@ impl windows_core::TypeKind for D3DEXECUTEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DFINDDEVICERESULT {
     pub dwSize: u32,
     pub guid: windows_core::GUID,
@@ -6008,7 +6008,7 @@ impl windows_core::TypeKind for D3DFINDDEVICERESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DFINDDEVICESEARCH {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6027,7 +6027,7 @@ impl windows_core::TypeKind for D3DFINDDEVICESEARCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -6042,7 +6042,7 @@ impl windows_core::TypeKind for D3DGAMMARAMP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DHVERTEX {
     pub dwFlags: u32,
     pub Anonymous1: D3DHVERTEX_0,
@@ -6058,7 +6058,7 @@ impl windows_core::TypeKind for D3DHVERTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DHVERTEX_0 {
     pub hx: f32,
     pub dvHX: f32,
@@ -6072,7 +6072,7 @@ impl windows_core::TypeKind for D3DHVERTEX_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DHVERTEX_1 {
     pub hy: f32,
     pub dvHY: f32,
@@ -6086,7 +6086,7 @@ impl windows_core::TypeKind for D3DHVERTEX_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DHVERTEX_2 {
     pub hz: f32,
     pub dvHZ: f32,
@@ -6100,7 +6100,7 @@ impl windows_core::TypeKind for D3DHVERTEX_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DINDEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -6117,7 +6117,7 @@ impl windows_core::TypeKind for D3DINDEXBUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DINSTRUCTION {
     pub bOpcode: u8,
     pub bSize: u8,
@@ -6133,7 +6133,7 @@ impl windows_core::TypeKind for D3DINSTRUCTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHT {
     pub dwSize: u32,
     pub dltType: D3DLIGHTTYPE,
@@ -6160,7 +6160,7 @@ impl windows_core::TypeKind for D3DLIGHT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHT2 {
     pub dwSize: u32,
     pub dltType: D3DLIGHTTYPE,
@@ -6188,7 +6188,7 @@ impl windows_core::TypeKind for D3DLIGHT2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHT7 {
     pub dltType: D3DLIGHTTYPE,
     pub dcvDiffuse: D3DCOLORVALUE,
@@ -6216,7 +6216,7 @@ impl windows_core::TypeKind for D3DLIGHT7 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHT9 {
     pub Type: D3DLIGHTTYPE,
     pub Diffuse: D3DCOLORVALUE,
@@ -6244,7 +6244,7 @@ impl windows_core::TypeKind for D3DLIGHT9 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHTDATA {
     pub dwSize: u32,
     pub lpIn: *mut D3DLIGHTINGELEMENT,
@@ -6263,7 +6263,7 @@ impl windows_core::TypeKind for D3DLIGHTDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHTINGCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -6280,7 +6280,7 @@ impl windows_core::TypeKind for D3DLIGHTINGCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLIGHTINGELEMENT {
     pub dvPosition: super::Direct3D::D3DVECTOR,
     pub dvNormal: super::Direct3D::D3DVECTOR,
@@ -6296,7 +6296,7 @@ impl windows_core::TypeKind for D3DLIGHTINGELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DLINE {
     pub Anonymous1: D3DLINE_0,
     pub Anonymous2: D3DLINE_1,
@@ -6310,7 +6310,7 @@ impl windows_core::TypeKind for D3DLINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLINE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -6324,7 +6324,7 @@ impl windows_core::TypeKind for D3DLINE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLINE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -6338,7 +6338,7 @@ impl windows_core::TypeKind for D3DLINE_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLOCKED_BOX {
     pub RowPitch: i32,
     pub SlicePitch: i32,
@@ -6353,7 +6353,7 @@ impl windows_core::TypeKind for D3DLOCKED_BOX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DLOCKED_RECT {
     pub Pitch: i32,
     pub pBits: *mut core::ffi::c_void,
@@ -6367,7 +6367,7 @@ impl windows_core::TypeKind for D3DLOCKED_RECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DLVERTEX {
     pub Anonymous1: D3DLVERTEX_0,
     pub Anonymous2: D3DLVERTEX_1,
@@ -6387,7 +6387,7 @@ impl windows_core::TypeKind for D3DLVERTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -6401,7 +6401,7 @@ impl windows_core::TypeKind for D3DLVERTEX_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -6415,7 +6415,7 @@ impl windows_core::TypeKind for D3DLVERTEX_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -6429,7 +6429,7 @@ impl windows_core::TypeKind for D3DLVERTEX_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_3 {
     pub color: u32,
     pub dcColor: u32,
@@ -6443,7 +6443,7 @@ impl windows_core::TypeKind for D3DLVERTEX_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_4 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -6457,7 +6457,7 @@ impl windows_core::TypeKind for D3DLVERTEX_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_5 {
     pub tu: f32,
     pub dvTU: f32,
@@ -6471,7 +6471,7 @@ impl windows_core::TypeKind for D3DLVERTEX_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DLVERTEX_6 {
     pub tv: f32,
     pub dvTV: f32,
@@ -6485,7 +6485,7 @@ impl windows_core::TypeKind for D3DLVERTEX_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DMATERIAL {
     pub dwSize: u32,
     pub Anonymous1: D3DMATERIAL_0,
@@ -6505,7 +6505,7 @@ impl windows_core::TypeKind for D3DMATERIAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL_0 {
     pub diffuse: D3DCOLORVALUE,
     pub dcvDiffuse: D3DCOLORVALUE,
@@ -6519,7 +6519,7 @@ impl windows_core::TypeKind for D3DMATERIAL_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL_1 {
     pub ambient: D3DCOLORVALUE,
     pub dcvAmbient: D3DCOLORVALUE,
@@ -6533,7 +6533,7 @@ impl windows_core::TypeKind for D3DMATERIAL_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL_2 {
     pub specular: D3DCOLORVALUE,
     pub dcvSpecular: D3DCOLORVALUE,
@@ -6547,7 +6547,7 @@ impl windows_core::TypeKind for D3DMATERIAL_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL_3 {
     pub emissive: D3DCOLORVALUE,
     pub dcvEmissive: D3DCOLORVALUE,
@@ -6561,7 +6561,7 @@ impl windows_core::TypeKind for D3DMATERIAL_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -6575,7 +6575,7 @@ impl windows_core::TypeKind for D3DMATERIAL_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DMATERIAL7 {
     pub Anonymous1: D3DMATERIAL7_0,
     pub Anonymous2: D3DMATERIAL7_1,
@@ -6592,7 +6592,7 @@ impl windows_core::TypeKind for D3DMATERIAL7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL7_0 {
     pub diffuse: D3DCOLORVALUE,
     pub dcvDiffuse: D3DCOLORVALUE,
@@ -6606,7 +6606,7 @@ impl windows_core::TypeKind for D3DMATERIAL7_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL7_1 {
     pub ambient: D3DCOLORVALUE,
     pub dcvAmbient: D3DCOLORVALUE,
@@ -6620,7 +6620,7 @@ impl windows_core::TypeKind for D3DMATERIAL7_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL7_2 {
     pub specular: D3DCOLORVALUE,
     pub dcvSpecular: D3DCOLORVALUE,
@@ -6634,7 +6634,7 @@ impl windows_core::TypeKind for D3DMATERIAL7_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL7_3 {
     pub emissive: D3DCOLORVALUE,
     pub dcvEmissive: D3DCOLORVALUE,
@@ -6648,7 +6648,7 @@ impl windows_core::TypeKind for D3DMATERIAL7_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DMATERIAL7_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -6662,7 +6662,7 @@ impl windows_core::TypeKind for D3DMATERIAL7_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DMATERIAL9 {
     pub Diffuse: D3DCOLORVALUE,
     pub Ambient: D3DCOLORVALUE,
@@ -6679,7 +6679,7 @@ impl windows_core::TypeKind for D3DMATERIAL9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DMATRIXLOAD {
     pub hDestMatrix: u32,
     pub hSrcMatrix: u32,
@@ -6693,7 +6693,7 @@ impl windows_core::TypeKind for D3DMATRIXLOAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DMATRIXMULTIPLY {
     pub hDestMatrix: u32,
     pub hSrcMatrix1: u32,
@@ -6709,7 +6709,7 @@ impl windows_core::TypeKind for D3DMATRIXMULTIPLY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
     pub SizeOfInefficientAllocation: u64,
@@ -6727,7 +6727,7 @@ impl windows_core::TypeKind for D3DMEMORYPRESSURE {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
     pub SizeOfInefficientAllocation: u64,
@@ -6744,7 +6744,7 @@ impl windows_core::TypeKind for D3DMEMORYPRESSURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPICKRECORD {
     pub bOpcode: u8,
     pub bPad: u8,
@@ -6760,7 +6760,7 @@ impl windows_core::TypeKind for D3DPICKRECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPOINT {
     pub wCount: u16,
     pub wFirst: u16,
@@ -6775,7 +6775,7 @@ impl windows_core::TypeKind for D3DPOINT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -6795,7 +6795,7 @@ impl windows_core::TypeKind for D3DPRESENTSTATS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -6814,7 +6814,7 @@ impl windows_core::TypeKind for D3DPRESENTSTATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
     pub BackBufferHeight: u32,
@@ -6840,7 +6840,7 @@ impl windows_core::TypeKind for D3DPRESENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPRIMCAPS {
     pub dwSize: u32,
     pub dwMiscCaps: u32,
@@ -6866,7 +6866,7 @@ impl windows_core::TypeKind for D3DPRIMCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPROCESSVERTICES {
     pub dwFlags: u32,
     pub wStart: u16,
@@ -6883,7 +6883,7 @@ impl windows_core::TypeKind for D3DPROCESSVERTICES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DPSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -6900,7 +6900,7 @@ impl windows_core::TypeKind for D3DPSHADERCAPS2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DRANGE {
     pub Offset: u32,
     pub Size: u32,
@@ -6914,7 +6914,7 @@ impl windows_core::TypeKind for D3DRANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DRASTER_STATUS {
     pub InVBlank: super::super::Foundation::BOOL,
     pub ScanLine: u32,
@@ -6928,7 +6928,7 @@ impl windows_core::TypeKind for D3DRASTER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DRECT {
     pub x1: i32,
     pub y1: i32,
@@ -6944,7 +6944,7 @@ impl windows_core::TypeKind for D3DRECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DRECTPATCH_INFO {
     pub StartVertexOffsetWidth: u32,
     pub StartVertexOffsetHeight: u32,
@@ -6963,7 +6963,7 @@ impl windows_core::TypeKind for D3DRECTPATCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DRESOURCESTATS {
     pub bThrashing: super::super::Foundation::BOOL,
     pub ApproxBytesDownloaded: u32,
@@ -6986,7 +6986,7 @@ impl windows_core::TypeKind for D3DRESOURCESTATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DSPAN {
     pub wCount: u16,
     pub wFirst: u16,
@@ -7000,7 +7000,7 @@ impl windows_core::TypeKind for D3DSPAN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DSTATE {
     pub Anonymous1: D3DSTATE_0,
     pub Anonymous2: D3DSTATE_1,
@@ -7014,7 +7014,7 @@ impl windows_core::TypeKind for D3DSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DSTATE_0 {
     pub dlstLightStateType: D3DLIGHTSTATETYPE,
     pub drstRenderStateType: D3DRENDERSTATETYPE,
@@ -7028,7 +7028,7 @@ impl windows_core::TypeKind for D3DSTATE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DSTATE_1 {
     pub dwArg: [u32; 1],
     pub dvArg: [f32; 1],
@@ -7042,7 +7042,7 @@ impl windows_core::TypeKind for D3DSTATE_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DSTATS {
     pub dwSize: u32,
     pub dwTrianglesDrawn: u32,
@@ -7060,7 +7060,7 @@ impl windows_core::TypeKind for D3DSTATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -7075,7 +7075,7 @@ impl windows_core::TypeKind for D3DSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DSURFACE_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -7095,7 +7095,7 @@ impl windows_core::TypeKind for D3DSURFACE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DTEXTURELOAD {
     pub hDestTexture: u32,
     pub hSrcTexture: u32,
@@ -7109,7 +7109,7 @@ impl windows_core::TypeKind for D3DTEXTURELOAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DTLVERTEX {
     pub Anonymous1: D3DTLVERTEX_0,
     pub Anonymous2: D3DTLVERTEX_1,
@@ -7129,7 +7129,7 @@ impl windows_core::TypeKind for D3DTLVERTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_0 {
     pub sx: f32,
     pub dvSX: f32,
@@ -7143,7 +7143,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_1 {
     pub sy: f32,
     pub dvSY: f32,
@@ -7157,7 +7157,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_2 {
     pub sz: f32,
     pub dvSZ: f32,
@@ -7171,7 +7171,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_3 {
     pub rhw: f32,
     pub dvRHW: f32,
@@ -7185,7 +7185,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_4 {
     pub color: u32,
     pub dcColor: u32,
@@ -7199,7 +7199,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_5 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -7213,7 +7213,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -7227,7 +7227,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTLVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -7241,7 +7241,7 @@ impl windows_core::TypeKind for D3DTLVERTEX_7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DTRANSFORMCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -7255,7 +7255,7 @@ impl windows_core::TypeKind for D3DTRANSFORMCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DTRANSFORMDATA {
     pub dwSize: u32,
     pub lpIn: *mut core::ffi::c_void,
@@ -7277,7 +7277,7 @@ impl windows_core::TypeKind for D3DTRANSFORMDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DTRIANGLE {
     pub Anonymous1: D3DTRIANGLE_0,
     pub Anonymous2: D3DTRIANGLE_1,
@@ -7293,7 +7293,7 @@ impl windows_core::TypeKind for D3DTRIANGLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTRIANGLE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -7307,7 +7307,7 @@ impl windows_core::TypeKind for D3DTRIANGLE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTRIANGLE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -7321,7 +7321,7 @@ impl windows_core::TypeKind for D3DTRIANGLE_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DTRIANGLE_2 {
     pub v3: u16,
     pub wV3: u16,
@@ -7335,7 +7335,7 @@ impl windows_core::TypeKind for D3DTRIANGLE_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DTRIPATCH_INFO {
     pub StartVertexOffset: u32,
     pub NumVertices: u32,
@@ -7351,7 +7351,7 @@ impl windows_core::TypeKind for D3DTRIPATCH_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DVERTEX {
     pub Anonymous1: D3DVERTEX_0,
     pub Anonymous2: D3DVERTEX_1,
@@ -7371,7 +7371,7 @@ impl windows_core::TypeKind for D3DVERTEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -7385,7 +7385,7 @@ impl windows_core::TypeKind for D3DVERTEX_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -7399,7 +7399,7 @@ impl windows_core::TypeKind for D3DVERTEX_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -7413,7 +7413,7 @@ impl windows_core::TypeKind for D3DVERTEX_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_3 {
     pub nx: f32,
     pub dvNX: f32,
@@ -7427,7 +7427,7 @@ impl windows_core::TypeKind for D3DVERTEX_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_4 {
     pub ny: f32,
     pub dvNY: f32,
@@ -7441,7 +7441,7 @@ impl windows_core::TypeKind for D3DVERTEX_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_5 {
     pub nz: f32,
     pub dvNZ: f32,
@@ -7455,7 +7455,7 @@ impl windows_core::TypeKind for D3DVERTEX_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -7469,7 +7469,7 @@ impl windows_core::TypeKind for D3DVERTEX_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3DVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -7483,7 +7483,7 @@ impl windows_core::TypeKind for D3DVERTEX_7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVERTEXBUFFERDESC {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -7499,7 +7499,7 @@ impl windows_core::TypeKind for D3DVERTEXBUFFERDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVERTEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -7517,7 +7517,7 @@ impl windows_core::TypeKind for D3DVERTEXBUFFER_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVERTEXELEMENT9 {
     pub Stream: u16,
     pub Offset: u16,
@@ -7535,7 +7535,7 @@ impl windows_core::TypeKind for D3DVERTEXELEMENT9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVIEWPORT {
     pub dwSize: u32,
     pub dwX: u32,
@@ -7558,7 +7558,7 @@ impl windows_core::TypeKind for D3DVIEWPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVIEWPORT2 {
     pub dwSize: u32,
     pub dwX: u32,
@@ -7581,7 +7581,7 @@ impl windows_core::TypeKind for D3DVIEWPORT2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVIEWPORT7 {
     pub dwX: u32,
     pub dwY: u32,
@@ -7599,7 +7599,7 @@ impl windows_core::TypeKind for D3DVIEWPORT7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVIEWPORT9 {
     pub X: u32,
     pub Y: u32,
@@ -7617,7 +7617,7 @@ impl windows_core::TypeKind for D3DVIEWPORT9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVOLUME_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -7636,7 +7636,7 @@ impl windows_core::TypeKind for D3DVOLUME_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DVSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -7652,7 +7652,7 @@ impl windows_core::TypeKind for D3DVSHADERCAPS2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D_OMAC {
     pub Omac: [u8; 16],
 }

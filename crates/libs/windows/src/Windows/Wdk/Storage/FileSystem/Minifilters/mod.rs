@@ -2231,32 +2231,32 @@ pub const IRP_MJ_VOLUME_DISMOUNT: u16 = 65516u16;
 pub const IRP_MJ_VOLUME_MOUNT: u16 = 65517u16;
 pub const VOL_PROP_FL_DAX_VOLUME: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_CALLBACK_DATA_QUEUE_FLAGS(pub i32);
 impl windows_core::TypeKind for FLT_CALLBACK_DATA_QUEUE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_POSTOP_CALLBACK_STATUS(pub i32);
 impl windows_core::TypeKind for FLT_POSTOP_CALLBACK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_PREOP_CALLBACK_STATUS(pub i32);
 impl windows_core::TypeKind for FLT_PREOP_CALLBACK_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_SET_CONTEXT_OPERATION(pub i32);
 impl windows_core::TypeKind for FLT_SET_CONTEXT_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_CALLBACK_DATA {
     pub Flags: u32,
     pub Thread: super::super::super::Foundation::PETHREAD,
@@ -2278,7 +2278,7 @@ impl windows_core::TypeKind for FLT_CALLBACK_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_CALLBACK_DATA_0 {
     pub Anonymous: FLT_CALLBACK_DATA_0_0,
     pub FilterContext: [*mut core::ffi::c_void; 4],
@@ -2295,7 +2295,7 @@ impl windows_core::TypeKind for FLT_CALLBACK_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_CALLBACK_DATA_0_0 {
     pub QueueLinks: super::super::super::super::Win32::System::Kernel::LIST_ENTRY,
     pub QueueContext: [*mut core::ffi::c_void; 2],
@@ -2312,7 +2312,7 @@ impl windows_core::TypeKind for FLT_CALLBACK_DATA_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_CALLBACK_DATA_QUEUE {
     pub Csq: super::super::super::System::SystemServices::IO_CSQ,
     pub Flags: FLT_CALLBACK_DATA_QUEUE_FLAGS,
@@ -2336,7 +2336,7 @@ impl windows_core::TypeKind for FLT_CALLBACK_DATA_QUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_CONTEXT_REGISTRATION {
     pub ContextType: u16,
     pub Flags: u16,
@@ -2358,7 +2358,7 @@ impl windows_core::TypeKind for FLT_CONTEXT_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_CREATEFILE_TARGET_ECP_CONTEXT {
     pub Instance: PFLT_INSTANCE,
     pub Volume: PFLT_VOLUME,
@@ -2374,7 +2374,7 @@ impl windows_core::TypeKind for FLT_CREATEFILE_TARGET_ECP_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_FILE_NAME_INFORMATION {
     pub Size: u16,
     pub NamesParsed: u16,
@@ -2397,7 +2397,7 @@ impl windows_core::TypeKind for FLT_FILE_NAME_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_IO_PARAMETER_BLOCK {
     pub IrpFlags: u32,
     pub MajorFunction: u8,
@@ -2419,7 +2419,7 @@ impl windows_core::TypeKind for FLT_IO_PARAMETER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_NAME_CONTROL {
     pub Name: super::super::super::super::Win32::Foundation::UNICODE_STRING,
 }
@@ -2433,7 +2433,7 @@ impl windows_core::TypeKind for FLT_NAME_CONTROL {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_OPERATION_REGISTRATION {
     pub MajorFunction: u8,
     pub Flags: u32,
@@ -2453,7 +2453,7 @@ impl windows_core::TypeKind for FLT_OPERATION_REGISTRATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS {
     pub Create: FLT_PARAMETERS_0,
     pub CreatePipe: FLT_PARAMETERS_1,
@@ -2501,7 +2501,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_22 {
     pub EndingOffset: *mut i64,
     pub ResourceToRelease: *mut *mut super::super::super::Foundation::ERESOURCE,
@@ -2518,7 +2518,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_22 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_21 {
     pub SyncType: super::FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
@@ -2538,7 +2538,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_21 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_2 {
     pub SecurityContext: *mut super::super::super::Foundation::IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -2558,7 +2558,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_1 {
     pub SecurityContext: *mut super::super::super::Foundation::IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -2578,7 +2578,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_1 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_0 {
     pub SecurityContext: *mut super::super::super::Foundation::IO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -2600,7 +2600,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS_13 {
     pub Common: FLT_PARAMETERS_13_0,
     pub Neither: FLT_PARAMETERS_13_1,
@@ -2620,7 +2620,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_13_2 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2639,7 +2639,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_13_0 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2657,7 +2657,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_13_3 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2678,7 +2678,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_13_4 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2698,7 +2698,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_13_1 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2719,7 +2719,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_13_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS_11 {
     pub QueryDirectory: FLT_PARAMETERS_11_0,
     pub NotifyDirectory: FLT_PARAMETERS_11_1,
@@ -2737,7 +2737,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_11 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_11_2 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -2758,7 +2758,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_11_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_11_1 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -2779,7 +2779,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_11_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_11_0 {
     pub Length: u32,
     pub FileName: *mut super::super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -2800,7 +2800,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_11_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_25 {
     pub FileOffset: i64,
     pub Length: u32,
@@ -2819,7 +2819,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_25 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS_12 {
     pub VerifyVolume: FLT_PARAMETERS_12_0,
     pub Common: FLT_PARAMETERS_12_1,
@@ -2839,7 +2839,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_12_3 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2858,7 +2858,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_12_1 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2876,7 +2876,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_12_4 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2897,7 +2897,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_12_2 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -2918,7 +2918,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_12_0 {
     pub Vpb: *mut super::super::super::Foundation::VPB,
     pub DeviceObject: *mut super::super::super::Foundation::DEVICE_OBJECT,
@@ -2935,7 +2935,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_12_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_14 {
     pub Length: *mut i64,
     pub Key: u32,
@@ -2956,7 +2956,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_14 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_28 {
     pub MdlChain: *mut super::super::super::Foundation::MDL,
 }
@@ -2972,7 +2972,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_28 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_27 {
     pub FileOffset: i64,
     pub Length: u32,
@@ -2991,7 +2991,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_27 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_30 {
     pub FileOffset: i64,
     pub MdlChain: *mut super::super::super::Foundation::MDL,
@@ -3008,7 +3008,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_30 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_31 {
     pub DeviceType: u32,
 }
@@ -3024,7 +3024,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_31 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_26 {
     pub Irp: *mut super::super::super::Foundation::IRP,
     pub NetworkInformation: *mut super::FILE_NETWORK_OPEN_INFORMATION,
@@ -3041,7 +3041,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_26 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_32 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -3062,7 +3062,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_32 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS_20 {
     pub StartDevice: FLT_PARAMETERS_20_0,
     pub QueryDeviceRelations: FLT_PARAMETERS_20_1,
@@ -3087,7 +3087,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_3 {
     pub Capabilities: *mut super::super::super::System::SystemServices::DEVICE_CAPABILITIES,
 }
@@ -3103,7 +3103,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_4 {
     pub IoResourceRequirementList: *mut super::super::super::System::SystemServices::IO_RESOURCE_REQUIREMENTS_LIST,
 }
@@ -3119,7 +3119,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_1 {
     pub Type: super::super::super::System::SystemServices::DEVICE_RELATION_TYPE,
 }
@@ -3135,7 +3135,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_8 {
     pub DeviceTextType: super::super::super::System::SystemServices::DEVICE_TEXT_TYPE,
     pub LocaleId: u32,
@@ -3152,7 +3152,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_8 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_7 {
     pub IdType: super::super::super::System::SystemServices::BUS_QUERY_ID_TYPE,
 }
@@ -3168,7 +3168,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_7 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_2 {
     pub InterfaceType: *const windows_core::GUID,
     pub Size: u16,
@@ -3188,7 +3188,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_5 {
     pub WhichSpace: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -3207,7 +3207,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_6 {
     pub Lock: super::super::super::super::Win32::Foundation::BOOLEAN,
 }
@@ -3223,7 +3223,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_6 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_0 {
     pub AllocatedResources: *mut super::super::super::System::SystemServices::CM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: *mut super::super::super::System::SystemServices::CM_RESOURCE_LIST,
@@ -3240,7 +3240,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_20_9 {
     pub InPath: super::super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: [super::super::super::super::Win32::Foundation::BOOLEAN; 3],
@@ -3258,7 +3258,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_20_9 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_29 {
     pub FileOffset: i64,
     pub Length: u32,
@@ -3277,7 +3277,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_29 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_7 {
     pub Length: u32,
     pub EaList: *mut core::ffi::c_void,
@@ -3298,7 +3298,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_7 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_5 {
     pub Length: u32,
     pub FileInformationClass: super::FILE_INFORMATION_CLASS,
@@ -3316,7 +3316,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_24 {
     pub Irp: *mut super::super::super::Foundation::IRP,
     pub FileInformation: *mut core::ffi::c_void,
@@ -3335,7 +3335,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_24 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_18 {
     pub Length: u32,
     pub StartSid: super::super::super::super::Win32::Security::PSID,
@@ -3356,7 +3356,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_18 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_15 {
     pub SecurityInformation: u32,
     pub Length: u32,
@@ -3375,7 +3375,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_15 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_9 {
     pub Length: u32,
     pub FsInformationClass: super::FS_INFORMATION_CLASS,
@@ -3393,7 +3393,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_9 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_3 {
     pub Length: u32,
     pub Key: u32,
@@ -3413,7 +3413,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_23 {
     pub ResourceToRelease: *mut super::super::super::Foundation::ERESOURCE,
 }
@@ -3429,7 +3429,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_23 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_8 {
     pub Length: u32,
     pub EaBuffer: *mut core::ffi::c_void,
@@ -3447,7 +3447,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_8 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_6 {
     pub Length: u32,
     pub FileInformationClass: super::FILE_INFORMATION_CLASS,
@@ -3467,7 +3467,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_6 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_PARAMETERS_6_0 {
     pub Anonymous: FLT_PARAMETERS_6_0_0,
     pub ClusterCount: u32,
@@ -3485,7 +3485,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_6_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_6_0_0 {
     pub ReplaceIfExists: super::super::super::super::Win32::Foundation::BOOLEAN,
     pub AdvanceOnly: super::super::super::super::Win32::Foundation::BOOLEAN,
@@ -3502,7 +3502,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_6_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_19 {
     pub Length: u32,
     pub QuotaBuffer: *mut core::ffi::c_void,
@@ -3520,7 +3520,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_19 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_16 {
     pub SecurityInformation: u32,
     pub SecurityDescriptor: super::super::super::super::Win32::Security::PSECURITY_DESCRIPTOR,
@@ -3537,7 +3537,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_16 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_10 {
     pub Length: u32,
     pub FsInformationClass: super::FS_INFORMATION_CLASS,
@@ -3555,7 +3555,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_10 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_PARAMETERS_17 {
     pub ProviderId: usize,
     pub DataPath: *mut core::ffi::c_void,
@@ -3574,7 +3574,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_17 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_PARAMETERS_4 {
     pub Length: u32,
     pub Key: u32,
@@ -3594,7 +3594,7 @@ impl windows_core::TypeKind for FLT_PARAMETERS_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_Storage_InstallableFileSystems", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_REGISTRATION {
     pub Size: u16,
     pub Version: u16,
@@ -3624,7 +3624,7 @@ impl windows_core::TypeKind for FLT_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_RELATED_CONTEXTS {
     pub VolumeContext: PFLT_CONTEXT,
     pub InstanceContext: PFLT_CONTEXT,
@@ -3642,7 +3642,7 @@ impl windows_core::TypeKind for FLT_RELATED_CONTEXTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_RELATED_CONTEXTS_EX {
     pub VolumeContext: PFLT_CONTEXT,
     pub InstanceContext: PFLT_CONTEXT,
@@ -3662,7 +3662,7 @@ impl windows_core::TypeKind for FLT_RELATED_CONTEXTS_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_RELATED_OBJECTS {
     pub Size: u16,
     pub TransactionContext: u16,
@@ -3683,7 +3683,7 @@ impl windows_core::TypeKind for FLT_RELATED_OBJECTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLT_TAG_DATA_BUFFER {
     pub FileTag: u32,
     pub TagDataLength: u16,
@@ -3699,7 +3699,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FLT_TAG_DATA_BUFFER_0 {
     pub SymbolicLinkReparseBuffer: FLT_TAG_DATA_BUFFER_0_0,
     pub MountPointReparseBuffer: FLT_TAG_DATA_BUFFER_0_1,
@@ -3715,7 +3715,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_TAG_DATA_BUFFER_0_3 {
     pub TagGuid: windows_core::GUID,
     pub DataBuffer: [u8; 1],
@@ -3729,7 +3729,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_TAG_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
 }
@@ -3742,7 +3742,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_TAG_DATA_BUFFER_0_1 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -3759,7 +3759,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_TAG_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -3777,7 +3777,7 @@ impl windows_core::TypeKind for FLT_TAG_DATA_BUFFER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLT_VOLUME_PROPERTIES {
     pub DeviceType: u32,
     pub DeviceCharacteristics: u32,

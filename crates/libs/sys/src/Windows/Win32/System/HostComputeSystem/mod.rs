@@ -138,7 +138,7 @@ pub type HCS_OPERATION_TYPE = i32;
 pub type HCS_RESOURCE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -148,7 +148,7 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub Callback: HCS_EVENT_CALLBACK,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HCS_EVENT {
     pub Type: HCS_EVENT_TYPE,
     pub EventData: windows_sys::core::PCWSTR,
@@ -157,7 +157,7 @@ pub struct HCS_EVENT {
 pub type HCS_OPERATION = *mut core::ffi::c_void;
 pub type HCS_PROCESS = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,
     pub Reserved: u32,

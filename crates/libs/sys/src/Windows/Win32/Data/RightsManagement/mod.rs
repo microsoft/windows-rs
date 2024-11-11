@@ -188,7 +188,7 @@ pub type DRM_DISTRIBUTION_POINT_INFO = i32;
 pub type DRM_STATUS_MSG = i32;
 pub type DRM_USAGEPOLICY_TYPE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRMBOUNDLICENSEPARAMS {
     pub uVersion: u32,
     pub hEnablingPrincipal: u32,
@@ -202,21 +202,21 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRMID {
     pub uVersion: u32,
     pub wszIDType: windows_sys::core::PWSTR,
     pub wszID: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRM_ACTSERV_INFO {
     pub uVersion: u32,
     pub wszPubKey: windows_sys::core::PWSTR,
     pub wszURL: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRM_CLIENT_VERSION_INFO {
     pub uStructVersion: u32,
     pub dwVersion: [u32; 4],
@@ -225,7 +225,7 @@ pub struct DRM_CLIENT_VERSION_INFO {
     pub wszProductDescription: [u16; 256],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRM_LICENSE_ACQ_DATA {
     pub uVersion: u32,
     pub wszURL: windows_sys::core::PWSTR,

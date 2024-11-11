@@ -2142,13 +2142,13 @@ pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_RETCODE(pub i32);
 impl windows_core::TypeKind for LDAP_RETCODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BerElement {
     pub opaque: windows_core::PSTR,
 }
@@ -2161,7 +2161,7 @@ impl windows_core::TypeKind for BerElement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: windows_core::PSTR,
@@ -2189,7 +2189,7 @@ impl windows_core::TypeKind for LDAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
@@ -2205,7 +2205,7 @@ impl windows_core::TypeKind for LDAP_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PSTR,
@@ -2220,7 +2220,7 @@ impl windows_core::TypeKind for LDAPAPIFeatureInfoA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_core::PWSTR,
@@ -2235,7 +2235,7 @@ impl windows_core::TypeKind for LDAPAPIFeatureInfoW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -2253,7 +2253,7 @@ impl windows_core::TypeKind for LDAPAPIInfoA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -2271,7 +2271,7 @@ impl windows_core::TypeKind for LDAPAPIInfoW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: windows_core::PSTR,
     pub ldctl_value: LDAP_BERVAL,
@@ -2286,7 +2286,7 @@ impl windows_core::TypeKind for LDAPControlA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: windows_core::PWSTR,
     pub ldctl_value: LDAP_BERVAL,
@@ -2301,7 +2301,7 @@ impl windows_core::TypeKind for LDAPControlW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -2326,7 +2326,7 @@ impl windows_core::TypeKind for LDAPMessage {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPModA {
     pub mod_op: u32,
     pub mod_type: windows_core::PSTR,
@@ -2341,7 +2341,7 @@ impl windows_core::TypeKind for LDAPModA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LDAPModA_0 {
     pub modv_strvals: *mut windows_core::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
@@ -2355,7 +2355,7 @@ impl windows_core::TypeKind for LDAPModA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LDAPModW {
     pub mod_op: u32,
     pub mod_type: windows_core::PWSTR,
@@ -2370,7 +2370,7 @@ impl windows_core::TypeKind for LDAPModW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LDAPModW_0 {
     pub modv_strvals: *mut windows_core::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
@@ -2384,7 +2384,7 @@ impl windows_core::TypeKind for LDAPModW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: windows_core::PSTR,
     pub sk_matchruleoid: windows_core::PSTR,
@@ -2399,7 +2399,7 @@ impl windows_core::TypeKind for LDAPSortKeyA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: windows_core::PWSTR,
     pub sk_matchruleoid: windows_core::PWSTR,
@@ -2414,7 +2414,7 @@ impl windows_core::TypeKind for LDAPSortKeyW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -2434,7 +2434,7 @@ impl windows_core::TypeKind for LDAPVLVInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: windows_core::PSTR,
@@ -2448,7 +2448,7 @@ impl windows_core::TypeKind for LDAP_BERVAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
     pub QueryForConnection: QUERYFORCONNECTION,
@@ -2464,7 +2464,7 @@ impl windows_core::TypeKind for LDAP_REFERRAL_CALLBACK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
@@ -2478,7 +2478,7 @@ impl windows_core::TypeKind for LDAP_TIMEVAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,

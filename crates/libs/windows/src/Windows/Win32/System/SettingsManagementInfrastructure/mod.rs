@@ -1717,43 +1717,43 @@ pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
 pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
 pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmDataType(pub i32);
 impl windows_core::TypeKind for WcmDataType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmNamespaceAccess(pub i32);
 impl windows_core::TypeKind for WcmNamespaceAccess {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmNamespaceEnumerationFlags(pub i32);
 impl windows_core::TypeKind for WcmNamespaceEnumerationFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmRestrictionFacets(pub i32);
 impl windows_core::TypeKind for WcmRestrictionFacets {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmSettingType(pub i32);
 impl windows_core::TypeKind for WcmSettingType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmTargetMode(pub i32);
 impl windows_core::TypeKind for WcmTargetMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WcmUserStatus(pub i32);
 impl windows_core::TypeKind for WcmUserStatus {
     type TypeKind = windows_core::CopyType;

@@ -918,7 +918,7 @@ pub struct IEmailStoreNotificationTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailAttachment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailAttachment, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailAttachment {
@@ -1078,7 +1078,7 @@ impl windows_core::RuntimeName for EmailAttachment {
 unsafe impl Send for EmailAttachment {}
 unsafe impl Sync for EmailAttachment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailConversation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailConversation, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailConversation {
@@ -1203,7 +1203,7 @@ impl windows_core::RuntimeName for EmailConversation {
 unsafe impl Send for EmailConversation {}
 unsafe impl Sync for EmailConversation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailConversationBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailConversationBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailConversationBatch {
@@ -1236,7 +1236,7 @@ impl windows_core::RuntimeName for EmailConversationBatch {
 unsafe impl Send for EmailConversationBatch {}
 unsafe impl Sync for EmailConversationBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailConversationReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailConversationReader, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailConversationReader {
@@ -1261,7 +1261,7 @@ impl windows_core::RuntimeName for EmailConversationReader {
 unsafe impl Send for EmailConversationReader {}
 unsafe impl Sync for EmailConversationReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailFolder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailFolder, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailFolder {
@@ -1458,7 +1458,7 @@ impl windows_core::RuntimeName for EmailFolder {
 unsafe impl Send for EmailFolder {}
 unsafe impl Sync for EmailFolder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailIrmInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailIrmInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailIrmInfo {
@@ -1631,7 +1631,7 @@ impl windows_core::RuntimeName for EmailIrmInfo {
 unsafe impl Send for EmailIrmInfo {}
 unsafe impl Sync for EmailIrmInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailIrmTemplate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailIrmTemplate, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailIrmTemplate {
@@ -1699,7 +1699,7 @@ impl windows_core::RuntimeName for EmailIrmTemplate {
 unsafe impl Send for EmailIrmTemplate {}
 unsafe impl Sync for EmailIrmTemplate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailItemCounts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailItemCounts, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailItemCounts {
@@ -1745,7 +1745,7 @@ impl windows_core::RuntimeName for EmailItemCounts {
 unsafe impl Send for EmailItemCounts {}
 unsafe impl Sync for EmailItemCounts {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailbox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailbox, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailbox {
@@ -2209,7 +2209,7 @@ impl windows_core::RuntimeName for EmailMailbox {
 unsafe impl Send for EmailMailbox {}
 unsafe impl Sync for EmailMailbox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxAction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxAction, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxAction {
@@ -2241,7 +2241,7 @@ impl windows_core::RuntimeName for EmailMailboxAction {
 unsafe impl Send for EmailMailboxAction {}
 unsafe impl Sync for EmailMailboxAction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxAutoReply(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReply, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxAutoReply {
@@ -2281,7 +2281,7 @@ impl windows_core::RuntimeName for EmailMailboxAutoReply {
 unsafe impl Send for EmailMailboxAutoReply {}
 unsafe impl Sync for EmailMailboxAutoReply {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxAutoReplySettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReplySettings, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxAutoReplySettings {
@@ -2377,7 +2377,7 @@ impl windows_core::RuntimeName for EmailMailboxAutoReplySettings {
 unsafe impl Send for EmailMailboxAutoReplySettings {}
 unsafe impl Sync for EmailMailboxAutoReplySettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxCapabilities {
@@ -2549,7 +2549,7 @@ impl windows_core::RuntimeName for EmailMailboxCapabilities {
 unsafe impl Send for EmailMailboxCapabilities {}
 unsafe impl Sync for EmailMailboxCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxChange, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxChange {
@@ -2596,7 +2596,7 @@ impl windows_core::RuntimeName for EmailMailboxChange {
 unsafe impl Send for EmailMailboxChange {}
 unsafe impl Sync for EmailMailboxChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxChangeReader {
@@ -2633,7 +2633,7 @@ impl windows_core::RuntimeName for EmailMailboxChangeReader {
 unsafe impl Send for EmailMailboxChangeReader {}
 unsafe impl Sync for EmailMailboxChangeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxChangeTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxChangeTracker {
@@ -2673,7 +2673,7 @@ impl windows_core::RuntimeName for EmailMailboxChangeTracker {
 unsafe impl Send for EmailMailboxChangeTracker {}
 unsafe impl Sync for EmailMailboxChangeTracker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxChangedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxChangedDeferral {
@@ -2695,7 +2695,7 @@ impl windows_core::RuntimeName for EmailMailboxChangedDeferral {
 unsafe impl Send for EmailMailboxChangedDeferral {}
 unsafe impl Sync for EmailMailboxChangedDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxChangedEventArgs {
@@ -2720,7 +2720,7 @@ impl windows_core::RuntimeName for EmailMailboxChangedEventArgs {
 unsafe impl Send for EmailMailboxChangedEventArgs {}
 unsafe impl Sync for EmailMailboxChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxCreateFolderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxCreateFolderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxCreateFolderResult {
@@ -2752,7 +2752,7 @@ impl windows_core::RuntimeName for EmailMailboxCreateFolderResult {
 unsafe impl Send for EmailMailboxCreateFolderResult {}
 unsafe impl Sync for EmailMailboxCreateFolderResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxPolicies(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxPolicies, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxPolicies {
@@ -2842,7 +2842,7 @@ impl windows_core::RuntimeName for EmailMailboxPolicies {
 unsafe impl Send for EmailMailboxPolicies {}
 unsafe impl Sync for EmailMailboxPolicies {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMailboxSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMailboxSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMailboxSyncManager {
@@ -2957,7 +2957,7 @@ impl windows_core::RuntimeName for EmailManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailManagerForUser {
@@ -3000,7 +3000,7 @@ impl windows_core::RuntimeName for EmailManagerForUser {
 unsafe impl Send for EmailManagerForUser {}
 unsafe impl Sync for EmailManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMeetingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMeetingInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMeetingInfo {
@@ -3192,7 +3192,7 @@ impl windows_core::RuntimeName for EmailMeetingInfo {
 unsafe impl Send for EmailMeetingInfo {}
 unsafe impl Sync for EmailMeetingInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMessage {
@@ -3601,7 +3601,7 @@ impl windows_core::RuntimeName for EmailMessage {
 unsafe impl Send for EmailMessage {}
 unsafe impl Sync for EmailMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMessageBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMessageBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMessageBatch {
@@ -3634,7 +3634,7 @@ impl windows_core::RuntimeName for EmailMessageBatch {
 unsafe impl Send for EmailMessageBatch {}
 unsafe impl Sync for EmailMessageBatch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailMessageReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailMessageReader, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailMessageReader {
@@ -3659,7 +3659,7 @@ impl windows_core::RuntimeName for EmailMessageReader {
 unsafe impl Send for EmailMessageReader {}
 unsafe impl Sync for EmailMessageReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailQueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailQueryOptions {
@@ -3748,7 +3748,7 @@ impl windows_core::RuntimeName for EmailQueryOptions {
 unsafe impl Send for EmailQueryOptions {}
 unsafe impl Sync for EmailQueryOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailQueryTextSearch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailQueryTextSearch {
@@ -3799,7 +3799,7 @@ impl windows_core::RuntimeName for EmailQueryTextSearch {
 unsafe impl Send for EmailQueryTextSearch {}
 unsafe impl Sync for EmailQueryTextSearch {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailRecipient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailRecipient, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailRecipient {
@@ -3862,7 +3862,7 @@ impl windows_core::RuntimeName for EmailRecipient {
 unsafe impl Send for EmailRecipient {}
 unsafe impl Sync for EmailRecipient {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailRecipientResolutionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailRecipientResolutionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailRecipientResolutionResult {
@@ -3914,7 +3914,7 @@ impl windows_core::RuntimeName for EmailRecipientResolutionResult {
 unsafe impl Send for EmailRecipientResolutionResult {}
 unsafe impl Sync for EmailRecipientResolutionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailStore, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailStore {
@@ -4016,7 +4016,7 @@ impl windows_core::RuntimeName for EmailStore {
 unsafe impl Send for EmailStore {}
 unsafe impl Sync for EmailStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailStoreNotificationTriggerDetails {}
@@ -4033,7 +4033,7 @@ impl windows_core::RuntimeName for EmailStoreNotificationTriggerDetails {
 unsafe impl Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
     pub const NotDownloaded: Self = Self(0i32);
@@ -4048,7 +4048,7 @@ impl windows_core::RuntimeType for EmailAttachmentDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailAttachmentDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -4062,7 +4062,7 @@ impl windows_core::RuntimeType for EmailBatchStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailBatchStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
     pub const Success: Self = Self(0i32);
@@ -4084,7 +4084,7 @@ impl windows_core::RuntimeType for EmailCertificateValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailCertificateValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
     pub const Unflagged: Self = Self(0i32);
@@ -4099,7 +4099,7 @@ impl windows_core::RuntimeType for EmailFlagState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailFlagState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
     pub const Normal: Self = Self(0i32);
@@ -4113,7 +4113,7 @@ impl windows_core::RuntimeType for EmailImportance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailImportance;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
     pub const MarkMessageAsSeen: Self = Self(0i32);
@@ -4135,7 +4135,7 @@ impl windows_core::RuntimeType for EmailMailboxActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxActionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     pub const None: Self = Self(0i32);
@@ -4149,7 +4149,7 @@ impl windows_core::RuntimeType for EmailMailboxAllowedSmimeEncryptionAlgorithmNe
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
     pub const Html: Self = Self(0i32);
@@ -4162,7 +4162,7 @@ impl windows_core::RuntimeType for EmailMailboxAutoReplyMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxAutoReplyMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -4180,7 +4180,7 @@ impl windows_core::RuntimeType for EmailMailboxChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4198,7 +4198,7 @@ impl windows_core::RuntimeType for EmailMailboxCreateFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxCreateFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4215,7 +4215,7 @@ impl windows_core::RuntimeType for EmailMailboxDeleteFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxDeleteFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -4232,7 +4232,7 @@ impl windows_core::RuntimeType for EmailMailboxEmptyFolderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxEmptyFolderStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -4246,7 +4246,7 @@ impl windows_core::RuntimeType for EmailMailboxOtherAppReadAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppReadAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -4259,7 +4259,7 @@ impl windows_core::RuntimeType for EmailMailboxOtherAppWriteAccess {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxOtherAppWriteAccess;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -4276,7 +4276,7 @@ impl windows_core::RuntimeType for EmailMailboxSmimeEncryptionAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeEncryptionAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -4290,7 +4290,7 @@ impl windows_core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSmimeSigningAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -4308,7 +4308,7 @@ impl windows_core::RuntimeType for EmailMailboxSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMailboxSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
     pub const Accept: Self = Self(0i32);
@@ -4322,7 +4322,7 @@ impl windows_core::RuntimeType for EmailMeetingResponseType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMeetingResponseType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
     pub const Html: Self = Self(0i32);
@@ -4335,7 +4335,7 @@ impl windows_core::RuntimeType for EmailMessageBodyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageBodyKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
     pub const PartiallyDownloaded: Self = Self(0i32);
@@ -4350,7 +4350,7 @@ impl windows_core::RuntimeType for EmailMessageDownloadState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageDownloadState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
     pub const None: Self = Self(0i32);
@@ -4365,7 +4365,7 @@ impl windows_core::RuntimeType for EmailMessageResponseKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageResponseKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
     pub const None: Self = Self(0i32);
@@ -4380,7 +4380,7 @@ impl windows_core::RuntimeType for EmailMessageSmimeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailMessageSmimeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
     pub const All: Self = Self(0i32);
@@ -4397,7 +4397,7 @@ impl windows_core::RuntimeType for EmailQueryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQueryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -4447,7 +4447,7 @@ impl core::ops::Not for EmailQuerySearchFields {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -4460,7 +4460,7 @@ impl windows_core::RuntimeType for EmailQuerySearchScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySearchScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
     pub const Descending: Self = Self(0i32);
@@ -4473,7 +4473,7 @@ impl windows_core::RuntimeType for EmailQuerySortDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
     pub const Date: Self = Self(0i32);
@@ -4485,7 +4485,7 @@ impl windows_core::RuntimeType for EmailQuerySortProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailQuerySortProperty;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
     pub const Success: Self = Self(0i32);
@@ -4504,7 +4504,7 @@ impl windows_core::RuntimeType for EmailRecipientResolutionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailRecipientResolutionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
     pub const None: Self = Self(0i32);
@@ -4522,7 +4522,7 @@ impl windows_core::RuntimeType for EmailSpecialFolderKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailSpecialFolderKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
     pub const AppMailboxesReadWrite: Self = Self(0i32);

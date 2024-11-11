@@ -139,7 +139,7 @@ impl windows_core::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
     pub const Default: Self = Self(0i32);
@@ -159,7 +159,7 @@ impl windows_core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
     pub const Default: Self = Self(0i32);
@@ -176,7 +176,7 @@ impl windows_core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
     pub const Default: Self = Self(0i32);
@@ -192,7 +192,7 @@ impl windows_core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
     pub const Default: Self = Self(0i32);
@@ -208,7 +208,7 @@ impl windows_core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {
     pub const Default: Self = Self(0i32);

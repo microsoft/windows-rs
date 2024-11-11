@@ -30,7 +30,7 @@ pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u32;
 pub type CREATE_TOOLHELP_SNAPSHOT_FLAGS = u32;
 pub type HEAPENTRY32_FLAGS = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
     pub hHandle: super::super::super::Foundation::HANDLE,
@@ -43,7 +43,7 @@ pub struct HEAPENTRY32 {
     pub th32HeapID: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
@@ -51,7 +51,7 @@ pub struct HEAPLIST32 {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -65,7 +65,7 @@ pub struct MODULEENTRY32 {
     pub szExePath: [i8; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -79,7 +79,7 @@ pub struct MODULEENTRY32W {
     pub szExePath: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -93,7 +93,7 @@ pub struct PROCESSENTRY32 {
     pub szExeFile: [i8; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESSENTRY32W {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -107,7 +107,7 @@ pub struct PROCESSENTRY32W {
     pub szExeFile: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,

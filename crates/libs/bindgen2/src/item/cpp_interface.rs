@@ -264,7 +264,7 @@ impl CppInterface {
                     CppMethodOrName::Method(method) => {
                         let name = names.add(method.def);
                         if self.has_unknown_base() {
-                        quote! { #name: #name::<Identity, OFFSET>, }
+                            quote! { #name: #name::<Identity, OFFSET>, }
                         } else {
                             quote! { #name: #name::<Identity>, }
                         }
@@ -363,7 +363,7 @@ impl CppInterface {
                     }
                     #cfg
                     impl windows_core::RuntimeName for #name {}
-                } 
+                }
             } else {
                 let implvtbl_ident = impl_name.join("Vtbl");
 

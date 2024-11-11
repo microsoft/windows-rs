@@ -3024,13 +3024,13 @@ pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(8u32);
 pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(256u32);
 pub const Wow64Container: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(4i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVRT_PRIORITY(pub i32);
 impl windows_core::TypeKind for AVRT_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_EVENT(pub u32);
 impl windows_core::TypeKind for CREATE_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -3069,19 +3069,19 @@ impl core::ops::Not for CREATE_EVENT {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_PROCESS_LOGON_FLAGS(pub u32);
 impl windows_core::TypeKind for CREATE_PROCESS_LOGON_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_GUI_RESOURCES_FLAGS(pub u32);
 impl windows_core::TypeKind for GET_GUI_RESOURCES_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACHINE_ATTRIBUTES(pub i32);
 impl windows_core::TypeKind for MACHINE_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
@@ -3120,25 +3120,25 @@ impl core::ops::Not for MACHINE_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PRIORITY(pub u32);
 impl windows_core::TypeKind for MEMORY_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for POWER_REQUEST_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_FEATURE_ID(pub u32);
 impl windows_core::TypeKind for PROCESSOR_FEATURE_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_ACCESS_RIGHTS(pub u32);
 impl windows_core::TypeKind for PROCESS_ACCESS_RIGHTS {
     type TypeKind = windows_core::CopyType;
@@ -3177,13 +3177,13 @@ impl core::ops::Not for PROCESS_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
 impl windows_core::TypeKind for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_CREATION_FLAGS(pub u32);
 impl windows_core::TypeKind for PROCESS_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3222,7 +3222,7 @@ impl core::ops::Not for PROCESS_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DEP_FLAGS(pub u32);
 impl windows_core::TypeKind for PROCESS_DEP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3261,55 +3261,55 @@ impl core::ops::Not for PROCESS_DEP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for PROCESS_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
 impl windows_core::TypeKind for PROCESS_MEMORY_EXHAUSTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
 impl windows_core::TypeKind for PROCESS_MITIGATION_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NAME_FORMAT(pub u32);
 impl windows_core::TypeKind for PROCESS_NAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL(pub u32);
 impl windows_core::TypeKind for PROCESS_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROC_THREAD_ATTRIBUTE_NUM(pub u32);
 impl windows_core::TypeKind for PROC_THREAD_ATTRIBUTE_NUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
 impl windows_core::TypeKind for QUEUE_USER_APC_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTWQ_WORKQUEUE_TYPE(pub i32);
 impl windows_core::TypeKind for RTWQ_WORKQUEUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTUPINFOW_FLAGS(pub u32);
 impl windows_core::TypeKind for STARTUPINFOW_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3348,7 +3348,7 @@ impl core::ops::Not for STARTUPINFOW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNCHRONIZATION_ACCESS_RIGHTS(pub u32);
 impl windows_core::TypeKind for SYNCHRONIZATION_ACCESS_RIGHTS {
     type TypeKind = windows_core::CopyType;
@@ -3387,7 +3387,7 @@ impl core::ops::Not for SYNCHRONIZATION_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_ACCESS_RIGHTS(pub u32);
 impl windows_core::TypeKind for THREAD_ACCESS_RIGHTS {
     type TypeKind = windows_core::CopyType;
@@ -3426,7 +3426,7 @@ impl core::ops::Not for THREAD_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_CREATION_FLAGS(pub u32);
 impl windows_core::TypeKind for THREAD_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3465,31 +3465,31 @@ impl core::ops::Not for THREAD_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for THREAD_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_PRIORITY(pub i32);
 impl windows_core::TypeKind for THREAD_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
 impl windows_core::TypeKind for TP_CALLBACK_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_THREAD_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for UMS_THREAD_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORKER_THREAD_FLAGS(pub u32);
 impl windows_core::TypeKind for WORKER_THREAD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3528,7 +3528,7 @@ impl core::ops::Not for WORKER_THREAD_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_MEMORY_INFORMATION {
     pub AvailableCommit: u64,
     pub PrivateCommitUsage: u64,
@@ -3544,7 +3544,7 @@ impl windows_core::TypeKind for APP_MEMORY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONDITION_VARIABLE {
     pub Ptr: *mut core::ffi::c_void,
 }
@@ -3558,7 +3558,7 @@ impl windows_core::TypeKind for CONDITION_VARIABLE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRITICAL_SECTION {
     pub DebugInfo: *mut CRITICAL_SECTION_DEBUG,
     pub LockCount: i32,
@@ -3579,7 +3579,7 @@ impl windows_core::TypeKind for CRITICAL_SECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CRITICAL_SECTION_DEBUG {
     pub Type: u16,
     pub CreatorBackTraceIndex: u16,
@@ -3602,7 +3602,7 @@ impl windows_core::TypeKind for CRITICAL_SECTION_DEBUG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INIT_ONCE {
     pub Ptr: *mut core::ffi::c_void,
 }
@@ -3615,7 +3615,7 @@ impl windows_core::TypeKind for INIT_ONCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
     pub WriteOperationCount: u64,
@@ -3658,7 +3658,7 @@ impl Default for LPPROC_THREAD_ATTRIBUTE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: MEMORY_PRIORITY,
 }
@@ -3671,7 +3671,7 @@ impl windows_core::TypeKind for MEMORY_PRIORITY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OVERRIDE_PREFETCH_PARAMETER {
     pub Value: u32,
 }
@@ -3685,7 +3685,7 @@ impl windows_core::TypeKind for OVERRIDE_PREFETCH_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PEB {
     pub Reserved1: [u8; 2],
     pub BeingDebugged: u8,
@@ -3719,7 +3719,7 @@ impl windows_core::TypeKind for PEB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PEB_LDR_DATA {
     pub Reserved1: [u8; 8],
     pub Reserved2: [*mut core::ffi::c_void; 3],
@@ -3737,7 +3737,7 @@ impl windows_core::TypeKind for PEB_LDR_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_BASIC_INFORMATION {
     pub ExitStatus: super::super::Foundation::NTSTATUS,
     pub PebBaseAddress: *mut PEB,
@@ -3757,7 +3757,7 @@ impl windows_core::TypeKind for PROCESS_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
@@ -3771,7 +3771,7 @@ impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub NumberOfTargets: u16,
     pub Reserved: u16,
@@ -3787,7 +3787,7 @@ impl windows_core::TypeKind for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMAT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
@@ -3802,7 +3802,7 @@ impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub NumberOfRanges: u16,
     pub Reserved: u16,
@@ -3818,7 +3818,7 @@ impl windows_core::TypeKind for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMAT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::super::Foundation::HANDLE,
     pub hThread: super::super::Foundation::HANDLE,
@@ -3834,7 +3834,7 @@ impl windows_core::TypeKind for PROCESS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
     pub Reserved: u32,
@@ -3849,7 +3849,7 @@ impl windows_core::TypeKind for PROCESS_LEAP_SECOND_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_MACHINE_INFORMATION {
     pub ProcessMachine: super::SystemInformation::IMAGE_FILE_MACHINE,
     pub Res0: u16,
@@ -3866,7 +3866,7 @@ impl windows_core::TypeKind for PROCESS_MACHINE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Version: u16,
     pub Reserved: u16,
@@ -3882,7 +3882,7 @@ impl windows_core::TypeKind for PROCESS_MEMORY_EXHAUSTION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -3897,7 +3897,7 @@ impl windows_core::TypeKind for PROCESS_POWER_THROTTLING_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
 }
@@ -4041,7 +4041,7 @@ impl windows_core::Free for PTP_WORK {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REASON_CONTEXT {
     pub Version: u32,
     pub Flags: POWER_REQUEST_CONTEXT_FLAGS,
@@ -4056,7 +4056,7 @@ impl windows_core::TypeKind for REASON_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: windows_core::PWSTR,
@@ -4070,7 +4070,7 @@ impl windows_core::TypeKind for REASON_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::super::Foundation::HMODULE,
     pub LocalizedReasonId: u32,
@@ -4086,7 +4086,7 @@ impl windows_core::TypeKind for REASON_CONTEXT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTL_USER_PROCESS_PARAMETERS {
     pub Reserved1: [u8; 16],
     pub Reserved2: [*mut core::ffi::c_void; 10],
@@ -4102,7 +4102,7 @@ impl windows_core::TypeKind for RTL_USER_PROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
 }
@@ -4115,7 +4115,7 @@ impl windows_core::TypeKind for SRWLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOA {
     pub cb: u32,
     pub lpReserved: windows_core::PSTR,
@@ -4145,7 +4145,7 @@ impl windows_core::TypeKind for STARTUPINFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOEXA {
     pub StartupInfo: STARTUPINFOA,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
@@ -4159,7 +4159,7 @@ impl windows_core::TypeKind for STARTUPINFOEXA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOEXW {
     pub StartupInfo: STARTUPINFOW,
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
@@ -4173,7 +4173,7 @@ impl windows_core::TypeKind for STARTUPINFOEXW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STARTUPINFOW {
     pub cb: u32,
     pub lpReserved: windows_core::PWSTR,
@@ -4203,7 +4203,7 @@ impl windows_core::TypeKind for STARTUPINFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SYNCHRONIZATION_BARRIER {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -4221,7 +4221,7 @@ impl windows_core::TypeKind for SYNCHRONIZATION_BARRIER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TEB {
     pub Reserved1: [*mut core::ffi::c_void; 12],
     pub ProcessEnvironmentBlock: *mut PEB,
@@ -4245,7 +4245,7 @@ impl windows_core::TypeKind for TEB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -4260,7 +4260,7 @@ impl windows_core::TypeKind for THREAD_POWER_THROTTLING_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
     pub Pool: PTP_POOL,
@@ -4282,7 +4282,7 @@ impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_0_0,
@@ -4296,7 +4296,7 @@ impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
@@ -4309,7 +4309,7 @@ impl windows_core::TypeKind for TP_CALLBACK_ENVIRON_V3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
@@ -4324,7 +4324,7 @@ impl windows_core::TypeKind for TP_POOL_STACK_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: *mut core::ffi::c_void,
@@ -4342,7 +4342,7 @@ impl windows_core::TypeKind for UMS_SCHEDULER_STARTUP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
@@ -4356,7 +4356,7 @@ impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
     pub ThreadUmsFlags: u32,
@@ -4370,7 +4370,7 @@ impl windows_core::TypeKind for UMS_SYSTEM_THREAD_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

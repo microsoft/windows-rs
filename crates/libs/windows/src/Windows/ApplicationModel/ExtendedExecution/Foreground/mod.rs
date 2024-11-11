@@ -23,7 +23,7 @@ pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub SetReason: unsafe extern "system" fn(*mut core::ffi::c_void, ExtendedExecutionForegroundReason) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ExtendedExecutionForegroundRevokedEventArgs {
@@ -48,7 +48,7 @@ impl windows_core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
 unsafe impl Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionForegroundSession, super::super::super::Foundation::IClosable);
@@ -121,7 +121,7 @@ impl windows_core::RuntimeName for ExtendedExecutionForegroundSession {
 unsafe impl Send for ExtendedExecutionForegroundSession {}
 unsafe impl Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
     pub const Unspecified: Self = Self(0i32);
@@ -136,7 +136,7 @@ impl windows_core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
     pub const Allowed: Self = Self(0i32);
@@ -149,7 +149,7 @@ impl windows_core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
     pub const Resumed: Self = Self(0i32);

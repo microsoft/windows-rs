@@ -1356,79 +1356,79 @@ pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_AGNSS_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_DRIVERCOMMAND_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
 impl windows_core::TypeKind for GNSS_DRIVER_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_FIXSESSIONTYPE(pub i32);
 impl windows_core::TypeKind for GNSS_FIXSESSIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
 impl windows_core::TypeKind for GNSS_GEOFENCE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
 impl windows_core::TypeKind for GNSS_GEOREGIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_NI_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_NI_PLANE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for GNSS_NI_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
 impl windows_core::TypeKind for GNSS_NI_USER_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
 impl windows_core::TypeKind for GNSS_SUPL_CERT_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCATION_REPORT_STATUS(pub i32);
 impl windows_core::TypeKind for LOCATION_REPORT_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -1439,7 +1439,7 @@ pub const DefaultLocation: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const DispCivicAddressReport: windows_core::GUID = windows_core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
 pub const DispLatLongReport: windows_core::GUID = windows_core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
     pub Version: u32,
@@ -1458,7 +1458,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_INJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_AGNSS_INJECT_0 {
     pub Time: GNSS_AGNSS_INJECTTIME,
     pub Position: GNSS_AGNSS_INJECTPOSITION,
@@ -1473,7 +1473,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_INJECT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTBLOB {
     pub Size: u32,
     pub Version: u32,
@@ -1492,7 +1492,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_INJECTBLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTPOSITION {
     pub Size: u32,
     pub Version: u32,
@@ -1509,7 +1509,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_INJECTPOSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTTIME {
     pub Size: u32,
     pub Version: u32,
@@ -1525,7 +1525,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_INJECTTIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1541,7 +1541,7 @@ impl windows_core::TypeKind for GNSS_AGNSS_REQUEST_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_BREADCRUMBING_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -1556,7 +1556,7 @@ impl windows_core::TypeKind for GNSS_BREADCRUMBING_ALERT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_BREADCRUMBING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1574,7 +1574,7 @@ impl windows_core::TypeKind for GNSS_BREADCRUMBING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_BREADCRUMB_LIST {
     pub Size: u32,
     pub Version: u32,
@@ -1590,7 +1590,7 @@ impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
 }
@@ -1603,7 +1603,7 @@ impl windows_core::TypeKind for GNSS_BREADCRUMB_LIST_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_BREADCRUMB_V1 {
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub Latitude: f64,
@@ -1626,7 +1626,7 @@ impl windows_core::TypeKind for GNSS_BREADCRUMB_V1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CHIPSETINFO {
     pub Size: u32,
     pub Version: u32,
@@ -1644,7 +1644,7 @@ impl windows_core::TypeKind for GNSS_CHIPSETINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CONTINUOUSTRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1659,7 +1659,7 @@ impl windows_core::TypeKind for GNSS_CONTINUOUSTRACKING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CP_NI_INFO {
     pub Size: u32,
     pub Version: u32,
@@ -1675,7 +1675,7 @@ impl windows_core::TypeKind for GNSS_CP_NI_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_CWTESTDATA {
     pub Size: u32,
     pub Version: u32,
@@ -1693,7 +1693,7 @@ impl windows_core::TypeKind for GNSS_CWTESTDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_DEVICE_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -1732,7 +1732,7 @@ impl windows_core::TypeKind for GNSS_DEVICE_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_DISTANCETRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1747,7 +1747,7 @@ impl windows_core::TypeKind for GNSS_DISTANCETRACKING_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_DRIVERCOMMAND_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1766,7 +1766,7 @@ impl windows_core::TypeKind for GNSS_DRIVERCOMMAND_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_DRIVER_REQUEST_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -1782,7 +1782,7 @@ impl windows_core::TypeKind for GNSS_DRIVER_REQUEST_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_ERRORINFO {
     pub Size: u32,
     pub Version: u32,
@@ -1800,7 +1800,7 @@ impl windows_core::TypeKind for GNSS_ERRORINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_EVENT {
     pub Size: u32,
     pub Version: u32,
@@ -1818,7 +1818,7 @@ impl windows_core::TypeKind for GNSS_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_EVENT_0 {
     pub FixData: GNSS_FIXDATA,
     pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
@@ -1840,7 +1840,7 @@ impl windows_core::TypeKind for GNSS_EVENT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_EVENT_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1858,7 +1858,7 @@ impl windows_core::TypeKind for GNSS_EVENT_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_EVENT_2_0 {
     pub FixData: GNSS_FIXDATA,
     pub FixData2: GNSS_FIXDATA_2,
@@ -1881,7 +1881,7 @@ impl windows_core::TypeKind for GNSS_EVENT_2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA {
     pub Size: u32,
     pub Version: u32,
@@ -1903,7 +1903,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1925,7 +1925,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY {
     pub Size: u32,
     pub Version: u32,
@@ -1953,7 +1953,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1983,7 +1983,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_ACCURACY_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC {
     pub Size: u32,
     pub Version: u32,
@@ -2002,7 +2002,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_BASIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_BASIC_2 {
     pub Size: u32,
     pub Version: u32,
@@ -2022,7 +2022,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_BASIC_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_FIXDATA_SATELLITE {
     pub Size: u32,
     pub Version: u32,
@@ -2038,7 +2038,7 @@ impl windows_core::TypeKind for GNSS_FIXDATA_SATELLITE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_FIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2060,7 +2060,7 @@ impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_FIXSESSION_PARAM_0 {
     pub SingleShotParam: GNSS_SINGLESHOT_PARAM,
     pub DistanceParam: GNSS_DISTANCETRACKING_PARAM,
@@ -2077,7 +2077,7 @@ impl windows_core::TypeKind for GNSS_FIXSESSION_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -2094,7 +2094,7 @@ impl windows_core::TypeKind for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -2113,7 +2113,7 @@ impl windows_core::TypeKind for GNSS_GEOFENCE_ALERT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_GEOFENCE_CREATE_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2131,7 +2131,7 @@ impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub Size: u32,
     pub Version: u32,
@@ -2148,7 +2148,7 @@ impl windows_core::TypeKind for GNSS_GEOFENCE_CREATE_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOFENCE_DELETE_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2164,7 +2164,7 @@ impl windows_core::TypeKind for GNSS_GEOFENCE_DELETE_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_GEOREGION {
     pub Size: u32,
     pub Version: u32,
@@ -2180,7 +2180,7 @@ impl windows_core::TypeKind for GNSS_GEOREGION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_GEOREGION_0 {
     pub Circle: GNSS_GEOREGION_CIRCLE,
     pub Unused: [u8; 512],
@@ -2194,7 +2194,7 @@ impl windows_core::TypeKind for GNSS_GEOREGION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_GEOREGION_CIRCLE {
     pub Latitude: f64,
     pub Longitude: f64,
@@ -2209,7 +2209,7 @@ impl windows_core::TypeKind for GNSS_GEOREGION_CIRCLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_LKGFIX_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2223,7 +2223,7 @@ impl windows_core::TypeKind for GNSS_LKGFIX_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GNSS_NI_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2244,7 +2244,7 @@ impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GNSS_NI_REQUEST_PARAM_0 {
     pub SuplNiInfo: GNSS_SUPL_NI_INFO,
     pub CpNiInfo: GNSS_CP_NI_INFO,
@@ -2259,7 +2259,7 @@ impl windows_core::TypeKind for GNSS_NI_REQUEST_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_NI_RESPONSE {
     pub Size: u32,
     pub Version: u32,
@@ -2275,7 +2275,7 @@ impl windows_core::TypeKind for GNSS_NI_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -2290,7 +2290,7 @@ impl windows_core::TypeKind for GNSS_NMEA_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_PLATFORM_CAPABILITY {
     pub Size: u32,
     pub Version: u32,
@@ -2307,7 +2307,7 @@ impl windows_core::TypeKind for GNSS_PLATFORM_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
     pub UsedInPositiong: super::super::Foundation::BOOL,
@@ -2324,7 +2324,7 @@ impl windows_core::TypeKind for GNSS_SATELLITEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SELFTESTCONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2342,7 +2342,7 @@ impl windows_core::TypeKind for GNSS_SELFTESTCONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SELFTESTRESULT {
     pub Size: u32,
     pub Version: u32,
@@ -2362,7 +2362,7 @@ impl windows_core::TypeKind for GNSS_SELFTESTRESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SINGLESHOT_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2377,7 +2377,7 @@ impl windows_core::TypeKind for GNSS_SINGLESHOT_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_STOPFIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -2393,7 +2393,7 @@ impl windows_core::TypeKind for GNSS_STOPFIXSESSION_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2412,7 +2412,7 @@ impl windows_core::TypeKind for GNSS_SUPL_CERT_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2430,7 +2430,7 @@ impl windows_core::TypeKind for GNSS_SUPL_HSLP_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
@@ -2447,7 +2447,7 @@ impl windows_core::TypeKind for GNSS_SUPL_NI_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -2461,7 +2461,7 @@ impl windows_core::TypeKind for GNSS_SUPL_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_SUPL_VERSION_2 {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -2476,7 +2476,7 @@ impl windows_core::TypeKind for GNSS_SUPL_VERSION_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -2494,7 +2494,7 @@ impl windows_core::TypeKind for GNSS_V2UPL_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_V2UPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,

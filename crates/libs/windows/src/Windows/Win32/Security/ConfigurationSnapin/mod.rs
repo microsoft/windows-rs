@@ -155,19 +155,19 @@ pub const struuidNodetypeSceAnalysisServices: windows_core::PCSTR = windows_core
 pub const struuidNodetypeSceEventLog: windows_core::PCSTR = windows_core::s!("{2ce06698-4bf3-11d1-8c30-00c04fb984f9}");
 pub const struuidNodetypeSceTemplateServices: windows_core::PCSTR = windows_core::s!("{24a7f717-1f0c-11d1-affb-00c04fb984f9}");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for SCESVC_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCE_LOG_ERR_LEVEL(pub i32);
 impl windows_core::TypeKind for SCE_LOG_ERR_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_ANALYSIS_LINE,
@@ -181,7 +181,7 @@ impl windows_core::TypeKind for SCESVC_ANALYSIS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_ANALYSIS_LINE {
     pub Key: *mut i8,
     pub Value: *mut u8,
@@ -196,7 +196,7 @@ impl windows_core::TypeKind for SCESVC_ANALYSIS_LINE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut core::ffi::c_void,
     pub pfQueryInfo: PFSCE_QUERY_INFO,
@@ -213,7 +213,7 @@ impl windows_core::TypeKind for SCESVC_CALLBACK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_CONFIGURATION_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_CONFIGURATION_LINE,
@@ -227,7 +227,7 @@ impl windows_core::TypeKind for SCESVC_CONFIGURATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCESVC_CONFIGURATION_LINE {
     pub Key: *mut i8,
     pub Value: *mut i8,

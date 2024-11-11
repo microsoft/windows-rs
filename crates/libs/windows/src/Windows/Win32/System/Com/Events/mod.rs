@@ -1990,7 +1990,7 @@ pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
 pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
 pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EOC_ChangeType(pub i32);
 impl windows_core::TypeKind for EOC_ChangeType {
     type TypeKind = windows_core::CopyType;

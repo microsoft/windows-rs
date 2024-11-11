@@ -41,7 +41,7 @@ pub const MCAST_API_VERSION_0: i32 = 0i32;
 pub const MCAST_API_VERSION_1: i32 = 1i32;
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
@@ -55,7 +55,7 @@ impl windows_core::TypeKind for IPNG_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
@@ -69,7 +69,7 @@ impl windows_core::TypeKind for MCAST_CLIENT_UID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
     pub MaxLeaseStartTime: i32,
@@ -89,7 +89,7 @@ impl windows_core::TypeKind for MCAST_LEASE_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
     pub LeaseEndTime: i32,
@@ -106,7 +106,7 @@ impl windows_core::TypeKind for MCAST_LEASE_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
@@ -121,7 +121,7 @@ impl windows_core::TypeKind for MCAST_SCOPE_CTX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
     pub LastAddr: IPNG_ADDRESS,

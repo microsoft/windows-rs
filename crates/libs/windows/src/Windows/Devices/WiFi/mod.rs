@@ -179,7 +179,7 @@ pub struct IWiFiWpsConfigurationResult_Vtbl {
     SupportedWpsKinds: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiAdapter {
@@ -322,7 +322,7 @@ impl windows_core::RuntimeName for WiFiAdapter {
 unsafe impl Send for WiFiAdapter {}
 unsafe impl Sync for WiFiAdapter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiAvailableNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiAvailableNetwork {
@@ -418,7 +418,7 @@ impl windows_core::RuntimeName for WiFiAvailableNetwork {
 unsafe impl Send for WiFiAvailableNetwork {}
 unsafe impl Sync for WiFiAvailableNetwork {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiConnectionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiConnectionResult {
@@ -443,7 +443,7 @@ impl windows_core::RuntimeName for WiFiConnectionResult {
 unsafe impl Send for WiFiConnectionResult {}
 unsafe impl Sync for WiFiConnectionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiNetworkReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiNetworkReport, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiNetworkReport {
@@ -476,7 +476,7 @@ impl windows_core::RuntimeName for WiFiNetworkReport {
 unsafe impl Send for WiFiNetworkReport {}
 unsafe impl Sync for WiFiNetworkReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotConnectTriggerDetails {
@@ -519,7 +519,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
 unsafe impl Send for WiFiOnDemandHotspotConnectTriggerDetails {}
 unsafe impl Sync for WiFiOnDemandHotspotConnectTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotConnectionResult {
@@ -544,7 +544,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
 unsafe impl Send for WiFiOnDemandHotspotConnectionResult {}
 unsafe impl Sync for WiFiOnDemandHotspotConnectionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotNetwork {
@@ -593,7 +593,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetwork {
 unsafe impl Send for WiFiOnDemandHotspotNetwork {}
 unsafe impl Sync for WiFiOnDemandHotspotNetwork {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotNetworkProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetworkProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiOnDemandHotspotNetworkProperties {
@@ -699,7 +699,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
 unsafe impl Send for WiFiOnDemandHotspotNetworkProperties {}
 unsafe impl Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiWpsConfigurationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiWpsConfigurationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiWpsConfigurationResult {
@@ -732,7 +732,7 @@ impl windows_core::RuntimeName for WiFiWpsConfigurationResult {
 unsafe impl Send for WiFiWpsConfigurationResult {}
 unsafe impl Sync for WiFiWpsConfigurationResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -747,7 +747,7 @@ impl windows_core::RuntimeType for WiFiAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
     pub const Default: Self = Self(0i32);
@@ -761,7 +761,7 @@ impl windows_core::RuntimeType for WiFiConnectionMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionMethod;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -779,7 +779,7 @@ impl windows_core::RuntimeType for WiFiConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
     pub const Any: Self = Self(0i32);
@@ -793,7 +793,7 @@ impl windows_core::RuntimeType for WiFiNetworkKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiNetworkKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotAvailability(pub i32);
 impl WiFiOnDemandHotspotAvailability {
     pub const Available: Self = Self(0i32);
@@ -806,7 +806,7 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotCellularBars(pub i32);
 impl WiFiOnDemandHotspotCellularBars {
     pub const ZeroBars: Self = Self(0i32);
@@ -823,7 +823,7 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotCellularBars {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotCellularBars;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectStatus(pub i32);
 impl WiFiOnDemandHotspotConnectStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -853,7 +853,7 @@ impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiOnDemandHotspotConnectStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
     pub const Unknown: Self = Self(0i32);
@@ -876,7 +876,7 @@ impl windows_core::RuntimeType for WiFiPhyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiPhyKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
     pub const Automatic: Self = Self(0i32);
@@ -889,7 +889,7 @@ impl windows_core::RuntimeType for WiFiReconnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiReconnectionKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -903,7 +903,7 @@ impl windows_core::RuntimeType for WiFiWpsConfigurationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsConfigurationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
     pub const Unknown: Self = Self(0i32);

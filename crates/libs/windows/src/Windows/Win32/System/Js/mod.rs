@@ -534,31 +534,31 @@ pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 pub const JsString: JsValueType = JsValueType(3i32);
 pub const JsUndefined: JsValueType = JsValueType(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsErrorCode(pub u32);
 impl windows_core::TypeKind for JsErrorCode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsMemoryEventType(pub i32);
 impl windows_core::TypeKind for JsMemoryEventType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeAttributes(pub i32);
 impl windows_core::TypeKind for JsRuntimeAttributes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsRuntimeVersion(pub i32);
 impl windows_core::TypeKind for JsRuntimeVersion {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsValueType(pub i32);
 impl windows_core::TypeKind for JsValueType {
     type TypeKind = windows_core::CopyType;

@@ -2284,19 +2284,19 @@ pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_CP(pub u32);
 impl windows_core::TypeKind for DXC_CP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXC_OUT_KIND(pub i32);
 impl windows_core::TypeKind for DXC_OUT_KIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcArgPair {
     pub pName: windows_core::PCWSTR,
     pub pValue: windows_core::PCWSTR,
@@ -2310,7 +2310,7 @@ impl windows_core::TypeKind for DxcArgPair {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcBuffer {
     pub Ptr: *const core::ffi::c_void,
     pub Size: usize,
@@ -2325,7 +2325,7 @@ impl windows_core::TypeKind for DxcBuffer {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcDefine {
     pub Name: windows_core::PCWSTR,
     pub Value: windows_core::PCWSTR,
@@ -2339,7 +2339,7 @@ impl windows_core::TypeKind for DxcDefine {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DxcShaderHash {
     pub Flags: u32,
     pub HashDigest: [u8; 16],

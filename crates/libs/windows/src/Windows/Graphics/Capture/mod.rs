@@ -196,7 +196,7 @@ pub struct IGraphicsCaptureSessionStatics_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Direct3D11CaptureFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFrame, super::super::Foundation::IClosable);
@@ -256,7 +256,7 @@ impl windows_core::RuntimeName for Direct3D11CaptureFrame {
 unsafe impl Send for Direct3D11CaptureFrame {}
 unsafe impl Sync for Direct3D11CaptureFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Direct3D11CaptureFramePool(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFramePool, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFramePool, super::super::Foundation::IClosable);
@@ -371,7 +371,7 @@ impl windows_core::RuntimeName for GraphicsCaptureAccess {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureAccess";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphicsCaptureItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCaptureItem, windows_core::IUnknown, windows_core::IInspectable);
 impl GraphicsCaptureItem {
@@ -448,7 +448,7 @@ impl windows_core::RuntimeName for GraphicsCaptureItem {
 unsafe impl Send for GraphicsCaptureItem {}
 unsafe impl Sync for GraphicsCaptureItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphicsCapturePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCapturePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl GraphicsCapturePicker {
@@ -480,7 +480,7 @@ impl windows_core::RuntimeName for GraphicsCapturePicker {
 unsafe impl Send for GraphicsCapturePicker {}
 unsafe impl Sync for GraphicsCapturePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GraphicsCaptureSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GraphicsCaptureSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GraphicsCaptureSession, super::super::Foundation::IClosable);
@@ -572,7 +572,7 @@ impl windows_core::RuntimeName for GraphicsCaptureSession {
 unsafe impl Send for GraphicsCaptureSession {}
 unsafe impl Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
     pub const Borderless: Self = Self(0i32);
@@ -585,7 +585,7 @@ impl windows_core::RuntimeType for GraphicsCaptureAccessKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GraphicsCaptureDirtyRegionMode(pub i32);
 impl GraphicsCaptureDirtyRegionMode {
     pub const ReportOnly: Self = Self(0i32);

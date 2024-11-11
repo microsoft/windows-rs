@@ -374,13 +374,13 @@ pub const SENSGUID_PUBLISHER: windows_core::GUID = windows_core::GUID::from_u128
 pub const SENSGUID_SUBSCRIBER_LCE: windows_core::GUID = windows_core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_SUBSCRIBER_WININET: windows_core::GUID = windows_core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
 impl windows_core::TypeKind for SENS_CONNECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -397,7 +397,7 @@ impl windows_core::TypeKind for QOCINFO {
 }
 pub const SENS: windows_core::GUID = windows_core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,

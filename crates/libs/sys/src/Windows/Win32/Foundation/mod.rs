@@ -10178,7 +10178,7 @@ pub type NTSTATUS_SEVERITY_CODE = u32;
 pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
@@ -10186,7 +10186,7 @@ pub type BOOL = i32;
 pub type BOOLEAN = u8;
 pub type COLORREF = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL {
     pub wReserved: u16,
     pub Anonymous1: DECIMAL_0,
@@ -10194,37 +10194,37 @@ pub struct DECIMAL {
     pub Anonymous2: DECIMAL_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_0 {
     pub Anonymous: DECIMAL_0_0,
     pub signscale: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DECIMAL_1 {
     pub Anonymous: DECIMAL_1_0,
     pub Lo64: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -10244,32 +10244,32 @@ pub type HWND = *mut core::ffi::c_void;
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
 pub type NTSTATUS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -10277,7 +10277,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
@@ -10286,13 +10286,13 @@ pub struct RECTL {
 }
 pub type SHANDLE_PTR = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -10304,7 +10304,7 @@ pub struct SYSTEMTIME {
     pub wMilliseconds: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,

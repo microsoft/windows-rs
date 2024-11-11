@@ -594,7 +594,7 @@ pub const CoSniffStream: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const HomePage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
 pub const HomePageSetting: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
@@ -604,7 +604,7 @@ pub const IEWebDriverManager: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const IntelliForms: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
 pub const InternetExplorerManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -616,7 +616,7 @@ pub const OpenServiceActivityManager: windows_sys::core::GUID = windows_sys::cor
 pub const OpenServiceManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
 pub const PeerFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_sys::core::PWSTR,

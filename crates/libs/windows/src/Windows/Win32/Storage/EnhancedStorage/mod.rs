@@ -2986,13 +2986,13 @@ pub const SYNC_STATE_SYNCING: u32 = 5u32;
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
 pub const WPD_CATEGORY_ENHANCED_STORAGE: windows_core::GUID = windows_core::GUID::from_u128(0x91248166_b832_4ad4_baa4_7ca0b6b2798c);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE_VALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACT_AUTHORIZATION_STATE {
     pub ulState: u32,
 }
@@ -3005,7 +3005,7 @@ impl windows_core::TypeKind for ACT_AUTHORIZATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
     pub CurrentAdminFailures: u8,
     pub CurrentUserFailures: u8,
@@ -3047,7 +3047,7 @@ pub const EnhancedStorageSilo: windows_core::GUID = windows_core::GUID::from_u12
 pub const EnhancedStorageSiloAction: windows_core::GUID = windows_core::GUID::from_u128(0x886d29dd_b506_466b_9fbf_b44ff383fb3f);
 pub const EnumEnhancedStorageACT: windows_core::GUID = windows_core::GUID::from_u128(0xfe841493_835c_4fa3_b6cc_b4b2d4719848);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SILO_INFO {
     pub ulSTID: u32,
     pub SpecificationMajor: u8,

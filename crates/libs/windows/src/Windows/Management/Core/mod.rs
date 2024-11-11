@@ -19,7 +19,7 @@ pub struct IApplicationDataManagerStatics_Vtbl {
     CreateForPackageFamily: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationDataManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationDataManager {

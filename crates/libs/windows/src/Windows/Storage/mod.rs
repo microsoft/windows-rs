@@ -2699,7 +2699,7 @@ pub struct IUserDataPathsStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppDataPaths(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDataPaths, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDataPaths {
@@ -2800,7 +2800,7 @@ impl windows_core::RuntimeName for AppDataPaths {
 unsafe impl Send for AppDataPaths {}
 unsafe impl Sync for AppDataPaths {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationData, super::Foundation::IClosable);
@@ -2973,7 +2973,7 @@ unsafe impl Send for ApplicationData {}
 unsafe impl Sync for ApplicationData {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataCompositeValue(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable);
@@ -3077,7 +3077,7 @@ unsafe impl Send for ApplicationDataCompositeValue {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for ApplicationDataCompositeValue {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationDataContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationDataContainer, super::Foundation::IClosable);
@@ -3142,7 +3142,7 @@ unsafe impl Send for ApplicationDataContainer {}
 unsafe impl Sync for ApplicationDataContainer {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationDataContainerSettings(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable);
@@ -3797,7 +3797,7 @@ impl windows_core::RuntimeName for PathIO {
     const NAME: &'static str = "Windows.Storage.PathIO";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SetVersionDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SetVersionDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SetVersionDeferral {
@@ -3819,7 +3819,7 @@ impl windows_core::RuntimeName for SetVersionDeferral {
 unsafe impl Send for SetVersionDeferral {}
 unsafe impl Sync for SetVersionDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SetVersionRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SetVersionRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl SetVersionRequest {
@@ -3859,7 +3859,7 @@ unsafe impl Send for SetVersionRequest {}
 unsafe impl Sync for SetVersionRequest {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFile(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(StorageFile, windows_core::IUnknown, windows_core::IInspectable);
@@ -4280,7 +4280,7 @@ impl windows_core::RuntimeName for StorageFile {
 }
 #[cfg(feature = "Storage_Search")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFolder(windows_core::IUnknown);
 #[cfg(feature = "Storage_Search")]
 windows_core::imp::interface_hierarchy!(StorageFolder, windows_core::IUnknown, windows_core::IInspectable);
@@ -4737,7 +4737,7 @@ impl windows_core::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibrary(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibrary, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibrary {
@@ -4840,7 +4840,7 @@ impl windows_core::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChange, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryChange {
@@ -4893,7 +4893,7 @@ impl windows_core::RuntimeName for StorageLibraryChange {
 unsafe impl Send for StorageLibraryChange {}
 unsafe impl Sync for StorageLibraryChange {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryChangeReader {
@@ -4933,7 +4933,7 @@ impl windows_core::RuntimeName for StorageLibraryChangeReader {
 unsafe impl Send for StorageLibraryChangeReader {}
 unsafe impl Sync for StorageLibraryChangeReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChangeTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryChangeTracker {
@@ -4977,7 +4977,7 @@ impl windows_core::RuntimeName for StorageLibraryChangeTracker {
 unsafe impl Send for StorageLibraryChangeTracker {}
 unsafe impl Sync for StorageLibraryChangeTracker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChangeTrackerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryChangeTrackerOptions {
@@ -5013,7 +5013,7 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerOptions {
 unsafe impl Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl Sync for StorageLibraryChangeTrackerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryLastChangeId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryLastChangeId, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryLastChangeId {
@@ -5041,7 +5041,7 @@ impl windows_core::RuntimeName for StorageLibraryLastChangeId {
 unsafe impl Send for StorageLibraryLastChangeId {}
 unsafe impl Sync for StorageLibraryLastChangeId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProvider {
@@ -5078,7 +5078,7 @@ impl windows_core::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageStreamTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageStreamTransaction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageStreamTransaction, super::Foundation::IClosable);
@@ -5115,7 +5115,7 @@ impl windows_core::RuntimeName for StorageStreamTransaction {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StreamedFileDataRequest(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(StreamedFileDataRequest, windows_core::IUnknown, windows_core::IInspectable);
@@ -5164,7 +5164,7 @@ impl windows_core::RuntimeName for StreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemAudioProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemAudioProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemAudioProperties {
@@ -5189,7 +5189,7 @@ impl windows_core::RuntimeName for SystemAudioProperties {
 unsafe impl Send for SystemAudioProperties {}
 unsafe impl Sync for SystemAudioProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemDataPaths(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemDataPaths, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemDataPaths {
@@ -5329,7 +5329,7 @@ impl windows_core::RuntimeName for SystemDataPaths {
 unsafe impl Send for SystemDataPaths {}
 unsafe impl Sync for SystemDataPaths {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemGPSProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemGPSProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemGPSProperties {
@@ -5361,7 +5361,7 @@ impl windows_core::RuntimeName for SystemGPSProperties {
 unsafe impl Send for SystemGPSProperties {}
 unsafe impl Sync for SystemGPSProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemImageProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemImageProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemImageProperties {
@@ -5393,7 +5393,7 @@ impl windows_core::RuntimeName for SystemImageProperties {
 unsafe impl Send for SystemImageProperties {}
 unsafe impl Sync for SystemImageProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemMediaProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMediaProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMediaProperties {
@@ -5453,7 +5453,7 @@ impl windows_core::RuntimeName for SystemMediaProperties {
 unsafe impl Send for SystemMediaProperties {}
 unsafe impl Sync for SystemMediaProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemMusicProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMusicProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMusicProperties {
@@ -5527,7 +5527,7 @@ impl windows_core::RuntimeName for SystemMusicProperties {
 unsafe impl Send for SystemMusicProperties {}
 unsafe impl Sync for SystemMusicProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemPhotoProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemPhotoProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemPhotoProperties {
@@ -5668,7 +5668,7 @@ impl windows_core::RuntimeName for SystemProperties {
     const NAME: &'static str = "Windows.Storage.SystemProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemVideoProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemVideoProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemVideoProperties {
@@ -5721,7 +5721,7 @@ impl windows_core::RuntimeName for SystemVideoProperties {
 unsafe impl Send for SystemVideoProperties {}
 unsafe impl Sync for SystemVideoProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataPaths(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataPaths, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataPaths {
@@ -6018,7 +6018,7 @@ impl<F: FnMut(Option<&StreamedFileDataRequest>) -> windows_core::Result<()> + Se
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
     pub const Always: Self = Self(0i32);
@@ -6031,7 +6031,7 @@ impl windows_core::RuntimeType for ApplicationDataCreateDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
     pub const Local: Self = Self(0i32);
@@ -6047,7 +6047,7 @@ impl windows_core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -6062,7 +6062,7 @@ impl windows_core::RuntimeType for CreationCollisionOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
     pub const Read: Self = Self(0i32);
@@ -6075,7 +6075,7 @@ impl windows_core::RuntimeType for FileAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
     pub const Normal: Self = Self(0u32);
@@ -6125,7 +6125,7 @@ impl core::ops::Not for FileAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
     pub const AppCaptures: Self = Self(0i32);
@@ -6153,7 +6153,7 @@ impl windows_core::RuntimeType for KnownFolderId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -6170,7 +6170,7 @@ impl windows_core::RuntimeType for KnownFoldersAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
     pub const Music: Self = Self(0i32);
@@ -6185,7 +6185,7 @@ impl windows_core::RuntimeType for KnownLibraryId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -6199,7 +6199,7 @@ impl windows_core::RuntimeType for NameCollisionOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
     pub const Default: Self = Self(0i32);
@@ -6212,7 +6212,7 @@ impl windows_core::RuntimeType for StorageDeleteOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
     pub const None: Self = Self(0u32);
@@ -6259,7 +6259,7 @@ impl core::ops::Not for StorageItemTypes {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
     pub const Created: Self = Self(0i32);
@@ -6280,7 +6280,7 @@ impl windows_core::RuntimeType for StorageLibraryChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
     pub const None: Self = Self(0u32);
@@ -6327,7 +6327,7 @@ impl core::ops::Not for StorageOpenOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);

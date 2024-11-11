@@ -297,7 +297,7 @@ pub struct IPrintSupportSettingsUISession_Vtbl {
     pub SessionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportCommunicationErrorDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportCommunicationErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportCommunicationErrorDetectedEventArgs {
@@ -343,7 +343,7 @@ impl windows_core::RuntimeName for PrintSupportCommunicationErrorDetectedEventAr
 unsafe impl Send for PrintSupportCommunicationErrorDetectedEventArgs {}
 unsafe impl Sync for PrintSupportCommunicationErrorDetectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportExtensionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportExtensionSession {
@@ -429,7 +429,7 @@ impl windows_core::RuntimeName for PrintSupportExtensionSession {
 unsafe impl Send for PrintSupportExtensionSession {}
 unsafe impl Sync for PrintSupportExtensionSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportExtensionTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportExtensionTriggerDetails {
@@ -454,7 +454,7 @@ impl windows_core::RuntimeName for PrintSupportExtensionTriggerDetails {
 unsafe impl Send for PrintSupportExtensionTriggerDetails {}
 unsafe impl Sync for PrintSupportExtensionTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportIppCommunicationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportIppCommunicationConfiguration {
@@ -500,7 +500,7 @@ impl windows_core::RuntimeName for PrintSupportIppCommunicationConfiguration {
 unsafe impl Send for PrintSupportIppCommunicationConfiguration {}
 unsafe impl Sync for PrintSupportIppCommunicationConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportIppCommunicationTimeouts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationTimeouts, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportIppCommunicationTimeouts {
@@ -551,7 +551,7 @@ impl windows_core::RuntimeName for PrintSupportIppCommunicationTimeouts {
 unsafe impl Send for PrintSupportIppCommunicationTimeouts {}
 unsafe impl Sync for PrintSupportIppCommunicationTimeouts {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportMxdcImageQualityConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportMxdcImageQualityConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportMxdcImageQualityConfiguration {
@@ -646,7 +646,7 @@ impl windows_core::RuntimeName for PrintSupportMxdcImageQualityConfiguration {
 unsafe impl Send for PrintSupportMxdcImageQualityConfiguration {}
 unsafe impl Sync for PrintSupportMxdcImageQualityConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
@@ -739,7 +739,7 @@ impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEve
 unsafe impl Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
@@ -773,7 +773,7 @@ impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesUpdatePoli
 unsafe impl Send for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportPrintTicketElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketElement, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintTicketElement {
@@ -820,7 +820,7 @@ impl windows_core::RuntimeName for PrintSupportPrintTicketElement {
 unsafe impl Send for PrintSupportPrintTicketElement {}
 unsafe impl Sync for PrintSupportPrintTicketElement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportPrintTicketValidationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
@@ -857,7 +857,7 @@ impl windows_core::RuntimeName for PrintSupportPrintTicketValidationRequestedEve
 unsafe impl Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
 unsafe impl Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportPrinterSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrinterSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrinterSelectedEventArgs {
@@ -937,7 +937,7 @@ impl windows_core::RuntimeName for PrintSupportPrinterSelectedEventArgs {
 unsafe impl Send for PrintSupportPrinterSelectedEventArgs {}
 unsafe impl Sync for PrintSupportPrinterSelectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportSessionInfo {
@@ -972,7 +972,7 @@ unsafe impl Send for PrintSupportSessionInfo {}
 unsafe impl Sync for PrintSupportSessionInfo {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportSettingsActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1053,7 +1053,7 @@ unsafe impl Send for PrintSupportSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Sync for PrintSupportSettingsActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportSettingsUISession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportSettingsUISession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportSettingsUISession {
@@ -1108,7 +1108,7 @@ impl windows_core::RuntimeName for PrintSupportSettingsUISession {
 unsafe impl Send for PrintSupportSettingsUISession {}
 unsafe impl Sync for PrintSupportSettingsUISession {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppCommunicationErrorKind(pub i32);
 impl IppCommunicationErrorKind {
     pub const Other: Self = Self(0i32);
@@ -1123,7 +1123,7 @@ impl windows_core::RuntimeType for IppCommunicationErrorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppCommunicationErrorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppPrinterCommunicationKind(pub i32);
 impl IppPrinterCommunicationKind {
     pub const Network: Self = Self(0i32);
@@ -1139,7 +1139,7 @@ impl windows_core::RuntimeType for IppPrinterCommunicationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
     pub const JobPrintTicket: Self = Self(0i32);
@@ -1152,7 +1152,7 @@ impl windows_core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
     pub const Resolved: Self = Self(0i32);
@@ -1166,7 +1166,7 @@ impl windows_core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XpsImageQuality(pub i32);
 impl XpsImageQuality {
     pub const JpegHighCompression: Self = Self(0i32);

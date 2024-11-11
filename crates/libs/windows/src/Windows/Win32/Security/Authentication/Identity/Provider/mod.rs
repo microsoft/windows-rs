@@ -1485,25 +1485,25 @@ pub const STR_OUT_OF_BOX_UPGRADE_EXPERIENCE: windows_core::PCWSTR = windows_core
 pub const STR_PROPERTY_STORE: windows_core::PCWSTR = windows_core::w!("PropertyStore");
 pub const STR_USER_NAME: windows_core::PCWSTR = windows_core::w!("Username");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCOUNT_STATE(pub i32);
 impl windows_core::TypeKind for ACCOUNT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDENTITY_TYPE(pub i32);
 impl windows_core::TypeKind for IDENTITY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDENTITY_URL(pub i32);
 impl windows_core::TypeKind for IDENTITY_URL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IdentityUpdateEvent(pub i32);
 impl windows_core::TypeKind for IdentityUpdateEvent {
     type TypeKind = windows_core::CopyType;

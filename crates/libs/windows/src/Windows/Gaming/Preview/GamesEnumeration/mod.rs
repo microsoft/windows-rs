@@ -335,7 +335,7 @@ impl windows_core::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameListEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
@@ -456,7 +456,7 @@ impl windows_core::RuntimeName for GameListEntry {
 unsafe impl Send for GameListEntry {}
 unsafe impl Sync for GameListEntry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeConfiguration {
@@ -595,7 +595,7 @@ impl windows_core::RuntimeName for GameModeConfiguration {
 unsafe impl Send for GameModeConfiguration {}
 unsafe impl Sync for GameModeConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeUserConfiguration {
@@ -755,7 +755,7 @@ impl<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'stat
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
     pub const Candidate: Self = Self(0i32);
@@ -769,7 +769,7 @@ impl windows_core::RuntimeType for GameListCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
     pub const NotLaunchable: Self = Self(0i32);

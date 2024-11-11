@@ -301,19 +301,19 @@ pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
 pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
 pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSINFOCLASS(pub i32);
 impl windows_core::TypeKind for PROCESSINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREADINFOCLASS(pub i32);
 impl windows_core::TypeKind for THREADINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TIMER_SET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;

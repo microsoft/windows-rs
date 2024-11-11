@@ -5062,49 +5062,49 @@ pub const g_wszWMDMYear: windows_core::PCWSTR = windows_core::w!("WMDM/Year");
 pub const g_wszWMDMediaClassPrimaryID: windows_core::PCWSTR = windows_core::w!("WMDM/MediaClassPrimaryID");
 pub const g_wszWPDPassthroughPropertyValues: windows_core::PCWSTR = windows_core::w!("WPD/PassthroughPropertyValues");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDMMessage(pub i32);
 impl windows_core::TypeKind for WMDMMessage {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
 impl windows_core::TypeKind for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_FIND_SCOPE(pub i32);
 impl windows_core::TypeKind for WMDM_FIND_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_FORMATCODE(pub i32);
 impl windows_core::TypeKind for WMDM_FORMATCODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_SESSION_TYPE(pub i32);
 impl windows_core::TypeKind for WMDM_SESSION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
 impl windows_core::TypeKind for WMDM_STORAGE_ENUM_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
 impl windows_core::TypeKind for WMDM_TAG_DATATYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MACINFO {
     pub fUsed: super::super::Foundation::BOOL,
     pub abMacState: [u8; 36],
@@ -5118,7 +5118,7 @@ impl windows_core::TypeKind for MACINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MTP_COMMAND_DATA_IN {
     pub OpCode: u16,
     pub NumParams: u32,
@@ -5136,7 +5136,7 @@ impl windows_core::TypeKind for MTP_COMMAND_DATA_IN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MTP_COMMAND_DATA_OUT {
     pub ResponseCode: u16,
     pub NumParams: u32,
@@ -5155,7 +5155,7 @@ impl windows_core::TypeKind for MTP_COMMAND_DATA_OUT {
 pub const MediaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
 pub const MediaDevMgrClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPAQUECOMMAND {
     pub guidCommand: windows_core::GUID,
     pub dwDataLen: u32,
@@ -5171,7 +5171,7 @@ impl windows_core::TypeKind for OPAQUECOMMAND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -5189,7 +5189,7 @@ impl windows_core::TypeKind for WMDMDATETIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WMDMDetermineMaxPropStringLen {
     pub sz001: [u16; 27],
     pub sz002: [u16; 31],
@@ -5285,7 +5285,7 @@ impl windows_core::TypeKind for WMDMDetermineMaxPropStringLen {
 pub const WMDMDevice: windows_core::GUID = windows_core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: windows_core::GUID = windows_core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDMID {
     pub cbSize: u32,
     pub dwVendorID: u32,
@@ -5302,7 +5302,7 @@ impl windows_core::TypeKind for WMDMID {
 }
 pub const WMDMLogger: windows_core::GUID = windows_core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDMMetadataView {
     pub pwszViewName: windows_core::PWSTR,
     pub nDepth: u32,
@@ -5317,7 +5317,7 @@ impl windows_core::TypeKind for WMDMMetadataView {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -5340,7 +5340,7 @@ pub const WMDMStorageEnum: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const WMDMStorageGlobal: windows_core::GUID = windows_core::GUID::from_u128(0x807b3ce1_357a_11d3_8471_00c04f79dbc0);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
     pub pConfigs: *mut WMDM_PROP_CONFIG,
@@ -5357,7 +5357,7 @@ impl windows_core::TypeKind for WMDM_FORMAT_CAPABILITY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
     pub nPropDesc: u32,
@@ -5420,7 +5420,7 @@ impl windows_core::TypeKind for WMDM_PROP_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
     pub pValues: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -5459,7 +5459,7 @@ impl windows_core::TypeKind for WMDM_PROP_VALUES_RANGE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: windows_core::PWSTR,
     pub dwReserved: u32,

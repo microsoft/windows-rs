@@ -190,10 +190,9 @@ impl Item {
     pub fn is_convertible(&self) -> bool {
         match self {
             Self::CppStruct(item) => item.is_convertible(),
-            Self::Delegate(..) |
-            Self::Interface(..) |
-            Self::Class(..) |
-            Self::CppInterface(..) => true,
+            Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
+                true
+            }
             _ => false,
         }
     }

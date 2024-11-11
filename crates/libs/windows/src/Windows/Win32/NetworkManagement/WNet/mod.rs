@@ -634,7 +634,7 @@ pub const WN_PRIMARY_AUTHENT_CLASS: u32 = 4u32;
 pub const WN_SERVICE_CLASS: u32 = 8u32;
 pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
 impl windows_core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -673,7 +673,7 @@ impl core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
 impl windows_core::TypeKind for DISCDLGSTRUCT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -712,7 +712,7 @@ impl core::ops::Not for DISCDLGSTRUCT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
 impl windows_core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
@@ -751,13 +751,13 @@ impl core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
 impl windows_core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_CONNECT_FLAGS(pub u32);
 impl windows_core::TypeKind for NET_CONNECT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -796,13 +796,13 @@ impl core::ops::Not for NET_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
 impl windows_core::TypeKind for NET_RESOURCE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_RESOURCE_TYPE(pub u32);
 impl windows_core::TypeKind for NET_RESOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -841,25 +841,25 @@ impl core::ops::Not for NET_RESOURCE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
 impl windows_core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
 impl windows_core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNC_INFO_LEVEL(pub u32);
 impl windows_core::TypeKind for UNC_INFO_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
 impl windows_core::TypeKind for WNET_OPEN_ENUM_USAGE {
     type TypeKind = windows_core::CopyType;
@@ -898,13 +898,13 @@ impl core::ops::Not for WNET_OPEN_ENUM_USAGE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNPERM_DLG(pub u32);
 impl windows_core::TypeKind for WNPERM_DLG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -921,7 +921,7 @@ impl windows_core::TypeKind for CONNECTDLGSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -938,7 +938,7 @@ impl windows_core::TypeKind for CONNECTDLGSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -955,7 +955,7 @@ impl windows_core::TypeKind for DISCDLGSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -972,7 +972,7 @@ impl windows_core::TypeKind for DISCDLGSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -989,7 +989,7 @@ impl windows_core::TypeKind for NETCONNECTINFOSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -1009,7 +1009,7 @@ impl windows_core::TypeKind for NETINFOSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1029,7 +1029,7 @@ impl windows_core::TypeKind for NETRESOURCEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -1049,7 +1049,7 @@ impl windows_core::TypeKind for NETRESOURCEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
@@ -1064,7 +1064,7 @@ impl windows_core::TypeKind for NOTIFYADD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_core::PWSTR,
     pub lpProvider: windows_core::PWSTR,
@@ -1080,7 +1080,7 @@ impl windows_core::TypeKind for NOTIFYCANCEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
@@ -1095,7 +1095,7 @@ impl windows_core::TypeKind for NOTIFYINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
@@ -1110,7 +1110,7 @@ impl windows_core::TypeKind for REMOTE_NAME_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
@@ -1125,7 +1125,7 @@ impl windows_core::TypeKind for REMOTE_NAME_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
 }
@@ -1138,7 +1138,7 @@ impl windows_core::TypeKind for UNIVERSAL_NAME_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
 }

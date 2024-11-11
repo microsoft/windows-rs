@@ -41,7 +41,7 @@ pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdes
     RtlWriteNonVolatileMemory(core::mem::transmute(nvtoken), core::mem::transmute(nvdestination), core::mem::transmute(source), core::mem::transmute(size), core::mem::transmute(flags))
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
     pub Length: usize,

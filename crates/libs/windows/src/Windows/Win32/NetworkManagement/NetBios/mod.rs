@@ -88,7 +88,7 @@ pub const SESSION_ABORTED: u32 = 6u32;
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 pub const UNIQUE_NAME: u32 = 0u32;
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
@@ -103,7 +103,7 @@ impl windows_core::TypeKind for ACTION_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -142,7 +142,7 @@ impl windows_core::TypeKind for ADAPTER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -160,7 +160,7 @@ impl windows_core::TypeKind for FIND_NAME_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
@@ -175,7 +175,7 @@ impl windows_core::TypeKind for FIND_NAME_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
@@ -189,7 +189,7 @@ impl windows_core::TypeKind for LANA_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
@@ -205,7 +205,7 @@ impl windows_core::TypeKind for NAME_BUFFER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -235,7 +235,7 @@ impl windows_core::TypeKind for NCB {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NCB {
     pub ncb_command: u8,
     pub ncb_retcode: u8,
@@ -264,7 +264,7 @@ impl windows_core::TypeKind for NCB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -282,7 +282,7 @@ impl windows_core::TypeKind for SESSION_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,

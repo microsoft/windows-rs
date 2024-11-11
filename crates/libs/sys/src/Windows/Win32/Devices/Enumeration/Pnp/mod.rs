@@ -71,7 +71,7 @@ pub type SW_DEVICE_LIFETIME = i32;
 pub type HSWDEVICE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SW_DEVICE_CREATE_INFO {
     pub cbSize: u32,
     pub pszInstanceId: windows_sys::core::PCWSTR,

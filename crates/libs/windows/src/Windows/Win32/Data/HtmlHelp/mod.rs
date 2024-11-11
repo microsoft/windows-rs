@@ -1214,25 +1214,25 @@ pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HH_GPROPID(pub i32);
 impl windows_core::TypeKind for HH_GPROPID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTML_HELP_COMMAND(pub i32);
 impl windows_core::TypeKind for HTML_HELP_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITY(pub i32);
 impl windows_core::TypeKind for PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
@@ -1246,7 +1246,7 @@ impl windows_core::TypeKind for COLUMNSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CProperty {
     pub dwPropID: u32,
     pub cbData: u32,
@@ -1263,7 +1263,7 @@ impl windows_core::TypeKind for CProperty {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CProperty_0 {
     pub lpszwData: windows_core::PWSTR,
     pub lpvData: *mut core::ffi::c_void,
@@ -1279,7 +1279,7 @@ impl windows_core::TypeKind for CProperty_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: windows_core::PCSTR,
@@ -1298,7 +1298,7 @@ impl windows_core::TypeKind for HHNTRACK {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_core::PCSTR,
@@ -1314,7 +1314,7 @@ impl windows_core::TypeKind for HHN_NOTIFY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: super::super::Foundation::BOOL,
@@ -1334,7 +1334,7 @@ impl windows_core::TypeKind for HH_AKLINK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
@@ -1349,7 +1349,7 @@ impl windows_core::TypeKind for HH_ENUM_CAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
@@ -1366,7 +1366,7 @@ impl windows_core::TypeKind for HH_ENUM_IT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -1408,7 +1408,7 @@ impl windows_core::TypeKind for HH_GLOBAL_PROPERTY {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -1429,7 +1429,7 @@ impl windows_core::TypeKind for HH_POPUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_core::PCSTR,
@@ -1444,7 +1444,7 @@ impl windows_core::TypeKind for HH_SET_INFOTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -1492,7 +1492,7 @@ impl windows_core::TypeKind for HH_WINTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,

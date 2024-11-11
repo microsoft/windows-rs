@@ -283,7 +283,7 @@ pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
     SetColorsForIndices: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayBitmapEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBitmapEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBitmapEffect, ILampArrayEffect);
@@ -380,7 +380,7 @@ impl windows_core::RuntimeName for LampArrayBitmapEffect {
 unsafe impl Send for LampArrayBitmapEffect {}
 unsafe impl Sync for LampArrayBitmapEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayBitmapRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArrayBitmapRequestedEventArgs {
@@ -413,7 +413,7 @@ impl windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
 unsafe impl Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl Sync for LampArrayBitmapRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayBlinkEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBlinkEffect, ILampArrayEffect);
@@ -546,7 +546,7 @@ impl windows_core::RuntimeName for LampArrayBlinkEffect {
 unsafe impl Send for LampArrayBlinkEffect {}
 unsafe impl Sync for LampArrayBlinkEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayColorRampEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayColorRampEffect, ILampArrayEffect);
@@ -635,7 +635,7 @@ impl windows_core::RuntimeName for LampArrayColorRampEffect {
 unsafe impl Send for LampArrayColorRampEffect {}
 unsafe impl Sync for LampArrayColorRampEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayCustomEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayCustomEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayCustomEffect, ILampArrayEffect);
@@ -715,7 +715,7 @@ unsafe impl Send for LampArrayCustomEffect {}
 unsafe impl Sync for LampArrayCustomEffect {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayEffectPlaylist(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, windows_core::IUnknown, windows_core::IInspectable);
@@ -866,7 +866,7 @@ unsafe impl Send for LampArrayEffectPlaylist {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for LampArrayEffectPlaylist {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArraySolidEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArraySolidEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArraySolidEffect, ILampArrayEffect);
@@ -955,7 +955,7 @@ impl windows_core::RuntimeName for LampArraySolidEffect {
 unsafe impl Send for LampArraySolidEffect {}
 unsafe impl Sync for LampArraySolidEffect {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LampArrayUpdateRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LampArrayUpdateRequestedEventArgs {
@@ -1000,7 +1000,7 @@ impl windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
 unsafe impl Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl Sync for LampArrayUpdateRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
     pub const ClearState: Self = Self(0i32);
@@ -1013,7 +1013,7 @@ impl windows_core::RuntimeType for LampArrayEffectCompletionBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
     pub const Sequential: Self = Self(0i32);
@@ -1026,7 +1026,7 @@ impl windows_core::RuntimeType for LampArrayEffectStartMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
     pub const Occurrences: Self = Self(0i32);

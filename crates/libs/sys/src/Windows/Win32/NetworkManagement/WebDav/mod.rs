@@ -21,14 +21,14 @@ pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
 pub const RetryRequest: AUTHNEXTSTEP = 1i32;
 pub type AUTHNEXTSTEP = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut core::ffi::c_void,
     pub ulSize: u32,
     pub ulType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszUserName: windows_sys::core::PWSTR,
     pub ulUserNameLength: u32,
@@ -36,7 +36,7 @@ pub struct DAV_CALLBACK_AUTH_UNP {
     pub ulPasswordLength: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,

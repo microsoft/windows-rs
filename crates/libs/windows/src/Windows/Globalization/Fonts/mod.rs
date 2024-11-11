@@ -49,7 +49,7 @@ pub struct ILanguageFontGroupFactory_Vtbl {
     pub CreateLanguageFontGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanguageFont(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFont, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFont {
@@ -105,7 +105,7 @@ impl windows_core::RuntimeName for LanguageFont {
 unsafe impl Send for LanguageFont {}
 unsafe impl Sync for LanguageFont {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanguageFontGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFontGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFontGroup {

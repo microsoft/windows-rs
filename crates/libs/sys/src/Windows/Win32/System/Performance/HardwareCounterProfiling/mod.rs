@@ -6,14 +6,14 @@ pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
 pub type HARDWARE_COUNTER_TYPE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,

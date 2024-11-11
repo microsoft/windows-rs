@@ -1646,73 +1646,73 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECODING_SOURCE(pub i32);
 impl windows_core::TypeKind for DECODING_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
 impl windows_core::TypeKind for ENABLECALLBACK_ENABLED_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
 impl windows_core::TypeKind for ETW_COMPRESSION_RESUMPTION_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PROCESS_HANDLE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROCESS_TRACE_MODES(pub i32);
 impl windows_core::TypeKind for ETW_PROCESS_TRACE_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
 impl windows_core::TypeKind for ETW_PROVIDER_TRAIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSECURITYOPERATION(pub i32);
 impl windows_core::TypeKind for EVENTSECURITYOPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FIELD_TYPE(pub i32);
 impl windows_core::TypeKind for EVENT_FIELD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for EVENT_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
 impl windows_core::TypeKind for EVENT_TRACE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_FLAG(pub u32);
 impl windows_core::TypeKind for EVENT_TRACE_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -1751,43 +1751,43 @@ impl core::ops::Not for EVENT_TRACE_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAP_FLAGS(pub i32);
 impl windows_core::TypeKind for MAP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAP_VALUETYPE(pub i32);
 impl windows_core::TypeKind for MAP_VALUETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAYLOAD_OPERATOR(pub i32);
 impl windows_core::TypeKind for PAYLOAD_OPERATOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTY_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPERTY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
 impl windows_core::TypeKind for TDH_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEMPLATE_FLAGS(pub i32);
 impl windows_core::TypeKind for TEMPLATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for TRACE_MESSAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1826,31 +1826,31 @@ impl core::ops::Not for TRACE_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for TRACE_QUERY_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIDPREQUESTCODE(pub i32);
 impl windows_core::TypeKind for WMIDPREQUESTCODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TDH_IN_TYPE(pub i32);
 impl windows_core::TypeKind for _TDH_IN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TDH_OUT_TYPE(pub i32);
 impl windows_core::TypeKind for _TDH_OUT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLASSIC_EVENT_ID {
     pub EventGuid: windows_core::GUID,
     pub Type: u8,
@@ -1865,7 +1865,7 @@ impl windows_core::TypeKind for CLASSIC_EVENT_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTROLTRACE_HANDLE {
     pub Value: u64,
 }
@@ -1879,7 +1879,7 @@ impl windows_core::TypeKind for CONTROLTRACE_HANDLE {
 }
 pub const CTraceRelogger: windows_core::GUID = windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -1897,7 +1897,7 @@ impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -1915,7 +1915,7 @@ impl windows_core::TypeKind for ENABLE_TRACE_PARAMETERS_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: u64,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
@@ -1932,7 +1932,7 @@ impl windows_core::TypeKind for ETW_BUFFER_CALLBACK_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ETW_BUFFER_CONTEXT {
     pub Anonymous: ETW_BUFFER_CONTEXT_0,
     pub LoggerId: u16,
@@ -1946,7 +1946,7 @@ impl windows_core::TypeKind for ETW_BUFFER_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ETW_BUFFER_CONTEXT_0 {
     pub Anonymous: ETW_BUFFER_CONTEXT_0_0,
     pub ProcessorIndex: u16,
@@ -1960,7 +1960,7 @@ impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_BUFFER_CONTEXT_0_0 {
     pub ProcessorNumber: u8,
     pub Alignment: u8,
@@ -1974,7 +1974,7 @@ impl windows_core::TypeKind for ETW_BUFFER_CONTEXT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ETW_BUFFER_HEADER {
     pub Reserved1: [u32; 4],
     pub TimeStamp: i64,
@@ -1994,7 +1994,7 @@ impl windows_core::TypeKind for ETW_BUFFER_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,
@@ -2013,7 +2013,7 @@ impl windows_core::TypeKind for ETW_OPEN_TRACE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
@@ -2028,7 +2028,7 @@ impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     pub ProcessorNumber: u32,
     pub NumberOfCounters: u32,
@@ -2043,7 +2043,7 @@ impl windows_core::TypeKind for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_PMC_SESSION_INFO {
     pub NextEntryOffset: u32,
     pub LoggerId: u16,
@@ -2060,7 +2060,7 @@ impl windows_core::TypeKind for ETW_PMC_SESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION {
     pub PartitionId: windows_core::GUID,
     pub ParentId: windows_core::GUID,
@@ -2076,7 +2076,7 @@ impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
     pub QpcOffsetFromRoot: i64,
     pub PartitionType: u32,
@@ -2092,7 +2092,7 @@ impl windows_core::TypeKind for ETW_TRACE_PARTITION_INFORMATION_V2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_DATA_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
@@ -2107,7 +2107,7 @@ impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_DATA_DESCRIPTOR_0 {
     pub Reserved: u32,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
@@ -2121,7 +2121,7 @@ impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Type: u8,
     pub Reserved1: u8,
@@ -2136,7 +2136,7 @@ impl windows_core::TypeKind for EVENT_DATA_DESCRIPTOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_DESCRIPTOR {
     pub Id: u16,
     pub Version: u8,
@@ -2155,7 +2155,7 @@ impl windows_core::TypeKind for EVENT_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
     pub Key: u64,
 }
@@ -2168,7 +2168,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_EVENT_KEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
@@ -2183,7 +2183,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
     pub PebsIndex: u64,
 }
@@ -2196,7 +2196,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     pub Counter: [u64; 1],
 }
@@ -2209,7 +2209,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     pub ProcessStartKey: u64,
 }
@@ -2222,7 +2222,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     pub RelatedActivityId: windows_core::GUID,
 }
@@ -2235,7 +2235,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
     pub MatchId: u64,
     pub StackKey: u32,
@@ -2250,7 +2250,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
     pub MatchId: u64,
     pub StackKey: u64,
@@ -2264,7 +2264,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     pub MatchId: u64,
     pub Address: [u32; 1],
@@ -2278,7 +2278,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     pub MatchId: u64,
     pub Address: [u64; 1],
@@ -2292,7 +2292,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
 }
@@ -2305,7 +2305,7 @@ impl windows_core::TypeKind for EVENT_EXTENDED_ITEM_TS_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
@@ -2320,7 +2320,7 @@ impl windows_core::TypeKind for EVENT_FILTER_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
     pub Reserved: u8,
@@ -2336,7 +2336,7 @@ impl windows_core::TypeKind for EVENT_FILTER_EVENT_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -2354,7 +2354,7 @@ impl windows_core::TypeKind for EVENT_FILTER_EVENT_NAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_FILTER_HEADER {
     pub Id: u16,
     pub Version: u8,
@@ -2372,7 +2372,7 @@ impl windows_core::TypeKind for EVENT_FILTER_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -2388,7 +2388,7 @@ impl windows_core::TypeKind for EVENT_FILTER_LEVEL_KW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_HEADER {
     pub Size: u16,
     pub HeaderType: u16,
@@ -2411,7 +2411,7 @@ impl windows_core::TypeKind for EVENT_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
     pub ProcessorTime: u64,
@@ -2425,7 +2425,7 @@ impl windows_core::TypeKind for EVENT_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -2439,7 +2439,7 @@ impl windows_core::TypeKind for EVENT_HEADER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub Reserved1: u16,
     pub ExtType: u16,
@@ -2456,7 +2456,7 @@ impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
 }
@@ -2469,7 +2469,7 @@ impl windows_core::TypeKind for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_INSTANCE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_INSTANCE_HEADER_0,
@@ -2492,7 +2492,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_INSTANCE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_INSTANCE_HEADER_0_0,
@@ -2506,7 +2506,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -2520,7 +2520,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_INSTANCE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_INSTANCE_HEADER_1_0,
@@ -2534,7 +2534,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -2549,7 +2549,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_INSTANCE_HEADER_2 {
     pub Anonymous1: EVENT_INSTANCE_HEADER_2_0,
     pub ProcessorTime: u64,
@@ -2564,7 +2564,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -2578,7 +2578,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_1 {
     pub EventId: u32,
     pub Flags: u32,
@@ -2592,7 +2592,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_HEADER_2_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::super::super::Foundation::HANDLE,
     pub InstanceId: u32,
@@ -2606,7 +2606,7 @@ impl windows_core::TypeKind for EVENT_INSTANCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_MAP_ENTRY {
     pub OutputOffset: u32,
     pub Anonymous: EVENT_MAP_ENTRY_0,
@@ -2620,7 +2620,7 @@ impl windows_core::TypeKind for EVENT_MAP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_MAP_ENTRY_0 {
     pub Value: u32,
     pub InputOffset: u32,
@@ -2634,7 +2634,7 @@ impl windows_core::TypeKind for EVENT_MAP_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_MAP_INFO {
     pub NameOffset: u32,
     pub Flag: MAP_FLAGS,
@@ -2651,7 +2651,7 @@ impl windows_core::TypeKind for EVENT_MAP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_MAP_INFO_0 {
     pub MapEntryValueType: MAP_VALUETYPE,
     pub FormatStringOffset: u32,
@@ -2665,7 +2665,7 @@ impl windows_core::TypeKind for EVENT_MAP_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_PROPERTY_INFO {
     pub Flags: PROPERTY_FLAGS,
     pub NameOffset: u32,
@@ -2683,7 +2683,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_0 {
     pub nonStructType: EVENT_PROPERTY_INFO_0_0,
     pub structType: EVENT_PROPERTY_INFO_0_1,
@@ -2698,7 +2698,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_2 {
     pub InType: u16,
     pub OutType: u16,
@@ -2713,7 +2713,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
@@ -2728,7 +2728,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
@@ -2743,7 +2743,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_1 {
     pub count: u16,
     pub countPropertyIndex: u16,
@@ -2757,7 +2757,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_2 {
     pub length: u16,
     pub lengthPropertyIndex: u16,
@@ -2771,7 +2771,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_3 {
     pub Reserved: u32,
     pub Anonymous: EVENT_PROPERTY_INFO_3_0,
@@ -2785,7 +2785,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_3_0 {
     pub _bitfield: u32,
 }
@@ -2798,7 +2798,7 @@ impl windows_core::TypeKind for EVENT_PROPERTY_INFO_3_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
     pub BufferContext: ETW_BUFFER_CONTEXT,
@@ -2817,7 +2817,7 @@ impl windows_core::TypeKind for EVENT_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE {
     pub Header: EVENT_TRACE_HEADER,
     pub InstanceId: u32,
@@ -2836,7 +2836,7 @@ impl windows_core::TypeKind for EVENT_TRACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_0 {
     pub ClientContext: u32,
     pub BufferContext: ETW_BUFFER_CONTEXT,
@@ -2850,7 +2850,7 @@ impl windows_core::TypeKind for EVENT_TRACE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_TRACE_HEADER_0,
@@ -2870,7 +2870,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_TRACE_HEADER_0_0,
@@ -2884,7 +2884,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -2898,7 +2898,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_TRACE_HEADER_1_0,
@@ -2912,7 +2912,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -2927,7 +2927,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_HEADER_2 {
     pub Guid: windows_core::GUID,
     pub GuidPtr: u64,
@@ -2941,7 +2941,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_HEADER_3 {
     pub Anonymous1: EVENT_TRACE_HEADER_3_0,
     pub ProcessorTime: u64,
@@ -2956,7 +2956,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -2970,7 +2970,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_1 {
     pub ClientContext: u32,
     pub Flags: u32,
@@ -2985,7 +2985,7 @@ impl windows_core::TypeKind for EVENT_TRACE_HEADER_3_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: windows_core::PSTR,
     pub LoggerName: windows_core::PSTR,
@@ -3014,7 +3014,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
@@ -3031,7 +3031,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
@@ -3048,7 +3048,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEA_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: windows_core::PWSTR,
     pub LoggerName: windows_core::PWSTR,
@@ -3077,7 +3077,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
@@ -3094,7 +3094,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
@@ -3110,7 +3110,7 @@ impl windows_core::TypeKind for EVENT_TRACE_LOGFILEW_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE_PROPERTIES {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -3140,7 +3140,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
@@ -3154,7 +3154,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub Wnode: WNODE_HEADER,
     pub BufferSize: u32,
@@ -3188,7 +3188,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_0 {
     pub AgeLimit: i32,
     pub FlushThreshold: i32,
@@ -3202,7 +3202,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_1 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
     pub V2Control: u32,
@@ -3216,7 +3216,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
 }
@@ -3229,7 +3229,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union EVENT_TRACE_PROPERTIES_V2_2 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
     pub V2Options: u64,
@@ -3243,7 +3243,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
 }
@@ -3256,7 +3256,7 @@ impl windows_core::TypeKind for EVENT_TRACE_PROPERTIES_V2_2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOF_FIELD {
     pub DataPtr: u64,
     pub Length: u32,
@@ -3271,7 +3271,7 @@ impl windows_core::TypeKind for MOF_FIELD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OFFSETINSTANCEDATAANDLENGTH {
     pub OffsetInstanceData: u32,
     pub LengthInstanceData: u32,
@@ -3285,7 +3285,7 @@ impl windows_core::TypeKind for OFFSETINSTANCEDATAANDLENGTH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: windows_core::PWSTR,
     pub CompareOp: u16,
@@ -3300,7 +3300,7 @@ impl windows_core::TypeKind for PAYLOAD_FILTER_PREDICATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSTRACE_HANDLE {
     pub Value: u64,
 }
@@ -3313,7 +3313,7 @@ impl windows_core::TypeKind for PROCESSTRACE_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILE_SOURCE_INFO {
     pub NextEntryOffset: u32,
     pub Source: u32,
@@ -3331,7 +3331,7 @@ impl windows_core::TypeKind for PROFILE_SOURCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPERTY_DATA_DESCRIPTOR {
     pub PropertyName: u64,
     pub ArrayIndex: u32,
@@ -3346,7 +3346,7 @@ impl windows_core::TypeKind for PROPERTY_DATA_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDER_ENUMERATION_INFO {
     pub NumberOfProviders: u32,
     pub Reserved: u32,
@@ -3361,7 +3361,7 @@ impl windows_core::TypeKind for PROVIDER_ENUMERATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDER_EVENT_INFO {
     pub NumberOfEvents: u32,
     pub Reserved: u32,
@@ -3376,7 +3376,7 @@ impl windows_core::TypeKind for PROVIDER_EVENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDER_FIELD_INFO {
     pub NameOffset: u32,
     pub DescriptionOffset: u32,
@@ -3391,7 +3391,7 @@ impl windows_core::TypeKind for PROVIDER_FIELD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROVIDER_FIELD_INFOARRAY {
     pub NumberOfElements: u32,
     pub FieldType: EVENT_FIELD_TYPE,
@@ -3406,7 +3406,7 @@ impl windows_core::TypeKind for PROVIDER_FIELD_INFOARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROVIDER_FILTER_INFO {
     pub Id: u8,
     pub Version: u8,
@@ -3430,7 +3430,7 @@ impl windows_core::TypeKind for REGHANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RELOGSTREAM_HANDLE {
     pub Value: u64,
 }
@@ -3443,7 +3443,7 @@ impl windows_core::TypeKind for RELOGSTREAM_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TDH_CONTEXT {
     pub ParameterValue: u64,
     pub ParameterType: TDH_CONTEXT_TYPE,
@@ -3478,7 +3478,7 @@ impl windows_core::Free for TDH_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_ENABLE_INFO {
     pub IsEnabled: u32,
     pub Level: u8,
@@ -3498,7 +3498,7 @@ impl windows_core::TypeKind for TRACE_ENABLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TRACE_EVENT_INFO {
     pub ProviderGuid: windows_core::GUID,
     pub EventGuid: windows_core::GUID,
@@ -3530,7 +3530,7 @@ impl windows_core::TypeKind for TRACE_EVENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_EVENT_INFO_0 {
     pub EventNameOffset: u32,
     pub ActivityIDNameOffset: u32,
@@ -3544,7 +3544,7 @@ impl windows_core::TypeKind for TRACE_EVENT_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_EVENT_INFO_1 {
     pub EventAttributesOffset: u32,
     pub RelatedActivityIDNameOffset: u32,
@@ -3558,7 +3558,7 @@ impl windows_core::TypeKind for TRACE_EVENT_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_EVENT_INFO_2 {
     pub Flags: TEMPLATE_FLAGS,
     pub Anonymous: TRACE_EVENT_INFO_2_0,
@@ -3572,7 +3572,7 @@ impl windows_core::TypeKind for TRACE_EVENT_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_EVENT_INFO_2_0 {
     pub _bitfield: u32,
 }
@@ -3585,7 +3585,7 @@ impl windows_core::TypeKind for TRACE_EVENT_INFO_2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_GUID_INFO {
     pub InstanceCount: u32,
     pub Reserved: u32,
@@ -3599,7 +3599,7 @@ impl windows_core::TypeKind for TRACE_GUID_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_GUID_PROPERTIES {
     pub Guid: windows_core::GUID,
     pub GuidType: u32,
@@ -3617,7 +3617,7 @@ impl windows_core::TypeKind for TRACE_GUID_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: *const windows_core::GUID,
     pub RegHandle: super::super::super::Foundation::HANDLE,
@@ -3632,7 +3632,7 @@ impl windows_core::TypeKind for TRACE_GUID_REGISTRATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER_0,
@@ -3665,7 +3665,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
@@ -3682,7 +3682,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -3701,7 +3701,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
@@ -3718,7 +3718,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -3737,7 +3737,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER_1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER32_0,
@@ -3770,7 +3770,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
@@ -3787,7 +3787,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -3806,7 +3806,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
@@ -3823,7 +3823,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -3842,7 +3842,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER32_1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER64_0,
@@ -3875,7 +3875,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
@@ -3892,7 +3892,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -3911,7 +3911,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
@@ -3928,7 +3928,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -3946,7 +3946,7 @@ impl windows_core::TypeKind for TRACE_LOGFILE_HEADER64_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO {
     pub CaptureStateFrequencyInSeconds: u32,
     pub ProviderCount: u16,
@@ -3961,7 +3961,7 @@ impl windows_core::TypeKind for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_PROFILE_INTERVAL {
     pub Source: u32,
     pub Interval: u32,
@@ -3975,7 +3975,7 @@ impl windows_core::TypeKind for TRACE_PROFILE_INTERVAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_PROVIDER_INFO {
     pub ProviderGuid: windows_core::GUID,
     pub SchemaSource: u32,
@@ -3990,7 +3990,7 @@ impl windows_core::TypeKind for TRACE_PROVIDER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_PROVIDER_INSTANCE_INFO {
     pub NextOffset: u32,
     pub EnableCount: u32,
@@ -4006,7 +4006,7 @@ impl windows_core::TypeKind for TRACE_PROVIDER_INSTANCE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_STACK_CACHING_INFO {
     pub Enabled: super::super::super::Foundation::BOOLEAN,
     pub CacheSize: u32,
@@ -4021,7 +4021,7 @@ impl windows_core::TypeKind for TRACE_STACK_CACHING_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRACE_VERSION_INFO {
     pub EtwTraceProcessingVersion: u32,
     pub Reserved: u32,
@@ -4035,7 +4035,7 @@ impl windows_core::TypeKind for TRACE_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WMIREGGUIDW {
     pub Guid: windows_core::GUID,
     pub Flags: u32,
@@ -4051,7 +4051,7 @@ impl windows_core::TypeKind for WMIREGGUIDW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WMIREGGUIDW_0 {
     pub InstanceNameList: u32,
     pub BaseNameOffset: u32,
@@ -4067,7 +4067,7 @@ impl windows_core::TypeKind for WMIREGGUIDW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WMIREGINFOW {
     pub BufferSize: u32,
     pub NextWmiRegInfo: u32,
@@ -4085,7 +4085,7 @@ impl windows_core::TypeKind for WMIREGINFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_ALL_DATA {
     pub WnodeHeader: WNODE_HEADER,
     pub DataBlockOffset: u32,
@@ -4102,7 +4102,7 @@ impl windows_core::TypeKind for WNODE_ALL_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WNODE_ALL_DATA_0 {
     pub FixedInstanceSize: u32,
     pub OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 1],
@@ -4116,7 +4116,7 @@ impl windows_core::TypeKind for WNODE_ALL_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
 }
@@ -4129,7 +4129,7 @@ impl windows_core::TypeKind for WNODE_EVENT_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
     pub TargetGuid: windows_core::GUID,
@@ -4145,7 +4145,7 @@ impl windows_core::TypeKind for WNODE_EVENT_REFERENCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
     pub TargetInstanceName: [u16; 1],
@@ -4159,7 +4159,7 @@ impl windows_core::TypeKind for WNODE_EVENT_REFERENCE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_HEADER {
     pub BufferSize: u32,
     pub ProviderId: u32,
@@ -4178,7 +4178,7 @@ impl windows_core::TypeKind for WNODE_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WNODE_HEADER_0 {
     pub HistoricalContext: u64,
     pub Anonymous: WNODE_HEADER_0_0,
@@ -4192,7 +4192,7 @@ impl windows_core::TypeKind for WNODE_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
     pub Linkage: u32,
@@ -4206,7 +4206,7 @@ impl windows_core::TypeKind for WNODE_HEADER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
     pub KernelHandle: super::super::super::Foundation::HANDLE,
@@ -4221,7 +4221,7 @@ impl windows_core::TypeKind for WNODE_HEADER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_METHOD_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4240,7 +4240,7 @@ impl windows_core::TypeKind for WNODE_METHOD_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_SINGLE_INSTANCE {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4258,7 +4258,7 @@ impl windows_core::TypeKind for WNODE_SINGLE_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_SINGLE_ITEM {
     pub WnodeHeader: WNODE_HEADER,
     pub OffsetInstanceName: u32,
@@ -4277,7 +4277,7 @@ impl windows_core::TypeKind for WNODE_SINGLE_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
     pub SizeNeeded: u32,

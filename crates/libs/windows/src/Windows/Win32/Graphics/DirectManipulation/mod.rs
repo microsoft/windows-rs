@@ -1424,13 +1424,13 @@ pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST: DIRECTMANIPULATIO
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(4i32);
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
@@ -1469,7 +1469,7 @@ impl core::ops::Not for DIRECTMANIPULATION_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
@@ -1508,13 +1508,13 @@ impl core::ops::Not for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_DRAG_DROP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
@@ -1553,7 +1553,7 @@ impl core::ops::Not for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_HITTEST_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -1592,7 +1592,7 @@ impl core::ops::Not for DIRECTMANIPULATION_HITTEST_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     type TypeKind = windows_core::CopyType;
@@ -1631,19 +1631,19 @@ impl core::ops::Not for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_INPUT_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_INTERACTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_MOTION_TYPES {
     type TypeKind = windows_core::CopyType;
@@ -1682,7 +1682,7 @@ impl core::ops::Not for DIRECTMANIPULATION_MOTION_TYPES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     type TypeKind = windows_core::CopyType;
@@ -1721,19 +1721,19 @@ impl core::ops::Not for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_SNAPPOINT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_STATUS(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_VERTICALALIGNMENT {
     type TypeKind = windows_core::CopyType;
@@ -1772,7 +1772,7 @@ impl core::ops::Not for DIRECTMANIPULATION_VERTICALALIGNMENT {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(pub i32);
 impl windows_core::TypeKind for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     type TypeKind = windows_core::CopyType;

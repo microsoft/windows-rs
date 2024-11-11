@@ -1467,7 +1467,7 @@ pub const CLSID_MILBitmapEffectGroup: windows_core::GUID = windows_core::GUID::f
 pub const CLSID_MILBitmapEffectOuterGlow: windows_core::GUID = windows_core::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -1495,7 +1495,7 @@ impl windows_core::TypeKind for MILMatrixF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -1509,7 +1509,7 @@ impl windows_core::TypeKind for MilPoint2D {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

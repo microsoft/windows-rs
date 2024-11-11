@@ -25,7 +25,7 @@ pub type COMPRESS_ALGORITHM = u32;
 pub type COMPRESS_INFORMATION_CLASS = i32;
 pub type COMPRESSOR_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,

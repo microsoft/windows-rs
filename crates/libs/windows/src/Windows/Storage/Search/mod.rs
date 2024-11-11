@@ -1002,7 +1002,7 @@ pub struct IValueAndLanguage_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentIndexer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexer, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentIndexer {
@@ -1134,7 +1134,7 @@ impl windows_core::RuntimeName for ContentIndexer {
 unsafe impl Send for ContentIndexer {}
 unsafe impl Sync for ContentIndexer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentIndexerQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentIndexerQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl ContentIndexerQuery {
@@ -1198,7 +1198,7 @@ impl windows_core::RuntimeName for ContentIndexerQuery {
 unsafe impl Send for ContentIndexerQuery {}
 unsafe impl Sync for ContentIndexerQuery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexableContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IndexableContent, IIndexableContent);
@@ -1270,7 +1270,7 @@ impl windows_core::RuntimeName for IndexableContent {
 unsafe impl Send for IndexableContent {}
 unsafe impl Sync for IndexableContent {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QueryOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl QueryOptions {
@@ -1433,7 +1433,7 @@ unsafe impl Send for QueryOptions {}
 unsafe impl Sync for QueryOptions {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortEntryVector(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable);
@@ -1528,7 +1528,7 @@ impl windows_core::RuntimeName for SortEntryVector {
     const NAME: &'static str = "Windows.Storage.Search.SortEntryVector";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFileQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageFileQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFileQueryResult, IStorageQueryResultBase);
@@ -1638,7 +1638,7 @@ impl windows_core::RuntimeName for StorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFileQueryResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageFolderQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageFolderQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFolderQueryResult, IStorageQueryResultBase);
@@ -1737,7 +1737,7 @@ impl windows_core::RuntimeName for StorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFolderQueryResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageItemQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageItemQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemQueryResult, IStorageQueryResultBase);
@@ -1836,7 +1836,7 @@ impl windows_core::RuntimeName for StorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageItemQueryResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryChangeTrackerTriggerDetails {
@@ -1866,7 +1866,7 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryContentChangedTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageLibraryContentChangedTriggerDetails {
@@ -1896,7 +1896,7 @@ impl windows_core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ValueAndLanguage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ValueAndLanguage, windows_core::IUnknown, windows_core::IInspectable);
 impl ValueAndLanguage {
@@ -1946,7 +1946,7 @@ impl windows_core::RuntimeName for ValueAndLanguage {
 unsafe impl Send for ValueAndLanguage {}
 unsafe impl Sync for ValueAndLanguage {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1963,7 +1963,7 @@ impl windows_core::RuntimeType for CommonFileQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -1987,7 +1987,7 @@ impl windows_core::RuntimeType for CommonFolderQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
     pub const None: Self = Self(0i32);
@@ -2001,7 +2001,7 @@ impl windows_core::RuntimeType for DateStackOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
@@ -2014,7 +2014,7 @@ impl windows_core::RuntimeType for FolderDepth {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
     pub const Unknown: Self = Self(0i32);
@@ -2029,7 +2029,7 @@ impl windows_core::RuntimeType for IndexedState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
     pub const UseIndexerWhenAvailable: Self = Self(0i32);

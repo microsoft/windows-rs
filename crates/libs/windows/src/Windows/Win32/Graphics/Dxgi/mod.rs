@@ -4550,7 +4550,7 @@ pub const DXGI_USAGE_SHADER_INPUT: DXGI_USAGE = DXGI_USAGE(16u32);
 pub const DXGI_USAGE_SHARED: DXGI_USAGE = DXGI_USAGE(128u32);
 pub const DXGI_USAGE_UNORDERED_ACCESS: DXGI_USAGE = DXGI_USAGE(1024u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_ADAPTER_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -4589,7 +4589,7 @@ impl core::ops::Not for DXGI_ADAPTER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_FLAG3(pub i32);
 impl windows_core::TypeKind for DXGI_ADAPTER_FLAG3 {
     type TypeKind = windows_core::CopyType;
@@ -4628,13 +4628,13 @@ impl core::ops::Not for DXGI_ADAPTER_FLAG3 {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
 impl windows_core::TypeKind for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_CREATE_FACTORY_FLAGS(pub u32);
 impl windows_core::TypeKind for DXGI_CREATE_FACTORY_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4673,7 +4673,7 @@ impl core::ops::Not for DXGI_CREATE_FACTORY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_DEBUG_RLO_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGI_DEBUG_RLO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4712,7 +4712,7 @@ impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_ENUM_MODES(pub u32);
 impl windows_core::TypeKind for DXGI_ENUM_MODES {
     type TypeKind = windows_core::CopyType;
@@ -4751,31 +4751,31 @@ impl core::ops::Not for DXGI_ENUM_MODES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FEATURE(pub i32);
 impl windows_core::TypeKind for DXGI_FEATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
 impl windows_core::TypeKind for DXGI_FRAME_PRESENTATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_GPU_PREFERENCE(pub i32);
 impl windows_core::TypeKind for DXGI_GPU_PREFERENCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
 impl windows_core::TypeKind for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4814,25 +4814,25 @@ impl core::ops::Not for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_TYPE(pub i32);
 impl windows_core::TypeKind for DXGI_HDR_METADATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_CATEGORY(pub i32);
 impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_SEVERITY(pub i32);
 impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MAP_FLAGS(pub u32);
 impl windows_core::TypeKind for DXGI_MAP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4871,13 +4871,13 @@ impl core::ops::Not for DXGI_MAP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
 impl windows_core::TypeKind for DXGI_MEMORY_SEGMENT_GROUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4916,7 +4916,7 @@ impl core::ops::Not for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MWA_FLAGS(pub u32);
 impl windows_core::TypeKind for DXGI_MWA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -4955,13 +4955,13 @@ impl core::ops::Not for DXGI_MWA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_Message_Id(pub i32);
 impl windows_core::TypeKind for DXGI_Message_Id {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OFFER_RESOURCE_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGI_OFFER_RESOURCE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5000,13 +5000,13 @@ impl core::ops::Not for DXGI_OFFER_RESOURCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
 impl windows_core::TypeKind for DXGI_OFFER_RESOURCE_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_OUTDUPL_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5045,13 +5045,13 @@ impl core::ops::Not for DXGI_OUTDUPL_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
 impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5090,7 +5090,7 @@ impl core::ops::Not for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_OVERLAY_SUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5129,7 +5129,7 @@ impl core::ops::Not for DXGI_OVERLAY_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_PRESENT(pub u32);
 impl windows_core::TypeKind for DXGI_PRESENT {
     type TypeKind = windows_core::CopyType;
@@ -5168,31 +5168,31 @@ impl core::ops::Not for DXGI_PRESENT {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RECLAIM_RESOURCE_RESULTS(pub i32);
 impl windows_core::TypeKind for DXGI_RECLAIM_RESOURCE_RESULTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RESIDENCY(pub i32);
 impl windows_core::TypeKind for DXGI_RESIDENCY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RESOURCE_PRIORITY(pub u32);
 impl windows_core::TypeKind for DXGI_RESOURCE_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SCALING(pub i32);
 impl windows_core::TypeKind for DXGI_SCALING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE_RW(pub u32);
 impl windows_core::TypeKind for DXGI_SHARED_RESOURCE_RW {
     type TypeKind = windows_core::CopyType;
@@ -5231,7 +5231,7 @@ impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5270,7 +5270,7 @@ impl core::ops::Not for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
 impl windows_core::TypeKind for DXGI_SWAP_CHAIN_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5309,13 +5309,13 @@ impl core::ops::Not for DXGI_SWAP_CHAIN_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_EFFECT(pub i32);
 impl windows_core::TypeKind for DXGI_SWAP_EFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_USAGE(pub u32);
 impl windows_core::TypeKind for DXGI_USAGE {
     type TypeKind = windows_core::CopyType;
@@ -5354,7 +5354,7 @@ impl core::ops::Not for DXGI_USAGE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -5375,7 +5375,7 @@ impl windows_core::TypeKind for DXGI_ADAPTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC1 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -5397,7 +5397,7 @@ impl windows_core::TypeKind for DXGI_ADAPTER_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC2 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -5421,7 +5421,7 @@ impl windows_core::TypeKind for DXGI_ADAPTER_DESC2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_ADAPTER_DESC3 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -5445,7 +5445,7 @@ impl windows_core::TypeKind for DXGI_ADAPTER_DESC3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
     pub Flags: u32,
 }
@@ -5458,7 +5458,7 @@ impl windows_core::TypeKind for DXGI_DECODE_SWAP_CHAIN_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
     pub PrimaryCoordinates: [f32; 16],
     pub WhitePoints: [f32; 32],
@@ -5472,7 +5472,7 @@ impl windows_core::TypeKind for DXGI_DISPLAY_COLOR_SPACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -5489,7 +5489,7 @@ impl windows_core::TypeKind for DXGI_FRAME_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -5508,7 +5508,7 @@ impl windows_core::TypeKind for DXGI_FRAME_STATISTICS_MEDIA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -5528,7 +5528,7 @@ impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
 }
@@ -5541,7 +5541,7 @@ impl windows_core::TypeKind for DXGI_HDR_METADATA_HDR10PLUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
@@ -5555,7 +5555,7 @@ impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -5573,7 +5573,7 @@ impl windows_core::TypeKind for DXGI_INFO_QUEUE_FILTER_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: windows_core::GUID,
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -5591,7 +5591,7 @@ impl windows_core::TypeKind for DXGI_INFO_QUEUE_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: i32,
     pub pBits: *mut u8,
@@ -5605,7 +5605,7 @@ impl windows_core::TypeKind for DXGI_MAPPED_RECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_MATRIX_3X2_F {
     pub _11: f32,
     pub _12: f32,
@@ -5624,7 +5624,7 @@ impl windows_core::TypeKind for DXGI_MATRIX_3X2_F {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_MODE_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -5646,7 +5646,7 @@ impl windows_core::TypeKind for DXGI_MODE_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: Common::DXGI_MODE_DESC,
     pub Rotation: Common::DXGI_MODE_ROTATION,
@@ -5663,7 +5663,7 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -5683,7 +5683,7 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_FRAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestinationRect: super::super::Foundation::RECT,
@@ -5697,7 +5697,7 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_MOVE_RECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::super::Foundation::POINT,
     pub Visible: super::super::Foundation::BOOL,
@@ -5711,7 +5711,7 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_POSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: u32,
     pub Width: u32,
@@ -5729,7 +5729,7 @@ impl windows_core::TypeKind for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
@@ -5749,7 +5749,7 @@ impl windows_core::TypeKind for DXGI_OUTPUT_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTPUT_DESC1 {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::super::Foundation::RECT,
@@ -5777,7 +5777,7 @@ impl windows_core::TypeKind for DXGI_OUTPUT_DESC1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: u32,
     pub pDirtyRects: *mut super::super::Foundation::RECT,
@@ -5793,7 +5793,7 @@ impl windows_core::TypeKind for DXGI_PRESENT_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
     pub Budget: u64,
     pub CurrentUsage: u64,
@@ -5809,7 +5809,7 @@ impl windows_core::TypeKind for DXGI_QUERY_VIDEO_MEMORY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_RGBA {
     pub r: f32,
     pub g: f32,
@@ -5825,7 +5825,7 @@ impl windows_core::TypeKind for DXGI_RGBA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::super::Foundation::HANDLE,
 }
@@ -5839,7 +5839,7 @@ impl windows_core::TypeKind for DXGI_SHARED_RESOURCE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SURFACE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -5858,7 +5858,7 @@ impl windows_core::TypeKind for DXGI_SURFACE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: Common::DXGI_MODE_DESC,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
@@ -5881,7 +5881,7 @@ impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -5907,7 +5907,7 @@ impl windows_core::TypeKind for DXGI_SWAP_CHAIN_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: Common::DXGI_RATIONAL,
     pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,

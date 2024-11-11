@@ -1,7 +1,7 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXAlphaMode(pub i32);
 impl DirectXAlphaMode {
     pub const Unspecified: Self = Self(0i32);
@@ -16,7 +16,7 @@ impl windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXColorSpace(pub i32);
 impl DirectXColorSpace {
     pub const RgbFullG22NoneP709: Self = Self(0i32);
@@ -52,7 +52,7 @@ impl windows_core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXPixelFormat(pub i32);
 impl DirectXPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -185,7 +185,7 @@ impl windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DirectXPrimitiveTopology(pub i32);
 impl DirectXPrimitiveTopology {
     pub const Undefined: Self = Self(0i32);

@@ -124,13 +124,13 @@ pub const WAVERR_BASE: u32 = 32u32;
 pub type TIMECODE_SAMPLE_FLAGS = u32;
 pub type HTASK = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -140,12 +140,12 @@ pub union MMTIME_0 {
     pub midi: MMTIME_0_1,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,
@@ -156,26 +156,26 @@ pub struct MMTIME_0_0 {
     pub pad: [u8; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
     pub dwFrames: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,

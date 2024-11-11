@@ -1178,7 +1178,7 @@ pub type USER_MARSHAL_CB_TYPE = i32;
 pub type XLAT_SIDE = i32;
 pub type system_handle_t = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ARRAY_INFO {
     pub Dimension: i32,
     pub BufferConformanceMark: *mut u32,
@@ -1188,25 +1188,25 @@ pub struct ARRAY_INFO {
     pub ActualCountArray: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BinaryParam {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: i16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CLIENT_CALL_RETURN {
     pub Pointer: *mut core::ffi::c_void,
     pub Simple: isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut core::ffi::c_void,
     pub PointerToRefId: *mut core::ffi::c_void,
@@ -1214,7 +1214,7 @@ pub struct FULL_PTR_XLAT_TABLES {
     pub XlatSide: XLAT_SIDE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
@@ -1222,13 +1222,13 @@ pub struct GENERIC_BINDING_INFO {
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
     pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
@@ -1241,19 +1241,19 @@ pub struct I_RpcProxyCallbackInterface {
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_FORMAT_STRING {
     pub Pad: i16,
     pub Format: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
     pub ProcString: *mut u8,
@@ -1262,26 +1262,26 @@ pub struct MIDL_INTERCEPTION_INFO {
     pub TypeString: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
     pub Value: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *const MIDL_METHOD_PROPERTY,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
     pub DispatchTable: *const SERVER_ROUTINE,
@@ -1294,7 +1294,7 @@ pub struct MIDL_SERVER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
     pub ProcFormatString: *mut u8,
@@ -1305,7 +1305,7 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut core::ffi::c_void,
     pub pfnAllocate: PFN_RPC_ALLOCATE,
@@ -1330,7 +1330,7 @@ pub struct MIDL_STUB_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut core::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut core::ffi::c_void,
@@ -1338,7 +1338,7 @@ pub union MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: *mut RPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -1401,7 +1401,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_5: isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
@@ -1413,7 +1413,7 @@ pub struct MIDL_SYNTAX_INFO {
     pub pReserved2: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_TYPE_PICKLING_INFO {
     pub Version: u32,
     pub Flags: u32,
@@ -1421,7 +1421,7 @@ pub struct MIDL_TYPE_PICKLING_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
     pub TypeFormatString: *mut u8,
@@ -1430,31 +1430,31 @@ pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub StubDesc: *mut MIDL_STUB_DESC,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_ARRAY_ELEMENT_INFO {
     pub ElementMemSize: u32,
     pub Element: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_ARRAY_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NDR64_BINDINGS {
     pub Primitive: NDR64_BIND_PRIMITIVE,
     pub Generic: NDR64_BIND_GENERIC,
     pub Context: NDR64_BIND_CONTEXT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BIND_AND_NOTIFY_EXTENSION {
     pub Binding: NDR64_BIND_CONTEXT,
     pub NotifyIndex: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BIND_CONTEXT {
     pub HandleType: u8,
     pub Flags: u8,
@@ -1463,7 +1463,7 @@ pub struct NDR64_BIND_CONTEXT {
     pub Ordinal: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BIND_GENERIC {
     pub HandleType: u8,
     pub Flags: u8,
@@ -1472,7 +1472,7 @@ pub struct NDR64_BIND_GENERIC {
     pub Size: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BIND_PRIMITIVE {
     pub HandleType: u8,
     pub Flags: u8,
@@ -1480,7 +1480,7 @@ pub struct NDR64_BIND_PRIMITIVE {
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1490,7 +1490,7 @@ pub struct NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     pub Element: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1502,7 +1502,7 @@ pub struct NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub PointerLayout: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1510,12 +1510,12 @@ pub struct NDR64_BUFFER_ALIGN_FORMAT {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONF_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1525,7 +1525,7 @@ pub struct NDR64_CONF_ARRAY_HEADER_FORMAT {
     pub ConfDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1538,7 +1538,7 @@ pub struct NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     pub ConfArrayDescription: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1548,7 +1548,7 @@ pub struct NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     pub ArrayDescription: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1559,7 +1559,7 @@ pub struct NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     pub VarDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     pub FixedArrayFormat: NDR64_BOGUS_ARRAY_HEADER_FORMAT,
     pub ConfDescription: *mut core::ffi::c_void,
@@ -1567,7 +1567,7 @@ pub struct NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     pub OffsetDescription: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONSTANT_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1575,12 +1575,12 @@ pub struct NDR64_CONSTANT_IID_FORMAT {
     pub Guid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONTEXT_HANDLE_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub FormatCode: u8,
     pub ContextFlags: u8,
@@ -1588,7 +1588,7 @@ pub struct NDR64_CONTEXT_HANDLE_FORMAT {
     pub Ordinal: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EMBEDDED_COMPLEX_FORMAT {
     pub FormatCode: u8,
     pub Reserve1: u8,
@@ -1596,7 +1596,7 @@ pub struct NDR64_EMBEDDED_COMPLEX_FORMAT {
     pub Type: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_ENCAPSULATED_UNION {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1607,7 +1607,7 @@ pub struct NDR64_ENCAPSULATED_UNION {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EXPR_CONST32 {
     pub ExprType: u8,
     pub Reserved: u8,
@@ -1615,7 +1615,7 @@ pub struct NDR64_EXPR_CONST32 {
     pub ConstValue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EXPR_CONST64 {
     pub ExprType: u8,
     pub Reserved: u8,
@@ -1623,14 +1623,14 @@ pub struct NDR64_EXPR_CONST64 {
     pub ConstValue: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EXPR_NOOP {
     pub ExprType: u8,
     pub Size: u8,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EXPR_OPERATOR {
     pub ExprType: u8,
     pub Operator: u8,
@@ -1638,7 +1638,7 @@ pub struct NDR64_EXPR_OPERATOR {
     pub Reserved: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_EXPR_VAR {
     pub ExprType: u8,
     pub VarType: u8,
@@ -1646,14 +1646,14 @@ pub struct NDR64_EXPR_VAR {
     pub Offset: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_FIXED_REPEAT_FORMAT {
     pub RepeatFormat: NDR64_REPEAT_FORMAT,
     pub Iterations: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1662,12 +1662,12 @@ pub struct NDR64_FIX_ARRAY_HEADER_FORMAT {
     pub TotalSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_IID_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_IID_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1675,7 +1675,7 @@ pub struct NDR64_IID_FORMAT {
     pub IIDDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_MEMPAD_FORMAT {
     pub FormatCode: u8,
     pub Reserve1: u8,
@@ -1683,13 +1683,13 @@ pub struct NDR64_MEMPAD_FORMAT {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_NON_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub TotalSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_NON_ENCAPSULATED_UNION {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1700,7 +1700,7 @@ pub struct NDR64_NON_ENCAPSULATED_UNION {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_NO_REPEAT_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1708,12 +1708,12 @@ pub struct NDR64_NO_REPEAT_FORMAT {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PARAM_FLAGS {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PARAM_FORMAT {
     pub Type: *mut core::ffi::c_void,
     pub Attributes: NDR64_PARAM_FLAGS,
@@ -1721,12 +1721,12 @@ pub struct NDR64_PARAM_FORMAT {
     pub StackOffset: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PIPE_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PIPE_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1737,7 +1737,7 @@ pub struct NDR64_PIPE_FORMAT {
     pub BufferSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_POINTER_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1745,23 +1745,23 @@ pub struct NDR64_POINTER_FORMAT {
     pub Pointee: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     pub Offset: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_POINTER_REPEAT_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PROC_FLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_PROC_FORMAT {
     pub Flags: u32,
     pub StackSize: u32,
@@ -1773,7 +1773,7 @@ pub struct NDR64_PROC_FORMAT {
     pub ExtensionSize: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_RANGED_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub Reserved: u32,
@@ -1781,7 +1781,7 @@ pub struct NDR64_RANGED_STRING_FORMAT {
     pub Max: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_RANGE_FORMAT {
     pub FormatCode: u8,
     pub RangeType: u8,
@@ -1790,7 +1790,7 @@ pub struct NDR64_RANGE_FORMAT {
     pub MaxValue: i64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_RANGE_PIPE_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1803,7 +1803,7 @@ pub struct NDR64_RANGE_PIPE_FORMAT {
     pub MaxValue: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_REPEAT_FORMAT {
     pub FormatCode: u8,
     pub Flags: NDR64_POINTER_REPEAT_FLAGS,
@@ -1813,12 +1813,12 @@ pub struct NDR64_REPEAT_FORMAT {
     pub NumberOfPointers: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_RPC_FLAGS {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub FormatCode: u8,
     pub Reserved1: u8,
@@ -1826,7 +1826,7 @@ pub struct NDR64_SIMPLE_MEMBER_FORMAT {
     pub Reserved3: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1834,30 +1834,30 @@ pub struct NDR64_SIMPLE_REGION_FORMAT {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     pub Header: NDR64_STRING_HEADER_FORMAT,
     pub SizeDescription: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_STRING_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_STRING_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Flags: NDR64_STRING_FLAGS,
     pub ElementSize: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_STRUCTURE_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1866,19 +1866,19 @@ pub struct NDR64_STRUCTURE_HEADER_FORMAT {
     pub MemorySize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_SYSTEM_HANDLE_FORMAT {
     pub FormatCode: u8,
     pub HandleType: u8,
     pub DesiredAccess: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_TRANSMIT_AS_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_TRANSMIT_AS_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1890,7 +1890,7 @@ pub struct NDR64_TRANSMIT_AS_FORMAT {
     pub TransmittedType: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     pub FormatCode: u8,
     pub RealFormatCode: u8,
@@ -1900,14 +1900,14 @@ pub struct NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     pub CtxtID: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_UNION_ARM {
     pub CaseValue: i64,
     pub Type: *mut core::ffi::c_void,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_UNION_ARM_SELECTOR {
     pub Reserved1: u8,
     pub Alignment: u8,
@@ -1915,12 +1915,12 @@ pub struct NDR64_UNION_ARM_SELECTOR {
     pub Arms: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_USER_MARSHAL_FLAGS {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_USER_MARSHAL_FORMAT {
     pub FormatCode: u8,
     pub Flags: u8,
@@ -1932,7 +1932,7 @@ pub struct NDR64_USER_MARSHAL_FORMAT {
     pub TransmittedType: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR64_VAR_ARRAY_HEADER_FORMAT {
     pub FormatCode: u8,
     pub Alignment: u8,
@@ -1944,13 +1944,13 @@ pub struct NDR64_VAR_ARRAY_HEADER_FORMAT {
 }
 pub type NDR_ALLOC_ALL_NODES_CONTEXT = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
     pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
@@ -1958,34 +1958,34 @@ pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_EXPR_DESC {
     pub pOffset: *const u16,
     pub pFormatExpr: *mut u8,
 }
 pub type NDR_POINTER_QUEUE_STATE = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_SCONTEXT {
     pub pad: [*mut core::ffi::c_void; 2],
     pub userContext: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: NDR_USER_MARSHAL_INFO_LEVEL1,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
@@ -1997,7 +1997,7 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
 pub type PNDR_ASYNC_MESSAGE = isize;
 pub type PNDR_CORRELATION_INFO = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: RPC_STATUS,
     pub LastEEInfo: *mut core::ffi::c_void,
@@ -2016,7 +2016,7 @@ pub struct RDR_CALLOUT_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
@@ -2026,14 +2026,14 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::super::Foundation::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
@@ -2042,14 +2042,14 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ASYNC_STATE {
     pub Size: u32,
     pub Signature: u32,
@@ -2064,7 +2064,7 @@ pub struct RPC_ASYNC_STATE {
     pub Reserved: [isize; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
     pub Flags: RPC_BINDING_HANDLE_OPTIONS_FLAGS,
@@ -2073,7 +2073,7 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub Version: u32,
     pub ServerPrincName: *mut u8,
@@ -2084,7 +2084,7 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub Version: u32,
     pub ServerPrincName: *mut u16,
@@ -2094,7 +2094,7 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2105,12 +2105,12 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub ObjectUuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     pub Reserved: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2121,18 +2121,18 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub ObjectUuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     pub Reserved: *mut u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_BINDING_VECTOR {
     pub Count: u32,
     pub BindingH: [*mut core::ffi::c_void; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2145,7 +2145,7 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub NullSession: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2158,7 +2158,7 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub NullSession: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2180,7 +2180,7 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub InterfaceUuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2202,7 +2202,7 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub InterfaceUuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub Version: u32,
     pub Flags: u32,
@@ -2226,7 +2226,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub ClientIdentifier: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub Version: u32,
     pub Flags: u32,
@@ -2250,7 +2250,7 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub ClientIdentifier: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -2258,7 +2258,7 @@ pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub AddressFormat: RpcLocalAddressFormat,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CLIENT_INFORMATION1 {
     pub UserName: *mut u8,
     pub ComputerName: *mut u8,
@@ -2266,7 +2266,7 @@ pub struct RPC_CLIENT_INFORMATION1 {
     pub AuthFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_CLIENT_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -2279,26 +2279,26 @@ pub struct RPC_CLIENT_INTERFACE {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_EE_INFO_PARAM {
     pub ParameterType: ExtendedErrorParamTypes,
     pub u: RPC_EE_INFO_PARAM_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_EE_INFO_PARAM_0 {
     pub AnsiString: windows_sys::core::PSTR,
     pub UnicodeString: windows_sys::core::PWSTR,
@@ -2308,7 +2308,7 @@ pub union RPC_EE_INFO_PARAM_0 {
     pub BVal: BinaryParam,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
     pub ProtSeq: windows_sys::core::PSTR,
@@ -2317,7 +2317,7 @@ pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Backlog: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
     pub ProtSeq: windows_sys::core::PWSTR,
@@ -2326,14 +2326,14 @@ pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Backlog: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_ERROR_ENUM_HANDLE {
     pub Signature: u32,
     pub CurrentPos: *mut core::ffi::c_void,
     pub Head: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_EXTENDED_ERROR_INFO {
     pub Version: u32,
     pub ComputerName: windows_sys::core::PWSTR,
@@ -2347,13 +2347,13 @@ pub struct RPC_EXTENDED_ERROR_INFO {
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
     pub FileTime: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2363,7 +2363,7 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub ServerCertificateSubject: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2376,7 +2376,7 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub ProxyAuthnSchemes: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2389,7 +2389,7 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub ProxyAuthnSchemes: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub TransportCredentials: *mut core::ffi::c_void,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2402,7 +2402,7 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub ProxyAuthnSchemes: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub TransportCredentials: *mut core::ffi::c_void,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2415,7 +2415,7 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub ProxyAuthnSchemes: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: RPC_C_HTTP_FLAGS,
@@ -2425,27 +2425,27 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub ServerCertificateSubject: *mut u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_IF_ID {
     pub Uuid: windows_sys::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_IF_ID_VECTOR {
     pub Count: u32,
     pub IfId: [*mut RPC_IF_ID; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: *mut core::ffi::c_void,
     pub ProposedHandle: *mut core::ffi::c_void,
     pub Bindings: *mut RPC_BINDING_VECTOR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -2460,7 +2460,7 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub SecurityDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: *mut core::ffi::c_void,
@@ -2475,7 +2475,7 @@ pub struct RPC_INTERFACE_TEMPLATEW {
     pub SecurityDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_MESSAGE {
     pub Handle: *mut core::ffi::c_void,
     pub DataRepresentation: u32,
@@ -2490,33 +2490,33 @@ pub struct RPC_MESSAGE {
     pub RpcFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_POLICY {
     pub Length: u32,
     pub EndpointFlags: u32,
     pub NICFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_PROTSEQ_VECTORA {
     pub Count: u32,
     pub Protseq: [*mut u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_PROTSEQ_VECTORW {
     pub Count: u32,
     pub Protseq: [*mut u16; 1],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2525,7 +2525,7 @@ pub struct RPC_SECURITY_QOS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V2_A {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2536,13 +2536,13 @@ pub struct RPC_SECURITY_QOS_V2_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V2_W {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2553,13 +2553,13 @@ pub struct RPC_SECURITY_QOS_V2_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V3_A {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2571,13 +2571,13 @@ pub struct RPC_SECURITY_QOS_V3_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V3_W {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2589,13 +2589,13 @@ pub struct RPC_SECURITY_QOS_V3_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V4_A {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2608,13 +2608,13 @@ pub struct RPC_SECURITY_QOS_V4_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V4_W {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2627,13 +2627,13 @@ pub struct RPC_SECURITY_QOS_V4_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V5_A {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2647,13 +2647,13 @@ pub struct RPC_SECURITY_QOS_V5_A {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V5_W {
     pub Version: u32,
     pub Capabilities: RPC_C_QOS_CAPABILITIES,
@@ -2667,19 +2667,19 @@ pub struct RPC_SECURITY_QOS_V5_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub EncryptAlgorithm: u32,
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SERVER_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -2692,38 +2692,38 @@ pub struct RPC_SERVER_INTERFACE {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_STATS_VECTOR {
     pub Count: u32,
     pub Stats: [u32; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: windows_sys::core::GUID,
     pub SyntaxVersion: RPC_VERSION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_TRANSFER_SYNTAX {
     pub Uuid: windows_sys::core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut *mut NDR_SCONTEXT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
     pub UserLength: u32,
@@ -2734,7 +2734,7 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub Flags: SEC_WINNT_AUTH_IDENTITY,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -2746,7 +2746,7 @@ pub struct SEC_WINNT_AUTH_IDENTITY_W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
     pub pStubMsg: *mut MIDL_STUB_MESSAGE,
@@ -2757,7 +2757,7 @@ pub struct USER_MARSHAL_CB {
     pub pTypeFormat: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
     pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
@@ -2765,14 +2765,14 @@ pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UUID_VECTOR {
     pub Count: u32,
     pub Uuid: [*mut windows_sys::core::GUID; 1],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,

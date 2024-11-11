@@ -35,7 +35,7 @@ pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -44,13 +44,13 @@ pub struct MS_ADDINFO_BLOB {
     pub pbMemSignedMsg: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_sys::core::GUID,
@@ -66,7 +66,7 @@ pub struct SIP_ADD_NEWPROVIDER {
     pub pwszGetCapFuncName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -74,7 +74,7 @@ pub struct SIP_CAP_SET_V2 {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_CAP_SET_V3 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -82,14 +82,14 @@ pub struct SIP_CAP_SET_V3 {
     pub Anonymous: SIP_CAP_SET_V3_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -100,7 +100,7 @@ pub struct SIP_DISPATCH_INFO {
     pub pfRemove: pCryptSIPRemoveSignedDataMsg,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
@@ -108,7 +108,7 @@ pub struct SIP_INDIRECT_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut windows_sys::core::GUID,
@@ -131,7 +131,7 @@ pub struct SIP_SUBJECTINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,

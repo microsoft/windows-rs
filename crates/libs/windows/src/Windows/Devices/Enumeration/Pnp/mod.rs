@@ -77,7 +77,7 @@ pub struct IPnpObjectWatcher_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PnpObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObject, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObject {
@@ -179,7 +179,7 @@ unsafe impl Send for PnpObject {}
 unsafe impl Sync for PnpObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PnpObjectCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable);
@@ -245,7 +245,7 @@ unsafe impl Send for PnpObjectCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for PnpObjectCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectUpdate {
@@ -285,7 +285,7 @@ impl windows_core::RuntimeName for PnpObjectUpdate {
 unsafe impl Send for PnpObjectUpdate {}
 unsafe impl Sync for PnpObjectUpdate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PnpObjectWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectWatcher {
@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for PnpObjectWatcher {
 unsafe impl Send for PnpObjectWatcher {}
 unsafe impl Sync for PnpObjectWatcher {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
     pub const Unknown: Self = Self(0i32);

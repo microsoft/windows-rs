@@ -462,7 +462,7 @@ pub struct IVenueData_Vtbl {
     pub Level: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CivicAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CivicAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl CivicAddress {
@@ -515,7 +515,7 @@ impl windows_core::RuntimeName for CivicAddress {
 unsafe impl Send for CivicAddress {}
 unsafe impl Sync for CivicAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeoboundingBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeoboundingBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeoboundingBox, IGeoshape);
@@ -646,7 +646,7 @@ impl windows_core::RuntimeName for GeoboundingBox {
 unsafe impl Send for GeoboundingBox {}
 unsafe impl Sync for GeoboundingBox {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geocircle(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geocircle, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geocircle, IGeoshape);
@@ -722,7 +722,7 @@ impl windows_core::RuntimeName for Geocircle {
 unsafe impl Send for Geocircle {}
 unsafe impl Sync for Geocircle {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geocoordinate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geocoordinate, windows_core::IUnknown, windows_core::IInspectable);
 impl Geocoordinate {
@@ -831,7 +831,7 @@ impl windows_core::RuntimeName for Geocoordinate {
 unsafe impl Send for Geocoordinate {}
 unsafe impl Sync for Geocoordinate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeocoordinateSatelliteData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeocoordinateSatelliteData, windows_core::IUnknown, windows_core::IInspectable);
 impl GeocoordinateSatelliteData {
@@ -884,7 +884,7 @@ impl windows_core::RuntimeName for GeocoordinateSatelliteData {
 unsafe impl Send for GeocoordinateSatelliteData {}
 unsafe impl Sync for GeocoordinateSatelliteData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geolocator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geolocator, windows_core::IUnknown, windows_core::IInspectable);
 impl Geolocator {
@@ -1055,7 +1055,7 @@ impl windows_core::RuntimeName for Geolocator {
 unsafe impl Send for Geolocator {}
 unsafe impl Sync for Geolocator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geopath(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geopath, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geopath, IGeoshape);
@@ -1137,7 +1137,7 @@ impl windows_core::RuntimeName for Geopath {
 unsafe impl Send for Geopath {}
 unsafe impl Sync for Geopath {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geopoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geopoint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geopoint, IGeoshape);
@@ -1206,7 +1206,7 @@ impl windows_core::RuntimeName for Geopoint {
 unsafe impl Send for Geopoint {}
 unsafe impl Sync for Geopoint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geoposition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geoposition, windows_core::IUnknown, windows_core::IInspectable);
 impl Geoposition {
@@ -1245,7 +1245,7 @@ impl windows_core::RuntimeName for Geoposition {
 unsafe impl Send for Geoposition {}
 unsafe impl Sync for Geoposition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geovisit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geovisit, windows_core::IUnknown, windows_core::IInspectable);
 impl Geovisit {
@@ -1284,7 +1284,7 @@ impl windows_core::RuntimeName for Geovisit {
 unsafe impl Send for Geovisit {}
 unsafe impl Sync for Geovisit {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeovisitMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeovisitMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl GeovisitMonitor {
@@ -1348,7 +1348,7 @@ impl windows_core::RuntimeName for GeovisitMonitor {
 unsafe impl Send for GeovisitMonitor {}
 unsafe impl Sync for GeovisitMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeovisitStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GeovisitStateChangedEventArgs {
@@ -1373,7 +1373,7 @@ impl windows_core::RuntimeName for GeovisitStateChangedEventArgs {
 unsafe impl Send for GeovisitStateChangedEventArgs {}
 unsafe impl Sync for GeovisitStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeovisitTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl GeovisitTriggerDetails {
@@ -1399,7 +1399,7 @@ impl windows_core::RuntimeName for GeovisitTriggerDetails {
 unsafe impl Send for GeovisitTriggerDetails {}
 unsafe impl Sync for GeovisitTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PositionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PositionChangedEventArgs {
@@ -1424,7 +1424,7 @@ impl windows_core::RuntimeName for PositionChangedEventArgs {
 unsafe impl Send for PositionChangedEventArgs {}
 unsafe impl Sync for PositionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StatusChangedEventArgs {
@@ -1449,7 +1449,7 @@ impl windows_core::RuntimeName for StatusChangedEventArgs {
 unsafe impl Send for StatusChangedEventArgs {}
 unsafe impl Sync for StatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VenueData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VenueData, windows_core::IUnknown, windows_core::IInspectable);
 impl VenueData {
@@ -1481,7 +1481,7 @@ impl windows_core::RuntimeName for VenueData {
 unsafe impl Send for VenueData {}
 unsafe impl Sync for VenueData {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
     pub const Unspecified: Self = Self(0i32);
@@ -1497,7 +1497,7 @@ impl windows_core::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -1511,7 +1511,7 @@ impl windows_core::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
     pub const Geopoint: Self = Self(0i32);
@@ -1526,7 +1526,7 @@ impl windows_core::RuntimeType for GeoshapeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
     pub const Default: Self = Self(0i32);
@@ -1539,7 +1539,7 @@ impl windows_core::RuntimeType for PositionAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
     pub const Cellular: Self = Self(0i32);
@@ -1557,7 +1557,7 @@ impl windows_core::RuntimeType for PositionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
     pub const Ready: Self = Self(0i32);
@@ -1574,7 +1574,7 @@ impl windows_core::RuntimeType for PositionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
     pub const Venue: Self = Self(0i32);
@@ -1587,7 +1587,7 @@ impl windows_core::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
     pub const TrackingLost: Self = Self(0i32);
@@ -1602,7 +1602,7 @@ impl windows_core::RuntimeType for VisitStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,

@@ -64,7 +64,7 @@ pub type NS_EVENTS = i32;
 pub type NS_MODE_CHANGE = i32;
 pub type NS_REQS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_sys::core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -75,7 +75,7 @@ pub struct CMD_ENTRY {
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_sys::core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
@@ -85,7 +85,7 @@ pub struct CMD_GROUP_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
     pub pwszContext: windows_sys::core::PWSTR,
@@ -103,19 +103,19 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: windows_sys::core::GUID,
@@ -123,26 +123,26 @@ pub struct NS_HELPER_ATTRIBUTES {
     pub pfnStop: PNS_HELPER_STOP_FN,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_sys::core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_sys::core::PCWSTR,
     pub dwValue: u32,

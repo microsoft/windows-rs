@@ -115,7 +115,7 @@ pub struct IVoiceInformation_Vtbl {
 }
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesisStream(windows_core::IUnknown);
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 windows_core::imp::interface_hierarchy!(SpeechSynthesisStream, windows_core::IUnknown, windows_core::IInspectable);
@@ -255,7 +255,7 @@ unsafe impl Send for SpeechSynthesisStream {}
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 unsafe impl Sync for SpeechSynthesisStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechSynthesizer, super::super::Foundation::IClosable);
@@ -352,7 +352,7 @@ impl windows_core::RuntimeName for SpeechSynthesizer {
 unsafe impl Send for SpeechSynthesizer {}
 unsafe impl Sync for SpeechSynthesizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechSynthesizerOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechSynthesizerOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechSynthesizerOptions {
@@ -447,7 +447,7 @@ impl windows_core::RuntimeName for SpeechSynthesizerOptions {
 unsafe impl Send for SpeechSynthesizerOptions {}
 unsafe impl Sync for SpeechSynthesizerOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VoiceInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceInformation {
@@ -500,7 +500,7 @@ impl windows_core::RuntimeName for VoiceInformation {
 unsafe impl Send for VoiceInformation {}
 unsafe impl Sync for VoiceInformation {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
     pub const Default: Self = Self(0i32);
@@ -513,7 +513,7 @@ impl windows_core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
     pub const Default: Self = Self(0i32);
@@ -526,7 +526,7 @@ impl windows_core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
     pub const Male: Self = Self(0i32);

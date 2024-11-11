@@ -4979,13 +4979,13 @@ pub const WRITE_DAC: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(262144u32);
 pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(524288u32);
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
 impl windows_core::TypeKind for CLFS_CONTEXT_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_FLAG(pub u32);
 impl windows_core::TypeKind for CLFS_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -5024,79 +5024,79 @@ impl core::ops::Not for CLFS_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_IOSTATS_CLASS(pub i32);
 impl windows_core::TypeKind for CLFS_IOSTATS_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
 impl windows_core::TypeKind for CLFS_LOG_ARCHIVE_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
 impl windows_core::TypeKind for CLFS_MGMT_POLICY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_CONTEXT_MODE(pub i32);
 impl windows_core::TypeKind for CLS_CONTEXT_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_IOSTATS_CLASS(pub i32);
 impl windows_core::TypeKind for CLS_IOSTATS_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for CLS_LOG_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPRESSION_FORMAT(pub u16);
 impl windows_core::TypeKind for COMPRESSION_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
 impl windows_core::TypeKind for COPYFILE2_COPY_PHASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
 impl windows_core::TypeKind for COPYFILE2_MESSAGE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for COPYFILE2_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
 impl windows_core::TypeKind for CREATE_TAPE_PARTITION_METHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
 impl windows_core::TypeKind for DEFINE_DOS_DEVICE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5135,19 +5135,19 @@ impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
 impl windows_core::TypeKind for DISKQUOTA_USERNAME_RESOLVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERASE_TAPE_TYPE(pub u32);
 impl windows_core::TypeKind for ERASE_TAPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ACCESS_RIGHTS(pub u32);
 impl windows_core::TypeKind for FILE_ACCESS_RIGHTS {
     type TypeKind = windows_core::CopyType;
@@ -5186,31 +5186,31 @@ impl core::ops::Not for FILE_ACCESS_RIGHTS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ACTION(pub u32);
 impl windows_core::TypeKind for FILE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_CREATION_DISPOSITION(pub u32);
 impl windows_core::TypeKind for FILE_CREATION_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_DEVICE_TYPE(pub u32);
 impl windows_core::TypeKind for FILE_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
 impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
 impl windows_core::TypeKind for FILE_FLAGS_AND_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
@@ -5249,25 +5249,25 @@ impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FLUSH_MODE(pub i32);
 impl windows_core::TypeKind for FILE_FLUSH_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ID_TYPE(pub i32);
 impl windows_core::TypeKind for FILE_ID_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
 impl windows_core::TypeKind for FILE_INFO_BY_HANDLE_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
 impl windows_core::TypeKind for FILE_INFO_FLAGS_PERMISSIONS {
     type TypeKind = windows_core::CopyType;
@@ -5306,7 +5306,7 @@ impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
 impl windows_core::TypeKind for FILE_NOTIFY_CHANGE {
     type TypeKind = windows_core::CopyType;
@@ -5345,7 +5345,7 @@ impl core::ops::Not for FILE_NOTIFY_CHANGE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SHARE_MODE(pub u32);
 impl windows_core::TypeKind for FILE_SHARE_MODE {
     type TypeKind = windows_core::CopyType;
@@ -5384,13 +5384,13 @@ impl core::ops::Not for FILE_SHARE_MODE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_TYPE(pub u32);
 impl windows_core::TypeKind for FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_WRITE_FLAGS(pub i32);
 impl windows_core::TypeKind for FILE_WRITE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5429,19 +5429,19 @@ impl core::ops::Not for FILE_WRITE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINDEX_INFO_LEVELS(pub i32);
 impl windows_core::TypeKind for FINDEX_INFO_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINDEX_SEARCH_OPS(pub i32);
 impl windows_core::TypeKind for FINDEX_SEARCH_OPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIND_FIRST_EX_FLAGS(pub u32);
 impl windows_core::TypeKind for FIND_FIRST_EX_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5480,19 +5480,19 @@ impl core::ops::Not for FIND_FIRST_EX_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
 impl windows_core::TypeKind for GETFINALPATHNAMEBYHANDLE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
 impl windows_core::TypeKind for GET_FILEEX_INFO_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for GET_FILE_VERSION_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5531,13 +5531,13 @@ impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
 impl windows_core::TypeKind for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
 impl windows_core::TypeKind for IORING_CREATE_ADVISORY_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5576,7 +5576,7 @@ impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
 impl windows_core::TypeKind for IORING_CREATE_REQUIRED_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5615,7 +5615,7 @@ impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_FEATURE_FLAGS(pub i32);
 impl windows_core::TypeKind for IORING_FEATURE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5654,19 +5654,19 @@ impl core::ops::Not for IORING_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_OP_CODE(pub i32);
 impl windows_core::TypeKind for IORING_OP_CODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_REF_KIND(pub i32);
 impl windows_core::TypeKind for IORING_REF_KIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_SQE_FLAGS(pub i32);
 impl windows_core::TypeKind for IORING_SQE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5705,13 +5705,13 @@ impl core::ops::Not for IORING_SQE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IORING_VERSION(pub i32);
 impl windows_core::TypeKind for IORING_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCK_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for LOCK_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5750,13 +5750,13 @@ impl core::ops::Not for LOCK_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
 impl windows_core::TypeKind for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LZOPENFILE_STYLE(pub u16);
 impl windows_core::TypeKind for LZOPENFILE_STYLE {
     type TypeKind = windows_core::CopyType;
@@ -5795,7 +5795,7 @@ impl core::ops::Not for LZOPENFILE_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOVE_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for MOVE_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5834,277 +5834,277 @@ impl core::ops::Not for MOVE_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTMS_OMID_TYPE(pub u32);
 impl windows_core::TypeKind for NTMS_OMID_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsAccessMask(pub i32);
 impl windows_core::TypeKind for NtmsAccessMask {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsAllocateOptions(pub i32);
 impl windows_core::TypeKind for NtmsAllocateOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsAllocationPolicy(pub i32);
 impl windows_core::TypeKind for NtmsAllocationPolicy {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsAsyncOperations(pub i32);
 impl windows_core::TypeKind for NtmsAsyncOperations {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsAsyncStatus(pub i32);
 impl windows_core::TypeKind for NtmsAsyncStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsBarCodeState(pub i32);
 impl windows_core::TypeKind for NtmsBarCodeState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsCreateNtmsMediaOptions(pub i32);
 impl windows_core::TypeKind for NtmsCreateNtmsMediaOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsCreateOptions(pub i32);
 impl windows_core::TypeKind for NtmsCreateOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsDeallocationPolicy(pub i32);
 impl windows_core::TypeKind for NtmsDeallocationPolicy {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsDismountOptions(pub i32);
 impl windows_core::TypeKind for NtmsDismountOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsDoorState(pub i32);
 impl windows_core::TypeKind for NtmsDoorState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsDriveState(pub i32);
 impl windows_core::TypeKind for NtmsDriveState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsDriveType(pub i32);
 impl windows_core::TypeKind for NtmsDriveType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsEjectOperation(pub i32);
 impl windows_core::TypeKind for NtmsEjectOperation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsEnumerateOption(pub i32);
 impl windows_core::TypeKind for NtmsEnumerateOption {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsInjectOperation(pub i32);
 impl windows_core::TypeKind for NtmsInjectOperation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsInventoryMethod(pub i32);
 impl windows_core::TypeKind for NtmsInventoryMethod {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsLibRequestFlags(pub i32);
 impl windows_core::TypeKind for NtmsLibRequestFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsLibraryFlags(pub i32);
 impl windows_core::TypeKind for NtmsLibraryFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsLibraryType(pub i32);
 impl windows_core::TypeKind for NtmsLibraryType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsLmOperation(pub i32);
 impl windows_core::TypeKind for NtmsLmOperation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsLmState(pub i32);
 impl windows_core::TypeKind for NtmsLmState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsMediaPoolPolicy(pub i32);
 impl windows_core::TypeKind for NtmsMediaPoolPolicy {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsMediaState(pub i32);
 impl windows_core::TypeKind for NtmsMediaState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsMountOptions(pub i32);
 impl windows_core::TypeKind for NtmsMountOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsMountPriority(pub i32);
 impl windows_core::TypeKind for NtmsMountPriority {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsNotificationOperations(pub i32);
 impl windows_core::TypeKind for NtmsNotificationOperations {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsObjectsTypes(pub i32);
 impl windows_core::TypeKind for NtmsObjectsTypes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsOpRequestFlags(pub i32);
 impl windows_core::TypeKind for NtmsOpRequestFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsOperationalState(pub i32);
 impl windows_core::TypeKind for NtmsOperationalState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsOpreqCommand(pub i32);
 impl windows_core::TypeKind for NtmsOpreqCommand {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsOpreqState(pub i32);
 impl windows_core::TypeKind for NtmsOpreqState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsPartitionState(pub i32);
 impl windows_core::TypeKind for NtmsPartitionState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsPoolType(pub i32);
 impl windows_core::TypeKind for NtmsPoolType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsPortContent(pub i32);
 impl windows_core::TypeKind for NtmsPortContent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsPortPosition(pub i32);
 impl windows_core::TypeKind for NtmsPortPosition {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsReadWriteCharacteristics(pub i32);
 impl windows_core::TypeKind for NtmsReadWriteCharacteristics {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsSessionOptions(pub i32);
 impl windows_core::TypeKind for NtmsSessionOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsSlotState(pub i32);
 impl windows_core::TypeKind for NtmsSlotState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsUIOperations(pub i32);
 impl windows_core::TypeKind for NtmsUIOperations {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NtmsUITypes(pub i32);
 impl windows_core::TypeKind for NtmsUITypes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREPARE_TAPE_OPERATION(pub u32);
 impl windows_core::TypeKind for PREPARE_TAPE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITY_HINT(pub i32);
 impl windows_core::TypeKind for PRIORITY_HINT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPLACE_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for REPLACE_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6143,31 +6143,31 @@ impl core::ops::Not for REPLACE_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_CERTIFICATE_TYPE(pub i32);
 impl windows_core::TypeKind for SERVER_CERTIFICATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_USER_FLAGS(pub u32);
 impl windows_core::TypeKind for SESSION_INFO_USER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
 impl windows_core::TypeKind for SET_FILE_POINTER_MOVE_METHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_PERMISSIONS(pub u32);
 impl windows_core::TypeKind for SHARE_INFO_PERMISSIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_TYPE(pub u32);
 impl windows_core::TypeKind for SHARE_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -6206,19 +6206,19 @@ impl core::ops::Not for SHARE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_BUS_TYPE(pub i32);
 impl windows_core::TypeKind for STORAGE_BUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAM_INFO_LEVELS(pub i32);
 impl windows_core::TypeKind for STREAM_INFO_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYMBOLIC_LINK_FLAGS(pub u32);
 impl windows_core::TypeKind for SYMBOLIC_LINK_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6257,55 +6257,55 @@ impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPEMARK_TYPE(pub u32);
 impl windows_core::TypeKind for TAPEMARK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_INFORMATION_TYPE(pub u32);
 impl windows_core::TypeKind for TAPE_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_POSITION_METHOD(pub u32);
 impl windows_core::TypeKind for TAPE_POSITION_METHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_POSITION_TYPE(pub u32);
 impl windows_core::TypeKind for TAPE_POSITION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_OUTCOME(pub i32);
 impl windows_core::TypeKind for TRANSACTION_OUTCOME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_MINIVERSION(pub u32);
 impl windows_core::TypeKind for TXFS_MINIVERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_TYPE(pub u16);
 impl windows_core::TypeKind for TXF_LOG_RECORD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_FIND_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for VER_FIND_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_FIND_FILE_STATUS(pub u32);
 impl windows_core::TypeKind for VER_FIND_FILE_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -6344,13 +6344,13 @@ impl core::ops::Not for VER_FIND_FILE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_INSTALL_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for VER_INSTALL_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VER_INSTALL_FILE_STATUS(pub u32);
 impl windows_core::TypeKind for VER_INSTALL_FILE_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -6389,7 +6389,7 @@ impl core::ops::Not for VER_INSTALL_FILE_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6428,31 +6428,31 @@ impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
 impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_OS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
 impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
 impl windows_core::TypeKind for VS_FIXEDFILEINFO_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN_STREAM_ID(pub u32);
 impl windows_core::TypeKind for WIN_STREAM_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -6474,7 +6474,7 @@ impl windows_core::TypeKind for BY_HANDLE_FILE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
@@ -6488,7 +6488,7 @@ impl windows_core::TypeKind for CLFS_LOG_NAME_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
@@ -6503,7 +6503,7 @@ impl windows_core::TypeKind for CLFS_MGMT_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CLFS_MGMT_POLICY {
     pub Version: u32,
     pub LengthInBytes: u32,
@@ -6520,7 +6520,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CLFS_MGMT_POLICY_0 {
     pub MaximumSize: CLFS_MGMT_POLICY_0_0,
     pub MinimumSize: CLFS_MGMT_POLICY_0_1,
@@ -6542,7 +6542,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub Enabled: u32,
 }
@@ -6555,7 +6555,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Percentage: u32,
 }
@@ -6568,7 +6568,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
@@ -6582,7 +6582,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
@@ -6596,7 +6596,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Containers: u32,
 }
@@ -6609,7 +6609,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Containers: u32,
 }
@@ -6622,7 +6622,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
@@ -6636,7 +6636,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
@@ -6650,7 +6650,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub SizeInBytes: u32,
 }
@@ -6663,7 +6663,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
 }
@@ -6676,7 +6676,7 @@ impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
@@ -6690,7 +6690,7 @@ impl windows_core::TypeKind for CLFS_NODE_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
@@ -6705,7 +6705,7 @@ impl windows_core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
@@ -6718,7 +6718,7 @@ impl windows_core::TypeKind for CLFS_STREAM_ID_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
@@ -6733,7 +6733,7 @@ impl windows_core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -6756,7 +6756,7 @@ impl windows_core::TypeKind for CLS_CONTAINER_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -6785,7 +6785,7 @@ impl windows_core::TypeKind for CLS_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -6802,7 +6802,7 @@ impl windows_core::TypeKind for CLS_IO_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -6819,7 +6819,7 @@ impl windows_core::TypeKind for CLS_IO_STATISTICS_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
@@ -6832,7 +6832,7 @@ impl windows_core::TypeKind for CLS_LSN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::super::Foundation::HANDLE,
@@ -6851,7 +6851,7 @@ impl windows_core::TypeKind for CLS_SCAN_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,
@@ -6865,7 +6865,7 @@ impl windows_core::TypeKind for CLS_WRITE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
@@ -6878,7 +6878,7 @@ impl windows_core::TypeKind for CONNECTION_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
     pub coni1_type: SHARE_TYPE,
@@ -6897,7 +6897,7 @@ impl windows_core::TypeKind for CONNECTION_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
@@ -6914,7 +6914,7 @@ impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
@@ -6935,7 +6935,7 @@ impl windows_core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE {
     pub Type: COPYFILE2_MESSAGE_TYPE,
     pub dwPadding: u32,
@@ -6950,7 +6950,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union COPYFILE2_MESSAGE_0 {
     pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
     pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
@@ -6968,7 +6968,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -6990,7 +6990,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -7010,7 +7010,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
@@ -7031,7 +7031,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwReserved: u32,
 }
@@ -7044,7 +7044,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -7064,7 +7064,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -7083,7 +7083,7 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -7103,7 +7103,7 @@ impl windows_core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
@@ -7118,7 +7118,7 @@ impl windows_core::TypeKind for DISKQUOTA_USER_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -7143,7 +7143,7 @@ impl windows_core::TypeKind for DISK_SPACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
@@ -7158,7 +7158,7 @@ impl windows_core::TypeKind for EFS_CERTIFICATE_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
@@ -7171,7 +7171,7 @@ impl windows_core::TypeKind for EFS_COMPATIBILITY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
@@ -7186,7 +7186,7 @@ impl windows_core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: super::super::Foundation::BOOL,
     pub dwEncryptionError: u32,
@@ -7200,7 +7200,7 @@ impl windows_core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -7215,7 +7215,7 @@ impl windows_core::TypeKind for EFS_HASH_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
@@ -7233,7 +7233,7 @@ impl windows_core::TypeKind for EFS_KEY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
@@ -7248,7 +7248,7 @@ impl windows_core::TypeKind for EFS_PIN_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -7262,7 +7262,7 @@ impl windows_core::TypeKind for EFS_RPC_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
@@ -7277,7 +7277,7 @@ impl windows_core::TypeKind for EFS_VERSION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
     pub pCertificatesAdded: *mut ENCRYPTION_CERTIFICATE_HASH_LIST,
@@ -7296,7 +7296,7 @@ impl windows_core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -7314,7 +7314,7 @@ impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -7333,7 +7333,7 @@ impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE_HASH,
@@ -7350,7 +7350,7 @@ impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
     pub pUsers: *mut *mut ENCRYPTION_CERTIFICATE,
@@ -7367,7 +7367,7 @@ impl windows_core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::super::Security::SID,
@@ -7385,7 +7385,7 @@ impl windows_core::TypeKind for ENCRYPTION_PROTECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
     pub pProtectors: *mut *mut ENCRYPTION_PROTECTOR,
@@ -7401,7 +7401,7 @@ impl windows_core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -7423,7 +7423,7 @@ impl windows_core::TypeKind for FH_OVERLAPPED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
@@ -7436,7 +7436,7 @@ impl windows_core::TypeKind for FILE_ALIGNMENT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
@@ -7449,7 +7449,7 @@ impl windows_core::TypeKind for FILE_ALLOCATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
@@ -7463,7 +7463,7 @@ impl windows_core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -7480,7 +7480,7 @@ impl windows_core::TypeKind for FILE_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
     pub CompressionFormat: COMPRESSION_FORMAT,
@@ -7498,7 +7498,7 @@ impl windows_core::TypeKind for FILE_COMPRESSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFile: super::super::Foundation::BOOLEAN,
 }
@@ -7511,7 +7511,7 @@ impl windows_core::TypeKind for FILE_DISPOSITION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_DISPOSITION_INFO_EX {
     pub Flags: FILE_DISPOSITION_INFO_EX_FLAGS,
 }
@@ -7524,7 +7524,7 @@ impl windows_core::TypeKind for FILE_DISPOSITION_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
@@ -7537,7 +7537,7 @@ impl windows_core::TypeKind for FILE_END_OF_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
@@ -7551,7 +7551,7 @@ impl windows_core::TypeKind for FILE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -7575,7 +7575,7 @@ impl windows_core::TypeKind for FILE_FULL_DIR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
@@ -7588,7 +7588,7 @@ impl windows_core::TypeKind for FILE_ID_128 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -7615,7 +7615,7 @@ impl windows_core::TypeKind for FILE_ID_BOTH_DIR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_ID_DESCRIPTOR {
     pub dwSize: u32,
     pub Type: FILE_ID_TYPE,
@@ -7630,7 +7630,7 @@ impl windows_core::TypeKind for FILE_ID_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
     pub ObjectId: windows_core::GUID,
@@ -7645,7 +7645,7 @@ impl windows_core::TypeKind for FILE_ID_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -7671,7 +7671,7 @@ impl windows_core::TypeKind for FILE_ID_EXTD_DIR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
@@ -7685,7 +7685,7 @@ impl windows_core::TypeKind for FILE_ID_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
@@ -7698,7 +7698,7 @@ impl windows_core::TypeKind for FILE_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
     pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
@@ -7715,7 +7715,7 @@ impl windows_core::TypeKind for FILE_INFO_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
@@ -7728,7 +7728,7 @@ impl windows_core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -7742,7 +7742,7 @@ impl windows_core::TypeKind for FILE_NAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -7768,7 +7768,7 @@ impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     pub ReparsePointTag: u32,
     pub EaSize: u32,
@@ -7782,7 +7782,7 @@ impl windows_core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -7798,7 +7798,7 @@ impl windows_core::TypeKind for FILE_NOTIFY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub StructureVersion: u16,
     pub StructureSize: u16,
@@ -7820,7 +7820,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
@@ -7833,7 +7833,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
     pub Reserved: [u32; 16],
@@ -7847,7 +7847,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
@@ -7861,7 +7861,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
@@ -7874,7 +7874,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
@@ -7888,7 +7888,7 @@ impl windows_core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_RENAME_INFO {
     pub Anonymous: FILE_RENAME_INFO_0,
     pub RootDirectory: super::super::Foundation::HANDLE,
@@ -7904,7 +7904,7 @@ impl windows_core::TypeKind for FILE_RENAME_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_RENAME_INFO_0 {
     pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
     pub Flags: u32,
@@ -7918,7 +7918,7 @@ impl windows_core::TypeKind for FILE_RENAME_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FILE_SEGMENT_ELEMENT {
     pub Buffer: *mut core::ffi::c_void,
     pub Alignment: u64,
@@ -7932,7 +7932,7 @@ impl windows_core::TypeKind for FILE_SEGMENT_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -7949,7 +7949,7 @@ impl windows_core::TypeKind for FILE_STANDARD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -7968,7 +7968,7 @@ impl windows_core::TypeKind for FILE_STORAGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -7985,7 +7985,7 @@ impl windows_core::TypeKind for FILE_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FIO_CONTEXT {
     pub m_dwTempHack: u32,
     pub m_dwSignature: u32,
@@ -8027,7 +8027,7 @@ impl Default for HIORING {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut core::ffi::c_void,
     pub Length: u32,
@@ -8041,7 +8041,7 @@ impl windows_core::TypeKind for IORING_BUFFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
@@ -8055,7 +8055,7 @@ impl windows_core::TypeKind for IORING_BUFFER_REF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IORING_BUFFER_REF_0 {
     pub Address: *mut core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
@@ -8069,7 +8069,7 @@ impl windows_core::TypeKind for IORING_BUFFER_REF_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
     pub MaxSubmissionQueueSize: u32,
@@ -8085,7 +8085,7 @@ impl windows_core::TypeKind for IORING_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: windows_core::HRESULT,
@@ -8100,7 +8100,7 @@ impl windows_core::TypeKind for IORING_CQE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
@@ -8114,7 +8114,7 @@ impl windows_core::TypeKind for IORING_CREATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IORING_HANDLE_REF {
     pub Kind: IORING_REF_KIND,
     pub Handle: IORING_HANDLE_REF_0,
@@ -8128,7 +8128,7 @@ impl windows_core::TypeKind for IORING_HANDLE_REF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IORING_HANDLE_REF_0 {
     pub Handle: super::super::Foundation::HANDLE,
     pub Index: u32,
@@ -8142,7 +8142,7 @@ impl windows_core::TypeKind for IORING_HANDLE_REF_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
     pub Flags: IORING_CREATE_FLAGS,
@@ -8158,7 +8158,7 @@ impl windows_core::TypeKind for IORING_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
@@ -8172,7 +8172,7 @@ impl windows_core::TypeKind for IORING_REGISTERED_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -8188,7 +8188,7 @@ impl windows_core::TypeKind for KCRM_MARSHAL_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: windows_core::GUID,
     pub StaticInfoLength: u32,
@@ -8205,7 +8205,7 @@ impl windows_core::TypeKind for KCRM_PROTOCOL_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: windows_core::GUID,
     pub TmIdentity: windows_core::GUID,
@@ -8223,7 +8223,7 @@ impl windows_core::TypeKind for KCRM_TRANSACTION_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut core::ffi::c_void,
     pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
@@ -8239,7 +8239,7 @@ impl windows_core::TypeKind for LOG_MANAGEMENT_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
     pub LabelIDSize: u32,
@@ -8255,7 +8255,7 @@ impl windows_core::TypeKind for MediaLabelInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
@@ -8268,7 +8268,7 @@ impl windows_core::TypeKind for NAME_CACHE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
@@ -8283,7 +8283,7 @@ impl windows_core::TypeKind for NTMS_ALLOCATION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_ASYNC_IO {
     pub OperationId: windows_core::GUID,
     pub EventId: windows_core::GUID,
@@ -8302,7 +8302,7 @@ impl windows_core::TypeKind for NTMS_ASYNC_IO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: windows_core::GUID,
@@ -8324,7 +8324,7 @@ impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
     pub ChangerType: windows_core::GUID,
@@ -8346,7 +8346,7 @@ impl windows_core::TypeKind for NTMS_CHANGERINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
@@ -8361,7 +8361,7 @@ impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -8376,7 +8376,7 @@ impl windows_core::TypeKind for NTMS_CHANGERTYPEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
     pub dwOpRequestPurgeTime: u32,
@@ -8393,7 +8393,7 @@ impl windows_core::TypeKind for NTMS_COMPUTERINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: u32,
@@ -8421,7 +8421,7 @@ impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
     pub State: u32,
@@ -8449,7 +8449,7 @@ impl windows_core::TypeKind for NTMS_DRIVEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub szVendor: [i8; 128],
     pub szProduct: [i8; 128],
@@ -8465,7 +8465,7 @@ impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -8481,7 +8481,7 @@ impl windows_core::TypeKind for NTMS_DRIVETYPEINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
@@ -8496,7 +8496,7 @@ impl windows_core::TypeKind for NTMS_FILESYSTEM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_core::GUID,
@@ -8529,7 +8529,7 @@ impl windows_core::TypeKind for NTMS_I1_LIBRARYINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -8554,7 +8554,7 @@ impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -8579,7 +8579,7 @@ impl windows_core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: u32,
@@ -8601,7 +8601,7 @@ impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -8628,7 +8628,7 @@ impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub dwSize: u32,
     pub dwType: u32,
@@ -8650,7 +8650,7 @@ impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
@@ -8677,7 +8677,7 @@ impl windows_core::TypeKind for NTMS_I1_OBJECTINFORMATIONW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -8700,7 +8700,7 @@ impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -8723,7 +8723,7 @@ impl windows_core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_core::GUID,
     pub LogicalMedia: windows_core::GUID,
@@ -8745,7 +8745,7 @@ impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_core::GUID,
     pub LogicalMedia: windows_core::GUID,
@@ -8767,7 +8767,7 @@ impl windows_core::TypeKind for NTMS_I1_PARTITIONINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_core::GUID,
     pub MediaPool: windows_core::GUID,
@@ -8790,7 +8790,7 @@ impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_core::GUID,
     pub MediaPool: windows_core::GUID,
@@ -8813,7 +8813,7 @@ impl windows_core::TypeKind for NTMS_I1_PMIDINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -8829,7 +8829,7 @@ impl windows_core::TypeKind for NTMS_IEDOORINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
     pub Content: u32,
@@ -8846,7 +8846,7 @@ impl windows_core::TypeKind for NTMS_IEPORTINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: u32,
     pub CleanerSlot: windows_core::GUID,
@@ -8881,7 +8881,7 @@ impl windows_core::TypeKind for NTMS_LIBRARYINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -8909,7 +8909,7 @@ impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -8937,7 +8937,7 @@ impl windows_core::TypeKind for NTMS_LIBREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: windows_core::GUID,
     pub dwNumberOfPartitions: u32,
@@ -8951,7 +8951,7 @@ impl windows_core::TypeKind for NTMS_LMIDINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
     pub MediaType: windows_core::GUID,
@@ -8972,7 +8972,7 @@ impl windows_core::TypeKind for NTMS_MEDIAPOOLINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
     pub NumberOfSides: u32,
@@ -8988,7 +8988,7 @@ impl windows_core::TypeKind for NTMS_MEDIATYPEINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut core::ffi::c_void,
@@ -9002,7 +9002,7 @@ impl windows_core::TypeKind for NTMS_MOUNT_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: u32,
     pub ObjectId: windows_core::GUID,
@@ -9016,7 +9016,7 @@ impl windows_core::TypeKind for NTMS_NOTIFICATIONINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: u32,
@@ -9038,7 +9038,7 @@ impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -9066,7 +9066,7 @@ impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NTMS_OBJECTINFORMATIONW {
     pub dwSize: u32,
     pub dwType: u32,
@@ -9088,7 +9088,7 @@ impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
@@ -9116,7 +9116,7 @@ impl windows_core::TypeKind for NTMS_OBJECTINFORMATIONW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -9139,7 +9139,7 @@ impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_OPREQUESTINFORMATIONW {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
@@ -9162,7 +9162,7 @@ impl windows_core::TypeKind for NTMS_OPREQUESTINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: windows_core::GUID,
     pub LogicalMedia: windows_core::GUID,
@@ -9185,7 +9185,7 @@ impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: windows_core::GUID,
     pub LogicalMedia: windows_core::GUID,
@@ -9208,7 +9208,7 @@ impl windows_core::TypeKind for NTMS_PARTITIONINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: windows_core::GUID,
     pub MediaPool: windows_core::GUID,
@@ -9234,7 +9234,7 @@ impl windows_core::TypeKind for NTMS_PMIDINFORMATIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: windows_core::GUID,
     pub MediaPool: windows_core::GUID,
@@ -9260,7 +9260,7 @@ impl windows_core::TypeKind for NTMS_PMIDINFORMATIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -9275,7 +9275,7 @@ impl windows_core::TypeKind for NTMS_STORAGESLOTINFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
@@ -9293,7 +9293,7 @@ impl windows_core::TypeKind for OFSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -9310,7 +9310,7 @@ impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
@@ -9323,7 +9323,7 @@ impl windows_core::TypeKind for REPARSE_GUID_DATA_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_core::PWSTR,
     pub srvai0_target: windows_core::PWSTR,
@@ -9339,7 +9339,7 @@ impl windows_core::TypeKind for SERVER_ALIAS_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_name: windows_core::PWSTR,
     pub srvci0_subject: windows_core::PWSTR,
@@ -9364,7 +9364,7 @@ impl windows_core::TypeKind for SERVER_CERTIFICATE_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_core::PWSTR,
 }
@@ -9377,7 +9377,7 @@ impl windows_core::TypeKind for SESSION_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_core::PWSTR,
     pub sesi1_username: windows_core::PWSTR,
@@ -9395,7 +9395,7 @@ impl windows_core::TypeKind for SESSION_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_core::PWSTR,
     pub sesi10_username: windows_core::PWSTR,
@@ -9411,7 +9411,7 @@ impl windows_core::TypeKind for SESSION_INFO_10 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_core::PWSTR,
     pub sesi2_username: windows_core::PWSTR,
@@ -9430,7 +9430,7 @@ impl windows_core::TypeKind for SESSION_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_core::PWSTR,
     pub sesi502_username: windows_core::PWSTR,
@@ -9450,7 +9450,7 @@ impl windows_core::TypeKind for SESSION_INFO_502 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_core::PWSTR,
 }
@@ -9463,7 +9463,7 @@ impl windows_core::TypeKind for SHARE_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_core::PWSTR,
     pub shi1_type: SHARE_TYPE,
@@ -9478,7 +9478,7 @@ impl windows_core::TypeKind for SHARE_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_core::PWSTR,
 }
@@ -9491,7 +9491,7 @@ impl windows_core::TypeKind for SHARE_INFO_1004 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
@@ -9504,7 +9504,7 @@ impl windows_core::TypeKind for SHARE_INFO_1005 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
@@ -9518,7 +9518,7 @@ impl windows_core::TypeKind for SHARE_INFO_1006 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
     pub shi1501_security_descriptor: super::super::Security::PSECURITY_DESCRIPTOR,
@@ -9534,7 +9534,7 @@ impl windows_core::TypeKind for SHARE_INFO_1501 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: windows_core::GUID,
 }
@@ -9547,7 +9547,7 @@ impl windows_core::TypeKind for SHARE_INFO_1503 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_core::PWSTR,
     pub shi2_type: SHARE_TYPE,
@@ -9567,7 +9567,7 @@ impl windows_core::TypeKind for SHARE_INFO_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_core::PWSTR,
     pub shi501_type: SHARE_TYPE,
@@ -9584,7 +9584,7 @@ impl windows_core::TypeKind for SHARE_INFO_501 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_core::PWSTR,
     pub shi502_type: SHARE_TYPE,
@@ -9609,7 +9609,7 @@ impl windows_core::TypeKind for SHARE_INFO_502 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_core::PWSTR,
     pub shi503_type: SHARE_TYPE,
@@ -9634,7 +9634,7 @@ impl windows_core::TypeKind for SHARE_INFO_503 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -9663,7 +9663,7 @@ impl windows_core::TypeKind for STAT_SERVER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,
@@ -9715,7 +9715,7 @@ impl windows_core::TypeKind for STAT_WORKSTATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
     pub Immediate: super::super::Foundation::BOOLEAN,
@@ -9729,7 +9729,7 @@ impl windows_core::TypeKind for TAPE_ERASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
@@ -9744,7 +9744,7 @@ impl windows_core::TypeKind for TAPE_GET_POSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
     pub Immediate: super::super::Foundation::BOOLEAN,
@@ -9758,7 +9758,7 @@ impl windows_core::TypeKind for TAPE_PREPARE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
     pub Partition: u32,
@@ -9774,7 +9774,7 @@ impl windows_core::TypeKind for TAPE_SET_POSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
     pub Count: u32,
@@ -9789,7 +9789,7 @@ impl windows_core::TypeKind for TAPE_WRITE_MARKS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
@@ -9805,7 +9805,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: windows_core::GUID,
@@ -9819,7 +9819,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: windows_core::GUID,
@@ -9835,7 +9835,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: windows_core::GUID,
     pub UOW: windows_core::GUID,
@@ -9849,7 +9849,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
@@ -9862,7 +9862,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: windows_core::GUID,
     pub Flags: u32,
@@ -9876,7 +9876,7 @@ impl windows_core::TypeKind for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
@@ -9889,7 +9889,7 @@ impl windows_core::TypeKind for TXF_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -9903,7 +9903,7 @@ impl windows_core::TypeKind for TXF_ID_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
     pub RecordLength: u32,
@@ -9922,7 +9922,7 @@ impl windows_core::TypeKind for TXF_LOG_RECORD_AFFECTED_FILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: TXF_LOG_RECORD_TYPE,
@@ -9937,7 +9937,7 @@ impl windows_core::TypeKind for TXF_LOG_RECORD_BASE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
     pub RecordType: u16,
@@ -9958,7 +9958,7 @@ impl windows_core::TypeKind for TXF_LOG_RECORD_TRUNCATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,
     pub RecordType: u16,
@@ -9981,7 +9981,7 @@ impl windows_core::TypeKind for TXF_LOG_RECORD_WRITE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -10003,7 +10003,7 @@ impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
@@ -10017,7 +10017,7 @@ impl windows_core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
@@ -10032,7 +10032,7 @@ impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
@@ -10045,7 +10045,7 @@ impl windows_core::TypeKind for VOLUME_ALLOCATION_HINT_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -10060,7 +10060,7 @@ impl windows_core::TypeKind for VOLUME_CRITICAL_IO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
@@ -10074,7 +10074,7 @@ impl windows_core::TypeKind for VOLUME_FAILOVER_SET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -10092,7 +10092,7 @@ impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -10110,7 +10110,7 @@ impl windows_core::TypeKind for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
@@ -10123,7 +10123,7 @@ impl windows_core::TypeKind for VOLUME_LOGICAL_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
@@ -10137,7 +10137,7 @@ impl windows_core::TypeKind for VOLUME_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
@@ -10151,7 +10151,7 @@ impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
@@ -10165,7 +10165,7 @@ impl windows_core::TypeKind for VOLUME_PHYSICAL_OFFSETS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
@@ -10180,7 +10180,7 @@ impl windows_core::TypeKind for VOLUME_READ_PLEX_INPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
     pub RevertOnClose: super::super::Foundation::BOOLEAN,
@@ -10197,7 +10197,7 @@ impl windows_core::TypeKind for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
@@ -10210,7 +10210,7 @@ impl windows_core::TypeKind for VOLUME_SHRINK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,
@@ -10235,7 +10235,7 @@ impl windows_core::TypeKind for VS_FIXEDFILEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
     pub WimType: u32,
@@ -10254,7 +10254,7 @@ impl windows_core::TypeKind for WIM_ENTRY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
@@ -10269,7 +10269,7 @@ impl windows_core::TypeKind for WIM_EXTERNAL_FILE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -10287,7 +10287,7 @@ impl windows_core::TypeKind for WIN32_FILE_ATTRIBUTE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -10309,7 +10309,7 @@ impl windows_core::TypeKind for WIN32_FIND_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -10331,7 +10331,7 @@ impl windows_core::TypeKind for WIN32_FIND_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
@@ -10345,7 +10345,7 @@ impl windows_core::TypeKind for WIN32_FIND_STREAM_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
     pub dwStreamAttributes: u32,
@@ -10362,7 +10362,7 @@ impl windows_core::TypeKind for WIN32_STREAM_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
@@ -10375,7 +10375,7 @@ impl windows_core::TypeKind for WOF_FILE_COMPRESSION_INFO_V0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,

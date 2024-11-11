@@ -81,7 +81,7 @@ pub type FDIDECRYPTTYPE = i32;
 pub type FDIERROR = i32;
 pub type FDINOTIFICATIONTYPE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CCAB {
     pub cb: u32,
     pub cbFolderThresh: u32,
@@ -97,14 +97,14 @@ pub struct CCAB {
     pub szCabPath: [i8; 256],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ERF {
     pub erfOper: i32,
     pub erfType: i32,
     pub fError: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDICABINETINFO {
     pub cbCabinet: i32,
     pub cFolders: u16,
@@ -116,21 +116,21 @@ pub struct FDICABINETINFO {
     pub hasnext: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT {
     pub fdidt: FDIDECRYPTTYPE,
     pub pvUser: *mut core::ffi::c_void,
     pub Anonymous: FDIDECRYPT_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_1,
     pub decrypt: FDIDECRYPT_0_2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut core::ffi::c_void,
     pub cbHeaderReserve: u16,
@@ -138,7 +138,7 @@ pub struct FDIDECRYPT_0_0 {
     pub iCabinet: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -148,14 +148,14 @@ pub struct FDIDECRYPT_0_2 {
     pub cbPartial: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDINOTIFICATION {
     pub cb: i32,
     pub psz1: windows_sys::core::PSTR,
@@ -173,14 +173,14 @@ pub struct FDINOTIFICATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FDISPILLFILE {
     pub ach: [i8; 2],
     pub cbFile: i32,

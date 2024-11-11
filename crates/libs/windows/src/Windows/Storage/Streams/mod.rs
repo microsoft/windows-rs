@@ -1785,7 +1785,7 @@ impl IRandomAccessStreamWithContentType_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Buffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Buffer, IBuffer);
@@ -1854,7 +1854,7 @@ impl windows_core::RuntimeName for Buffer {
 unsafe impl Send for Buffer {}
 unsafe impl Sync for Buffer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable, IDataReader);
@@ -2073,7 +2073,7 @@ impl windows_core::RuntimeName for DataReader {
 unsafe impl Send for DataReader {}
 unsafe impl Sync for DataReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataReaderLoadOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
@@ -2142,7 +2142,7 @@ impl windows_core::RuntimeName for DataReaderLoadOperation {
 unsafe impl Send for DataReaderLoadOperation {}
 unsafe impl Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataWriter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable, IDataWriter);
@@ -2326,7 +2326,7 @@ impl windows_core::RuntimeName for DataWriter {
 unsafe impl Send for DataWriter {}
 unsafe impl Sync for DataWriter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataWriterStoreOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
@@ -2395,7 +2395,7 @@ impl windows_core::RuntimeName for DataWriterStoreOperation {
 unsafe impl Send for DataWriterStoreOperation {}
 unsafe impl Sync for DataWriterStoreOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileInputStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable, IInputStream);
@@ -2428,7 +2428,7 @@ impl windows_core::RuntimeName for FileInputStream {
 unsafe impl Send for FileInputStream {}
 unsafe impl Sync for FileInputStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileOutputStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable, IOutputStream);
@@ -2468,7 +2468,7 @@ impl windows_core::RuntimeName for FileOutputStream {
 unsafe impl Send for FileOutputStream {}
 unsafe impl Sync for FileOutputStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileRandomAccessStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
@@ -2643,7 +2643,7 @@ impl windows_core::RuntimeName for FileRandomAccessStream {
 unsafe impl Send for FileRandomAccessStream {}
 unsafe impl Sync for FileRandomAccessStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
@@ -2757,7 +2757,7 @@ impl windows_core::RuntimeName for InMemoryRandomAccessStream {
 unsafe impl Send for InMemoryRandomAccessStream {}
 unsafe impl Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputStreamOverStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable, IInputStream);
@@ -2790,7 +2790,7 @@ impl windows_core::RuntimeName for InputStreamOverStream {
 unsafe impl Send for InputStreamOverStream {}
 unsafe impl Sync for InputStreamOverStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OutputStreamOverStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable, IOutputStream);
@@ -2870,7 +2870,7 @@ impl windows_core::RuntimeName for RandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStream";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RandomAccessStreamOverStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
@@ -2977,7 +2977,7 @@ impl windows_core::RuntimeName for RandomAccessStreamOverStream {
 unsafe impl Send for RandomAccessStreamOverStream {}
 unsafe impl Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RandomAccessStreamReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RandomAccessStreamReference, IRandomAccessStreamReference);
@@ -3034,7 +3034,7 @@ impl windows_core::RuntimeName for RandomAccessStreamReference {
 unsafe impl Send for RandomAccessStreamReference {}
 unsafe impl Sync for RandomAccessStreamReference {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
@@ -3047,7 +3047,7 @@ impl windows_core::RuntimeType for ByteOrder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
     pub const OpenExisting: Self = Self(0i32);
@@ -3063,7 +3063,7 @@ impl windows_core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
     pub const None: Self = Self(0u32);
@@ -3110,7 +3110,7 @@ impl core::ops::Not for InputStreamOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);

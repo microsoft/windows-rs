@@ -2969,85 +2969,85 @@ pub const OFFLINEFILES_SYNC_STATE_Stable: OFFLINEFILES_SYNC_STATE = OFFLINEFILES
 pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_CACHING_MODE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_CACHING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_COMPARE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_COMPARE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_CONNECT_STATE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_CONNECT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_EVENTS(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_EVENTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_ITEM_COPY(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_ITEM_COPY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_ITEM_TIME(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_ITEM_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_ITEM_TYPE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_ITEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_OFFLINE_REASON(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_OFFLINE_REASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_OP_RESPONSE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_OP_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_PATHFILTER_MATCH(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_PATHFILTER_MATCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_SETTING_VALUE_TYPE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_SETTING_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_SYNC_CONFLICT_RESOLVE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_SYNC_OPERATION(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_SYNC_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLINEFILES_SYNC_STATE(pub i32);
 impl windows_core::TypeKind for OFFLINEFILES_SYNC_STATE {
     type TypeKind = windows_core::CopyType;

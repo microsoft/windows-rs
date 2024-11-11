@@ -565,49 +565,49 @@ pub const UIT_INVALID: UI_INFO_TYPE = UI_INFO_TYPE(0i32);
 pub const UIT_NONE: UI_INFO_TYPE = UI_INFO_TYPE(1i32);
 pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIAGNOSIS_STATUS(pub i32);
 impl windows_core::TypeKind for DIAGNOSIS_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROBLEM_TYPE(pub i32);
 impl windows_core::TypeKind for PROBLEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_RISK(pub i32);
 impl windows_core::TypeKind for REPAIR_RISK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_SCOPE(pub i32);
 impl windows_core::TypeKind for REPAIR_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_STATUS(pub i32);
 impl windows_core::TypeKind for REPAIR_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for UI_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
     pub data: [i8; 126],
@@ -621,7 +621,7 @@ impl windows_core::TypeKind for DIAG_SOCKADDR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
@@ -635,7 +635,7 @@ impl windows_core::TypeKind for DiagnosticsInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
@@ -650,7 +650,7 @@ impl windows_core::TypeKind for HELPER_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -676,7 +676,7 @@ impl windows_core::TypeKind for HELPER_ATTRIBUTE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HYPOTHESIS {
     pub pwszClassName: windows_core::PWSTR,
     pub pwszDescription: windows_core::PWSTR,
@@ -692,7 +692,7 @@ impl windows_core::TypeKind for HYPOTHESIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HelperAttributeInfo {
     pub pwszName: windows_core::PWSTR,
     pub r#type: ATTRIBUTE_TYPE,
@@ -706,7 +706,7 @@ impl windows_core::TypeKind for HelperAttributeInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
     pub pathStatus: DIAGNOSIS_STATUS,
@@ -720,7 +720,7 @@ impl windows_core::TypeKind for HypothesisResult {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
     pub endTime: super::super::Foundation::FILETIME,
@@ -734,7 +734,7 @@ impl windows_core::TypeKind for LIFE_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -748,7 +748,7 @@ impl windows_core::TypeKind for OCTET_STRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RepairInfo {
     pub guid: windows_core::GUID,
     pub pwszClassName: windows_core::PWSTR,
@@ -770,7 +770,7 @@ impl windows_core::TypeKind for RepairInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
     pub repairRank: u16,
@@ -784,7 +784,7 @@ impl windows_core::TypeKind for RepairInfoEx {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RootCauseInfo {
     pub pwszDescription: windows_core::PWSTR,
     pub rootCauseID: windows_core::GUID,
@@ -802,7 +802,7 @@ impl windows_core::TypeKind for RootCauseInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ShellCommandInfo {
     pub pwszOperation: windows_core::PWSTR,
     pub pwszFile: windows_core::PWSTR,
@@ -819,7 +819,7 @@ impl windows_core::TypeKind for ShellCommandInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
     pub Anonymous: UiInfo_0,
@@ -833,7 +833,7 @@ impl windows_core::TypeKind for UiInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union UiInfo_0 {
     pub pwzNull: windows_core::PWSTR,
     pub ShellInfo: ShellCommandInfo,

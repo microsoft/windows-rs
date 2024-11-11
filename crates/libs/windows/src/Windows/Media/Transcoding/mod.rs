@@ -59,7 +59,7 @@ pub struct IPrepareTranscodeResult_Vtbl {
     pub TranscodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaTranscoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaTranscoder, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaTranscoder {
@@ -206,7 +206,7 @@ impl windows_core::RuntimeName for MediaTranscoder {
 unsafe impl Send for MediaTranscoder {}
 unsafe impl Sync for MediaTranscoder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PrepareTranscodeResult {
@@ -245,7 +245,7 @@ impl windows_core::RuntimeName for PrepareTranscodeResult {
 unsafe impl Send for PrepareTranscodeResult {}
 unsafe impl Sync for PrepareTranscodeResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
     pub const Default: Self = Self(0i32);
@@ -258,7 +258,7 @@ impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {
     pub const None: Self = Self(0i32);

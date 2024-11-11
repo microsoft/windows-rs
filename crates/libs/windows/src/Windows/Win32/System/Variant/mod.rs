@@ -625,7 +625,7 @@ pub const VT_VECTOR: VARENUM = VARENUM(4096u16);
 pub const VT_VERSIONED_STREAM: VARENUM = VARENUM(73u16);
 pub const VT_VOID: VARENUM = VARENUM(24u16);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWPROGRESSFLAGS(pub i32);
 impl windows_core::TypeKind for DRAWPROGRESSFLAGS {
     type TypeKind = windows_core::CopyType;
@@ -664,7 +664,7 @@ impl core::ops::Not for DRAWPROGRESSFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSTIME_FLAGS(pub i32);
 impl windows_core::TypeKind for PSTIME_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -703,7 +703,7 @@ impl core::ops::Not for PSTIME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VARENUM(pub u16);
 impl windows_core::TypeKind for VARENUM {
     type TypeKind = windows_core::CopyType;
@@ -742,7 +742,7 @@ impl core::ops::Not for VARENUM {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VAR_CHANGE_FLAGS(pub u16);
 impl windows_core::TypeKind for VAR_CHANGE_FLAGS {
     type TypeKind = windows_core::CopyType;

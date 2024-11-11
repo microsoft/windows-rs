@@ -1335,31 +1335,31 @@ pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
 pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
 pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDirectivityType(pub i32);
 impl windows_core::TypeKind for HrtfDirectivityType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfDistanceDecayType(pub i32);
 impl windows_core::TypeKind for HrtfDistanceDecayType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HrtfEnvironment(pub i32);
 impl windows_core::TypeKind for HrtfEnvironment {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for XAPO_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
 impl windows_core::TypeKind for XAUDIO2_FILTER_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -1367,7 +1367,7 @@ impl windows_core::TypeKind for XAUDIO2_FILTER_TYPE {
 pub const AudioReverb: windows_core::GUID = windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
 pub const AudioVolumeMeter: windows_core::GUID = windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FXECHO_INITDATA {
     pub MaxDelay: f32,
 }
@@ -1380,7 +1380,7 @@ impl windows_core::TypeKind for FXECHO_INITDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FXECHO_PARAMETERS {
     pub WetDryMix: f32,
     pub Feedback: f32,
@@ -1396,7 +1396,7 @@ impl windows_core::TypeKind for FXECHO_PARAMETERS {
 }
 pub const FXEQ: windows_core::GUID = windows_core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FXEQ_PARAMETERS {
     pub FrequencyCenter0: f32,
     pub Gain0: f32,
@@ -1421,7 +1421,7 @@ impl windows_core::TypeKind for FXEQ_PARAMETERS {
 }
 pub const FXEcho: windows_core::GUID = windows_core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FXMASTERINGLIMITER_PARAMETERS {
     pub Release: u32,
     pub Loudness: u32,
@@ -1436,7 +1436,7 @@ impl windows_core::TypeKind for FXMASTERINGLIMITER_PARAMETERS {
 }
 pub const FXMasteringLimiter: windows_core::GUID = windows_core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FXREVERB_PARAMETERS {
     pub Diffusion: f32,
     pub RoomSize: f32,
@@ -1451,7 +1451,7 @@ impl windows_core::TypeKind for FXREVERB_PARAMETERS {
 }
 pub const FXReverb: windows_core::GUID = windows_core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfApoInit {
     pub distanceDecay: *mut HrtfDistanceDecay,
     pub directivity: *mut HrtfDirectivity,
@@ -1465,7 +1465,7 @@ impl windows_core::TypeKind for HrtfApoInit {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivity {
     pub r#type: HrtfDirectivityType,
     pub scaling: f32,
@@ -1479,7 +1479,7 @@ impl windows_core::TypeKind for HrtfDirectivity {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivityCardioid {
     pub directivity: HrtfDirectivity,
     pub order: f32,
@@ -1493,7 +1493,7 @@ impl windows_core::TypeKind for HrtfDirectivityCardioid {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDirectivityCone {
     pub directivity: HrtfDirectivity,
     pub innerAngle: f32,
@@ -1508,7 +1508,7 @@ impl windows_core::TypeKind for HrtfDirectivityCone {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfDistanceDecay {
     pub r#type: HrtfDistanceDecayType,
     pub maxGain: f32,
@@ -1525,7 +1525,7 @@ impl windows_core::TypeKind for HrtfDistanceDecay {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfOrientation {
     pub element: [f32; 9],
 }
@@ -1538,7 +1538,7 @@ impl windows_core::TypeKind for HrtfOrientation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HrtfPosition {
     pub x: f32,
     pub y: f32,
@@ -1553,7 +1553,7 @@ impl windows_core::TypeKind for HrtfPosition {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
     pub pFormat: *const super::WAVEFORMATEX,
     pub MaxFrameCount: u32,
@@ -1567,7 +1567,7 @@ impl windows_core::TypeKind for XAPO_LOCKFORPROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAPO_PROCESS_BUFFER_PARAMETERS {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferFlags: XAPO_BUFFER_FLAGS,
@@ -1582,7 +1582,7 @@ impl windows_core::TypeKind for XAPO_PROCESS_BUFFER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAPO_REGISTRATION_PROPERTIES {
     pub clsid: windows_core::GUID,
     pub FriendlyName: [u16; 256],
@@ -1604,7 +1604,7 @@ impl windows_core::TypeKind for XAPO_REGISTRATION_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     pub WetDryMix: f32,
     pub Room: i32,
@@ -1629,7 +1629,7 @@ impl windows_core::TypeKind for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_REVERB_PARAMETERS {
     pub WetDryMix: f32,
     pub ReflectionsDelay: u32,
@@ -1665,7 +1665,7 @@ impl windows_core::TypeKind for XAUDIO2FX_REVERB_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2FX_VOLUMEMETER_LEVELS {
     pub pPeakLevels: *mut f32,
     pub pRMSLevels: *mut f32,
@@ -1680,7 +1680,7 @@ impl windows_core::TypeKind for XAUDIO2FX_VOLUMEMETER_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER {
     pub Flags: u32,
     pub AudioBytes: u32,
@@ -1701,7 +1701,7 @@ impl windows_core::TypeKind for XAUDIO2_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_BUFFER_WMA {
     pub pDecodedPacketCumulativeBytes: *const u32,
     pub PacketCount: u32,
@@ -1715,7 +1715,7 @@ impl windows_core::TypeKind for XAUDIO2_BUFFER_WMA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_DEBUG_CONFIGURATION {
     pub TraceMask: u32,
     pub BreakMask: u32,
@@ -1733,7 +1733,7 @@ impl windows_core::TypeKind for XAUDIO2_DEBUG_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_EFFECT_CHAIN {
     pub EffectCount: u32,
     pub pEffectDescriptors: *mut XAUDIO2_EFFECT_DESCRIPTOR,
@@ -1761,7 +1761,7 @@ impl windows_core::TypeKind for XAUDIO2_EFFECT_DESCRIPTOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_FILTER_PARAMETERS {
     pub Type: XAUDIO2_FILTER_TYPE,
     pub Frequency: f32,
@@ -1776,7 +1776,7 @@ impl windows_core::TypeKind for XAUDIO2_FILTER_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_PERFORMANCE_DATA {
     pub AudioCyclesSinceLastQuery: u64,
     pub TotalCyclesSinceLastQuery: u64,
@@ -1815,7 +1815,7 @@ impl windows_core::TypeKind for XAUDIO2_SEND_DESCRIPTOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_DETAILS {
     pub CreationFlags: u32,
     pub ActiveFlags: u32,
@@ -1831,7 +1831,7 @@ impl windows_core::TypeKind for XAUDIO2_VOICE_DETAILS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_SENDS {
     pub SendCount: u32,
     pub pSends: *mut XAUDIO2_SEND_DESCRIPTOR,
@@ -1845,7 +1845,7 @@ impl windows_core::TypeKind for XAUDIO2_VOICE_SENDS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XAUDIO2_VOICE_STATE {
     pub pCurrentBufferContext: *mut core::ffi::c_void,
     pub BuffersQueued: u32,

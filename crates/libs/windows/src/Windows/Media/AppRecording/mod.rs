@@ -101,7 +101,7 @@ pub struct IAppRecordingStatusDetails_Vtbl {
     pub IsDisabledBySystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingManager {
@@ -178,7 +178,7 @@ impl windows_core::RuntimeName for AppRecordingManager {
 unsafe impl Send for AppRecordingManager {}
 unsafe impl Sync for AppRecordingManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingResult {
@@ -224,7 +224,7 @@ impl windows_core::RuntimeName for AppRecordingResult {
 unsafe impl Send for AppRecordingResult {}
 unsafe impl Sync for AppRecordingResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingSaveScreenshotResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingSaveScreenshotResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingSaveScreenshotResult {
@@ -264,7 +264,7 @@ impl windows_core::RuntimeName for AppRecordingSaveScreenshotResult {
 unsafe impl Send for AppRecordingSaveScreenshotResult {}
 unsafe impl Sync for AppRecordingSaveScreenshotResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingSavedScreenshotInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingSavedScreenshotInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingSavedScreenshotInfo {
@@ -297,7 +297,7 @@ impl windows_core::RuntimeName for AppRecordingSavedScreenshotInfo {
 unsafe impl Send for AppRecordingSavedScreenshotInfo {}
 unsafe impl Sync for AppRecordingSavedScreenshotInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingStatus {
@@ -343,7 +343,7 @@ impl windows_core::RuntimeName for AppRecordingStatus {
 unsafe impl Send for AppRecordingStatus {}
 unsafe impl Sync for AppRecordingStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppRecordingStatusDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppRecordingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppRecordingStatusDetails {
@@ -424,7 +424,7 @@ impl windows_core::RuntimeName for AppRecordingStatusDetails {
 unsafe impl Send for AppRecordingStatusDetails {}
 unsafe impl Sync for AppRecordingStatusDetails {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
     pub const None: Self = Self(0i32);

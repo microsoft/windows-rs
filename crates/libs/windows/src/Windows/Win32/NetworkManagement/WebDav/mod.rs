@@ -94,13 +94,13 @@ pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHNEXTSTEP(pub i32);
 impl windows_core::TypeKind for AUTHNEXTSTEP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_BLOB {
     pub pBuffer: *mut core::ffi::c_void,
     pub ulSize: u32,
@@ -115,7 +115,7 @@ impl windows_core::TypeKind for DAV_CALLBACK_AUTH_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_AUTH_UNP {
     pub pszUserName: windows_core::PWSTR,
     pub ulUserNameLength: u32,
@@ -131,7 +131,7 @@ impl windows_core::TypeKind for DAV_CALLBACK_AUTH_UNP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DAV_CALLBACK_CRED {
     pub AuthBlob: DAV_CALLBACK_AUTH_BLOB,
     pub UNPBlob: DAV_CALLBACK_AUTH_UNP,

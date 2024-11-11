@@ -240,7 +240,7 @@ pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(0i32);
 pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(1i32);
 pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = HANDLE_SHARING_OPTIONS(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDLE_ACCESS_OPTIONS(pub i32);
 impl windows_core::TypeKind for HANDLE_ACCESS_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -279,13 +279,13 @@ impl core::ops::Not for HANDLE_ACCESS_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDLE_CREATION_OPTIONS(pub i32);
 impl windows_core::TypeKind for HANDLE_CREATION_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDLE_OPTIONS(pub u32);
 impl windows_core::TypeKind for HANDLE_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -324,7 +324,7 @@ impl core::ops::Not for HANDLE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANDLE_SHARING_OPTIONS(pub i32);
 impl windows_core::TypeKind for HANDLE_SHARING_OPTIONS {
     type TypeKind = windows_core::CopyType;

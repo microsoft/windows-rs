@@ -11,7 +11,7 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
 impl windows_core::TypeKind for OPERATION_END_PARAMETERS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -50,7 +50,7 @@ impl core::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPERATION_START_FLAGS(pub u32);
 impl windows_core::TypeKind for OPERATION_START_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -89,7 +89,7 @@ impl core::ops::Not for OPERATION_START_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPERATION_END_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,
@@ -104,7 +104,7 @@ impl windows_core::TypeKind for OPERATION_END_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPERATION_START_PARAMETERS {
     pub Version: u32,
     pub OperationId: u32,

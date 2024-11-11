@@ -575,23 +575,23 @@ pub type NVME_ZONE_RECEIVE_ACTION_SPECIFIC = i32;
 pub type NVME_ZONE_SEND_ACTION = i32;
 pub type ZONE_STATE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVE_LATENCY_CONFIGURATION {
     pub Anonymous: ACTIVE_LATENCY_CONFIGURATION_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ACTIVE_LATENCY_CONFIGURATION_0 {
     pub Anonymous: ACTIVE_LATENCY_CONFIGURATION_0_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUCKET_COUNTER {
     pub Reserved: u32,
     pub Trim: u32,
@@ -599,17 +599,17 @@ pub struct BUCKET_COUNTER {
     pub Read: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_BIT_FIELD {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
     pub VersionNumber: u8,
     pub Length: u8,
@@ -626,23 +626,23 @@ pub struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
     pub Reserved2: [u8; 14],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS {
     pub Anonymous: LATENCY_MONITOR_FEATURE_STATUS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LATENCY_MONITOR_FEATURE_STATUS_0 {
     pub Anonymous: LATENCY_MONITOR_FEATURE_STATUS_0_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LATENCY_STAMP {
     pub Trim3: u64,
     pub Write3: u64,
@@ -658,12 +658,12 @@ pub struct LATENCY_STAMP {
     pub Read0: u64,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LATENCY_STAMP_UNITS {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEASURED_LATENCY {
     pub Trim3: u16,
     pub Write3: u16,
@@ -679,350 +679,350 @@ pub struct MEASURED_LATENCY {
     pub Read0: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ACTIVE_NAMESPACE_ID_LIST {
     pub NSID: [u32; 1024],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
     pub Anonymous: NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0,
     pub AsUlonglong: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_ADMIN_QUEUE_ATTRIBUTES {
     pub Anonymous: NVME_ADMIN_QUEUE_ATTRIBUTES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
     pub Anonymous: NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0,
     pub AsUlonglong: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
     pub _bitfield: u32,
     pub Reserved1: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
     pub Anonymous: NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_ERROR_INJECTION {
     pub Anonymous: NVME_CDW0_FEATURE_ERROR_INJECTION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW0_FEATURE_ERROR_INJECTION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
     pub Anonymous: NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW0_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_ABORT {
     pub Anonymous: NVME_CDW10_ABORT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_ABORT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_CREATE_IO_QUEUE {
     pub Anonymous: NVME_CDW10_CREATE_IO_QUEUE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_CREATE_IO_QUEUE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_DATASET_MANAGEMENT {
     pub Anonymous: NVME_CDW10_DATASET_MANAGEMENT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_DIRECTIVE_RECEIVE {
     pub NUMD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_DIRECTIVE_SEND {
     pub NUMD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_FIRMWARE_ACTIVATE {
     pub Anonymous: NVME_CDW10_FIRMWARE_ACTIVATE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_FIRMWARE_ACTIVATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_FIRMWARE_DOWNLOAD {
     pub NUMD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_FORMAT_NVM {
     pub Anonymous: NVME_CDW10_FORMAT_NVM_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_FORMAT_NVM_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_FEATURES {
     pub Anonymous: NVME_CDW10_GET_FEATURES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_GET_FEATURES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V13 {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_V13_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V13_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_IDENTIFY {
     pub Anonymous: NVME_CDW10_IDENTIFY_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_IDENTIFY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_ACQUIRE {
     pub Anonymous: NVME_CDW10_RESERVATION_ACQUIRE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_RESERVATION_ACQUIRE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_REGISTER {
     pub Anonymous: NVME_CDW10_RESERVATION_REGISTER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_RESERVATION_REGISTER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_RELEASE {
     pub Anonymous: NVME_CDW10_RESERVATION_RELEASE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_RESERVATION_RELEASE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_REPORT {
     pub Anonymous: NVME_CDW10_RESERVATION_REPORT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_RESERVATION_REPORT_0 {
     pub NUMD: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_SANITIZE {
     pub Anonymous: NVME_CDW10_SANITIZE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_SANITIZE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_SECURITY_SEND_RECEIVE {
     pub Anonymous: NVME_CDW10_SECURITY_SEND_RECEIVE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW10_SET_FEATURES {
     pub Anonymous: NVME_CDW10_SET_FEATURES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_SET_FEATURES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_ZONE_APPEND {
     pub SLBA: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
     pub SLBA: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
     pub SLBA: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_CREATE_IO_CQ {
     pub Anonymous: NVME_CDW11_CREATE_IO_CQ_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_CREATE_IO_CQ_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_CREATE_IO_SQ {
     pub Anonymous: NVME_CDW11_CREATE_IO_SQ_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_CREATE_IO_SQ_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_DATASET_MANAGEMENT {
     pub Anonymous: NVME_CDW11_DATASET_MANAGEMENT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_RECEIVE {
     pub Anonymous: NVME_CDW11_DIRECTIVE_RECEIVE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_DIRECTIVE_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_SEND {
     pub Anonymous: NVME_CDW11_DIRECTIVE_SEND_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_DIRECTIVE_SEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURES {
     pub NumberOfQueues: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES,
     pub InterruptCoalescing: NVME_CDW11_FEATURE_INTERRUPT_COALESCING,
@@ -1048,549 +1048,549 @@ pub union NVME_CDW11_FEATURES {
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ARBITRATION {
     pub Anonymous: NVME_CDW11_FEATURE_ARBITRATION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_ARBITRATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
     pub Anonymous: NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
     pub Anonymous: NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
     pub Anonymous: NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
     pub Anonymous: NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
     pub Anonymous: NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ERROR_RECOVERY {
     pub Anonymous: NVME_CDW11_FEATURE_ERROR_RECOVERY_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_GET_HOST_METADATA {
     pub Anonymous: NVME_CDW11_FEATURE_GET_HOST_METADATA_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
     pub Anonymous: NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
     pub Anonymous: NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
     pub Anonymous: NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
     pub Anonymous: NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
     pub Anonymous: NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
     pub Anonymous: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
     pub Anonymous: NVME_CDW11_FEATURE_POWER_MANAGEMENT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
     pub Anonymous: NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_SET_HOST_METADATA {
     pub Anonymous: NVME_CDW11_FEATURE_SET_HOST_METADATA_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
     pub Anonymous: NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
     pub Anonymous: NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
     pub Anonymous: NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
     pub Anonymous: NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_FIRMWARE_DOWNLOAD {
     pub OFST: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW11_GET_LOG_PAGE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_IDENTIFY {
     pub Anonymous1: NVME_CDW11_IDENTIFY_0,
     pub Anonymous2: NVME_CDW11_IDENTIFY_1,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_IDENTIFY_0 {
     pub NVMSETID: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_IDENTIFY_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_RESERVATION_REPORT {
     pub Anonymous: NVME_CDW11_RESERVATION_REPORT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_RESERVATION_REPORT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW11_SANITIZE {
     pub Anonymous: NVME_CDW11_SANITIZE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_SANITIZE_0 {
     pub OVRPAT: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_SECURITY_RECEIVE {
     pub AL: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW11_SECURITY_SEND {
     pub TL: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_RECEIVE {
     pub AllocateResources: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     pub Anonymous: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND {
     pub EnableDirective: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
     pub Anonymous: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_FEATURES {
     pub HostMemoryBuffer: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HSIZE: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_GET_LOG_PAGE {
     pub LPOL: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_READ_WRITE {
     pub Anonymous: NVME_CDW12_READ_WRITE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_READ_WRITE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW12_ZONE_APPEND {
     pub Anonymous: NVME_CDW12_ZONE_APPEND_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW12_ZONE_APPEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW13_FEATURES {
     pub HostMemoryBuffer: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_GET_LOG_PAGE {
     pub LPOU: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW13_READ_WRITE {
     pub Anonymous: NVME_CDW13_READ_WRITE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_READ_WRITE_0 {
     pub DSM: NVME_CDW13_READ_WRITE_0_0,
     pub Reserved: u8,
     pub DSPEC: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_READ_WRITE_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
     pub Anonymous: NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_SEND {
     pub Anonymous: NVME_CDW13_ZONE_MANAGEMENT_SEND_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW14_FEATURES {
     pub HostMemoryBuffer: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HMDLUA: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW14_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW14_GET_LOG_PAGE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW14_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW15_FEATURES {
     pub HostMemoryBuffer: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub HMDLEC: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW15_READ_WRITE {
     pub Anonymous: NVME_CDW15_READ_WRITE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW15_READ_WRITE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CDW15_ZONE_APPEND {
     pub Anonymous: NVME_CDW15_ZONE_APPEND_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CDW15_ZONE_APPEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CHANGED_NAMESPACE_LIST_LOG {
     pub NSID: [u32; 1024],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CHANGED_ZONE_LIST_LOG {
     pub ZoneIdentifiersCount: u16,
     pub Reserved: [u8; 6],
     pub ZoneIdentifier: [u64; 511],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND {
     pub CDW0: NVME_COMMAND_DWORD0,
     pub NSID: u32,
@@ -1601,7 +1601,7 @@ pub struct NVME_COMMAND {
     pub u: NVME_COMMAND_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMMAND_0 {
     pub GENERAL: NVME_COMMAND_0_0,
     pub IDENTIFY: NVME_COMMAND_0_1,
@@ -1630,7 +1630,7 @@ pub union NVME_COMMAND_0 {
     pub ZONEAPPEND: NVME_COMMAND_0_24,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_2 {
     pub CDW10: NVME_CDW10_ABORT,
     pub CDW11: u32,
@@ -1640,7 +1640,7 @@ pub struct NVME_COMMAND_0_2 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_6 {
     pub CDW10: NVME_CDW10_CREATE_IO_QUEUE,
     pub CDW11: NVME_CDW11_CREATE_IO_CQ,
@@ -1650,7 +1650,7 @@ pub struct NVME_COMMAND_0_6 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_7 {
     pub CDW10: NVME_CDW10_CREATE_IO_QUEUE,
     pub CDW11: NVME_CDW11_CREATE_IO_SQ,
@@ -1660,7 +1660,7 @@ pub struct NVME_COMMAND_0_7 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_8 {
     pub CDW10: NVME_CDW10_DATASET_MANAGEMENT,
     pub CDW11: NVME_CDW11_DATASET_MANAGEMENT,
@@ -1670,7 +1670,7 @@ pub struct NVME_COMMAND_0_8 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_14 {
     pub CDW10: NVME_CDW10_DIRECTIVE_RECEIVE,
     pub CDW11: NVME_CDW11_DIRECTIVE_RECEIVE,
@@ -1680,7 +1680,7 @@ pub struct NVME_COMMAND_0_14 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_15 {
     pub CDW10: NVME_CDW10_DIRECTIVE_SEND,
     pub CDW11: NVME_CDW11_DIRECTIVE_SEND,
@@ -1690,7 +1690,7 @@ pub struct NVME_COMMAND_0_15 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_12 {
     pub CDW10: NVME_CDW10_FIRMWARE_ACTIVATE,
     pub CDW11: u32,
@@ -1700,7 +1700,7 @@ pub struct NVME_COMMAND_0_12 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_11 {
     pub CDW10: NVME_CDW10_FIRMWARE_DOWNLOAD,
     pub CDW11: NVME_CDW11_FIRMWARE_DOWNLOAD,
@@ -1710,7 +1710,7 @@ pub struct NVME_COMMAND_0_11 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_13 {
     pub CDW10: NVME_CDW10_FORMAT_NVM,
     pub CDW11: u32,
@@ -1720,7 +1720,7 @@ pub struct NVME_COMMAND_0_13 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_0 {
     pub CDW10: u32,
     pub CDW11: u32,
@@ -1730,7 +1730,7 @@ pub struct NVME_COMMAND_0_0 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_3 {
     pub CDW10: NVME_CDW10_GET_FEATURES,
     pub CDW11: NVME_CDW11_FEATURES,
@@ -1740,7 +1740,7 @@ pub struct NVME_COMMAND_0_3 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_5 {
     pub Anonymous: NVME_COMMAND_0_5_0,
     pub CDW11: NVME_CDW11_GET_LOG_PAGE,
@@ -1750,13 +1750,13 @@ pub struct NVME_COMMAND_0_5 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMMAND_0_5_0 {
     pub CDW10: NVME_CDW10_GET_LOG_PAGE,
     pub CDW10_V13: NVME_CDW10_GET_LOG_PAGE_V13,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_1 {
     pub CDW10: NVME_CDW10_IDENTIFY,
     pub CDW11: NVME_CDW11_IDENTIFY,
@@ -1766,7 +1766,7 @@ pub struct NVME_COMMAND_0_1 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_17 {
     pub LBALOW: u32,
     pub LBAHIGH: u32,
@@ -1776,7 +1776,7 @@ pub struct NVME_COMMAND_0_17 {
     pub CDW15: NVME_CDW15_READ_WRITE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_18 {
     pub CDW10: NVME_CDW10_RESERVATION_ACQUIRE,
     pub CDW11: u32,
@@ -1786,7 +1786,7 @@ pub struct NVME_COMMAND_0_18 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_19 {
     pub CDW10: NVME_CDW10_RESERVATION_REGISTER,
     pub CDW11: u32,
@@ -1796,7 +1796,7 @@ pub struct NVME_COMMAND_0_19 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_20 {
     pub CDW10: NVME_CDW10_RESERVATION_RELEASE,
     pub CDW11: u32,
@@ -1806,7 +1806,7 @@ pub struct NVME_COMMAND_0_20 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_21 {
     pub CDW10: NVME_CDW10_RESERVATION_REPORT,
     pub CDW11: NVME_CDW11_RESERVATION_REPORT,
@@ -1816,7 +1816,7 @@ pub struct NVME_COMMAND_0_21 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_16 {
     pub CDW10: NVME_CDW10_SANITIZE,
     pub CDW11: NVME_CDW11_SANITIZE,
@@ -1826,7 +1826,7 @@ pub struct NVME_COMMAND_0_16 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_10 {
     pub CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
     pub CDW11: NVME_CDW11_SECURITY_RECEIVE,
@@ -1836,7 +1836,7 @@ pub struct NVME_COMMAND_0_10 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_9 {
     pub CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
     pub CDW11: NVME_CDW11_SECURITY_SEND,
@@ -1846,7 +1846,7 @@ pub struct NVME_COMMAND_0_9 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_4 {
     pub CDW10: NVME_CDW10_SET_FEATURES,
     pub CDW11: NVME_CDW11_FEATURES,
@@ -1856,7 +1856,7 @@ pub struct NVME_COMMAND_0_4 {
     pub CDW15: NVME_CDW15_FEATURES,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_24 {
     pub CDW1011: NVME_CDW10_ZONE_APPEND,
     pub CDW12: NVME_CDW12_ZONE_APPEND,
@@ -1865,7 +1865,7 @@ pub struct NVME_COMMAND_0_24 {
     pub CDW15: NVME_CDW15_ZONE_APPEND,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_23 {
     pub CDW1011: NVME_CDW10_ZONE_MANAGEMENT_RECEIVE,
     pub DWORDCOUNT: u32,
@@ -1874,7 +1874,7 @@ pub struct NVME_COMMAND_0_23 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_0_22 {
     pub CDW1011: NVME_CDW10_ZONE_MANAGEMENT_SEND,
     pub CDW12: u32,
@@ -1883,63 +1883,63 @@ pub struct NVME_COMMAND_0_22 {
     pub CDW15: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMMAND_DWORD0 {
     pub Anonymous: NVME_COMMAND_DWORD0_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_DWORD0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMMAND_EFFECTS_DATA {
     pub Anonymous: NVME_COMMAND_EFFECTS_DATA_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_EFFECTS_DATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_EFFECTS_LOG {
     pub ACS: [NVME_COMMAND_EFFECTS_DATA; 256],
     pub IOCS: [NVME_COMMAND_EFFECTS_DATA; 256],
     pub Reserved: [u8; 2048],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMMAND_STATUS {
     pub Anonymous: NVME_COMMAND_STATUS_0,
     pub AsUshort: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMMAND_STATUS_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     pub Anonymous: NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_ENTRY {
     pub DW0: u32,
     pub DW1: u32,
@@ -1947,103 +1947,103 @@ pub struct NVME_COMPLETION_ENTRY {
     pub DW3: NVME_COMPLETION_ENTRY_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_0 {
     pub Anonymous: NVME_COMPLETION_ENTRY_0_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_ENTRY_0_0 {
     pub SQHD: u16,
     pub SQID: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_1 {
     pub Anonymous: NVME_COMPLETION_ENTRY_1_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_ENTRY_1_0 {
     pub CID: u16,
     pub Status: NVME_COMMAND_STATUS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
     pub Anonymous: NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTEXT_ATTRIBUTES {
     pub Anonymous: NVME_CONTEXT_ATTRIBUTES_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTEXT_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_CAPABILITIES {
     pub Anonymous: NVME_CONTROLLER_CAPABILITIES_0,
     pub AsUlonglong: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_CAPABILITIES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_CONFIGURATION {
     pub Anonymous: NVME_CONTROLLER_CONFIGURATION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_CONFIGURATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_LIST {
     pub NumberOfIdentifiers: u16,
     pub ControllerID: [u16; 2047],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
     pub Anonymous: NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
     pub Anonymous: NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_REGISTERS {
     pub CAP: NVME_CONTROLLER_CAPABILITIES,
     pub VS: NVME_VERSION,
@@ -2063,18 +2063,18 @@ pub struct NVME_CONTROLLER_REGISTERS {
     pub Doorbells: [u32; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_STATUS {
     pub Anonymous: NVME_CONTROLLER_STATUS_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_STATUS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_LOG {
     pub CurrentOperation: NVME_DEVICE_SELF_TEST_LOG_0,
     pub CurrentCompletion: NVME_DEVICE_SELF_TEST_LOG_1,
@@ -2082,17 +2082,17 @@ pub struct NVME_DEVICE_SELF_TEST_LOG {
     pub ResultData: [NVME_DEVICE_SELF_TEST_RESULT_DATA; 20],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub Status: NVME_DEVICE_SELF_TEST_RESULT_DATA_0,
     pub SegmentNumber: u8,
@@ -2106,40 +2106,40 @@ pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub VendorSpecific: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
     pub DirectivesSupported: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
     pub DirectivesEnabled: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     pub _bitfield: u8,
     pub Reserved1: [u8; 31],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
     pub OpenStreamCount: u16,
     pub StreamIdentifiers: [u16; 65535],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
     pub MSL: u16,
     pub NSSA: u16,
@@ -2152,7 +2152,7 @@ pub struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
     pub Reserved1: [u8; 6],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ENDURANCE_GROUP_LOG {
     pub Reserved0: u32,
     pub AvailableSpareThreshold: u8,
@@ -2165,7 +2165,7 @@ pub struct NVME_ENDURANCE_GROUP_LOG {
     pub Reserved2: [u8; 416],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ERROR_INFO_LOG {
     pub ErrorCount: u64,
     pub SQID: u16,
@@ -2180,12 +2180,12 @@ pub struct NVME_ERROR_INFO_LOG {
     pub Reserved1: [u8; 24],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ERROR_INFO_LOG_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ERROR_INJECTION_ENTRY {
     pub Flags: NVME_ERROR_INJECTION_ENTRY_0,
     pub Reserved1: u8,
@@ -2193,37 +2193,37 @@ pub struct NVME_ERROR_INJECTION_ENTRY {
     pub ErrorInjectionTypeSpecific: [u8; 28],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_ERROR_INJECTION_ENTRY_0 {
     pub Anonymous: NVME_ERROR_INJECTION_ENTRY_0_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ERROR_INJECTION_ENTRY_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_EXTENDED_REPORT_ZONE_INFO {
     pub ZoneCount: u64,
     pub Reserved: [u64; 7],
     pub Desc: [NVME_ZONE_EXTENDED_REPORT_ZONE_DESC; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_FEATURE_HOST_IDENTIFIER_DATA {
     pub HOSTID: [u8; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_FEATURE_HOST_METADATA_DATA {
     pub NumberOfMetadataElementDescriptors: u8,
     pub Reserved0: u8,
     pub MetadataElementDescriptors: [u8; 4094],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG {
     pub AFI: NVME_FIRMWARE_SLOT_INFO_LOG_0,
     pub Reserved0: [u8; 7],
@@ -2231,12 +2231,12 @@ pub struct NVME_FIRMWARE_SLOT_INFO_LOG {
     pub Reserved1: [u8; 448],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_HEALTH_INFO_LOG {
     pub CriticalWarning: NVME_HEALTH_INFO_LOG_0,
     pub Temperature: [u8; 2],
@@ -2267,31 +2267,31 @@ pub struct NVME_HEALTH_INFO_LOG {
     pub Reserved1: [u8; 296],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_HEALTH_INFO_LOG_0 {
     pub Anonymous: NVME_HEALTH_INFO_LOG_0_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_HEALTH_INFO_LOG_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
     pub BADD: u64,
     pub BSIZE: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     pub _bitfield: u32,
     pub EVAL: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA {
     pub VID: u16,
     pub SSVID: u16,
@@ -2376,122 +2376,122 @@ pub struct NVME_IDENTIFY_CONTROLLER_DATA {
     pub VS: [u8; 1024],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_12 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_8 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_7 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_14 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_2 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_17 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_5 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_16 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_10 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_6 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_19 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_20 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_4 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_15 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_9 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_3 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_11 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_21 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_13 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_18 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_IO_COMMAND_SET {
     pub IOCommandSetVector: [u64; 512],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA {
     pub NSZE: u64,
     pub NCAP: u64,
@@ -2535,52 +2535,52 @@ pub struct NVME_IDENTIFY_NAMESPACE_DATA {
     pub VS: [u8; 3712],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_7 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_3 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_4 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_6 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_5 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_8 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
     pub NIDT: u8,
     pub NIDL: u8,
@@ -2588,7 +2588,7 @@ pub struct NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
     pub NID: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     pub VSL: u8,
     pub WZSL: u8,
@@ -2599,7 +2599,7 @@ pub struct NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     pub Reserved: [u8; 4080],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
     pub ZOC: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0,
     pub OZCS: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1,
@@ -2613,43 +2613,43 @@ pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
     pub VS: [u8; 256],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     pub ZASL: u8,
     pub Reserved: [u8; 4095],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_LBA_FORMAT {
     pub Anonymous: NVME_LBA_FORMAT_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_LBA_FORMAT_0 {
     pub MS: u16,
     pub LBADS: u8,
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGE {
     pub Attributes: NVME_CONTEXT_ATTRIBUTES,
     pub LogicalBlockCount: u32,
     pub StartingLBA: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY {
     pub Type: u8,
     pub Attributes: NVME_LBA_RANGET_TYPE_ENTRY_0,
@@ -2660,24 +2660,24 @@ pub struct NVME_LBA_RANGET_TYPE_ENTRY {
     pub Reserved1: [u8; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_LBA_ZONE_FORMAT {
     pub ZoneSize: u64,
     pub ZDES: u8,
     pub Reserved: [u8; 7],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_NVM_SUBSYSTEM_RESET {
     pub NSSRC: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
     pub PciePorts: u16,
     pub OobMgmtSupport: NVME_OCP_DEVICE_CAPABILITIES_LOG_0,
@@ -2694,73 +2694,73 @@ pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0,
     pub AsUshort: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
     pub PanicResetWaitTime: u16,
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
@@ -2779,7 +2779,7 @@ pub struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
     pub LID: u8,
     pub Reserved0: [u8; 3],
@@ -2790,7 +2790,7 @@ pub struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     pub FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS,
     pub Reserved0: u8,
@@ -2830,18 +2830,18 @@ pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
     pub MediaUnitsWritten: [u8; 16],
     pub MediaUnitsRead: [u8; 16],
@@ -2876,37 +2876,37 @@ pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
     pub RawCount: [u8; 6],
     pub Normalized: [u8; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
     pub RawCount: [u8; 6],
     pub Normalized: [u8; 2],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
     pub DetectedCounts: u32,
     pub CorrectedCounts: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
     pub EventCount: u8,
     pub Status: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
     pub MaximumCount: u32,
     pub MinimumCount: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
     pub State: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0,
     pub Reserved0: [u8; 3],
@@ -2931,18 +2931,18 @@ pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
     pub LID: u8,
     pub Reserved0: [u8; 3],
@@ -2953,7 +2953,7 @@ pub struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
     pub UnsupportedCount: u16,
     pub Reserved0: [u8; 14],
@@ -2963,7 +2963,7 @@ pub struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
     pub EventType: u8,
     pub EventTypeRevision: u8,
@@ -2976,7 +2976,7 @@ pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
     pub EventLength: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_PERSISTENT_EVENT_LOG_HEADER {
     pub LogIdentifier: u8,
     pub Reserved0: [u8; 3],
@@ -2997,7 +2997,7 @@ pub struct NVME_PERSISTENT_EVENT_LOG_HEADER {
     pub SupportedEventsBitmap: [u8; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_POWER_STATE_DESC {
     pub MP: u16,
     pub Reserved0: u8,
@@ -3016,18 +3016,18 @@ pub struct NVME_POWER_STATE_DESC {
     pub Reserved9: [u8; 9],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_PRP_ENTRY {
     pub Anonymous: NVME_PRP_ENTRY_0,
     pub AsUlonglong: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_PRP_ENTRY_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA {
     pub CNTLID: u16,
     pub RCSTS: NVME_REGISTERED_CONTROLLER_DATA_0,
@@ -3036,12 +3036,12 @@ pub struct NVME_REGISTERED_CONTROLLER_DATA {
     pub RKEY: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
     pub CNTLID: u16,
     pub RCSTS: NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0,
@@ -3051,25 +3051,25 @@ pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
     pub Reserved1: [u8; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_REPORT_ZONE_INFO {
     pub ZoneCount: u64,
     pub Reserved: [u64; 7],
     pub ZoneDescriptor: [NVME_ZONE_DESCRIPTOR; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
     pub CRKEY: u64,
     pub PRKEY: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_NOTIFICATION_LOG {
     pub LogPageCount: u64,
     pub LogPageType: u8,
@@ -3079,31 +3079,31 @@ pub struct NVME_RESERVATION_NOTIFICATION_LOG {
     pub Reserved1: [u8; 48],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
     pub CRKEY: u64,
     pub NRKEY: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
     pub CRKEY: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
     pub RegisteredControllersData: [NVME_REGISTERED_CONTROLLER_DATA; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
     pub Reserved1: [u8; 40],
     pub RegisteredControllersExtendedData: [NVME_REGISTERED_CONTROLLER_EXTENDED_DATA; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_HEADER {
     pub GEN: u32,
     pub RTYPE: u8,
@@ -3113,12 +3113,12 @@ pub struct NVME_RESERVATION_REPORT_STATUS_HEADER {
     pub Reserved1: [u8; 14],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_SANITIZE_STATUS {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_SANITIZE_STATUS_LOG {
     pub SPROG: u16,
     pub SSTAT: NVME_SANITIZE_STATUS,
@@ -3132,7 +3132,7 @@ pub struct NVME_SANITIZE_STATUS_LOG {
     pub Reserved: [u8; 480],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_SCSI_NAME_STRING {
     pub PCIVendorID: [i8; 4],
     pub ModelNumber: [i8; 40],
@@ -3140,7 +3140,7 @@ pub struct NVME_SCSI_NAME_STRING {
     pub SerialNumber: [i8; 20],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_SET_ATTRIBUTES_ENTRY {
     pub Identifier: u16,
     pub ENDGID: u16,
@@ -3152,18 +3152,18 @@ pub struct NVME_SET_ATTRIBUTES_ENTRY {
     pub Reserved2: [u8; 80],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
     pub Anonymous: NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
     pub LogIdentifier: u8,
     pub Reserved0: [u8; 4],
@@ -3179,7 +3179,7 @@ pub struct NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
     pub ReasonIdentifier: [u8; 128],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_TELEMETRY_HOST_INITIATED_LOG {
     pub LogIdentifier: u8,
     pub Reserved0: [u8; 4],
@@ -3196,34 +3196,34 @@ pub struct NVME_TELEMETRY_HOST_INITIATED_LOG {
     pub ReasonIdentifier: [u8; 128],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_VERSION {
     pub Anonymous: NVME_VERSION_0,
     pub AsUlong: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_VERSION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES {
     pub Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_WCS_DEVICE_CAPABILITIES_0 {
     pub Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0_0,
     pub AsULONG: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
     pub PanicResetWaitTime: u16,
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
@@ -3239,30 +3239,30 @@ pub struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION {
     pub Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVME_WCS_DEVICE_RESET_ACTION_0 {
     pub Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0_0,
     pub AsUCHAR: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
     pub VersionSpecificData: [u8; 494],
     pub LogPageVersionNumber: u16,
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
     pub MediaUnitsWritten: [u8; 16],
     pub MediaUnitsRead: [u8; 16],
@@ -3294,37 +3294,37 @@ pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
     pub LogPageGUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
     pub RawCount: [u8; 6],
     pub Normalized: [u8; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
     pub RawCount: [u8; 6],
     pub Normalized: [u8; 2],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
     pub DetectedCounts: u32,
     pub CorrectedCounts: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
     pub EventCount: u8,
     pub Status: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
     pub MaximumCount: u32,
     pub MinimumCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR {
     pub Anonymous1: NVME_ZONE_DESCRIPTOR_0,
     pub Anonymous2: NVME_ZONE_DESCRIPTOR_1,
@@ -3336,72 +3336,72 @@ pub struct NVME_ZONE_DESCRIPTOR {
     pub Reserved4: [u8; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR_EXTENSION {
     pub ZoneDescriptorExtensionInfo: [u8; 64],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
     pub ZoneDescriptor: NVME_ZONE_DESCRIPTOR,
     pub ZoneDescriptorExtension: [NVME_ZONE_DESCRIPTOR_EXTENSION; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NVM_RESERVATION_CAPABILITIES {
     pub Anonymous: NVM_RESERVATION_CAPABILITIES_0,
     pub AsUchar: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVM_RESERVATION_CAPABILITIES_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NVM_SET_LIST {
     pub IdentifierCount: u8,
     pub Reserved: [u8; 127],
     pub Entry: [NVME_SET_ATTRIBUTES_ENTRY; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_ACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_ASSIGN_METHOD_SPECIFIC {
     pub NamespaceId: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_AUTH_METHOD_SPECIFIC {
     pub AuthorityId: u64,
     pub TriesCount: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
     pub ClearEvents: u8,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_HISTORY_ENTRY {
     pub VersionNumber: u8,
     pub EntryLength: u8,
@@ -3417,12 +3417,12 @@ pub struct TCG_HISTORY_ENTRY {
     pub CommandSpecific: [u8; 10],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TCG_REACTIVATE_METHOD_SPECIFIC {
     pub RangeStartLengthPolicy: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UNSUPPORTED_REQUIREMENT {
     pub ReqId: [u8; 16],
 }

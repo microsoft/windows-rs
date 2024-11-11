@@ -293,7 +293,7 @@ pub const GPMTrustee: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub const GPMWMIFilter: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
 pub const GPMWMIFilterCollection: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -308,7 +308,7 @@ pub struct GPOBROWSEINFO {
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -325,7 +325,7 @@ pub struct GROUP_POLICY_OBJECTA {
     pub lpLink: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -342,13 +342,13 @@ pub struct GROUP_POLICY_OBJECTW {
     pub lpLink: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
     pub FileExt: windows_sys::core::PWSTR,
@@ -356,19 +356,19 @@ pub union INSTALLSPEC {
     pub COMClass: INSTALLSPEC_1,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_sys::core::PWSTR,
     pub GPOId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_sys::core::GUID,
     pub ClsCtx: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: windows_sys::core::PWSTR,
     pub pszPolicyName: windows_sys::core::PWSTR,
@@ -376,7 +376,7 @@ pub struct LOCALMANAGEDAPPLICATION {
     pub dwState: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: windows_sys::core::PWSTR,
     pub pszPublisher: windows_sys::core::PWSTR,
@@ -396,7 +396,7 @@ pub struct MANAGEDAPPLICATION {
     pub bInstalled: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_sys::core::PWSTR,
     pub szEventSource: windows_sys::core::PWSTR,
@@ -408,7 +408,7 @@ pub struct POLICYSETTINGSTATUSINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: windows_sys::core::PWSTR,
     pub pwszNewSOM: windows_sys::core::PWSTR,

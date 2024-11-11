@@ -12324,115 +12324,115 @@ pub const XMLELEMTYPE_OTHER: XMLELEM_TYPE = XMLELEM_TYPE(6i32);
 pub const XMLELEMTYPE_PI: XMLELEM_TYPE = XMLELEM_TYPE(5i32);
 pub const XMLELEMTYPE_TEXT: XMLELEM_TYPE = XMLELEM_TYPE(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMNodeType(pub i32);
 impl windows_core::TypeKind for DOMNodeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMACONTENTTYPE(pub i32);
 impl windows_core::TypeKind for SCHEMACONTENTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
 impl windows_core::TypeKind for SCHEMADERIVATIONMETHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
 impl windows_core::TypeKind for SCHEMAPROCESSCONTENTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMATYPEVARIETY(pub i32);
 impl windows_core::TypeKind for SCHEMATYPEVARIETY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAUSE(pub i32);
 impl windows_core::TypeKind for SCHEMAUSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHEMAWHITESPACE(pub i32);
 impl windows_core::TypeKind for SCHEMAWHITESPACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
 impl windows_core::TypeKind for SERVERXMLHTTP_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOMITEMTYPE(pub i32);
 impl windows_core::TypeKind for SOMITEMTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SXH_PROXY_SETTING(pub i32);
 impl windows_core::TypeKind for SXH_PROXY_SETTING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
 impl windows_core::TypeKind for SXH_SERVER_CERT_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_AUTH(pub i32);
 impl windows_core::TypeKind for XHR_AUTH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
 impl windows_core::TypeKind for XHR_CERT_ERROR_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 impl windows_core::TypeKind for XHR_CERT_IGNORE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_COOKIE_FLAG(pub i32);
 impl windows_core::TypeKind for XHR_COOKIE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_COOKIE_STATE(pub i32);
 impl windows_core::TypeKind for XHR_COOKIE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_CRED_PROMPT(pub i32);
 impl windows_core::TypeKind for XHR_CRED_PROMPT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XHR_PROPERTY(pub i32);
 impl windows_core::TypeKind for XHR_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XMLELEM_TYPE(pub i32);
 impl windows_core::TypeKind for XMLELEM_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -12449,7 +12449,7 @@ pub const SAXAttributes60: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const SAXXMLReader60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 pub const ServerXMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
@@ -12463,7 +12463,7 @@ impl windows_core::TypeKind for XHR_CERT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -12507,7 +12507,7 @@ impl windows_core::TypeKind for XML_ERROR {
 }
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,

@@ -7893,91 +7893,91 @@ pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
 pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
 pub const typeUser: GPMEntryType = GPMEntryType(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPSTATE(pub i32);
 impl windows_core::TypeKind for APPSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMBackupType(pub i32);
 impl windows_core::TypeKind for GPMBackupType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMDestinationOption(pub i32);
 impl windows_core::TypeKind for GPMDestinationOption {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMEntryType(pub i32);
 impl windows_core::TypeKind for GPMEntryType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMPermissionType(pub i32);
 impl windows_core::TypeKind for GPMPermissionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMRSOPMode(pub i32);
 impl windows_core::TypeKind for GPMRSOPMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMReportType(pub i32);
 impl windows_core::TypeKind for GPMReportType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMReportingOptions(pub i32);
 impl windows_core::TypeKind for GPMReportingOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMSOMType(pub i32);
 impl windows_core::TypeKind for GPMSOMType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMSearchOperation(pub i32);
 impl windows_core::TypeKind for GPMSearchOperation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMSearchProperty(pub i32);
 impl windows_core::TypeKind for GPMSearchProperty {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPMStarterGPOType(pub i32);
 impl windows_core::TypeKind for GPMStarterGPOType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_LINK(pub i32);
 impl windows_core::TypeKind for GPO_LINK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_OPEN_FLAGS(pub u32);
 impl windows_core::TypeKind for GPO_OPEN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_OPTIONS(pub u32);
 impl windows_core::TypeKind for GPO_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -8016,31 +8016,31 @@ impl core::ops::Not for GPO_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPO_SECTION(pub u32);
 impl windows_core::TypeKind for GPO_SECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_POLICY_HINT_TYPE(pub i32);
 impl windows_core::TypeKind for GROUP_POLICY_HINT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for GROUP_POLICY_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSTALLSPECTYPE(pub i32);
 impl windows_core::TypeKind for INSTALLSPECTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETTINGSTATUS(pub i32);
 impl windows_core::TypeKind for SETTINGSTATUS {
     type TypeKind = windows_core::CopyType;
@@ -8080,7 +8080,7 @@ pub const GPMTrustee: windows_core::GUID = windows_core::GUID::from_u128(0xc54a7
 pub const GPMWMIFilter: windows_core::GUID = windows_core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
 pub const GPMWMIFilterCollection: windows_core::GUID = windows_core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -8103,7 +8103,7 @@ impl windows_core::TypeKind for GPOBROWSEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -8128,7 +8128,7 @@ impl windows_core::TypeKind for GROUP_POLICY_OBJECTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -8153,7 +8153,7 @@ impl windows_core::TypeKind for GROUP_POLICY_OBJECTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
@@ -8167,7 +8167,7 @@ impl windows_core::TypeKind for INSTALLDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
     pub FileExt: windows_core::PWSTR,
@@ -8183,7 +8183,7 @@ impl windows_core::TypeKind for INSTALLSPEC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTALLSPEC_0 {
     pub Name: windows_core::PWSTR,
     pub GPOId: windows_core::GUID,
@@ -8197,7 +8197,7 @@ impl windows_core::TypeKind for INSTALLSPEC_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INSTALLSPEC_1 {
     pub Clsid: windows_core::GUID,
     pub ClsCtx: u32,
@@ -8211,7 +8211,7 @@ impl windows_core::TypeKind for INSTALLSPEC_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: windows_core::PWSTR,
     pub pszPolicyName: windows_core::PWSTR,
@@ -8227,7 +8227,7 @@ impl windows_core::TypeKind for LOCALMANAGEDAPPLICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: windows_core::PWSTR,
     pub pszPublisher: windows_core::PWSTR,
@@ -8255,7 +8255,7 @@ impl windows_core::TypeKind for MANAGEDAPPLICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_core::PWSTR,
     pub szEventSource: windows_core::PWSTR,

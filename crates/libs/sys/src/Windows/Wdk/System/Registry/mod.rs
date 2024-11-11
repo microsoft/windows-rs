@@ -96,7 +96,7 @@ pub type KEY_INFORMATION_CLASS = i32;
 pub type KEY_SET_INFORMATION_CLASS = i32;
 pub type KEY_VALUE_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub DataLength: u32,
@@ -104,7 +104,7 @@ pub struct KEY_VALUE_ENTRY {
     pub Type: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -117,7 +117,7 @@ pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -130,7 +130,7 @@ pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -142,7 +142,7 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: *mut KEY_VALUE_ENTRY,
@@ -155,7 +155,7 @@ pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
@@ -168,7 +168,7 @@ pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Reserved: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: KEY_SET_INFORMATION_CLASS,

@@ -70,7 +70,7 @@ impl IPdfRendererNative_Vtbl {
 impl windows_core::RuntimeName for IPdfRendererNative {}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::super::Graphics::Direct2D::Common::D2D_RECT_F,
     pub DestinationWidth: u32,

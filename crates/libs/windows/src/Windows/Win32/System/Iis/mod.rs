@@ -2395,50 +2395,50 @@ pub const WEB_CORE_DLL_NAME: windows_core::PCWSTR = windows_core::w!("hwebcore.d
 pub const WEB_CORE_SET_METADATA_DLL_ENTRY: windows_core::PCSTR = windows_core::s!("WebCoreSetMetadata");
 pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: windows_core::PCSTR = windows_core::s!("WebCoreShutdown");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FTP_ACCESS(pub i32);
 impl windows_core::TypeKind for FTP_ACCESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FTP_PROCESS_STATUS(pub i32);
 impl windows_core::TypeKind for FTP_PROCESS_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TRACE_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_TRACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METADATATYPES(pub i32);
 impl windows_core::TypeKind for METADATATYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SF_PROPERTY_IIS(pub i32);
 impl windows_core::TypeKind for SF_PROPERTY_IIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SF_REQ_TYPE(pub i32);
 impl windows_core::TypeKind for SF_REQ_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SF_STATUS_TYPE(pub i32);
 impl windows_core::TypeKind for SF_STATUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
     pub cbAllocated: u32,
@@ -2469,7 +2469,7 @@ impl windows_core::TypeKind for CONFIGURATION_ENTRY {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -2515,7 +2515,7 @@ impl Default for HCONN {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: windows_core::PSTR,
     pub uHttpSubError: u16,
@@ -2530,7 +2530,7 @@ impl windows_core::TypeKind for HSE_CUSTOM_ERROR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
     pub pszMethod: windows_core::PSTR,
@@ -2548,7 +2548,7 @@ impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PWSTR,
@@ -2563,7 +2563,7 @@ impl windows_core::TypeKind for HSE_EXEC_UNICODE_URL_USER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut core::ffi::c_void,
@@ -2577,7 +2577,7 @@ impl windows_core::TypeKind for HSE_EXEC_URL_ENTITY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
     pub pszMethod: windows_core::PSTR,
@@ -2595,7 +2595,7 @@ impl windows_core::TypeKind for HSE_EXEC_URL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
@@ -2610,7 +2610,7 @@ impl windows_core::TypeKind for HSE_EXEC_URL_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
     pub pszCustomUserName: windows_core::PSTR,
@@ -2625,7 +2625,7 @@ impl windows_core::TypeKind for HSE_EXEC_URL_USER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
     pub pszStatus: windows_core::PSTR,
@@ -2642,7 +2642,7 @@ impl windows_core::TypeKind for HSE_RESPONSE_VECTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: windows_core::PCSTR,
     pub pszHeader: windows_core::PCSTR,
@@ -2659,7 +2659,7 @@ impl windows_core::TypeKind for HSE_SEND_HEADER_EX_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut core::ffi::c_void,
@@ -2682,7 +2682,7 @@ impl windows_core::TypeKind for HSE_TF_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: super::super::Foundation::BOOL,
     pub TraceContextId: [u8; 16],
@@ -2698,7 +2698,7 @@ impl windows_core::TypeKind for HSE_TRACE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub lpszPath: [u16; 260],
     pub dwFlags: u32,
@@ -2714,7 +2714,7 @@ impl windows_core::TypeKind for HSE_UNICODE_URL_MAPEX_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_URL_MAPEX_INFO {
     pub lpszPath: [i8; 260],
     pub dwFlags: u32,
@@ -2732,7 +2732,7 @@ impl windows_core::TypeKind for HSE_URL_MAPEX_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut core::ffi::c_void,
@@ -2748,7 +2748,7 @@ impl windows_core::TypeKind for HSE_VECTOR_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [i8; 256],
@@ -2762,7 +2762,7 @@ impl windows_core::TypeKind for HSE_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PCSTR,
@@ -2777,7 +2777,7 @@ impl windows_core::TypeKind for HTTP_FILTER_ACCESS_DENIED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: windows_core::PSTR,
     pub cbUserBuff: u32,
@@ -2793,7 +2793,7 @@ impl windows_core::TypeKind for HTTP_FILTER_AUTHENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -2812,7 +2812,7 @@ impl windows_core::TypeKind for HTTP_FILTER_AUTH_COMPLETE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
@@ -2835,7 +2835,7 @@ impl windows_core::TypeKind for HTTP_FILTER_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: windows_core::PCSTR,
     pub pszClientUserName: windows_core::PCSTR,
@@ -2858,7 +2858,7 @@ impl windows_core::TypeKind for HTTP_FILTER_LOG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -2875,7 +2875,7 @@ impl windows_core::TypeKind for HTTP_FILTER_PREPROC_HEADERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut core::ffi::c_void,
     pub cbInData: u32,
@@ -2891,7 +2891,7 @@ impl windows_core::TypeKind for HTTP_FILTER_RAW_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
@@ -2906,7 +2906,7 @@ impl windows_core::TypeKind for HTTP_FILTER_URL_MAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: windows_core::PCSTR,
     pub pszPhysicalPath: windows_core::PSTR,
@@ -2925,7 +2925,7 @@ impl windows_core::TypeKind for HTTP_FILTER_URL_MAP_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,
@@ -2941,7 +2941,7 @@ impl windows_core::TypeKind for HTTP_FILTER_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *const windows_core::GUID,
     pub dwAreas: u32,
@@ -2957,7 +2957,7 @@ impl windows_core::TypeKind for HTTP_TRACE_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_TRACE_EVENT {
     pub pProviderGuid: *const windows_core::GUID,
     pub dwArea: u32,
@@ -2982,7 +2982,7 @@ impl windows_core::TypeKind for HTTP_TRACE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_TRACE_EVENT_ITEM {
     pub pszName: windows_core::PCWSTR,
     pub dwDataType: HTTP_TRACE_TYPE,
@@ -2999,7 +2999,7 @@ impl windows_core::TypeKind for HTTP_TRACE_EVENT_ITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LOGGING_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3029,7 +3029,7 @@ impl windows_core::TypeKind for LOGGING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MD_CHANGE_OBJECT_W {
     pub pszMDPath: windows_core::PWSTR,
     pub dwMDChangeType: u32,
@@ -3045,7 +3045,7 @@ impl windows_core::TypeKind for MD_CHANGE_OBJECT_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3064,7 +3064,7 @@ impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
@@ -3078,7 +3078,7 @@ impl windows_core::TypeKind for METADATA_GETALL_INTERNAL_RECORD_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3097,7 +3097,7 @@ impl windows_core::TypeKind for METADATA_GETALL_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
@@ -3111,7 +3111,7 @@ impl windows_core::TypeKind for METADATA_HANDLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METADATA_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -3130,7 +3130,7 @@ impl windows_core::TypeKind for METADATA_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,
@@ -3162,7 +3162,7 @@ impl windows_core::TypeKind for POST_PROCESS_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: windows_core::PCWSTR,
     pub pszSiteName: windows_core::PCWSTR,

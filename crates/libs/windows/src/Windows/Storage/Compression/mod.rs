@@ -53,7 +53,7 @@ pub struct IDecompressorFactory_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Compressor(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(Compressor, windows_core::IUnknown, windows_core::IInspectable);
@@ -139,7 +139,7 @@ unsafe impl Send for Compressor {}
 unsafe impl Sync for Compressor {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Decompressor(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(Decompressor, windows_core::IUnknown, windows_core::IInspectable);
@@ -201,7 +201,7 @@ unsafe impl Send for Decompressor {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for Decompressor {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
     pub const InvalidAlgorithm: Self = Self(0i32);

@@ -8861,145 +8861,145 @@ pub const wbemQueryFlagShallow: WbemQueryFlagEnum = WbemQueryFlagEnum(1i32);
 pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
 pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CIMTYPE_ENUMERATION(pub i32);
 impl windows_core::TypeKind for CIMTYPE_ENUMERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_CallbackMode(pub i32);
 impl windows_core::TypeKind for MI_CallbackMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_CancellationReason(pub i32);
 impl windows_core::TypeKind for MI_CancellationReason {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_DestinationOptions_ImpersonationType(pub i32);
 impl windows_core::TypeKind for MI_DestinationOptions_ImpersonationType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ErrorCategory(pub i32);
 impl windows_core::TypeKind for MI_ErrorCategory {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_LocaleType(pub i32);
 impl windows_core::TypeKind for MI_LocaleType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_OperationCallback_ResponseType(pub i32);
 impl windows_core::TypeKind for MI_OperationCallback_ResponseType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_PromptType(pub i32);
 impl windows_core::TypeKind for MI_PromptType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_ProviderArchitecture(pub i32);
 impl windows_core::TypeKind for MI_ProviderArchitecture {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_Result(pub i32);
 impl windows_core::TypeKind for MI_Result {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_SubscriptionDeliveryType(pub i32);
 impl windows_core::TypeKind for MI_SubscriptionDeliveryType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MI_Type(pub i32);
 impl windows_core::TypeKind for MI_Type {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEMSTATUS(pub i32);
 impl windows_core::TypeKind for WBEMSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEMSTATUS_FORMAT(pub i32);
 impl windows_core::TypeKind for WBEMSTATUS_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_BACKUP_RESTORE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_BATCH_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_BATCH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_CHANGE_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPARISON_FLAG(pub i32);
 impl windows_core::TypeKind for WBEM_COMPARISON_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPILER_OPTIONS(pub i32);
 impl windows_core::TypeKind for WBEM_COMPILER_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_CONDITION_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_CONNECT_OPTIONS(pub i32);
 impl windows_core::TypeKind for WBEM_CONNECT_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
 impl windows_core::TypeKind for WBEM_EXTRA_RETURN_CODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_FLAVOR_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_FLAVOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_GENERIC_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -9038,235 +9038,235 @@ impl core::ops::Not for WBEM_GENERIC_FLAG_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GENUS_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_GENUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GET_KEY_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_GET_KEY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_GET_TEXT_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_GET_TEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_INFORMATION_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_LIMITATION_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LIMITS(pub i32);
 impl windows_core::TypeKind for WBEM_LIMITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LOCKING_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_LOCKING_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_LOGIN_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_LOGIN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PATH_CREATE_FLAG(pub i32);
 impl windows_core::TypeKind for WBEM_PATH_CREATE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PATH_STATUS_FLAG(pub i32);
 impl windows_core::TypeKind for WBEM_PATH_STATUS_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PROVIDER_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_PROVIDER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_PROVIDER_REQUIREMENTS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_QUERY_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_REFRESHER_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_REFRESHER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_SECURITY_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_SECURITY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
 impl windows_core::TypeKind for WBEM_SHUTDOWN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_STATUS_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_STATUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_TEXT_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
 impl windows_core::TypeKind for WBEM_UNSECAPP_FLAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
 impl windows_core::TypeKind for WMIQ_ANALYSIS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
 impl windows_core::TypeKind for WMIQ_ASSOCQ_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
 impl windows_core::TypeKind for WMIQ_LANGUAGE_FEATURES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_RPNF_FEATURE(pub i32);
 impl windows_core::TypeKind for WMIQ_RPNF_FEATURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
 impl windows_core::TypeKind for WMIQ_RPN_TOKEN_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMI_OBJ_TEXT(pub i32);
 impl windows_core::TypeKind for WMI_OBJ_TEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
 impl windows_core::TypeKind for WbemAuthenticationLevelEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemChangeFlagEnum(pub i32);
 impl windows_core::TypeKind for WbemChangeFlagEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemCimtypeEnum(pub i32);
 impl windows_core::TypeKind for WbemCimtypeEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemComparisonFlagEnum(pub i32);
 impl windows_core::TypeKind for WbemComparisonFlagEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemConnectOptionsEnum(pub i32);
 impl windows_core::TypeKind for WbemConnectOptionsEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemErrorEnum(pub i32);
 impl windows_core::TypeKind for WbemErrorEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemFlagEnum(pub i32);
 impl windows_core::TypeKind for WbemFlagEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemImpersonationLevelEnum(pub i32);
 impl windows_core::TypeKind for WbemImpersonationLevelEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemObjectTextFormatEnum(pub i32);
 impl windows_core::TypeKind for WbemObjectTextFormatEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemPrivilegeEnum(pub i32);
 impl windows_core::TypeKind for WbemPrivilegeEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemQueryFlagEnum(pub i32);
 impl windows_core::TypeKind for WbemQueryFlagEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemTextFlagEnum(pub i32);
 impl windows_core::TypeKind for WbemTextFlagEnum {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WbemTimeout(pub i32);
 impl windows_core::TypeKind for WbemTimeout {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Application {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -9281,7 +9281,7 @@ impl windows_core::TypeKind for MI_Application {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ApplicationFT {
     pub Close: isize,
     pub NewSession: isize,
@@ -9304,7 +9304,7 @@ impl windows_core::TypeKind for MI_ApplicationFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Array {
     pub data: *mut core::ffi::c_void,
     pub size: u32,
@@ -9318,7 +9318,7 @@ impl windows_core::TypeKind for MI_Array {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ArrayField {
     pub value: MI_Array,
     pub exists: u8,
@@ -9333,7 +9333,7 @@ impl windows_core::TypeKind for MI_ArrayField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanA {
     pub data: *mut u8,
     pub size: u32,
@@ -9347,7 +9347,7 @@ impl windows_core::TypeKind for MI_BooleanA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanAField {
     pub value: MI_BooleanA,
     pub exists: u8,
@@ -9362,7 +9362,7 @@ impl windows_core::TypeKind for MI_BooleanAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_BooleanField {
     pub value: u8,
     pub exists: u8,
@@ -9377,7 +9377,7 @@ impl windows_core::TypeKind for MI_BooleanField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16A {
     pub data: *mut u16,
     pub size: u32,
@@ -9391,7 +9391,7 @@ impl windows_core::TypeKind for MI_Char16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16AField {
     pub value: MI_Char16A,
     pub exists: u8,
@@ -9406,7 +9406,7 @@ impl windows_core::TypeKind for MI_Char16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Char16Field {
     pub value: u16,
     pub exists: u8,
@@ -9421,7 +9421,7 @@ impl windows_core::TypeKind for MI_Char16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Class {
     pub ft: *const MI_ClassFT,
     pub classDecl: *const MI_ClassDecl,
@@ -9438,7 +9438,7 @@ impl windows_core::TypeKind for MI_Class {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ClassDecl {
     pub flags: u32,
     pub code: u32,
@@ -9465,7 +9465,7 @@ impl windows_core::TypeKind for MI_ClassDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ClassFT {
     pub GetClassNameA: isize,
     pub GetNameSpace: isize,
@@ -9491,7 +9491,7 @@ impl windows_core::TypeKind for MI_ClassFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ClientFT_V1 {
     pub applicationFT: *const MI_ApplicationFT,
     pub sessionFT: *const MI_SessionFT,
@@ -9513,7 +9513,7 @@ impl windows_core::TypeKind for MI_ClientFT_V1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstBooleanA {
     pub data: *const u8,
     pub size: u32,
@@ -9527,7 +9527,7 @@ impl windows_core::TypeKind for MI_ConstBooleanA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstBooleanAField {
     pub value: MI_ConstBooleanA,
     pub exists: u8,
@@ -9542,7 +9542,7 @@ impl windows_core::TypeKind for MI_ConstBooleanAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstBooleanField {
     pub value: u8,
     pub exists: u8,
@@ -9557,7 +9557,7 @@ impl windows_core::TypeKind for MI_ConstBooleanField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstChar16A {
     pub data: *const u16,
     pub size: u32,
@@ -9571,7 +9571,7 @@ impl windows_core::TypeKind for MI_ConstChar16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstChar16AField {
     pub value: MI_ConstChar16A,
     pub exists: u8,
@@ -9586,7 +9586,7 @@ impl windows_core::TypeKind for MI_ConstChar16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstChar16Field {
     pub value: u16,
     pub exists: u8,
@@ -9601,7 +9601,7 @@ impl windows_core::TypeKind for MI_ConstChar16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstDatetimeA {
     pub data: *const MI_Datetime,
     pub size: u32,
@@ -9615,7 +9615,7 @@ impl windows_core::TypeKind for MI_ConstDatetimeA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstDatetimeAField {
     pub value: MI_ConstDatetimeA,
     pub exists: u8,
@@ -9630,7 +9630,7 @@ impl windows_core::TypeKind for MI_ConstDatetimeAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MI_ConstDatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
@@ -9645,7 +9645,7 @@ impl windows_core::TypeKind for MI_ConstDatetimeField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstInstanceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
@@ -9659,7 +9659,7 @@ impl windows_core::TypeKind for MI_ConstInstanceA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstInstanceAField {
     pub value: MI_ConstInstanceA,
     pub exists: u8,
@@ -9674,7 +9674,7 @@ impl windows_core::TypeKind for MI_ConstInstanceAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstInstanceField {
     pub value: *const MI_Instance,
     pub exists: u8,
@@ -9689,7 +9689,7 @@ impl windows_core::TypeKind for MI_ConstInstanceField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32A {
     pub data: *const f32,
     pub size: u32,
@@ -9703,7 +9703,7 @@ impl windows_core::TypeKind for MI_ConstReal32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32AField {
     pub value: MI_ConstReal32A,
     pub exists: u8,
@@ -9718,7 +9718,7 @@ impl windows_core::TypeKind for MI_ConstReal32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal32Field {
     pub value: f32,
     pub exists: u8,
@@ -9733,7 +9733,7 @@ impl windows_core::TypeKind for MI_ConstReal32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64A {
     pub data: *const f64,
     pub size: u32,
@@ -9747,7 +9747,7 @@ impl windows_core::TypeKind for MI_ConstReal64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64AField {
     pub value: MI_ConstReal64A,
     pub exists: u8,
@@ -9762,7 +9762,7 @@ impl windows_core::TypeKind for MI_ConstReal64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReal64Field {
     pub value: f64,
     pub exists: u8,
@@ -9777,7 +9777,7 @@ impl windows_core::TypeKind for MI_ConstReal64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReferenceA {
     pub data: *const *const MI_Instance,
     pub size: u32,
@@ -9791,7 +9791,7 @@ impl windows_core::TypeKind for MI_ConstReferenceA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReferenceAField {
     pub value: MI_ConstReferenceA,
     pub exists: u8,
@@ -9806,7 +9806,7 @@ impl windows_core::TypeKind for MI_ConstReferenceAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstReferenceField {
     pub value: *const MI_Instance,
     pub exists: u8,
@@ -9821,7 +9821,7 @@ impl windows_core::TypeKind for MI_ConstReferenceField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint16A {
     pub data: *const i16,
     pub size: u32,
@@ -9835,7 +9835,7 @@ impl windows_core::TypeKind for MI_ConstSint16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint16AField {
     pub value: MI_ConstSint16A,
     pub exists: u8,
@@ -9850,7 +9850,7 @@ impl windows_core::TypeKind for MI_ConstSint16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint16Field {
     pub value: i16,
     pub exists: u8,
@@ -9865,7 +9865,7 @@ impl windows_core::TypeKind for MI_ConstSint16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint32A {
     pub data: *const i32,
     pub size: u32,
@@ -9879,7 +9879,7 @@ impl windows_core::TypeKind for MI_ConstSint32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint32AField {
     pub value: MI_ConstSint32A,
     pub exists: u8,
@@ -9894,7 +9894,7 @@ impl windows_core::TypeKind for MI_ConstSint32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint32Field {
     pub value: i32,
     pub exists: u8,
@@ -9909,7 +9909,7 @@ impl windows_core::TypeKind for MI_ConstSint32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint64A {
     pub data: *const i64,
     pub size: u32,
@@ -9923,7 +9923,7 @@ impl windows_core::TypeKind for MI_ConstSint64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint64AField {
     pub value: MI_ConstSint64A,
     pub exists: u8,
@@ -9938,7 +9938,7 @@ impl windows_core::TypeKind for MI_ConstSint64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint64Field {
     pub value: i64,
     pub exists: u8,
@@ -9953,7 +9953,7 @@ impl windows_core::TypeKind for MI_ConstSint64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint8A {
     pub data: *const i8,
     pub size: u32,
@@ -9967,7 +9967,7 @@ impl windows_core::TypeKind for MI_ConstSint8A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint8AField {
     pub value: MI_ConstSint8A,
     pub exists: u8,
@@ -9982,7 +9982,7 @@ impl windows_core::TypeKind for MI_ConstSint8AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstSint8Field {
     pub value: i8,
     pub exists: u8,
@@ -9997,7 +9997,7 @@ impl windows_core::TypeKind for MI_ConstSint8Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstStringA {
     pub data: *const *const u16,
     pub size: u32,
@@ -10011,7 +10011,7 @@ impl windows_core::TypeKind for MI_ConstStringA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstStringAField {
     pub value: MI_ConstStringA,
     pub exists: u8,
@@ -10026,7 +10026,7 @@ impl windows_core::TypeKind for MI_ConstStringAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstStringField {
     pub value: *const u16,
     pub exists: u8,
@@ -10041,7 +10041,7 @@ impl windows_core::TypeKind for MI_ConstStringField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint16A {
     pub data: *const u16,
     pub size: u32,
@@ -10055,7 +10055,7 @@ impl windows_core::TypeKind for MI_ConstUint16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint16AField {
     pub value: MI_ConstUint16A,
     pub exists: u8,
@@ -10070,7 +10070,7 @@ impl windows_core::TypeKind for MI_ConstUint16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint16Field {
     pub value: u16,
     pub exists: u8,
@@ -10085,7 +10085,7 @@ impl windows_core::TypeKind for MI_ConstUint16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint32A {
     pub data: *const u32,
     pub size: u32,
@@ -10099,7 +10099,7 @@ impl windows_core::TypeKind for MI_ConstUint32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint32AField {
     pub value: MI_ConstUint32A,
     pub exists: u8,
@@ -10114,7 +10114,7 @@ impl windows_core::TypeKind for MI_ConstUint32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint32Field {
     pub value: u32,
     pub exists: u8,
@@ -10129,7 +10129,7 @@ impl windows_core::TypeKind for MI_ConstUint32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint64A {
     pub data: *const u64,
     pub size: u32,
@@ -10143,7 +10143,7 @@ impl windows_core::TypeKind for MI_ConstUint64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint64AField {
     pub value: MI_ConstUint64A,
     pub exists: u8,
@@ -10158,7 +10158,7 @@ impl windows_core::TypeKind for MI_ConstUint64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint64Field {
     pub value: u64,
     pub exists: u8,
@@ -10173,7 +10173,7 @@ impl windows_core::TypeKind for MI_ConstUint64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint8A {
     pub data: *const u8,
     pub size: u32,
@@ -10187,7 +10187,7 @@ impl windows_core::TypeKind for MI_ConstUint8A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint8AField {
     pub value: MI_ConstUint8A,
     pub exists: u8,
@@ -10202,7 +10202,7 @@ impl windows_core::TypeKind for MI_ConstUint8AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ConstUint8Field {
     pub value: u8,
     pub exists: u8,
@@ -10217,7 +10217,7 @@ impl windows_core::TypeKind for MI_ConstUint8Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Context {
     pub ft: *const MI_ContextFT,
     pub reserved: [isize; 3],
@@ -10231,7 +10231,7 @@ impl windows_core::TypeKind for MI_Context {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ContextFT {
     pub PostResult: isize,
     pub PostInstance: isize,
@@ -10273,7 +10273,7 @@ impl windows_core::TypeKind for MI_ContextFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MI_Datetime {
     pub isTimestamp: u32,
     pub u: MI_Datetime_0,
@@ -10287,7 +10287,7 @@ impl windows_core::TypeKind for MI_Datetime {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MI_Datetime_0 {
     pub timestamp: MI_Timestamp,
     pub interval: MI_Interval,
@@ -10301,7 +10301,7 @@ impl windows_core::TypeKind for MI_Datetime_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
@@ -10315,7 +10315,7 @@ impl windows_core::TypeKind for MI_DatetimeA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DatetimeAField {
     pub value: MI_DatetimeA,
     pub exists: u8,
@@ -10330,7 +10330,7 @@ impl windows_core::TypeKind for MI_DatetimeAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeField {
     pub value: MI_Datetime,
     pub exists: u8,
@@ -10345,7 +10345,7 @@ impl windows_core::TypeKind for MI_DatetimeField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Deserializer {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10359,7 +10359,7 @@ impl windows_core::TypeKind for MI_Deserializer {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DeserializerFT {
     pub Close: isize,
     pub DeserializeClass: isize,
@@ -10377,7 +10377,7 @@ impl windows_core::TypeKind for MI_DeserializerFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DestinationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10392,7 +10392,7 @@ impl windows_core::TypeKind for MI_DestinationOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_DestinationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -10419,7 +10419,7 @@ impl windows_core::TypeKind for MI_DestinationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_FeatureDecl {
     pub flags: u32,
     pub code: u32,
@@ -10436,7 +10436,7 @@ impl windows_core::TypeKind for MI_FeatureDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Filter {
     pub ft: *const MI_FilterFT,
     pub reserved: [isize; 3],
@@ -10450,7 +10450,7 @@ impl windows_core::TypeKind for MI_Filter {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_FilterFT {
     pub Evaluate: isize,
     pub GetExpression: isize,
@@ -10464,7 +10464,7 @@ impl windows_core::TypeKind for MI_FilterFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_HostedProvider {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10479,7 +10479,7 @@ impl windows_core::TypeKind for MI_HostedProvider {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_HostedProviderFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -10493,7 +10493,7 @@ impl windows_core::TypeKind for MI_HostedProviderFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Instance {
     pub ft: *const MI_InstanceFT,
     pub classDecl: *const MI_ClassDecl,
@@ -10510,7 +10510,7 @@ impl windows_core::TypeKind for MI_Instance {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -10524,7 +10524,7 @@ impl windows_core::TypeKind for MI_InstanceA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceAField {
     pub value: MI_InstanceA,
     pub exists: u8,
@@ -10539,7 +10539,7 @@ impl windows_core::TypeKind for MI_InstanceAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceExFT {
     pub parent: MI_InstanceFT,
     pub Normalize: isize,
@@ -10553,7 +10553,7 @@ impl windows_core::TypeKind for MI_InstanceExFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceFT {
     pub Clone: isize,
     pub Destruct: isize,
@@ -10583,7 +10583,7 @@ impl windows_core::TypeKind for MI_InstanceFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_InstanceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -10598,7 +10598,7 @@ impl windows_core::TypeKind for MI_InstanceField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Interval {
     pub days: u32,
     pub hours: u32,
@@ -10618,7 +10618,7 @@ impl windows_core::TypeKind for MI_Interval {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_MethodDecl {
     pub flags: u32,
     pub code: u32,
@@ -10643,7 +10643,7 @@ impl windows_core::TypeKind for MI_MethodDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Module {
     pub version: u32,
     pub generatorVersion: u32,
@@ -10669,7 +10669,7 @@ impl windows_core::TypeKind for MI_Module_Self {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ObjectDecl {
     pub flags: u32,
     pub code: u32,
@@ -10689,7 +10689,7 @@ impl windows_core::TypeKind for MI_ObjectDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Operation {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10704,7 +10704,7 @@ impl windows_core::TypeKind for MI_Operation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub promptUser: MI_OperationCallback_PromptUser,
@@ -10725,7 +10725,7 @@ impl windows_core::TypeKind for MI_OperationCallbacks {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationFT {
     pub Close: isize,
     pub Cancel: isize,
@@ -10743,7 +10743,7 @@ impl windows_core::TypeKind for MI_OperationFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10758,7 +10758,7 @@ impl windows_core::TypeKind for MI_OperationOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_OperationOptionsFT {
     pub Delete: isize,
     pub SetString: isize,
@@ -10783,7 +10783,7 @@ impl windows_core::TypeKind for MI_OperationOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ParameterDecl {
     pub flags: u32,
     pub code: u32,
@@ -10804,7 +10804,7 @@ impl windows_core::TypeKind for MI_ParameterDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ParameterSet {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10819,7 +10819,7 @@ impl windows_core::TypeKind for MI_ParameterSet {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ParameterSetFT {
     pub GetMethodReturnType: isize,
     pub GetParameterCount: isize,
@@ -10835,7 +10835,7 @@ impl windows_core::TypeKind for MI_ParameterSetFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_PropertyDecl {
     pub flags: u32,
     pub code: u32,
@@ -10859,7 +10859,7 @@ impl windows_core::TypeKind for MI_PropertyDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_PropertySet {
     pub ft: *const MI_PropertySetFT,
     pub reserved: [isize; 3],
@@ -10873,7 +10873,7 @@ impl windows_core::TypeKind for MI_PropertySet {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_PropertySetFT {
     pub GetElementCount: isize,
     pub ContainsElement: isize,
@@ -10893,7 +10893,7 @@ impl windows_core::TypeKind for MI_PropertySetFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ProviderFT {
     pub Load: MI_ProviderFT_Load,
     pub Unload: MI_ProviderFT_Unload,
@@ -10919,7 +10919,7 @@ impl windows_core::TypeKind for MI_ProviderFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Qualifier {
     pub name: *const u16,
     pub r#type: u32,
@@ -10935,7 +10935,7 @@ impl windows_core::TypeKind for MI_Qualifier {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierDecl {
     pub name: *const u16,
     pub r#type: u32,
@@ -10953,7 +10953,7 @@ impl windows_core::TypeKind for MI_QualifierDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierSet {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -10968,7 +10968,7 @@ impl windows_core::TypeKind for MI_QualifierSet {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_QualifierSetFT {
     pub GetQualifierCount: isize,
     pub GetQualifierAt: isize,
@@ -10983,7 +10983,7 @@ impl windows_core::TypeKind for MI_QualifierSetFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32A {
     pub data: *mut f32,
     pub size: u32,
@@ -10997,7 +10997,7 @@ impl windows_core::TypeKind for MI_Real32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32AField {
     pub value: MI_Real32A,
     pub exists: u8,
@@ -11012,7 +11012,7 @@ impl windows_core::TypeKind for MI_Real32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real32Field {
     pub value: f32,
     pub exists: u8,
@@ -11027,7 +11027,7 @@ impl windows_core::TypeKind for MI_Real32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64A {
     pub data: *mut f64,
     pub size: u32,
@@ -11041,7 +11041,7 @@ impl windows_core::TypeKind for MI_Real64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64AField {
     pub value: MI_Real64A,
     pub exists: u8,
@@ -11056,7 +11056,7 @@ impl windows_core::TypeKind for MI_Real64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Real64Field {
     pub value: f64,
     pub exists: u8,
@@ -11071,7 +11071,7 @@ impl windows_core::TypeKind for MI_Real64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ReferenceA {
     pub data: *mut *mut MI_Instance,
     pub size: u32,
@@ -11085,7 +11085,7 @@ impl windows_core::TypeKind for MI_ReferenceA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ReferenceAField {
     pub value: MI_ReferenceA,
     pub exists: u8,
@@ -11100,7 +11100,7 @@ impl windows_core::TypeKind for MI_ReferenceAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ReferenceField {
     pub value: *mut MI_Instance,
     pub exists: u8,
@@ -11115,7 +11115,7 @@ impl windows_core::TypeKind for MI_ReferenceField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SchemaDecl {
     pub qualifierDecls: *const *const MI_QualifierDecl,
     pub numQualifierDecls: u32,
@@ -11131,7 +11131,7 @@ impl windows_core::TypeKind for MI_SchemaDecl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Serializer {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11145,7 +11145,7 @@ impl windows_core::TypeKind for MI_Serializer {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SerializerFT {
     pub Close: isize,
     pub SerializeClass: isize,
@@ -11160,7 +11160,7 @@ impl windows_core::TypeKind for MI_SerializerFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Server {
     pub serverFT: *const MI_ServerFT,
     pub contextFT: *const MI_ContextFT,
@@ -11177,7 +11177,7 @@ impl windows_core::TypeKind for MI_Server {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_ServerFT {
     pub GetVersion: isize,
     pub GetSystemName: isize,
@@ -11191,7 +11191,7 @@ impl windows_core::TypeKind for MI_ServerFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Session {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11206,7 +11206,7 @@ impl windows_core::TypeKind for MI_Session {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SessionCallbacks {
     pub callbackContext: *mut core::ffi::c_void,
     pub writeMessage: isize,
@@ -11221,7 +11221,7 @@ impl windows_core::TypeKind for MI_SessionCallbacks {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SessionFT {
     pub Close: isize,
     pub GetApplication: isize,
@@ -11248,7 +11248,7 @@ impl windows_core::TypeKind for MI_SessionFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16A {
     pub data: *mut i16,
     pub size: u32,
@@ -11262,7 +11262,7 @@ impl windows_core::TypeKind for MI_Sint16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16AField {
     pub value: MI_Sint16A,
     pub exists: u8,
@@ -11277,7 +11277,7 @@ impl windows_core::TypeKind for MI_Sint16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint16Field {
     pub value: i16,
     pub exists: u8,
@@ -11292,7 +11292,7 @@ impl windows_core::TypeKind for MI_Sint16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint32A {
     pub data: *mut i32,
     pub size: u32,
@@ -11306,7 +11306,7 @@ impl windows_core::TypeKind for MI_Sint32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint32AField {
     pub value: MI_Sint32A,
     pub exists: u8,
@@ -11321,7 +11321,7 @@ impl windows_core::TypeKind for MI_Sint32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint32Field {
     pub value: i32,
     pub exists: u8,
@@ -11336,7 +11336,7 @@ impl windows_core::TypeKind for MI_Sint32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint64A {
     pub data: *mut i64,
     pub size: u32,
@@ -11350,7 +11350,7 @@ impl windows_core::TypeKind for MI_Sint64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint64AField {
     pub value: MI_Sint64A,
     pub exists: u8,
@@ -11365,7 +11365,7 @@ impl windows_core::TypeKind for MI_Sint64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint64Field {
     pub value: i64,
     pub exists: u8,
@@ -11380,7 +11380,7 @@ impl windows_core::TypeKind for MI_Sint64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint8A {
     pub data: *mut i8,
     pub size: u32,
@@ -11394,7 +11394,7 @@ impl windows_core::TypeKind for MI_Sint8A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint8AField {
     pub value: MI_Sint8A,
     pub exists: u8,
@@ -11409,7 +11409,7 @@ impl windows_core::TypeKind for MI_Sint8AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Sint8Field {
     pub value: i8,
     pub exists: u8,
@@ -11424,7 +11424,7 @@ impl windows_core::TypeKind for MI_Sint8Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_StringA {
     pub data: *mut *mut u16,
     pub size: u32,
@@ -11438,7 +11438,7 @@ impl windows_core::TypeKind for MI_StringA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_StringAField {
     pub value: MI_StringA,
     pub exists: u8,
@@ -11453,7 +11453,7 @@ impl windows_core::TypeKind for MI_StringAField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_StringField {
     pub value: *mut u16,
     pub exists: u8,
@@ -11468,7 +11468,7 @@ impl windows_core::TypeKind for MI_StringField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptions {
     pub reserved1: u64,
     pub reserved2: isize,
@@ -11483,7 +11483,7 @@ impl windows_core::TypeKind for MI_SubscriptionDeliveryOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_SubscriptionDeliveryOptionsFT {
     pub SetString: isize,
     pub SetNumber: isize,
@@ -11512,7 +11512,7 @@ impl windows_core::TypeKind for MI_SubscriptionDeliveryOptionsFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Timestamp {
     pub year: u32,
     pub month: u32,
@@ -11532,7 +11532,7 @@ impl windows_core::TypeKind for MI_Timestamp {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint16A {
     pub data: *mut u16,
     pub size: u32,
@@ -11546,7 +11546,7 @@ impl windows_core::TypeKind for MI_Uint16A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint16AField {
     pub value: MI_Uint16A,
     pub exists: u8,
@@ -11561,7 +11561,7 @@ impl windows_core::TypeKind for MI_Uint16AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint16Field {
     pub value: u16,
     pub exists: u8,
@@ -11576,7 +11576,7 @@ impl windows_core::TypeKind for MI_Uint16Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint32A {
     pub data: *mut u32,
     pub size: u32,
@@ -11590,7 +11590,7 @@ impl windows_core::TypeKind for MI_Uint32A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint32AField {
     pub value: MI_Uint32A,
     pub exists: u8,
@@ -11605,7 +11605,7 @@ impl windows_core::TypeKind for MI_Uint32AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint32Field {
     pub value: u32,
     pub exists: u8,
@@ -11620,7 +11620,7 @@ impl windows_core::TypeKind for MI_Uint32Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint64A {
     pub data: *mut u64,
     pub size: u32,
@@ -11634,7 +11634,7 @@ impl windows_core::TypeKind for MI_Uint64A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint64AField {
     pub value: MI_Uint64A,
     pub exists: u8,
@@ -11649,7 +11649,7 @@ impl windows_core::TypeKind for MI_Uint64AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint64Field {
     pub value: u64,
     pub exists: u8,
@@ -11664,7 +11664,7 @@ impl windows_core::TypeKind for MI_Uint64Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint8A {
     pub data: *mut u8,
     pub size: u32,
@@ -11678,7 +11678,7 @@ impl windows_core::TypeKind for MI_Uint8A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint8AField {
     pub value: MI_Uint8A,
     pub exists: u8,
@@ -11693,7 +11693,7 @@ impl windows_core::TypeKind for MI_Uint8AField {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_Uint8Field {
     pub value: u8,
     pub exists: u8,
@@ -11708,7 +11708,7 @@ impl windows_core::TypeKind for MI_Uint8Field {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MI_UserCredentials {
     pub authenticationType: *const u16,
     pub credentials: MI_UserCredentials_0,
@@ -11722,7 +11722,7 @@ impl windows_core::TypeKind for MI_UserCredentials {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MI_UserCredentials_0 {
     pub usernamePassword: MI_UsernamePasswordCreds,
     pub certificateThumbprint: *const u16,
@@ -11736,7 +11736,7 @@ impl windows_core::TypeKind for MI_UserCredentials_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_UsernamePasswordCreds {
     pub domain: *const u16,
     pub username: *const u16,
@@ -11751,7 +11751,7 @@ impl windows_core::TypeKind for MI_UsernamePasswordCreds {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MI_UtilitiesFT {
     pub MapErrorToMiErrorCategory: isize,
     pub CimErrorFromErrorCode: isize,
@@ -11765,7 +11765,7 @@ impl windows_core::TypeKind for MI_UtilitiesFT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MI_Value {
     pub boolean: u8,
     pub uint8: u8,
@@ -11811,7 +11811,7 @@ impl windows_core::TypeKind for MI_Value {
 }
 pub const MofCompiler: windows_core::GUID = windows_core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -11830,7 +11830,7 @@ impl windows_core::TypeKind for SWbemAnalysisMatrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -11888,7 +11888,7 @@ pub const SWbemPropertySet: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const SWbemQualifier: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
 pub const SWbemQualifierSet: windows_core::GUID = windows_core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -11909,7 +11909,7 @@ impl windows_core::TypeKind for SWbemQueryQualifiedName {
 pub const SWbemRefreshableItem: windows_core::GUID = windows_core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
 pub const SWbemRefresher: windows_core::GUID = windows_core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SWbemRpnConst {
     pub m_pszStrVal: windows_core::PCWSTR,
     pub m_bBoolVal: super::super::Foundation::BOOL,
@@ -11928,7 +11928,7 @@ impl windows_core::TypeKind for SWbemRpnConst {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemRpnEncodedQuery {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -11958,7 +11958,7 @@ impl windows_core::TypeKind for SWbemRpnEncodedQuery {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SWbemRpnQueryToken {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -11982,7 +11982,7 @@ impl windows_core::TypeKind for SWbemRpnQueryToken {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -12002,7 +12002,7 @@ pub const SWbemServicesEx: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const SWbemSink: windows_core::GUID = windows_core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
 pub const UnsecuredApartment: windows_core::GUID = windows_core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_core::HRESULT,

@@ -148,7 +148,7 @@ pub struct IMachineProvisioningProgressReporterStatics_Vtbl {
     pub GetForLaunchUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AgentProvisioningProgressReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AgentProvisioningProgressReport, windows_core::IUnknown, windows_core::IInspectable);
 impl AgentProvisioningProgressReport {
@@ -245,7 +245,7 @@ impl windows_core::RuntimeName for AgentProvisioningProgressReport {
     const NAME: &'static str = "Windows.Management.Setup.AgentProvisioningProgressReport";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentSessionConnectionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentSessionConnectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentSessionConnectionChangedEventArgs {
@@ -275,7 +275,7 @@ impl windows_core::RuntimeName for DeploymentSessionConnectionChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Setup.DeploymentSessionConnectionChangedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentSessionHeartbeatRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentSessionHeartbeatRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentSessionHeartbeatRequestedEventArgs {
@@ -302,7 +302,7 @@ impl windows_core::RuntimeName for DeploymentSessionHeartbeatRequestedEventArgs 
     const NAME: &'static str = "Windows.Management.Setup.DeploymentSessionHeartbeatRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentSessionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentSessionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentSessionStateChangedEventArgs {
@@ -332,7 +332,7 @@ impl windows_core::RuntimeName for DeploymentSessionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Setup.DeploymentSessionStateChangedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentWorkload(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentWorkload, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentWorkload {
@@ -470,7 +470,7 @@ impl windows_core::RuntimeName for DeploymentWorkload {
     const NAME: &'static str = "Windows.Management.Setup.DeploymentWorkload";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeploymentWorkloadBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeploymentWorkloadBatch, windows_core::IUnknown, windows_core::IInspectable);
 impl DeploymentWorkloadBatch {
@@ -522,7 +522,7 @@ impl windows_core::RuntimeName for DeploymentWorkloadBatch {
     const NAME: &'static str = "Windows.Management.Setup.DeploymentWorkloadBatch";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePreparationExecutionContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePreparationExecutionContext, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePreparationExecutionContext {
@@ -545,7 +545,7 @@ impl windows_core::RuntimeName for DevicePreparationExecutionContext {
     const NAME: &'static str = "Windows.Management.Setup.DevicePreparationExecutionContext";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MachineProvisioningProgressReporter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MachineProvisioningProgressReporter, windows_core::IUnknown, windows_core::IInspectable);
 impl MachineProvisioningProgressReporter {
@@ -698,7 +698,7 @@ impl<F: FnMut(Option<&DeploymentSessionHeartbeatRequestedEventArgs>) -> windows_
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentAgentProgressState(pub i32);
 impl DeploymentAgentProgressState {
     pub const NotStarted: Self = Self(0i32);
@@ -716,7 +716,7 @@ impl windows_core::RuntimeType for DeploymentAgentProgressState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentAgentProgressState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentSessionConnectionChange(pub i32);
 impl DeploymentSessionConnectionChange {
     pub const NoChange: Self = Self(0i32);
@@ -734,7 +734,7 @@ impl windows_core::RuntimeType for DeploymentSessionConnectionChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentSessionConnectionChange;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentSessionStateChange(pub i32);
 impl DeploymentSessionStateChange {
     pub const NoChange: Self = Self(0i32);
@@ -748,7 +748,7 @@ impl windows_core::RuntimeType for DeploymentSessionStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Setup.DeploymentSessionStateChange;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentWorkloadState(pub i32);
 impl DeploymentWorkloadState {
     pub const NotStarted: Self = Self(0i32);

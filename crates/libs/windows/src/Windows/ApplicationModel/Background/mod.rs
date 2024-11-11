@@ -1858,7 +1858,7 @@ pub struct IUserNotificationChangedTriggerFactory_Vtbl {
     Create: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivitySensorTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivitySensorTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorTrigger, IBackgroundTrigger);
@@ -1939,7 +1939,7 @@ impl windows_core::RuntimeName for AlarmApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AlarmApplicationManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppBroadcastTrigger, IBackgroundTrigger);
@@ -1982,7 +1982,7 @@ impl windows_core::RuntimeName for AppBroadcastTrigger {
 unsafe impl Send for AppBroadcastTrigger {}
 unsafe impl Sync for AppBroadcastTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastTriggerProviderInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastTriggerProviderInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastTriggerProviderInfo {
@@ -2066,7 +2066,7 @@ impl windows_core::RuntimeName for AppBroadcastTriggerProviderInfo {
 unsafe impl Send for AppBroadcastTriggerProviderInfo {}
 unsafe impl Sync for AppBroadcastTriggerProviderInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationTrigger, IBackgroundTrigger);
@@ -2110,7 +2110,7 @@ impl windows_core::RuntimeName for ApplicationTrigger {
 unsafe impl Send for ApplicationTrigger {}
 unsafe impl Sync for ApplicationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationTriggerDetails {
@@ -2136,7 +2136,7 @@ impl windows_core::RuntimeName for ApplicationTriggerDetails {
 unsafe impl Send for ApplicationTriggerDetails {}
 unsafe impl Sync for ApplicationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppointmentStoreNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreNotificationTrigger, IBackgroundTrigger);
@@ -2234,7 +2234,7 @@ impl windows_core::RuntimeName for BackgroundExecutionManager {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundExecutionManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskBuilder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskBuilder, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTaskBuilder {
@@ -2375,7 +2375,7 @@ impl windows_core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTaskCompletedEventArgs {
@@ -2404,7 +2404,7 @@ impl windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
 unsafe impl Send for BackgroundTaskCompletedEventArgs {}
 unsafe impl Sync for BackgroundTaskCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTaskDeferral {
@@ -2426,7 +2426,7 @@ impl windows_core::RuntimeName for BackgroundTaskDeferral {
 unsafe impl Send for BackgroundTaskDeferral {}
 unsafe impl Sync for BackgroundTaskDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskProgressEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskProgressEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTaskProgressEventArgs {
@@ -2458,7 +2458,7 @@ impl windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
 unsafe impl Send for BackgroundTaskProgressEventArgs {}
 unsafe impl Sync for BackgroundTaskProgressEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskRegistration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskRegistration, IBackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3);
@@ -2579,7 +2579,7 @@ impl windows_core::RuntimeName for BackgroundTaskRegistration {
 unsafe impl Send for BackgroundTaskRegistration {}
 unsafe impl Sync for BackgroundTaskRegistration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackgroundTaskRegistrationGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundTaskRegistrationGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundTaskRegistrationGroup {
@@ -2688,7 +2688,7 @@ impl windows_core::RuntimeName for BackgroundWorkCost {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundWorkCost";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, IBackgroundTrigger);
@@ -2769,7 +2769,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
 unsafe impl Send for BluetoothLEAdvertisementPublisherTrigger {}
 unsafe impl Sync for BluetoothLEAdvertisementPublisherTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, IBackgroundTrigger);
@@ -2866,7 +2866,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
 unsafe impl Send for BluetoothLEAdvertisementWatcherTrigger {}
 unsafe impl Sync for BluetoothLEAdvertisementWatcherTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CachedFileUpdaterTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterTrigger, IBackgroundTrigger);
@@ -2892,7 +2892,7 @@ impl windows_core::RuntimeName for CachedFileUpdaterTrigger {
 unsafe impl Send for CachedFileUpdaterTrigger {}
 unsafe impl Sync for CachedFileUpdaterTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CachedFileUpdaterTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl CachedFileUpdaterTriggerDetails {
@@ -2933,7 +2933,7 @@ impl windows_core::RuntimeName for CachedFileUpdaterTriggerDetails {
 unsafe impl Send for CachedFileUpdaterTriggerDetails {}
 unsafe impl Sync for CachedFileUpdaterTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ChatMessageNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageNotificationTrigger, IBackgroundTrigger);
@@ -2959,7 +2959,7 @@ impl windows_core::RuntimeName for ChatMessageNotificationTrigger {
 unsafe impl Send for ChatMessageNotificationTrigger {}
 unsafe impl Sync for ChatMessageNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ChatMessageReceivedNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageReceivedNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageReceivedNotificationTrigger, IBackgroundTrigger);
@@ -2985,7 +2985,7 @@ impl windows_core::RuntimeName for ChatMessageReceivedNotificationTrigger {
 unsafe impl Send for ChatMessageReceivedNotificationTrigger {}
 unsafe impl Sync for ChatMessageReceivedNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, IBackgroundTrigger);
@@ -3011,7 +3011,7 @@ impl windows_core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
 unsafe impl Send for CommunicationBlockingAppSetAsActiveTrigger {}
 unsafe impl Sync for CommunicationBlockingAppSetAsActiveTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContactStoreNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactStoreNotificationTrigger, IBackgroundTrigger);
@@ -3037,7 +3037,7 @@ impl windows_core::RuntimeName for ContactStoreNotificationTrigger {
 unsafe impl Send for ContactStoreNotificationTrigger {}
 unsafe impl Sync for ContactStoreNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentPrefetchTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContentPrefetchTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentPrefetchTrigger, IBackgroundTrigger);
@@ -3078,7 +3078,7 @@ impl windows_core::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConversationalAgentTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversationalAgentTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentTrigger, IBackgroundTrigger);
@@ -3102,7 +3102,7 @@ impl windows_core::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CustomSystemEventTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSystemEventTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CustomSystemEventTrigger, IBackgroundTrigger);
@@ -3143,7 +3143,7 @@ impl windows_core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceConnectionChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceConnectionChangeTrigger, IBackgroundTrigger);
@@ -3198,7 +3198,7 @@ unsafe impl Send for DeviceConnectionChangeTrigger {}
 unsafe impl Sync for DeviceConnectionChangeTrigger {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceManufacturerNotificationTrigger(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
@@ -3248,7 +3248,7 @@ impl windows_core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceServicingTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceServicingTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceServicingTrigger, IBackgroundTrigger);
@@ -3288,7 +3288,7 @@ impl windows_core::RuntimeName for DeviceServicingTrigger {
 unsafe impl Send for DeviceServicingTrigger {}
 unsafe impl Sync for DeviceServicingTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceUseTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceUseTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceUseTrigger, IBackgroundTrigger);
@@ -3328,7 +3328,7 @@ impl windows_core::RuntimeName for DeviceUseTrigger {
 unsafe impl Send for DeviceUseTrigger {}
 unsafe impl Sync for DeviceUseTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeviceWatcherTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceWatcherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceWatcherTrigger, IBackgroundTrigger);
@@ -3344,7 +3344,7 @@ impl windows_core::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EmailStoreNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailStoreNotificationTrigger, IBackgroundTrigger);
@@ -3370,7 +3370,7 @@ impl windows_core::RuntimeName for EmailStoreNotificationTrigger {
 unsafe impl Send for EmailStoreNotificationTrigger {}
 unsafe impl Sync for EmailStoreNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattCharacteristicNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattCharacteristicNotificationTrigger, IBackgroundTrigger);
@@ -3433,7 +3433,7 @@ impl windows_core::RuntimeName for GattCharacteristicNotificationTrigger {
 unsafe impl Send for GattCharacteristicNotificationTrigger {}
 unsafe impl Sync for GattCharacteristicNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderTrigger, IBackgroundTrigger);
@@ -3493,7 +3493,7 @@ impl windows_core::RuntimeName for GattServiceProviderTrigger {
 unsafe impl Send for GattServiceProviderTrigger {}
 unsafe impl Sync for GattServiceProviderTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderTriggerResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderTriggerResult {
@@ -3526,7 +3526,7 @@ impl windows_core::RuntimeName for GattServiceProviderTriggerResult {
 unsafe impl Send for GattServiceProviderTriggerResult {}
 unsafe impl Sync for GattServiceProviderTriggerResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeovisitTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeovisitTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeovisitTrigger, IBackgroundTrigger);
@@ -3565,7 +3565,7 @@ impl windows_core::RuntimeName for GeovisitTrigger {
 unsafe impl Send for GeovisitTrigger {}
 unsafe impl Sync for GeovisitTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocationTrigger, IBackgroundTrigger);
@@ -3601,7 +3601,7 @@ impl windows_core::RuntimeName for LocationTrigger {
 unsafe impl Send for LocationTrigger {}
 unsafe impl Sync for LocationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MaintenanceTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MaintenanceTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MaintenanceTrigger, IBackgroundTrigger);
@@ -3642,7 +3642,7 @@ impl windows_core::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaProcessingTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaProcessingTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProcessingTrigger, IBackgroundTrigger);
@@ -3684,7 +3684,7 @@ impl windows_core::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, IBackgroundTrigger);
@@ -3710,7 +3710,7 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigg
 unsafe impl Send for MobileBroadbandDeviceServiceNotificationTrigger {}
 unsafe impl Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPcoDataChangeTrigger, IBackgroundTrigger);
@@ -3736,7 +3736,7 @@ impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
 unsafe impl Send for MobileBroadbandPcoDataChangeTrigger {}
 unsafe impl Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, IBackgroundTrigger);
@@ -3762,7 +3762,7 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
 unsafe impl Send for MobileBroadbandPinLockStateChangeTrigger {}
 unsafe impl Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRadioStateChangeTrigger, IBackgroundTrigger);
@@ -3788,7 +3788,7 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
 unsafe impl Send for MobileBroadbandRadioStateChangeTrigger {}
 unsafe impl Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, IBackgroundTrigger);
@@ -3814,7 +3814,7 @@ impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger
 unsafe impl Send for MobileBroadbandRegistrationStateChangeTrigger {}
 unsafe impl Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorDataUsageTrigger, IBackgroundTrigger);
@@ -3840,7 +3840,7 @@ impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
 unsafe impl Send for NetworkOperatorDataUsageTrigger {}
 unsafe impl Sync for NetworkOperatorDataUsageTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, IBackgroundTrigger);
@@ -3864,7 +3864,7 @@ impl windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkOperatorNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorNotificationTrigger, IBackgroundTrigger);
@@ -3898,7 +3898,7 @@ impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PaymentAppCanMakePaymentTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentAppCanMakePaymentTrigger, IBackgroundTrigger);
@@ -3924,7 +3924,7 @@ impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
 unsafe impl Send for PaymentAppCanMakePaymentTrigger {}
 unsafe impl Sync for PaymentAppCanMakePaymentTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhoneTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneTrigger, IBackgroundTrigger);
@@ -3969,7 +3969,7 @@ impl windows_core::RuntimeName for PhoneTrigger {
 unsafe impl Send for PhoneTrigger {}
 unsafe impl Sync for PhoneTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PushNotificationTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationTrigger, IBackgroundTrigger);
@@ -4005,7 +4005,7 @@ impl windows_core::RuntimeName for PushNotificationTrigger {
 unsafe impl Send for PushNotificationTrigger {}
 unsafe impl Sync for PushNotificationTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RcsEndUserMessageAvailableTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableTrigger, IBackgroundTrigger);
@@ -4031,7 +4031,7 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
 unsafe impl Send for RcsEndUserMessageAvailableTrigger {}
 unsafe impl Sync for RcsEndUserMessageAvailableTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommConnectionTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommConnectionTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommConnectionTrigger, IBackgroundTrigger);
@@ -4114,7 +4114,7 @@ unsafe impl Send for RfcommConnectionTrigger {}
 unsafe impl Sync for RfcommConnectionTrigger {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
@@ -4144,7 +4144,7 @@ impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTr
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SensorDataThresholdTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
@@ -4177,7 +4177,7 @@ impl windows_core::RuntimeName for SensorDataThresholdTrigger {
 unsafe impl Send for SensorDataThresholdTrigger {}
 unsafe impl Sync for SensorDataThresholdTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmartCardTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmartCardTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardTrigger, IBackgroundTrigger);
@@ -4213,7 +4213,7 @@ impl windows_core::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsMessageReceivedTrigger, IBackgroundTrigger);
@@ -4246,7 +4246,7 @@ impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
 unsafe impl Send for SmsMessageReceivedTrigger {}
 unsafe impl Sync for SmsMessageReceivedTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SocketActivityTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SocketActivityTrigger, IBackgroundTrigger);
@@ -4279,7 +4279,7 @@ impl windows_core::RuntimeName for SocketActivityTrigger {
 unsafe impl Send for SocketActivityTrigger {}
 unsafe impl Sync for SocketActivityTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTrigger, IBackgroundTrigger);
@@ -4312,7 +4312,7 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
 unsafe impl Send for StorageLibraryChangeTrackerTrigger {}
 unsafe impl Sync for StorageLibraryChangeTrackerTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageLibraryContentChangedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
@@ -4353,7 +4353,7 @@ impl windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemCondition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCondition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemCondition, IBackgroundCondition);
@@ -4387,7 +4387,7 @@ impl windows_core::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemTrigger, IBackgroundTrigger);
@@ -4428,7 +4428,7 @@ impl windows_core::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TetheringEntitlementCheckTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TetheringEntitlementCheckTrigger, IBackgroundTrigger);
@@ -4454,7 +4454,7 @@ impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
 unsafe impl Send for TetheringEntitlementCheckTrigger {}
 unsafe impl Sync for TetheringEntitlementCheckTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimeTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TimeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TimeTrigger, IBackgroundTrigger);
@@ -4495,7 +4495,7 @@ impl windows_core::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ToastNotificationActionTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationActionTrigger, IBackgroundTrigger);
@@ -4531,7 +4531,7 @@ impl windows_core::RuntimeName for ToastNotificationActionTrigger {
 unsafe impl Send for ToastNotificationActionTrigger {}
 unsafe impl Sync for ToastNotificationActionTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationHistoryChangedTrigger, IBackgroundTrigger);
@@ -4567,7 +4567,7 @@ impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
 unsafe impl Send for ToastNotificationHistoryChangedTrigger {}
 unsafe impl Sync for ToastNotificationHistoryChangedTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserNotificationChangedTrigger, IBackgroundTrigger);
@@ -4597,7 +4597,7 @@ impl windows_core::RuntimeName for UserNotificationChangedTrigger {
 unsafe impl Send for UserNotificationChangedTrigger {}
 unsafe impl Sync for UserNotificationChangedTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotConnectTrigger, IBackgroundTrigger);
@@ -4623,7 +4623,7 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
 unsafe impl Send for WiFiOnDemandHotspotConnectTrigger {}
 unsafe impl Sync for WiFiOnDemandHotspotConnectTrigger {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, IBackgroundTrigger);
@@ -4831,7 +4831,7 @@ impl<F: FnMut(Option<&BackgroundTaskRegistration>, Option<&BackgroundTaskProgres
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -4846,7 +4846,7 @@ impl windows_core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -4861,7 +4861,7 @@ impl windows_core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -4874,7 +4874,7 @@ impl windows_core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -4893,7 +4893,7 @@ impl windows_core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
     pub const Abort: Self = Self(0i32);
@@ -4916,7 +4916,7 @@ impl windows_core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
     pub const All: Self = Self(0i32);
@@ -4930,7 +4930,7 @@ impl windows_core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
     pub const Low: Self = Self(0i32);
@@ -4944,7 +4944,7 @@ impl windows_core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
     pub const Once: Self = Self(0i32);
@@ -4957,7 +4957,7 @@ impl windows_core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -4972,7 +4972,7 @@ impl windows_core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnergyUseLevel(pub i32);
 impl EnergyUseLevel {
     pub const Unknown: Self = Self(0i32);
@@ -4987,7 +4987,7 @@ impl windows_core::RuntimeType for EnergyUseLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.EnergyUseLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
     pub const Geofence: Self = Self(0i32);
@@ -4999,7 +4999,7 @@ impl windows_core::RuntimeType for LocationTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -5014,7 +5014,7 @@ impl windows_core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
     pub const Invalid: Self = Self(0i32);
@@ -5034,7 +5034,7 @@ impl windows_core::RuntimeType for SystemConditionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
     pub const Invalid: Self = Self(0i32);

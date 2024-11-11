@@ -6491,73 +6491,73 @@ pub const msoslMedium: u32 = 2u32;
 pub const msoslNone: u32 = 1u32;
 pub const msoslUndefined: u32 = 0u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDURL_FLAG(pub i32);
 impl windows_core::TypeKind for ADDURL_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtensionValidationContexts(pub i32);
 impl windows_core::TypeKind for ExtensionValidationContexts {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ExtensionValidationResults(pub i32);
 impl windows_core::TypeKind for ExtensionValidationResults {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FINDFRAME_FLAGS(pub i32);
 impl windows_core::TypeKind for FINDFRAME_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMEOPTIONS_FLAGS(pub i32);
 impl windows_core::TypeKind for FRAMEOPTIONS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IELAUNCHOPTION_FLAGS(pub i32);
 impl windows_core::TypeKind for IELAUNCHOPTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
 impl windows_core::TypeKind for INTERNETEXPLORERCONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_ACTIVITY_NOTIFY_TYPE(pub i32);
 impl windows_core::TypeKind for MEDIA_ACTIVITY_NOTIFY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVIGATEFRAME_FLAGS(pub i32);
 impl windows_core::TypeKind for NAVIGATEFRAME_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OpenServiceActivityContentType(pub i32);
 impl windows_core::TypeKind for OpenServiceActivityContentType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OpenServiceErrors(pub i32);
 impl windows_core::TypeKind for OpenServiceErrors {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
 impl windows_core::TypeKind for SCROLLABLECONTEXTMENU_PLACEMENT {
     type TypeKind = windows_core::CopyType;
@@ -6578,7 +6578,7 @@ pub const CoSniffStream: windows_core::GUID = windows_core::GUID::from_u128(0x6a
 pub const HomePage: windows_core::GUID = windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
 pub const HomePageSetting: windows_core::GUID = windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
     pub dwCreationFlags: u32,
@@ -6596,7 +6596,7 @@ pub const IEWebDriverManager: windows_core::GUID = windows_core::GUID::from_u128
 pub const IntelliForms: windows_core::GUID = windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
 pub const InternetExplorerManager: windows_core::GUID = windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NAVIGATEDATA {
     pub ulTarget: u32,
     pub ulURL: u32,
@@ -6616,7 +6616,7 @@ pub const OpenServiceActivityManager: windows_core::GUID = windows_core::GUID::f
 pub const OpenServiceManager: windows_core::GUID = windows_core::GUID::from_u128(0x098870b6_39ea_480b_b8b5_dd0167c4db59);
 pub const PeerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x3050f4cf_98b5_11cf_bb82_00aa00bdce0b);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATURL {
     pub cbSize: u32,
     pub pwcsUrl: windows_core::PWSTR,

@@ -23,7 +23,7 @@ pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     CreateForVisualWithViewportClip: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PalmRejectionDelayZonePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PalmRejectionDelayZonePreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PalmRejectionDelayZonePreview, super::super::super::super::Foundation::IClosable);

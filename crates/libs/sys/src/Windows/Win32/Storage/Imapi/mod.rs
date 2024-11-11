@@ -649,7 +649,7 @@ pub const FsiFileItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u
 pub const FsiNamedStreams: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
 pub const FsiStream: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: windows_sys::core::GUID,
 }
@@ -677,14 +677,14 @@ pub const MsftWriteSpeedDescriptor: windows_sys::core::GUID = windows_sys::core:
 pub const ProgressItem: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
 pub const ProgressItems: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
 }
 pub const tagIMMPID_CPV_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const windows_sys::core::GUID,
     pub dwStart: u32,

@@ -4893,14 +4893,14 @@ pub type _SVSIF = i32;
 pub type _TRANSFER_ADVISE_STATE = i32;
 pub type _TRANSFER_SOURCE_FLAGS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AASHELLMENUFILENAME {
     pub cbTotal: i16,
     pub rgbReserved: [u8; 12],
     pub szFileName: [u16; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
@@ -4910,7 +4910,7 @@ pub struct AASHELLMENUITEM {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -4921,7 +4921,7 @@ pub struct APPBARDATA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -4931,20 +4931,20 @@ pub struct APPBARDATA {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APPCATEGORYINFO {
     pub Locale: u32,
     pub pszDescription: windows_sys::core::PWSTR,
     pub AppCategoryId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APPCATEGORYINFOLIST {
     pub cCategory: u32,
     pub pCategoryInfo: *mut APPCATEGORYINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct APPINFODATA {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -4970,7 +4970,7 @@ pub struct APPINFODATA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
@@ -4979,14 +4979,14 @@ pub struct ASSOCIATIONELEMENT {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::super::System::Registry::HKEY,
     pub pszClass: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
     pub dwLastScroll: u32,
@@ -5008,7 +5008,7 @@ pub const ApplicationDocumentLists: windows_sys::core::GUID = windows_sys::core:
 pub const AttachmentServices: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
@@ -5022,14 +5022,14 @@ pub struct BANDINFOSFB {
     pub pidl: *mut Common::ITEMIDLIST,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BANDSITEINFO {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
     pub providerIdentity: windows_sys::core::PCWSTR,
@@ -5037,7 +5037,7 @@ pub struct BANNER_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: *mut core::ffi::c_void,
@@ -5069,7 +5069,7 @@ pub struct BASEBROWSERDATALH {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
     pub _ptl: *mut core::ffi::c_void,
@@ -5100,7 +5100,7 @@ pub struct BASEBROWSERDATAXP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -5113,7 +5113,7 @@ pub struct BROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::super::Foundation::HWND,
     pub pidlRoot: *mut Common::ITEMIDLIST,
@@ -5125,7 +5125,7 @@ pub struct BROWSEINFOW {
     pub iImage: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CABINETSTATE {
     pub cLength: u16,
     pub nVersion: u16,
@@ -5133,20 +5133,20 @@ pub struct CABINETSTATE {
     pub fMenuEnumFilter: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
     pub wszName: [u16; 260],
 }
 pub const CDBurn: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CIDA {
     pub cidl: u32,
     pub aoffset: [u32; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5159,7 +5159,7 @@ pub struct CMINVOKECOMMANDINFO {
     pub hIcon: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5178,7 +5178,7 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub ptInvoke: super::super::Foundation::POINT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5198,7 +5198,7 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub lpVerbWInt: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_COLUMNINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -5209,7 +5209,7 @@ pub struct CM_COLUMNINFO {
     pub wszName: [u16; 80],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONFIRM_CONFLICT_ITEM {
     pub pShellItem: *mut core::ffi::c_void,
     pub pszOriginalName: windows_sys::core::PWSTR,
@@ -5219,13 +5219,13 @@ pub struct CONFIRM_CONFLICT_ITEM {
     pub nType: SYNCMGR_CONFLICT_ITEM_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONFIRM_CONFLICT_RESULT_INFO {
     pub pszNewName: windows_sys::core::PWSTR,
     pub iItemIndex: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CPLINFO {
     pub idIcon: i32,
     pub idName: i32,
@@ -5233,7 +5233,7 @@ pub struct CPLINFO {
     pub lData: isize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: u32,
     pub clsidCredentialProvider: windows_sys::core::GUID,
@@ -5241,7 +5241,7 @@ pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub rgbSerialization: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     pub dwFieldID: u32,
     pub cpft: CREDENTIAL_PROVIDER_FIELD_TYPE,
@@ -5250,7 +5250,7 @@ pub struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CSFV {
     pub cbSize: u32,
     pub pshf: *mut core::ffi::c_void,
@@ -5263,14 +5263,14 @@ pub struct CSFV {
 pub const CScriptErrorList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xefd01300_160f_11d2_bb2e_00805ff7efca);
 pub const ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
     pub dwSignature: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
     pub pcmcb: *mut core::ffi::c_void,
@@ -5283,7 +5283,7 @@ pub struct DEFCONTEXTMENU {
     pub aKeys: *const super::super::System::Registry::HKEY,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DELEGATEITEMID {
     pub cbSize: u16,
     pub wOuter: u16,
@@ -5291,7 +5291,7 @@ pub struct DELEGATEITEMID {
     pub rgb: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DESKBANDINFO {
     pub dwMask: u32,
     pub ptMinSize: super::super::Foundation::POINTL,
@@ -5304,7 +5304,7 @@ pub struct DESKBANDINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DETAILSINFO {
     pub pidl: *mut Common::ITEMIDLIST,
     pub fmt: i32,
@@ -5313,7 +5313,7 @@ pub struct DETAILSINFO {
     pub iImage: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DFMICS {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5324,7 +5324,7 @@ pub struct DFMICS {
     pub punkSite: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DLLVERSIONINFO {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -5333,7 +5333,7 @@ pub struct DLLVERSIONINFO {
     pub dwPlatformID: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DLLVERSIONINFO2 {
     pub info1: DLLVERSIONINFO,
     pub dwFlags: u32,
@@ -5341,7 +5341,7 @@ pub struct DLLVERSIONINFO2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5351,7 +5351,7 @@ pub struct DRAGINFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5361,7 +5361,7 @@ pub struct DRAGINFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5371,7 +5371,7 @@ pub struct DRAGINFOW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5380,14 +5380,14 @@ pub struct DRAGINFOW {
     pub grfKeyState: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DROPDESCRIPTION {
     pub r#type: DROPIMAGETYPE,
     pub szMessage: [u16; 260],
     pub szInsert: [u16; 260],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DROPFILES {
     pub pFiles: u32,
     pub pt: super::super::Foundation::POINT,
@@ -5402,21 +5402,21 @@ pub const DocPropShellExtension: windows_sys::core::GUID = windows_sys::core::GU
 pub const DriveSizeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
 pub const DriveTypeCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
     pub szDarwinID: [i8; 260],
     pub szwDarwinID: [u16; 260],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EXP_PROPERTYSTORAGE {
     pub cbSize: u32,
     pub dwSignature: u32,
     pub abPropertyStorage: [u8; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EXP_SPECIAL_FOLDER {
     pub cbSize: u32,
     pub dwSignature: u32,
@@ -5424,7 +5424,7 @@ pub struct EXP_SPECIAL_FOLDER {
     pub cbOffset: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EXP_SZ_LINK {
     pub cbSize: u32,
     pub dwSignature: u32,
@@ -5432,7 +5432,7 @@ pub struct EXP_SZ_LINK {
     pub swzTarget: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct EXTRASEARCH {
     pub guidSearch: windows_sys::core::GUID,
     pub wszFriendlyName: [u16; 80],
@@ -5443,7 +5443,7 @@ pub const ExecuteFolder: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const ExecuteUnknown: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe44e9428_bdbc_4987_a099_40dc8fd255e7);
 pub const ExplorerBrowser: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71f96385_ddd6_48d3_a0c1_ae06e8b055fb);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
     pub clsid: windows_sys::core::GUID,
@@ -5458,7 +5458,7 @@ pub struct FILEDESCRIPTORA {
     pub cFileName: [i8; 260],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
     pub clsid: windows_sys::core::GUID,
@@ -5473,19 +5473,19 @@ pub struct FILEDESCRIPTORW {
     pub cFileName: [u16; 260],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORA; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
     pub fgd: [FILEDESCRIPTORW; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTES_ARRAY {
     pub cItems: u32,
     pub dwSumFileAttributes: u32,
@@ -5493,14 +5493,14 @@ pub struct FILE_ATTRIBUTES_ARRAY {
     pub rgdwFileAttributes: [u32; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FOLDERSETDATA {
     pub _fs: FOLDERSETTINGS,
     pub _vidRestore: windows_sys::core::GUID,
     pub _dwViewPriority: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FOLDERSETTINGS {
     pub ViewMode: u32,
     pub fFlags: u32,
@@ -5516,7 +5516,7 @@ pub const FreeSpaceCategorizer: windows_sys::core::GUID = windows_sys::core::GUI
 pub const GenericCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x25cbb996_92ed_457e_b28c_4774084bd562);
 pub type HDROP = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HELPINFO {
     pub cbSize: u32,
     pub iContextType: HELP_INFO_TYPE,
@@ -5526,7 +5526,7 @@ pub struct HELPINFO {
     pub MousePos: super::super::Foundation::POINT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HELPWININFOA {
     pub wStructSize: i32,
     pub x: i32,
@@ -5537,7 +5537,7 @@ pub struct HELPWININFOA {
     pub rgchMember: [i8; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HELPWININFOW {
     pub wStructSize: i32,
     pub x: i32,
@@ -5548,7 +5548,7 @@ pub struct HELPWININFOW {
     pub rgchMember: [u16; 2],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HLBWINFO {
     pub cbSize: u32,
     pub grfHLBWIF: u32,
@@ -5557,13 +5557,13 @@ pub struct HLBWINFO {
     pub hltbinfo: HLTBINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HLITEM {
     pub uHLID: u32,
     pub pwzFriendlyName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::super::Foundation::RECT,
@@ -5573,7 +5573,7 @@ pub const HideInputPaneAnimationCoordinator: windows_sys::core::GUID = windows_s
 pub const HomeGroup: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 pub const IENamespaceTreeControl: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xace52d03_e5cd_4b20_82ff_e71b11beae1d);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
     pub cySmall: i32,
@@ -5588,7 +5588,7 @@ pub const InternetExplorer: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const InternetExplorerMedium: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd5e8041d_920f_45e9_b8fb_b1deb82c6e5e);
 pub const InternetPrintOrdering: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
     pub pszName: windows_sys::core::PWSTR,
@@ -5607,14 +5607,14 @@ pub struct KNOWNFOLDER_DEFINITION {
 pub const KnownFolderManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4df0c730_df9d_4ae3_9153_aa6b82e9795a);
 pub const LocalThumbnailCache: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x50ef4544_ac9f_4a8e_b21b_8a26180db13f);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MULTIKEYHELPA {
     pub mkSize: u32,
     pub mkKeylist: i8,
     pub szKeyphrase: [i8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MULTIKEYHELPW {
     pub mkSize: u32,
     pub mkKeylist: u16,
@@ -5624,7 +5624,7 @@ pub const MailRecipient: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const MergedCategorizer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut super::super::NetworkManagement::IpHelper::NET_ADDRESS_INFO,
     pub PortNumber: u16,
@@ -5632,7 +5632,7 @@ pub struct NC_ADDRESS {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NEWCPLINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5645,7 +5645,7 @@ pub struct NEWCPLINFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NEWCPLINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5659,7 +5659,7 @@ pub struct NEWCPLINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5680,7 +5680,7 @@ pub struct NOTIFYICONDATAA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
@@ -5688,7 +5688,7 @@ pub union NOTIFYICONDATAA_0 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAA {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5709,7 +5709,7 @@ pub struct NOTIFYICONDATAA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
@@ -5717,7 +5717,7 @@ pub union NOTIFYICONDATAA_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5738,7 +5738,7 @@ pub struct NOTIFYICONDATAW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
@@ -5746,7 +5746,7 @@ pub union NOTIFYICONDATAW_0 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5767,14 +5767,14 @@ pub struct NOTIFYICONDATAW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5783,7 +5783,7 @@ pub struct NOTIFYICONIDENTIFIER {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::super::Foundation::HWND,
@@ -5793,14 +5793,14 @@ pub struct NOTIFYICONIDENTIFIER {
 pub const NPCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3dd6bec0_8193_4ffe_ae25_e08e39ea4063);
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NRESARRAY {
     pub cItems: u32,
     pub nr: [super::super::NetworkManagement::WNet::NETRESOURCEA; 1],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: *mut core::ffi::c_void,
     pub uItemState: u32,
@@ -5813,7 +5813,7 @@ pub struct NSTCCUSTOMDRAW {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Console")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub wFillAttribute: u16,
@@ -5838,7 +5838,7 @@ pub struct NT_CONSOLE_PROPS {
     pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
     pub uCodePage: u32,
@@ -5849,7 +5849,7 @@ pub const NetworkConnections: windows_sys::core::GUID = windows_sys::core::GUID:
 pub const NetworkExplorerFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf02c1a0d_be21_4350_88b0_7367fc96ef3c);
 pub const NetworkPlaces: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x208d2c60_3aea_1069_a2d7_08002b30309d);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPENASINFO {
     pub pcszFile: windows_sys::core::PCWSTR,
     pub pcszClass: windows_sys::core::PCWSTR,
@@ -5857,7 +5857,7 @@ pub struct OPENASINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PSTR,
@@ -5867,7 +5867,7 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PSTR,
@@ -5877,7 +5877,7 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PWSTR,
@@ -5887,7 +5887,7 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_sys::core::PWSTR,
@@ -5901,7 +5901,7 @@ pub const OpenControlPanel: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub type PAPPCONSTRAIN_REGISTRATION = isize;
 pub type PAPPSTATE_REGISTRATION = isize;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PARSEDURLA {
     pub cbSize: u32,
     pub pszProtocol: windows_sys::core::PCSTR,
@@ -5911,7 +5911,7 @@ pub struct PARSEDURLA {
     pub nScheme: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PARSEDURLW {
     pub cbSize: u32,
     pub pszProtocol: windows_sys::core::PCWSTR,
@@ -5922,7 +5922,7 @@ pub struct PARSEDURLW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: *mut Common::ITEMIDLIST,
     pub szTargetParsingName: [u16; 260],
@@ -5933,13 +5933,13 @@ pub struct PERSIST_FOLDER_TARGET_INFO {
 pub const PINLogonCredentialProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcb82ea12_9f71_446d_89e1_8d0924e1256e);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::WindowsAndMessaging::HACCEL,
     pub cAccelEntries: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5951,7 +5951,7 @@ pub struct PROFILEINFOA {
     pub hProfile: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5963,7 +5963,7 @@ pub struct PROFILEINFOW {
     pub hProfile: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PUBAPPINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -5981,7 +5981,7 @@ pub const PublishDropTarget: windows_sys::core::GUID = windows_sys::core::GUID::
 pub const PublishingWizard: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6b33163c_76a5_4b6c_bf21_45de9cd503a1);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct QCMINFO {
     pub hmenu: super::WindowsAndMessaging::HMENU,
     pub indexMenu: u32,
@@ -5990,19 +5990,19 @@ pub struct QCMINFO {
     pub pIdMap: *const QCMINFO_IDMAP,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct QCMINFO_IDMAP {
     pub nMaxIds: u32,
     pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct QITAB {
     pub piid: *const windows_sys::core::GUID,
     pub dwOffset: u32,
@@ -6010,14 +6010,14 @@ pub struct QITAB {
 pub const QueryCancelAutoPlay: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x331f1768_05a9_4ddd_b86e_dae34ddc998a);
 pub const RASProvider: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5537e283_b1e7_4ef8_9c6e_7ab0afe5056d);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SFVM_HELPTOPIC_DATA {
     pub wszHelpFile: [u16; 260],
     pub wszHelpTopic: [u16; 260],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
     pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
@@ -6025,7 +6025,7 @@ pub struct SFVM_PROPPAGE_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: *mut core::ffi::c_void,
@@ -6034,32 +6034,32 @@ pub struct SFV_CREATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SFV_SETITEMPOS {
     pub pidl: *mut Common::ITEMIDLIST,
     pub pt: super::super::Foundation::POINT,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFO {
     pub psi: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: *mut Common::ITEMIDLIST,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: *mut core::ffi::c_void,
     pub pszAppID: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHCOLUMNDATA {
     pub dwFlags: u32,
     pub dwFileAttributes: u32,
@@ -6069,7 +6069,7 @@ pub struct SHCOLUMNDATA {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHCOLUMNINFO {
     pub scid: PropertiesSystem::PROPERTYKEY,
     pub vt: super::super::System::Variant::VARENUM,
@@ -6080,7 +6080,7 @@ pub struct SHCOLUMNINFO {
     pub wszDescription: [u16; 128],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHCOLUMNINIT {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -6089,7 +6089,7 @@ pub struct SHCOLUMNINIT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6108,7 +6108,7 @@ pub struct SHCREATEPROCESSINFOW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6125,7 +6125,7 @@ pub struct SHCREATEPROCESSINFOW {
     pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHChangeDWORDAsIDList {
     pub cb: u16,
     pub dwItem1: u32,
@@ -6134,20 +6134,20 @@ pub struct SHChangeDWORDAsIDList {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHChangeNotifyEntry {
     pub pidl: *mut Common::ITEMIDLIST,
     pub fRecursive: super::super::Foundation::BOOL,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHChangeProductKeyAsIDList {
     pub cb: u16,
     pub wszProductKey: [u16; 39],
     pub cbZero: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHChangeUpdateImageIDList {
     pub cb: u16,
     pub iIconIndex: i32,
@@ -6158,14 +6158,14 @@ pub struct SHChangeUpdateImageIDList {
     pub cbZero: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
     pub clsid: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::super::Foundation::SIZE,
     pub ptOffset: super::super::Foundation::POINT,
@@ -6175,7 +6175,7 @@ pub struct SHDRAGIMAGE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6196,7 +6196,7 @@ pub struct SHELLEXECUTEINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
@@ -6204,7 +6204,7 @@ pub union SHELLEXECUTEINFOA_0 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6225,7 +6225,7 @@ pub struct SHELLEXECUTEINFOA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
@@ -6233,7 +6233,7 @@ pub union SHELLEXECUTEINFOA_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6254,7 +6254,7 @@ pub struct SHELLEXECUTEINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
@@ -6262,7 +6262,7 @@ pub union SHELLEXECUTEINFOW_0 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLEXECUTEINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -6283,18 +6283,18 @@ pub struct SHELLEXECUTEINFOW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLFLAGSTATE {
     pub _bitfield: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLSTATEA {
     pub _bitfield1: i32,
     pub dwWin95Unused: u32,
@@ -6306,7 +6306,7 @@ pub struct SHELLSTATEA {
     pub _bitfield2: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLSTATEW {
     pub _bitfield1: i32,
     pub dwWin95Unused: u32,
@@ -6318,7 +6318,7 @@ pub struct SHELLSTATEW {
     pub _bitfield2: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELL_ITEM_RESOURCE {
     pub guidType: windows_sys::core::GUID,
     pub szName: [u16; 260],
@@ -6326,7 +6326,7 @@ pub struct SHELL_ITEM_RESOURCE {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
@@ -6337,7 +6337,7 @@ pub struct SHFILEINFOA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEINFOA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
@@ -6348,7 +6348,7 @@ pub struct SHFILEINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEINFOW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
@@ -6359,7 +6359,7 @@ pub struct SHFILEINFOW {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEINFOW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub iIcon: i32,
@@ -6369,7 +6369,7 @@ pub struct SHFILEINFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
@@ -6382,7 +6382,7 @@ pub struct SHFILEOPSTRUCTA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
@@ -6395,7 +6395,7 @@ pub struct SHFILEOPSTRUCTA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
@@ -6408,7 +6408,7 @@ pub struct SHFILEOPSTRUCTW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::super::Foundation::HWND,
     pub wFunc: u32,
@@ -6420,7 +6420,7 @@ pub struct SHFILEOPSTRUCTW {
     pub lpszProgressTitle: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -6440,7 +6440,7 @@ pub struct SHFOLDERCUSTOMSETTINGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_sys::core::PSTR,
     pub pszNewPath: windows_sys::core::PSTR,
@@ -6449,7 +6449,7 @@ pub struct SHNAMEMAPPINGA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_sys::core::PSTR,
     pub pszNewPath: windows_sys::core::PSTR,
@@ -6458,7 +6458,7 @@ pub struct SHNAMEMAPPINGA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_sys::core::PWSTR,
     pub pszNewPath: windows_sys::core::PWSTR,
@@ -6467,7 +6467,7 @@ pub struct SHNAMEMAPPINGW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_sys::core::PWSTR,
     pub pszNewPath: windows_sys::core::PWSTR,
@@ -6476,7 +6476,7 @@ pub struct SHNAMEMAPPINGW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
@@ -6484,7 +6484,7 @@ pub struct SHQUERYRBINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
@@ -6493,7 +6493,7 @@ pub struct SHQUERYRBINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -6504,7 +6504,7 @@ pub struct SHSTOCKICONINFO {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -6513,7 +6513,7 @@ pub struct SHSTOCKICONINFO {
     pub szPath: [u16; 260],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SLOWAPPINFO {
     pub ullSize: u64,
     pub ftLastUsed: super::super::Foundation::FILETIME,
@@ -6522,7 +6522,7 @@ pub struct SLOWAPPINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: *mut Common::ITEMIDLIST,
@@ -6530,7 +6530,7 @@ pub struct SMCSHCHANGENOTIFYSTRUCT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -6546,7 +6546,7 @@ pub struct SMDATA {
     pub pvUserData: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SMINFO {
     pub dwMask: u32,
     pub dwType: u32,
@@ -6555,14 +6555,14 @@ pub struct SMINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SORTCOLUMN {
     pub propkey: PropertiesSystem::PROPERTYKEY,
     pub direction: SORTDIRECTION,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: *mut core::ffi::c_void,
@@ -6574,7 +6574,7 @@ pub struct SV2CVW2_PARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYNCMGRHANDLERINFO {
     pub cbSize: u32,
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -6583,7 +6583,7 @@ pub struct SYNCMGRHANDLERINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYNCMGRITEM {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -6594,7 +6594,7 @@ pub struct SYNCMGRITEM {
     pub ftLastUpdate: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYNCMGRLOGERRORINFO {
     pub cbSize: u32,
     pub mask: u32,
@@ -6603,7 +6603,7 @@ pub struct SYNCMGRLOGERRORINFO {
     pub ItemID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYNCMGRPROGRESSITEM {
     pub cbSize: u32,
     pub mask: u32,
@@ -6614,7 +6614,7 @@ pub struct SYNCMGRPROGRESSITEM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SYNCMGR_CONFLICT_ID_INFO {
     pub pblobID: *mut super::super::System::Com::BYTE_BLOB,
     pub pblobExtra: *mut super::super::System::Com::BYTE_BLOB,
@@ -6657,14 +6657,14 @@ pub const SyncMgrScheduleWizard: windows_sys::core::GUID = windows_sys::core::GU
 pub const SyncResultsFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x71d99464_3b6b_475c_b241_e15883207529);
 pub const SyncSetupFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2e9e59c0_b437_4981_a647_9c34b9b90891);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TBINFO {
     pub cbuttons: u32,
     pub uFlags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
     pub iId: u32,
@@ -6675,7 +6675,7 @@ pub struct THUMBBUTTON {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TOOLBARITEM {
     pub ptbar: *mut core::ffi::c_void,
     pub rcBorderTool: super::super::Foundation::RECT,
@@ -6690,7 +6690,7 @@ pub const TrackShellMenu: windows_sys::core::GUID = windows_sys::core::GUID::fro
 pub const TrayBandSiteService: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf60ad0a0_e5e1_45cb_b51a_e15b9f8b2934);
 pub const TrayDeskBand: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe6442437_6c68_4f52_94dd_2cfed267efb9);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
     pub dwFlags: u32,
@@ -6698,7 +6698,7 @@ pub struct URLINVOKECOMMANDINFOA {
     pub pcszVerb: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
     pub dwFlags: u32,
@@ -6713,7 +6713,7 @@ pub const VaultProvider: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const VirtualDesktopManager: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,
     pub uiCP: u32,
@@ -6723,7 +6723,7 @@ pub struct WINDOWDATA {
     pub lpszTitle: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WTS_THUMBNAILID {
     pub rgbKey: [u8; 16],
 }

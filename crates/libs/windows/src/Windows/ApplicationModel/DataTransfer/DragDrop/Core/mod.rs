@@ -229,7 +229,7 @@ pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
     pub SetTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreDragDropManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragDropManager, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragDropManager {
@@ -282,7 +282,7 @@ impl windows_core::RuntimeName for CoreDragDropManager {
 unsafe impl Send for CoreDragDropManager {}
 unsafe impl Sync for CoreDragDropManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreDragInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragInfo {
@@ -328,7 +328,7 @@ impl windows_core::RuntimeName for CoreDragInfo {
 unsafe impl Send for CoreDragInfo {}
 unsafe impl Sync for CoreDragInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreDragOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragOperation {
@@ -409,7 +409,7 @@ impl windows_core::RuntimeName for CoreDragOperation {
 unsafe impl Send for CoreDragOperation {}
 unsafe impl Sync for CoreDragOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreDragUIOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragUIOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragUIOverride {
@@ -491,7 +491,7 @@ impl windows_core::RuntimeName for CoreDragUIOverride {
 unsafe impl Send for CoreDragUIOverride {}
 unsafe impl Sync for CoreDragUIOverride {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreDropOperationTargetRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDropOperationTargetRequestedEventArgs {
@@ -516,7 +516,7 @@ impl windows_core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
 unsafe impl Send for CoreDropOperationTargetRequestedEventArgs {}
 unsafe impl Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
     pub const Auto: Self = Self(0u32);

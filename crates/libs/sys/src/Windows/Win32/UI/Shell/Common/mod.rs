@@ -66,37 +66,37 @@ pub type PERCEIVED = i32;
 pub type SHCOLSTATE = i32;
 pub type STRRET_TYPE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_sys::core::PCWSTR,
     pub pszSpec: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_sys::core::PWSTR,
     pub uOffset: u32,

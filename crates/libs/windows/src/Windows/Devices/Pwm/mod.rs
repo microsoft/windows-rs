@@ -63,7 +63,7 @@ pub struct IPwmPin_Vtbl {
     pub IsStarted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PwmController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmController, windows_core::IUnknown, windows_core::IInspectable);
 impl PwmController {
@@ -169,7 +169,7 @@ impl windows_core::RuntimeName for PwmController {
 unsafe impl Send for PwmController {}
 unsafe impl Sync for PwmController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PwmPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
@@ -236,7 +236,7 @@ impl windows_core::RuntimeName for PwmPin {
 unsafe impl Send for PwmPin {}
 unsafe impl Sync for PwmPin {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);

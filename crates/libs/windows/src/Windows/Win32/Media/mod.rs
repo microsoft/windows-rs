@@ -322,7 +322,7 @@ pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
 impl windows_core::TypeKind for TIMECODE_SAMPLE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -377,7 +377,7 @@ impl Default for HTASK {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
@@ -391,7 +391,7 @@ impl windows_core::TypeKind for MMTIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -409,7 +409,7 @@ impl windows_core::TypeKind for MMTIME_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
@@ -422,7 +422,7 @@ impl windows_core::TypeKind for MMTIME_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,
@@ -441,7 +441,7 @@ impl windows_core::TypeKind for MMTIME_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -455,7 +455,7 @@ impl windows_core::TypeKind for TIMECAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
@@ -469,7 +469,7 @@ impl windows_core::TypeKind for TIMECODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -484,7 +484,7 @@ impl windows_core::TypeKind for TIMECODE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,

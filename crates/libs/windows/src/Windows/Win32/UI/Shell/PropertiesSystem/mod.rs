@@ -2894,7 +2894,7 @@ pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1
 pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(4i32);
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(64i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GETPROPERTYSTOREFLAGS(pub i32);
 impl windows_core::TypeKind for GETPROPERTYSTOREFLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2933,13 +2933,13 @@ impl core::ops::Not for GETPROPERTYSTOREFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDOPSTATUS(pub i32);
 impl windows_core::TypeKind for PDOPSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKA_FLAGS(pub i32);
 impl windows_core::TypeKind for PKA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2978,7 +2978,7 @@ impl core::ops::Not for PKA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLACEHOLDER_STATES(pub i32);
 impl windows_core::TypeKind for PLACEHOLDER_STATES {
     type TypeKind = windows_core::CopyType;
@@ -3017,37 +3017,37 @@ impl core::ops::Not for PLACEHOLDER_STATES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_AGGREGATION_TYPE(pub i32);
 impl windows_core::TypeKind for PROPDESC_AGGREGATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_COLUMNINDEX_TYPE(pub i32);
 impl windows_core::TypeKind for PROPDESC_COLUMNINDEX_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_CONDITION_TYPE(pub i32);
 impl windows_core::TypeKind for PROPDESC_CONDITION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_DISPLAYTYPE(pub i32);
 impl windows_core::TypeKind for PROPDESC_DISPLAYTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_ENUMFILTER(pub i32);
 impl windows_core::TypeKind for PROPDESC_ENUMFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_FORMAT_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPDESC_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3086,19 +3086,19 @@ impl core::ops::Not for PROPDESC_FORMAT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_GROUPING_RANGE(pub i32);
 impl windows_core::TypeKind for PROPDESC_GROUPING_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(pub i32);
 impl windows_core::TypeKind for PROPDESC_RELATIVEDESCRIPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_SEARCHINFO_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPDESC_SEARCHINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3137,13 +3137,13 @@ impl core::ops::Not for PROPDESC_SEARCHINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_SORTDESCRIPTION(pub i32);
 impl windows_core::TypeKind for PROPDESC_SORTDESCRIPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_TYPE_FLAGS(pub u32);
 impl windows_core::TypeKind for PROPDESC_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3182,7 +3182,7 @@ impl core::ops::Not for PROPDESC_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPDESC_VIEW_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPDESC_VIEW_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3221,13 +3221,13 @@ impl core::ops::Not for PROPDESC_VIEW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPENUMTYPE(pub i32);
 impl windows_core::TypeKind for PROPENUMTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPERTYUI_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3266,7 +3266,7 @@ impl core::ops::Not for PROPERTYUI_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_FORMAT_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPERTYUI_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3305,7 +3305,7 @@ impl core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYUI_NAME_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPERTYUI_NAME_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3344,13 +3344,13 @@ impl core::ops::Not for PROPERTYUI_NAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSC_STATE(pub i32);
 impl windows_core::TypeKind for PSC_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_ENGINE_STATE_FLAGS(pub i32);
 impl windows_core::TypeKind for SYNC_ENGINE_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3389,7 +3389,7 @@ impl core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYNC_TRANSFER_STATUS(pub i32);
 impl windows_core::TypeKind for SYNC_TRANSFER_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -3428,7 +3428,7 @@ impl core::ops::Not for SYNC_TRANSFER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PERSIST_SPROPSTORE_FLAGS(pub i32);
 impl windows_core::TypeKind for _PERSIST_SPROPSTORE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -3442,7 +3442,7 @@ impl windows_core::TypeKind for PCUSERIALIZEDPROPSTORAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
@@ -3456,7 +3456,7 @@ impl windows_core::TypeKind for PROPERTYKEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROPPRG {
     pub flPrg: u16,
     pub flPrgInit: u16,

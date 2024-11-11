@@ -668,7 +668,7 @@ pub struct IVp9ProfileIdsStatics_Vtbl {
     pub Profile2ChromaSubsampling420BitDepth12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioEncodingProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEncodingProperties, IMediaEncodingProperties);
@@ -918,7 +918,7 @@ impl windows_core::RuntimeName for Av1ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Av1ProfileIds";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContainerEncodingProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContainerEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContainerEncodingProperties, IMediaEncodingProperties);
@@ -1189,7 +1189,7 @@ impl windows_core::RuntimeName for HevcProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.HevcProfileIds";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImageEncodingProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImageEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageEncodingProperties, IMediaEncodingProperties);
@@ -1318,7 +1318,7 @@ impl windows_core::RuntimeName for ImageEncodingProperties {
 unsafe impl Send for ImageEncodingProperties {}
 unsafe impl Sync for ImageEncodingProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaEncodingProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaEncodingProfile, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaEncodingProfile {
@@ -1894,7 +1894,7 @@ impl windows_core::RuntimeName for MediaEncodingSubtypes {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(MediaPropertySet, windows_core::IUnknown, windows_core::IInspectable);
@@ -1983,7 +1983,7 @@ unsafe impl Send for MediaPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for MediaPropertySet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaRatio(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaRatio, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaRatio {
@@ -2063,7 +2063,7 @@ impl windows_core::RuntimeName for Mpeg2ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Mpeg2ProfileIds";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimedMetadataEncodingProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TimedMetadataEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TimedMetadataEncodingProperties, IMediaEncodingProperties);
@@ -2158,7 +2158,7 @@ impl windows_core::RuntimeName for TimedMetadataEncodingProperties {
 unsafe impl Send for TimedMetadataEncodingProperties {}
 unsafe impl Sync for TimedMetadataEncodingProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoEncodingProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoEncodingProperties, IMediaEncodingProperties);
@@ -2373,7 +2373,7 @@ impl windows_core::RuntimeName for Vp9ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Vp9ProfileIds";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
     pub const Auto: Self = Self(0i32);
@@ -2388,7 +2388,7 @@ impl windows_core::RuntimeType for AudioEncodingQuality {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.AudioEncodingQuality;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
     pub const None: Self = Self(0u32);
@@ -2435,7 +2435,7 @@ impl core::ops::Not for MediaMirroringOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
     pub const Nv12: Self = Self(0i32);
@@ -2449,7 +2449,7 @@ impl windows_core::RuntimeType for MediaPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaPixelFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
     pub const None: Self = Self(0i32);
@@ -2464,7 +2464,7 @@ impl windows_core::RuntimeType for MediaRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
     pub const Bmp: Self = Self(0i32);
@@ -2477,7 +2477,7 @@ impl windows_core::RuntimeType for MediaThumbnailFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.MediaThumbnailFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
     pub const None: Self = Self(0i32);
@@ -2491,7 +2491,7 @@ impl windows_core::RuntimeType for SphericalVideoFrameFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.SphericalVideoFrameFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
     pub const None: Self = Self(0i32);
@@ -2505,7 +2505,7 @@ impl windows_core::RuntimeType for StereoscopicVideoPackingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.MediaProperties.StereoscopicVideoPackingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {
     pub const Auto: Self = Self(0i32);

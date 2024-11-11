@@ -90,49 +90,49 @@ pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
 pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
 pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPARTMENT_ID(pub i32);
 impl windows_core::TypeKind for COMPARTMENT_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
 impl windows_core::TypeKind for EXCEPTION_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NT_PRODUCT_TYPE(pub i32);
 impl windows_core::TypeKind for NT_PRODUCT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUITE_TYPE(pub i32);
 impl windows_core::TypeKind for SUITE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMER_TYPE(pub i32);
 impl windows_core::TypeKind for TIMER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_TYPE(pub i32);
 impl windows_core::TypeKind for WAIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CSTRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -148,7 +148,7 @@ impl windows_core::TypeKind for CSTRING {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: EXCEPTION_ROUTINE,
@@ -165,7 +165,7 @@ impl windows_core::TypeKind for EXCEPTION_REGISTRATION_RECORD {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -189,7 +189,7 @@ impl windows_core::TypeKind for FLOATING_SAVE_AREA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -212,7 +212,7 @@ impl windows_core::TypeKind for FLOATING_SAVE_AREA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY {
     pub Flink: *mut LIST_ENTRY,
     pub Blink: *mut LIST_ENTRY,
@@ -226,7 +226,7 @@ impl windows_core::TypeKind for LIST_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
@@ -240,7 +240,7 @@ impl windows_core::TypeKind for LIST_ENTRY32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
@@ -255,7 +255,7 @@ impl windows_core::TypeKind for LIST_ENTRY64 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
     pub StackBase: *mut core::ffi::c_void,
@@ -277,7 +277,7 @@ impl windows_core::TypeKind for NT_TIB {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union NT_TIB_0 {
     pub FiberData: *mut core::ffi::c_void,
     pub Version: u32,
@@ -293,7 +293,7 @@ impl windows_core::TypeKind for NT_TIB_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
@@ -307,7 +307,7 @@ impl windows_core::TypeKind for OBJECTID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
@@ -322,7 +322,7 @@ impl windows_core::TypeKind for PROCESSOR_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct QUAD {
     pub Anonymous: QUAD_0,
 }
@@ -335,7 +335,7 @@ impl windows_core::TypeKind for QUAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union QUAD_0 {
     pub UseThisFieldToCopy: i64,
     pub DoNotUseThisField: f64,
@@ -349,7 +349,7 @@ impl windows_core::TypeKind for QUAD_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RTL_BALANCED_NODE {
     pub Anonymous1: RTL_BALANCED_NODE_0,
     pub Anonymous2: RTL_BALANCED_NODE_1,
@@ -363,7 +363,7 @@ impl windows_core::TypeKind for RTL_BALANCED_NODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_0 {
     pub Children: [*mut RTL_BALANCED_NODE; 2],
     pub Anonymous: RTL_BALANCED_NODE_0_0,
@@ -377,7 +377,7 @@ impl windows_core::TypeKind for RTL_BALANCED_NODE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RTL_BALANCED_NODE_0_0 {
     pub Left: *mut RTL_BALANCED_NODE,
     pub Right: *mut RTL_BALANCED_NODE,
@@ -391,7 +391,7 @@ impl windows_core::TypeKind for RTL_BALANCED_NODE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union RTL_BALANCED_NODE_1 {
     pub _bitfield: u8,
     pub ParentValue: usize,
@@ -405,7 +405,7 @@ impl windows_core::TypeKind for RTL_BALANCED_NODE_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut SINGLE_LIST_ENTRY,
 }
@@ -418,7 +418,7 @@ impl windows_core::TypeKind for SINGLE_LIST_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SINGLE_LIST_ENTRY32 {
     pub Next: u32,
 }
@@ -431,7 +431,7 @@ impl windows_core::TypeKind for SINGLE_LIST_ENTRY32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_ENTRY {
     pub Next: *mut SLIST_ENTRY,
 }
@@ -445,7 +445,7 @@ impl windows_core::TypeKind for SLIST_ENTRY {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderArm64: SLIST_HEADER_1,
@@ -462,7 +462,7 @@ impl windows_core::TypeKind for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
@@ -479,7 +479,7 @@ impl windows_core::TypeKind for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -496,7 +496,7 @@ impl windows_core::TypeKind for SLIST_HEADER_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderX64: SLIST_HEADER_1,
@@ -513,7 +513,7 @@ impl windows_core::TypeKind for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
@@ -530,7 +530,7 @@ impl windows_core::TypeKind for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -547,7 +547,7 @@ impl windows_core::TypeKind for SLIST_HEADER_1 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Alignment: u64,
     pub Anonymous: SLIST_HEADER_0,
@@ -564,7 +564,7 @@ impl windows_core::TypeKind for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
@@ -581,7 +581,7 @@ impl windows_core::TypeKind for SLIST_HEADER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -596,7 +596,7 @@ impl windows_core::TypeKind for STRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING32 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -611,7 +611,7 @@ impl windows_core::TypeKind for STRING32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STRING64 {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -626,7 +626,7 @@ impl windows_core::TypeKind for STRING64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],
 }

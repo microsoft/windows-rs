@@ -515,7 +515,7 @@ pub type FAX_SMTP_AUTHENTICATION_TYPE_ENUM = i32;
 pub type STI_DEVICE_MJ_TYPE = i32;
 pub type SendToMode = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONFIGURATIONA {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -532,7 +532,7 @@ pub struct FAX_CONFIGURATIONA {
     pub Reserved: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONFIGURATIONW {
     pub SizeOfStruct: u32,
     pub Retries: u32,
@@ -550,7 +550,7 @@ pub struct FAX_CONFIGURATIONW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
@@ -558,14 +558,14 @@ pub struct FAX_CONTEXT_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
     pub hDC: super::super::Graphics::Gdi::HDC,
     pub ServerName: [u16; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_COVERPAGE_INFOA {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCSTR,
@@ -598,7 +598,7 @@ pub struct FAX_COVERPAGE_INFOA {
     pub PageCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_COVERPAGE_INFOW {
     pub SizeOfStruct: u32,
     pub CoverPageName: windows_sys::core::PCWSTR,
@@ -631,7 +631,7 @@ pub struct FAX_COVERPAGE_INFOW {
     pub PageCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEVICE_STATUSA {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCSTR,
@@ -655,7 +655,7 @@ pub struct FAX_DEVICE_STATUSA {
     pub UserName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEVICE_STATUSW {
     pub SizeOfStruct: u32,
     pub CallerId: windows_sys::core::PCWSTR,
@@ -679,7 +679,7 @@ pub struct FAX_DEVICE_STATUSW {
     pub UserName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_DEV_STATUS {
     pub SizeOfStruct: u32,
     pub StatusId: u32,
@@ -692,7 +692,7 @@ pub struct FAX_DEV_STATUS {
     pub Reserved: [u32; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_EVENTA {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -701,7 +701,7 @@ pub struct FAX_EVENTA {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_EVENTW {
     pub SizeOfStruct: u32,
     pub TimeStamp: super::super::Foundation::FILETIME,
@@ -710,7 +710,7 @@ pub struct FAX_EVENTW {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -721,7 +721,7 @@ pub struct FAX_GLOBAL_ROUTING_INFOA {
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub SizeOfStruct: u32,
     pub Priority: u32,
@@ -732,7 +732,7 @@ pub struct FAX_GLOBAL_ROUTING_INFOW {
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_ENTRYA {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -756,7 +756,7 @@ pub struct FAX_JOB_ENTRYA {
     pub DocumentName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_ENTRYW {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -780,7 +780,7 @@ pub struct FAX_JOB_ENTRYW {
     pub DocumentName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_PARAMA {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCSTR,
@@ -799,7 +799,7 @@ pub struct FAX_JOB_PARAMA {
     pub Reserved: [usize; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_JOB_PARAMW {
     pub SizeOfStruct: u32,
     pub RecipientNumber: windows_sys::core::PCWSTR,
@@ -818,21 +818,21 @@ pub struct FAX_JOB_PARAMW {
     pub Reserved: [usize; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_LOG_CATEGORYA {
     pub Name: windows_sys::core::PCSTR,
     pub Category: u32,
     pub Level: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_LOG_CATEGORYW {
     pub Name: windows_sys::core::PCWSTR,
     pub Category: u32,
     pub Level: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_PORT_INFOA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -845,7 +845,7 @@ pub struct FAX_PORT_INFOA {
     pub Csid: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_PORT_INFOW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -858,7 +858,7 @@ pub struct FAX_PORT_INFOW {
     pub Csid: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_PRINT_INFOA {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCSTR,
@@ -873,7 +873,7 @@ pub struct FAX_PRINT_INFOA {
     pub OutputFileName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_PRINT_INFOW {
     pub SizeOfStruct: u32,
     pub DocName: windows_sys::core::PCWSTR,
@@ -888,7 +888,7 @@ pub struct FAX_PRINT_INFOW {
     pub OutputFileName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_RECEIVE {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -897,7 +897,7 @@ pub struct FAX_RECEIVE {
     pub Reserved: [u32; 4],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTE {
     pub SizeOfStruct: u32,
     pub JobId: u32,
@@ -916,7 +916,7 @@ pub struct FAX_ROUTE {
     pub RoutingInfoDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub SizeOfStruct: u32,
     pub FaxRouteAddFile: PFAXROUTEADDFILE,
@@ -926,7 +926,7 @@ pub struct FAX_ROUTE_CALLBACKROUTINES {
     pub FaxRouteModifyRoutingData: PFAXROUTEMODIFYROUTINGDATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTING_METHODA {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -939,7 +939,7 @@ pub struct FAX_ROUTING_METHODA {
     pub ExtensionFriendlyName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_ROUTING_METHODW {
     pub SizeOfStruct: u32,
     pub DeviceId: u32,
@@ -952,7 +952,7 @@ pub struct FAX_ROUTING_METHODW {
     pub ExtensionFriendlyName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_SEND {
     pub SizeOfStruct: u32,
     pub FileName: windows_sys::core::PWSTR,
@@ -965,7 +965,7 @@ pub struct FAX_SEND {
     pub Reserved: [u32; 3],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FAX_TIME {
     pub Hour: u16,
     pub Minute: u16,
@@ -1021,14 +1021,14 @@ pub const FaxSecurity2: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const FaxSender: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x265d84d0_1850_4360_b7c8_758bbb5f0b96);
 pub const FaxServer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcda8acb0_8cf5_4f6c_9ba2_5931d40c8cae);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STINOTIFY {
     pub dwSize: u32,
     pub guidNotificationCode: windows_sys::core::GUID,
     pub abNotificationData: [u8; 64],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1038,7 +1038,7 @@ pub struct STISUBSCRIBE {
     pub uiNotificationMessage: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1052,7 +1052,7 @@ pub struct STI_DEVICE_INFORMATIONW {
     pub pszLocalName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -1062,12 +1062,12 @@ pub struct STI_DEVICE_STATUS {
     pub dwPollingInterval: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -1076,13 +1076,13 @@ pub struct STI_DIAG {
     pub sErrorInfo: _ERROR_INFOW,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_USD_CAPS {
     pub dwVersion: u32,
     pub dwGenericCaps: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: u32,
@@ -1098,7 +1098,7 @@ pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub pszServer: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct _ERROR_INFOW {
     pub dwSize: u32,
     pub dwGenericError: u32,

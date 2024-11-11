@@ -492,7 +492,7 @@ pub struct IVoiceCommandSet_Vtbl {
     SetPhraseListAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechContinuousRecognitionCompletedEventArgs {
@@ -517,7 +517,7 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs
 unsafe impl Send for SpeechContinuousRecognitionCompletedEventArgs {}
 unsafe impl Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -542,7 +542,7 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEve
 unsafe impl Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 unsafe impl Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionSession, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechContinuousRecognitionSession {
@@ -638,7 +638,7 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionSession {
 unsafe impl Send for SpeechContinuousRecognitionSession {}
 unsafe impl Sync for SpeechContinuousRecognitionSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionCompilationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionCompilationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionCompilationResult {
@@ -663,7 +663,7 @@ impl windows_core::RuntimeName for SpeechRecognitionCompilationResult {
 unsafe impl Send for SpeechRecognitionCompilationResult {}
 unsafe impl Sync for SpeechRecognitionCompilationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionGrammarFileConstraint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionGrammarFileConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionGrammarFileConstraint, ISpeechRecognitionConstraint);
@@ -754,7 +754,7 @@ impl windows_core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
 unsafe impl Send for SpeechRecognitionGrammarFileConstraint {}
 unsafe impl Sync for SpeechRecognitionGrammarFileConstraint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionHypothesis(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionHypothesis, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionHypothesis {
@@ -779,7 +779,7 @@ impl windows_core::RuntimeName for SpeechRecognitionHypothesis {
 unsafe impl Send for SpeechRecognitionHypothesis {}
 unsafe impl Sync for SpeechRecognitionHypothesis {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -804,7 +804,7 @@ impl windows_core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs
 unsafe impl Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
 unsafe impl Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionListConstraint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionListConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionListConstraint, ISpeechRecognitionConstraint);
@@ -895,7 +895,7 @@ impl windows_core::RuntimeName for SpeechRecognitionListConstraint {
 unsafe impl Send for SpeechRecognitionListConstraint {}
 unsafe impl Sync for SpeechRecognitionListConstraint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionQualityDegradingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionQualityDegradingEventArgs {
@@ -920,7 +920,7 @@ impl windows_core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
 unsafe impl Send for SpeechRecognitionQualityDegradingEventArgs {}
 unsafe impl Sync for SpeechRecognitionQualityDegradingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionResult {
@@ -1010,7 +1010,7 @@ impl windows_core::RuntimeName for SpeechRecognitionResult {
 unsafe impl Send for SpeechRecognitionResult {}
 unsafe impl Sync for SpeechRecognitionResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionSemanticInterpretation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionSemanticInterpretation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognitionSemanticInterpretation {
@@ -1036,7 +1036,7 @@ impl windows_core::RuntimeName for SpeechRecognitionSemanticInterpretation {
 unsafe impl Send for SpeechRecognitionSemanticInterpretation {}
 unsafe impl Sync for SpeechRecognitionSemanticInterpretation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionTopicConstraint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionTopicConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionTopicConstraint, ISpeechRecognitionConstraint);
@@ -1125,7 +1125,7 @@ impl windows_core::RuntimeName for SpeechRecognitionTopicConstraint {
 unsafe impl Send for SpeechRecognitionTopicConstraint {}
 unsafe impl Sync for SpeechRecognitionTopicConstraint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, ISpeechRecognitionConstraint);
@@ -1184,7 +1184,7 @@ impl windows_core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstr
 unsafe impl Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 unsafe impl Sync for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognizer, super::super::Foundation::IClosable);
@@ -1381,7 +1381,7 @@ impl windows_core::RuntimeName for SpeechRecognizer {
 unsafe impl Send for SpeechRecognizer {}
 unsafe impl Sync for SpeechRecognizer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognizerStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognizerStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognizerStateChangedEventArgs {
@@ -1406,7 +1406,7 @@ impl windows_core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
 unsafe impl Send for SpeechRecognizerStateChangedEventArgs {}
 unsafe impl Sync for SpeechRecognizerStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognizerTimeouts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognizerTimeouts, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognizerTimeouts {
@@ -1457,7 +1457,7 @@ impl windows_core::RuntimeName for SpeechRecognizerTimeouts {
 unsafe impl Send for SpeechRecognizerTimeouts {}
 unsafe impl Sync for SpeechRecognizerTimeouts {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechRecognizerUIOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpeechRecognizerUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpeechRecognizerUIOptions {
@@ -1546,7 +1546,7 @@ impl windows_core::RuntimeName for VoiceCommandManager {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VoiceCommandSet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VoiceCommandSet, windows_core::IUnknown, windows_core::IInspectable);
 impl VoiceCommandSet {
@@ -1589,7 +1589,7 @@ impl windows_core::RuntimeName for VoiceCommandSet {
 unsafe impl Send for VoiceCommandSet {}
 unsafe impl Sync for VoiceCommandSet {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
     pub const Default: Self = Self(0i32);
@@ -1602,7 +1602,7 @@ impl windows_core::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
     pub const None: Self = Self(0i32);
@@ -1620,7 +1620,7 @@ impl windows_core::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
     pub const High: Self = Self(0i32);
@@ -1635,7 +1635,7 @@ impl windows_core::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
     pub const Default: Self = Self(0i32);
@@ -1649,7 +1649,7 @@ impl windows_core::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
     pub const Topic: Self = Self(0i32);
@@ -1664,7 +1664,7 @@ impl windows_core::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
     pub const Success: Self = Self(0i32);
@@ -1686,7 +1686,7 @@ impl windows_core::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
     pub const WebSearch: Self = Self(0i32);
@@ -1700,7 +1700,7 @@ impl windows_core::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
     pub const Idle: Self = Self(0i32);

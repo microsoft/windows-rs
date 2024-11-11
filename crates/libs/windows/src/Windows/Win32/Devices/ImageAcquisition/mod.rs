@@ -4378,7 +4378,7 @@ pub const WiaItemTypeVPanorama: u32 = 1024u32;
 pub const WiaItemTypeVideo: u32 = 65536u32;
 pub const g_dwDebugFlags: u32 = 0u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIAVIDEO_STATE(pub i32);
 impl windows_core::TypeKind for WIAVIDEO_STATE {
     type TypeKind = windows_core::CopyType;
@@ -4463,7 +4463,7 @@ impl windows_core::TypeKind for MINIDRV_TRANSFER_CONTEXT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RANGEVALUE {
     pub lMin: i32,
     pub lMax: i32,
@@ -4478,7 +4478,7 @@ impl windows_core::TypeKind for RANGEVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCANINFO {
     pub ADF: i32,
     pub TPA: i32,
@@ -4526,7 +4526,7 @@ impl windows_core::TypeKind for SCANINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCANWINDOW {
     pub xPos: i32,
     pub yPos: i32,
@@ -4542,7 +4542,7 @@ impl windows_core::TypeKind for SCANWINDOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TWAIN_CAPABILITY {
     pub lSize: i32,
     pub lMSG: i32,
@@ -4562,7 +4562,7 @@ impl windows_core::TypeKind for TWAIN_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VAL {
     pub lVal: i32,
     pub dblVal: f64,
@@ -4643,7 +4643,7 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIAS_DOWN_SAMPLE_INFO {
     pub ulOriginalWidth: u32,
     pub ulOriginalHeight: u32,
@@ -4667,7 +4667,7 @@ impl windows_core::TypeKind for WIAS_DOWN_SAMPLE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIAS_ENDORSER_INFO {
     pub ulPageCount: u32,
     pub ulNumEndorserValues: u32,
@@ -4682,7 +4682,7 @@ impl windows_core::TypeKind for WIAS_ENDORSER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIAS_ENDORSER_VALUE {
     pub wszTokenName: windows_core::PWSTR,
     pub wszValue: windows_core::PWSTR,
@@ -4696,7 +4696,7 @@ impl windows_core::TypeKind for WIAS_ENDORSER_VALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_BARCODES {
     pub Tag: u32,
     pub Version: u32,
@@ -4713,7 +4713,7 @@ impl windows_core::TypeKind for WIA_BARCODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_BARCODE_INFO {
     pub Size: u32,
     pub Type: u32,
@@ -4734,7 +4734,7 @@ impl windows_core::TypeKind for WIA_BARCODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: windows_core::GUID,
@@ -4750,7 +4750,7 @@ impl windows_core::TypeKind for WIA_DATA_CALLBACK_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
@@ -4787,7 +4787,7 @@ impl windows_core::TypeKind for WIA_DEV_CAP {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_DEV_CAP_DRV {
     pub guid: *mut windows_core::GUID,
     pub ulFlags: u32,
@@ -4822,7 +4822,7 @@ impl windows_core::TypeKind for WIA_DITHER_PATTERN_DATA {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -4839,7 +4839,7 @@ impl windows_core::TypeKind for WIA_EXTENDED_TRANSFER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: windows_core::GUID,
     pub lTymed: i32,
@@ -4853,7 +4853,7 @@ impl windows_core::TypeKind for WIA_FORMAT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_MICR {
     pub Tag: u32,
     pub Version: u32,
@@ -4872,7 +4872,7 @@ impl windows_core::TypeKind for WIA_MICR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_MICR_INFO {
     pub Size: u32,
     pub Page: u32,
@@ -4888,7 +4888,7 @@ impl windows_core::TypeKind for WIA_MICR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PATCH_CODES {
     pub Tag: u32,
     pub Version: u32,
@@ -4905,7 +4905,7 @@ impl windows_core::TypeKind for WIA_PATCH_CODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: u32,
 }
@@ -4918,7 +4918,7 @@ impl windows_core::TypeKind for WIA_PATCH_CODE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
     pub pProps: *mut u32,
@@ -4985,7 +4985,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Nom: i32,
     pub ValidBits: i32,
@@ -5020,7 +5020,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: f64,
@@ -5038,7 +5038,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: windows_core::GUID,
@@ -5056,7 +5056,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: i32,
@@ -5074,7 +5074,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Dummy: i32,
 }
@@ -5090,7 +5090,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub Min: f64,
     pub Nom: f64,
@@ -5109,7 +5109,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Min: i32,
     pub Nom: i32,
@@ -5127,7 +5127,7 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: u32,
     pub pszName: windows_core::PWSTR,
@@ -5141,7 +5141,7 @@ impl windows_core::TypeKind for WIA_PROPID_TO_NAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIA_RAW_HEADER {
     pub Tag: u32,
     pub Version: u32,
@@ -5175,7 +5175,7 @@ pub const WiaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa1f4e7
 pub const WiaDevMgr2: windows_core::GUID = windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaLog: windows_core::GUID = windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,

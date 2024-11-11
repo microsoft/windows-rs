@@ -19,7 +19,7 @@ where
     MSChapSrvChangePassword2(servername.param().abi(), username.param().abi(), core::mem::transmute(newpasswordencryptedwitholdnt), core::mem::transmute(oldntowfpasswordencryptedwithnewnt), lmpresent.param().abi(), core::mem::transmute(newpasswordencryptedwitholdlm), core::mem::transmute(oldlmowfpasswordencryptedwithnewlmornt))
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CYPHER_BLOCK {
     pub data: [i8; 8],
 }
@@ -32,7 +32,7 @@ impl windows_core::TypeKind for CYPHER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -45,7 +45,7 @@ impl windows_core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
 }
@@ -58,7 +58,7 @@ impl windows_core::TypeKind for LM_OWF_PASSWORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
 }

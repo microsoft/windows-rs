@@ -226,7 +226,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
     Value: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveDeviceAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveDeviceAddress {
@@ -346,7 +346,7 @@ impl windows_core::RuntimeName for XboxLiveDeviceAddress {
 unsafe impl Send for XboxLiveDeviceAddress {}
 unsafe impl Sync for XboxLiveDeviceAddress {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveEndpointPair(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPair {
@@ -462,7 +462,7 @@ impl windows_core::RuntimeName for XboxLiveEndpointPair {
 unsafe impl Send for XboxLiveEndpointPair {}
 unsafe impl Sync for XboxLiveEndpointPair {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairCreationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPairCreationResult {
@@ -508,7 +508,7 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairCreationResult {
 unsafe impl Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl Sync for XboxLiveEndpointPairCreationResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPairStateChangedEventArgs {
@@ -540,7 +540,7 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
 unsafe impl Send for XboxLiveEndpointPairStateChangedEventArgs {}
 unsafe impl Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairTemplate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveEndpointPairTemplate {
@@ -679,7 +679,7 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairTemplate {
 unsafe impl Send for XboxLiveEndpointPairTemplate {}
 unsafe impl Sync for XboxLiveEndpointPairTemplate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
@@ -704,7 +704,7 @@ impl windows_core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
 unsafe impl Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
 unsafe impl Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMeasurement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServiceMeasurement, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveQualityOfServiceMeasurement {
@@ -904,7 +904,7 @@ impl windows_core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
 unsafe impl Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl Sync for XboxLiveQualityOfServiceMeasurement {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMetricResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServiceMetricResult, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveQualityOfServiceMetricResult {
@@ -950,7 +950,7 @@ impl windows_core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
 unsafe impl Send for XboxLiveQualityOfServiceMetricResult {}
 unsafe impl Sync for XboxLiveQualityOfServiceMetricResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
@@ -990,7 +990,7 @@ impl windows_core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult 
 unsafe impl Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: Self = Self(0u32);
@@ -1036,7 +1036,7 @@ impl core::ops::Not for XboxLiveEndpointPairCreationBehaviors {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1056,7 +1056,7 @@ impl windows_core::RuntimeType for XboxLiveEndpointPairCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
     pub const Invalid: Self = Self(0i32);
@@ -1074,7 +1074,7 @@ impl windows_core::RuntimeType for XboxLiveEndpointPairState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveEndpointPairState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
     pub const Open: Self = Self(0i32);
@@ -1088,7 +1088,7 @@ impl windows_core::RuntimeType for XboxLiveNetworkAccessKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveNetworkAccessKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1111,7 +1111,7 @@ impl windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurementStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
     pub const AverageLatencyInMilliseconds: Self = Self(0i32);
@@ -1131,7 +1131,7 @@ impl windows_core::RuntimeType for XboxLiveQualityOfServiceMetric {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
     pub const None: Self = Self(0i32);

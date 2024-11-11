@@ -292,13 +292,13 @@ pub type HH_GPROPID = i32;
 pub type HTML_HELP_COMMAND = i32;
 pub type PRIORITY = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
     pub cPropsLoaded: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CProperty {
     pub dwPropID: u32,
     pub cbData: u32,
@@ -307,7 +307,7 @@ pub struct CProperty {
     pub fPersist: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CProperty_0 {
     pub lpszwData: windows_sys::core::PWSTR,
     pub lpvData: *mut core::ffi::c_void,
@@ -315,7 +315,7 @@ pub union CProperty_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszCurUrl: windows_sys::core::PCSTR,
@@ -324,13 +324,13 @@ pub struct HHNTRACK {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
     pub pszUrl: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
     pub fReserved: super::super::Foundation::BOOL,
@@ -342,14 +342,14 @@ pub struct HH_AKLINK {
     pub fIndexOnFail: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_ENUM_CAT {
     pub cbStruct: i32,
     pub pszCatName: windows_sys::core::PCSTR,
     pub pszCatDescription: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_ENUM_IT {
     pub cbStruct: i32,
     pub iType: i32,
@@ -358,7 +358,7 @@ pub struct HH_ENUM_IT {
     pub pszITDescription: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -371,13 +371,13 @@ pub struct HH_FTS_QUERY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Variant::VARIANT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_POPUP {
     pub cbStruct: i32,
     pub hinst: super::super::Foundation::HINSTANCE,
@@ -390,14 +390,14 @@ pub struct HH_POPUP {
     pub pszFont: *mut i8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_SET_INFOTYPE {
     pub cbStruct: i32,
     pub pszCatName: windows_sys::core::PCSTR,
     pub pszInfoTypeName: windows_sys::core::PCSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,
     pub fUniCodeStrings: super::super::Foundation::BOOL,
@@ -437,7 +437,7 @@ pub struct HH_WINTYPE {
     pub pszCustomTabs: *mut i8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ROWSTATUS {
     pub lRowFirst: i32,
     pub cRows: i32,

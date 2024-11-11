@@ -467,7 +467,7 @@ pub struct ISearchSuggestionsRequestDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalContentSuggestionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalContentSuggestionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalContentSuggestionSettings {
@@ -529,7 +529,7 @@ impl windows_core::RuntimeName for LocalContentSuggestionSettings {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPane(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPane, windows_core::IUnknown, windows_core::IInspectable);
@@ -752,7 +752,7 @@ impl windows_core::RuntimeName for SearchPane {
 }
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneQueryChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneQueryChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -803,7 +803,7 @@ unsafe impl Send for SearchPaneQueryChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SearchPaneQueryChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneQueryLinguisticDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchPaneQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchPaneQueryLinguisticDetails {
@@ -844,7 +844,7 @@ unsafe impl Send for SearchPaneQueryLinguisticDetails {}
 unsafe impl Sync for SearchPaneQueryLinguisticDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneQuerySubmittedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneQuerySubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -894,7 +894,7 @@ unsafe impl Send for SearchPaneQuerySubmittedEventArgs {}
 unsafe impl Sync for SearchPaneQuerySubmittedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneResultSuggestionChosenEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneResultSuggestionChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -928,7 +928,7 @@ unsafe impl Send for SearchPaneResultSuggestionChosenEventArgs {}
 unsafe impl Sync for SearchPaneResultSuggestionChosenEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneSuggestionsRequest(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
@@ -978,7 +978,7 @@ unsafe impl Send for SearchPaneSuggestionsRequest {}
 unsafe impl Sync for SearchPaneSuggestionsRequest {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneSuggestionsRequestDeferral(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
@@ -1009,7 +1009,7 @@ unsafe impl Send for SearchPaneSuggestionsRequestDeferral {}
 unsafe impl Sync for SearchPaneSuggestionsRequestDeferral {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneSuggestionsRequestedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1069,7 +1069,7 @@ unsafe impl Send for SearchPaneSuggestionsRequestedEventArgs {}
 unsafe impl Sync for SearchPaneSuggestionsRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchPaneVisibilityChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SearchPaneVisibilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
@@ -1102,7 +1102,7 @@ unsafe impl Send for SearchPaneVisibilityChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for SearchPaneVisibilityChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchQueryLinguisticDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchQueryLinguisticDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchQueryLinguisticDetails {
@@ -1156,7 +1156,7 @@ impl windows_core::RuntimeName for SearchQueryLinguisticDetails {
 unsafe impl Send for SearchQueryLinguisticDetails {}
 unsafe impl Sync for SearchQueryLinguisticDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchSuggestionCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionCollection {
@@ -1205,7 +1205,7 @@ impl windows_core::RuntimeName for SearchSuggestionCollection {
 unsafe impl Send for SearchSuggestionCollection {}
 unsafe impl Sync for SearchSuggestionCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchSuggestionsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequest {
@@ -1244,7 +1244,7 @@ impl windows_core::RuntimeName for SearchSuggestionsRequest {
 unsafe impl Send for SearchSuggestionsRequest {}
 unsafe impl Sync for SearchSuggestionsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SearchSuggestionsRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SearchSuggestionsRequestDeferral {

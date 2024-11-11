@@ -32,7 +32,7 @@ pub struct IPlaylistStatics_Vtbl {
     LoadAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Playlist(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Playlist, windows_core::IUnknown, windows_core::IInspectable);
 impl Playlist {
@@ -106,7 +106,7 @@ impl windows_core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {
     pub const WindowsMedia: Self = Self(0i32);

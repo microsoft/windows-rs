@@ -43,7 +43,7 @@ pub type REG_VALUE_TYPE = u32;
 pub type WIN32_ERROR = u32;
 pub type BOOL = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
@@ -51,11 +51,11 @@ pub struct FILETIME {
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HKEY = *mut core::ffi::c_void;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
-pub type PWSTR = *mut u16;
 pub type PCWSTR = *const u16;
+pub type PWSTR = *mut u16;

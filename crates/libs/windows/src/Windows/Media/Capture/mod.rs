@@ -1874,7 +1874,7 @@ pub struct IVideoStreamConfiguration_Vtbl {
     OutputProperties: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdvancedCapturedPhoto(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedCapturedPhoto, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedCapturedPhoto {
@@ -1922,7 +1922,7 @@ impl windows_core::RuntimeName for AdvancedCapturedPhoto {
 unsafe impl Send for AdvancedCapturedPhoto {}
 unsafe impl Sync for AdvancedCapturedPhoto {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdvancedPhotoCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedPhotoCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedPhotoCapture {
@@ -1992,7 +1992,7 @@ impl windows_core::RuntimeName for AdvancedPhotoCapture {
 unsafe impl Send for AdvancedPhotoCapture {}
 unsafe impl Sync for AdvancedPhotoCapture {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastBackgroundService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastBackgroundService, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastBackgroundService {
@@ -2165,7 +2165,7 @@ impl windows_core::RuntimeName for AppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundService";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastBackgroundServiceSignInInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastBackgroundServiceSignInInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastBackgroundServiceSignInInfo {
@@ -2263,7 +2263,7 @@ impl windows_core::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastBackgroundServiceStreamInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastBackgroundServiceStreamInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastBackgroundServiceStreamInfo {
@@ -2372,7 +2372,7 @@ impl windows_core::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastCameraCaptureStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastCameraCaptureStateChangedEventArgs {
@@ -2404,7 +2404,7 @@ impl windows_core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArg
 unsafe impl Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
 unsafe impl Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastGlobalSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastGlobalSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastGlobalSettings {
@@ -2558,7 +2558,7 @@ impl windows_core::RuntimeName for AppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastGlobalSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastHeartbeatRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastHeartbeatRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastHeartbeatRequestedEventArgs {
@@ -2619,7 +2619,7 @@ impl windows_core::RuntimeName for AppBroadcastManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastMicrophoneCaptureStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastMicrophoneCaptureStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastMicrophoneCaptureStateChangedEventArgs {
@@ -2651,7 +2651,7 @@ impl windows_core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEven
 unsafe impl Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPlugIn(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPlugIn, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPlugIn {
@@ -2698,7 +2698,7 @@ impl windows_core::RuntimeName for AppBroadcastPlugIn {
 unsafe impl Send for AppBroadcastPlugIn {}
 unsafe impl Sync for AppBroadcastPlugIn {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPlugInManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPlugInManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPlugInManager {
@@ -2765,7 +2765,7 @@ impl windows_core::RuntimeName for AppBroadcastPlugInManager {
 unsafe impl Send for AppBroadcastPlugInManager {}
 unsafe impl Sync for AppBroadcastPlugInManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPlugInStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPlugInStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPlugInStateChangedEventArgs {
@@ -2790,7 +2790,7 @@ impl windows_core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
 unsafe impl Send for AppBroadcastPlugInStateChangedEventArgs {}
 unsafe impl Sync for AppBroadcastPlugInStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreview {
@@ -2847,7 +2847,7 @@ impl windows_core::RuntimeName for AppBroadcastPreview {
 unsafe impl Send for AppBroadcastPreview {}
 unsafe impl Sync for AppBroadcastPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPreviewStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreviewStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreviewStateChangedEventArgs {
@@ -2879,7 +2879,7 @@ impl windows_core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
 unsafe impl Send for AppBroadcastPreviewStateChangedEventArgs {}
 unsafe impl Sync for AppBroadcastPreviewStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPreviewStreamReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreviewStreamReader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreviewStreamReader {
@@ -2955,7 +2955,7 @@ impl windows_core::RuntimeName for AppBroadcastPreviewStreamReader {
 unsafe impl Send for AppBroadcastPreviewStreamReader {}
 unsafe impl Sync for AppBroadcastPreviewStreamReader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPreviewStreamVideoFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreviewStreamVideoFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreviewStreamVideoFrame {
@@ -2988,7 +2988,7 @@ impl windows_core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
 unsafe impl Send for AppBroadcastPreviewStreamVideoFrame {}
 unsafe impl Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastPreviewStreamVideoHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreviewStreamVideoHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreviewStreamVideoHeader {
@@ -3034,7 +3034,7 @@ impl windows_core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
 unsafe impl Send for AppBroadcastPreviewStreamVideoHeader {}
 unsafe impl Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastProviderSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastProviderSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastProviderSettings {
@@ -3127,7 +3127,7 @@ impl windows_core::RuntimeName for AppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastProviderSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastServices(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastServices, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastServices {
@@ -3232,7 +3232,7 @@ impl windows_core::RuntimeName for AppBroadcastServices {
 unsafe impl Send for AppBroadcastServices {}
 unsafe impl Sync for AppBroadcastServices {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastSignInStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastSignInStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastSignInStateChangedEventArgs {
@@ -3262,7 +3262,7 @@ impl windows_core::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastState, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastState {
@@ -3512,7 +3512,7 @@ impl windows_core::RuntimeName for AppBroadcastState {
 unsafe impl Send for AppBroadcastState {}
 unsafe impl Sync for AppBroadcastState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamAudioFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamAudioFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamAudioFrame {
@@ -3543,7 +3543,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioFrame";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamAudioHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamAudioHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamAudioHeader {
@@ -3594,7 +3594,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioHeader";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamReader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamReader {
@@ -3702,7 +3702,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamReader";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamStateChangedEventArgs {
@@ -3725,7 +3725,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamVideoFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamVideoFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamVideoFrame {
@@ -3756,7 +3756,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoFrame";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastStreamVideoHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamVideoHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamVideoHeader {
@@ -3814,7 +3814,7 @@ impl windows_core::RuntimeName for AppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoHeader";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastTriggerDetails {
@@ -3837,7 +3837,7 @@ impl windows_core::RuntimeName for AppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastTriggerDetails";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBroadcastViewerCountChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastViewerCountChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastViewerCountChangedEventArgs {
@@ -3862,7 +3862,7 @@ impl windows_core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
 unsafe impl Send for AppBroadcastViewerCountChangedEventArgs {}
 unsafe impl Sync for AppBroadcastViewerCountChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapture {
@@ -3926,7 +3926,7 @@ impl windows_core::RuntimeName for AppCapture {
     const NAME: &'static str = "Windows.Media.Capture.AppCapture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureAlternateShortcutKeys(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureAlternateShortcutKeys, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureAlternateShortcutKeys {
@@ -4150,7 +4150,7 @@ impl windows_core::RuntimeName for AppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureAlternateShortcutKeys";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureDurationGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureDurationGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureDurationGeneratedEventArgs {
@@ -4175,7 +4175,7 @@ impl windows_core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
 unsafe impl Send for AppCaptureDurationGeneratedEventArgs {}
 unsafe impl Sync for AppCaptureDurationGeneratedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureFileGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureFileGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureFileGeneratedEventArgs {
@@ -4223,7 +4223,7 @@ impl windows_core::RuntimeName for AppCaptureManager {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureMetadataWriter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureMetadataWriter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppCaptureMetadataWriter, super::super::Foundation::IClosable);
@@ -4306,7 +4306,7 @@ impl windows_core::RuntimeName for AppCaptureMetadataWriter {
 unsafe impl Send for AppCaptureMetadataWriter {}
 unsafe impl Sync for AppCaptureMetadataWriter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureMicrophoneCaptureStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureMicrophoneCaptureStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureMicrophoneCaptureStateChangedEventArgs {
@@ -4338,7 +4338,7 @@ impl windows_core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventA
 unsafe impl Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureRecordOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureRecordOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureRecordOperation {
@@ -4438,7 +4438,7 @@ impl windows_core::RuntimeName for AppCaptureRecordOperation {
 unsafe impl Send for AppCaptureRecordOperation {}
 unsafe impl Sync for AppCaptureRecordOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureRecordingStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureRecordingStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureRecordingStateChangedEventArgs {
@@ -4470,7 +4470,7 @@ impl windows_core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
 unsafe impl Send for AppCaptureRecordingStateChangedEventArgs {}
 unsafe impl Sync for AppCaptureRecordingStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureServices(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureServices, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureServices {
@@ -4516,7 +4516,7 @@ impl windows_core::RuntimeName for AppCaptureServices {
 unsafe impl Send for AppCaptureServices {}
 unsafe impl Sync for AppCaptureServices {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureSettings {
@@ -4837,7 +4837,7 @@ impl windows_core::RuntimeName for AppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCaptureState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureState, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureState {
@@ -4926,7 +4926,7 @@ impl windows_core::RuntimeName for AppCaptureState {
 unsafe impl Send for AppCaptureState {}
 unsafe impl Sync for AppCaptureState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CameraCaptureUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraCaptureUI, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraCaptureUI {
@@ -4971,7 +4971,7 @@ impl windows_core::RuntimeName for CameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUI";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CameraCaptureUIPhotoCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraCaptureUIPhotoCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraCaptureUIPhotoCaptureSettings {
@@ -5044,7 +5044,7 @@ impl windows_core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
 unsafe impl Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CameraCaptureUIVideoCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraCaptureUIVideoCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl CameraCaptureUIVideoCaptureSettings {
@@ -5123,7 +5123,7 @@ impl windows_core::RuntimeName for CameraOptionsUI {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CapturedFrame(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(CapturedFrame, windows_core::IUnknown, windows_core::IInspectable);
@@ -5284,7 +5284,7 @@ unsafe impl Send for CapturedFrame {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for CapturedFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CapturedFrameControlValues(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CapturedFrameControlValues, windows_core::IUnknown, windows_core::IInspectable);
 impl CapturedFrameControlValues {
@@ -5403,7 +5403,7 @@ impl windows_core::RuntimeName for CapturedFrameControlValues {
 unsafe impl Send for CapturedFrameControlValues {}
 unsafe impl Sync for CapturedFrameControlValues {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CapturedPhoto(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CapturedPhoto, windows_core::IUnknown, windows_core::IInspectable);
 impl CapturedPhoto {
@@ -5437,7 +5437,7 @@ impl windows_core::RuntimeName for CapturedPhoto {
 unsafe impl Send for CapturedPhoto {}
 unsafe impl Sync for CapturedPhoto {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameBarServices(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameBarServices, windows_core::IUnknown, windows_core::IInspectable);
 impl GameBarServices {
@@ -5512,7 +5512,7 @@ impl windows_core::RuntimeName for GameBarServices {
 unsafe impl Send for GameBarServices {}
 unsafe impl Sync for GameBarServices {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameBarServicesCommandEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameBarServicesCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GameBarServicesCommandEventArgs {
@@ -5544,7 +5544,7 @@ impl windows_core::RuntimeName for GameBarServicesCommandEventArgs {
 unsafe impl Send for GameBarServicesCommandEventArgs {}
 unsafe impl Sync for GameBarServicesCommandEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameBarServicesManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameBarServicesManager, windows_core::IUnknown, windows_core::IInspectable);
 impl GameBarServicesManager {
@@ -5586,7 +5586,7 @@ impl windows_core::RuntimeName for GameBarServicesManager {
 unsafe impl Send for GameBarServicesManager {}
 unsafe impl Sync for GameBarServicesManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameBarServicesManagerGameBarServicesCreatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameBarServicesManagerGameBarServicesCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GameBarServicesManagerGameBarServicesCreatedEventArgs {
@@ -5611,7 +5611,7 @@ impl windows_core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedE
 unsafe impl Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 unsafe impl Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameBarServicesTargetInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameBarServicesTargetInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GameBarServicesTargetInfo {
@@ -5657,7 +5657,7 @@ impl windows_core::RuntimeName for GameBarServicesTargetInfo {
 unsafe impl Send for GameBarServicesTargetInfo {}
 unsafe impl Sync for GameBarServicesTargetInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LowLagMediaRecording(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagMediaRecording, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagMediaRecording {
@@ -5724,7 +5724,7 @@ impl windows_core::RuntimeName for LowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.LowLagMediaRecording";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LowLagPhotoCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoCapture {
@@ -5754,7 +5754,7 @@ impl windows_core::RuntimeName for LowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoCapture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LowLagPhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLagPhotoSequenceCapture {
@@ -5805,7 +5805,7 @@ impl windows_core::RuntimeName for LowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoSequenceCapture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCapture, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaCapture, super::super::Foundation::IClosable);
@@ -6445,7 +6445,7 @@ impl windows_core::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureDeviceExclusiveControlStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureDeviceExclusiveControlStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
@@ -6477,7 +6477,7 @@ impl windows_core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChang
 unsafe impl Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 unsafe impl Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureFailedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureFailedEventArgs {
@@ -6507,7 +6507,7 @@ impl windows_core::RuntimeName for MediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFailedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureFocusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureFocusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureFocusChangedEventArgs {
@@ -6533,7 +6533,7 @@ impl windows_core::RuntimeName for MediaCaptureFocusChangedEventArgs {
 unsafe impl Send for MediaCaptureFocusChangedEventArgs {}
 unsafe impl Sync for MediaCaptureFocusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureInitializationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureInitializationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureInitializationSettings {
@@ -6791,7 +6791,7 @@ impl windows_core::RuntimeName for MediaCaptureInitializationSettings {
 unsafe impl Send for MediaCaptureInitializationSettings {}
 unsafe impl Sync for MediaCaptureInitializationSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCapturePauseResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCapturePauseResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaCapturePauseResult, super::super::Foundation::IClosable);
@@ -6826,7 +6826,7 @@ impl windows_core::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureRelativePanelWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureRelativePanelWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaCaptureRelativePanelWatcher, super::super::Foundation::IClosable);
@@ -6879,7 +6879,7 @@ impl windows_core::RuntimeName for MediaCaptureRelativePanelWatcher {
 unsafe impl Send for MediaCaptureRelativePanelWatcher {}
 unsafe impl Sync for MediaCaptureRelativePanelWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureSettings {
@@ -6994,7 +6994,7 @@ impl windows_core::RuntimeName for MediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureSettings";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureStopResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureStopResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaCaptureStopResult, super::super::Foundation::IClosable);
@@ -7029,7 +7029,7 @@ impl windows_core::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureVideoProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureVideoProfile, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureVideoProfile {
@@ -7109,7 +7109,7 @@ impl windows_core::RuntimeName for MediaCaptureVideoProfile {
 unsafe impl Send for MediaCaptureVideoProfile {}
 unsafe impl Sync for MediaCaptureVideoProfile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaCaptureVideoProfileMediaDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaCaptureVideoProfileMediaDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaCaptureVideoProfileMediaDescription {
@@ -7177,7 +7177,7 @@ impl windows_core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
 unsafe impl Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl Sync for MediaCaptureVideoProfileMediaDescription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OptionalReferencePhotoCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OptionalReferencePhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl OptionalReferencePhotoCapturedEventArgs {
@@ -7210,7 +7210,7 @@ impl windows_core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
 unsafe impl Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoCapturedEventArgs {
@@ -7251,7 +7251,7 @@ impl windows_core::RuntimeName for PhotoCapturedEventArgs {
 unsafe impl Send for PhotoCapturedEventArgs {}
 unsafe impl Sync for PhotoCapturedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoConfirmationCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoConfirmationCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoConfirmationCapturedEventArgs {
@@ -7284,7 +7284,7 @@ impl windows_core::RuntimeName for PhotoConfirmationCapturedEventArgs {
 unsafe impl Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl Sync for PhotoConfirmationCapturedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScreenCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScreenCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl ScreenCapture {
@@ -7356,7 +7356,7 @@ impl windows_core::RuntimeName for ScreenCapture {
 unsafe impl Send for ScreenCapture {}
 unsafe impl Sync for ScreenCapture {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SourceSuspensionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SourceSuspensionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SourceSuspensionChangedEventArgs {
@@ -7388,7 +7388,7 @@ impl windows_core::RuntimeName for SourceSuspensionChangedEventArgs {
 unsafe impl Send for SourceSuspensionChangedEventArgs {}
 unsafe impl Sync for SourceSuspensionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoStreamConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoStreamConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoStreamConfiguration {
@@ -7543,7 +7543,7 @@ impl<F: FnMut(Option<&MediaCapture>) -> windows_core::Result<()> + Send + 'stati
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -7557,7 +7557,7 @@ impl windows_core::RuntimeType for AppBroadcastCameraCaptureState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
     pub const TopLeft: Self = Self(0i32);
@@ -7577,7 +7577,7 @@ impl windows_core::RuntimeType for AppBroadcastCameraOverlayLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlayLocation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
     pub const Small: Self = Self(0i32);
@@ -7591,7 +7591,7 @@ impl windows_core::RuntimeType for AppBroadcastCameraOverlaySize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCameraOverlaySize;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
@@ -7604,7 +7604,7 @@ impl windows_core::RuntimeType for AppBroadcastCaptureTargetType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastCaptureTargetType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
     pub const NormalExit: Self = Self(0i32);
@@ -7619,7 +7619,7 @@ impl windows_core::RuntimeType for AppBroadcastExitBroadcastModeReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastExitBroadcastModeReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -7633,7 +7633,7 @@ impl windows_core::RuntimeType for AppBroadcastMicrophoneCaptureState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastMicrophoneCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
     pub const Unknown: Self = Self(0i32);
@@ -7651,7 +7651,7 @@ impl windows_core::RuntimeType for AppBroadcastPlugInState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPlugInState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
     pub const Started: Self = Self(0i32);
@@ -7665,7 +7665,7 @@ impl windows_core::RuntimeType for AppBroadcastPreviewState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastPreviewState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
     pub const Success: Self = Self(0i32);
@@ -7681,7 +7681,7 @@ impl windows_core::RuntimeType for AppBroadcastSignInResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
     pub const NotSignedIn: Self = Self(0i32);
@@ -7697,7 +7697,7 @@ impl windows_core::RuntimeType for AppBroadcastSignInState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastSignInState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
     pub const Initializing: Self = Self(0i32);
@@ -7713,7 +7713,7 @@ impl windows_core::RuntimeType for AppBroadcastStreamState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastStreamState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
     pub const NormalTermination: Self = Self(0i32);
@@ -7734,7 +7734,7 @@ impl windows_core::RuntimeType for AppBroadcastTerminationReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastTerminationReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -7747,7 +7747,7 @@ impl windows_core::RuntimeType for AppBroadcastVideoEncodingBitrateMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingBitrateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -7760,7 +7760,7 @@ impl windows_core::RuntimeType for AppBroadcastVideoEncodingResolutionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppBroadcastVideoEncodingResolutionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
@@ -7773,7 +7773,7 @@ impl windows_core::RuntimeType for AppCaptureHistoricalBufferLengthUnit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureHistoricalBufferLengthUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
     pub const Informational: Self = Self(0i32);
@@ -7786,7 +7786,7 @@ impl windows_core::RuntimeType for AppCaptureMetadataPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMetadataPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -7800,7 +7800,7 @@ impl windows_core::RuntimeType for AppCaptureMicrophoneCaptureState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureMicrophoneCaptureState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
     pub const InProgress: Self = Self(0i32);
@@ -7814,7 +7814,7 @@ impl windows_core::RuntimeType for AppCaptureRecordingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureRecordingState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -7828,7 +7828,7 @@ impl windows_core::RuntimeType for AppCaptureVideoEncodingBitrateMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingBitrateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
     pub const Standard: Self = Self(0i32);
@@ -7841,7 +7841,7 @@ impl windows_core::RuntimeType for AppCaptureVideoEncodingFrameRateMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingFrameRateMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -7855,7 +7855,7 @@ impl windows_core::RuntimeType for AppCaptureVideoEncodingResolutionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.AppCaptureVideoEncodingResolutionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -7872,7 +7872,7 @@ impl windows_core::RuntimeType for CameraCaptureUIMaxPhotoResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxPhotoResolution;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -7887,7 +7887,7 @@ impl windows_core::RuntimeType for CameraCaptureUIMaxVideoResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMaxVideoResolution;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -7901,7 +7901,7 @@ impl windows_core::RuntimeType for CameraCaptureUIMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -7915,7 +7915,7 @@ impl windows_core::RuntimeType for CameraCaptureUIPhotoFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIPhotoFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
     pub const Mp4: Self = Self(0i32);
@@ -7928,7 +7928,7 @@ impl windows_core::RuntimeType for CameraCaptureUIVideoFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.CameraCaptureUIVideoFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
     pub const SignInRequired: Self = Self(0i32);
@@ -7941,7 +7941,7 @@ impl windows_core::RuntimeType for ForegroundActivationArgument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.ForegroundActivationArgument;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
     pub const OpenGameBar: Self = Self(0i32);
@@ -7966,7 +7966,7 @@ impl windows_core::RuntimeType for GameBarCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommand;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
     pub const ShortcutKey: Self = Self(0i32);
@@ -7980,7 +7980,7 @@ impl windows_core::RuntimeType for GameBarCommandOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarCommandOrigin;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
     pub const Windowed: Self = Self(0i32);
@@ -7993,7 +7993,7 @@ impl windows_core::RuntimeType for GameBarServicesDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarServicesDisplayMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
     pub const EnabledBySystem: Self = Self(0i32);
@@ -8009,7 +8009,7 @@ impl windows_core::RuntimeType for GameBarTargetCapturePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.GameBarTargetCapturePolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
     pub const VideoRecording: Self = Self(0i32);
@@ -8031,7 +8031,7 @@ impl windows_core::RuntimeType for KnownVideoProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.KnownVideoProfile;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureDeviceExclusiveControlReleaseMode(pub i32);
 impl MediaCaptureDeviceExclusiveControlReleaseMode {
     pub const OnDispose: Self = Self(0i32);
@@ -8044,7 +8044,7 @@ impl windows_core::RuntimeType for MediaCaptureDeviceExclusiveControlReleaseMode
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlReleaseMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);
@@ -8057,7 +8057,7 @@ impl windows_core::RuntimeType for MediaCaptureDeviceExclusiveControlStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
     pub const Auto: Self = Self(0i32);
@@ -8070,7 +8070,7 @@ impl windows_core::RuntimeType for MediaCaptureMemoryPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureMemoryPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
     pub const ExclusiveControl: Self = Self(0i32);
@@ -8083,7 +8083,7 @@ impl windows_core::RuntimeType for MediaCaptureSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
     pub const Normal: Self = Self(0i32);
@@ -8096,7 +8096,7 @@ impl windows_core::RuntimeType for MediaCaptureThermalStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCaptureThermalStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
     pub const Other: Self = Self(0i32);
@@ -8115,7 +8115,7 @@ impl windows_core::RuntimeType for MediaCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
     pub const VideoPreview: Self = Self(0i32);
@@ -8131,7 +8131,7 @@ impl windows_core::RuntimeType for MediaStreamType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.MediaStreamType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
     pub const Auto: Self = Self(0i32);
@@ -8145,7 +8145,7 @@ impl windows_core::RuntimeType for PhotoCaptureSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PhotoCaptureSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
     pub const Disabled: Self = Self(0i32);
@@ -8160,7 +8160,7 @@ impl windows_core::RuntimeType for PowerlineFrequency {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.PowerlineFrequency;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
     pub const AudioAndVideo: Self = Self(0i32);
@@ -8174,7 +8174,7 @@ impl windows_core::RuntimeType for StreamingCaptureMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.StreamingCaptureMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
     pub const AllStreamsIndependent: Self = Self(0i32);
@@ -8190,7 +8190,7 @@ impl windows_core::RuntimeType for VideoDeviceCharacteristic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoDeviceCharacteristic;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
     pub const None: Self = Self(0i32);
@@ -8205,7 +8205,7 @@ impl windows_core::RuntimeType for VideoRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.VideoRotation;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WhiteBalanceGain {
     pub R: f64,
     pub G: f64,

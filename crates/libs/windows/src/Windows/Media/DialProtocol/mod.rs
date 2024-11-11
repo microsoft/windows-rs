@@ -153,7 +153,7 @@ pub struct IDialReceiverAppStatics_Vtbl {
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialApp, windows_core::IUnknown, windows_core::IInspectable);
 impl DialApp {
@@ -199,7 +199,7 @@ impl windows_core::RuntimeName for DialApp {
 unsafe impl Send for DialApp {}
 unsafe impl Sync for DialApp {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialAppStateDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialAppStateDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DialAppStateDetails {
@@ -231,7 +231,7 @@ impl windows_core::RuntimeName for DialAppStateDetails {
 unsafe impl Send for DialAppStateDetails {}
 unsafe impl Sync for DialAppStateDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevice {
@@ -304,7 +304,7 @@ impl windows_core::RuntimeName for DialDevice {
 unsafe impl Send for DialDevice {}
 unsafe impl Sync for DialDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevicePicker {
@@ -421,7 +421,7 @@ impl windows_core::RuntimeName for DialDevicePicker {
 unsafe impl Send for DialDevicePicker {}
 unsafe impl Sync for DialDevicePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevicePickerFilter {
@@ -447,7 +447,7 @@ impl windows_core::RuntimeName for DialDevicePickerFilter {
 unsafe impl Send for DialDevicePickerFilter {}
 unsafe impl Sync for DialDevicePickerFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDeviceSelectedEventArgs {
@@ -472,7 +472,7 @@ impl windows_core::RuntimeName for DialDeviceSelectedEventArgs {
 unsafe impl Send for DialDeviceSelectedEventArgs {}
 unsafe impl Sync for DialDeviceSelectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialDisconnectButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDisconnectButtonClickedEventArgs {
@@ -497,7 +497,7 @@ impl windows_core::RuntimeName for DialDisconnectButtonClickedEventArgs {
 unsafe impl Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl Sync for DialDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DialReceiverApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialReceiverApp, windows_core::IUnknown, windows_core::IInspectable);
 impl DialReceiverApp {
@@ -551,7 +551,7 @@ impl windows_core::RuntimeName for DialReceiverApp {
 unsafe impl Send for DialReceiverApp {}
 unsafe impl Sync for DialReceiverApp {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
     pub const Launched: Self = Self(0i32);
@@ -566,7 +566,7 @@ impl windows_core::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
     pub const Unknown: Self = Self(0i32);
@@ -581,7 +581,7 @@ impl windows_core::RuntimeType for DialAppState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
     pub const Stopped: Self = Self(0i32);
@@ -596,7 +596,7 @@ impl windows_core::RuntimeType for DialAppStopResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
     pub const None: Self = Self(0i32);

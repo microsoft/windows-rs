@@ -1,5 +1,5 @@
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpeechRecognitionUIStatus(pub i32);
 impl SpeechRecognitionUIStatus {
     pub const Succeeded: Self = Self(0i32);

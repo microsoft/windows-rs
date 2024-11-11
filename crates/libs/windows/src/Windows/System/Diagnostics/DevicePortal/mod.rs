@@ -90,7 +90,7 @@ pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePortalConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePortalConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePortalConnection {
@@ -205,7 +205,7 @@ impl windows_core::RuntimeName for DevicePortalConnection {
 unsafe impl Send for DevicePortalConnection {}
 unsafe impl Sync for DevicePortalConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePortalConnectionClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePortalConnectionClosedEventArgs {
@@ -230,7 +230,7 @@ impl windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
 unsafe impl Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
@@ -286,7 +286,7 @@ impl windows_core::RuntimeName for DevicePortalConnectionRequestReceivedEventArg
 unsafe impl Send for DevicePortalConnectionRequestReceivedEventArgs {}
 unsafe impl Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
     pub const Unknown: Self = Self(0i32);

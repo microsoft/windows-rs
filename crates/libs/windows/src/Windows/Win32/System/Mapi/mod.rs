@@ -59,7 +59,7 @@ pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
 pub const SUCCESS_SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -77,7 +77,7 @@ impl windows_core::TypeKind for MapiFileDesc {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -95,7 +95,7 @@ impl windows_core::TypeKind for MapiFileDescW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -112,7 +112,7 @@ impl windows_core::TypeKind for MapiFileTagExt {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PSTR,
@@ -136,7 +136,7 @@ impl windows_core::TypeKind for MapiMessage {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PWSTR,
@@ -160,7 +160,7 @@ impl windows_core::TypeKind for MapiMessageW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -178,7 +178,7 @@ impl windows_core::TypeKind for MapiRecipDesc {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,

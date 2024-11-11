@@ -74,7 +74,7 @@ pub struct IOcrWord_Vtbl {
     pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OcrEngine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrEngine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrEngine {
@@ -154,7 +154,7 @@ impl windows_core::RuntimeName for OcrEngine {
 unsafe impl Send for OcrEngine {}
 unsafe impl Sync for OcrEngine {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OcrLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrLine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrLine {
@@ -187,7 +187,7 @@ impl windows_core::RuntimeName for OcrLine {
 unsafe impl Send for OcrLine {}
 unsafe impl Sync for OcrLine {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OcrResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrResult {
@@ -227,7 +227,7 @@ impl windows_core::RuntimeName for OcrResult {
 unsafe impl Send for OcrResult {}
 unsafe impl Sync for OcrResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OcrWord(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrWord, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrWord {

@@ -192,7 +192,7 @@ impl ISpiDeviceStatics_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpiBusInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiBusInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiBusInfo {
@@ -239,7 +239,7 @@ impl windows_core::RuntimeName for SpiBusInfo {
 unsafe impl Send for SpiBusInfo {}
 unsafe impl Sync for SpiBusInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpiConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiConnectionSettings {
@@ -322,7 +322,7 @@ impl windows_core::RuntimeName for SpiConnectionSettings {
 unsafe impl Send for SpiConnectionSettings {}
 unsafe impl Sync for SpiConnectionSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpiController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiController, windows_core::IUnknown, windows_core::IInspectable);
 impl SpiController {
@@ -370,7 +370,7 @@ impl windows_core::RuntimeName for SpiController {
 unsafe impl Send for SpiController {}
 unsafe impl Sync for SpiController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpiDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpiDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiDevice, ISpiDeviceStatics, super::super::Foundation::IClosable);
@@ -454,7 +454,7 @@ impl windows_core::RuntimeName for SpiDevice {
 unsafe impl Send for SpiDevice {}
 unsafe impl Sync for SpiDevice {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
     pub const Mode0: Self = Self(0i32);
@@ -469,7 +469,7 @@ impl windows_core::RuntimeType for SpiMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {
     pub const Exclusive: Self = Self(0i32);

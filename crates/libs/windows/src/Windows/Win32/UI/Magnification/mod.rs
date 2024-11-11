@@ -140,13 +140,13 @@ pub const WC_MAGNIFIER: windows_core::PCWSTR = windows_core::w!("Magnifier");
 pub const WC_MAGNIFIERA: windows_core::PCSTR = windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_core::PCWSTR = windows_core::w!("Magnifier");
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MW_FILTERMODE(pub u32);
 impl windows_core::TypeKind for MW_FILTERMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
@@ -159,7 +159,7 @@ impl windows_core::TypeKind for MAGCOLOREFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -177,7 +177,7 @@ impl windows_core::TypeKind for MAGIMAGEHEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }

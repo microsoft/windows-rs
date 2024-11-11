@@ -124,25 +124,25 @@ pub const XINPUT_KEYSTROKE_REPEAT: XINPUT_KEYSTROKE_FLAGS = XINPUT_KEYSTROKE_FLA
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_DEVTYPE(pub u8);
 impl windows_core::TypeKind for BATTERY_DEVTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_LEVEL(pub u8);
 impl windows_core::TypeKind for BATTERY_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_TYPE(pub u8);
 impl windows_core::TypeKind for BATTERY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_CAPABILITIES_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -181,19 +181,19 @@ impl core::ops::Not for XINPUT_CAPABILITIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_DEVSUBTYPE(pub u8);
 impl windows_core::TypeKind for XINPUT_DEVSUBTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_DEVTYPE(pub u8);
 impl windows_core::TypeKind for XINPUT_DEVTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_FLAG(pub u32);
 impl windows_core::TypeKind for XINPUT_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -232,7 +232,7 @@ impl core::ops::Not for XINPUT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_GAMEPAD_BUTTON_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -271,7 +271,7 @@ impl core::ops::Not for XINPUT_GAMEPAD_BUTTON_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_KEYSTROKE_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -310,13 +310,13 @@ impl core::ops::Not for XINPUT_KEYSTROKE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 impl windows_core::TypeKind for XINPUT_VIRTUAL_KEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: BATTERY_TYPE,
     pub BatteryLevel: BATTERY_LEVEL,
@@ -330,7 +330,7 @@ impl windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: XINPUT_DEVTYPE,
     pub SubType: XINPUT_DEVSUBTYPE,
@@ -347,7 +347,7 @@ impl windows_core::TypeKind for XINPUT_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
     pub bLeftTrigger: u8,
@@ -366,7 +366,7 @@ impl windows_core::TypeKind for XINPUT_GAMEPAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -383,7 +383,7 @@ impl windows_core::TypeKind for XINPUT_KEYSTROKE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
@@ -397,7 +397,7 @@ impl windows_core::TypeKind for XINPUT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,

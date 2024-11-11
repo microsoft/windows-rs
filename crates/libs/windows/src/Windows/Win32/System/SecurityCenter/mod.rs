@@ -521,37 +521,37 @@ pub const WSC_SECURITY_PROVIDER_NONE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVI
 pub const WSC_SECURITY_PROVIDER_SERVICE: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(64i32);
 pub const WSC_SECURITY_PROVIDER_USER_ACCOUNT_CONTROL: WSC_SECURITY_PROVIDER = WSC_SECURITY_PROVIDER(32i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_PRODUCT_TYPE(pub i32);
 impl windows_core::TypeKind for SECURITY_PRODUCT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PRODUCT_STATE(pub i32);
 impl windows_core::TypeKind for WSC_SECURITY_PRODUCT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PRODUCT_SUBSTATUS(pub i32);
 impl windows_core::TypeKind for WSC_SECURITY_PRODUCT_SUBSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PROVIDER(pub i32);
 impl windows_core::TypeKind for WSC_SECURITY_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_PROVIDER_HEALTH(pub i32);
 impl windows_core::TypeKind for WSC_SECURITY_PROVIDER_HEALTH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSC_SECURITY_SIGNATURE_STATUS(pub i32);
 impl windows_core::TypeKind for WSC_SECURITY_SIGNATURE_STATUS {
     type TypeKind = windows_core::CopyType;

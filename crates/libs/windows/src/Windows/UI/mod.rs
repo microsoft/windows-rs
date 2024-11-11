@@ -227,7 +227,7 @@ pub struct IUIContext_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ColorHelper(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorHelper, windows_core::IUnknown, windows_core::IInspectable);
 impl ColorHelper {
@@ -265,7 +265,7 @@ impl windows_core::RuntimeName for ColorHelper {
 unsafe impl Send for ColorHelper {}
 unsafe impl Sync for ColorHelper {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Colors(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Colors, windows_core::IUnknown, windows_core::IInspectable);
 impl Colors {
@@ -1133,7 +1133,7 @@ impl windows_core::RuntimeName for Colors {
 unsafe impl Send for Colors {}
 unsafe impl Sync for Colors {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIContentRoot(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContentRoot, windows_core::IUnknown, windows_core::IInspectable);
 impl UIContentRoot {
@@ -1158,7 +1158,7 @@ impl windows_core::RuntimeName for UIContentRoot {
 unsafe impl Send for UIContentRoot {}
 unsafe impl Sync for UIContentRoot {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIContext, windows_core::IUnknown, windows_core::IInspectable);
 impl UIContext {}
@@ -1175,7 +1175,7 @@ impl windows_core::RuntimeName for UIContext {
 unsafe impl Send for UIContext {}
 unsafe impl Sync for UIContext {}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -1189,7 +1189,7 @@ impl windows_core::RuntimeType for Color {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Color;u1;u1;u1;u1)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WindowId {
     pub Value: u64,
 }

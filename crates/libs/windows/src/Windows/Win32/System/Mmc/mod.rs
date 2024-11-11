@@ -6639,145 +6639,145 @@ pub const ViewOption_NoToolBars: _ViewOptions = _ViewOptions(2i32);
 pub const ViewOption_NotPersistable: _ViewOptions = _ViewOptions(4i32);
 pub const ViewOption_ScopeTreeHidden: _ViewOptions = _ViewOptions(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
 impl windows_core::TypeKind for CCM_COMMANDID_MASK_CONSTANTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_INSERTIONALLOWED(pub i32);
 impl windows_core::TypeKind for CCM_INSERTIONALLOWED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_INSERTIONPOINTID(pub i32);
 impl windows_core::TypeKind for CCM_INSERTIONPOINTID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CCM_SPECIAL(pub i32);
 impl windows_core::TypeKind for CCM_SPECIAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATA_OBJECT_TYPES(pub i32);
 impl windows_core::TypeKind for DATA_OBJECT_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IconIdentifier(pub i32);
 impl windows_core::TypeKind for IconIdentifier {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_ACTION_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_ACTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_BUTTON_STATE(pub i32);
 impl windows_core::TypeKind for MMC_BUTTON_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_CONSOLE_VERB(pub i32);
 impl windows_core::TypeKind for MMC_CONSOLE_VERB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_CONTROL_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_CONTROL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_FILTER_CHANGE_CODE(pub i32);
 impl windows_core::TypeKind for MMC_FILTER_CHANGE_CODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_FILTER_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_FILTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_MENU_COMMAND_IDS(pub i32);
 impl windows_core::TypeKind for MMC_MENU_COMMAND_IDS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_NOTIFY_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_NOTIFY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_PROPERTY_ACTION(pub i32);
 impl windows_core::TypeKind for MMC_PROPERTY_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
 impl windows_core::TypeKind for MMC_RESULT_VIEW_STYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_SCOPE_ITEM_STATE(pub i32);
 impl windows_core::TypeKind for MMC_SCOPE_ITEM_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_TASK_DISPLAY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MMC_VIEW_TYPE(pub i32);
 impl windows_core::TypeKind for MMC_VIEW_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ColumnSortOrder(pub i32);
 impl windows_core::TypeKind for _ColumnSortOrder {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DocumentMode(pub i32);
 impl windows_core::TypeKind for _DocumentMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ExportListOptions(pub i32);
 impl windows_core::TypeKind for _ExportListOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ListViewMode(pub i32);
 impl windows_core::TypeKind for _ListViewMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ViewOptions(pub i32);
 impl windows_core::TypeKind for _ViewOptions {
     type TypeKind = windows_core::CopyType;
@@ -6785,7 +6785,7 @@ impl windows_core::TypeKind for _ViewOptions {
 pub const AppEventsDHTMLConnector: windows_core::GUID = windows_core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
 pub const Application: windows_core::GUID = windows_core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTEXTMENUITEM {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -6803,7 +6803,7 @@ impl windows_core::TypeKind for CONTEXTMENUITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONTEXTMENUITEM2 {
     pub strName: windows_core::PWSTR,
     pub strStatusBarText: windows_core::PWSTR,
@@ -6823,7 +6823,7 @@ impl windows_core::TypeKind for CONTEXTMENUITEM2 {
 }
 pub const ConsolePower: windows_core::GUID = windows_core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
     pub x: i32,
@@ -6838,7 +6838,7 @@ impl windows_core::TypeKind for MENUBUTTONDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMCBUTTON {
     pub nBitmap: i32,
     pub idCommand: i32,
@@ -6857,7 +6857,7 @@ impl windows_core::TypeKind for MMCBUTTON {
 }
 pub const MMCVersionInfo: windows_core::GUID = windows_core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,
     pub dwFlags: u32,
@@ -6873,7 +6873,7 @@ impl windows_core::TypeKind for MMC_COLUMN_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_COLUMN_SET_DATA {
     pub cbSize: i32,
     pub nNumCols: i32,
@@ -6888,7 +6888,7 @@ impl windows_core::TypeKind for MMC_COLUMN_SET_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_EXPANDSYNC_STRUCT {
     pub bHandled: super::super::Foundation::BOOL,
     pub bExpanding: super::super::Foundation::BOOL,
@@ -6903,7 +6903,7 @@ impl windows_core::TypeKind for MMC_EXPANDSYNC_STRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_EXT_VIEW_DATA {
     pub viewID: windows_core::GUID,
     pub pszURL: windows_core::PCWSTR,
@@ -6920,7 +6920,7 @@ impl windows_core::TypeKind for MMC_EXT_VIEW_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_FILTERDATA {
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
@@ -6935,7 +6935,7 @@ impl windows_core::TypeKind for MMC_FILTERDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_LISTPAD_INFO {
     pub szTitle: windows_core::PWSTR,
     pub szButtonText: windows_core::PWSTR,
@@ -6950,7 +6950,7 @@ impl windows_core::TypeKind for MMC_LISTPAD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_RESTORE_VIEW {
     pub dwSize: u32,
     pub cookie: isize,
@@ -6989,7 +6989,7 @@ impl windows_core::TypeKind for MMC_SNAPIN_PROPERTY {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_SORT_DATA {
     pub nColIndex: i32,
     pub dwSortOptions: u32,
@@ -7004,7 +7004,7 @@ impl windows_core::TypeKind for MMC_SORT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_SORT_SET_DATA {
     pub cbSize: i32,
     pub nNumItems: i32,
@@ -7019,7 +7019,7 @@ impl windows_core::TypeKind for MMC_SORT_SET_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMC_TASK {
     pub sDisplayObject: MMC_TASK_DISPLAY_OBJECT,
     pub szText: windows_core::PWSTR,
@@ -7036,7 +7036,7 @@ impl windows_core::TypeKind for MMC_TASK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MMC_TASK_0 {
     pub nCommandID: isize,
     pub szActionURL: windows_core::PWSTR,
@@ -7051,7 +7051,7 @@ impl windows_core::TypeKind for MMC_TASK_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_TASK_DISPLAY_BITMAP {
     pub szMouseOverBitmap: windows_core::PWSTR,
     pub szMouseOffBitmap: windows_core::PWSTR,
@@ -7065,7 +7065,7 @@ impl windows_core::TypeKind for MMC_TASK_DISPLAY_BITMAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MMC_TASK_DISPLAY_OBJECT {
     pub eDisplayType: MMC_TASK_DISPLAY_TYPE,
     pub Anonymous: MMC_TASK_DISPLAY_OBJECT_0,
@@ -7079,7 +7079,7 @@ impl windows_core::TypeKind for MMC_TASK_DISPLAY_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MMC_TASK_DISPLAY_OBJECT_0 {
     pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
     pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
@@ -7093,7 +7093,7 @@ impl windows_core::TypeKind for MMC_TASK_DISPLAY_OBJECT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_TASK_DISPLAY_SYMBOL {
     pub szFontFamilyName: windows_core::PWSTR,
     pub szURLtoEOT: windows_core::PWSTR,
@@ -7108,7 +7108,7 @@ impl windows_core::TypeKind for MMC_TASK_DISPLAY_SYMBOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MMC_VISIBLE_COLUMNS {
     pub nVisibleColumns: i32,
     pub rgVisibleCols: [i32; 1],
@@ -7122,7 +7122,7 @@ impl windows_core::TypeKind for MMC_VISIBLE_COLUMNS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RDCOMPARE {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -7140,7 +7140,7 @@ impl windows_core::TypeKind for RDCOMPARE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RDITEMHDR {
     pub dwFlags: u32,
     pub cookie: isize,
@@ -7155,7 +7155,7 @@ impl windows_core::TypeKind for RDITEMHDR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESULTDATAITEM {
     pub mask: u32,
     pub bScopeItem: super::super::Foundation::BOOL,
@@ -7177,7 +7177,7 @@ impl windows_core::TypeKind for RESULTDATAITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESULTFINDINFO {
     pub psz: windows_core::PWSTR,
     pub nStart: i32,
@@ -7231,7 +7231,7 @@ impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
     pub dwHTMLOptions: u32,
     pub pstrURL: windows_core::PWSTR,
@@ -7259,7 +7259,7 @@ impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO_0_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPEDATAITEM {
     pub mask: u32,
     pub displayname: windows_core::PWSTR,
@@ -7280,7 +7280,7 @@ impl windows_core::TypeKind for SCOPEDATAITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SColumnSetID {
     pub dwFlags: u32,
     pub cBytes: u32,
@@ -7312,7 +7312,7 @@ impl windows_core::TypeKind for SMMCDataObjects {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SMMCObjectTypes {
     pub count: u32,
     pub guid: [windows_core::GUID; 1],
@@ -7326,7 +7326,7 @@ impl windows_core::TypeKind for SMMCObjectTypes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SNodeID {
     pub cBytes: u32,
     pub id: [u8; 1],
@@ -7340,7 +7340,7 @@ impl windows_core::TypeKind for SNodeID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SNodeID2 {
     pub dwFlags: u32,
     pub cBytes: u32,

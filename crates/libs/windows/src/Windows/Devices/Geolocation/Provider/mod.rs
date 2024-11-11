@@ -12,7 +12,7 @@ pub struct IGeolocationProvider_Vtbl {
     pub RemoveIsOverriddenChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeolocationProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeolocationProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GeolocationProvider {
@@ -69,7 +69,7 @@ impl windows_core::RuntimeName for GeolocationProvider {
 unsafe impl Send for GeolocationProvider {}
 unsafe impl Sync for GeolocationProvider {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocationOverrideStatus(pub i32);
 impl LocationOverrideStatus {
     pub const Success: Self = Self(0i32);

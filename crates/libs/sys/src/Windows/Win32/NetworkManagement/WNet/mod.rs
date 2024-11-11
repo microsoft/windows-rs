@@ -204,7 +204,7 @@ pub type UNC_INFO_LEVEL = u32;
 pub type WNET_OPEN_ENUM_USAGE = u32;
 pub type WNPERM_DLG = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -213,7 +213,7 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwDevNum: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -222,7 +222,7 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwDevNum: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -231,7 +231,7 @@ pub struct DISCDLGSTRUCTA {
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -240,7 +240,7 @@ pub struct DISCDLGSTRUCTW {
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -249,7 +249,7 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwOptDataSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -261,7 +261,7 @@ pub struct NETINFOSTRUCT {
     pub dwDrives: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NETRESOURCEA {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -273,7 +273,7 @@ pub struct NETRESOURCEA {
     pub lpProvider: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NETRESOURCEW {
     pub dwScope: NET_RESOURCE_SCOPE,
     pub dwType: NET_RESOURCE_TYPE,
@@ -285,14 +285,14 @@ pub struct NETRESOURCEW {
     pub lpProvider: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYADD {
     pub hwndOwner: super::super::Foundation::HWND,
     pub NetResource: NETRESOURCEA,
     pub dwAddFlags: NET_CONNECT_FLAGS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYCANCEL {
     pub lpName: windows_sys::core::PWSTR,
     pub lpProvider: windows_sys::core::PWSTR,
@@ -300,33 +300,33 @@ pub struct NOTIFYCANCEL {
     pub fForce: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
     pub lpConnectionName: windows_sys::core::PSTR,
     pub lpRemainingPath: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
     pub lpConnectionName: windows_sys::core::PWSTR,
     pub lpRemainingPath: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_sys::core::PWSTR,
 }

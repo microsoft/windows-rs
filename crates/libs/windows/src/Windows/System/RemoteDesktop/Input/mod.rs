@@ -39,7 +39,7 @@ pub struct IRemoteTextConnectionFactory2_Vtbl {
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void, RemoteTextConnectionOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteTextConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteTextConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteTextConnection, super::super::super::Foundation::IClosable);
@@ -181,7 +181,7 @@ impl<F: FnMut(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextC
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteKeyEventAttributes(pub u32);
 impl RemoteKeyEventAttributes {
     pub const None: Self = Self(0u32);
@@ -230,7 +230,7 @@ impl core::ops::Not for RemoteKeyEventAttributes {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteTextConnectionOptions(pub u32);
 impl RemoteTextConnectionOptions {
     pub const None: Self = Self(0u32);

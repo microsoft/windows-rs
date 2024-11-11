@@ -35,26 +35,26 @@ pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = 1i32;
 pub type MF_MEDIASOURCE_STATUS_INFO = i32;
 pub type MF_TRANSFER_VIDEO_FRAME_FLAGS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataISOGains {
     pub AnalogGain: f32,
     pub DigitalGain: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CapturedMetadataWhiteBalanceGains {
     pub R: f32,
     pub G: f32,
     pub B: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
@@ -62,45 +62,45 @@ pub struct FaceCharacterization {
     pub FacialExpressionScore: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FaceRectInfo {
     pub Region: super::super::Foundation::RECT,
     pub confidenceLevel: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
     pub Linear: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HistogramGrid {
     pub Width: u32,
     pub Height: u32,
     pub Region: super::super::Foundation::RECT,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HistogramHeader {
     pub Size: u32,
     pub Bins: u32,
@@ -109,7 +109,7 @@ pub struct HistogramHeader {
     pub Grid: HistogramGrid,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,

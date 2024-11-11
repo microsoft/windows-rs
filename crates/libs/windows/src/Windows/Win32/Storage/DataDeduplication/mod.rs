@@ -535,61 +535,61 @@ pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDa
 pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
 pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEDUP_SET_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for DEDUP_SET_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupChunkFlags(pub i32);
 impl windows_core::TypeKind for DedupChunkFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupChunkingAlgorithm(pub i32);
 impl windows_core::TypeKind for DedupChunkingAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupCompressionAlgorithm(pub i32);
 impl windows_core::TypeKind for DedupCompressionAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortManagerOption(pub i32);
 impl windows_core::TypeKind for DedupDataPortManagerOption {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortRequestStatus(pub i32);
 impl windows_core::TypeKind for DedupDataPortRequestStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupDataPortVolumeStatus(pub i32);
 impl windows_core::TypeKind for DedupDataPortVolumeStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DedupHashingAlgorithm(pub i32);
 impl windows_core::TypeKind for DedupHashingAlgorithm {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDP_FILE_EXTENT {
     pub Length: i64,
     pub Offset: i64,
@@ -603,7 +603,7 @@ impl windows_core::TypeKind for DDP_FILE_EXTENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
     pub ChunkFlags: u32,
     pub ChunkOffsetInStream: u64,
@@ -619,7 +619,7 @@ impl windows_core::TypeKind for DEDUP_CHUNK_INFO_HASH32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEDUP_CONTAINER_EXTENT {
     pub ContainerIndex: u32,
     pub StartOffset: i64,
@@ -635,7 +635,7 @@ impl windows_core::TypeKind for DEDUP_CONTAINER_EXTENT {
 }
 pub const DedupBackupSupport: windows_core::GUID = windows_core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DedupChunk {
     pub Hash: DedupHash,
     pub Flags: DedupChunkFlags,
@@ -652,7 +652,7 @@ impl windows_core::TypeKind for DedupChunk {
 }
 pub const DedupDataPort: windows_core::GUID = windows_core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DedupHash {
     pub Hash: [u8; 32],
 }
@@ -681,7 +681,7 @@ impl windows_core::TypeKind for DedupStream {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DedupStreamEntry {
     pub Hash: DedupHash,
     pub LogicalSize: u32,

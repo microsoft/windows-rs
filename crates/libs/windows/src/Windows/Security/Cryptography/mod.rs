@@ -153,7 +153,7 @@ impl windows_core::RuntimeName for CryptographicBuffer {
     const NAME: &'static str = "Windows.Security.Cryptography.CryptographicBuffer";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
     pub const Utf8: Self = Self(0i32);

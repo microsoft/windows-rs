@@ -1211,7 +1211,7 @@ pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1
 pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
     pub const Undefined: Self = Self(0u32);
@@ -1226,7 +1226,7 @@ impl windows_core::TypeKind for MLOperatorAttributeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
@@ -1236,7 +1236,7 @@ impl windows_core::TypeKind for MLOperatorEdgeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
     pub const Undefined: Self = Self(0u32);
@@ -1247,7 +1247,7 @@ impl windows_core::TypeKind for MLOperatorExecutionType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
     pub const None: Self = Self(0u32);
@@ -1290,7 +1290,7 @@ impl core::ops::Not for MLOperatorKernelOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
     pub const Single: Self = Self(0u32);
@@ -1334,7 +1334,7 @@ impl core::ops::Not for MLOperatorParameterOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
@@ -1344,7 +1344,7 @@ impl windows_core::TypeKind for MLOperatorSchemaEdgeTypeFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
     pub const Undefined: Self = Self(0u32);
@@ -1368,31 +1368,31 @@ impl windows_core::TypeKind for MLOperatorTensorDataType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_BINDING_TYPE(pub i32);
 impl windows_core::TypeKind for WINML_BINDING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_FEATURE_TYPE(pub i32);
 impl windows_core::TypeKind for WINML_FEATURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
 impl windows_core::TypeKind for WINML_RUNTIME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for WINML_TENSOR_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorAttribute {
     pub name: windows_core::PCSTR,
     pub r#type: MLOperatorAttributeType,
@@ -1407,7 +1407,7 @@ impl windows_core::TypeKind for MLOperatorAttribute {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorAttributeNameValue {
     pub name: windows_core::PCSTR,
     pub r#type: MLOperatorAttributeType,
@@ -1423,7 +1423,7 @@ impl windows_core::TypeKind for MLOperatorAttributeNameValue {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *const core::ffi::c_void,
     pub ints: *const i64,
@@ -1439,7 +1439,7 @@ impl windows_core::TypeKind for MLOperatorAttributeNameValue_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorEdgeDescription {
     pub edgeType: MLOperatorEdgeType,
     pub Anonymous: MLOperatorEdgeDescription_0,
@@ -1453,7 +1453,7 @@ impl windows_core::TypeKind for MLOperatorEdgeDescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MLOperatorEdgeDescription_0 {
     pub reserved: u64,
     pub tensorDataType: MLOperatorTensorDataType,
@@ -1467,7 +1467,7 @@ impl windows_core::TypeKind for MLOperatorEdgeDescription_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorEdgeTypeConstraint {
     pub typeLabel: windows_core::PCSTR,
     pub allowedTypes: *const MLOperatorEdgeDescription,
@@ -1482,7 +1482,7 @@ impl windows_core::TypeKind for MLOperatorEdgeTypeConstraint {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorKernelDescription {
     pub domain: windows_core::PCSTR,
     pub name: windows_core::PCSTR,
@@ -1504,7 +1504,7 @@ impl windows_core::TypeKind for MLOperatorKernelDescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorSchemaDescription {
     pub name: windows_core::PCSTR,
     pub operatorSetVersionAtLastChange: i32,
@@ -1528,7 +1528,7 @@ impl windows_core::TypeKind for MLOperatorSchemaDescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MLOperatorSchemaEdgeDescription {
     pub options: MLOperatorParameterOptions,
     pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
@@ -1543,7 +1543,7 @@ impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *const core::ffi::c_void,
     pub typeLabel: windows_core::PCSTR,
@@ -1558,7 +1558,7 @@ impl windows_core::TypeKind for MLOperatorSchemaEdgeDescription_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MLOperatorSetId {
     pub domain: windows_core::PCSTR,
     pub version: i32,
@@ -1620,7 +1620,7 @@ impl windows_core::TypeKind for WINML_BINDING_DESC_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_IMAGE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1637,7 +1637,7 @@ impl windows_core::TypeKind for WINML_IMAGE_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_IMAGE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1652,7 +1652,7 @@ impl windows_core::TypeKind for WINML_IMAGE_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WINML_MAP_BINDING_DESC {
     pub ElementCount: u32,
     pub KeyType: WINML_TENSOR_DATA_TYPE,
@@ -1669,7 +1669,7 @@ impl windows_core::TypeKind for WINML_MAP_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WINML_MAP_BINDING_DESC_0 {
     pub pStringKeys: *mut windows_core::PWSTR,
     pub pIntKeys: *mut i64,
@@ -1683,7 +1683,7 @@ impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WINML_MAP_BINDING_DESC_1 {
     pub pStringFields: *mut windows_core::PWSTR,
     pub pIntFields: *mut i64,
@@ -1699,7 +1699,7 @@ impl windows_core::TypeKind for WINML_MAP_BINDING_DESC_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_MAP_VARIABLE_DESC {
     pub KeyType: WINML_TENSOR_DATA_TYPE,
     pub Fields: WINML_TENSOR_DATA_TYPE,
@@ -1713,7 +1713,7 @@ impl windows_core::TypeKind for WINML_MAP_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_MODEL_DESC {
     pub Author: windows_core::PWSTR,
     pub Name: windows_core::PWSTR,
@@ -1749,7 +1749,7 @@ impl windows_core::TypeKind for WINML_RESOURCE_BINDING_DESC {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WINML_SEQUENCE_BINDING_DESC {
     pub ElementCount: u32,
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -1764,7 +1764,7 @@ impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
     pub pStrings: *mut windows_core::PWSTR,
     pub pInts: *mut i64,
@@ -1780,7 +1780,7 @@ impl windows_core::TypeKind for WINML_SEQUENCE_BINDING_DESC_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_SEQUENCE_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
 }
@@ -1793,7 +1793,7 @@ impl windows_core::TypeKind for WINML_SEQUENCE_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_TENSOR_BINDING_DESC {
     pub DataType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1810,7 +1810,7 @@ impl windows_core::TypeKind for WINML_TENSOR_BINDING_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINML_TENSOR_VARIABLE_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
@@ -1825,7 +1825,7 @@ impl windows_core::TypeKind for WINML_TENSOR_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WINML_VARIABLE_DESC {
     pub Name: windows_core::PWSTR,
     pub Description: windows_core::PWSTR,
@@ -1842,7 +1842,7 @@ impl windows_core::TypeKind for WINML_VARIABLE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,

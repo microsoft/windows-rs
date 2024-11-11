@@ -306,7 +306,7 @@ impl IStorageItemInformation_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileInformation(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(FileInformation, windows_core::IUnknown, windows_core::IInspectable);
@@ -701,7 +701,7 @@ impl windows_core::RuntimeName for FileInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileInformationFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileInformationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl FileInformationFactory {
@@ -833,7 +833,7 @@ unsafe impl Send for FileInformationFactory {}
 unsafe impl Sync for FileInformationFactory {}
 #[cfg(feature = "Storage_Search")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FolderInformation(windows_core::IUnknown);
 #[cfg(feature = "Storage_Search")]
 windows_core::imp::interface_hierarchy!(FolderInformation, windows_core::IUnknown, windows_core::IInspectable);

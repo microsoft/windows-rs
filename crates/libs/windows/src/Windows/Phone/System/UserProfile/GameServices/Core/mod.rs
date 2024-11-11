@@ -109,7 +109,7 @@ impl windows_core::RuntimeName for GameService {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameService";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameServicePropertyCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl GameServicePropertyCollection {
@@ -134,7 +134,7 @@ impl windows_core::RuntimeName for GameServicePropertyCollection {
 unsafe impl Send for GameServicePropertyCollection {}
 unsafe impl Sync for GameServicePropertyCollection {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
     pub const None: Self = Self(0i32);
@@ -149,7 +149,7 @@ impl windows_core::RuntimeType for GameServiceGameOutcome {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);

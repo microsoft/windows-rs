@@ -881,7 +881,7 @@ pub const VmOfferPriorityLow: OFFER_PRIORITY = OFFER_PRIORITY(2i32);
 pub const VmOfferPriorityNormal: OFFER_PRIORITY = OFFER_PRIORITY(4i32);
 pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = OFFER_PRIORITY(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAP(pub u32);
 impl windows_core::TypeKind for FILE_MAP {
     type TypeKind = windows_core::CopyType;
@@ -920,7 +920,7 @@ impl core::ops::Not for FILE_MAP {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_ALLOC_FLAGS(pub u32);
 impl windows_core::TypeKind for GLOBAL_ALLOC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -959,7 +959,7 @@ impl core::ops::Not for GLOBAL_ALLOC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_FLAGS(pub u32);
 impl windows_core::TypeKind for HEAP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -998,13 +998,13 @@ impl core::ops::Not for HEAP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for HEAP_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
 impl windows_core::TypeKind for LOCAL_ALLOC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1043,37 +1043,37 @@ impl core::ops::Not for LOCAL_ALLOC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for MEM_DEDICATED_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFER_PRIORITY(pub i32);
 impl windows_core::TypeKind for OFFER_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGE_PROTECTION_FLAGS(pub u32);
 impl windows_core::TypeKind for PAGE_PROTECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1112,7 +1112,7 @@ impl core::ops::Not for PAGE_PROTECTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGE_TYPE(pub u32);
 impl windows_core::TypeKind for PAGE_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -1151,7 +1151,7 @@ impl core::ops::Not for PAGE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECTION_FLAGS(pub u32);
 impl windows_core::TypeKind for SECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1190,7 +1190,7 @@ impl core::ops::Not for SECTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETPROCESSWORKINGSETSIZEEX_FLAGS(pub u32);
 impl windows_core::TypeKind for SETPROCESSWORKINGSETSIZEEX_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1229,13 +1229,13 @@ impl core::ops::Not for SETPROCESSWORKINGSETSIZEEX_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNMAP_VIEW_OF_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for UNMAP_VIEW_OF_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_ALLOCATION_TYPE(pub u32);
 impl windows_core::TypeKind for VIRTUAL_ALLOCATION_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -1274,19 +1274,19 @@ impl core::ops::Not for VIRTUAL_ALLOCATION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_FREE_TYPE(pub u32);
 impl windows_core::TypeKind for VIRTUAL_FREE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for WIN32_MEMORY_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
@@ -1298,7 +1298,7 @@ impl windows_core::TypeKind for AtlThunkData_t {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
@@ -1312,7 +1312,7 @@ impl windows_core::TypeKind for CFG_CALL_TARGET_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,
@@ -1330,7 +1330,7 @@ impl windows_core::TypeKind for HEAP_SUMMARY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -1353,7 +1353,7 @@ impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -1374,7 +1374,7 @@ impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -1393,7 +1393,7 @@ impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -1414,7 +1414,7 @@ impl windows_core::TypeKind for MEMORY_BASIC_INFORMATION64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_MAPPED_VIEW_ADDRESS {
     pub Value: *mut core::ffi::c_void,
 }
@@ -1427,7 +1427,7 @@ impl windows_core::TypeKind for MEMORY_MAPPED_VIEW_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
@@ -1442,7 +1442,7 @@ impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -1461,7 +1461,7 @@ impl windows_core::TypeKind for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
@@ -1476,7 +1476,7 @@ impl windows_core::TypeKind for MEM_ADDRESS_REQUIREMENTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
@@ -1490,7 +1490,7 @@ impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
@@ -1503,7 +1503,7 @@ impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MEM_EXTENDED_PARAMETER_1 {
     pub ULong64: u64,
     pub Pointer: *mut core::ffi::c_void,
@@ -1520,7 +1520,7 @@ impl windows_core::TypeKind for MEM_EXTENDED_PARAMETER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROCESS_HEAP_ENTRY {
     pub lpData: *mut core::ffi::c_void,
     pub cbData: u32,
@@ -1538,7 +1538,7 @@ impl windows_core::TypeKind for PROCESS_HEAP_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
@@ -1552,7 +1552,7 @@ impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
@@ -1566,7 +1566,7 @@ impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
@@ -1582,7 +1582,7 @@ impl windows_core::TypeKind for PROCESS_HEAP_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -1611,7 +1611,7 @@ impl windows_core::TypeKind for WIN32_MEMORY_PARTITION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -1625,7 +1625,7 @@ impl windows_core::TypeKind for WIN32_MEMORY_RANGE_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WIN32_MEMORY_REGION_INFORMATION {
     pub AllocationBase: *mut core::ffi::c_void,
     pub AllocationProtect: u32,
@@ -1642,7 +1642,7 @@ impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0_0,
@@ -1656,7 +1656,7 @@ impl windows_core::TypeKind for WIN32_MEMORY_REGION_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

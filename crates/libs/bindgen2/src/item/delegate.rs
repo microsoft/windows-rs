@@ -66,7 +66,7 @@ impl Delegate {
             quote! {
                 #cfg
                 #[repr(transparent)]
-                #[derive(PartialEq, Eq, Debug, Clone)]
+                #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 #cfg
                 unsafe impl<#constraints> windows_core::Interface for #name {

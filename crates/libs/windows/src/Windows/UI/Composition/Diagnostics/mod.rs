@@ -29,7 +29,7 @@ pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub TryGetSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionDebugHeatMaps(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDebugHeatMaps, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositionDebugHeatMaps {
@@ -75,7 +75,7 @@ impl windows_core::RuntimeName for CompositionDebugHeatMaps {
 unsafe impl Send for CompositionDebugHeatMaps {}
 unsafe impl Sync for CompositionDebugHeatMaps {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionDebugSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositionDebugSettings {
@@ -113,7 +113,7 @@ impl windows_core::RuntimeName for CompositionDebugSettings {
 unsafe impl Send for CompositionDebugSettings {}
 unsafe impl Sync for CompositionDebugSettings {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
     pub const None: Self = Self(0u32);

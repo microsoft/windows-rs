@@ -118,7 +118,7 @@ pub struct ICastingSource_Vtbl {
     pub SetPreferredSourceUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnection, super::super::Foundation::IClosable);
@@ -214,7 +214,7 @@ impl windows_core::RuntimeName for CastingConnection {
 unsafe impl Send for CastingConnection {}
 unsafe impl Sync for CastingConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingConnectionErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
@@ -246,7 +246,7 @@ impl windows_core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
 unsafe impl Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl Sync for CastingConnectionErrorOccurredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevice {
@@ -335,7 +335,7 @@ impl windows_core::RuntimeName for CastingDevice {
 unsafe impl Send for CastingDevice {}
 unsafe impl Sync for CastingDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingDevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePicker {
@@ -416,7 +416,7 @@ impl windows_core::RuntimeName for CastingDevicePicker {
 unsafe impl Send for CastingDevicePicker {}
 unsafe impl Sync for CastingDevicePicker {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePickerFilter {
@@ -475,7 +475,7 @@ impl windows_core::RuntimeName for CastingDevicePickerFilter {
 unsafe impl Send for CastingDevicePickerFilter {}
 unsafe impl Sync for CastingDevicePickerFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingDeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDeviceSelectedEventArgs {
@@ -500,7 +500,7 @@ impl windows_core::RuntimeName for CastingDeviceSelectedEventArgs {
 unsafe impl Send for CastingDeviceSelectedEventArgs {}
 unsafe impl Sync for CastingDeviceSelectedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CastingSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingSource, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingSource {
@@ -532,7 +532,7 @@ impl windows_core::RuntimeName for CastingSource {
 unsafe impl Send for CastingSource {}
 unsafe impl Sync for CastingSource {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -550,7 +550,7 @@ impl windows_core::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
     pub const Disconnected: Self = Self(0i32);
@@ -566,7 +566,7 @@ impl windows_core::RuntimeType for CastingConnectionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
     pub const None: Self = Self(0u32);

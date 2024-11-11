@@ -311,7 +311,7 @@ pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDE
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -350,7 +350,7 @@ impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
 impl windows_core::TypeKind for BROADCAST_SYSTEM_MESSAGE_INFO {
     type TypeKind = windows_core::CopyType;
@@ -389,25 +389,25 @@ impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DESKTOP_ACCESS_FLAGS(pub u32);
 impl windows_core::TypeKind for DESKTOP_ACCESS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DESKTOP_CONTROL_FLAGS(pub u32);
 impl windows_core::TypeKind for DESKTOP_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub i32);
 impl windows_core::TypeKind for USER_OBJECT_INFORMATION_INDEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSMINFO {
     pub cbSize: u32,
     pub hdesk: HDESK,
@@ -473,7 +473,7 @@ impl Default for HWINSTA {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
     pub fReserved: super::super::Foundation::BOOL,

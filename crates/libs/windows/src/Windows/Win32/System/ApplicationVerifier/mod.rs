@@ -25,7 +25,7 @@ pub const OperationDbCLOSE: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(
 pub const OperationDbOPEN: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(1i32);
 pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
 impl windows_core::TypeKind for VERIFIER_ENUM_RESOURCE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -64,37 +64,37 @@ impl core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAvrfResourceTypes(pub i32);
 impl windows_core::TypeKind for eAvrfResourceTypes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
 impl windows_core::TypeKind for eHANDLE_TRACE_OPERATIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHeapAllocationState(pub i32);
 impl windows_core::TypeKind for eHeapAllocationState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eHeapEnumerationLevel(pub i32);
 impl windows_core::TypeKind for eHeapEnumerationLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eUserAllocationState(pub i32);
 impl windows_core::TypeKind for eUserAllocationState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVRF_BACKTRACE_INFORMATION {
     pub Depth: u32,
     pub Index: u32,
@@ -109,7 +109,7 @@ impl windows_core::TypeKind for AVRF_BACKTRACE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -127,7 +127,7 @@ impl windows_core::TypeKind for AVRF_HANDLE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AVRF_HEAP_ALLOCATION {
     pub HeapHandle: u64,
     pub UserAllocation: u64,

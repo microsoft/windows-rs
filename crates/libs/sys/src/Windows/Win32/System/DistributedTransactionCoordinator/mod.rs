@@ -215,18 +215,18 @@ pub type XACTSTAT = i32;
 pub type XACTTC = i32;
 pub type XACT_DTC_CONSTANTS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BOID {
     pub rgb: [u8; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -234,18 +234,18 @@ pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub clusterResourceId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -257,7 +257,7 @@ pub struct XACTSTATS {
     pub timeTransactionsUp: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -268,7 +268,7 @@ pub struct XACTTRANSINFO {
     pub grfRMSupportedRetaining: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
@@ -276,7 +276,7 @@ pub struct XID {
     pub data: [i8; 128],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,

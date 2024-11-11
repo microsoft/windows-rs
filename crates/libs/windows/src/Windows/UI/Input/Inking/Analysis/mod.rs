@@ -347,7 +347,7 @@ impl IInkAnalyzerFactory_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisInkBullet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisInkBullet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkBullet, IInkAnalysisNode);
@@ -425,7 +425,7 @@ impl windows_core::RuntimeName for InkAnalysisInkBullet {
 unsafe impl Send for InkAnalysisInkBullet {}
 unsafe impl Sync for InkAnalysisInkBullet {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisInkDrawing(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisInkDrawing, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkDrawing, IInkAnalysisNode);
@@ -518,7 +518,7 @@ impl windows_core::RuntimeName for InkAnalysisInkDrawing {
 unsafe impl Send for InkAnalysisInkDrawing {}
 unsafe impl Sync for InkAnalysisInkDrawing {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisInkWord(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisInkWord, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkWord, IInkAnalysisNode);
@@ -604,7 +604,7 @@ impl windows_core::RuntimeName for InkAnalysisInkWord {
 unsafe impl Send for InkAnalysisInkWord {}
 unsafe impl Sync for InkAnalysisInkWord {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisLine, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisLine, IInkAnalysisNode);
@@ -689,7 +689,7 @@ impl windows_core::RuntimeName for InkAnalysisLine {
 unsafe impl Send for InkAnalysisLine {}
 unsafe impl Sync for InkAnalysisLine {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisListItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisListItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisListItem, IInkAnalysisNode);
@@ -767,7 +767,7 @@ impl windows_core::RuntimeName for InkAnalysisListItem {
 unsafe impl Send for InkAnalysisListItem {}
 unsafe impl Sync for InkAnalysisListItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisNode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisNode, IInkAnalysisNode);
@@ -838,7 +838,7 @@ impl windows_core::RuntimeName for InkAnalysisNode {
 unsafe impl Send for InkAnalysisNode {}
 unsafe impl Sync for InkAnalysisNode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisParagraph(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisParagraph, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisParagraph, IInkAnalysisNode);
@@ -916,7 +916,7 @@ impl windows_core::RuntimeName for InkAnalysisParagraph {
 unsafe impl Send for InkAnalysisParagraph {}
 unsafe impl Sync for InkAnalysisParagraph {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisResult, windows_core::IUnknown, windows_core::IInspectable);
 impl InkAnalysisResult {
@@ -941,7 +941,7 @@ impl windows_core::RuntimeName for InkAnalysisResult {
 unsafe impl Send for InkAnalysisResult {}
 unsafe impl Sync for InkAnalysisResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisRoot(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisRoot, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisRoot, IInkAnalysisNode);
@@ -1027,7 +1027,7 @@ impl windows_core::RuntimeName for InkAnalysisRoot {
 unsafe impl Send for InkAnalysisRoot {}
 unsafe impl Sync for InkAnalysisRoot {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalysisWritingRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalysisWritingRegion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisWritingRegion, IInkAnalysisNode);
@@ -1105,7 +1105,7 @@ impl windows_core::RuntimeName for InkAnalysisWritingRegion {
 unsafe impl Send for InkAnalysisWritingRegion {}
 unsafe impl Sync for InkAnalysisWritingRegion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InkAnalyzer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkAnalyzer, windows_core::IUnknown, windows_core::IInspectable);
 impl InkAnalyzer {
@@ -1193,7 +1193,7 @@ impl windows_core::RuntimeName for InkAnalyzer {
 unsafe impl Send for InkAnalyzer {}
 unsafe impl Sync for InkAnalyzer {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
     pub const Drawing: Self = Self(0i32);
@@ -1219,7 +1219,7 @@ impl windows_core::RuntimeType for InkAnalysisDrawingKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
     pub const UnclassifiedInk: Self = Self(0i32);
@@ -1239,7 +1239,7 @@ impl windows_core::RuntimeType for InkAnalysisNodeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
     pub const Updated: Self = Self(0i32);
@@ -1252,7 +1252,7 @@ impl windows_core::RuntimeType for InkAnalysisStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {
     pub const Auto: Self = Self(0i32);

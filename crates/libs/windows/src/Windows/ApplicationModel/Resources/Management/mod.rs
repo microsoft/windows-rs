@@ -78,7 +78,7 @@ pub struct IResourceIndexerFactory2_Vtbl {
     CreateResourceIndexerWithExtension: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexedResourceCandidate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IndexedResourceCandidate, windows_core::IUnknown, windows_core::IInspectable);
 impl IndexedResourceCandidate {
@@ -140,7 +140,7 @@ impl windows_core::RuntimeName for IndexedResourceCandidate {
 unsafe impl Send for IndexedResourceCandidate {}
 unsafe impl Sync for IndexedResourceCandidate {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexedResourceQualifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IndexedResourceQualifier, windows_core::IUnknown, windows_core::IInspectable);
 impl IndexedResourceQualifier {
@@ -173,7 +173,7 @@ unsafe impl Send for IndexedResourceQualifier {}
 unsafe impl Sync for IndexedResourceQualifier {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceIndexer(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ResourceIndexer, windows_core::IUnknown, windows_core::IInspectable);
@@ -249,7 +249,7 @@ unsafe impl Send for ResourceIndexer {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for ResourceIndexer {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);

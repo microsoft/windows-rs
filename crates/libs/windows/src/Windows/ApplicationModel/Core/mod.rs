@@ -454,7 +454,7 @@ pub struct IUnhandledErrorDetectedEventArgs_Vtbl {
     pub UnhandledError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppListEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppListEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl AppListEntry {
@@ -731,7 +731,7 @@ impl windows_core::RuntimeName for CoreApplication {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplication";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreApplicationView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreApplicationView, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreApplicationView {
@@ -836,7 +836,7 @@ impl windows_core::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CoreApplicationViewTitleBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreApplicationViewTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreApplicationViewTitleBar {
@@ -919,7 +919,7 @@ impl windows_core::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HostedViewClosingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HostedViewClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HostedViewClosingEventArgs {
@@ -944,7 +944,7 @@ impl windows_core::RuntimeName for HostedViewClosingEventArgs {
 unsafe impl Send for HostedViewClosingEventArgs {}
 unsafe impl Sync for HostedViewClosingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UnhandledError(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UnhandledError, windows_core::IUnknown, windows_core::IInspectable);
 impl UnhandledError {
@@ -973,7 +973,7 @@ impl windows_core::RuntimeName for UnhandledError {
 unsafe impl Send for UnhandledError {}
 unsafe impl Sync for UnhandledError {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UnhandledErrorDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UnhandledErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UnhandledErrorDetectedEventArgs {
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for UnhandledErrorDetectedEventArgs {
 unsafe impl Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl Sync for UnhandledErrorDetectedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
     pub const RestartPending: Self = Self(0i32);

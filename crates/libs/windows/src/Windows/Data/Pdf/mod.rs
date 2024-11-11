@@ -95,7 +95,7 @@ pub struct IPdfPageRenderOptions_Vtbl {
     pub SetBitmapEncoderId: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PdfDocument(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdfDocument, windows_core::IUnknown, windows_core::IInspectable);
 impl PdfDocument {
@@ -178,7 +178,7 @@ impl windows_core::RuntimeName for PdfDocument {
 unsafe impl Send for PdfDocument {}
 unsafe impl Sync for PdfDocument {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PdfPage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdfPage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdfPage, super::super::Foundation::IClosable);
@@ -266,7 +266,7 @@ impl windows_core::RuntimeName for PdfPage {
 unsafe impl Send for PdfPage {}
 unsafe impl Sync for PdfPage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PdfPageDimensions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdfPageDimensions, windows_core::IUnknown, windows_core::IInspectable);
 impl PdfPageDimensions {
@@ -319,7 +319,7 @@ impl windows_core::RuntimeName for PdfPageDimensions {
 unsafe impl Send for PdfPageDimensions {}
 unsafe impl Sync for PdfPageDimensions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PdfPageRenderOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdfPageRenderOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PdfPageRenderOptions {
@@ -412,7 +412,7 @@ impl windows_core::RuntimeName for PdfPageRenderOptions {
 unsafe impl Send for PdfPageRenderOptions {}
 unsafe impl Sync for PdfPageRenderOptions {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
     pub const Normal: Self = Self(0i32);

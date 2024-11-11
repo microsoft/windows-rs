@@ -5817,199 +5817,199 @@ pub const eThrowException: EPolicyAction = EPolicyAction(1i32);
 pub const eUI: EApiCategories = EApiCategories(128i32);
 pub const eUnloadAppDomain: EPolicyAction = EPolicyAction(4i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPDOMAIN_SECURITY_FLAGS(pub i32);
 impl windows_core::TypeKind for APPDOMAIN_SECURITY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BucketParameterIndex(pub i32);
 impl windows_core::TypeKind for BucketParameterIndex {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLR_DEBUGGING_PROCESS_FLAGS(pub i32);
 impl windows_core::TypeKind for CLR_DEBUGGING_PROCESS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLSID_RESOLUTION_FLAGS(pub i32);
 impl windows_core::TypeKind for CLSID_RESOLUTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_GC_STAT_TYPES(pub i32);
 impl windows_core::TypeKind for COR_GC_STAT_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COR_GC_THREAD_STATS_TYPES(pub i32);
 impl windows_core::TypeKind for COR_GC_THREAD_STATS_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EApiCategories(pub i32);
 impl windows_core::TypeKind for EApiCategories {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EBindPolicyLevels(pub i32);
 impl windows_core::TypeKind for EBindPolicyLevels {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECLRAssemblyIdentityFlags(pub i32);
 impl windows_core::TypeKind for ECLRAssemblyIdentityFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EClrEvent(pub i32);
 impl windows_core::TypeKind for EClrEvent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EClrFailure(pub i32);
 impl windows_core::TypeKind for EClrFailure {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EClrOperation(pub i32);
 impl windows_core::TypeKind for EClrOperation {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EClrUnhandledException(pub i32);
 impl windows_core::TypeKind for EClrUnhandledException {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EContextType(pub i32);
 impl windows_core::TypeKind for EContextType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECustomDumpFlavor(pub i32);
 impl windows_core::TypeKind for ECustomDumpFlavor {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECustomDumpItemKind(pub i32);
 impl windows_core::TypeKind for ECustomDumpItemKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EHostApplicationPolicy(pub i32);
 impl windows_core::TypeKind for EHostApplicationPolicy {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EHostBindingPolicyModifyFlags(pub i32);
 impl windows_core::TypeKind for EHostBindingPolicyModifyFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EInitializeNewDomainFlags(pub i32);
 impl windows_core::TypeKind for EInitializeNewDomainFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMemoryAvailable(pub i32);
 impl windows_core::TypeKind for EMemoryAvailable {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMemoryCriticalLevel(pub i32);
 impl windows_core::TypeKind for EMemoryCriticalLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPolicyAction(pub i32);
 impl windows_core::TypeKind for EPolicyAction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESymbolReadingPolicy(pub i32);
 impl windows_core::TypeKind for ESymbolReadingPolicy {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETaskType(pub i32);
 impl windows_core::TypeKind for ETaskType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOST_TYPE(pub i32);
 impl windows_core::TypeKind for HOST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MALLOC_TYPE(pub i32);
 impl windows_core::TypeKind for MALLOC_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METAHOST_CONFIG_FLAGS(pub i32);
 impl windows_core::TypeKind for METAHOST_CONFIG_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METAHOST_POLICY_FLAGS(pub i32);
 impl windows_core::TypeKind for METAHOST_POLICY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for RUNTIME_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTUP_FLAGS(pub i32);
 impl windows_core::TypeKind for STARTUP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StackOverflowType(pub i32);
 impl windows_core::TypeKind for StackOverflowType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_OPTION(pub i32);
 impl windows_core::TypeKind for WAIT_OPTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AssemblyBindInfo {
     pub dwAppDomainId: u32,
     pub lpReferencedIdentity: windows_core::PCWSTR,
@@ -6025,7 +6025,7 @@ impl windows_core::TypeKind for AssemblyBindInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BucketParameters {
     pub fInited: super::super::Foundation::BOOL,
     pub pszEventTypeName: [u16; 255],
@@ -6041,7 +6041,7 @@ impl windows_core::TypeKind for BucketParameters {
 }
 pub const CLRRuntimeHost: windows_core::GUID = windows_core::GUID::from_u128(0x90f1a06e_7712_4762_86b5_7a5eba6bdb02);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLR_DEBUGGING_VERSION {
     pub wStructVersion: u16,
     pub wMajor: u16,
@@ -6058,7 +6058,7 @@ impl windows_core::TypeKind for CLR_DEBUGGING_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_GC_STATS {
     pub Flags: u32,
     pub ExplicitGCCount: usize,
@@ -6081,7 +6081,7 @@ impl windows_core::TypeKind for COR_GC_STATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COR_GC_THREAD_STATS {
     pub PerThreadAllocation: u64,
     pub Flags: u32,
@@ -6098,7 +6098,7 @@ pub const ComCallUnmarshal: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const ComCallUnmarshalV4: windows_core::GUID = windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
 pub const CorRuntimeHost: windows_core::GUID = windows_core::GUID::from_u128(0xcb2f6723_ab3a_11d2_9c40_00c04fa30a3e);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CustomDumpItem {
     pub itemKind: ECustomDumpItemKind,
     pub Anonymous: CustomDumpItem_0,
@@ -6112,7 +6112,7 @@ impl windows_core::TypeKind for CustomDumpItem {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CustomDumpItem_0 {
     pub pReserved: usize,
 }
@@ -6125,7 +6125,7 @@ impl windows_core::TypeKind for CustomDumpItem_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDAInfo {
     pub lpMDACaption: windows_core::PCWSTR,
     pub lpMDAMessage: windows_core::PCWSTR,
@@ -6140,7 +6140,7 @@ impl windows_core::TypeKind for MDAInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ModuleBindInfo {
     pub dwAppDomainId: u32,
     pub lpAssemblyIdentity: windows_core::PCWSTR,
@@ -6156,7 +6156,7 @@ impl windows_core::TypeKind for ModuleBindInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,

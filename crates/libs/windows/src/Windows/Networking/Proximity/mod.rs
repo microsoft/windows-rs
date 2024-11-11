@@ -186,7 +186,7 @@ pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
     Socket: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectionRequestedEventArgs {
@@ -353,7 +353,7 @@ impl windows_core::RuntimeName for PeerFinder {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerFinder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PeerInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl PeerInformation {
@@ -407,7 +407,7 @@ impl windows_core::RuntimeName for PeerInformation {
 unsafe impl Send for PeerInformation {}
 unsafe impl Sync for PeerInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PeerWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PeerWatcher {
@@ -510,7 +510,7 @@ impl windows_core::RuntimeName for PeerWatcher {
 unsafe impl Send for PeerWatcher {}
 unsafe impl Sync for PeerWatcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProximityDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl ProximityDevice {
@@ -678,7 +678,7 @@ impl windows_core::RuntimeName for ProximityDevice {
 unsafe impl Send for ProximityDevice {}
 unsafe impl Sync for ProximityDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProximityMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProximityMessage {
@@ -725,7 +725,7 @@ impl windows_core::RuntimeName for ProximityMessage {
 unsafe impl Send for ProximityMessage {}
 unsafe impl Sync for ProximityMessage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TriggeredConnectionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TriggeredConnectionStateChangedEventArgs {
@@ -1006,7 +1006,7 @@ impl<F: FnMut(Option<&ProximityDevice>, i64) -> windows_core::Result<()> + Send 
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
     pub const None: Self = Self(0u32);
@@ -1053,7 +1053,7 @@ impl core::ops::Not for PeerDiscoveryTypes {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
     pub const Peer: Self = Self(0i32);
@@ -1067,7 +1067,7 @@ impl windows_core::RuntimeType for PeerRole {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1084,7 +1084,7 @@ impl windows_core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
     pub const PeerFound: Self = Self(0i32);

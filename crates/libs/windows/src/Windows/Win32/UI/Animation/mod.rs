@@ -3477,7 +3477,7 @@ pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_DEPENDENCIES {
     type TypeKind = windows_core::CopyType;
@@ -3516,67 +3516,67 @@ impl core::ops::Not for UI_ANIMATION_DEPENDENCIES {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_IDLE_BEHAVIOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_MANAGER_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_PRIORITY_EFFECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_REPEAT_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_ROUNDING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_SCHEDULING_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_SLOPE(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_SLOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_STORYBOARD_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
 impl windows_core::TypeKind for UI_ANIMATION_UPDATE_RESULT {
     type TypeKind = windows_core::CopyType;

@@ -2223,49 +2223,49 @@ pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERRO
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATIONTYPE(pub i32);
 impl windows_core::TypeKind for ACTIVATIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AgileReferenceOptions(pub i32);
 impl windows_core::TypeKind for AgileReferenceOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BSOS_OPTIONS(pub i32);
 impl windows_core::TypeKind for BSOS_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
 impl windows_core::TypeKind for CASTING_CONNECTION_ERROR_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
 impl windows_core::TypeKind for CASTING_CONNECTION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
 impl windows_core::TypeKind for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
 impl windows_core::TypeKind for DISPATCHERQUEUE_THREAD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub i32);
 impl windows_core::TypeKind for RO_ERROR_REPORTING_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2304,13 +2304,13 @@ impl core::ops::Not for RO_ERROR_REPORTING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RO_INIT_TYPE(pub i32);
 impl windows_core::TypeKind for RO_INIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TrustLevel(pub i32);
 impl windows_core::TypeKind for TrustLevel {
     type TypeKind = windows_core::CopyType;
@@ -2332,7 +2332,7 @@ impl Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
@@ -2347,7 +2347,7 @@ impl windows_core::TypeKind for DispatcherQueueOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EventRegistrationToken {
     pub value: i64,
 }
@@ -2385,7 +2385,7 @@ impl Default for HSTRING_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSTRING_HEADER {
     pub flags: u32,
     pub length: u32,
@@ -2408,7 +2408,7 @@ impl windows_core::TypeKind for RO_REGISTRATION_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
     pub dwServerTid: u32,

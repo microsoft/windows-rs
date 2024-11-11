@@ -154,7 +154,7 @@ impl II2cDeviceStatics_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct I2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cConnectionSettings {
@@ -215,7 +215,7 @@ impl windows_core::RuntimeName for I2cConnectionSettings {
 unsafe impl Send for I2cConnectionSettings {}
 unsafe impl Sync for I2cConnectionSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct I2cController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cController, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cController {
@@ -263,7 +263,7 @@ impl windows_core::RuntimeName for I2cController {
 unsafe impl Send for I2cController {}
 unsafe impl Sync for I2cController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct I2cDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cDevice, II2cDeviceStatics, super::super::Foundation::IClosable);
@@ -358,7 +358,7 @@ impl windows_core::RuntimeName for I2cDevice {
 unsafe impl Send for I2cDevice {}
 unsafe impl Sync for I2cDevice {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cBusSpeed(pub i32);
 impl I2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
@@ -371,7 +371,7 @@ impl windows_core::RuntimeType for I2cBusSpeed {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cBusSpeed;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -384,7 +384,7 @@ impl windows_core::RuntimeType for I2cSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {
     pub const FullTransfer: Self = Self(0i32);
@@ -400,7 +400,7 @@ impl windows_core::RuntimeType for I2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,

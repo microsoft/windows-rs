@@ -698,7 +698,7 @@ impl windows_core::RuntimeName for ApplicationLanguages {
     const NAME: &'static str = "Windows.Globalization.ApplicationLanguages";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Calendar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Calendar, windows_core::IUnknown, windows_core::IInspectable);
 impl Calendar {
@@ -1528,7 +1528,7 @@ impl windows_core::RuntimeName for ClockIdentifiers {
     const NAME: &'static str = "Windows.Globalization.ClockIdentifiers";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurrencyAmount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
 impl CurrencyAmount {
@@ -2560,7 +2560,7 @@ impl windows_core::RuntimeName for CurrencyIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CurrencyIdentifiers";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeographicRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeographicRegion, windows_core::IUnknown, windows_core::IInspectable);
 impl GeographicRegion {
@@ -2655,7 +2655,7 @@ impl windows_core::RuntimeName for GeographicRegion {
 unsafe impl Send for GeographicRegion {}
 unsafe impl Sync for GeographicRegion {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JapanesePhoneme(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
 impl JapanesePhoneme {
@@ -2716,7 +2716,7 @@ impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Language(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
 impl Language {
@@ -3136,7 +3136,7 @@ impl windows_core::RuntimeName for NumeralSystemIdentifiers {
     const NAME: &'static str = "Windows.Globalization.NumeralSystemIdentifiers";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
     pub const Sunday: Self = Self(0i32);
@@ -3154,7 +3154,7 @@ impl windows_core::RuntimeType for DayOfWeek {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {
     pub const Ltr: Self = Self(0i32);

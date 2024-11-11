@@ -815,13 +815,13 @@ pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorTy
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
 pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EndpointConnectorType(pub i32);
 impl windows_core::TypeKind for EndpointConnectorType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     pub u32Size: u32,
     pub u32TSSessionId: u32,

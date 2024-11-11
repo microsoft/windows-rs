@@ -972,61 +972,61 @@ pub const eAudioConstriction48_16: EAudioConstriction = EAudioConstriction(1i32)
 pub const eAudioConstrictionMute: EAudioConstriction = EAudioConstriction(4i32);
 pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for APO_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for APO_CONNECTION_BUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_FLAG(pub i32);
 impl windows_core::TypeKind for APO_FLAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_LOG_LEVEL(pub i32);
 impl windows_core::TypeKind for APO_LOG_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
 impl windows_core::TypeKind for APO_NOTIFICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
 impl windows_core::TypeKind for AUDIO_FLOW_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(pub i32);
 impl windows_core::TypeKind for AUDIO_SYSTEMEFFECT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_ORIENTATION_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_ORIENTATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAudioConstriction(pub i32);
 impl windows_core::TypeKind for EAudioConstriction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,
     pub clsid: windows_core::GUID,
@@ -1124,7 +1124,7 @@ impl windows_core::TypeKind for APO_CONNECTION_DESCRIPTOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY {
     pub pBuffer: usize,
     pub u32ValidFrameCount: u32,
@@ -1140,7 +1140,7 @@ impl windows_core::TypeKind for APO_CONNECTION_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_CONNECTION_PROPERTY_V2 {
     pub property: APO_CONNECTION_PROPERTY,
     pub u64QPCTime: u64,
@@ -1240,7 +1240,7 @@ impl windows_core::TypeKind for APO_NOTIFICATION_DESCRIPTOR_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_REG_PROPERTIES {
     pub clsid: windows_core::GUID,
     pub Flags: APO_FLAG,
@@ -1371,7 +1371,7 @@ impl windows_core::TypeKind for AUDIO_MICROPHONE_BOOST_NOTIFICATION {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_SYSTEMEFFECT {
     pub id: windows_core::GUID,
     pub canSetState: super::super::super::Foundation::BOOL,
@@ -1420,7 +1420,7 @@ impl windows_core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA2 {
     pub notificationData: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
     pub masterVolumeInDb: f32,
@@ -1458,7 +1458,7 @@ impl windows_core::TypeKind for AudioFXExtensionParams {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub guidFormatType: windows_core::GUID,
     pub dwSamplesPerFrame: u32,

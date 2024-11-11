@@ -49,7 +49,7 @@ pub struct IAdcControllerStatics2_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdcChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdcChannel, super::super::Foundation::IClosable);
@@ -93,7 +93,7 @@ impl windows_core::RuntimeName for AdcChannel {
 unsafe impl Send for AdcChannel {}
 unsafe impl Sync for AdcChannel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdcController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcController, windows_core::IUnknown, windows_core::IInspectable);
 impl AdcController {
@@ -188,7 +188,7 @@ impl windows_core::RuntimeName for AdcController {
 unsafe impl Send for AdcController {}
 unsafe impl Sync for AdcController {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);

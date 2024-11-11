@@ -1733,13 +1733,13 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 impl windows_core::TypeKind for REG_CREATE_KEY_DISPOSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_NOTIFY_FILTER(pub u32);
 impl windows_core::TypeKind for REG_NOTIFY_FILTER {
     type TypeKind = windows_core::CopyType;
@@ -1778,7 +1778,7 @@ impl core::ops::Not for REG_NOTIFY_FILTER {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
 impl windows_core::TypeKind for REG_OPEN_CREATE_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -1817,13 +1817,13 @@ impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
 impl windows_core::TypeKind for REG_RESTORE_KEY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_ROUTINE_FLAGS(pub u32);
 impl windows_core::TypeKind for REG_ROUTINE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1862,7 +1862,7 @@ impl core::ops::Not for REG_ROUTINE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SAM_FLAGS(pub u32);
 impl windows_core::TypeKind for REG_SAM_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1901,19 +1901,19 @@ impl core::ops::Not for REG_SAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_SAVE_FORMAT(pub u32);
 impl windows_core::TypeKind for REG_SAVE_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_VALUE_TYPE(pub u32);
 impl windows_core::TypeKind for REG_VALUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -1959,7 +1959,7 @@ impl Default for HKEY {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEA {
     pub pv_valuename: windows_core::PSTR,
     pub pv_valuelen: i32,
@@ -1975,7 +1975,7 @@ impl windows_core::TypeKind for PVALUEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PVALUEW {
     pub pv_valuename: windows_core::PWSTR,
     pub pv_valuelen: i32,
@@ -1991,7 +1991,7 @@ impl windows_core::TypeKind for PVALUEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REG_PROVIDER {
     pub pi_R0_1val: PQUERYHANDLER,
     pub pi_R0_allvals: PQUERYHANDLER,
@@ -2009,7 +2009,7 @@ impl windows_core::TypeKind for REG_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VALENTA {
     pub ve_valuename: windows_core::PSTR,
     pub ve_valuelen: u32,
@@ -2025,7 +2025,7 @@ impl windows_core::TypeKind for VALENTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VALENTW {
     pub ve_valuename: windows_core::PWSTR,
     pub ve_valuelen: u32,
@@ -2041,7 +2041,7 @@ impl windows_core::TypeKind for VALENTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,

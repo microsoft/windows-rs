@@ -243,7 +243,7 @@ pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i3
 pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
 pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
 impl windows_core::TypeKind for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type TypeKind = windows_core::CopyType;
@@ -282,7 +282,7 @@ impl core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
 impl windows_core::TypeKind for DIALOG_DPI_CHANGE_BEHAVIORS {
     type TypeKind = windows_core::CopyType;
@@ -321,25 +321,25 @@ impl core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPI_AWARENESS(pub i32);
 impl windows_core::TypeKind for DPI_AWARENESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
 impl windows_core::TypeKind for DPI_HOSTING_BEHAVIOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_DPI_TYPE(pub i32);
 impl windows_core::TypeKind for MONITOR_DPI_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
 impl windows_core::TypeKind for PROCESS_DPI_AWARENESS {
     type TypeKind = windows_core::CopyType;

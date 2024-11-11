@@ -5881,7 +5881,7 @@ pub const mPCD_MEM_A_C: PCD_FLAGS = PCD_FLAGS(12u32);
 pub const mPCD_MEM_WS: PCD_FLAGS = PCD_FLAGS(768u32);
 pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDFLAGS(pub u32);
 impl windows_core::TypeKind for CM_CDFLAGS {
     type TypeKind = windows_core::CopyType;
@@ -5920,7 +5920,7 @@ impl core::ops::Not for CM_CDFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_CDMASK(pub u32);
 impl windows_core::TypeKind for CM_CDMASK {
     type TypeKind = windows_core::CopyType;
@@ -5959,7 +5959,7 @@ impl core::ops::Not for CM_CDMASK {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVCAP(pub u32);
 impl windows_core::TypeKind for CM_DEVCAP {
     type TypeKind = windows_core::CopyType;
@@ -5998,7 +5998,7 @@ impl core::ops::Not for CM_DEVCAP {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_DEVNODE_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6037,7 +6037,7 @@ impl core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ENUMERATE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_ENUMERATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6076,49 +6076,49 @@ impl core::ops::Not for CM_ENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_INSTALL_STATE(pub u32);
 impl windows_core::TypeKind for CM_INSTALL_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_LOCATE_DEVNODE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_LOG_CONF(pub u32);
 impl windows_core::TypeKind for CM_LOG_CONF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_ACTION(pub i32);
 impl windows_core::TypeKind for CM_NOTIFY_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
 impl windows_core::TypeKind for CM_NOTIFY_FILTER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PROB(pub u32);
 impl windows_core::TypeKind for CM_PROB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REENUMERATE_FLAGS(pub u32);
 impl windows_core::TypeKind for CM_REENUMERATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6157,25 +6157,25 @@ impl core::ops::Not for CM_REENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_REMOVAL_POLICY(pub u32);
 impl windows_core::TypeKind for CM_REMOVAL_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_RESTYPE(pub u32);
 impl windows_core::TypeKind for CM_RESTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIGRET(pub u32);
 impl windows_core::TypeKind for CONFIGRET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DD_FLAGS(pub u32);
 impl windows_core::TypeKind for DD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6214,7 +6214,7 @@ impl core::ops::Not for DD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIINSTALLDEVICE_FLAGS(pub u32);
 impl windows_core::TypeKind for DIINSTALLDEVICE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6253,7 +6253,7 @@ impl core::ops::Not for DIINSTALLDEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIINSTALLDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIINSTALLDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6292,7 +6292,7 @@ impl core::ops::Not for DIINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIROLLBACKDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6331,7 +6331,7 @@ impl core::ops::Not for DIROLLBACKDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIUNINSTALLDRIVER_FLAGS(pub u32);
 impl windows_core::TypeKind for DIUNINSTALLDRIVER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6370,13 +6370,13 @@ impl core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DI_FUNCTION(pub u32);
 impl windows_core::TypeKind for DI_FUNCTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_TYPE(pub u32);
 impl windows_core::TypeKind for FILE_COMPRESSION_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -6415,7 +6415,7 @@ impl core::ops::Not for FILE_COMPRESSION_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INF_STYLE(pub u32);
 impl windows_core::TypeKind for INF_STYLE {
     type TypeKind = windows_core::CopyType;
@@ -6454,7 +6454,7 @@ impl core::ops::Not for INF_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOD_DESFLAGS(pub u32);
 impl windows_core::TypeKind for IOD_DESFLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6493,7 +6493,7 @@ impl core::ops::Not for IOD_DESFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRQD_FLAGS(pub u32);
 impl windows_core::TypeKind for IRQD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6532,7 +6532,7 @@ impl core::ops::Not for IRQD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MD_FLAGS(pub u32);
 impl windows_core::TypeKind for MD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6571,13 +6571,13 @@ impl core::ops::Not for MD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
 impl windows_core::TypeKind for OEM_SOURCE_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCD_FLAGS(pub u32);
 impl windows_core::TypeKind for PCD_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6616,7 +6616,7 @@ impl core::ops::Not for PCD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PMF_FLAGS(pub u32);
 impl windows_core::TypeKind for PMF_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6655,13 +6655,13 @@ impl core::ops::Not for PMF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNP_VETO_TYPE(pub i32);
 impl windows_core::TypeKind for PNP_VETO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUPSCANFILEQUEUE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6700,7 +6700,7 @@ impl core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_CONFIGURATION_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6739,7 +6739,7 @@ impl core::ops::Not for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_CREATION_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6778,7 +6778,7 @@ impl core::ops::Not for SETUP_DI_DEVICE_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6817,7 +6817,7 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DEVICE_INSTALL_FLAGS_EX(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     type TypeKind = windows_core::CopyType;
@@ -6856,7 +6856,7 @@ impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DRIVER_INSTALL_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DRIVER_INSTALL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6895,13 +6895,13 @@ impl core::ops::Not for SETUP_DI_DRIVER_INSTALL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_DRIVER_TYPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_GET_CLASS_DEVS_FLAGS(pub u32);
 impl windows_core::TypeKind for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -6940,37 +6940,37 @@ impl core::ops::Not for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_PROPERTY_CHANGE_SCOPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_PROPERTY_CHANGE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_REGISTRY_PROPERTY(pub u32);
 impl windows_core::TypeKind for SETUP_DI_REGISTRY_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_REMOVE_DEVICE_SCOPE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_REMOVE_DEVICE_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_DI_STATE_CHANGE(pub u32);
 impl windows_core::TypeKind for SETUP_DI_STATE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETUP_FILE_OPERATION(pub u32);
 impl windows_core::TypeKind for SETUP_FILE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSVCINST_FLAGS(pub u32);
 impl windows_core::TypeKind for SPSVCINST_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -7009,7 +7009,7 @@ impl core::ops::Not for SPSVCINST_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SP_COPY_STYLE(pub u32);
 impl windows_core::TypeKind for SP_COPY_STYLE {
     type TypeKind = windows_core::CopyType;
@@ -7048,13 +7048,13 @@ impl core::ops::Not for SP_COPY_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetupFileLogInfo(pub i32);
 impl windows_core::TypeKind for SetupFileLogInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
 impl windows_core::TypeKind for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -7093,7 +7093,7 @@ impl core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_DES {
     pub BUSD_Count: u32,
     pub BUSD_Type: u32,
@@ -7110,7 +7110,7 @@ impl windows_core::TypeKind for BUSNUMBER_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RANGE {
     pub BUSR_Min: u32,
     pub BUSR_Max: u32,
@@ -7126,7 +7126,7 @@ impl windows_core::TypeKind for BUSNUMBER_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
@@ -7141,7 +7141,7 @@ impl windows_core::TypeKind for BUSNUMBER_RESOURCE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -7161,7 +7161,7 @@ impl windows_core::TypeKind for CABINET_INFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
@@ -7181,7 +7181,7 @@ impl windows_core::TypeKind for CABINET_INFO_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -7201,7 +7201,7 @@ impl windows_core::TypeKind for CABINET_INFO_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
@@ -7220,7 +7220,7 @@ impl windows_core::TypeKind for CABINET_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
     pub Reserved: u32,
@@ -7235,7 +7235,7 @@ impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
@@ -7250,7 +7250,7 @@ impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_core::GUID,
     pub NameOffset: i32,
@@ -7266,7 +7266,7 @@ impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub InstanceId: [u16; 1],
 }
@@ -7279,7 +7279,7 @@ impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub ClassGuid: windows_core::GUID,
     pub SymbolicLink: [u16; 1],
@@ -7293,7 +7293,7 @@ impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER {
     pub cbSize: u32,
     pub Flags: u32,
@@ -7310,7 +7310,7 @@ impl windows_core::TypeKind for CM_NOTIFY_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
     pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
@@ -7325,7 +7325,7 @@ impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::super::Foundation::HANDLE,
 }
@@ -7338,7 +7338,7 @@ impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub InstanceId: [u16; 200],
 }
@@ -7351,7 +7351,7 @@ impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub ClassGuid: windows_core::GUID,
 }
@@ -7365,7 +7365,7 @@ impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
@@ -7383,7 +7383,7 @@ impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: super::super::Foundation::BOOL,
     pub InstallResult: u32,
@@ -7400,7 +7400,7 @@ impl windows_core::TypeKind for COINSTALLER_CONTEXT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -7418,7 +7418,7 @@ impl windows_core::TypeKind for CONFLICT_DETAILS_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
     pub CD_ulMask: CM_CDMASK,
@@ -7436,7 +7436,7 @@ impl windows_core::TypeKind for CONFLICT_DETAILS_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_DES {
     pub COND_Type: u32,
     pub COND_Flags: u32,
@@ -7455,7 +7455,7 @@ impl windows_core::TypeKind for CONNECTION_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CONNECTION_RESOURCE {
     pub Connection_Header: CONNECTION_DES,
 }
@@ -7468,7 +7468,7 @@ impl windows_core::TypeKind for CONNECTION_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CS_DES {
     pub CSD_SignatureLength: u32,
     pub CSD_LegacyDataOffset: u32,
@@ -7486,7 +7486,7 @@ impl windows_core::TypeKind for CS_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
 }
@@ -7499,7 +7499,7 @@ impl windows_core::TypeKind for CS_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_DES {
     pub PD_Count: u32,
     pub PD_Type: u32,
@@ -7517,7 +7517,7 @@ impl windows_core::TypeKind for DEVPRIVATE_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RANGE {
     pub PR_Data1: u32,
     pub PR_Data2: u32,
@@ -7532,7 +7532,7 @@ impl windows_core::TypeKind for DEVPRIVATE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEVPRIVATE_RESOURCE {
     pub PRV_Header: DEVPRIVATE_DES,
     pub PRV_Data: [DEVPRIVATE_RANGE; 1],
@@ -7546,7 +7546,7 @@ impl windows_core::TypeKind for DEVPRIVATE_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_DES {
     pub DD_Count: u32,
     pub DD_Type: u32,
@@ -7562,7 +7562,7 @@ impl windows_core::TypeKind for DMA_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
@@ -7577,7 +7577,7 @@ impl windows_core::TypeKind for DMA_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
@@ -7592,7 +7592,7 @@ impl windows_core::TypeKind for DMA_RESOURCE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7611,7 +7611,7 @@ impl windows_core::TypeKind for FILEPATHS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7630,7 +7630,7 @@ impl windows_core::TypeKind for FILEPATHS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7652,7 +7652,7 @@ impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
@@ -7674,7 +7674,7 @@ impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7696,7 +7696,7 @@ impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7718,7 +7718,7 @@ impl windows_core::TypeKind for FILEPATHS_SIGNERINFO_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7737,7 +7737,7 @@ impl windows_core::TypeKind for FILEPATHS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
@@ -7756,7 +7756,7 @@ impl windows_core::TypeKind for FILEPATHS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: u32,
@@ -7778,7 +7778,7 @@ impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
     pub FileSize: u32,
@@ -7800,7 +7800,7 @@ impl windows_core::TypeKind for FILE_IN_CABINET_INFO_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: u32,
@@ -7822,7 +7822,7 @@ impl windows_core::TypeKind for FILE_IN_CABINET_INFO_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
     pub FileSize: u32,
@@ -7888,7 +7888,7 @@ impl windows_core::Free for HDEVINFO {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_A {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [i8; 80],
@@ -7903,7 +7903,7 @@ impl windows_core::TypeKind for HWPROFILEINFO_A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HWPROFILEINFO_W {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
@@ -7919,7 +7919,7 @@ impl windows_core::TypeKind for HWPROFILEINFO_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
@@ -7938,7 +7938,7 @@ impl windows_core::TypeKind for INFCONTEXT {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INFCONTEXT {
     pub Inf: *mut core::ffi::c_void,
     pub CurrentInf: *mut core::ffi::c_void,
@@ -7956,7 +7956,7 @@ impl windows_core::TypeKind for INFCONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_DES {
     pub IOD_Count: u32,
     pub IOD_Type: u32,
@@ -7973,7 +7973,7 @@ impl windows_core::TypeKind for IO_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RANGE {
     pub IOR_Align: u64,
     pub IOR_nPorts: u32,
@@ -7991,7 +7991,7 @@ impl windows_core::TypeKind for IO_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
@@ -8005,7 +8005,7 @@ impl windows_core::TypeKind for IO_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_32 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -8022,7 +8022,7 @@ impl windows_core::TypeKind for IRQ_DES_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_DES_64 {
     pub IRQD_Count: u32,
     pub IRQD_Type: u32,
@@ -8039,7 +8039,7 @@ impl windows_core::TypeKind for IRQ_DES_64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
@@ -8054,7 +8054,7 @@ impl windows_core::TypeKind for IRQ_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
@@ -8068,7 +8068,7 @@ impl windows_core::TypeKind for IRQ_RESOURCE_32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
@@ -8082,7 +8082,7 @@ impl windows_core::TypeKind for IRQ_RESOURCE_64 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_DES {
     pub MD_Count: u32,
     pub MD_Type: u32,
@@ -8100,7 +8100,7 @@ impl windows_core::TypeKind for MEM_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_DES {
     pub MLD_Count: u32,
     pub MLD_Type: u32,
@@ -8118,7 +8118,7 @@ impl windows_core::TypeKind for MEM_LARGE_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RANGE {
     pub MLR_Align: u64,
     pub MLR_nBytes: u64,
@@ -8136,7 +8136,7 @@ impl windows_core::TypeKind for MEM_LARGE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_LARGE_RESOURCE {
     pub MEM_LARGE_Header: MEM_LARGE_DES,
     pub MEM_LARGE_Data: [MEM_LARGE_RANGE; 1],
@@ -8150,7 +8150,7 @@ impl windows_core::TypeKind for MEM_LARGE_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_RANGE {
     pub MR_Align: u64,
     pub MR_nBytes: u32,
@@ -8168,7 +8168,7 @@ impl windows_core::TypeKind for MEM_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
@@ -8182,7 +8182,7 @@ impl windows_core::TypeKind for MEM_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFCARD_DES {
     pub PMF_Count: u32,
     pub PMF_Type: u32,
@@ -8201,7 +8201,7 @@ impl windows_core::TypeKind for MFCARD_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
 }
@@ -8214,7 +8214,7 @@ impl windows_core::TypeKind for MFCARD_RESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCCARD_DES {
     pub PCD_Count: u32,
     pub PCD_Type: u32,
@@ -8236,7 +8236,7 @@ impl windows_core::TypeKind for PCCARD_DES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
 }
@@ -8250,7 +8250,7 @@ impl windows_core::TypeKind for PCCARD_RESOURCE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -8271,7 +8271,7 @@ impl windows_core::TypeKind for SOURCE_MEDIA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
@@ -8292,7 +8292,7 @@ impl windows_core::TypeKind for SOURCE_MEDIA_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -8313,7 +8313,7 @@ impl windows_core::TypeKind for SOURCE_MEDIA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
@@ -8335,7 +8335,7 @@ impl windows_core::TypeKind for SOURCE_MEDIA_W {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8359,7 +8359,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8383,7 +8383,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8409,7 +8409,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
@@ -8429,7 +8429,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
     pub cbSize: u32,
     pub Platform: super::super::System::Diagnostics::Debug::VER_PLATFORM,
@@ -8455,7 +8455,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemInformation"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
@@ -8474,7 +8474,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -8500,7 +8500,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
@@ -8517,7 +8517,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
     pub cbSize: u32,
     pub Platform: u32,
@@ -8543,7 +8543,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
@@ -8560,7 +8560,7 @@ impl windows_core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8578,7 +8578,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8596,7 +8596,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8614,7 +8614,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8632,7 +8632,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8651,7 +8651,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
     pub FullInfPath: [i8; 260],
@@ -8670,7 +8670,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8689,7 +8689,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub cbSize: u32,
     pub FullInfPath: [u16; 260],
@@ -8709,7 +8709,7 @@ impl windows_core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
@@ -8730,7 +8730,7 @@ impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSIMAGELIST_DATA {
     pub cbSize: u32,
     pub ImageList: super::super::UI::Controls::HIMAGELIST,
@@ -8750,7 +8750,7 @@ impl windows_core::TypeKind for SP_CLASSIMAGELIST_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
@@ -8767,7 +8767,7 @@ impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_CLASSINSTALL_HEADER {
     pub cbSize: u32,
     pub InstallFunction: DI_FUNCTION,
@@ -8784,7 +8784,7 @@ impl windows_core::TypeKind for SP_CLASSINSTALL_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
@@ -8802,7 +8802,7 @@ impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
@@ -8820,7 +8820,7 @@ impl windows_core::TypeKind for SP_DETECTDEVICE_PARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -8839,7 +8839,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DATA {
     pub cbSize: u32,
     pub InterfaceClassGuid: windows_core::GUID,
@@ -8858,7 +8858,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
@@ -8875,7 +8875,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
     pub DevicePath: [i8; 1],
@@ -8892,7 +8892,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
@@ -8909,7 +8909,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub cbSize: u32,
     pub DevicePath: [u16; 1],
@@ -8926,7 +8926,7 @@ impl windows_core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8945,7 +8945,7 @@ impl windows_core::TypeKind for SP_DEVINFO_DATA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_DATA {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8964,7 +8964,7 @@ impl windows_core::TypeKind for SP_DEVINFO_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -8983,7 +8983,7 @@ impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -9002,7 +9002,7 @@ impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -9021,7 +9021,7 @@ impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
     pub cbSize: u32,
     pub ClassGuid: windows_core::GUID,
@@ -9040,7 +9040,7 @@ impl windows_core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9065,7 +9065,7 @@ impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9090,7 +9090,7 @@ impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9115,7 +9115,7 @@ impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
     pub cbSize: u32,
     pub Flags: SETUP_DI_DEVICE_INSTALL_FLAGS,
@@ -9140,7 +9140,7 @@ impl windows_core::TypeKind for SP_DEVINSTALL_PARAMS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9161,7 +9161,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9182,7 +9182,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9203,7 +9203,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9224,7 +9224,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V1_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9247,7 +9247,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9270,7 +9270,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9293,7 +9293,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
     pub cbSize: u32,
     pub DriverType: u32,
@@ -9316,7 +9316,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DATA_V2_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9340,7 +9340,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9364,7 +9364,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9388,7 +9388,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
@@ -9412,7 +9412,7 @@ impl windows_core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -9432,7 +9432,7 @@ impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINSTALL_PARAMS {
     pub cbSize: u32,
     pub Rank: u32,
@@ -9452,7 +9452,7 @@ impl windows_core::TypeKind for SP_DRVINSTALL_PARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
@@ -9470,7 +9470,7 @@ impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
@@ -9488,7 +9488,7 @@ impl windows_core::TypeKind for SP_ENABLECLASS_PARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9515,7 +9515,7 @@ impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_A {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9542,7 +9542,7 @@ impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9569,7 +9569,7 @@ impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_FILE_COPY_PARAMS_W {
     pub cbSize: u32,
     pub QueueHandle: *mut core::ffi::c_void,
@@ -9596,7 +9596,7 @@ impl windows_core::TypeKind for SP_FILE_COPY_PARAMS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
@@ -9614,7 +9614,7 @@ impl windows_core::TypeKind for SP_INF_INFORMATION {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
     pub InfStyle: INF_STYLE,
     pub InfCount: u32,
@@ -9632,7 +9632,7 @@ impl windows_core::TypeKind for SP_INF_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9651,7 +9651,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9670,7 +9670,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9689,7 +9689,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9708,7 +9708,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9728,7 +9728,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
     pub CatalogFile: [i8; 260],
@@ -9748,7 +9748,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9768,7 +9768,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
     pub cbSize: u32,
     pub CatalogFile: [u16; 260],
@@ -9789,7 +9789,7 @@ impl windows_core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9815,7 +9815,7 @@ impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9841,7 +9841,7 @@ impl windows_core::TypeKind for SP_INSTALLWIZARD_DATA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9864,7 +9864,7 @@ impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Flags: u32,
@@ -9886,7 +9886,7 @@ impl windows_core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
@@ -9904,7 +9904,7 @@ impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
     pub OriginalInfName: [i8; 260],
@@ -9922,7 +9922,7 @@ impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
@@ -9940,7 +9940,7 @@ impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
     pub cbSize: u32,
     pub OriginalInfName: [u16; 260],
@@ -9957,7 +9957,7 @@ impl windows_core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [i8; 512],
@@ -9972,7 +9972,7 @@ impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
@@ -9989,7 +9989,7 @@ impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub PowerMessageWake: [u16; 512],
@@ -10006,7 +10006,7 @@ impl windows_core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
@@ -10025,7 +10025,7 @@ impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub StateChange: SETUP_DI_STATE_CHANGE,
@@ -10044,7 +10044,7 @@ impl windows_core::TypeKind for SP_PROPCHANGE_PARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
@@ -10063,7 +10063,7 @@ impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
     pub cbSize: u32,
     pub PageRequested: u32,
@@ -10082,7 +10082,7 @@ impl windows_core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_core::PCSTR,
@@ -10101,7 +10101,7 @@ impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
     pub cbSize: u32,
     pub FileName: windows_core::PCSTR,
@@ -10120,7 +10120,7 @@ impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_core::PCWSTR,
@@ -10139,7 +10139,7 @@ impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
     pub cbSize: u32,
     pub FileName: windows_core::PCWSTR,
@@ -10158,7 +10158,7 @@ impl windows_core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
@@ -10176,7 +10176,7 @@ impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: SETUP_DI_REMOVE_DEVICE_SCOPE,
@@ -10193,7 +10193,7 @@ impl windows_core::TypeKind for SP_REMOVEDEVICE_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [i8; 60],
@@ -10212,7 +10212,7 @@ impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
@@ -10232,7 +10232,7 @@ impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Title: [u16; 60],
@@ -10251,7 +10251,7 @@ impl windows_core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [i8; 260],
@@ -10267,7 +10267,7 @@ impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
@@ -10285,7 +10285,7 @@ impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ChmFile: [u16; 260],
@@ -10303,7 +10303,7 @@ impl windows_core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,
@@ -10321,7 +10321,7 @@ impl windows_core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub Scope: u32,

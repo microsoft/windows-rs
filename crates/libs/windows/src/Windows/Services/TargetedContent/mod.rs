@@ -234,7 +234,7 @@ pub struct ITargetedContentValue_Vtbl {
     Actions: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentAction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentAction, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentAction {
@@ -259,7 +259,7 @@ impl windows_core::RuntimeName for TargetedContentAction {
 unsafe impl Send for TargetedContentAction {}
 unsafe impl Sync for TargetedContentAction {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentAvailabilityChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentAvailabilityChangedEventArgs {
@@ -284,7 +284,7 @@ impl windows_core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
 unsafe impl Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentChangedEventArgs {
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for TargetedContentChangedEventArgs {
 unsafe impl Send for TargetedContentChangedEventArgs {}
 unsafe impl Sync for TargetedContentChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentCollection {
@@ -380,7 +380,7 @@ impl windows_core::RuntimeName for TargetedContentCollection {
 unsafe impl Send for TargetedContentCollection {}
 unsafe impl Sync for TargetedContentCollection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentContainer {
@@ -444,7 +444,7 @@ unsafe impl Send for TargetedContentContainer {}
 unsafe impl Sync for TargetedContentContainer {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentFile(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(TargetedContentFile, windows_core::IUnknown, windows_core::IInspectable);
@@ -480,7 +480,7 @@ unsafe impl Send for TargetedContentFile {}
 unsafe impl Sync for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentImage(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(TargetedContentImage, windows_core::IUnknown, windows_core::IInspectable);
@@ -529,7 +529,7 @@ unsafe impl Send for TargetedContentImage {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl Sync for TargetedContentImage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentItem, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentItem {
@@ -585,7 +585,7 @@ impl windows_core::RuntimeName for TargetedContentItem {
 unsafe impl Send for TargetedContentItem {}
 unsafe impl Sync for TargetedContentItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentItemState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentItemState, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentItemState {
@@ -617,7 +617,7 @@ impl windows_core::RuntimeName for TargetedContentItemState {
 unsafe impl Send for TargetedContentItemState {}
 unsafe impl Sync for TargetedContentItemState {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentObject, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentObject {
@@ -663,7 +663,7 @@ impl windows_core::RuntimeName for TargetedContentObject {
 unsafe impl Send for TargetedContentObject {}
 unsafe impl Sync for TargetedContentObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentStateChangedEventArgs {
@@ -688,7 +688,7 @@ impl windows_core::RuntimeName for TargetedContentStateChangedEventArgs {
 unsafe impl Send for TargetedContentStateChangedEventArgs {}
 unsafe impl Sync for TargetedContentStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentSubscription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentSubscription, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentSubscription {
@@ -778,7 +778,7 @@ impl windows_core::RuntimeName for TargetedContentSubscription {
 unsafe impl Send for TargetedContentSubscription {}
 unsafe impl Sync for TargetedContentSubscription {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentSubscriptionOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentSubscriptionOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentSubscriptionOptions {
@@ -834,7 +834,7 @@ impl windows_core::RuntimeName for TargetedContentSubscriptionOptions {
 unsafe impl Send for TargetedContentSubscriptionOptions {}
 unsafe impl Sync for TargetedContentSubscriptionOptions {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TargetedContentValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetedContentValue, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetedContentValue {
@@ -973,7 +973,7 @@ impl windows_core::RuntimeName for TargetedContentValue {
 unsafe impl Send for TargetedContentValue {}
 unsafe impl Sync for TargetedContentValue {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
     pub const NotApplicable: Self = Self(0i32);
@@ -987,7 +987,7 @@ impl windows_core::RuntimeType for TargetedContentAppInstallationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAppInstallationState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
     pub const None: Self = Self(0i32);
@@ -1001,7 +1001,7 @@ impl windows_core::RuntimeType for TargetedContentAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
     pub const Impression: Self = Self(0i32);
@@ -1025,7 +1025,7 @@ impl windows_core::RuntimeType for TargetedContentInteraction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentInteraction;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
     pub const Collection: Self = Self(0i32);
@@ -1039,7 +1039,7 @@ impl windows_core::RuntimeType for TargetedContentObjectKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentObjectKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
     pub const String: Self = Self(0i32);

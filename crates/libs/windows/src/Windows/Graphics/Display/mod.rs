@@ -326,7 +326,7 @@ pub struct IDisplayServicesStatics_Vtbl {
     pub FindAll: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut super::DisplayId) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdvancedColorInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvancedColorInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvancedColorInfo {
@@ -421,7 +421,7 @@ impl windows_core::RuntimeName for AdvancedColorInfo {
 unsafe impl Send for AdvancedColorInfo {}
 unsafe impl Sync for AdvancedColorInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BrightnessOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BrightnessOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl BrightnessOverride {
@@ -550,7 +550,7 @@ impl windows_core::RuntimeName for BrightnessOverride {
 unsafe impl Send for BrightnessOverride {}
 unsafe impl Sync for BrightnessOverride {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BrightnessOverrideSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BrightnessOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl BrightnessOverrideSettings {
@@ -604,7 +604,7 @@ impl windows_core::RuntimeName for BrightnessOverrideSettings {
 unsafe impl Send for BrightnessOverrideSettings {}
 unsafe impl Sync for BrightnessOverrideSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ColorOverrideSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ColorOverrideSettings {
@@ -639,7 +639,7 @@ impl windows_core::RuntimeName for ColorOverrideSettings {
 unsafe impl Send for ColorOverrideSettings {}
 unsafe impl Sync for ColorOverrideSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayEnhancementOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverride {
@@ -766,7 +766,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverride {
 unsafe impl Send for DisplayEnhancementOverride {}
 unsafe impl Sync for DisplayEnhancementOverride {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayEnhancementOverrideCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverrideCapabilities {
@@ -806,7 +806,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilities {
 unsafe impl Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl Sync for DisplayEnhancementOverrideCapabilities {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -831,7 +831,7 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChanged
 unsafe impl Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayInformation {
@@ -1178,7 +1178,7 @@ impl windows_core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DisplayServices(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayServices, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayServices {
@@ -1272,7 +1272,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> +
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
     pub const StandardDynamicRange: Self = Self(0i32);
@@ -1286,7 +1286,7 @@ impl windows_core::RuntimeType for AdvancedColorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
     pub const None: Self = Self(0u32);
@@ -1332,7 +1332,7 @@ impl core::ops::Not for DisplayBrightnessOverrideOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
     pub const IdleBrightness: Self = Self(0i32);
@@ -1346,7 +1346,7 @@ impl windows_core::RuntimeType for DisplayBrightnessOverrideScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
     pub const DefaultBrightness: Self = Self(0i32);
@@ -1361,7 +1361,7 @@ impl windows_core::RuntimeType for DisplayBrightnessScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
     pub const Accurate: Self = Self(0i32);
@@ -1373,7 +1373,7 @@ impl windows_core::RuntimeType for DisplayColorOverrideScenario {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
     pub const None: Self = Self(0u32);
@@ -1422,7 +1422,7 @@ impl core::ops::Not for DisplayOrientations {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
     pub const Hdr10: Self = Self(0i32);
@@ -1435,7 +1435,7 @@ impl windows_core::RuntimeType for HdrMetadataFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
     pub const Invalid: Self = Self(0i32);
@@ -1463,7 +1463,7 @@ impl windows_core::RuntimeType for ResolutionScale {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,

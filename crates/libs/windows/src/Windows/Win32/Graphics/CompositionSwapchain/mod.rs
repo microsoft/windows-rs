@@ -715,26 +715,26 @@ pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
 pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
 pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CompositionFrameInstanceKind(pub i32);
 impl windows_core::TypeKind for CompositionFrameInstanceKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatisticsKind(pub i32);
 impl windows_core::TypeKind for PresentStatisticsKind {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PresentStatus(pub i32);
 impl windows_core::TypeKind for PresentStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
     pub displayVidPnSourceId: u32,
@@ -756,7 +756,7 @@ impl windows_core::TypeKind for CompositionFrameDisplayInstance {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -774,7 +774,7 @@ impl windows_core::TypeKind for PresentationTransform {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SystemInterruptTime {
     pub value: u64,
 }

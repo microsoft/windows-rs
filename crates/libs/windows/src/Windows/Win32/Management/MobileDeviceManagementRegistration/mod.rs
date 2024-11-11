@@ -195,13 +195,13 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: windows_core::HRESULT = windows_core
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: windows_core::HRESULT = windows_core::HRESULT(0x80190009_u32 as _);
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for REGISTRATION_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_REGISTRATION_INFO {
     pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
     pub dwDeviceRegistionKind: u32,
@@ -217,7 +217,7 @@ impl windows_core::TypeKind for MANAGEMENT_REGISTRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MANAGEMENT_SERVICE_INFO {
     pub pszMDMServiceUri: windows_core::PWSTR,
     pub pszAuthenticationUri: windows_core::PWSTR,

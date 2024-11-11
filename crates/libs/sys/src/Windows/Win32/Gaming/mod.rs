@@ -86,7 +86,7 @@ pub type GAMING_DEVICE_VENDOR_ID = i32;
 pub type KnownGamingPrivileges = i32;
 pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
     pub deviceId: GAMING_DEVICE_DEVICE_ID,

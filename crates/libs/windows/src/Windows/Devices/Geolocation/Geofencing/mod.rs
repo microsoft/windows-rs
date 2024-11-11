@@ -69,7 +69,7 @@ pub struct IGeofenceStateChangeReport_Vtbl {
     pub RemovalReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GeofenceRemovalReason) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Geofence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Geofence, windows_core::IUnknown, windows_core::IInspectable);
 impl Geofence {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeName for Geofence {
 unsafe impl Send for Geofence {}
 unsafe impl Sync for Geofence {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeofenceMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeofenceMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl GeofenceMonitor {
@@ -262,7 +262,7 @@ impl windows_core::RuntimeName for GeofenceMonitor {
 unsafe impl Send for GeofenceMonitor {}
 unsafe impl Sync for GeofenceMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GeofenceStateChangeReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeofenceStateChangeReport, windows_core::IUnknown, windows_core::IInspectable);
 impl GeofenceStateChangeReport {
@@ -308,7 +308,7 @@ impl windows_core::RuntimeName for GeofenceStateChangeReport {
 unsafe impl Send for GeofenceStateChangeReport {}
 unsafe impl Sync for GeofenceStateChangeReport {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
     pub const Ready: Self = Self(0i32);
@@ -325,7 +325,7 @@ impl windows_core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
     pub const Used: Self = Self(0i32);
@@ -338,7 +338,7 @@ impl windows_core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GeofenceState(pub u32);
 impl GeofenceState {
     pub const None: Self = Self(0u32);
@@ -386,7 +386,7 @@ impl core::ops::Not for GeofenceState {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {
     pub const None: Self = Self(0u32);

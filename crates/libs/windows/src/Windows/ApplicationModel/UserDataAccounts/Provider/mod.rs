@@ -87,7 +87,7 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataAccountPartnerAccountInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountPartnerAccountInfo {
@@ -126,7 +126,7 @@ impl windows_core::RuntimeName for UserDataAccountPartnerAccountInfo {
 unsafe impl Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl Sync for UserDataAccountPartnerAccountInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataAccountProviderAddAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderAddAccountOperation, IUserDataAccountProviderOperation);
@@ -171,7 +171,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderAddAccountOperation {
 unsafe impl Send for UserDataAccountProviderAddAccountOperation {}
 unsafe impl Sync for UserDataAccountProviderAddAccountOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataAccountProviderResolveErrorsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderOperation);
@@ -208,7 +208,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderResolveErrorsOperation
 unsafe impl Send for UserDataAccountProviderResolveErrorsOperation {}
 unsafe impl Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataAccountProviderSettingsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderSettingsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderSettingsOperation, IUserDataAccountProviderOperation);
@@ -245,7 +245,7 @@ impl windows_core::RuntimeName for UserDataAccountProviderSettingsOperation {
 unsafe impl Send for UserDataAccountProviderSettingsOperation {}
 unsafe impl Sync for UserDataAccountProviderSettingsOperation {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
     pub const AddAccount: Self = Self(0i32);
@@ -259,7 +259,7 @@ impl windows_core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0i32);

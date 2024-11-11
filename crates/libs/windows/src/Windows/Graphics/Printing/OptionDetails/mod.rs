@@ -886,7 +886,7 @@ impl IPrintTextOptionDetails_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintBindingOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -988,7 +988,7 @@ impl windows_core::RuntimeName for PrintBindingOptionDetails {
 unsafe impl Send for PrintBindingOptionDetails {}
 unsafe impl Sync for PrintBindingOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintBorderingOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1090,7 +1090,7 @@ impl windows_core::RuntimeName for PrintBorderingOptionDetails {
 unsafe impl Send for PrintBorderingOptionDetails {}
 unsafe impl Sync for PrintBorderingOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCollationOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1192,7 +1192,7 @@ impl windows_core::RuntimeName for PrintCollationOptionDetails {
 unsafe impl Send for PrintCollationOptionDetails {}
 unsafe impl Sync for PrintCollationOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintColorModeOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1294,7 +1294,7 @@ impl windows_core::RuntimeName for PrintColorModeOptionDetails {
 unsafe impl Send for PrintColorModeOptionDetails {}
 unsafe impl Sync for PrintColorModeOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCopiesOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails, IPrintOptionDetails);
@@ -1402,7 +1402,7 @@ impl windows_core::RuntimeName for PrintCopiesOptionDetails {
 unsafe impl Send for PrintCopiesOptionDetails {}
 unsafe impl Sync for PrintCopiesOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCustomItemDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCustomItemDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintCustomItemDetails {
@@ -1438,7 +1438,7 @@ impl windows_core::RuntimeName for PrintCustomItemDetails {
 unsafe impl Send for PrintCustomItemDetails {}
 unsafe impl Sync for PrintCustomItemDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCustomItemListOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1563,7 +1563,7 @@ impl windows_core::RuntimeName for PrintCustomItemListOptionDetails {
 unsafe impl Send for PrintCustomItemListOptionDetails {}
 unsafe impl Sync for PrintCustomItemListOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCustomTextOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
@@ -1679,7 +1679,7 @@ impl windows_core::RuntimeName for PrintCustomTextOptionDetails {
 unsafe impl Send for PrintCustomTextOptionDetails {}
 unsafe impl Sync for PrintCustomTextOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintCustomToggleOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
@@ -1784,7 +1784,7 @@ impl windows_core::RuntimeName for PrintCustomToggleOptionDetails {
 unsafe impl Send for PrintCustomToggleOptionDetails {}
 unsafe impl Sync for PrintCustomToggleOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintDuplexOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1886,7 +1886,7 @@ impl windows_core::RuntimeName for PrintDuplexOptionDetails {
 unsafe impl Send for PrintDuplexOptionDetails {}
 unsafe impl Sync for PrintDuplexOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintHolePunchOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -1988,7 +1988,7 @@ impl windows_core::RuntimeName for PrintHolePunchOptionDetails {
 unsafe impl Send for PrintHolePunchOptionDetails {}
 unsafe impl Sync for PrintHolePunchOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintMediaSizeOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -2090,7 +2090,7 @@ impl windows_core::RuntimeName for PrintMediaSizeOptionDetails {
 unsafe impl Send for PrintMediaSizeOptionDetails {}
 unsafe impl Sync for PrintMediaSizeOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintMediaTypeOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -2192,7 +2192,7 @@ impl windows_core::RuntimeName for PrintMediaTypeOptionDetails {
 unsafe impl Send for PrintMediaTypeOptionDetails {}
 unsafe impl Sync for PrintMediaTypeOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintOrientationOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -2294,7 +2294,7 @@ impl windows_core::RuntimeName for PrintOrientationOptionDetails {
 unsafe impl Send for PrintOrientationOptionDetails {}
 unsafe impl Sync for PrintOrientationOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintPageRangeOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintPageRangeOptionDetails, IPrintOptionDetails);
@@ -2388,7 +2388,7 @@ impl windows_core::RuntimeName for PrintPageRangeOptionDetails {
 unsafe impl Send for PrintPageRangeOptionDetails {}
 unsafe impl Sync for PrintPageRangeOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintQualityOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -2490,7 +2490,7 @@ impl windows_core::RuntimeName for PrintQualityOptionDetails {
 unsafe impl Send for PrintQualityOptionDetails {}
 unsafe impl Sync for PrintQualityOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintStapleOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
@@ -2592,7 +2592,7 @@ impl windows_core::RuntimeName for PrintStapleOptionDetails {
 unsafe impl Send for PrintStapleOptionDetails {}
 unsafe impl Sync for PrintStapleOptionDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTaskOptionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskOptionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskOptionChangedEventArgs {
@@ -2617,7 +2617,7 @@ impl windows_core::RuntimeName for PrintTaskOptionChangedEventArgs {
 unsafe impl Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl Sync for PrintTaskOptionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintTaskOptionDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptionDetails, super::IPrintTaskOptionsCore, super::IPrintTaskOptionsCoreUIConfiguration);
@@ -2721,7 +2721,7 @@ impl windows_core::RuntimeName for PrintTaskOptionDetails {
 unsafe impl Send for PrintTaskOptionDetails {}
 unsafe impl Sync for PrintTaskOptionDetails {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
     pub const None: Self = Self(0u32);
@@ -2768,7 +2768,7 @@ impl core::ops::Not for PrintOptionStates {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
     pub const Unknown: Self = Self(0i32);

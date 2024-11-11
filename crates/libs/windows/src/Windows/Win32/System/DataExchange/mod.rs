@@ -704,13 +704,13 @@ pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_
 pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
 pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 impl windows_core::TypeKind for CONVINFO_CONVERSATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO_STATUS(pub u32);
 impl windows_core::TypeKind for CONVINFO_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -749,19 +749,19 @@ impl core::ops::Not for CONVINFO_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
 impl windows_core::TypeKind for DDE_CLIENT_TRANSACTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
 impl windows_core::TypeKind for DDE_ENABLE_CALLBACK_CMD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
 impl windows_core::TypeKind for DDE_INITIALIZE_COMMAND {
     type TypeKind = windows_core::CopyType;
@@ -800,14 +800,14 @@ impl core::ops::Not for DDE_INITIALIZE_COMMAND {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
 impl windows_core::TypeKind for DDE_NAME_SERVICE_CMD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -829,7 +829,7 @@ impl windows_core::TypeKind for CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -859,7 +859,7 @@ impl windows_core::TypeKind for CONVINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COPYDATASTRUCT {
     pub dwData: usize,
     pub cbData: u32,
@@ -874,7 +874,7 @@ impl windows_core::TypeKind for COPYDATASTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
@@ -887,7 +887,7 @@ impl windows_core::TypeKind for DDEACK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -901,7 +901,7 @@ impl windows_core::TypeKind for DDEADVISE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -916,7 +916,7 @@ impl windows_core::TypeKind for DDEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -930,7 +930,7 @@ impl windows_core::TypeKind for DDELN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
@@ -946,7 +946,7 @@ impl windows_core::TypeKind for DDEML_MSG_HOOK_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -961,7 +961,7 @@ impl windows_core::TypeKind for DDEPOKE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -1067,7 +1067,7 @@ impl Default for HSZ {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
@@ -1082,7 +1082,7 @@ impl windows_core::TypeKind for HSZPAIR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -1101,7 +1101,7 @@ impl windows_core::TypeKind for METAFILEPICT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -1130,7 +1130,7 @@ impl windows_core::TypeKind for MONCBSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: super::super::Foundation::BOOL,
@@ -1150,7 +1150,7 @@ impl windows_core::TypeKind for MONCONVSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
@@ -1166,7 +1166,7 @@ impl windows_core::TypeKind for MONERRSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1184,7 +1184,7 @@ impl windows_core::TypeKind for MONHSZSTRUCTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: super::super::Foundation::BOOL,
@@ -1202,7 +1202,7 @@ impl windows_core::TypeKind for MONHSZSTRUCTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -1226,7 +1226,7 @@ impl windows_core::TypeKind for MONLINKSTRUCT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::super::Foundation::HWND,

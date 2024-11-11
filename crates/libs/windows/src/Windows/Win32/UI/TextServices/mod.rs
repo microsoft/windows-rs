@@ -13018,7 +13018,7 @@ pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
 impl windows_core::TypeKind for ANCHOR_CHANGE_HISTORY_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -13057,7 +13057,7 @@ impl core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
 impl windows_core::TypeKind for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -13096,25 +13096,25 @@ impl core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
 impl windows_core::TypeKind for INSERT_TEXT_AT_SELECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputScope(pub i32);
 impl windows_core::TypeKind for InputScope {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
 impl windows_core::TypeKind for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
 impl windows_core::TypeKind for TEXT_STORE_CHANGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -13153,13 +13153,13 @@ impl core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
 impl windows_core::TypeKind for TEXT_STORE_LOCK_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
 impl windows_core::TypeKind for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -13198,7 +13198,7 @@ impl core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -13237,115 +13237,115 @@ impl core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
 impl windows_core::TypeKind for TF_DA_ATTR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_DA_COLORTYPE(pub i32);
 impl windows_core::TypeKind for TF_DA_COLORTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_DA_LINESTYLE(pub i32);
 impl windows_core::TypeKind for TF_DA_LINESTYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TKBLayoutType(pub i32);
 impl windows_core::TypeKind for TKBLayoutType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfActiveSelEnd(pub i32);
 impl windows_core::TypeKind for TfActiveSelEnd {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfAnchor(pub i32);
 impl windows_core::TypeKind for TfAnchor {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfCandidateResult(pub i32);
 impl windows_core::TypeKind for TfCandidateResult {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfGravity(pub i32);
 impl windows_core::TypeKind for TfGravity {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
 impl windows_core::TypeKind for TfIntegratableCandidateListSelectionStyle {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfLBBalloonStyle(pub i32);
 impl windows_core::TypeKind for TfLBBalloonStyle {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfLBIClick(pub i32);
 impl windows_core::TypeKind for TfLBIClick {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfLayoutCode(pub i32);
 impl windows_core::TypeKind for TfLayoutCode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfSapiObject(pub i32);
 impl windows_core::TypeKind for TfSapiObject {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TfShiftDir(pub i32);
 impl windows_core::TypeKind for TfShiftDir {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TsActiveSelEnd(pub i32);
 impl windows_core::TypeKind for TsActiveSelEnd {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TsGravity(pub i32);
 impl windows_core::TypeKind for TsGravity {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TsLayoutCode(pub i32);
 impl windows_core::TypeKind for TsLayoutCode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TsRunType(pub i32);
 impl windows_core::TypeKind for TsRunType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TsShiftDir(pub i32);
 impl windows_core::TypeKind for TsShiftDir {
     type TypeKind = windows_core::CopyType;
@@ -13357,7 +13357,7 @@ pub const AccStore: windows_core::GUID = windows_core::GUID::from_u128(0x5440837
 pub const DocWrap: windows_core::GUID = windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 pub const MSAAControl: windows_core::GUID = windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
@@ -13371,7 +13371,7 @@ impl windows_core::TypeKind for TF_DA_COLOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: super::super::Foundation::COLORREF,
@@ -13385,7 +13385,7 @@ impl windows_core::TypeKind for TF_DA_COLOR_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
     pub crBk: TF_DA_COLOR,
@@ -13419,7 +13419,7 @@ impl windows_core::TypeKind for TF_HALTCOND {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -13442,7 +13442,7 @@ impl windows_core::TypeKind for TF_INPUTPROCESSORPROFILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_core::GUID,
     pub guidItem: windows_core::GUID,
@@ -13459,7 +13459,7 @@ impl windows_core::TypeKind for TF_LANGBARITEMINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
     pub langid: u16,
@@ -13511,7 +13511,7 @@ impl windows_core::TypeKind for TF_LMLATTELEMENT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
@@ -13524,7 +13524,7 @@ impl windows_core::TypeKind for TF_LMLATTELEMENT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_core::GUID,
     pub ichStart: i32,
@@ -13542,7 +13542,7 @@ impl windows_core::TypeKind for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -13592,7 +13592,7 @@ impl windows_core::TypeKind for TF_SELECTION {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
@@ -13629,7 +13629,7 @@ impl windows_core::TypeKind for TS_ATTRVAL {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -13643,7 +13643,7 @@ impl windows_core::TypeKind for TS_RUNINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: super::super::Foundation::BOOL,
@@ -13657,7 +13657,7 @@ impl windows_core::TypeKind for TS_SELECTIONSTYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
@@ -13687,7 +13687,7 @@ impl windows_core::TypeKind for TS_SELECTION_ANCHOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -13701,7 +13701,7 @@ impl windows_core::TypeKind for TS_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,

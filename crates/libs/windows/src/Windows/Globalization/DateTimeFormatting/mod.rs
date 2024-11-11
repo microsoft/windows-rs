@@ -79,7 +79,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
     pub ShortTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DateTimeFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DateTimeFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl DateTimeFormatter {
@@ -319,7 +319,7 @@ impl windows_core::RuntimeName for DateTimeFormatter {
 unsafe impl Send for DateTimeFormatter {}
 unsafe impl Sync for DateTimeFormatter {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
     pub const None: Self = Self(0i32);
@@ -332,7 +332,7 @@ impl windows_core::RuntimeType for DayFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
     pub const None: Self = Self(0i32);
@@ -347,7 +347,7 @@ impl windows_core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
     pub const None: Self = Self(0i32);
@@ -360,7 +360,7 @@ impl windows_core::RuntimeType for HourFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
     pub const None: Self = Self(0i32);
@@ -373,7 +373,7 @@ impl windows_core::RuntimeType for MinuteFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
     pub const None: Self = Self(0i32);
@@ -389,7 +389,7 @@ impl windows_core::RuntimeType for MonthFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
     pub const None: Self = Self(0i32);
@@ -402,7 +402,7 @@ impl windows_core::RuntimeType for SecondFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
     pub const None: Self = Self(0i32);

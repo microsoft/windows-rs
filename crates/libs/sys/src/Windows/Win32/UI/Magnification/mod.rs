@@ -29,12 +29,12 @@ pub const WC_MAGNIFIERA: windows_sys::core::PCSTR = windows_sys::core::s!("Magni
 pub const WC_MAGNIFIERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Magnifier");
 pub type MW_FILTERMODE = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,
@@ -44,7 +44,7 @@ pub struct MAGIMAGEHEADER {
     pub cbSize: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }

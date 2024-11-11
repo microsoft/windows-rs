@@ -156,7 +156,7 @@ pub struct IRfcommOutboundConnectionInformation_Vtbl {
     SetRemoteServiceId: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
@@ -196,7 +196,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetai
 unsafe impl Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
@@ -236,7 +236,7 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails
 unsafe impl Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattCharacteristicNotificationTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristicNotificationTriggerDetails {
@@ -292,7 +292,7 @@ impl windows_core::RuntimeName for GattCharacteristicNotificationTriggerDetails 
 unsafe impl Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl Sync for GattCharacteristicNotificationTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderConnection {
@@ -340,7 +340,7 @@ impl windows_core::RuntimeName for GattServiceProviderConnection {
 unsafe impl Send for GattServiceProviderConnection {}
 unsafe impl Sync for GattServiceProviderConnection {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GattServiceProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderTriggerDetails {
@@ -365,7 +365,7 @@ impl windows_core::RuntimeName for GattServiceProviderTriggerDetails {
 unsafe impl Send for GattServiceProviderTriggerDetails {}
 unsafe impl Sync for GattServiceProviderTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommConnectionTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommConnectionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommConnectionTriggerDetails {
@@ -405,7 +405,7 @@ impl windows_core::RuntimeName for RfcommConnectionTriggerDetails {
 unsafe impl Send for RfcommConnectionTriggerDetails {}
 unsafe impl Sync for RfcommConnectionTriggerDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommInboundConnectionInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommInboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommInboundConnectionInformation {
@@ -466,7 +466,7 @@ impl windows_core::RuntimeName for RfcommInboundConnectionInformation {
 unsafe impl Send for RfcommInboundConnectionInformation {}
 unsafe impl Sync for RfcommInboundConnectionInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommOutboundConnectionInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommOutboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommOutboundConnectionInformation {
@@ -500,7 +500,7 @@ impl windows_core::RuntimeName for RfcommOutboundConnectionInformation {
 unsafe impl Send for RfcommOutboundConnectionInformation {}
 unsafe impl Sync for RfcommOutboundConnectionInformation {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
     pub const Serial: Self = Self(0i32);

@@ -1160,7 +1160,7 @@ pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF
 pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GESTURECONFIG_ID(pub u32);
 impl windows_core::TypeKind for GESTURECONFIG_ID {
     type TypeKind = windows_core::CopyType;
@@ -1199,7 +1199,7 @@ impl core::ops::Not for GESTURECONFIG_ID {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
 impl windows_core::TypeKind for MANIPULATION_PROCESSOR_MANIPULATIONS {
     type TypeKind = windows_core::CopyType;
@@ -1238,13 +1238,13 @@ impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 impl windows_core::TypeKind for REGISTER_TOUCH_WINDOW_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOUCHEVENTF_FLAGS(pub u32);
 impl windows_core::TypeKind for TOUCHEVENTF_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1283,7 +1283,7 @@ impl core::ops::Not for TOUCHEVENTF_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOUCHINPUTMASKF_MASK(pub u32);
 impl windows_core::TypeKind for TOUCHINPUTMASKF_MASK {
     type TypeKind = windows_core::CopyType;
@@ -1322,7 +1322,7 @@ impl core::ops::Not for TOUCHINPUTMASKF_MASK {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTURECONFIG {
     pub dwID: GESTURECONFIG_ID,
     pub dwWant: u32,
@@ -1337,7 +1337,7 @@ impl windows_core::TypeKind for GESTURECONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTUREINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1358,7 +1358,7 @@ impl windows_core::TypeKind for GESTUREINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GESTURENOTIFYSTRUCT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1427,7 +1427,7 @@ impl Default for HTOUCHINPUT {
 pub const InertiaProcessor: windows_core::GUID = windows_core::GUID::from_u128(0xabb27087_4ce0_4e58_a0cb_e24df96814be);
 pub const ManipulationProcessor: windows_core::GUID = windows_core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOUCHINPUT {
     pub x: i32,
     pub y: i32,

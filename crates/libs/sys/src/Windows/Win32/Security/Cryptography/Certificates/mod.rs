@@ -2166,7 +2166,7 @@ pub type X509SCEPProcessMessageFlags = i32;
 pub type XEKL_KEYSIZE = i32;
 pub type XEKL_KEYSPEC = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CAINFO {
     pub cbSize: u32,
     pub CAType: ENUM_CATYPES,
@@ -2218,13 +2218,13 @@ pub const CCspInformation: windows_sys::core::GUID = windows_sys::core::GUID::fr
 pub const CCspInformations: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2008_217d_11da_b2a4_000e7bbb2b09);
 pub const CCspStatus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e2009_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,
@@ -2239,7 +2239,7 @@ pub const CObjectIds: windows_sys::core::GUID = windows_sys::core::GUID::from_u1
 pub const CPolicyQualifier: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e201c_217d_11da_b2a4_000e7bbb2b09);
 pub const CPolicyQualifiers: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x884e201d_217d_11da_b2a4_000e7bbb2b09);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: windows_sys::core::PWSTR,
     pub pwszNewDatabaseName: windows_sys::core::PWSTR,

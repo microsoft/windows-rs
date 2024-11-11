@@ -387,9 +387,9 @@ impl Type {
             | Self::Item(Item::Delegate(_))
             | Self::Item(Item::Class(_))
             | Self::Item(Item::CppInterface(_))
-            | Self::Item(Item::Interface(_)) |
-            Self::String |
-            Self::BSTR => quote! { *mut core::ffi::c_void },
+            | Self::Item(Item::Interface(_))
+            | Self::String
+            | Self::BSTR => quote! { *mut core::ffi::c_void },
             Self::ArrayFixed(ty, len) => {
                 let name = ty.write_abi(writer);
                 let len = Literal::usize_unsuffixed(*len);
@@ -408,14 +408,12 @@ impl Type {
                 }
             }
             Self::PtrMut(ty, pointers) => {
-                let ty = 
-                    ty.write_abi(writer);
+                let ty = ty.write_abi(writer);
                 let pointers = write_ptr_mut(*pointers);
                 quote! { #pointers #ty }
             }
             Self::PtrConst(ty, pointers) => {
-                let ty = 
-                    ty.write_abi(writer);
+                let ty = ty.write_abi(writer);
                 let pointers = write_ptr_const(*pointers);
                 quote! { #pointers #ty }
             }
@@ -525,11 +523,7 @@ impl Type {
     pub fn is_convertible(&self) -> bool {
         match self {
             Self::Item(item) => item.is_convertible(),
-            | Self::PCSTR
-            | Self::PCWSTR
-            | Self::Object
-            | Self::IUnknown
-            | Self::Param(_) => true,
+            Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
             _ => false,
         }
     }

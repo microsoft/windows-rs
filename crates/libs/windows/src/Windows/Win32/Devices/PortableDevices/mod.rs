@@ -5655,193 +5655,193 @@ pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD
 pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(6i32);
 pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELETE_OBJECT_OPTIONS(pub i32);
 impl windows_core::TypeKind for DELETE_OBJECT_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_RADIO_STATE(pub i32);
 impl windows_core::TypeKind for DEVICE_RADIO_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMS_MESSAGE_TYPES(pub i32);
 impl windows_core::TypeKind for SMS_MESSAGE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_RADIO_STATE(pub i32);
 impl windows_core::TypeKind for SYSTEM_RADIO_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_BITRATE_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_BITRATE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_CAPTURE_MODES(pub i32);
 impl windows_core::TypeKind for WPD_CAPTURE_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(pub i32);
 impl windows_core::TypeKind for WPD_COLOR_CORRECTED_STATUS_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_COMMAND_ACCESS_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_COMMAND_ACCESS_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_CROPPED_STATUS_VALUES(pub i32);
 impl windows_core::TypeKind for WPD_CROPPED_STATUS_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_DEVICE_TRANSPORTS(pub i32);
 impl windows_core::TypeKind for WPD_DEVICE_TRANSPORTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_DEVICE_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_DEVICE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_EFFECT_MODES(pub i32);
 impl windows_core::TypeKind for WPD_EFFECT_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_EXPOSURE_METERING_MODES(pub i32);
 impl windows_core::TypeKind for WPD_EXPOSURE_METERING_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_EXPOSURE_PROGRAM_MODES(pub i32);
 impl windows_core::TypeKind for WPD_EXPOSURE_PROGRAM_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_FLASH_MODES(pub i32);
 impl windows_core::TypeKind for WPD_FLASH_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_FOCUS_METERING_MODES(pub i32);
 impl windows_core::TypeKind for WPD_FOCUS_METERING_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_FOCUS_MODES(pub i32);
 impl windows_core::TypeKind for WPD_FOCUS_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_META_GENRES(pub i32);
 impl windows_core::TypeKind for WPD_META_GENRES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_OPERATION_STATES(pub i32);
 impl windows_core::TypeKind for WPD_OPERATION_STATES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_PARAMETER_USAGE_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_PARAMETER_USAGE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_POWER_SOURCES(pub i32);
 impl windows_core::TypeKind for WPD_POWER_SOURCES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_SECTION_DATA_UNITS_VALUES(pub i32);
 impl windows_core::TypeKind for WPD_SECTION_DATA_UNITS_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_SERVICE_INHERITANCE_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_SERVICE_INHERITANCE_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_SMS_ENCODING_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_SMS_ENCODING_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(pub i32);
 impl windows_core::TypeKind for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_STORAGE_TYPE_VALUES(pub i32);
 impl windows_core::TypeKind for WPD_STORAGE_TYPE_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_STREAM_UNITS(pub i32);
 impl windows_core::TypeKind for WPD_STREAM_UNITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_VIDEO_SCAN_TYPES(pub i32);
 impl windows_core::TypeKind for WPD_VIDEO_SCAN_TYPES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_WHITE_BALANCE_SETTINGS(pub i32);
 impl windows_core::TypeKind for WPD_WHITE_BALANCE_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WpdAttributeForm(pub i32);
 impl windows_core::TypeKind for WpdAttributeForm {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WpdParameterAttributeForm(pub i32);
 impl windows_core::TypeKind for WpdParameterAttributeForm {
     type TypeKind = windows_core::CopyType;
@@ -5860,7 +5860,7 @@ pub const PortableDeviceValuesCollection: windows_core::GUID = windows_core::GUI
 pub const PortableDeviceWebControl: windows_core::GUID = windows_core::GUID::from_u128(0x186dd02c_2dec_41b5_a7d4_b59056fade51);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     pub Command: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub AccessType: u32,

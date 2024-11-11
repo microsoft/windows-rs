@@ -177,7 +177,7 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
     pub Unknown: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CustomDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomDevice {
@@ -253,7 +253,7 @@ impl windows_core::RuntimeName for CustomDevice {
 unsafe impl Send for CustomDevice {}
 unsafe impl Sync for CustomDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IOControlCode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IOControlCode, IIOControlCode);
@@ -333,7 +333,7 @@ impl windows_core::RuntimeName for KnownDeviceTypes {
     const NAME: &'static str = "Windows.Devices.Custom.KnownDeviceTypes";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
     pub const Read: Self = Self(0i32);
@@ -347,7 +347,7 @@ impl windows_core::RuntimeType for DeviceAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
     pub const Shared: Self = Self(0i32);
@@ -360,7 +360,7 @@ impl windows_core::RuntimeType for DeviceSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.DeviceSharingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
     pub const Any: Self = Self(0i32);
@@ -375,7 +375,7 @@ impl windows_core::RuntimeType for IOControlAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
     pub const Buffered: Self = Self(0i32);

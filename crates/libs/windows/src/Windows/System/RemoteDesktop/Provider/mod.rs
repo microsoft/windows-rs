@@ -94,7 +94,7 @@ pub struct IRemoteDesktopRegistrarStatics_Vtbl {
     pub IsSwitchToLocalSessionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PerformLocalActionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PerformLocalActionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PerformLocalActionRequestedEventArgs {
@@ -119,7 +119,7 @@ impl windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
 unsafe impl Send for PerformLocalActionRequestedEventArgs {}
 unsafe impl Sync for PerformLocalActionRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteDesktopConnectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteDesktopConnectionInfo {
@@ -163,7 +163,7 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionInfo {
 unsafe impl Send for RemoteDesktopConnectionInfo {}
 unsafe impl Sync for RemoteDesktopConnectionInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteDesktopConnectionRemoteInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteDesktopConnectionRemoteInfo, super::super::super::Foundation::IClosable);
@@ -237,7 +237,7 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
 unsafe impl Send for RemoteDesktopConnectionRemoteInfo {}
 unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoteDesktopInfo {
@@ -302,7 +302,7 @@ impl windows_core::RuntimeName for RemoteDesktopRegistrar {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteDesktopConnectionStatus(pub i32);
 impl RemoteDesktopConnectionStatus {
     pub const Connecting: Self = Self(0i32);
@@ -317,7 +317,7 @@ impl windows_core::RuntimeType for RemoteDesktopConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemoteDesktopLocalAction(pub i32);
 impl RemoteDesktopLocalAction {
     pub const ShowBluetoothSettings: Self = Self(0i32);

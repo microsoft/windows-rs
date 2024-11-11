@@ -164,7 +164,7 @@ impl windows_core::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocation {
@@ -274,7 +274,7 @@ impl windows_core::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationFinderResult {
@@ -307,7 +307,7 @@ impl windows_core::RuntimeName for LocalLocationFinderResult {
 unsafe impl Send for LocalLocationFinderResult {}
 unsafe impl Sync for LocalLocationFinderResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalLocationHoursOfOperationItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationHoursOfOperationItem {
@@ -347,7 +347,7 @@ impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
 unsafe impl Send for LocalLocationHoursOfOperationItem {}
 unsafe impl Sync for LocalLocationHoursOfOperationItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationRatingInfo {
@@ -405,7 +405,7 @@ impl windows_core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
     pub const Success: Self = Self(0i32);

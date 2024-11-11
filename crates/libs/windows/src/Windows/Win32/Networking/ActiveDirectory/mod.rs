@@ -14327,277 +14327,277 @@ pub const hrWriteConflict: windows_core::HRESULT = windows_core::HRESULT(0xC8000
 pub const hrerrDataHasChanged: windows_core::HRESULT = windows_core::HRESULT(0xC800064B_u32 as _);
 pub const hrwrnDataHasChanged: windows_core::HRESULT = windows_core::HRESULT(0x8800064A_u32 as _);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADSI_DIALECT_ENUM(pub i32);
 impl windows_core::TypeKind for ADSI_DIALECT_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADSTYPE(pub i32);
 impl windows_core::TypeKind for ADSTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_ACEFLAG_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_ACEFLAG_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_ACETYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_ACETYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_AUTHENTICATION_ENUM(pub u32);
 impl windows_core::TypeKind for ADS_AUTHENTICATION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_CHASE_REFERRALS_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_DEREFENUM(pub i32);
 impl windows_core::TypeKind for ADS_DEREFENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_DISPLAY_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_DISPLAY_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_ESCAPE_MODE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_FLAGTYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_FLAGTYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_FORMAT_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_FORMAT_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_GROUP_TYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_GROUP_TYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_NAME_INITTYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_NAME_TYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_NAME_TYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_OPTION_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_OPTION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_PASSWORD_ENCODING_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_PATHTYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_PATHTYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_PREFERENCES_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_PREFERENCES_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_PROPERTY_OPERATION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_RIGHTS_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_RIGHTS_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SCOPEENUM(pub i32);
 impl windows_core::TypeKind for ADS_SCOPEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SD_CONTROL_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SD_CONTROL_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SD_FORMAT_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SD_FORMAT_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SD_REVISION_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SD_REVISION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SEARCHPREF_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SEARCHPREF_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SECURITY_INFO_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SECURITY_INFO_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SETTYPE_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SETTYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_STATUSENUM(pub i32);
 impl windows_core::TypeKind for ADS_STATUSENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_SYSTEMFLAG_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADS_USER_FLAG_ENUM(pub i32);
 impl windows_core::TypeKind for ADS_USER_FLAG_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_MACHINE_ROLE(pub i32);
 impl windows_core::TypeKind for DSROLE_MACHINE_ROLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_OPERATION_STATE(pub i32);
 impl windows_core::TypeKind for DSROLE_OPERATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
 impl windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_SERVER_STATE(pub i32);
 impl windows_core::TypeKind for DSROLE_SERVER_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_KCC_TASKID(pub i32);
 impl windows_core::TypeKind for DS_KCC_TASKID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_MANGLE_FOR(pub i32);
 impl windows_core::TypeKind for DS_MANGLE_FOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_ERROR(pub i32);
 impl windows_core::TypeKind for DS_NAME_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_FLAGS(pub i32);
 impl windows_core::TypeKind for DS_NAME_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_FORMAT(pub i32);
 impl windows_core::TypeKind for DS_NAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for DS_REPL_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_OP_TYPE(pub i32);
 impl windows_core::TypeKind for DS_REPL_OP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_ERROR(pub i32);
 impl windows_core::TypeKind for DS_REPSYNCALL_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_EVENT(pub i32);
 impl windows_core::TypeKind for DS_REPSYNCALL_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_SPN_NAME_TYPE(pub i32);
 impl windows_core::TypeKind for DS_SPN_NAME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_SPN_WRITE_OP(pub i32);
 impl windows_core::TypeKind for DS_SPN_WRITE_OP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADSPROPERROR {
     pub hwndPage: super::super::Foundation::HWND,
     pub pszPageTitle: windows_core::PWSTR,
@@ -14633,7 +14633,7 @@ impl windows_core::TypeKind for ADSPROPINITPARAMS {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
@@ -14647,7 +14647,7 @@ impl windows_core::TypeKind for ADSVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
     pub DNString: *mut u16,
     pub CaseExactString: *mut u16,
@@ -14686,7 +14686,7 @@ impl windows_core::TypeKind for ADSVALUE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: windows_core::PWSTR,
     pub dwADsType: ADSTYPE,
@@ -14703,7 +14703,7 @@ impl windows_core::TypeKind for ADS_ATTR_DEF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_core::PWSTR,
     pub dwControlCode: u32,
@@ -14720,7 +14720,7 @@ impl windows_core::TypeKind for ADS_ATTR_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_BACKLINK {
     pub RemoteID: u32,
     pub ObjectName: windows_core::PWSTR,
@@ -14734,7 +14734,7 @@ impl windows_core::TypeKind for ADS_BACKLINK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut ADS_CASEIGNORE_LIST,
     pub String: windows_core::PWSTR,
@@ -14748,7 +14748,7 @@ impl windows_core::TypeKind for ADS_CASEIGNORE_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: windows_core::PWSTR,
     pub dwMandatoryAttrs: u32,
@@ -14770,7 +14770,7 @@ impl windows_core::TypeKind for ADS_CLASS_DEF {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_DN_WITH_BINARY {
     pub dwLength: u32,
     pub lpBinaryValue: *mut u8,
@@ -14785,7 +14785,7 @@ impl windows_core::TypeKind for ADS_DN_WITH_BINARY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_DN_WITH_STRING {
     pub pszStringValue: windows_core::PWSTR,
     pub pszDNString: windows_core::PWSTR,
@@ -14799,7 +14799,7 @@ impl windows_core::TypeKind for ADS_DN_WITH_STRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_EMAIL {
     pub Address: windows_core::PWSTR,
     pub Type: u32,
@@ -14813,7 +14813,7 @@ impl windows_core::TypeKind for ADS_EMAIL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_core::PWSTR,
     pub NumberOfBits: u32,
@@ -14828,7 +14828,7 @@ impl windows_core::TypeKind for ADS_FAXNUMBER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_HOLD {
     pub ObjectName: windows_core::PWSTR,
     pub Amount: u32,
@@ -14842,7 +14842,7 @@ impl windows_core::TypeKind for ADS_HOLD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_NETADDRESS {
     pub AddressType: u32,
     pub AddressLength: u32,
@@ -14857,7 +14857,7 @@ impl windows_core::TypeKind for ADS_NETADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -14871,7 +14871,7 @@ impl windows_core::TypeKind for ADS_NT_SECURITY_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OBJECT_INFO {
     pub pszRDN: windows_core::PWSTR,
     pub pszObjectDN: windows_core::PWSTR,
@@ -14888,7 +14888,7 @@ impl windows_core::TypeKind for ADS_OBJECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_LIST {
     pub Next: *mut ADS_OCTET_LIST,
     pub Length: u32,
@@ -14903,7 +14903,7 @@ impl windows_core::TypeKind for ADS_OCTET_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -14917,7 +14917,7 @@ impl windows_core::TypeKind for ADS_OCTET_STRING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_PATH {
     pub Type: u32,
     pub VolumeName: windows_core::PWSTR,
@@ -14932,7 +14932,7 @@ impl windows_core::TypeKind for ADS_PATH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_POSTALADDRESS {
     pub PostalAddress: [windows_core::PWSTR; 6],
 }
@@ -14945,7 +14945,7 @@ impl windows_core::TypeKind for ADS_POSTALADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_PROV_SPECIFIC {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -14959,7 +14959,7 @@ impl windows_core::TypeKind for ADS_PROV_SPECIFIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_REPLICAPOINTER {
     pub ServerName: windows_core::PWSTR,
     pub ReplicaType: u32,
@@ -14976,7 +14976,7 @@ impl windows_core::TypeKind for ADS_REPLICAPOINTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF_ENUM,
     pub vValue: ADSVALUE,
@@ -14991,7 +14991,7 @@ impl windows_core::TypeKind for ADS_SEARCHPREF_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: windows_core::PWSTR,
     pub dwADsType: ADSTYPE,
@@ -15019,7 +15019,7 @@ impl ADS_SEARCH_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_core::PWSTR,
     pub pszReserved: windows_core::PWSTR,
@@ -15034,7 +15034,7 @@ impl windows_core::TypeKind for ADS_SORTKEY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_TIMESTAMP {
     pub WholeSeconds: u32,
     pub EventID: u32,
@@ -15048,7 +15048,7 @@ impl windows_core::TypeKind for ADS_TIMESTAMP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_TYPEDNAME {
     pub ObjectName: windows_core::PWSTR,
     pub Level: u32,
@@ -15063,7 +15063,7 @@ impl windows_core::TypeKind for ADS_TYPEDNAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ADS_VLV {
     pub dwBeforeCount: u32,
     pub dwAfterCount: u32,
@@ -15088,7 +15088,7 @@ pub const AccessControlList: windows_core::GUID = windows_core::GUID::from_u128(
 pub const BackLink: windows_core::GUID = windows_core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CQFORM {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -15108,7 +15108,7 @@ impl windows_core::TypeKind for CQFORM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -15133,7 +15133,7 @@ pub const CaseIgnoreList: windows_core::GUID = windows_core::GUID::from_u128(0x1
 pub const DNWithBinary: windows_core::GUID = windows_core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
 pub const DNWithString: windows_core::GUID = windows_core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAINDESC {
     pub pszName: windows_core::PWSTR,
     pub pszPath: windows_core::PWSTR,
@@ -15154,7 +15154,7 @@ impl windows_core::TypeKind for DOMAINDESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOA {
     pub DomainControllerName: windows_core::PSTR,
     pub DomainControllerAddress: windows_core::PSTR,
@@ -15175,7 +15175,7 @@ impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOW {
     pub DomainControllerName: windows_core::PWSTR,
     pub DomainControllerAddress: windows_core::PWSTR,
@@ -15196,7 +15196,7 @@ impl windows_core::TypeKind for DOMAIN_CONTROLLER_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DOMAIN_TREE {
     pub dsSize: u32,
     pub dwCount: u32,
@@ -15212,7 +15212,7 @@ impl windows_core::TypeKind for DOMAIN_TREE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSA_NEWOBJ_DISPINFO {
     pub dwSize: u32,
     pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
@@ -15230,7 +15230,7 @@ impl windows_core::TypeKind for DSA_NEWOBJ_DISPINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBITEMA {
     pub cbStruct: u32,
     pub pszADsPath: windows_core::PCWSTR,
@@ -15251,7 +15251,7 @@ impl windows_core::TypeKind for DSBITEMA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBITEMW {
     pub cbStruct: u32,
     pub pszADsPath: windows_core::PCWSTR,
@@ -15273,7 +15273,7 @@ impl windows_core::TypeKind for DSBITEMW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBROWSEINFOA {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -15303,7 +15303,7 @@ impl windows_core::TypeKind for DSBROWSEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSBROWSEINFOW {
     pub cbStruct: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -15332,7 +15332,7 @@ impl windows_core::TypeKind for DSBROWSEINFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCLASSCREATIONINFO {
     pub dwFlags: u32,
     pub clsidWizardDialog: windows_core::GUID,
@@ -15349,7 +15349,7 @@ impl windows_core::TypeKind for DSCLASSCREATIONINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSCOLUMN {
     pub dwFlags: u32,
     pub fmt: i32,
@@ -15367,7 +15367,7 @@ impl windows_core::TypeKind for DSCOLUMN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSDISPLAYSPECOPTIONS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -15386,7 +15386,7 @@ impl windows_core::TypeKind for DSDISPLAYSPECOPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOBJECT {
     pub dwFlags: u32,
     pub dwProviderFlags: u32,
@@ -15402,7 +15402,7 @@ impl windows_core::TypeKind for DSOBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOBJECTNAMES {
     pub clsidNamespace: windows_core::GUID,
     pub cItems: u32,
@@ -15417,7 +15417,7 @@ impl windows_core::TypeKind for DSOBJECTNAMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_FILTER_FLAGS {
     pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
     pub flDownlevel: u32,
@@ -15431,7 +15431,7 @@ impl windows_core::TypeKind for DSOP_FILTER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_INIT_INFO {
     pub cbSize: u32,
     pub pwzTargetComputer: windows_core::PCWSTR,
@@ -15450,7 +15450,7 @@ impl windows_core::TypeKind for DSOP_INIT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_SCOPE_INIT_INFO {
     pub cbSize: u32,
     pub flType: u32,
@@ -15469,7 +15469,7 @@ impl windows_core::TypeKind for DSOP_SCOPE_INIT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSOP_UPLEVEL_FILTER_FLAGS {
     pub flBothModes: u32,
     pub flMixedModeOnly: u32,
@@ -15484,7 +15484,7 @@ impl windows_core::TypeKind for DSOP_UPLEVEL_FILTER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSPROPERTYPAGEINFO {
     pub offsetString: u32,
 }
@@ -15497,7 +15497,7 @@ impl windows_core::TypeKind for DSPROPERTYPAGEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYCLASSLIST {
     pub cbStruct: u32,
     pub cClasses: i32,
@@ -15512,7 +15512,7 @@ impl windows_core::TypeKind for DSQUERYCLASSLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYINITPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -15531,7 +15531,7 @@ impl windows_core::TypeKind for DSQUERYINITPARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -15550,7 +15550,7 @@ impl windows_core::TypeKind for DSQUERYPARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
@@ -15563,7 +15563,7 @@ impl windows_core::TypeKind for DSROLE_OPERATION_STATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
     pub Flags: u32,
@@ -15581,7 +15581,7 @@ impl windows_core::TypeKind for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
     pub OperationState: u32,
     pub PreviousServerState: DSROLE_SERVER_STATE,
@@ -15595,7 +15595,7 @@ impl windows_core::TypeKind for DSROLE_UPGRADE_STATUS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -15614,7 +15614,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -15633,7 +15633,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_1W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -15659,7 +15659,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -15685,7 +15685,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_2W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -15712,7 +15712,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3A {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -15740,7 +15740,7 @@ impl windows_core::TypeKind for DS_DOMAIN_CONTROLLER_INFO_3W {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_core::PSTR,
     pub DnsDomainName: windows_core::PSTR,
@@ -15763,7 +15763,7 @@ impl windows_core::TypeKind for DS_DOMAIN_TRUSTSA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_core::PWSTR,
     pub DnsDomainName: windows_core::PWSTR,
@@ -15785,7 +15785,7 @@ impl windows_core::TypeKind for DS_DOMAIN_TRUSTSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULTA {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMA,
@@ -15799,7 +15799,7 @@ impl windows_core::TypeKind for DS_NAME_RESULTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULTW {
     pub cItems: u32,
     pub rItems: *mut DS_NAME_RESULT_ITEMW,
@@ -15813,7 +15813,7 @@ impl windows_core::TypeKind for DS_NAME_RESULTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMA {
     pub status: u32,
     pub pDomain: windows_core::PSTR,
@@ -15828,7 +15828,7 @@ impl windows_core::TypeKind for DS_NAME_RESULT_ITEMA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMW {
     pub status: u32,
     pub pDomain: windows_core::PWSTR,
@@ -15843,7 +15843,7 @@ impl windows_core::TypeKind for DS_NAME_RESULT_ITEMW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_core::PWSTR,
     pub dwVersion: u32,
@@ -15861,7 +15861,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_core::PWSTR,
     pub dwVersion: u32,
@@ -15880,7 +15880,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub dwVersion: u32,
@@ -15899,7 +15899,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_META_DATA_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -15914,7 +15914,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -15929,7 +15929,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -15944,7 +15944,7 @@ impl windows_core::TypeKind for DS_REPL_ATTR_VALUE_META_DATA_EXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: i64,
@@ -15958,7 +15958,7 @@ impl windows_core::TypeKind for DS_REPL_CURSOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS {
     pub cNumCursors: u32,
     pub dwReserved: u32,
@@ -15973,7 +15973,7 @@ impl windows_core::TypeKind for DS_REPL_CURSORS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -15988,7 +15988,7 @@ impl windows_core::TypeKind for DS_REPL_CURSORS_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -16003,7 +16003,7 @@ impl windows_core::TypeKind for DS_REPL_CURSORS_3W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: i64,
@@ -16018,7 +16018,7 @@ impl windows_core::TypeKind for DS_REPL_CURSOR_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: i64,
@@ -16034,7 +16034,7 @@ impl windows_core::TypeKind for DS_REPL_CURSOR_3W {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: i64,
@@ -16050,7 +16050,7 @@ impl windows_core::TypeKind for DS_REPL_CURSOR_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -16065,7 +16065,7 @@ impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILURESW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_core::PWSTR,
     pub uuidDsaObjGuid: windows_core::GUID,
@@ -16082,7 +16082,7 @@ impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
     pub uuidDsaObjGuid: windows_core::GUID,
@@ -16099,7 +16099,7 @@ impl windows_core::TypeKind for DS_REPL_KCC_DSA_FAILUREW_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
     pub dwReserved: u32,
@@ -16114,7 +16114,7 @@ impl windows_core::TypeKind for DS_REPL_NEIGHBORSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_core::PWSTR,
     pub pszSourceDsaDN: windows_core::PWSTR,
@@ -16142,7 +16142,7 @@ impl windows_core::TypeKind for DS_REPL_NEIGHBORW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
     pub oszSourceDsaDN: u32,
@@ -16170,7 +16170,7 @@ impl windows_core::TypeKind for DS_REPL_NEIGHBORW_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -16185,7 +16185,7 @@ impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -16200,7 +16200,7 @@ impl windows_core::TypeKind for DS_REPL_OBJ_META_DATA_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
     pub ulSerialNumber: u32,
@@ -16222,7 +16222,7 @@ impl windows_core::TypeKind for DS_REPL_OPW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
     pub ulSerialNumber: u32,
@@ -16244,7 +16244,7 @@ impl windows_core::TypeKind for DS_REPL_OPW_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
     pub cNumPendingOps: u32,
@@ -16259,7 +16259,7 @@ impl windows_core::TypeKind for DS_REPL_PENDING_OPSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
     pub cNumPendingOps: u32,
@@ -16278,7 +16278,7 @@ impl windows_core::TypeKind for DS_REPL_QUEUE_STATISTICSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -16301,7 +16301,7 @@ impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -16325,7 +16325,7 @@ impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -16349,7 +16349,7 @@ impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -16376,7 +16376,7 @@ impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_BLOB_EXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -16403,7 +16403,7 @@ impl windows_core::TypeKind for DS_REPL_VALUE_META_DATA_EXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSvrId: windows_core::PSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -16419,7 +16419,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOW {
     pub pszSvrId: windows_core::PWSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -16435,7 +16435,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_ERRINFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCA {
     pub pszSrcId: windows_core::PSTR,
     pub pszDstId: windows_core::PSTR,
@@ -16452,7 +16452,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_SYNCA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCW {
     pub pszSrcId: windows_core::PWSTR,
     pub pszDstId: windows_core::PWSTR,
@@ -16469,7 +16469,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_SYNCW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
@@ -16484,7 +16484,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
@@ -16499,7 +16499,7 @@ impl windows_core::TypeKind for DS_REPSYNCALL_UPDATEW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPA {
     pub guid: windows_core::GUID,
     pub guidType: u32,
@@ -16514,7 +16514,7 @@ impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_core::GUID,
     pub guidType: u32,
@@ -16530,7 +16530,7 @@ impl windows_core::TypeKind for DS_SCHEMA_GUID_MAPW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SELECTION {
     pub pwzName: windows_core::PWSTR,
     pub pwzADsPath: windows_core::PWSTR,
@@ -16551,7 +16551,7 @@ impl windows_core::TypeKind for DS_SELECTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
     pub cFetchedAttributes: u32,
@@ -16568,7 +16568,7 @@ impl windows_core::TypeKind for DS_SELECTION_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DS_SITE_COST_INFO {
     pub errorCode: u32,
     pub cost: u32,
@@ -16644,7 +16644,7 @@ pub const PropertyEntry: windows_core::GUID = windows_core::GUID::from_u128(0x72
 pub const PropertyValue: windows_core::GUID = windows_core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
 pub const ReplicaPointer: windows_core::GUID = windows_core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCHEDULE {
     pub Size: u32,
     pub Bandwidth: u32,
@@ -16660,7 +16660,7 @@ impl windows_core::TypeKind for SCHEDULE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCHEDULE_HEADER {
     pub Type: u32,
     pub Offset: u32,

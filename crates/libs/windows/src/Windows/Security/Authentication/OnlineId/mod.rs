@@ -116,7 +116,7 @@ pub struct IUserIdentity_Vtbl {
     pub IsConfirmedPC: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdAuthenticator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdAuthenticator, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdAuthenticator {
@@ -194,7 +194,7 @@ impl windows_core::RuntimeName for OnlineIdAuthenticator {
 unsafe impl Send for OnlineIdAuthenticator {}
 unsafe impl Sync for OnlineIdAuthenticator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdServiceTicket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdServiceTicket, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdServiceTicket {
@@ -233,7 +233,7 @@ impl windows_core::RuntimeName for OnlineIdServiceTicket {
 unsafe impl Send for OnlineIdServiceTicket {}
 unsafe impl Sync for OnlineIdServiceTicket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdServiceTicketRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdServiceTicketRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdServiceTicketRequest {
@@ -307,7 +307,7 @@ impl windows_core::RuntimeName for OnlineIdSystemAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticator";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdSystemAuthenticatorForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdSystemAuthenticatorForUser {
@@ -354,7 +354,7 @@ impl windows_core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
 unsafe impl Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl Sync for OnlineIdSystemAuthenticatorForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdSystemIdentity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdSystemIdentity, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdSystemIdentity {
@@ -386,7 +386,7 @@ impl windows_core::RuntimeName for OnlineIdSystemIdentity {
 unsafe impl Send for OnlineIdSystemIdentity {}
 unsafe impl Sync for OnlineIdSystemIdentity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OnlineIdSystemTicketResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OnlineIdSystemTicketResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OnlineIdSystemTicketResult {
@@ -425,7 +425,7 @@ impl windows_core::RuntimeName for OnlineIdSystemTicketResult {
 unsafe impl Send for OnlineIdSystemTicketResult {}
 unsafe impl Sync for OnlineIdSystemTicketResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SignOutUserOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SignOutUserOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignOutUserOperation, super::super::super::Foundation::IAsyncAction, super::super::super::Foundation::IAsyncInfo);
@@ -491,7 +491,7 @@ impl windows_core::RuntimeName for SignOutUserOperation {
 unsafe impl Send for SignOutUserOperation {}
 unsafe impl Sync for SignOutUserOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserAuthenticationOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserAuthenticationOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserAuthenticationOperation, super::super::super::Foundation::IAsyncInfo, super::super::super::Foundation::IAsyncOperation<UserIdentity>);
@@ -560,7 +560,7 @@ impl windows_core::RuntimeName for UserAuthenticationOperation {
 unsafe impl Send for UserAuthenticationOperation {}
 unsafe impl Sync for UserAuthenticationOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserIdentity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserIdentity, windows_core::IUnknown, windows_core::IInspectable);
 impl UserIdentity {
@@ -635,7 +635,7 @@ impl windows_core::RuntimeName for UserIdentity {
 unsafe impl Send for UserIdentity {}
 unsafe impl Sync for UserIdentity {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
     pub const PromptIfNeeded: Self = Self(0i32);
@@ -649,7 +649,7 @@ impl windows_core::RuntimeType for CredentialPromptType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
     pub const Success: Self = Self(0i32);

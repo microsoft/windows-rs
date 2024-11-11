@@ -118,12 +118,12 @@ impl Class {
             let default_interface = default_interface.write(writer);
 
             let required_hierarchy = {
-            let interfaces: Vec<_> = self
-                .required_interfaces
-                .iter()
-                .filter(|ty|!ty.def.has_attribute("ExclusiveToAttribute"))
-                .map(|ty| ty.write_name(writer))
-                .collect();
+                let interfaces: Vec<_> = self
+                    .required_interfaces
+                    .iter()
+                    .filter(|ty| !ty.def.has_attribute("ExclusiveToAttribute"))
+                    .map(|ty| ty.write_name(writer))
+                    .collect();
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -135,7 +135,7 @@ impl Class {
                 }
             };
 
-            let agile = self.def.is_agile().then(||{
+            let agile = self.def.is_agile().then(|| {
                 quote! {
                     #cfg
                     unsafe impl Send for #name {}
@@ -147,7 +147,7 @@ impl Class {
             quote! {
                 #cfg
                 #[repr(transparent)]
-                #[derive(PartialEq, Eq, Debug, Clone)]
+                #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name(windows_core::IUnknown);
                 #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);

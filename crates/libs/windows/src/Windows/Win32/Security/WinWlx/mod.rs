@@ -61,13 +61,13 @@ pub const WLX_VERSION_1_3: u32 = 65539u32;
 pub const WLX_VERSION_1_4: u32 = 65540u32;
 pub const WLX_WM_SAS: u32 = 1625u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
 impl windows_core::TypeKind for WLX_SHUTDOWN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub pszUserName: windows_core::PWSTR,
@@ -84,7 +84,7 @@ impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     pub dwType: u32,
     pub pszUserName: windows_core::PWSTR,
@@ -102,7 +102,7 @@ impl windows_core::TypeKind for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
     pub dwType: u32,
     pub UserToken: super::super::Foundation::HANDLE,
@@ -142,7 +142,7 @@ impl windows_core::TypeKind for WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DESKTOP {
     pub Size: u32,
     pub Flags: u32,
@@ -161,7 +161,7 @@ impl windows_core::TypeKind for WLX_DESKTOP {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_0 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -189,7 +189,7 @@ impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_1 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -221,7 +221,7 @@ impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_2 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -254,7 +254,7 @@ impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_3 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -294,7 +294,7 @@ impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_StationsAndDesktops", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_DISPATCH_VERSION_1_4 {
     pub WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
     pub WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
@@ -335,7 +335,7 @@ impl windows_core::TypeKind for WLX_DISPATCH_VERSION_1_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_MPR_NOTIFY_INFO {
     pub pszUserName: windows_core::PWSTR,
     pub pszDomain: windows_core::PWSTR,
@@ -352,7 +352,7 @@ impl windows_core::TypeKind for WLX_MPR_NOTIFY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_StationsAndDesktops")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_NOTIFICATION_INFO {
     pub Size: u32,
     pub Flags: u32,
@@ -374,7 +374,7 @@ impl windows_core::TypeKind for WLX_NOTIFICATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_PROFILE_V1_0 {
     pub dwType: u32,
     pub pszProfile: windows_core::PWSTR,
@@ -388,7 +388,7 @@ impl windows_core::TypeKind for WLX_PROFILE_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_PROFILE_V2_0 {
     pub dwType: u32,
     pub pszProfile: windows_core::PWSTR,
@@ -406,7 +406,7 @@ impl windows_core::TypeKind for WLX_PROFILE_V2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_SC_NOTIFICATION_INFO {
     pub pszCard: windows_core::PWSTR,
     pub pszReader: windows_core::PWSTR,
@@ -422,7 +422,7 @@ impl windows_core::TypeKind for WLX_SC_NOTIFICATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WLX_TERMINAL_SERVICES_DATA {
     pub ProfilePath: [u16; 257],
     pub HomeDir: [u16; 257],

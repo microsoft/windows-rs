@@ -259,7 +259,7 @@ pub struct IWordsSegmenterFactory_Vtbl {
     pub CreateWithLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AlternateWordForm(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AlternateWordForm, windows_core::IUnknown, windows_core::IInspectable);
 impl AlternateWordForm {
@@ -298,7 +298,7 @@ impl windows_core::RuntimeName for AlternateWordForm {
 unsafe impl Send for AlternateWordForm {}
 unsafe impl Sync for AlternateWordForm {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SelectableWordSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SelectableWordSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl SelectableWordSegment {
@@ -330,7 +330,7 @@ impl windows_core::RuntimeName for SelectableWordSegment {
 unsafe impl Send for SelectableWordSegment {}
 unsafe impl Sync for SelectableWordSegment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SelectableWordsSegmenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SelectableWordsSegmenter, windows_core::IUnknown, windows_core::IInspectable);
 impl SelectableWordsSegmenter {
@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for SelectableWordsSegmenter {
 unsafe impl Send for SelectableWordsSegmenter {}
 unsafe impl Sync for SelectableWordsSegmenter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SemanticTextQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SemanticTextQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl SemanticTextQuery {
@@ -438,7 +438,7 @@ impl windows_core::RuntimeName for SemanticTextQuery {
 unsafe impl Send for SemanticTextQuery {}
 unsafe impl Sync for SemanticTextQuery {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TextConversionGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextConversionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl TextConversionGenerator {
@@ -496,7 +496,7 @@ impl windows_core::RuntimeName for TextConversionGenerator {
 unsafe impl Send for TextConversionGenerator {}
 unsafe impl Sync for TextConversionGenerator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TextPhoneme(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextPhoneme, windows_core::IUnknown, windows_core::IInspectable);
 impl TextPhoneme {
@@ -528,7 +528,7 @@ impl windows_core::RuntimeName for TextPhoneme {
 unsafe impl Send for TextPhoneme {}
 unsafe impl Sync for TextPhoneme {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TextPredictionGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextPredictionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl TextPredictionGenerator {
@@ -621,7 +621,7 @@ impl windows_core::RuntimeName for TextPredictionGenerator {
 unsafe impl Send for TextPredictionGenerator {}
 unsafe impl Sync for TextPredictionGenerator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TextReverseConversionGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextReverseConversionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl TextReverseConversionGenerator {
@@ -787,7 +787,7 @@ impl windows_core::RuntimeName for UnicodeCharacters {
     const NAME: &'static str = "Windows.Data.Text.UnicodeCharacters";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WordSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WordSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl WordSegment {
@@ -827,7 +827,7 @@ impl windows_core::RuntimeName for WordSegment {
 unsafe impl Send for WordSegment {}
 unsafe impl Sync for WordSegment {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WordsSegmenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WordsSegmenter, windows_core::IUnknown, windows_core::IInspectable);
 impl WordsSegmenter {
@@ -1019,7 +1019,7 @@ impl<F: FnMut(Option<&super::super::Foundation::Collections::IIterable<WordSegme
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
     pub const NotNormalized: Self = Self(0i32);
@@ -1035,7 +1035,7 @@ impl windows_core::RuntimeType for AlternateNormalizationFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
     pub const None: Self = Self(0u32);
@@ -1082,7 +1082,7 @@ impl core::ops::Not for TextPredictionOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
     pub const UppercaseLetter: Self = Self(0i32);
@@ -1123,7 +1123,7 @@ impl windows_core::RuntimeType for UnicodeGeneralCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
     pub const None: Self = Self(0i32);
@@ -1138,7 +1138,7 @@ impl windows_core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,

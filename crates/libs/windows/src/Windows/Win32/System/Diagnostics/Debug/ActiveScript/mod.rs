@@ -9421,67 +9421,67 @@ pub const fasaCaseSensitive: u32 = 4u32;
 pub const fasaPreferInternalHandler: u32 = 1u32;
 pub const fasaSupportInternalHandler: u32 = 2u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLICATION_NODE_EVENT_FILTER(pub i32);
 impl windows_core::TypeKind for APPLICATION_NODE_EVENT_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BREAKPOINT_STATE(pub i32);
 impl windows_core::TypeKind for BREAKPOINT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BREAKREASON(pub i32);
 impl windows_core::TypeKind for BREAKREASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BREAKRESUMEACTION(pub i32);
 impl windows_core::TypeKind for BREAKRESUMEACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EVENT_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for DEBUG_EVENT_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_STACKFRAME_TYPE(pub i32);
 impl windows_core::TypeKind for DEBUG_STACKFRAME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOCUMENTNAMETYPE(pub i32);
 impl windows_core::TypeKind for DOCUMENTNAMETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERRORRESUMEACTION(pub i32);
 impl windows_core::TypeKind for ERRORRESUMEACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JS_PROPERTY_ATTRIBUTES(pub i32);
 impl windows_core::TypeKind for JS_PROPERTY_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JS_PROPERTY_MEMBERS(pub i32);
 impl windows_core::TypeKind for JS_PROPERTY_MEMBERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsDebugReadMemoryFlags(pub i32);
 impl JsDebugReadMemoryFlags {
     pub const None: Self = Self(0i32);
@@ -9491,7 +9491,7 @@ impl windows_core::TypeKind for JsDebugReadMemoryFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_EVENT_MASK(pub i32);
 impl windows_core::TypeKind for PROFILER_EVENT_MASK {
     type TypeKind = windows_core::CopyType;
@@ -9530,7 +9530,7 @@ impl core::ops::Not for PROFILER_EVENT_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_ENUM_FLAGS(pub i32);
 impl windows_core::TypeKind for PROFILER_HEAP_ENUM_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -9569,7 +9569,7 @@ impl core::ops::Not for PROFILER_HEAP_ENUM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_FLAGS(pub i32);
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -9608,13 +9608,13 @@ impl core::ops::Not for PROFILER_HEAP_OBJECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub i32);
 impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -9653,67 +9653,67 @@ impl core::ops::Not for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY_VERSION(pub i32);
 impl windows_core::TypeKind for PROFILER_HEAP_SUMMARY_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_RELATIONSHIP_INFO(pub i32);
 impl windows_core::TypeKind for PROFILER_RELATIONSHIP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILER_SCRIPT_TYPE(pub i32);
 impl windows_core::TypeKind for PROFILER_SCRIPT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTGCTYPE(pub i32);
 impl windows_core::TypeKind for SCRIPTGCTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTLANGUAGEVERSION(pub i32);
 impl windows_core::TypeKind for SCRIPTLANGUAGEVERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTSTATE(pub i32);
 impl windows_core::TypeKind for SCRIPTSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTTHREADSTATE(pub i32);
 impl windows_core::TypeKind for SCRIPTTHREADSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTTRACEINFO(pub i32);
 impl windows_core::TypeKind for SCRIPTTRACEINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTUICHANDLING(pub i32);
 impl windows_core::TypeKind for SCRIPTUICHANDLING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPTUICITEM(pub i32);
 impl windows_core::TypeKind for SCRIPTUICITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_DEBUGGER_OPTIONS(pub i32);
 impl windows_core::TypeKind for SCRIPT_DEBUGGER_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -9752,13 +9752,13 @@ impl core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(pub i32);
 impl windows_core::TypeKind for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_INVOCATION_CONTEXT_TYPE(pub i32);
 impl windows_core::TypeKind for SCRIPT_INVOCATION_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -9801,7 +9801,7 @@ impl windows_core::TypeKind for DebugStackFrameDescriptor64 {
 }
 pub const DefaultDebugSessionProvider: windows_core::GUID = windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JS_NATIVE_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -9836,7 +9836,7 @@ impl windows_core::TypeKind for JsDebugPropertyInfo {
 pub const MachineDebugManager_DEBUG: windows_core::GUID = windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
 pub const MachineDebugManager_RETAIL: windows_core::GUID = windows_core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROFILER_HEAP_OBJECT {
     pub size: u32,
     pub Anonymous: PROFILER_HEAP_OBJECT_0,
@@ -9854,7 +9854,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_0 {
     pub objectId: usize,
     pub externalObjectAddress: *mut core::ffi::c_void,
@@ -9868,7 +9868,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
     pub Anonymous: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0,
@@ -9882,7 +9882,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub prototype: usize,
     pub functionName: windows_core::PCWSTR,
@@ -9966,7 +9966,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_HEAP_OBJECT_SCOPE_LIST {
     pub count: u32,
     pub scopes: [usize; 1],
@@ -9980,7 +9980,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_HEAP_SUMMARY {
     pub version: PROFILER_HEAP_SUMMARY_VERSION,
     pub totalHeapSize: u32,
@@ -9994,7 +9994,7 @@ impl windows_core::TypeKind for PROFILER_HEAP_SUMMARY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     pub length: u32,
     pub value: windows_core::PCWSTR,
@@ -10009,7 +10009,7 @@ impl windows_core::TypeKind for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
 }
 pub const ProcessDebugManager: windows_core::GUID = windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,
     pub Members: *mut Option<IDebugDocumentText>,

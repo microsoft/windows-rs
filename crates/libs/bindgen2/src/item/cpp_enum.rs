@@ -28,10 +28,10 @@ impl CppEnum {
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type().write(writer);
 
-        let mut derive = quote! { Copy, Clone, };
+        let mut derive = Derive::from(["Copy", "Clone"]);
 
         if !writer.config.sys {
-            derive.combine(quote! { Default, Debug, PartialEq, Eq, });
+            derive.add(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
         let fields = if is_scoped {
@@ -111,7 +111,7 @@ impl CppEnum {
 
         quote! {
             #[repr(transparent)]
-            #[derive(#derive)]
+            #derive
             pub struct #name(pub #underlying_type);
             #fields
             #type_kind

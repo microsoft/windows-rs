@@ -349,43 +349,43 @@ pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHUNKSTATE(pub i32);
 impl windows_core::TypeKind for CHUNKSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 impl windows_core::TypeKind for CHUNK_BREAKTYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBKINDENUM(pub i32);
 impl windows_core::TypeKind for DBKINDENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFILTER_FLAGS(pub i32);
 impl windows_core::TypeKind for IFILTER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFILTER_INIT(pub i32);
 impl windows_core::TypeKind for IFILTER_INIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
 impl windows_core::TypeKind for WORDREP_BREAK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -413,7 +413,7 @@ impl windows_core::TypeKind for CI_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
@@ -431,7 +431,7 @@ impl windows_core::TypeKind for DBID {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
@@ -448,7 +448,7 @@ impl windows_core::TypeKind for DBID_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_core::PWSTR,
     pub ulPropid: u32,
@@ -465,7 +465,7 @@ impl windows_core::TypeKind for DBID_1 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
@@ -483,7 +483,7 @@ impl windows_core::TypeKind for DBID {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DBID_0 {
     pub guid: windows_core::GUID,
     pub pguid: *mut windows_core::GUID,
@@ -500,7 +500,7 @@ impl windows_core::TypeKind for DBID_0 {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DBID_1 {
     pub pwszName: windows_core::PWSTR,
     pub ulPropid: u32,
@@ -516,7 +516,7 @@ impl windows_core::TypeKind for DBID_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -532,7 +532,7 @@ impl windows_core::TypeKind for FILTERREGION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FULLPROPSPEC {
     pub guidPropSet: windows_core::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
@@ -549,7 +549,7 @@ impl windows_core::TypeKind for FULLPROPSPEC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
     pub breakType: CHUNK_BREAKTYPE,

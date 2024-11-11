@@ -70,7 +70,7 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
     pub Availability: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserDataAvailability) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataAvailabilityStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAvailabilityStateChangedEventArgs {
@@ -95,7 +95,7 @@ impl windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
 unsafe impl Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataBufferUnprotectResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataBufferUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataBufferUnprotectResult {
@@ -128,7 +128,7 @@ impl windows_core::RuntimeName for UserDataBufferUnprotectResult {
 unsafe impl Send for UserDataBufferUnprotectResult {}
 unsafe impl Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataProtectionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataProtectionManager {
@@ -231,7 +231,7 @@ impl windows_core::RuntimeName for UserDataProtectionManager {
 unsafe impl Send for UserDataProtectionManager {}
 unsafe impl Sync for UserDataProtectionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserDataStorageItemProtectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataStorageItemProtectionInfo {
@@ -256,7 +256,7 @@ impl windows_core::RuntimeName for UserDataStorageItemProtectionInfo {
 unsafe impl Send for UserDataStorageItemProtectionInfo {}
 unsafe impl Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
     pub const Always: Self = Self(0i32);
@@ -270,7 +270,7 @@ impl windows_core::RuntimeType for UserDataAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -283,7 +283,7 @@ impl windows_core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
     pub const Succeeded: Self = Self(0i32);

@@ -329,7 +329,7 @@ impl windows_core::RuntimeName for AdvertisingManager {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AdvertisingManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdvertisingManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl AdvertisingManagerForUser {
@@ -361,7 +361,7 @@ impl windows_core::RuntimeName for AdvertisingManagerForUser {
 unsafe impl Send for AdvertisingManagerForUser {}
 unsafe impl Sync for AdvertisingManagerForUser {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AssignedAccessSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AssignedAccessSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AssignedAccessSettings {
@@ -419,7 +419,7 @@ impl windows_core::RuntimeName for AssignedAccessSettings {
 unsafe impl Send for AssignedAccessSettings {}
 unsafe impl Sync for AssignedAccessSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DiagnosticsSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticsSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticsSettings {
@@ -471,7 +471,7 @@ unsafe impl Send for DiagnosticsSettings {}
 unsafe impl Sync for DiagnosticsSettings {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FirstSignInSettings(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
@@ -625,7 +625,7 @@ impl windows_core::RuntimeName for GlobalizationPreferences {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferences";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalizationPreferencesForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalizationPreferencesForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalizationPreferencesForUser {
@@ -893,7 +893,7 @@ impl windows_core::RuntimeName for UserInformation {
     const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UserProfilePersonalizationSettings {
@@ -949,7 +949,7 @@ impl windows_core::RuntimeName for UserProfilePersonalizationSettings {
 unsafe impl Send for UserProfilePersonalizationSettings {}
 unsafe impl Sync for UserProfilePersonalizationSettings {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AccountPictureKind(pub i32);
 impl AccountPictureKind {
     pub const SmallImage: Self = Self(0i32);
@@ -963,7 +963,7 @@ impl windows_core::RuntimeType for AccountPictureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetAccountPictureResult(pub i32);
 impl SetAccountPictureResult {
     pub const Success: Self = Self(0i32);
@@ -980,7 +980,7 @@ impl windows_core::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
     pub const Success: Self = Self(0i32);

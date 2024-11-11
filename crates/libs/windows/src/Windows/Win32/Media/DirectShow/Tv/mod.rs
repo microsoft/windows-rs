@@ -34070,457 +34070,457 @@ pub const sslClipByClipRect: SourceSizeList = SourceSizeList(2i32);
 pub const sslClipByOverScan: SourceSizeList = SourceSizeList(1i32);
 pub const sslFullSize: SourceSizeList = SourceSizeList(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_DigitalSignalStandard(pub i32);
 impl windows_core::TypeKind for BDA_DigitalSignalStandard {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_LockType(pub i32);
 impl windows_core::TypeKind for BDA_LockType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SignalType(pub i32);
 impl windows_core::TypeKind for BDA_SignalType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_CAE_TV(pub i32);
 impl windows_core::TypeKind for BfEnTvRat_Attributes_CAE_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_CAF_TV(pub i32);
 impl windows_core::TypeKind for BfEnTvRat_Attributes_CAF_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_MPAA(pub i32);
 impl windows_core::TypeKind for BfEnTvRat_Attributes_MPAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_Attributes_US_TV(pub i32);
 impl windows_core::TypeKind for BfEnTvRat_Attributes_US_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BfEnTvRat_GenericAttributes(pub i32);
 impl windows_core::TypeKind for BfEnTvRat_GenericAttributes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPPEventBlockReason(pub i32);
 impl windows_core::TypeKind for COPPEventBlockReason {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPEventBitShift(pub i32);
 impl windows_core::TypeKind for CPEventBitShift {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPEvents(pub i32);
 impl windows_core::TypeKind for CPEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPRecordingStatus(pub i32);
 impl windows_core::TypeKind for CPRecordingStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRID_LOCATION(pub i32);
 impl windows_core::TypeKind for CRID_LOCATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
 impl windows_core::TypeKind for CROSSBAR_DEFAULT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChannelChangeSpanningEvent_State(pub i32);
 impl windows_core::TypeKind for ChannelChangeSpanningEvent_State {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ChannelType(pub i32);
 impl windows_core::TypeKind for ChannelType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DESC_LINKAGE_TYPE(pub i32);
 impl windows_core::TypeKind for DESC_LINKAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPID_TUNER(pub i32);
 impl windows_core::TypeKind for DISPID_TUNER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVB_STRCONV_MODE(pub i32);
 impl windows_core::TypeKind for DVB_STRCONV_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDFilterState(pub i32);
 impl windows_core::TypeKind for DVDFilterState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDMenuIDConstants(pub i32);
 impl windows_core::TypeKind for DVDMenuIDConstants {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDSPExt(pub i32);
 impl windows_core::TypeKind for DVDSPExt {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVDTextStringType(pub i32);
 impl windows_core::TypeKind for DVDTextStringType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplaySizeList(pub i32);
 impl windows_core::TypeKind for DisplaySizeList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DownResEventParam(pub i32);
 impl windows_core::TypeKind for DownResEventParam {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTag_Mode(pub i32);
 impl windows_core::TypeKind for EnTag_Mode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_CAE_TV(pub i32);
 impl windows_core::TypeKind for EnTvRat_CAE_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_CAF_TV(pub i32);
 impl windows_core::TypeKind for EnTvRat_CAF_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_GenericLevel(pub i32);
 impl windows_core::TypeKind for EnTvRat_GenericLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_MPAA(pub i32);
 impl windows_core::TypeKind for EnTvRat_MPAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_System(pub i32);
 impl windows_core::TypeKind for EnTvRat_System {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnTvRat_US_TV(pub i32);
 impl windows_core::TypeKind for EnTvRat_US_TV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EncDecEvents(pub i32);
 impl windows_core::TypeKind for EncDecEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FormatNotSupportedEvents(pub i32);
 impl windows_core::TypeKind for FormatNotSupportedEvents {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for KSEVENT_BDA_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENT_BDA_TUNER(pub i32);
 impl windows_core::TypeKind for KSEVENT_BDA_TUNER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_CAS_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_CHANGE_SYNC(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_CHANGE_SYNC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DEBUG_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_DEBUG_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DEVICE_CONFIGURATION(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_DEVICE_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_DRM(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_DRM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_EVENTING_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_EVENTING_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_GDDS_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_GDDS_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_GPNV_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_GPNV_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_ISDB_CAS(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_ISDB_CAS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_MUX_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_MUX_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_SCAN_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_SCAN_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_TS_SELECTOR(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_TS_SELECTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_TUNER_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_TUNER_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_USERACTIVITY_SERVICE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_WMDRM(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_WMDRM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_BDA_WMDRM_TUNER(pub i32);
 impl windows_core::TypeKind for KSMETHOD_BDA_WMDRM_TUNER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_AUTODEMODULATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_CA(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_CA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_CA_EVENT(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_CA_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DIGITAL_DEMODULATOR(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_DIGITAL_DEMODULATOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DISEQC_COMMAND(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_DISEQC_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_DISEQC_EVENT(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_DISEQC_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_ETHERNET_FILTER(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_ETHERNET_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_FREQUENCY_FILTER(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_FREQUENCY_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_IPv4_FILTER(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_IPv4_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_IPv6_FILTER(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_IPv6_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_LNB_INFO(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_LNB_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_NULL_TRANSFORM(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_NULL_TRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIDFILTER(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_PIDFILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIN_CONTROL(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_PIN_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_PIN_EVENT(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_PIN_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_SIGNAL_STATS(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_SIGNAL_STATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_TOPOLOGY(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_TOPOLOGY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BDA_VOID_TRANSFORM(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_BDA_VOID_TRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_IDS_BDA_TABLE(pub i32);
 impl windows_core::TypeKind for KSPROPERTY_IDS_BDA_TABLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LicenseEventBlockReason(pub i32);
 impl windows_core::TypeKind for LicenseEventBlockReason {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_CONTEXT_TYPE(pub i32);
 impl windows_core::TypeKind for MPEG_CONTEXT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
 impl windows_core::TypeKind for MPEG_CURRENT_NEXT_BIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for MPEG_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCCService(pub i32);
 impl MSVidCCService {
     pub const None: Self = Self(0i32);
@@ -34534,115 +34534,115 @@ impl windows_core::TypeKind for MSVidCCService {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCtlButtonstate(pub i32);
 impl windows_core::TypeKind for MSVidCtlButtonstate {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidCtlStateList(pub i32);
 impl windows_core::TypeKind for MSVidCtlStateList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidSegmentType(pub i32);
 impl windows_core::TypeKind for MSVidSegmentType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSVidSinkStreams(pub i32);
 impl windows_core::TypeKind for MSVidSinkStreams {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSViddispidList(pub i32);
 impl windows_core::TypeKind for MSViddispidList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PositionModeList(pub i32);
 impl windows_core::TypeKind for PositionModeList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProtType(pub i32);
 impl windows_core::TypeKind for ProtType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECORDING_TYPE(pub i32);
 impl windows_core::TypeKind for RECORDING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RecordingType(pub i32);
 impl windows_core::TypeKind for RecordingType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RevokedComponent(pub i32);
 impl windows_core::TypeKind for RevokedComponent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMBUFFER_ATTR_DATATYPE(pub i32);
 impl windows_core::TypeKind for STREAMBUFFER_ATTR_DATATYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SegDispidList(pub i32);
 impl windows_core::TypeKind for SegDispidList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SegEventidList(pub i32);
 impl windows_core::TypeKind for SegEventidList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SignalAndServiceStatusSpanningEvent_State(pub i32);
 impl windows_core::TypeKind for SignalAndServiceStatusSpanningEvent_State {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SourceSizeList(pub i32);
 impl windows_core::TypeKind for SourceSizeList {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_COLOR_PRIMARIES(pub i32);
 impl windows_core::TypeKind for VA_COLOR_PRIMARIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_MATRIX_COEFFICIENTS(pub i32);
 impl windows_core::TypeKind for VA_MATRIX_COEFFICIENTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_TRANSFER_CHARACTERISTICS(pub i32);
 impl windows_core::TypeKind for VA_TRANSFER_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VA_VIDEO_FORMAT(pub i32);
 impl windows_core::TypeKind for VA_VIDEO_FORMAT {
     type TypeKind = windows_core::CopyType;
@@ -34655,7 +34655,7 @@ pub const ATSCComponentType: windows_core::GUID = windows_core::GUID::from_u128(
 pub const ATSCLocator: windows_core::GUID = windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
 pub const ATSCTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
     pub EtmId: u32,
@@ -34676,7 +34676,7 @@ pub const AnalogTVTuningSpace: windows_core::GUID = windows_core::GUID::from_u12
 pub const AuxInTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
 pub const BDANETWORKTYPE_ATSC: windows_core::GUID = windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_DEBUG_DATA {
     pub lResult: i32,
     pub uuidDebugDataType: windows_core::GUID,
@@ -34694,7 +34694,7 @@ impl windows_core::TypeKind for BDA_DEBUG_DATA {
 pub const BDA_DEBUG_DATA_AVAILABLE: windows_core::GUID = windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
 pub const BDA_DEBUG_DATA_TYPE_STRING: windows_core::GUID = windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_EVENT_DATA {
     pub lResult: i32,
     pub ulEventID: u32,
@@ -34711,7 +34711,7 @@ impl windows_core::TypeKind for BDA_EVENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BDA_TRANSPORT_INFO {
     pub ulcbPhyiscalPacket: u32,
     pub ulcbPhyiscalFrame: u32,
@@ -34728,7 +34728,7 @@ impl windows_core::TypeKind for BDA_TRANSPORT_INFO {
 }
 pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct BadSampleInfo {
     pub hrReason: windows_core::HRESULT,
 }
@@ -34742,7 +34742,7 @@ impl windows_core::TypeKind for BadSampleInfo {
 }
 pub const BroadcastEventService: windows_core::GUID = windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
 }
@@ -34756,7 +34756,7 @@ impl windows_core::TypeKind for CAPTURE_STREAMTIME {
 }
 pub const CXDSData: windows_core::GUID = windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
     pub TimeStamp: u64,
@@ -34772,7 +34772,7 @@ impl windows_core::TypeKind for ChannelChangeInfo {
 pub const ChannelIDTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
 pub const ChannelIDTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ChannelInfo {
     pub lFrequency: i32,
     pub Anonymous: ChannelInfo_0,
@@ -34786,7 +34786,7 @@ impl windows_core::TypeKind for ChannelInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union ChannelInfo_0 {
     pub DVB: ChannelInfo_0_0,
     pub DC: ChannelInfo_0_1,
@@ -34801,7 +34801,7 @@ impl windows_core::TypeKind for ChannelInfo_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ChannelInfo_0_2 {
     pub lProgNumber: i32,
 }
@@ -34814,7 +34814,7 @@ impl windows_core::TypeKind for ChannelInfo_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ChannelInfo_0_1 {
     pub lProgNumber: i32,
 }
@@ -34827,7 +34827,7 @@ impl windows_core::TypeKind for ChannelInfo_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ChannelInfo_0_0 {
     pub lONID: i32,
     pub lTSID: i32,
@@ -34843,7 +34843,7 @@ impl windows_core::TypeKind for ChannelInfo_0_0 {
 }
 pub const ChannelTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
     pub timeStamp: u64,
@@ -34864,7 +34864,7 @@ pub const CreatePropBagOnRegKey: windows_core::GUID = windows_core::GUID::from_u
 pub const DIGITAL_CABLE_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
 pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
     pub StreamId: u32,
@@ -34881,7 +34881,7 @@ impl windows_core::TypeKind for DSHOW_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DSMCC_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
@@ -34898,7 +34898,7 @@ impl windows_core::TypeKind for DSMCC_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DSMCC_FILTER_OPTIONS {
     pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
     pub Protocol: u8,
@@ -34925,7 +34925,7 @@ impl windows_core::TypeKind for DSMCC_FILTER_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DSMCC_SECTION {
     pub TableId: u8,
     pub Header: DSMCC_SECTION_0,
@@ -34951,7 +34951,7 @@ impl windows_core::TypeKind for DSMCC_SECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DSMCC_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -34965,7 +34965,7 @@ impl windows_core::TypeKind for DSMCC_SECTION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DSMCC_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
@@ -34983,7 +34983,7 @@ pub const DVBCLocator: windows_core::GUID = windows_core::GUID::from_u128(0xc531
 pub const DVBSLocator: windows_core::GUID = windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
 pub const DVBSTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
     pub fScrambled: super::super::super::Foundation::BOOL,
@@ -35002,7 +35002,7 @@ pub const DVBTuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x1
 pub const DVBTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
 pub const DVB_CABLE_TV_NETWORK_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: super::super::super::Foundation::BOOL,
     pub bSegment: u8,
@@ -35045,7 +35045,7 @@ pub const DigitalCableTuneRequest: windows_core::GUID = windows_core::GUID::from
 pub const DigitalCableTuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
 pub const DigitalLocator: windows_core::GUID = windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DualMonoInfo {
     pub LangID1: u16,
     pub LangID2: u16,
@@ -35061,7 +35061,7 @@ impl windows_core::TypeKind for DualMonoInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DvbParentalRatingDescriptor {
     pub ulNumParams: u32,
     pub pParams: [DvbParentalRatingParam; 1],
@@ -35075,7 +35075,7 @@ impl windows_core::TypeKind for DvbParentalRatingDescriptor {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DvbParentalRatingParam {
     pub szCountryCode: [i8; 4],
     pub bRating: u8,
@@ -35190,7 +35190,7 @@ pub const KSDATAFORMAT_TYPE_MPE: windows_core::GUID = windows_core::GUID::from_u
 pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: windows_core::GUID = windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     pub EventData: super::super::KernelStreaming::KSEVENTDATA,
     pub StartFrequency: u32,
@@ -35231,7 +35231,7 @@ pub const KSMETHODSETID_BdaWmdrmSession: windows_core::GUID = windows_core::GUID
 pub const KSMETHODSETID_BdaWmdrmTuner: windows_core::GUID = windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_BUFFER {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulBufferSize: u32,
@@ -35249,7 +35249,7 @@ impl windows_core::TypeKind for KSM_BDA_BUFFER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_CAPTURETOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulTokenLength: u32,
@@ -35267,7 +35267,7 @@ impl windows_core::TypeKind for KSM_BDA_CAS_CAPTURETOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
@@ -35287,7 +35287,7 @@ impl windows_core::TypeKind for KSM_BDA_CAS_CLOSEMMIDIALOG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
@@ -35308,7 +35308,7 @@ impl windows_core::TypeKind for KSM_BDA_CAS_ENTITLEMENTTOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
@@ -35327,7 +35327,7 @@ impl windows_core::TypeKind for KSM_BDA_CAS_OPENBROADCASTMMI {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_DEBUG_LEVEL {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ucDebugLevel: u8,
@@ -35346,7 +35346,7 @@ impl windows_core::TypeKind for KSM_BDA_DEBUG_LEVEL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_DRM_SETDRM {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub NewDRMuuid: windows_core::GUID,
@@ -35363,7 +35363,7 @@ impl windows_core::TypeKind for KSM_BDA_DRM_SETDRM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_EVENT_COMPLETE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulEventID: u32,
@@ -35381,7 +35381,7 @@ impl windows_core::TypeKind for KSM_BDA_EVENT_COMPLETE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulTuneXmlLength: u32,
@@ -35399,7 +35399,7 @@ impl windows_core::TypeKind for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GDDS_TUNEXMLFROMIDX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulIdx: u64,
@@ -35416,7 +35416,7 @@ impl windows_core::TypeKind for KSM_BDA_GDDS_TUNEXMLFROMIDX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulNameLength: u32,
@@ -35435,7 +35435,7 @@ impl windows_core::TypeKind for KSM_BDA_GPNV_GETVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_NAMEINDEX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulValueNameIndex: u32,
@@ -35452,7 +35452,7 @@ impl windows_core::TypeKind for KSM_BDA_GPNV_NAMEINDEX {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulDialogRequest: u32,
@@ -35473,7 +35473,7 @@ impl windows_core::TypeKind for KSM_BDA_GPNV_SETVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_ISDBCAS_REQUEST {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulRequestID: u32,
@@ -35492,7 +35492,7 @@ impl windows_core::TypeKind for KSM_BDA_ISDBCAS_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_PIN {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub Anonymous: KSM_BDA_PIN_0,
@@ -35510,7 +35510,7 @@ impl windows_core::TypeKind for KSM_BDA_PIN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_0 {
     pub PinId: u32,
     pub PinType: u32,
@@ -35527,7 +35527,7 @@ impl windows_core::TypeKind for KSM_BDA_PIN_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_PIN_PAIR {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub Anonymous1: KSM_BDA_PIN_PAIR_0,
@@ -35545,7 +35545,7 @@ impl windows_core::TypeKind for KSM_BDA_PIN_PAIR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_PAIR_0 {
     pub InputPinId: u32,
     pub InputPinType: u32,
@@ -35562,7 +35562,7 @@ impl windows_core::TypeKind for KSM_BDA_PIN_PAIR_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union KSM_BDA_PIN_PAIR_1 {
     pub OutputPinId: u32,
     pub OutputPinType: u32,
@@ -35579,7 +35579,7 @@ impl windows_core::TypeKind for KSM_BDA_PIN_PAIR_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_CAPABILTIES {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub uuidBroadcastStandard: windows_core::GUID,
@@ -35596,7 +35596,7 @@ impl windows_core::TypeKind for KSM_BDA_SCAN_CAPABILTIES {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_FILTER {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulScanModulationTypeSize: u32,
@@ -35615,7 +35615,7 @@ impl windows_core::TypeKind for KSM_BDA_SCAN_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_SCAN_START {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub LowerFrequency: u32,
@@ -35633,7 +35633,7 @@ impl windows_core::TypeKind for KSM_BDA_SCAN_START {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_TS_SELECTOR_SETTSID {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub usTSID: u16,
@@ -35650,7 +35650,7 @@ impl windows_core::TypeKind for KSM_BDA_TS_SELECTOR_SETTSID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_TUNER_TUNEREQUEST {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulTuneLength: u32,
@@ -35668,7 +35668,7 @@ impl windows_core::TypeKind for KSM_BDA_TUNER_TUNEREQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_USERACTIVITY_USEREASON {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulUseReason: u32,
@@ -35685,7 +35685,7 @@ impl windows_core::TypeKind for KSM_BDA_USERACTIVITY_USEREASON {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulPID: u32,
@@ -35702,7 +35702,7 @@ impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulDialogRequest: u32,
@@ -35722,7 +35722,7 @@ impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulPID: u32,
@@ -35740,7 +35740,7 @@ impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRMTUNER_SYNCVALUE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulSyncValue: u32,
@@ -35757,7 +35757,7 @@ impl windows_core::TypeKind for KSM_BDA_WMDRMTUNER_SYNCVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRM_LICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub uuidKeyID: windows_core::GUID,
@@ -35774,7 +35774,7 @@ impl windows_core::TypeKind for KSM_BDA_WMDRM_LICENSE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
     pub ulXMRLicenseLength: u32,
@@ -35814,7 +35814,7 @@ pub const KSNODE_BDA_TS_SELECTOR: windows_core::GUID = windows_core::GUID::from_
 pub const KSNODE_BDA_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub Mode: u32,
@@ -35839,7 +35839,7 @@ impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub CurrentFrequency: u32,
@@ -35859,7 +35859,7 @@ impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub AutoDetect: super::super::super::Foundation::BOOL,
@@ -35876,7 +35876,7 @@ impl windows_core::TypeKind for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub SignalType: BDA_SignalType,
@@ -35910,7 +35910,7 @@ pub const KSPROPSETID_BdaTopology: windows_core::GUID = windows_core::GUID::from
 pub const KSPROPSETID_BdaVoidTransform: windows_core::GUID = windows_core::GUID::from_u128(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSP_BDA_NODE_PIN {
     pub Property: super::super::KernelStreaming::KSIDENTIFIER,
     pub ulNodeType: u32,
@@ -35929,7 +35929,7 @@ impl windows_core::TypeKind for KSP_BDA_NODE_PIN {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KSP_NODE_ESPID {
     pub Property: super::super::KernelStreaming::KSP_NODE,
     pub EsPid: u32,
@@ -35946,7 +35946,7 @@ impl windows_core::TypeKind for KSP_NODE_ESPID {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_BDA_ANTENNA {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
 }
@@ -35962,7 +35962,7 @@ impl windows_core::TypeKind for KS_DATARANGE_BDA_ANTENNA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct KS_DATARANGE_BDA_TRANSPORT {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
     pub BdaTransportInfo: BDA_TRANSPORT_INFO,
@@ -35978,7 +35978,7 @@ impl windows_core::TypeKind for KS_DATARANGE_BDA_TRANSPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct LONG_SECTION {
     pub TableId: u8,
     pub Header: LONG_SECTION_0,
@@ -35997,7 +35997,7 @@ impl windows_core::TypeKind for LONG_SECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LONG_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -36011,7 +36011,7 @@ impl windows_core::TypeKind for LONG_SECTION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union LONG_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
@@ -36026,7 +36026,7 @@ impl windows_core::TypeKind for LONG_SECTION_1 {
 }
 pub const LanguageComponentType: windows_core::GUID = windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LanguageInfo {
     pub LangID: u16,
     pub lISOLangCode: i32,
@@ -36045,7 +36045,7 @@ pub const MPEG2ComponentType: windows_core::GUID = windows_core::GUID::from_u128
 pub const MPEG2TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
 pub const MPEG2TuneRequestFactory: windows_core::GUID = windows_core::GUID::from_u128(0x2c63e4eb_4cea_41b8_919c_e947ea19a77c);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
@@ -36074,7 +36074,7 @@ impl windows_core::TypeKind for MPEG2_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER2 {
     pub Anonymous: MPEG2_FILTER2_0,
     pub fSpecifyDvbEitOptions: super::super::super::Foundation::BOOL,
@@ -36089,7 +36089,7 @@ impl windows_core::TypeKind for MPEG2_FILTER2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MPEG2_FILTER2_0 {
     pub Anonymous: MPEG2_FILTER2_0_0,
     pub bVersion1Bytes: [u8; 124],
@@ -36103,7 +36103,7 @@ impl windows_core::TypeKind for MPEG2_FILTER2_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG2_FILTER2_0_0 {
     pub bVersionNumber: u8,
     pub wFilterSize: u16,
@@ -36132,7 +36132,7 @@ impl windows_core::TypeKind for MPEG2_FILTER2_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_BCS_DEMUX {
     pub AVMGraphId: u32,
 }
@@ -36145,7 +36145,7 @@ impl windows_core::TypeKind for MPEG_BCS_DEMUX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_CONTEXT {
     pub Type: MPEG_CONTEXT_TYPE,
     pub U: MPEG_CONTEXT_0,
@@ -36159,7 +36159,7 @@ impl windows_core::TypeKind for MPEG_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MPEG_CONTEXT_0 {
     pub Demux: MPEG_BCS_DEMUX,
     pub Winsock: MPEG_WINSOCK,
@@ -36173,7 +36173,7 @@ impl windows_core::TypeKind for MPEG_CONTEXT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_DATE {
     pub Date: u8,
     pub Month: u8,
@@ -36188,7 +36188,7 @@ impl windows_core::TypeKind for MPEG_DATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_DATE_AND_TIME {
     pub D: MPEG_DATE,
     pub T: MPEG_TIME,
@@ -36202,7 +36202,7 @@ impl windows_core::TypeKind for MPEG_DATE_AND_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_HEADER_BITS {
     pub _bitfield: u16,
 }
@@ -36215,7 +36215,7 @@ impl windows_core::TypeKind for MPEG_HEADER_BITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_HEADER_BITS_MIDL {
     pub Bits: u16,
 }
@@ -36228,7 +36228,7 @@ impl windows_core::TypeKind for MPEG_HEADER_BITS_MIDL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS {
     pub _bitfield: u8,
 }
@@ -36241,7 +36241,7 @@ impl windows_core::TypeKind for MPEG_HEADER_VERSION_BITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPEG_HEADER_VERSION_BITS_MIDL {
     pub Bits: u8,
 }
@@ -36254,7 +36254,7 @@ impl windows_core::TypeKind for MPEG_HEADER_VERSION_BITS_MIDL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_PACKET_LIST {
     pub wPacketCount: u16,
     pub PacketList: [*mut MPEG_RQST_PACKET; 1],
@@ -36268,7 +36268,7 @@ impl windows_core::TypeKind for MPEG_PACKET_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_RQST_PACKET {
     pub dwLength: u32,
     pub pSection: *mut SECTION,
@@ -36282,7 +36282,7 @@ impl windows_core::TypeKind for MPEG_RQST_PACKET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_SERVICE_REQUEST {
     pub Type: MPEG_REQUEST_TYPE,
     pub Context: MPEG_CONTEXT,
@@ -36300,7 +36300,7 @@ impl windows_core::TypeKind for MPEG_SERVICE_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_SERVICE_RESPONSE {
     pub IPAddress: u32,
     pub Port: u16,
@@ -36314,7 +36314,7 @@ impl windows_core::TypeKind for MPEG_SERVICE_RESPONSE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_STREAM_BUFFER {
     pub hr: windows_core::HRESULT,
     pub dwDataBufferSize: u32,
@@ -36330,7 +36330,7 @@ impl windows_core::TypeKind for MPEG_STREAM_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_STREAM_FILTER {
     pub wPidValue: u16,
     pub dwFilterSize: u32,
@@ -36347,7 +36347,7 @@ impl windows_core::TypeKind for MPEG_STREAM_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_TIME {
     pub Hours: u8,
     pub Minutes: u8,
@@ -36362,7 +36362,7 @@ impl windows_core::TypeKind for MPEG_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG_WINSOCK {
     pub AVMGraphId: u32,
 }
@@ -36375,7 +36375,7 @@ impl windows_core::TypeKind for MPEG_WINSOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPE_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
@@ -36456,7 +36456,7 @@ pub const Mpeg2Data: windows_core::GUID = windows_core::GUID::from_u128(0xc666e1
 pub const Mpeg2DataLib: windows_core::GUID = windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
 pub const Mpeg2Stream: windows_core::GUID = windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct Mpeg2TableSampleHdr {
     pub SectionCount: u8,
     pub Reserved: [u8; 3],
@@ -36471,7 +36471,7 @@ impl windows_core::TypeKind for Mpeg2TableSampleHdr {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PBDAParentalControl {
     pub rating_system_count: u32,
     pub rating_systems: *mut RATING_SYSTEM,
@@ -36486,7 +36486,7 @@ impl windows_core::TypeKind for PBDAParentalControl {
 }
 pub const PBDA_ALWAYS_TUNE_IN_MUX: windows_core::GUID = windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PBDA_TAG_ATTRIBUTE {
     pub TableUUId: windows_core::GUID,
     pub TableId: u8,
@@ -36503,7 +36503,7 @@ impl windows_core::TypeKind for PBDA_TAG_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PIC_SEQ_SAMPLE {
     pub _bitfield: u32,
 }
@@ -36516,7 +36516,7 @@ impl windows_core::TypeKind for PIC_SEQ_SAMPLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PIDListSpanningEvent {
     pub wPIDCount: u16,
     pub pulPIDs: [u32; 1],
@@ -36530,7 +36530,7 @@ impl windows_core::TypeKind for PIDListSpanningEvent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PID_BITS {
     pub _bitfield: u16,
 }
@@ -36543,7 +36543,7 @@ impl windows_core::TypeKind for PID_BITS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PID_BITS_MIDL {
     pub Bits: u16,
 }
@@ -36565,7 +36565,7 @@ pub const PINNAME_IPSINK_INPUT: windows_core::GUID = windows_core::GUID::from_u1
 pub const PINNAME_MPE: windows_core::GUID = windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
 pub const PersistTuneXmlUtility: windows_core::GUID = windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
     pub wProgramMapPID: u16,
@@ -36579,7 +36579,7 @@ impl windows_core::TypeKind for ProgramElement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RATING_ATTRIBUTE {
     pub rating_attribute_id: u32,
     pub rating_attribute_value: u32,
@@ -36593,7 +36593,7 @@ impl windows_core::TypeKind for RATING_ATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RATING_INFO {
     pub rating_system_count: u32,
     pub lpratingsystem: *mut RATING_SYSTEM,
@@ -36607,7 +36607,7 @@ impl windows_core::TypeKind for RATING_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct RATING_SYSTEM {
     pub rating_system_id: windows_core::GUID,
     pub _bitfield: u8,
@@ -36624,7 +36624,7 @@ impl windows_core::TypeKind for RATING_SYSTEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAMPLE_LIVE_STREAM_TIME {
     pub qwStreamTime: u64,
     pub qwLiveTime: u64,
@@ -36638,7 +36638,7 @@ impl windows_core::TypeKind for SAMPLE_LIVE_STREAM_TIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAMPLE_SEQ_OFFSET {
     pub _bitfield: u32,
 }
@@ -36651,7 +36651,7 @@ impl windows_core::TypeKind for SAMPLE_SEQ_OFFSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SBE2_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
@@ -36667,7 +36667,7 @@ impl windows_core::TypeKind for SBE2_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SBE_PIN_DATA {
     pub cDataBytes: u64,
     pub cSamplesProcessed: u64,
@@ -36684,7 +36684,7 @@ impl windows_core::TypeKind for SBE_PIN_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SECTION {
     pub TableId: u8,
     pub Header: SECTION_0,
@@ -36699,7 +36699,7 @@ impl windows_core::TypeKind for SECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -36713,7 +36713,7 @@ impl windows_core::TypeKind for SECTION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAMBUFFER_ATTRIBUTE {
     pub pszName: windows_core::PWSTR,
     pub StreamBufferAttributeType: STREAMBUFFER_ATTR_DATATYPE,
@@ -36730,7 +36730,7 @@ impl windows_core::TypeKind for STREAMBUFFER_ATTRIBUTE {
 }
 pub const SectionList: windows_core::GUID = windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpanningEventDescriptor {
     pub wDataLen: u16,
     pub wProgNumber: u16,
@@ -36746,7 +36746,7 @@ impl windows_core::TypeKind for SpanningEventDescriptor {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SpanningEventEmmMessage {
     pub bCAbroadcasterGroupId: u8,
     pub bMessageControl: u8,
@@ -36772,7 +36772,7 @@ impl windows_core::TypeKind for SpanningEventEmmMessage {
 }
 pub const SystemTuningSpaces: windows_core::GUID = windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
     pub wCount: u16,
@@ -36787,7 +36787,7 @@ impl windows_core::TypeKind for TID_EXTENSION {
 }
 pub const TIFLoad: windows_core::GUID = windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct TRANSPORT_PROPERTIES {
     pub PID: u32,
     pub PCR: i64,
@@ -36802,7 +36802,7 @@ impl windows_core::TypeKind for TRANSPORT_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union TRANSPORT_PROPERTIES_0 {
     pub Others: TRANSPORT_PROPERTIES_0_0,
     pub Value: i64,
@@ -36816,7 +36816,7 @@ impl windows_core::TypeKind for TRANSPORT_PROPERTIES_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TRANSPORT_PROPERTIES_0_0 {
     pub _bitfield: i64,
 }
@@ -36832,7 +36832,7 @@ pub const TuneRequest: windows_core::GUID = windows_core::GUID::from_u128(0xb46e
 pub const TunerMarshaler: windows_core::GUID = windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
 pub const TuningSpace: windows_core::GUID = windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UDCR_TAG {
     pub bVersion: u8,
     pub KID: [u8; 25],
@@ -36852,7 +36852,7 @@ impl windows_core::TypeKind for UDCR_TAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub dwPictureHeight: u16,
     pub dwPictureWidth: u16,
@@ -36872,7 +36872,7 @@ impl windows_core::TypeKind for VA_OPTIONAL_VIDEO_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WMDRMProtectionInfo {
     pub wszKID: [u16; 25],
     pub qwCounter: u64,

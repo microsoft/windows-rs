@@ -56,7 +56,7 @@ pub struct IOfflineMapPackageStatics_Vtbl {
     FindPackagesInGeocircleAsync: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OfflineMapPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackage, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackage {
@@ -157,7 +157,7 @@ impl windows_core::RuntimeName for OfflineMapPackage {
 unsafe impl Send for OfflineMapPackage {}
 unsafe impl Sync for OfflineMapPackage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OfflineMapPackageQueryResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackageQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackageQueryResult {
@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for OfflineMapPackageQueryResult {
 unsafe impl Send for OfflineMapPackageQueryResult {}
 unsafe impl Sync for OfflineMapPackageQueryResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OfflineMapPackageStartDownloadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OfflineMapPackageStartDownloadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OfflineMapPackageStartDownloadResult {
@@ -215,7 +215,7 @@ impl windows_core::RuntimeName for OfflineMapPackageStartDownloadResult {
 unsafe impl Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl Sync for OfflineMapPackageStartDownloadResult {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
     pub const Success: Self = Self(0i32);
@@ -230,7 +230,7 @@ impl windows_core::RuntimeType for OfflineMapPackageQueryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
     pub const Success: Self = Self(0i32);
@@ -245,7 +245,7 @@ impl windows_core::RuntimeType for OfflineMapPackageStartDownloadStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
     pub const NotDownloaded: Self = Self(0i32);

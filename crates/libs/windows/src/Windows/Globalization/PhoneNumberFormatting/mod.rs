@@ -59,7 +59,7 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
     pub TryParseWithRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut PhoneNumberParseResult) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhoneNumberFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNumberFormatter, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneNumberFormatter {
@@ -150,7 +150,7 @@ impl windows_core::RuntimeName for PhoneNumberFormatter {
 unsafe impl Send for PhoneNumberFormatter {}
 unsafe impl Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhoneNumberInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneNumberInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneNumberInfo, super::super::Foundation::IStringable);
@@ -261,7 +261,7 @@ impl windows_core::RuntimeName for PhoneNumberInfo {
 unsafe impl Send for PhoneNumberInfo {}
 unsafe impl Sync for PhoneNumberInfo {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
     pub const E164: Self = Self(0i32);
@@ -276,7 +276,7 @@ impl windows_core::RuntimeType for PhoneNumberFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
     pub const NoMatch: Self = Self(0i32);
@@ -291,7 +291,7 @@ impl windows_core::RuntimeType for PhoneNumberMatchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberMatchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
     pub const Valid: Self = Self(0i32);
@@ -307,7 +307,7 @@ impl windows_core::RuntimeType for PhoneNumberParseResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PhoneNumberParseResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
     pub const FixedLine: Self = Self(0i32);

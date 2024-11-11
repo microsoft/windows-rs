@@ -1720,7 +1720,7 @@ pub type msirbRebootReason = i32;
 pub type msirbRebootType = i32;
 pub type msmErrorType = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1733,7 +1733,7 @@ pub struct ACTCTXA {
     pub hModule: super::super::Foundation::HMODULE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1747,7 +1747,7 @@ pub struct ACTCTXW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
     pub ulDataFormatVersion: u32,
@@ -1763,7 +1763,7 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub AssemblyMetadata: super::WindowsProgramming::ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
@@ -1786,13 +1786,13 @@ pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFileCount: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub dwFlags: u32,
     pub ulFormatVersion: u32,
@@ -1808,20 +1808,20 @@ pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub lpAppDirPath: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
     pub UiAccess: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulFilenameLength: u32,
@@ -1830,7 +1830,7 @@ pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub lpFilePath: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASSEMBLY_INFO {
     pub cbAssemblyInfo: u32,
     pub dwAssemblyFlags: u32,
@@ -1839,21 +1839,21 @@ pub struct ASSEMBLY_INFO {
     pub cchBuf: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_sys::core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
     pub MaxVersionTested: u64,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DELTA_HASH {
     pub HashSize: u32,
     pub HashValue: [u8; 32],
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,
     pub FileType: i64,
@@ -1864,26 +1864,26 @@ pub struct DELTA_HEADER_INFO {
     pub TargetHash: DELTA_HASH,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DELTA_INPUT {
     pub Anonymous: DELTA_INPUT_0,
     pub uSize: usize,
     pub Editable: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DELTA_INPUT_0 {
     pub lpcStart: *const core::ffi::c_void,
     pub lpStart: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DELTA_OUTPUT {
     pub lpStart: *mut core::ffi::c_void,
     pub uSize: usize,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct FUSION_INSTALL_REFERENCE {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1892,14 +1892,14 @@ pub struct FUSION_INSTALL_REFERENCE {
     pub szNonCannonicalData: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
 }
 pub type MSIHANDLE = u32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_sys::core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -1907,7 +1907,7 @@ pub struct MSIPATCHSEQUENCEINFOA {
     pub uStatus: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_sys::core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -1916,26 +1916,26 @@ pub struct MSIPATCHSEQUENCEINFOW {
 }
 pub const MsmMerge: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0adda830_2c26_11d2_ad65_00a0c9af11a6);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
     pub NewLength: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO {
     pub SizeOfThisStruct: u32,
     pub Anonymous: PATCH_OLD_FILE_INFO_0,
@@ -1945,14 +1945,14 @@ pub struct PATCH_OLD_FILE_INFO {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: windows_sys::core::PCSTR,
     pub OldFileNameW: windows_sys::core::PCWSTR,
     pub OldFileHandle: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCSTR,
@@ -1962,7 +1962,7 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::super::Foundation::HANDLE,
@@ -1972,7 +1972,7 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_sys::core::PCWSTR,
@@ -1982,7 +1982,7 @@ pub struct PATCH_OLD_FILE_INFO_W {
     pub RetainRangeArray: *mut PATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: u32,
     pub SymbolOptionFlags: u32,
@@ -1995,44 +1995,44 @@ pub struct PATCH_OPTION_DATA {
     pub MaxLzxWindowSize: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
     pub OffsetInNewFile: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PMSIHANDLE {
     pub m_h: MSIHANDLE,
 }
 pub const PMSvc: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb9e511fc_e364_497a_a121_b7b3612cedce);
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_APPTASKTYPE {
     pub ProductID: windows_sys::core::GUID,
     pub TaskType: PM_TASK_TYPE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_BSATASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_BWTASKID {
     pub ProductID: windows_sys::core::GUID,
     pub TaskID: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -2053,13 +2053,13 @@ pub union PM_ENUM_FILTER_0 {
     pub ShareTargetFileType: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_EXTENSIONCONSUMER {
     pub ConsumerPID: windows_sys::core::GUID,
     pub ExtensionID: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_INSTALLINFO {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2072,13 +2072,13 @@ pub struct PM_INSTALLINFO {
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_INVOCATIONINFO {
     pub URIBaseOrAUMID: windows_sys::core::BSTR,
     pub URIFragmentOrArgs: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_STARTAPPBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
@@ -2093,7 +2093,7 @@ pub struct PM_STARTAPPBLOB {
     pub LightUpSupportMask: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_STARTTILEBLOB {
     pub cbSize: u32,
     pub ProductID: windows_sys::core::GUID,
@@ -2110,7 +2110,7 @@ pub struct PM_STARTTILEBLOB {
     pub InvocationInfo: PM_INVOCATIONINFO,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_UPDATEINFO {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2121,7 +2121,7 @@ pub struct PM_UPDATEINFO {
     pub DeploymentOptions: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PM_UPDATEINFO_LEGACY {
     pub ProductID: windows_sys::core::GUID,
     pub PackagePath: windows_sys::core::BSTR,
@@ -2131,7 +2131,7 @@ pub struct PM_UPDATEINFO_LEGACY {
     pub MarketplaceAppVersion: windows_sys::core::BSTR,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROTECTED_FILE_DATA {
     pub FileName: [u16; 260],
     pub FileNumber: u32,

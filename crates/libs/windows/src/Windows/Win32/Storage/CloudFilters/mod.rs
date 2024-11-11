@@ -487,7 +487,7 @@ pub const CF_UPDATE_FLAG_REMOVE_FILE_IDENTITY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS
 pub const CF_UPDATE_FLAG_REMOVE_PROPERTY: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(128i32);
 pub const CF_UPDATE_FLAG_VERIFY_IN_SYNC: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_CANCEL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -526,7 +526,7 @@ impl core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -565,7 +565,7 @@ impl core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -604,7 +604,7 @@ impl core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -643,13 +643,13 @@ impl core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_DEHYDRATION_REASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -688,7 +688,7 @@ impl core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_DELETE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_DELETE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -727,7 +727,7 @@ impl core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_FETCH_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -766,7 +766,7 @@ impl core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -805,7 +805,7 @@ impl core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -844,7 +844,7 @@ impl core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -883,7 +883,7 @@ impl core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_RENAME_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_RENAME_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -922,13 +922,13 @@ impl core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -967,7 +967,7 @@ impl core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CONNECT_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CONNECT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1006,7 +1006,7 @@ impl core::ops::Not for CF_CONNECT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CONVERT_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CONVERT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1045,7 +1045,7 @@ impl core::ops::Not for CF_CONVERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CREATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_CREATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1084,7 +1084,7 @@ impl core::ops::Not for CF_CREATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_DEHYDRATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_DEHYDRATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1123,7 +1123,7 @@ impl core::ops::Not for CF_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HARDLINK_POLICY(pub i32);
 impl windows_core::TypeKind for CF_HARDLINK_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -1162,7 +1162,7 @@ impl core::ops::Not for CF_HARDLINK_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_HYDRATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1201,7 +1201,7 @@ impl core::ops::Not for CF_HYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_MODIFIER(pub u16);
 impl windows_core::TypeKind for CF_HYDRATION_POLICY_MODIFIER {
     type TypeKind = windows_core::CopyType;
@@ -1240,13 +1240,13 @@ impl core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_PRIMARY(pub u16);
 impl windows_core::TypeKind for CF_HYDRATION_POLICY_PRIMARY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_INSYNC_POLICY(pub u32);
 impl windows_core::TypeKind for CF_INSYNC_POLICY {
     type TypeKind = windows_core::CopyType;
@@ -1285,13 +1285,13 @@ impl core::ops::Not for CF_INSYNC_POLICY {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_IN_SYNC_STATE(pub i32);
 impl windows_core::TypeKind for CF_IN_SYNC_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPEN_FILE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPEN_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1330,7 +1330,7 @@ impl core::ops::Not for CF_OPEN_FILE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_ACK_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1369,7 +1369,7 @@ impl core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1408,7 +1408,7 @@ impl core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_ACK_DELETE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1447,7 +1447,7 @@ impl core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_ACK_RENAME_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1486,7 +1486,7 @@ impl core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1525,7 +1525,7 @@ impl core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1564,7 +1564,7 @@ impl core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1603,7 +1603,7 @@ impl core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1642,19 +1642,19 @@ impl core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for CF_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PIN_STATE(pub i32);
 impl windows_core::TypeKind for CF_PIN_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_PLACEHOLDER_CREATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1693,25 +1693,25 @@ impl core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for CF_PLACEHOLDER_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
 impl windows_core::TypeKind for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_STATE(pub u32);
 impl windows_core::TypeKind for CF_PLACEHOLDER_STATE {
     type TypeKind = windows_core::CopyType;
@@ -1750,7 +1750,7 @@ impl core::ops::Not for CF_PLACEHOLDER_STATE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_MODIFIER(pub u16);
 impl windows_core::TypeKind for CF_POPULATION_POLICY_MODIFIER {
     type TypeKind = windows_core::CopyType;
@@ -1789,13 +1789,13 @@ impl core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_PRIMARY(pub u16);
 impl windows_core::TypeKind for CF_POPULATION_POLICY_PRIMARY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_REGISTER_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_REGISTER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1834,7 +1834,7 @@ impl core::ops::Not for CF_REGISTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_REVERT_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_REVERT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1873,7 +1873,7 @@ impl core::ops::Not for CF_REVERT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SET_IN_SYNC_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_SET_IN_SYNC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1912,7 +1912,7 @@ impl core::ops::Not for CF_SET_IN_SYNC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SET_PIN_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_SET_PIN_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -1951,7 +1951,7 @@ impl core::ops::Not for CF_SET_PIN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
 impl windows_core::TypeKind for CF_SYNC_PROVIDER_STATUS {
     type TypeKind = windows_core::CopyType;
@@ -1990,13 +1990,13 @@ impl core::ops::Not for CF_SYNC_PROVIDER_STATUS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
 impl windows_core::TypeKind for CF_SYNC_ROOT_INFO_CLASS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_UPDATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CF_UPDATE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2036,7 +2036,7 @@ impl core::ops::Not for CF_UPDATE_FLAGS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
@@ -2069,7 +2069,7 @@ impl windows_core::TypeKind for CF_CALLBACK_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0,
@@ -2083,7 +2083,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
     pub FetchData: CF_CALLBACK_PARAMETERS_0_1,
@@ -2107,7 +2107,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
@@ -2121,7 +2121,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
 }
@@ -2134,7 +2134,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
@@ -2148,7 +2148,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
@@ -2161,7 +2161,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
@@ -2175,7 +2175,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
@@ -2189,7 +2189,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
@@ -2202,7 +2202,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
@@ -2215,7 +2215,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -2234,7 +2234,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: windows_core::PCWSTR,
@@ -2248,7 +2248,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
@@ -2261,7 +2261,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_core::PCWSTR,
@@ -2275,7 +2275,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
     pub TargetPath: windows_core::PCWSTR,
@@ -2289,7 +2289,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_10 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -2305,7 +2305,7 @@ impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_CALLBACK_REGISTRATION {
     pub Type: CF_CALLBACK_TYPE,
     pub Callback: CF_CALLBACK,
@@ -2341,7 +2341,7 @@ impl windows_core::Free for CF_CONNECTION_KEY {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_FILE_RANGE {
     pub StartingOffset: i64,
     pub Length: i64,
@@ -2356,7 +2356,7 @@ impl windows_core::TypeKind for CF_FILE_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_FS_METADATA {
     pub BasicInfo: super::FileSystem::FILE_BASIC_INFO,
     pub FileSize: i64,
@@ -2372,7 +2372,7 @@ impl windows_core::TypeKind for CF_FS_METADATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_HYDRATION_POLICY {
     pub Primary: CF_HYDRATION_POLICY_PRIMARY,
     pub Modifier: CF_HYDRATION_POLICY_MODIFIER,
@@ -2387,7 +2387,7 @@ impl windows_core::TypeKind for CF_HYDRATION_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -2409,7 +2409,7 @@ impl windows_core::TypeKind for CF_OPERATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
@@ -2426,7 +2426,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_0,
     pub RetrieveData: CF_OPERATION_PARAMETERS_0_1,
@@ -2449,7 +2449,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2468,7 +2468,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2487,7 +2487,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2504,7 +2504,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2521,7 +2521,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
@@ -2540,7 +2540,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut core::ffi::c_void,
@@ -2560,7 +2560,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2580,7 +2580,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2600,7 +2600,7 @@ impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PLACEHOLDER_BASIC_INFO {
     pub PinState: CF_PIN_STATE,
     pub InSyncState: CF_IN_SYNC_STATE,
@@ -2619,7 +2619,7 @@ impl windows_core::TypeKind for CF_PLACEHOLDER_BASIC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: windows_core::PCWSTR,
     pub FsMetadata: CF_FS_METADATA,
@@ -2640,7 +2640,7 @@ impl windows_core::TypeKind for CF_PLACEHOLDER_CREATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PLACEHOLDER_STANDARD_INFO {
     pub OnDiskDataSize: i64,
     pub ValidatedDataSize: i64,
@@ -2662,7 +2662,7 @@ impl windows_core::TypeKind for CF_PLACEHOLDER_STANDARD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PLATFORM_INFO {
     pub BuildNumber: u32,
     pub RevisionNumber: u32,
@@ -2677,7 +2677,7 @@ impl windows_core::TypeKind for CF_PLATFORM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_POPULATION_POLICY {
     pub Primary: CF_POPULATION_POLICY_PRIMARY,
     pub Modifier: CF_POPULATION_POLICY_MODIFIER,
@@ -2691,7 +2691,7 @@ impl windows_core::TypeKind for CF_POPULATION_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_PROCESS_INFO {
     pub StructSize: u32,
     pub ProcessId: u32,
@@ -2710,7 +2710,7 @@ impl windows_core::TypeKind for CF_PROCESS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_POLICIES {
     pub StructSize: u32,
     pub Hydration: CF_HYDRATION_POLICY,
@@ -2728,7 +2728,7 @@ impl windows_core::TypeKind for CF_SYNC_POLICIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: windows_core::PCWSTR,
@@ -2748,7 +2748,7 @@ impl windows_core::TypeKind for CF_SYNC_REGISTRATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_ROOT_BASIC_INFO {
     pub SyncRootFileId: i64,
 }
@@ -2761,7 +2761,7 @@ impl windows_core::TypeKind for CF_SYNC_ROOT_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_ROOT_PROVIDER_INFO {
     pub ProviderStatus: CF_SYNC_PROVIDER_STATUS,
     pub ProviderName: [u16; 256],
@@ -2776,7 +2776,7 @@ impl windows_core::TypeKind for CF_SYNC_ROOT_PROVIDER_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_ROOT_STANDARD_INFO {
     pub SyncRootFileId: i64,
     pub HydrationPolicy: CF_HYDRATION_POLICY,
@@ -2798,7 +2798,7 @@ impl windows_core::TypeKind for CF_SYNC_ROOT_STANDARD_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_SYNC_STATUS {
     pub StructSize: u32,
     pub Code: u32,

@@ -8,6 +8,7 @@
 #![allow(dead_code)]
 
 mod dependencies;
+mod derive;
 mod filter;
 mod guid;
 mod io;
@@ -22,10 +23,9 @@ mod type_name;
 mod value;
 mod winmd;
 mod writer;
-mod derive;
 
-//use derive::*;
 use dependencies::*;
+use derive::*;
 use filter::*;
 use guid::*;
 use io::*;

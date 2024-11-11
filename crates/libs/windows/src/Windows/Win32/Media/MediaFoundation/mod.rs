@@ -36518,55 +36518,55 @@ pub const g_wszWMCPSupportedVBRModes: windows_core::PCWSTR = windows_core::w!("_
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(0i32);
 pub const msoCurrent: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AEC_INPUT_STREAM(pub i32);
 impl windows_core::TypeKind for AEC_INPUT_STREAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AEC_SYSTEM_MODE(pub i32);
 impl windows_core::TypeKind for AEC_SYSTEM_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AEC_VAD_MODE(pub i32);
 impl windows_core::TypeKind for AEC_VAD_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASF_SELECTION_STATUS(pub i32);
 impl windows_core::TypeKind for ASF_SELECTION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASF_STATUSFLAGS(pub i32);
 impl windows_core::TypeKind for ASF_STATUSFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_BITSTREAM_ENCRYPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_VIDEO(pub i32);
 impl windows_core::TypeKind for D3D12_FEATURE_VIDEO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36605,7 +36605,7 @@ impl core::ops::Not for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36644,13 +36644,13 @@ impl core::ops::Not for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36689,13 +36689,13 @@ impl core::ops::Not for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_STATUS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36734,19 +36734,19 @@ impl core::ops::Not for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_TIER(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_DECODE_TIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36785,7 +36785,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36824,13 +36824,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VA
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36869,13 +36869,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36914,13 +36914,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVELS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36959,7 +36959,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -36998,19 +36998,19 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PROFILE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37049,7 +37049,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFOR
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37088,31 +37088,31 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37151,19 +37151,19 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TIER(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TX_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TX_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37202,19 +37202,19 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37253,13 +37253,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37298,13 +37298,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBL
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37343,13 +37343,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37388,7 +37388,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLA
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37427,7 +37427,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLA
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
     type TypeKind = windows_core::CopyType;
@@ -37466,7 +37466,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLA
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37505,7 +37505,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37544,25 +37544,25 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37601,31 +37601,31 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_H264(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVELS_H264 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_HEVC(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37664,7 +37664,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37703,7 +37703,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37742,19 +37742,19 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_H264 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37793,13 +37793,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37838,7 +37838,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37877,13 +37877,13 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_TIER_HEVC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37922,7 +37922,7 @@ impl core::ops::Not for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -37961,43 +37961,43 @@ impl core::ops::Not for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_FIELD_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_FIELD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_FRAME_STEREO_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38036,13 +38036,13 @@ impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38081,13 +38081,13 @@ impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(pub u32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38126,7 +38126,7 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(pub u32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38165,7 +38165,7 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38204,13 +38204,13 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38249,7 +38249,7 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38288,13 +38288,13 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_ORIENTATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38333,7 +38333,7 @@ impl core::ops::Not for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38372,7 +38372,7 @@ impl core::ops::Not for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(pub i32);
 impl windows_core::TypeKind for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -38411,403 +38411,403 @@ impl core::ops::Not for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_BufferfType(pub i32);
 impl windows_core::TypeKind for DXVA2_BufferfType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_DeinterlaceTech(pub i32);
 impl windows_core::TypeKind for DXVA2_DeinterlaceTech {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_DestData(pub i32);
 impl windows_core::TypeKind for DXVA2_DestData {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_DetailFilterTech(pub i32);
 impl windows_core::TypeKind for DXVA2_DetailFilterTech {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_FilterType(pub i32);
 impl windows_core::TypeKind for DXVA2_FilterType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_NoiseFilterTech(pub i32);
 impl windows_core::TypeKind for DXVA2_NoiseFilterTech {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_NominalRange(pub i32);
 impl windows_core::TypeKind for DXVA2_NominalRange {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_ProcAmp(pub i32);
 impl windows_core::TypeKind for DXVA2_ProcAmp {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_SampleData(pub i32);
 impl windows_core::TypeKind for DXVA2_SampleData {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_SampleFormat(pub i32);
 impl windows_core::TypeKind for DXVA2_SampleFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_SurfaceType(pub i32);
 impl windows_core::TypeKind for DXVA2_SurfaceType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VPDev(pub i32);
 impl windows_core::TypeKind for DXVA2_VPDev {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoChromaSubSampling(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoChromaSubSampling {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoLighting(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoLighting {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoPrimaries(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoPrimaries {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoProcess(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoProcess {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoRenderTargetType(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoRenderTargetType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoTransferFunction(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoTransferFunction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoTransferMatrix(pub i32);
 impl windows_core::TypeKind for DXVA2_VideoTransferMatrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_ALPHA_FILL_MODE(pub i32);
 impl windows_core::TypeKind for DXVAHD_ALPHA_FILL_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_BLT_STATE(pub i32);
 impl windows_core::TypeKind for DXVAHD_BLT_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_DEVICE_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_DEVICE_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for DXVAHD_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_DEVICE_USAGE(pub i32);
 impl windows_core::TypeKind for DXVAHD_DEVICE_USAGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_FEATURE_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_FEATURE_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_FILTER(pub i32);
 impl windows_core::TypeKind for DXVAHD_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_FILTER_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_FILTER_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_FRAME_FORMAT(pub i32);
 impl windows_core::TypeKind for DXVAHD_FRAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_INPUT_FORMAT_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_INPUT_FORMAT_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_ITELECINE_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_ITELECINE_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_OUTPUT_RATE(pub i32);
 impl windows_core::TypeKind for DXVAHD_OUTPUT_RATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_PROCESSOR_CAPS(pub i32);
 impl windows_core::TypeKind for DXVAHD_PROCESSOR_CAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_STREAM_STATE(pub i32);
 impl windows_core::TypeKind for DXVAHD_STREAM_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVAHD_SURFACE_TYPE(pub i32);
 impl windows_core::TypeKind for DXVAHD_SURFACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_DeinterlaceTech(pub i32);
 impl windows_core::TypeKind for DXVA_DeinterlaceTech {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_DestinationFlags(pub i32);
 impl windows_core::TypeKind for DXVA_DestinationFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_NominalRange(pub i32);
 impl windows_core::TypeKind for DXVA_NominalRange {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_ProcAmpControlProp(pub i32);
 impl windows_core::TypeKind for DXVA_ProcAmpControlProp {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_SampleFlags(pub i32);
 impl windows_core::TypeKind for DXVA_SampleFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_SampleFormat(pub i32);
 impl windows_core::TypeKind for DXVA_SampleFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoChromaSubsampling(pub i32);
 impl windows_core::TypeKind for DXVA_VideoChromaSubsampling {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoLighting(pub i32);
 impl windows_core::TypeKind for DXVA_VideoLighting {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoPrimaries(pub i32);
 impl windows_core::TypeKind for DXVA_VideoPrimaries {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoProcessCaps(pub i32);
 impl windows_core::TypeKind for DXVA_VideoProcessCaps {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoTransferFunction(pub i32);
 impl windows_core::TypeKind for DXVA_VideoTransferFunction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA_VideoTransferMatrix(pub i32);
 impl windows_core::TypeKind for DXVA_VideoTransferMatrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceStreamState(pub i32);
 impl windows_core::TypeKind for DeviceStreamState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAllocationType(pub i32);
 impl windows_core::TypeKind for EAllocationType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVRFilterConfigPrefs(pub i32);
 impl windows_core::TypeKind for EVRFilterConfigPrefs {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ACCESSMODE(pub i32);
 impl windows_core::TypeKind for FILE_ACCESSMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_OPENMODE(pub i32);
 impl windows_core::TypeKind for FILE_OPENMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
 impl windows_core::TypeKind for KSMETHOD_OPMVIDEOOUTPUT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
 impl windows_core::TypeKind for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF2DBuffer_LockFlags(pub i32);
 impl windows_core::TypeKind for MF2DBuffer_LockFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF3DVideoOutputType(pub i32);
 impl windows_core::TypeKind for MF3DVideoOutputType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASF_INDEXER_FLAGS(pub i32);
 impl windows_core::TypeKind for MFASF_INDEXER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASF_MULTIPLEXERFLAGS(pub i32);
 impl windows_core::TypeKind for MFASF_MULTIPLEXERFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASF_SPLITTERFLAGS(pub i32);
 impl windows_core::TypeKind for MFASF_SPLITTERFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASF_STREAMSELECTOR_FLAGS(pub i32);
 impl windows_core::TypeKind for MFASF_STREAMSELECTOR_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFASYNC_WORKQUEUE_TYPE(pub i32);
 impl windows_core::TypeKind for MFASYNC_WORKQUEUE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFAudioConstriction(pub i32);
 impl windows_core::TypeKind for MFAudioConstriction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFBYTESTREAM_SEEK_ORIGIN(pub i32);
 impl windows_core::TypeKind for MFBYTESTREAM_SEEK_ORIGIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCLOCK_CHARACTERISTICS_FLAGS(pub i32);
 impl windows_core::TypeKind for MFCLOCK_CHARACTERISTICS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCLOCK_RELATIONAL_FLAGS(pub i32);
 impl windows_core::TypeKind for MFCLOCK_RELATIONAL_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCLOCK_STATE(pub i32);
 impl windows_core::TypeKind for MFCLOCK_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModelType(pub i32);
 impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModelType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCameraOcclusionState(pub i32);
 impl windows_core::TypeKind for MFCameraOcclusionState {
     type TypeKind = windows_core::CopyType;
@@ -38846,223 +38846,223 @@ impl core::ops::Not for MFCameraOcclusionState {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFDepthMeasurement(pub i32);
 impl windows_core::TypeKind for MFDepthMeasurement {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFFrameSourceTypes(pub i32);
 impl windows_core::TypeKind for MFFrameSourceTypes {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFMEDIASOURCE_CHARACTERISTICS(pub i32);
 impl windows_core::TypeKind for MFMEDIASOURCE_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNETSOURCE_CACHE_STATE(pub i32);
 impl windows_core::TypeKind for MFNETSOURCE_CACHE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNETSOURCE_PROTOCOL_TYPE(pub i32);
 impl windows_core::TypeKind for MFNETSOURCE_PROTOCOL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNETSOURCE_STATISTICS_IDS(pub i32);
 impl windows_core::TypeKind for MFNETSOURCE_STATISTICS_IDS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNETSOURCE_TRANSPORT_TYPE(pub i32);
 impl windows_core::TypeKind for MFNETSOURCE_TRANSPORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNET_PROXYSETTINGS(pub i32);
 impl windows_core::TypeKind for MFNET_PROXYSETTINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNetAuthenticationFlags(pub i32);
 impl windows_core::TypeKind for MFNetAuthenticationFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNetCredentialOptions(pub i32);
 impl windows_core::TypeKind for MFNetCredentialOptions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNetCredentialRequirements(pub i32);
 impl windows_core::TypeKind for MFNetCredentialRequirements {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNominalRange(pub i32);
 impl windows_core::TypeKind for MFNominalRange {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFPMPSESSION_CREATION_FLAGS(pub i32);
 impl windows_core::TypeKind for MFPMPSESSION_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFPOLICYMANAGER_ACTION(pub i32);
 impl windows_core::TypeKind for MFPOLICYMANAGER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFP_CREATION_OPTIONS(pub i32);
 impl windows_core::TypeKind for MFP_CREATION_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFP_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for MFP_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFP_MEDIAPLAYER_STATE(pub i32);
 impl windows_core::TypeKind for MFP_MEDIAPLAYER_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFRATE_DIRECTION(pub i32);
 impl windows_core::TypeKind for MFRATE_DIRECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSESSION_GETFULLTOPOLOGY_FLAGS(pub i32);
 impl windows_core::TypeKind for MFSESSION_GETFULLTOPOLOGY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSESSION_SETTOPOLOGY_FLAGS(pub i32);
 impl windows_core::TypeKind for MFSESSION_SETTOPOLOGY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSHUTDOWN_STATUS(pub i32);
 impl windows_core::TypeKind for MFSHUTDOWN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSINK_WMDRMACTION(pub i32);
 impl windows_core::TypeKind for MFSINK_WMDRMACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSTREAMSINK_MARKER_TYPE(pub i32);
 impl windows_core::TypeKind for MFSTREAMSINK_MARKER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSampleAllocatorUsage(pub i32);
 impl windows_core::TypeKind for MFSampleAllocatorUsage {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSampleEncryptionProtectionScheme(pub i32);
 impl windows_core::TypeKind for MFSampleEncryptionProtectionScheme {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSensorDeviceMode(pub i32);
 impl windows_core::TypeKind for MFSensorDeviceMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSensorDeviceType(pub i32);
 impl windows_core::TypeKind for MFSensorDeviceType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSensorStreamType(pub i32);
 impl windows_core::TypeKind for MFSensorStreamType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFSequencerTopologyFlags(pub i32);
 impl windows_core::TypeKind for MFSequencerTopologyFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFStandardVideoFormat(pub i32);
 impl windows_core::TypeKind for MFStandardVideoFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFTIMER_FLAGS(pub i32);
 impl windows_core::TypeKind for MFTIMER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFTOPOLOGY_DXVA_MODE(pub i32);
 impl windows_core::TypeKind for MFTOPOLOGY_DXVA_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFTOPOLOGY_HARDWARE_MODE(pub i32);
 impl windows_core::TypeKind for MFTOPOLOGY_HARDWARE_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_REASON(pub i32);
 impl windows_core::TypeKind for MFT_AUDIO_DECODER_DEGRADATION_REASON {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_TYPE(pub i32);
 impl windows_core::TypeKind for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_DRAIN_TYPE(pub i32);
 impl windows_core::TypeKind for MFT_DRAIN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_ENUM_FLAG(pub i32);
 impl windows_core::TypeKind for MFT_ENUM_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -39101,499 +39101,499 @@ impl core::ops::Not for MFT_ENUM_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for MFT_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVP_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for MFVP_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideo3DFormat(pub i32);
 impl windows_core::TypeKind for MFVideo3DFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideo3DSampleFormat(pub i32);
 impl windows_core::TypeKind for MFVideo3DSampleFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoAlphaBitmapFlags(pub i32);
 impl windows_core::TypeKind for MFVideoAlphaBitmapFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoAspectRatioMode(pub i32);
 impl windows_core::TypeKind for MFVideoAspectRatioMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoChromaSubsampling(pub i32);
 impl windows_core::TypeKind for MFVideoChromaSubsampling {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoDRMFlags(pub i32);
 impl windows_core::TypeKind for MFVideoDRMFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoDSPMode(pub i32);
 impl windows_core::TypeKind for MFVideoDSPMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoFlags(pub i32);
 impl windows_core::TypeKind for MFVideoFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoInterlaceMode(pub i32);
 impl windows_core::TypeKind for MFVideoInterlaceMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoLighting(pub i32);
 impl windows_core::TypeKind for MFVideoLighting {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoMixPrefs(pub i32);
 impl windows_core::TypeKind for MFVideoMixPrefs {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoPadFlags(pub i32);
 impl windows_core::TypeKind for MFVideoPadFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoPrimaries(pub i32);
 impl windows_core::TypeKind for MFVideoPrimaries {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoRenderPrefs(pub i32);
 impl windows_core::TypeKind for MFVideoRenderPrefs {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoRotationFormat(pub i32);
 impl windows_core::TypeKind for MFVideoRotationFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoSphericalFormat(pub i32);
 impl windows_core::TypeKind for MFVideoSphericalFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoSphericalProjectionMode(pub i32);
 impl windows_core::TypeKind for MFVideoSphericalProjectionMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoSrcContentHintFlags(pub i32);
 impl windows_core::TypeKind for MFVideoSrcContentHintFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoTransferFunction(pub i32);
 impl windows_core::TypeKind for MFVideoTransferFunction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoTransferMatrix(pub i32);
 impl windows_core::TypeKind for MFVideoTransferMatrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVirtualCameraAccess(pub i32);
 impl windows_core::TypeKind for MFVirtualCameraAccess {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVirtualCameraLifetime(pub i32);
 impl windows_core::TypeKind for MFVirtualCameraLifetime {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVirtualCameraType(pub i32);
 impl windows_core::TypeKind for MFVirtualCameraType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFWaveFormatExConvertFlags(pub i32);
 impl windows_core::TypeKind for MFWaveFormatExConvertFlags {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(pub i32);
 impl windows_core::TypeKind for MF_ACTIVATE_CUSTOM_MIXER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ACTIVATE_CUSTOM_PRESENTER(pub i32);
 impl windows_core::TypeKind for MF_ACTIVATE_CUSTOM_PRESENTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ATTRIBUTES_MATCH_TYPE(pub i32);
 impl windows_core::TypeKind for MF_ATTRIBUTES_MATCH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ATTRIBUTE_SERIALIZE_OPTIONS(pub i32);
 impl windows_core::TypeKind for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for MF_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_AUVRHP_ROOMMODEL(pub i32);
 impl windows_core::TypeKind for MF_AUVRHP_ROOMMODEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAMERA_CONTROL_CONFIGURATION_TYPE(pub i32);
 impl windows_core::TypeKind for MF_CAMERA_CONTROL_CONFIGURATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(pub i32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_SINK_TYPE(pub i32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_SINK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_SOURCE(pub u32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAPTURE_ENGINE_STREAM_CATEGORY(pub i32);
 impl windows_core::TypeKind for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CONNECT_METHOD(pub i32);
 impl windows_core::TypeKind for MF_CONNECT_METHOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CROSS_ORIGIN_POLICY(pub i32);
 impl windows_core::TypeKind for MF_CROSS_ORIGIN_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CUSTOM_DECODE_UNIT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_CUSTOM_DECODE_UNIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_EVENT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_EVENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_FILE_ACCESSMODE(pub i32);
 impl windows_core::TypeKind for MF_FILE_ACCESSMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_FILE_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_FILE_OPENMODE(pub i32);
 impl windows_core::TypeKind for MF_FILE_OPENMODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_HDCP_STATUS(pub i32);
 impl windows_core::TypeKind for MF_HDCP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIAKEYSESSION_MESSAGETYPE(pub i32);
 impl windows_core::TypeKind for MF_MEDIAKEYSESSION_MESSAGETYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIAKEYSESSION_TYPE(pub i32);
 impl windows_core::TypeKind for MF_MEDIAKEYSESSION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIAKEYS_REQUIREMENT(pub i32);
 impl windows_core::TypeKind for MF_MEDIAKEYS_REQUIREMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIAKEY_STATUS(pub i32);
 impl windows_core::TypeKind for MF_MEDIAKEY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_CANPLAY(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_CANPLAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_CREATEFLAGS(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_CREATEFLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_ERR(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_ERR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_EVENT(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_EXTENSION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_KEYERR(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_KEYERR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_NETWORK(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_NETWORK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_OPM_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_PRELOAD(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_PRELOAD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_PROTECTION_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_READY(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_READY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_S3D_PACKING_MODE(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_SEEK_MODE(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_SEEK_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_STATISTIC(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_STATISTIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_ENGINE_STREAMTYPE_FAILED(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MEDIA_SHARING_ENGINE_EVENT(pub i32);
 impl windows_core::TypeKind for MF_MEDIA_SHARING_ENGINE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MSE_APPEND_MODE(pub i32);
 impl windows_core::TypeKind for MF_MSE_APPEND_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MSE_ERROR(pub i32);
 impl windows_core::TypeKind for MF_MSE_ERROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MSE_OPUS_SUPPORT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_MSE_OPUS_SUPPORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MSE_READY(pub i32);
 impl windows_core::TypeKind for MF_MSE_READY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MSE_VP9_SUPPORT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_MSE_VP9_SUPPORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
 impl windows_core::TypeKind for MF_MT_D3D_RESOURCE_VERSION_ENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_OPM_ACP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for MF_OPM_ACP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_OPM_CGMSA_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for MF_OPM_CGMSA_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_PLUGIN_CONTROL_POLICY(pub i32);
 impl windows_core::TypeKind for MF_PLUGIN_CONTROL_POLICY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_Plugin_Type(pub i32);
 impl windows_core::TypeKind for MF_Plugin_Type {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_QUALITY_ADVISE_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_QUALITY_ADVISE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_QUALITY_DROP_MODE(pub i32);
 impl windows_core::TypeKind for MF_QUALITY_DROP_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_QUALITY_LEVEL(pub i32);
 impl windows_core::TypeKind for MF_QUALITY_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_RESOLUTION_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_RESOLUTION_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -39632,31 +39632,31 @@ impl core::ops::Not for MF_RESOLUTION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SERVICE_LOOKUP_TYPE(pub i32);
 impl windows_core::TypeKind for MF_SERVICE_LOOKUP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SHARING_ENGINE_EVENT(pub i32);
 impl windows_core::TypeKind for MF_SHARING_ENGINE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SINK_WRITER_CONSTANTS(pub u32);
 impl windows_core::TypeKind for MF_SINK_WRITER_CONSTANTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SOURCE_READER_CONSTANTS(pub i32);
 impl windows_core::TypeKind for MF_SOURCE_READER_CONSTANTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SOURCE_READER_CONTROL_FLAG(pub i32);
 impl windows_core::TypeKind for MF_SOURCE_READER_CONTROL_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -39695,13 +39695,13 @@ impl core::ops::Not for MF_SOURCE_READER_CONTROL_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(pub i32);
 impl windows_core::TypeKind for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SOURCE_READER_FLAG(pub i32);
 impl windows_core::TypeKind for MF_SOURCE_READER_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -39740,181 +39740,181 @@ impl core::ops::Not for MF_SOURCE_READER_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_STREAM_STATE(pub i32);
 impl windows_core::TypeKind for MF_STREAM_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_ALIGNMENT(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_ALIGNMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_BOUTEN_POSITION(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_BOUTEN_POSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_BOUTEN_TYPE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_BOUTEN_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_CUE_EVENT(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_CUE_EVENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_DECORATION(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_DECORATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_DISPLAY_ALIGNMENT(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_ERROR_CODE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_ERROR_CODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_FONT_STYLE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_FONT_STYLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_RUBY_ALIGN(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_RUBY_ALIGN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_RUBY_POSITION(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_RUBY_POSITION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_RUBY_RESERVE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_RUBY_RESERVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_SCROLL_MODE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_SCROLL_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_TRACK_KIND(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_TRACK_KIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_TRACK_READY_STATE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_TRACK_READY_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_UNIT_TYPE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_UNIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TIMED_TEXT_WRITING_MODE(pub i32);
 impl windows_core::TypeKind for MF_TIMED_TEXT_WRITING_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TOPOLOGY_TYPE(pub i32);
 impl windows_core::TypeKind for MF_TOPOLOGY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TOPONODE_DRAIN_MODE(pub i32);
 impl windows_core::TypeKind for MF_TOPONODE_DRAIN_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TOPONODE_FLUSH_MODE(pub i32);
 impl windows_core::TypeKind for MF_TOPONODE_FLUSH_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TOPOSTATUS(pub i32);
 impl windows_core::TypeKind for MF_TOPOSTATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TRANSCODE_ADJUST_PROFILE_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_TRANSCODE_TOPOLOGYMODE_FLAGS(pub i32);
 impl windows_core::TypeKind for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_URL_TRUST_STATUS(pub i32);
 impl windows_core::TypeKind for MF_URL_TRUST_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(pub i32);
 impl windows_core::TypeKind for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_VIDEO_PROCESSOR_MIRROR(pub i32);
 impl windows_core::TypeKind for MF_VIDEO_PROCESSOR_MIRROR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_VIDEO_PROCESSOR_ROTATION(pub i32);
 impl windows_core::TypeKind for MF_VIDEO_PROCESSOR_ROTATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIC_ARRAY_MODE(pub i32);
 impl windows_core::TypeKind for MIC_ARRAY_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG2VIDEOINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for MPEG2VIDEOINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -39953,43 +39953,43 @@ impl core::ops::Not for MPEG2VIDEOINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_ACP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for OPM_ACP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_BUS_TYPE(pub i32);
 impl windows_core::TypeKind for OPM_BUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_CGMSA(pub i32);
 impl windows_core::TypeKind for OPM_CGMSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_CONNECTOR_TYPE(pub i32);
 impl windows_core::TypeKind for OPM_CONNECTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_DPCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for OPM_DPCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_DVI_CHARACTERISTIC(pub i32);
 impl windows_core::TypeKind for OPM_DVI_CHARACTERISTIC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_HDCP_FLAGS(pub i32);
 impl windows_core::TypeKind for OPM_HDCP_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -40028,73 +40028,73 @@ impl core::ops::Not for OPM_HDCP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_HDCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for OPM_HDCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_HDCP_STATUS(pub i32);
 impl windows_core::TypeKind for OPM_HDCP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_HDCP_TYPE(pub i32);
 impl windows_core::TypeKind for OPM_HDCP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
 impl windows_core::TypeKind for OPM_IMAGE_ASPECT_RATIO_EN300294 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
 impl windows_core::TypeKind for OPM_OUTPUT_HARDWARE_PROTECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_PROTECTION_STANDARD_TYPE(pub u32);
 impl windows_core::TypeKind for OPM_PROTECTION_STANDARD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_PROTECTION_TYPE(pub i32);
 impl windows_core::TypeKind for OPM_PROTECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_STATUS(pub i32);
 impl windows_core::TypeKind for OPM_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_TYPE(pub i32);
 impl windows_core::TypeKind for OPM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
 impl windows_core::TypeKind for OPM_VIDEO_OUTPUT_SEMANTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLAYTO_SOURCE_CREATEFLAGS(pub i32);
 impl windows_core::TypeKind for PLAYTO_SOURCE_CREATEFLAGS {
     type TypeKind = windows_core::CopyType;
@@ -40133,523 +40133,523 @@ impl core::ops::Not for PLAYTO_SOURCE_CREATEFLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAMPLE_PROTECTION_VERSION(pub i32);
 impl windows_core::TypeKind for SAMPLE_PROTECTION_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEEK_ORIGIN(pub i32);
 impl windows_core::TypeKind for SEEK_ORIGIN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_POS_TYPE(pub i32);
 impl windows_core::TypeKind for TOC_POS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PROP_DATATYPE(pub i32);
 impl windows_core::TypeKind for WMT_PROP_DATATYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMV_DYNAMIC_FLAGS(pub i32);
 impl windows_core::TypeKind for WMV_DYNAMIC_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFP_CREDENTIAL_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFP_CREDENTIAL_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFP_MEDIAITEM_CHARACTERISTICS(pub i32);
 impl windows_core::TypeKind for _MFP_MEDIAITEM_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_INPUT_DATA_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_INPUT_DATA_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_INPUT_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_INPUT_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_INPUT_STREAM_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_INPUT_STREAM_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_OUTPUT_STATUS_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_OUTPUT_STATUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_OUTPUT_STREAM_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_PROCESS_OUTPUT_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_PROCESS_OUTPUT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_PROCESS_OUTPUT_STATUS(pub i32);
 impl windows_core::TypeKind for _MFT_PROCESS_OUTPUT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _MFT_SET_TYPE_FLAGS(pub i32);
 impl windows_core::TypeKind for _MFT_SET_TYPE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVAudioChannelConfig(pub i32);
 impl windows_core::TypeKind for eAVAudioChannelConfig {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDDSurroundMode(pub i32);
 impl windows_core::TypeKind for eAVDDSurroundMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDSPLoudnessEqualization(pub i32);
 impl windows_core::TypeKind for eAVDSPLoudnessEqualization {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDSPSpeakerFill(pub i32);
 impl windows_core::TypeKind for eAVDSPSpeakerFill {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecAACDownmixMode(pub i32);
 impl windows_core::TypeKind for eAVDecAACDownmixMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecAudioDualMono(pub i32);
 impl windows_core::TypeKind for eAVDecAudioDualMono {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecAudioDualMonoReproMode(pub i32);
 impl windows_core::TypeKind for eAVDecAudioDualMonoReproMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecDDMatrixDecodingMode(pub i32);
 impl windows_core::TypeKind for eAVDecDDMatrixDecodingMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecDDOperationalMode(pub i32);
 impl windows_core::TypeKind for eAVDecDDOperationalMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecDDStereoDownMixMode(pub i32);
 impl windows_core::TypeKind for eAVDecDDStereoDownMixMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecHEAACDynamicRangeControl(pub i32);
 impl windows_core::TypeKind for eAVDecHEAACDynamicRangeControl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoCodecType(pub i32);
 impl windows_core::TypeKind for eAVDecVideoCodecType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoDXVABusEncryption(pub i32);
 impl windows_core::TypeKind for eAVDecVideoDXVABusEncryption {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoDXVAMode(pub i32);
 impl windows_core::TypeKind for eAVDecVideoDXVAMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoH264ErrorConcealment(pub i32);
 impl windows_core::TypeKind for eAVDecVideoH264ErrorConcealment {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoInputScanType(pub i32);
 impl windows_core::TypeKind for eAVDecVideoInputScanType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoMPEG2ErrorConcealment(pub i32);
 impl windows_core::TypeKind for eAVDecVideoMPEG2ErrorConcealment {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoSWPowerLevel(pub i32);
 impl windows_core::TypeKind for eAVDecVideoSWPowerLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVDecVideoSoftwareDeinterlaceMode(pub i32);
 impl windows_core::TypeKind for eAVDecVideoSoftwareDeinterlaceMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAV1PictureType(pub i32);
 impl windows_core::TypeKind for eAVEncAV1PictureType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAV1VLevel(pub i32);
 impl windows_core::TypeKind for eAVEncAV1VLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAV1VProfile(pub i32);
 impl windows_core::TypeKind for eAVEncAV1VProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAdaptiveMode(pub i32);
 impl windows_core::TypeKind for eAVEncAdaptiveMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAudioDualMono(pub i32);
 impl windows_core::TypeKind for eAVEncAudioDualMono {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncAudioInputContent(pub i32);
 impl windows_core::TypeKind for eAVEncAudioInputContent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncChromaEncodeMode(pub i32);
 impl windows_core::TypeKind for eAVEncChromaEncodeMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncCommonRateControlMode(pub i32);
 impl windows_core::TypeKind for eAVEncCommonRateControlMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncCommonStreamEndHandling(pub i32);
 impl windows_core::TypeKind for eAVEncCommonStreamEndHandling {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDAtoDConverterType(pub i32);
 impl windows_core::TypeKind for eAVEncDDAtoDConverterType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDDynamicRangeCompressionControl(pub i32);
 impl windows_core::TypeKind for eAVEncDDDynamicRangeCompressionControl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDHeadphoneMode(pub i32);
 impl windows_core::TypeKind for eAVEncDDHeadphoneMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDPreferredStereoDownMixMode(pub i32);
 impl windows_core::TypeKind for eAVEncDDPreferredStereoDownMixMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDProductionRoomType(pub i32);
 impl windows_core::TypeKind for eAVEncDDProductionRoomType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDService(pub i32);
 impl windows_core::TypeKind for eAVEncDDService {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncDDSurroundExMode(pub i32);
 impl windows_core::TypeKind for eAVEncDDSurroundExMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH263PictureType(pub i32);
 impl windows_core::TypeKind for eAVEncH263PictureType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH263VLevel(pub i32);
 impl windows_core::TypeKind for eAVEncH263VLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH263VProfile(pub i32);
 impl windows_core::TypeKind for eAVEncH263VProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH264PictureType(pub i32);
 impl windows_core::TypeKind for eAVEncH264PictureType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH264VLevel(pub i32);
 impl windows_core::TypeKind for eAVEncH264VLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH264VProfile(pub i32);
 impl windows_core::TypeKind for eAVEncH264VProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH265VLevel(pub i32);
 impl windows_core::TypeKind for eAVEncH265VLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncH265VProfile(pub i32);
 impl windows_core::TypeKind for eAVEncH265VProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncInputVideoSystem(pub i32);
 impl windows_core::TypeKind for eAVEncInputVideoSystem {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPACodingMode(pub i32);
 impl windows_core::TypeKind for eAVEncMPACodingMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPAEmphasisType(pub i32);
 impl windows_core::TypeKind for eAVEncMPAEmphasisType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPALayer(pub i32);
 impl windows_core::TypeKind for eAVEncMPALayer {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVFrameFieldMode(pub i32);
 impl windows_core::TypeKind for eAVEncMPVFrameFieldMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVIntraVLCTable(pub i32);
 impl windows_core::TypeKind for eAVEncMPVIntraVLCTable {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVLevel(pub i32);
 impl windows_core::TypeKind for eAVEncMPVLevel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVProfile(pub i32);
 impl windows_core::TypeKind for eAVEncMPVProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVQScaleType(pub i32);
 impl windows_core::TypeKind for eAVEncMPVQScaleType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVScanPattern(pub i32);
 impl windows_core::TypeKind for eAVEncMPVScanPattern {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMPVSceneDetection(pub i32);
 impl windows_core::TypeKind for eAVEncMPVSceneDetection {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncMuxOutput(pub i32);
 impl windows_core::TypeKind for eAVEncMuxOutput {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVP9VProfile(pub i32);
 impl windows_core::TypeKind for eAVEncVP9VProfile {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoChromaResolution(pub i32);
 impl windows_core::TypeKind for eAVEncVideoChromaResolution {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoChromaSubsampling(pub i32);
 impl windows_core::TypeKind for eAVEncVideoChromaSubsampling {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoColorLighting(pub i32);
 impl windows_core::TypeKind for eAVEncVideoColorLighting {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoColorNominalRange(pub i32);
 impl windows_core::TypeKind for eAVEncVideoColorNominalRange {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoColorPrimaries(pub i32);
 impl windows_core::TypeKind for eAVEncVideoColorPrimaries {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoColorTransferFunction(pub i32);
 impl windows_core::TypeKind for eAVEncVideoColorTransferFunction {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoColorTransferMatrix(pub i32);
 impl windows_core::TypeKind for eAVEncVideoColorTransferMatrix {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoContentType(pub i32);
 impl windows_core::TypeKind for eAVEncVideoContentType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoFilmContent(pub i32);
 impl windows_core::TypeKind for eAVEncVideoFilmContent {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoOutputFrameRateConversion(pub i32);
 impl windows_core::TypeKind for eAVEncVideoOutputFrameRateConversion {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoOutputScanType(pub i32);
 impl windows_core::TypeKind for eAVEncVideoOutputScanType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVEncVideoSourceScanType(pub i32);
 impl windows_core::TypeKind for eAVEncVideoSourceScanType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVFastDecodeMode(pub i32);
 impl windows_core::TypeKind for eAVFastDecodeMode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eAVScenarioInfo(pub i32);
 impl windows_core::TypeKind for eAVScenarioInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct eVideoEncoderDisplayContentType(pub i32);
 impl windows_core::TypeKind for eVideoEncoderDisplayContentType {
     type TypeKind = windows_core::CopyType;
@@ -40678,7 +40678,7 @@ impl windows_core::TypeKind for AM_MEDIA_TYPE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: u8,
     pub dwDataLen: u32,
@@ -40692,7 +40692,7 @@ impl windows_core::TypeKind for ASF_FLAT_PICTURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -40707,7 +40707,7 @@ impl windows_core::TypeKind for ASF_FLAT_SYNCHRONISED_LYRICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASF_INDEX_DESCRIPTOR {
     pub Identifier: ASF_INDEX_IDENTIFIER,
     pub cPerEntryBytes: u16,
@@ -40723,7 +40723,7 @@ impl windows_core::TypeKind for ASF_INDEX_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASF_INDEX_IDENTIFIER {
     pub guidIndexType: windows_core::GUID,
     pub wStreamNumber: u16,
@@ -40737,7 +40737,7 @@ impl windows_core::TypeKind for ASF_INDEX_IDENTIFIER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ASF_MUX_STATISTICS {
     pub cFramesWritten: u32,
     pub cFramesDropped: u32,
@@ -40751,7 +40751,7 @@ impl windows_core::TypeKind for ASF_MUX_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AecQualityMetrics_Struct {
     pub i64Timestamp: i64,
     pub ConvergenceFlag: u8,
@@ -41184,7 +41184,7 @@ pub const CWVC1EncMediaObject: windows_core::GUID = windows_core::GUID::from_u12
 pub const CZuneAACCCDecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
 pub const CZuneM4S2DecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CodecAPIEventData {
     pub guid: windows_core::GUID,
     pub dataLength: u32,
@@ -41199,7 +41199,7 @@ impl windows_core::TypeKind for CodecAPIEventData {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: super::super::Foundation::BOOL,
 }
@@ -41213,7 +41213,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub MemoryPoolL0Size: u64,
@@ -41231,7 +41231,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub Protected: super::super::Foundation::BOOL,
@@ -41250,7 +41250,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -41273,7 +41273,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPO
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -41291,7 +41291,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -41307,7 +41307,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
     pub DecodeProfile: windows_core::GUID,
@@ -41329,7 +41329,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
@@ -41344,7 +41344,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
@@ -41358,7 +41358,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -41374,7 +41374,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOUR
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -41398,7 +41398,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41413,7 +41413,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41430,7 +41430,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURA
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41447,7 +41447,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_C
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41467,7 +41467,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41485,7 +41485,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
     pub IsSupported: super::super::Foundation::BOOL,
@@ -41502,7 +41502,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41521,7 +41521,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41539,7 +41539,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_M
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41560,7 +41560,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41575,7 +41575,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41593,7 +41593,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41609,7 +41609,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MO
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
@@ -41626,7 +41626,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPP
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41650,7 +41650,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIR
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41681,7 +41681,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -41714,7 +41714,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     pub NodeIndex: u32,
     pub CommandCount: u32,
@@ -41731,7 +41731,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     pub NodeIndex: u32,
     pub CommandCount: u32,
@@ -41745,7 +41745,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
@@ -41761,7 +41761,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAM
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
@@ -41777,7 +41777,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAM
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -41795,7 +41795,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -41813,7 +41813,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPO
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
     pub VideoDecodeSupport: super::super::Foundation::BOOL,
@@ -41830,7 +41830,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -41849,7 +41849,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
@@ -41864,7 +41864,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTEC
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -41889,7 +41889,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -41910,7 +41910,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -41931,7 +41931,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     pub NodeIndex: u32,
     pub MaxInputStreams: u32,
@@ -41945,7 +41945,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREA
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
@@ -41960,7 +41960,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOU
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
     pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
@@ -41984,7 +41984,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO 
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     pub NodeIndex: u32,
     pub InputSample: D3D12_VIDEO_SAMPLE,
@@ -42014,7 +42014,7 @@ impl windows_core::TypeKind for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
     pub NumMacroblocksAffected: u64,
@@ -42067,7 +42067,7 @@ impl windows_core::TypeKind for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RESOURCE_COORDINATE {
     pub X: u64,
     pub Y: u32,
@@ -42083,7 +42083,7 @@ impl windows_core::TypeKind for D3D12_RESOURCE_COORDINATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -42098,7 +42098,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -42138,7 +42138,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
     pub DecodeProfile: windows_core::GUID,
     pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
@@ -42195,7 +42195,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
     pub Size: u32,
@@ -42285,7 +42285,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -42303,7 +42303,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     pub CdefBits: u64,
     pub CdefDampingMinus3: u64,
@@ -42321,7 +42321,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     pub FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub OrderHintBitsMinus1: u32,
@@ -42335,7 +42335,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     pub SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub RequiredFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
@@ -42357,7 +42357,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPP
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub Use128SuperBlocks: super::super::Foundation::BOOL,
     pub TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
@@ -42381,7 +42381,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_C
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     pub Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
     pub Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
@@ -42395,7 +42395,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     pub Flags: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
@@ -42431,7 +42431,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DA
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
     pub RowCount: u64,
     pub ColCount: u64,
@@ -42448,7 +42448,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIO
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     pub CompoundPredictionType: u64,
     pub LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
@@ -42469,7 +42469,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub ReconstructedPictureResourceIndex: u32,
     pub TemporalLayerIndexPlus1: u32,
@@ -42488,7 +42488,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
     pub TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
     pub TransformationMatrix: [i32; 8],
@@ -42503,7 +42503,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     pub FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
     pub LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
@@ -42517,7 +42517,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     pub UpdateMap: u64,
     pub TemporalUpdate: u64,
@@ -42534,7 +42534,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     pub SegmentsMapByteSize: u32,
     pub pSegmentsMap: *mut u8,
@@ -42548,7 +42548,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     pub EnabledFeatures: u64,
     pub FeatureValue: [i64; 8],
@@ -42562,7 +42562,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     pub IntraDistance: u32,
     pub InterFramePeriod: u32,
@@ -42576,7 +42576,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     pub LoopFilterLevel: [u64; 2],
     pub LoopFilterLevelU: u64,
@@ -42597,7 +42597,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     pub DeltaLFPresent: u64,
     pub DeltaLFMulti: u64,
@@ -42612,7 +42612,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     pub PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
     pub MaxUniqueReferencesPerFrame: u32,
@@ -42628,7 +42628,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SU
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub BaseQIndex: u64,
     pub YDCDeltaQ: i64,
@@ -42650,7 +42650,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     pub DeltaQPresent: u64,
     pub DeltaQRes: u64,
@@ -42664,7 +42664,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0,
@@ -42678,7 +42678,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     pub pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
     pub pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
@@ -42693,7 +42693,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
     pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
@@ -42708,7 +42708,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -42727,7 +42727,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0,
@@ -42741,7 +42741,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
@@ -42757,7 +42757,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
     pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
@@ -42771,7 +42771,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -42790,7 +42790,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -42817,7 +42817,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0,
@@ -42831,7 +42831,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPOR
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
@@ -42846,7 +42846,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPOR
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -42863,7 +42863,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPOR
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -42898,7 +42898,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_VIDEO_ENCODER_FLAGS,
@@ -42979,7 +42979,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BU
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0,
@@ -42993,7 +42993,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
     pub pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
 }
@@ -43006,7 +43006,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFI
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     pub bSize: u64,
     pub bStartOffset: u64,
@@ -43021,7 +43021,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
@@ -43040,7 +43040,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_HEAP_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IntraRefreshDuration: u32,
@@ -43054,7 +43054,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_LEVEL_SETTING_0,
@@ -43068,7 +43068,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     pub pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
     pub pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
@@ -43083,7 +43083,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
     pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
@@ -43097,7 +43097,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
@@ -43113,7 +43113,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageQP: u64,
     pub IntraCodingUnitsCount: u64,
@@ -43131,7 +43131,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0,
@@ -43145,7 +43145,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
     pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
@@ -43161,7 +43161,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
@@ -43195,7 +43195,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     pub modification_of_pic_nums_idc: u8,
     pub abs_diff_pic_num_minus1: u32,
@@ -43210,7 +43210,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     pub memory_management_control_operation: u8,
     pub difference_of_pic_nums_minus1: u32,
@@ -43227,7 +43227,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -43256,7 +43256,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -43293,7 +43293,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     pub IntraRefreshFrameIndex: u32,
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
@@ -43311,7 +43311,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0,
@@ -43325,7 +43325,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_L
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     pub pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
     pub pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
@@ -43340,7 +43340,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_L
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0,
 }
@@ -43353,7 +43353,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_L
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     pub MaxBytesPerSlice: u32,
     pub NumberOfCodingUnitsPerSlice: u32,
@@ -43369,7 +43369,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_L
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -43383,7 +43383,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     pub WidthRatio: u32,
     pub HeightRatio: u32,
@@ -43397,7 +43397,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DES
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PROFILE_DESC_0,
@@ -43411,7 +43411,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     pub pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
     pub pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
@@ -43427,7 +43427,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
     pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
     pub Flags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS,
@@ -43445,7 +43445,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     pub QualityVsSpeed: u32,
 }
@@ -43458,7 +43458,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43477,7 +43477,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43497,7 +43497,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0,
@@ -43511,7 +43511,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_P
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     pub pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
     pub pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
@@ -43532,7 +43532,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_P
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
@@ -43547,7 +43547,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
@@ -43563,7 +43563,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43582,7 +43582,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43604,7 +43604,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43624,7 +43624,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -43662,7 +43662,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsLongTermReference: super::super::Foundation::BOOL,
@@ -43680,7 +43680,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsRefUsedByCurrentPic: super::super::Foundation::BOOL,
@@ -43739,7 +43739,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGU
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
     pub IntraRefreshConfig: D3D12_VIDEO_ENCODER_INTRA_REFRESH,
@@ -43760,7 +43760,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0,
@@ -43774,7 +43774,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     pub pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
     pub pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
@@ -43789,7 +43789,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -43806,7 +43806,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -43822,7 +43822,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC 
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -43839,7 +43839,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     pub NodeMask: u32,
     pub CommandId: windows_core::GUID,
@@ -43854,7 +43854,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
@@ -43871,7 +43871,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
@@ -43887,7 +43887,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -43904,7 +43904,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_FORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -43960,7 +43960,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -43979,7 +43979,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     pub Enable: super::super::Foundation::BOOL,
     pub Alpha: f32,
@@ -43993,7 +43993,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
     pub Minimum: i32,
     pub Maximum: i32,
@@ -44071,7 +44071,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -44102,7 +44102,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     pub OutputIndex: u32,
     pub InputFrameOrField: u32,
@@ -44116,7 +44116,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
     pub Enable: super::super::Foundation::BOOL,
     pub Lower: f32,
@@ -44166,7 +44166,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -44188,7 +44188,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
     pub ppPastFrames: *mut Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -44208,7 +44208,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: super::super::Foundation::RECT,
     pub DestinationRectangle: super::super::Foundation::RECT,
@@ -44224,7 +44224,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_PROCESS_TRANSFORM {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
     pub Height: u32,
@@ -44241,7 +44241,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_SAMPLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT {
     pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
     pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
@@ -44255,7 +44255,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_SCALE_SUPPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_VIDEO_SIZE_RANGE {
     pub MaxWidth: u32,
     pub MaxHeight: u32,
@@ -44272,7 +44272,7 @@ impl windows_core::TypeKind for D3D12_VIDEO_SIZE_RANGE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -44292,7 +44292,7 @@ impl windows_core::TypeKind for D3DCONTENTPROTECTIONCAPS {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -44311,7 +44311,7 @@ impl windows_core::TypeKind for D3DCONTENTPROTECTIONCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3DOVERLAYCAPS {
     pub Caps: u32,
     pub MaxOverlayDisplayWidth: u32,
@@ -44343,7 +44343,7 @@ impl windows_core::TypeKind for DEVICE_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DIRTYRECT_INFO {
     pub FrameNumber: u32,
     pub NumDirtyRects: u32,
@@ -44358,7 +44358,7 @@ impl windows_core::TypeKind for DIRTYRECT_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -44372,7 +44372,7 @@ impl windows_core::TypeKind for DXVA2_AES_CTR_IV {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_AYUVSample16 {
     pub Cr: u16,
     pub Cb: u16,
@@ -44388,7 +44388,7 @@ impl windows_core::TypeKind for DXVA2_AYUVSample16 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_AYUVSample8 {
     pub Cr: u8,
     pub Cb: u8,
@@ -44404,7 +44404,7 @@ impl windows_core::TypeKind for DXVA2_AYUVSample8 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -44433,7 +44433,7 @@ impl windows_core::TypeKind for DXVA2_ConfigPictureDecode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: u32,
     pub BufferIndex: u32,
@@ -44456,7 +44456,7 @@ impl windows_core::TypeKind for DXVA2_DecodeBufferDesc {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: u32,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
@@ -44471,7 +44471,7 @@ impl windows_core::TypeKind for DXVA2_DecodeExecuteParams {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -44488,7 +44488,7 @@ impl windows_core::TypeKind for DXVA2_DecodeExtensionData {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ExtendedFormat {
     pub Anonymous: DXVA2_ExtendedFormat_0,
 }
@@ -44501,7 +44501,7 @@ impl windows_core::TypeKind for DXVA2_ExtendedFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXVA2_ExtendedFormat_0 {
     pub Anonymous: DXVA2_ExtendedFormat_0_0,
     pub value: u32,
@@ -44515,7 +44515,7 @@ impl windows_core::TypeKind for DXVA2_ExtendedFormat_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
 }
@@ -44528,7 +44528,7 @@ impl windows_core::TypeKind for DXVA2_ExtendedFormat_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_FilterValues {
     pub Level: DXVA2_Fixed32,
     pub Threshold: DXVA2_Fixed32,
@@ -44543,7 +44543,7 @@ impl windows_core::TypeKind for DXVA2_FilterValues {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_Fixed32 {
     pub Anonymous: DXVA2_Fixed32_0,
 }
@@ -44556,7 +44556,7 @@ impl windows_core::TypeKind for DXVA2_Fixed32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXVA2_Fixed32_0 {
     pub Anonymous: DXVA2_Fixed32_0_0,
     pub ll: i32,
@@ -44570,7 +44570,7 @@ impl windows_core::TypeKind for DXVA2_Fixed32_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_Fixed32_0_0 {
     pub Fraction: u16,
     pub Value: i16,
@@ -44584,7 +44584,7 @@ impl windows_core::TypeKind for DXVA2_Fixed32_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -44598,7 +44598,7 @@ impl windows_core::TypeKind for DXVA2_Frequency {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ProcAmpValues {
     pub Brightness: DXVA2_Fixed32,
     pub Contrast: DXVA2_Fixed32,
@@ -44614,7 +44614,7 @@ impl windows_core::TypeKind for DXVA2_ProcAmpValues {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_ValueRange {
     pub MinValue: DXVA2_Fixed32,
     pub MaxValue: DXVA2_Fixed32,
@@ -44631,7 +44631,7 @@ impl windows_core::TypeKind for DXVA2_ValueRange {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
     pub SampleHeight: u32,
@@ -44653,7 +44653,7 @@ impl windows_core::TypeKind for DXVA2_VideoDesc {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: i64,
     pub TargetRect: super::super::Foundation::RECT,
@@ -44679,7 +44679,7 @@ impl windows_core::TypeKind for DXVA2_VideoProcessBltParams {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
     pub InputPool: super::super::Graphics::Direct3D9::D3DPOOL,
@@ -44732,7 +44732,7 @@ impl windows_core::TypeKind for DXVA2_VideoSample {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVABufferInfo {
     pub pCompSurface: *mut core::ffi::c_void,
     pub DataOffset: u32,
@@ -44748,7 +44748,7 @@ impl windows_core::TypeKind for DXVABufferInfo {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVACompBufferInfo {
     pub NumCompBuffers: u32,
     pub WidthToCreate: u32,
@@ -44769,7 +44769,7 @@ impl windows_core::TypeKind for DXVACompBufferInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
     pub pObject: u64,
     pub pD3D9Ex: u64,
@@ -44784,7 +44784,7 @@ impl windows_core::TypeKind for DXVAHDETW_CREATEVIDEOPROCESSOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR {
     pub pObject: u64,
 }
@@ -44798,7 +44798,7 @@ impl windows_core::TypeKind for DXVAHDETW_DESTROYVIDEOPROCESSOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub pObject: u64,
     pub pOutputSurface: u64,
@@ -44821,7 +44821,7 @@ impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTHD {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub pObject: u64,
     pub pInputSurface: u64,
@@ -44847,7 +44847,7 @@ impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
     pub pObject: u64,
     pub State: DXVAHD_BLT_STATE,
@@ -44863,7 +44863,7 @@ impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub pObject: u64,
     pub StreamNumber: u32,
@@ -44881,7 +44881,7 @@ impl windows_core::TypeKind for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
     pub ProposeVideoPrivateFormat: PDXVAHDSW_ProposeVideoPrivateFormat,
@@ -44911,7 +44911,7 @@ impl windows_core::TypeKind for DXVAHDSW_CALLBACKS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     pub Mode: DXVAHD_ALPHA_FILL_MODE,
     pub StreamNumber: u32,
@@ -44925,7 +44925,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     pub YCbCr: super::super::Foundation::BOOL,
     pub BackgroundColor: DXVAHD_COLOR,
@@ -44939,7 +44939,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Size: super::super::Foundation::SIZE,
@@ -44953,7 +44953,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0,
 }
@@ -44966,7 +44966,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
@@ -44980,7 +44980,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -44993,7 +44993,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_BLT_STATE_PRIVATE_DATA {
     pub Guid: windows_core::GUID,
     pub DataSize: u32,
@@ -45008,7 +45008,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_PRIVATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub TargetRect: super::super::Foundation::RECT,
@@ -45022,7 +45022,7 @@ impl windows_core::TypeKind for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_COLOR {
     pub RGB: DXVAHD_COLOR_RGBA,
     pub YCbCr: DXVAHD_COLOR_YCbCrA,
@@ -45036,7 +45036,7 @@ impl windows_core::TypeKind for DXVAHD_COLOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_COLOR_RGBA {
     pub R: f32,
     pub G: f32,
@@ -45052,7 +45052,7 @@ impl windows_core::TypeKind for DXVAHD_COLOR_RGBA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_COLOR_YCbCrA {
     pub Y: f32,
     pub Cb: f32,
@@ -45068,7 +45068,7 @@ impl windows_core::TypeKind for DXVAHD_COLOR_YCbCrA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_CONTENT_DESC {
     pub InputFrameFormat: DXVAHD_FRAME_FORMAT,
     pub InputFrameRate: DXVAHD_RATIONAL,
@@ -45087,7 +45087,7 @@ impl windows_core::TypeKind for DXVAHD_CONTENT_DESC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_CUSTOM_RATE_DATA {
     pub CustomRate: DXVAHD_RATIONAL,
     pub OutputFrames: u32,
@@ -45103,7 +45103,7 @@ impl windows_core::TypeKind for DXVAHD_CUSTOM_RATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_FILTER_RANGE_DATA {
     pub Minimum: i32,
     pub Maximum: i32,
@@ -45119,7 +45119,7 @@ impl windows_core::TypeKind for DXVAHD_FILTER_RANGE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -45156,7 +45156,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_DATA {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Alpha: f32,
@@ -45170,7 +45170,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_ALPHA_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub SourceAspectRatio: DXVAHD_RATIONAL,
@@ -45186,7 +45186,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
 }
@@ -45201,7 +45201,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub DestinationRect: super::super::Foundation::RECT,
@@ -45215,7 +45215,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Level: i32,
@@ -45229,7 +45229,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_FILTER_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     pub FrameFormat: DXVAHD_FRAME_FORMAT,
 }
@@ -45242,7 +45242,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0,
 }
@@ -45255,7 +45255,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
@@ -45269,7 +45269,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -45282,7 +45282,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub Lower: f32,
@@ -45297,7 +45297,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     pub RepeatFrame: super::super::Foundation::BOOL,
     pub OutputRate: DXVAHD_OUTPUT_RATE,
@@ -45312,7 +45312,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PALETTE_DATA {
     pub Count: u32,
     pub pEntries: *mut u32,
@@ -45326,7 +45326,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PALETTE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA {
     pub Guid: windows_core::GUID,
     pub DataSize: u32,
@@ -45341,7 +45341,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub ITelecineFlags: u32,
@@ -45357,7 +45357,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
     pub SourceRect: super::super::Foundation::RECT,
@@ -45371,7 +45371,7 @@ impl windows_core::TypeKind for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_VPCAPS {
     pub VPGuid: windows_core::GUID,
     pub PastFrames: u32,
@@ -45390,7 +45390,7 @@ impl windows_core::TypeKind for DXVAHD_VPCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAHD_VPDEVCAPS {
     pub DeviceType: DXVAHD_DEVICE_TYPE,
     pub DeviceCaps: u32,
@@ -45416,7 +45416,7 @@ impl windows_core::TypeKind for DXVAHD_VPDEVCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVAUncompDataInfo {
     pub UncompWidth: u32,
     pub UncompHeight: u32,
@@ -45433,7 +45433,7 @@ impl windows_core::TypeKind for DXVAUncompDataInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_AYUVsample2 {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -45449,7 +45449,7 @@ impl windows_core::TypeKind for DXVA_AYUVsample2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA_BufferDescription {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
@@ -45471,7 +45471,7 @@ impl windows_core::TypeKind for DXVA_BufferDescription {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPCommand {
     pub macKDI: windows_core::GUID,
     pub guidCommandID: windows_core::GUID,
@@ -45488,7 +45488,7 @@ impl windows_core::TypeKind for DXVA_COPPCommand {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPSignature {
     pub Signature: [u8; 256],
 }
@@ -45501,7 +45501,7 @@ impl windows_core::TypeKind for DXVA_COPPSignature {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPStatusInput {
     pub rApp: windows_core::GUID,
     pub guidStatusRequestID: windows_core::GUID,
@@ -45518,7 +45518,7 @@ impl windows_core::TypeKind for DXVA_COPPStatusInput {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_COPPStatusOutput {
     pub macKDI: windows_core::GUID,
     pub cbSizeData: u32,
@@ -45533,7 +45533,7 @@ impl windows_core::TypeKind for DXVA_COPPStatusOutput {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA_ConfigPictureDecode {
     pub dwFunction: u32,
     pub dwReservedBits: [u32; 3],
@@ -45562,7 +45562,7 @@ impl windows_core::TypeKind for DXVA_ConfigPictureDecode {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBlt {
     pub Size: u32,
     pub Reserved: u32,
@@ -45582,7 +45582,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceBlt {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBltEx {
     pub Size: u32,
     pub BackgroundColor: DXVA_AYUVsample2,
@@ -45604,7 +45604,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceBltEx {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceBltEx32 {
     pub Size: u32,
     pub BackgroundColor: DXVA_AYUVsample2,
@@ -45628,7 +45628,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceBltEx32 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceCaps {
     pub Size: u32,
     pub NumPreviousOutputFrames: u32,
@@ -45650,7 +45650,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceCaps {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceQueryAvailableModes {
     pub Size: u32,
     pub NumGuids: u32,
@@ -45666,7 +45666,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceQueryAvailableModes {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_DeinterlaceQueryModeCaps {
     pub Size: u32,
     pub Guid: windows_core::GUID,
@@ -45683,7 +45683,7 @@ impl windows_core::TypeKind for DXVA_DeinterlaceQueryModeCaps {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_ExtendedFormat {
     pub _bitfield: u32,
 }
@@ -45696,7 +45696,7 @@ impl windows_core::TypeKind for DXVA_ExtendedFormat {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -45710,7 +45710,7 @@ impl windows_core::TypeKind for DXVA_Frequency {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DXVA_PictureParameters {
     pub wDecodedPictureIndex: u16,
     pub wDeblockedPictureIndex: u16,
@@ -45758,7 +45758,7 @@ impl windows_core::TypeKind for DXVA_PictureParameters {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_ProcAmpControlBlt {
     pub Size: u32,
     pub DstRect: super::super::Foundation::RECT,
@@ -45779,7 +45779,7 @@ impl windows_core::TypeKind for DXVA_ProcAmpControlBlt {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_ProcAmpControlCaps {
     pub Size: u32,
     pub InputPool: u32,
@@ -45799,7 +45799,7 @@ impl windows_core::TypeKind for DXVA_ProcAmpControlCaps {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_ProcAmpControlQueryRange {
     pub Size: u32,
     pub ProcAmpControlProp: DXVA_ProcAmpControlProp,
@@ -45817,7 +45817,7 @@ impl windows_core::TypeKind for DXVA_ProcAmpControlQueryRange {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoDesc {
     pub Size: u32,
     pub SampleWidth: u32,
@@ -45838,7 +45838,7 @@ impl windows_core::TypeKind for DXVA_VideoDesc {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoPropertyRange {
     pub MinValue: f32,
     pub MaxValue: f32,
@@ -45854,7 +45854,7 @@ impl windows_core::TypeKind for DXVA_VideoPropertyRange {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoSample {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -45871,7 +45871,7 @@ impl windows_core::TypeKind for DXVA_VideoSample {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoSample2 {
     pub Size: u32,
     pub Reserved: u32,
@@ -45896,7 +45896,7 @@ impl windows_core::TypeKind for DXVA_VideoSample2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoSample2 {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -45919,7 +45919,7 @@ impl windows_core::TypeKind for DXVA_VideoSample2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXVA_VideoSample32 {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -45941,7 +45941,7 @@ impl windows_core::TypeKind for DXVA_VideoSample32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DigitalWindowSetting {
     pub OriginX: f64,
     pub OriginY: f64,
@@ -45957,7 +45957,7 @@ impl windows_core::TypeKind for DigitalWindowSetting {
 }
 pub const KSPROPSETID_OPMVideoOutput: windows_core::GUID = windows_core::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MACROBLOCK_DATA {
     pub flags: u32,
     pub motionVectorX: i16,
@@ -45975,7 +45975,7 @@ impl windows_core::TypeKind for MACROBLOCK_DATA {
 pub const MFAMRNBByteStreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0xefe6208a_0a2c_49fa_8a01_3768b559b6da);
 pub const MFAMRNBSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -45991,7 +45991,7 @@ impl windows_core::TypeKind for MFARGB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -46007,7 +46007,7 @@ impl windows_core::TypeKind for MFAYUVSample {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFAudioDecoderDegradationInfo {
     pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
     pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
@@ -46021,7 +46021,7 @@ impl windows_core::TypeKind for MFAudioDecoderDegradationInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
     pub cbPlayableDataSize: u64,
@@ -46041,7 +46041,7 @@ impl windows_core::TypeKind for MFBYTESTREAM_BUFFERING_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCLOCK_PROPERTIES {
     pub qwCorrelationRate: u64,
     pub guidClockId: windows_core::GUID,
@@ -46059,7 +46059,7 @@ impl windows_core::TypeKind for MFCLOCK_PROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     pub HWProtectionFunctionID: u32,
     pub PrivateDataByteCount: u32,
@@ -46076,7 +46076,7 @@ impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     pub PrivateDataByteCount: u32,
     pub MaxHWProtectionDataByteCount: u32,
@@ -46095,7 +46095,7 @@ impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     pub TaskIndex: u32,
     pub ClassName: [u16; 260],
@@ -46110,7 +46110,7 @@ impl windows_core::TypeKind for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraExtrinsic_CalibratedTransform {
     pub CalibrationId: windows_core::GUID,
     pub Position: MF_FLOAT3,
@@ -46125,7 +46125,7 @@ impl windows_core::TypeKind for MFCameraExtrinsic_CalibratedTransform {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraExtrinsics {
     pub TransformCount: u32,
     pub CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
@@ -46139,7 +46139,7 @@ impl windows_core::TypeKind for MFCameraExtrinsics {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_CameraModel {
     pub FocalLength_x: f32,
     pub FocalLength_y: f32,
@@ -46155,7 +46155,7 @@ impl windows_core::TypeKind for MFCameraIntrinsic_CameraModel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -46172,7 +46172,7 @@ impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -46192,7 +46192,7 @@ impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModel6KT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Radial_k0: f32,
     pub DistortionCenter_x: f32,
@@ -46209,7 +46209,7 @@ impl windows_core::TypeKind for MFCameraIntrinsic_DistortionModelArcTan {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFCameraIntrinsic_PinholeCameraModel {
     pub FocalLength: MF_FLOAT2,
     pub PrincipalPoint: MF_FLOAT2,
@@ -46223,7 +46223,7 @@ impl windows_core::TypeKind for MFCameraIntrinsic_PinholeCameraModel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
@@ -46241,7 +46241,7 @@ impl windows_core::TypeKind for MFExtendedCameraIntrinsic_IntrinsicModel {
 pub const MFFLACBytestreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFFOLDDOWN_MATRIX {
     pub cbSize: u32,
     pub cSrcChannels: u32,
@@ -46258,7 +46258,7 @@ impl windows_core::TypeKind for MFFOLDDOWN_MATRIX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
@@ -46273,7 +46273,7 @@ impl windows_core::TypeKind for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     pub dwSize: u32,
     pub dwVer: u32,
@@ -46293,7 +46293,7 @@ impl windows_core::TypeKind for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFMPEG2DLNASINKSTATS {
     pub cBytesWritten: u64,
     pub fPAL: super::super::Foundation::BOOL,
@@ -46319,7 +46319,7 @@ impl windows_core::TypeKind for MFMPEG2DLNASINKSTATS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
@@ -46334,7 +46334,7 @@ impl windows_core::TypeKind for MFMediaKeyStatus {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: windows_core::HRESULT,
     pub fAllowLoggedOnUser: super::super::Foundation::BOOL,
@@ -46354,7 +46354,7 @@ impl windows_core::TypeKind for MFNetCredentialManagerGetParam {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
@@ -46621,7 +46621,7 @@ impl windows_core::TypeKind for MFP_STOP_EVENT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MFPaletteEntry {
     pub ARGB: MFARGB,
     pub AYCbCr: MFAYUVSample,
@@ -46635,7 +46635,7 @@ impl windows_core::TypeKind for MFPaletteEntry {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
@@ -46651,7 +46651,7 @@ impl windows_core::TypeKind for MFPinholeCameraIntrinsic_IntrinsicModel {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFPinholeCameraIntrinsics {
     pub IntrinsicModelCount: u32,
     pub IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
@@ -46665,7 +46665,7 @@ impl windows_core::TypeKind for MFPinholeCameraIntrinsics {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: u32,
     pub dwRRComponents: u32,
@@ -46680,7 +46680,7 @@ impl windows_core::TypeKind for MFRR_COMPONENTS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFRR_COMPONENT_HASH_INFO {
     pub ulReason: u32,
     pub rgHeaderHash: [u16; 43],
@@ -46696,7 +46696,7 @@ impl windows_core::TypeKind for MFRR_COMPONENT_HASH_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -46710,7 +46710,7 @@ impl windows_core::TypeKind for MFRatio {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
     pub NodeId: u64,
     pub guidAttributeKey: windows_core::GUID,
@@ -46726,7 +46726,7 @@ impl windows_core::TypeKind for MFTOPONODE_ATTRIBUTE_UPDATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     pub u32: u32,
     pub u64: u64,
@@ -46741,7 +46741,7 @@ impl windows_core::TypeKind for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_INPUT_STREAM_INFO {
     pub hnsMaxLatency: i64,
     pub dwFlags: u32,
@@ -46774,7 +46774,7 @@ impl windows_core::TypeKind for MFT_OUTPUT_DATA_BUFFER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_OUTPUT_STREAM_INFO {
     pub dwFlags: u32,
     pub cbSize: u32,
@@ -46789,7 +46789,7 @@ impl windows_core::TypeKind for MFT_OUTPUT_STREAM_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub guidSubtype: windows_core::GUID,
@@ -46803,7 +46803,7 @@ impl windows_core::TypeKind for MFT_REGISTER_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_core::GUID,
     pub guidCategory: windows_core::GUID,
@@ -46823,7 +46823,7 @@ impl windows_core::TypeKind for MFT_REGISTRATION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: MF_STREAM_STATE,
@@ -46837,7 +46837,7 @@ impl windows_core::TypeKind for MFT_STREAM_STATE_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
     pub videoInfo: MFVideoInfo,
@@ -46899,7 +46899,7 @@ impl windows_core::TypeKind for MFVideoAlphaBitmap_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
     pub clrSrcKey: super::super::Foundation::COLORREF,
@@ -46917,7 +46917,7 @@ impl windows_core::TypeKind for MFVideoAlphaBitmapParams {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
     pub OffsetY: MFOffset,
@@ -46932,7 +46932,7 @@ impl windows_core::TypeKind for MFVideoArea {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
@@ -46947,7 +46947,7 @@ impl windows_core::TypeKind for MFVideoCompressedInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -46974,7 +46974,7 @@ impl windows_core::TypeKind for MFVideoInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MFVideoNormalizedRect {
     pub left: f32,
     pub top: f32,
@@ -46990,7 +46990,7 @@ impl windows_core::TypeKind for MFVideoNormalizedRect {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MFVideoSurfaceInfo {
     pub Format: u32,
     pub PaletteEntries: u32,
@@ -47005,7 +47005,7 @@ impl windows_core::TypeKind for MFVideoSurfaceInfo {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
@@ -47019,7 +47019,7 @@ impl windows_core::TypeKind for MF_BYTE_STREAM_CACHE_RANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_CAMERA_CONTROL_RANGE_INFO {
     pub minValue: i32,
     pub maxValue: i32,
@@ -47035,7 +47035,7 @@ impl windows_core::TypeKind for MF_CAMERA_CONTROL_RANGE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_FLOAT2 {
     pub x: f32,
     pub y: f32,
@@ -47049,7 +47049,7 @@ impl windows_core::TypeKind for MF_FLOAT2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_FLOAT3 {
     pub x: f32,
     pub y: f32,
@@ -47064,7 +47064,7 @@ impl windows_core::TypeKind for MF_FLOAT3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -47078,7 +47078,7 @@ impl windows_core::TypeKind for MF_LEAKY_BUCKET_PAIR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_QUATERNION {
     pub x: f32,
     pub y: f32,
@@ -47094,7 +47094,7 @@ impl windows_core::TypeKind for MF_QUATERNION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,
@@ -47138,7 +47138,7 @@ impl windows_core::TypeKind for MF_TRANSCODE_SINK_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     pub iHeading: i32,
     pub iPitch: i32,
@@ -47153,7 +47153,7 @@ impl windows_core::TypeKind for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOVEREGION_INFO {
     pub FrameNumber: u32,
     pub NumMoveRegions: u32,
@@ -47168,7 +47168,7 @@ impl windows_core::TypeKind for MOVEREGION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
     pub DestRect: super::super::Foundation::RECT,
@@ -47184,7 +47184,7 @@ impl windows_core::TypeKind for MOVE_RECT {
 pub const MP3ACMCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x11103421_354c_4cca_a7a3_1aff9a5b6701);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
     pub dwStartTimeCode: u32,
@@ -47203,7 +47203,7 @@ impl windows_core::TypeKind for MPEG1VIDEOINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MPEG2VIDEOINFO {
     pub hdr: VIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -47226,7 +47226,7 @@ impl windows_core::TypeKind for MPEG2VIDEOINFO {
 pub const MSAMRNBDecoder: windows_core::GUID = windows_core::GUID::from_u128(0x265011ae_5481_4f77_a295_abb6ffe8d63e);
 pub const MSAMRNBEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x2fae8afe_04a3_423a_a814_85db454712b0);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -47244,7 +47244,7 @@ impl windows_core::TypeKind for MT_ARBITRARY_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fRx: f32,
     pub fRy: f32,
@@ -47265,7 +47265,7 @@ impl windows_core::TypeKind for MT_CUSTOM_VIDEO_PRIMARIES {
 }
 pub const MULawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x92b66080_5e2d_449e_90c4_c41f268e5514);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -47291,7 +47291,7 @@ impl windows_core::TypeKind for OPM_ACP_AND_CGMSA_SIGNALING {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -47313,7 +47313,7 @@ impl windows_core::TypeKind for OPM_ACTUAL_OUTPUT_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_CONFIGURE_PARAMETERS {
     pub omac: OPM_OMAC,
     pub guidSetting: windows_core::GUID,
@@ -47330,7 +47330,7 @@ impl windows_core::TypeKind for OPM_CONFIGURE_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -47349,7 +47349,7 @@ impl windows_core::TypeKind for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub guidInformation: windows_core::GUID,
@@ -47366,7 +47366,7 @@ impl windows_core::TypeKind for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     pub abEncryptedInitializationParameters: [u8; 256],
 }
@@ -47379,7 +47379,7 @@ impl windows_core::TypeKind for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_CODEC_INFO_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub Merit: u32,
@@ -47393,7 +47393,7 @@ impl windows_core::TypeKind for OPM_GET_CODEC_INFO_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_CODEC_INFO_PARAMETERS {
     pub cbVerifier: u32,
     pub Verifier: [u8; 4052],
@@ -47407,7 +47407,7 @@ impl windows_core::TypeKind for OPM_GET_CODEC_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_GET_INFO_PARAMETERS {
     pub omac: OPM_OMAC,
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -47425,7 +47425,7 @@ impl windows_core::TypeKind for OPM_GET_INFO_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
 }
@@ -47438,7 +47438,7 @@ impl windows_core::TypeKind for OPM_HDCP_KEY_SELECTION_VECTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPM_OMAC {
     pub abOMAC: [u8; 16],
 }
@@ -47451,7 +47451,7 @@ impl windows_core::TypeKind for OPM_OMAC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_OUTPUT_ID_DATA {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -47466,7 +47466,7 @@ impl windows_core::TypeKind for OPM_OUTPUT_ID_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
 }
@@ -47479,7 +47479,7 @@ impl windows_core::TypeKind for OPM_RANDOM_NUMBER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_REQUESTED_INFORMATION {
     pub omac: OPM_OMAC,
     pub cbRequestedInformationSize: u32,
@@ -47494,7 +47494,7 @@ impl windows_core::TypeKind for OPM_REQUESTED_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
     pub ulAspectRatioChangeMask1: u32,
@@ -47516,7 +47516,7 @@ impl windows_core::TypeKind for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
@@ -47529,7 +47529,7 @@ impl windows_core::TypeKind for OPM_SET_HDCP_SRM_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
     pub ulProtectionLevel: u32,
@@ -47545,7 +47545,7 @@ impl windows_core::TypeKind for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -47562,7 +47562,7 @@ impl windows_core::TypeKind for OPM_STANDARD_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ROI_AREA {
     pub rect: super::super::Foundation::RECT,
     pub QPDelta: i32,
@@ -47576,7 +47576,7 @@ impl windows_core::TypeKind for ROI_AREA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SENSORPROFILEID {
     pub Type: windows_core::GUID,
     pub Index: u32,
@@ -47591,7 +47591,7 @@ impl windows_core::TypeKind for SENSORPROFILEID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STREAM_MEDIUM {
     pub gidMedium: windows_core::GUID,
     pub unMediumInstance: u32,
@@ -47605,7 +47605,7 @@ impl windows_core::TypeKind for STREAM_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
     pub wStreamNumber: u16,
@@ -47621,7 +47621,7 @@ impl windows_core::TypeKind for TOC_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,
@@ -47639,7 +47639,7 @@ impl windows_core::TypeKind for TOC_ENTRY_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -47660,7 +47660,7 @@ impl windows_core::TypeKind for VIDEOINFOHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
     pub rcTarget: super::super::Foundation::RECT,
@@ -47687,7 +47687,7 @@ impl windows_core::TypeKind for VIDEOINFOHEADER2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,

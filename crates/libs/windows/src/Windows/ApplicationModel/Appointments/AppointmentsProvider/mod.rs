@@ -65,7 +65,7 @@ pub struct IReplaceAppointmentOperation_Vtbl {
     pub DismissUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AddAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AddAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl AddAppointmentOperation {
@@ -157,7 +157,7 @@ impl windows_core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RemoveAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoveAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoveAppointmentOperation {
@@ -212,7 +212,7 @@ impl windows_core::RuntimeName for RemoveAppointmentOperation {
 unsafe impl Send for RemoveAppointmentOperation {}
 unsafe impl Sync for RemoveAppointmentOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ReplaceAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReplaceAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ReplaceAppointmentOperation {

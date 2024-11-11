@@ -304,7 +304,7 @@ pub struct IJsonValueStatics2_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonArray(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(JsonArray, windows_core::IUnknown, windows_core::IInspectable);
@@ -548,7 +548,7 @@ impl windows_core::RuntimeName for JsonError {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonObject(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(JsonObject, windows_core::IUnknown, windows_core::IInspectable);
@@ -812,7 +812,7 @@ unsafe impl Send for JsonObject {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl Sync for JsonObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JsonValue, IJsonValue, super::super::Foundation::IStringable);
@@ -933,7 +933,7 @@ impl windows_core::RuntimeName for JsonValue {
 unsafe impl Send for JsonValue {}
 unsafe impl Sync for JsonValue {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -949,7 +949,7 @@ impl windows_core::RuntimeType for JsonErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
     pub const Null: Self = Self(0i32);

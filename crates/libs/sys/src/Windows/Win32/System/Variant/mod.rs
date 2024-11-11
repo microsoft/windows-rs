@@ -240,20 +240,20 @@ pub type VARENUM = u16;
 pub type VAR_CHANGE_FLAGS = u16;
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
     pub decVal: super::super::Foundation::DECIMAL,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
@@ -263,7 +263,7 @@ pub struct VARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -314,7 +314,7 @@ pub union VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,

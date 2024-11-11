@@ -604,7 +604,7 @@ pub struct IViewModePreferencesStatics_Vtbl {
     pub CreateDefault: unsafe extern "system" fn(*mut core::ffi::c_void, ApplicationViewMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AccessibilitySettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AccessibilitySettings, windows_core::IUnknown, windows_core::IInspectable);
 impl AccessibilitySettings {
@@ -657,7 +657,7 @@ impl windows_core::RuntimeName for AccessibilitySettings {
 unsafe impl Send for AccessibilitySettings {}
 unsafe impl Sync for AccessibilitySettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivationViewSwitcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActivationViewSwitcher, windows_core::IUnknown, windows_core::IInspectable);
 impl ActivationViewSwitcher {
@@ -696,7 +696,7 @@ impl windows_core::RuntimeName for ActivationViewSwitcher {
 unsafe impl Send for ActivationViewSwitcher {}
 unsafe impl Sync for ActivationViewSwitcher {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationView, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationView {
@@ -1052,7 +1052,7 @@ impl windows_core::RuntimeName for ApplicationView {
 unsafe impl Send for ApplicationView {}
 unsafe impl Sync for ApplicationView {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationViewConsolidatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationViewConsolidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationViewConsolidatedEventArgs {
@@ -1084,7 +1084,7 @@ impl windows_core::RuntimeName for ApplicationViewConsolidatedEventArgs {
 unsafe impl Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl Sync for ApplicationViewConsolidatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationViewScaling(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationViewScaling, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationViewScaling {
@@ -1197,7 +1197,7 @@ impl windows_core::RuntimeName for ApplicationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewSwitcher";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationViewTitleBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationViewTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationViewTitleBar {
@@ -1383,7 +1383,7 @@ impl windows_core::RuntimeName for ApplicationViewTitleBar {
 unsafe impl Send for ApplicationViewTitleBar {}
 unsafe impl Sync for ApplicationViewTitleBar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ApplicationViewTransferContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationViewTransferContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationViewTransferContext {
@@ -1427,7 +1427,7 @@ impl windows_core::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputPane(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windows_core::IInspectable);
 impl InputPane {
@@ -1526,7 +1526,7 @@ impl windows_core::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputPaneVisibilityEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputPaneVisibilityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InputPaneVisibilityEventArgs {
@@ -1639,7 +1639,7 @@ impl windows_core::RuntimeName for ProjectionManager {
     const NAME: &'static str = "Windows.UI.ViewManagement.ProjectionManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StatusBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatusBar, windows_core::IUnknown, windows_core::IInspectable);
 impl StatusBar {
@@ -1762,7 +1762,7 @@ impl windows_core::RuntimeName for StatusBar {
 unsafe impl Send for StatusBar {}
 unsafe impl Sync for StatusBar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StatusBarProgressIndicator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StatusBarProgressIndicator, windows_core::IUnknown, windows_core::IInspectable);
 impl StatusBarProgressIndicator {
@@ -1819,7 +1819,7 @@ impl windows_core::RuntimeName for StatusBarProgressIndicator {
 unsafe impl Send for StatusBarProgressIndicator {}
 unsafe impl Sync for StatusBarProgressIndicator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UISettings {
@@ -2047,7 +2047,7 @@ impl windows_core::RuntimeName for UISettings {
 unsafe impl Send for UISettings {}
 unsafe impl Sync for UISettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UISettingsAnimationsEnabledChangedEventArgs {}
@@ -2064,7 +2064,7 @@ impl windows_core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
 unsafe impl Send for UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UISettingsAutoHideScrollBarsChangedEventArgs {}
@@ -2081,7 +2081,7 @@ impl windows_core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs 
 unsafe impl Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UISettingsMessageDurationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UISettingsMessageDurationChangedEventArgs {}
@@ -2098,7 +2098,7 @@ impl windows_core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
 unsafe impl Send for UISettingsMessageDurationChangedEventArgs {}
 unsafe impl Sync for UISettingsMessageDurationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIViewSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UIViewSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl UIViewSettings {
@@ -2133,7 +2133,7 @@ impl windows_core::RuntimeName for UIViewSettings {
 unsafe impl Send for UIViewSettings {}
 unsafe impl Sync for UIViewSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ViewModePreferences(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ViewModePreferences, windows_core::IUnknown, windows_core::IInspectable);
 impl ViewModePreferences {
@@ -2181,7 +2181,7 @@ impl windows_core::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
     pub const UseVisible: Self = Self(0i32);
@@ -2194,7 +2194,7 @@ impl windows_core::RuntimeType for ApplicationViewBoundsMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
     pub const Default: Self = Self(0i32);
@@ -2207,7 +2207,7 @@ impl windows_core::RuntimeType for ApplicationViewMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
     pub const Landscape: Self = Self(0i32);
@@ -2220,7 +2220,7 @@ impl windows_core::RuntimeType for ApplicationViewOrientation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewState(pub i32);
 impl ApplicationViewState {
     pub const FullScreenLandscape: Self = Self(0i32);
@@ -2235,7 +2235,7 @@ impl windows_core::RuntimeType for ApplicationViewState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
     pub const Default: Self = Self(0u32);
@@ -2282,7 +2282,7 @@ impl core::ops::Not for ApplicationViewSwitchingOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
     pub const Auto: Self = Self(0i32);
@@ -2298,7 +2298,7 @@ impl windows_core::RuntimeType for ApplicationViewWindowingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
     pub const Standard: Self = Self(0i32);
@@ -2311,7 +2311,7 @@ impl windows_core::RuntimeType for FullScreenSystemOverlayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
     pub const LeftHanded: Self = Self(0i32);
@@ -2324,7 +2324,7 @@ impl windows_core::RuntimeType for HandPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ScreenCaptureDisabledBehavior(pub i32);
 impl ScreenCaptureDisabledBehavior {
     pub const DrawAsBlack: Self = Self(0i32);
@@ -2337,7 +2337,7 @@ impl windows_core::RuntimeType for ScreenCaptureDisabledBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
     pub const Background: Self = Self(0i32);
@@ -2358,7 +2358,7 @@ impl windows_core::RuntimeType for UIColorType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
     pub const ActiveCaption: Self = Self(0i32);
@@ -2395,7 +2395,7 @@ impl windows_core::RuntimeType for UIElementType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
@@ -2408,7 +2408,7 @@ impl windows_core::RuntimeType for UserInteractionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
     pub const Default: Self = Self(0i32);

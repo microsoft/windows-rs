@@ -55,7 +55,7 @@ pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
 pub type IMAGE_SECTION_CHARACTERISTICS = u32;
 pub type IMAGE_SUBSYSTEM = u16;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -71,19 +71,19 @@ pub struct IMAGE_COR20_HEADER {
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
 #[repr(C, packed(2))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
     pub e_cblp: u16,
@@ -106,7 +106,7 @@ pub struct IMAGE_DOS_HEADER {
     pub e_lfanew: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -117,7 +117,7 @@ pub struct IMAGE_FILE_HEADER {
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -152,7 +152,7 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
 #[repr(C, packed(4))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -186,7 +186,7 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -200,7 +200,7 @@ pub struct IMAGE_SECTION_HEADER {
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,

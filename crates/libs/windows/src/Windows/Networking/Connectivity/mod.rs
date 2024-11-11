@@ -492,7 +492,7 @@ pub struct IWwanConnectionProfileDetails2_Vtbl {
     PurposeGuids: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AttributedNetworkUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AttributedNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl AttributedNetworkUsage {
@@ -546,7 +546,7 @@ impl windows_core::RuntimeName for AttributedNetworkUsage {
 unsafe impl Send for AttributedNetworkUsage {}
 unsafe impl Sync for AttributedNetworkUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CellularApnContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CellularApnContext, windows_core::IUnknown, windows_core::IInspectable);
 impl CellularApnContext {
@@ -648,7 +648,7 @@ impl windows_core::RuntimeName for CellularApnContext {
 unsafe impl Send for CellularApnContext {}
 unsafe impl Sync for CellularApnContext {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionCost(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionCost, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectionCost {
@@ -701,7 +701,7 @@ impl windows_core::RuntimeName for ConnectionCost {
 unsafe impl Send for ConnectionCost {}
 unsafe impl Sync for ConnectionCost {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionProfile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionProfile, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectionProfile {
@@ -885,7 +885,7 @@ impl windows_core::RuntimeName for ConnectionProfile {
 unsafe impl Send for ConnectionProfile {}
 unsafe impl Sync for ConnectionProfile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionProfileFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionProfileFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectionProfileFilter {
@@ -1032,7 +1032,7 @@ impl windows_core::RuntimeName for ConnectionProfileFilter {
 unsafe impl Send for ConnectionProfileFilter {}
 unsafe impl Sync for ConnectionProfileFilter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionSession, super::super::Foundation::IClosable);
@@ -1062,7 +1062,7 @@ impl windows_core::RuntimeName for ConnectionSession {
 unsafe impl Send for ConnectionSession {}
 unsafe impl Sync for ConnectionSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConnectivityInterval(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectivityInterval, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectivityInterval {
@@ -1125,7 +1125,7 @@ impl windows_core::RuntimeName for ConnectivityManager {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPlanStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPlanStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPlanStatus {
@@ -1185,7 +1185,7 @@ impl windows_core::RuntimeName for DataPlanStatus {
 unsafe impl Send for DataPlanStatus {}
 unsafe impl Sync for DataPlanStatus {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPlanUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPlanUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPlanUsage {
@@ -1218,7 +1218,7 @@ unsafe impl Send for DataPlanUsage {}
 unsafe impl Sync for DataPlanUsage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataUsage(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DataUsage, windows_core::IUnknown, windows_core::IInspectable);
@@ -1259,7 +1259,7 @@ unsafe impl Send for DataUsage {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for DataUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IPInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IPInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPInformation {
@@ -1291,7 +1291,7 @@ impl windows_core::RuntimeName for IPInformation {
 unsafe impl Send for IPInformation {}
 unsafe impl Sync for IPInformation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanIdentifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanIdentifier, windows_core::IUnknown, windows_core::IInspectable);
 impl LanIdentifier {
@@ -1330,7 +1330,7 @@ impl windows_core::RuntimeName for LanIdentifier {
 unsafe impl Send for LanIdentifier {}
 unsafe impl Sync for LanIdentifier {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LanIdentifierData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanIdentifierData, windows_core::IUnknown, windows_core::IInspectable);
 impl LanIdentifierData {
@@ -1363,7 +1363,7 @@ impl windows_core::RuntimeName for LanIdentifierData {
 unsafe impl Send for LanIdentifierData {}
 unsafe impl Sync for LanIdentifierData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkAdapter {
@@ -1505,7 +1505,7 @@ impl windows_core::RuntimeName for NetworkInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkInformation";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkItem, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkItem {
@@ -1537,7 +1537,7 @@ impl windows_core::RuntimeName for NetworkItem {
 unsafe impl Send for NetworkItem {}
 unsafe impl Sync for NetworkItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkSecuritySettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkSecuritySettings, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkSecuritySettings {
@@ -1569,7 +1569,7 @@ impl windows_core::RuntimeName for NetworkSecuritySettings {
 unsafe impl Send for NetworkSecuritySettings {}
 unsafe impl Sync for NetworkSecuritySettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkStateChangeEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkStateChangeEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkStateChangeEventDetails {
@@ -1643,7 +1643,7 @@ impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
 unsafe impl Send for NetworkStateChangeEventDetails {}
 unsafe impl Sync for NetworkStateChangeEventDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NetworkUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl NetworkUsage {
@@ -1682,7 +1682,7 @@ impl windows_core::RuntimeName for NetworkUsage {
 unsafe impl Send for NetworkUsage {}
 unsafe impl Sync for NetworkUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProviderNetworkUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProviderNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProviderNetworkUsage {
@@ -1721,7 +1721,7 @@ impl windows_core::RuntimeName for ProviderNetworkUsage {
 unsafe impl Send for ProviderNetworkUsage {}
 unsafe impl Sync for ProviderNetworkUsage {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ProxyConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProxyConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl ProxyConfiguration {
@@ -1754,7 +1754,7 @@ impl windows_core::RuntimeName for ProxyConfiguration {
 unsafe impl Send for ProxyConfiguration {}
 unsafe impl Sync for ProxyConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RoutePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RoutePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl RoutePolicy {
@@ -1807,7 +1807,7 @@ impl windows_core::RuntimeName for RoutePolicy {
 unsafe impl Send for RoutePolicy {}
 unsafe impl Sync for RoutePolicy {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WlanConnectionProfileDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WlanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl WlanConnectionProfileDetails {
@@ -1832,7 +1832,7 @@ impl windows_core::RuntimeName for WlanConnectionProfileDetails {
 unsafe impl Send for WlanConnectionProfileDetails {}
 unsafe impl Sync for WlanConnectionProfileDetails {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WwanConnectionProfileDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WwanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl WwanConnectionProfileDetails {
@@ -1953,7 +1953,7 @@ impl<F: FnMut(Option<&windows_core::IInspectable>) -> windows_core::Result<()> +
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -1968,7 +1968,7 @@ impl windows_core::RuntimeType for CellularApnAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
     pub const Success: Self = Self(0i32);
@@ -1983,7 +1983,7 @@ impl windows_core::RuntimeType for ConnectionProfileDeleteStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
     pub const PerMinute: Self = Self(0i32);
@@ -1998,7 +1998,7 @@ impl windows_core::RuntimeType for DataUsageGranularity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DomainAuthenticationKind(pub i32);
 impl DomainAuthenticationKind {
     pub const None: Self = Self(0i32);
@@ -2012,7 +2012,7 @@ impl windows_core::RuntimeType for DomainAuthenticationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -2026,7 +2026,7 @@ impl windows_core::RuntimeType for DomainConnectivityLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -2052,7 +2052,7 @@ impl windows_core::RuntimeType for NetworkAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -2067,7 +2067,7 @@ impl windows_core::RuntimeType for NetworkConnectivityLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
     pub const Unknown: Self = Self(0i32);
@@ -2082,7 +2082,7 @@ impl windows_core::RuntimeType for NetworkCostType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkEncryptionType(pub i32);
 impl NetworkEncryptionType {
     pub const None: Self = Self(0i32);
@@ -2105,7 +2105,7 @@ impl windows_core::RuntimeType for NetworkEncryptionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkTypes(pub u32);
 impl NetworkTypes {
     pub const None: Self = Self(0u32);
@@ -2152,7 +2152,7 @@ impl core::ops::Not for NetworkTypes {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
     pub const None: Self = Self(0u32);
@@ -2199,7 +2199,7 @@ impl core::ops::Not for RoamingStates {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TriStates(pub i32);
 impl TriStates {
     pub const DoNotCare: Self = Self(0i32);
@@ -2213,7 +2213,7 @@ impl windows_core::RuntimeType for TriStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
     pub const None: Self = Self(0u32);
@@ -2274,7 +2274,7 @@ impl core::ops::Not for WwanDataClass {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
     pub const None: Self = Self(0i32);
@@ -2290,7 +2290,7 @@ impl windows_core::RuntimeType for WwanNetworkIPKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WwanNetworkRegistrationState(pub i32);
 impl WwanNetworkRegistrationState {
     pub const None: Self = Self(0i32);
@@ -2308,7 +2308,7 @@ impl windows_core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,

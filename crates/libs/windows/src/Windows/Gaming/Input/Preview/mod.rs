@@ -107,7 +107,7 @@ impl windows_core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LegacyGipGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LegacyGipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl LegacyGipGameControllerProvider {
@@ -292,7 +292,7 @@ impl windows_core::RuntimeName for LegacyGipGameControllerProvider {
 unsafe impl Send for LegacyGipGameControllerProvider {}
 unsafe impl Sync for LegacyGipGameControllerProvider {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeviceCommand(pub i32);
 impl DeviceCommand {
     pub const Reset: Self = Self(0i32);
@@ -304,7 +304,7 @@ impl windows_core::RuntimeType for DeviceCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.DeviceCommand;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryChargingState(pub i32);
 impl GameControllerBatteryChargingState {
     pub const Unknown: Self = Self(0i32);
@@ -319,7 +319,7 @@ impl windows_core::RuntimeType for GameControllerBatteryChargingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryChargingState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryKind(pub i32);
 impl GameControllerBatteryKind {
     pub const Unknown: Self = Self(0i32);
@@ -334,7 +334,7 @@ impl windows_core::RuntimeType for GameControllerBatteryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerBatteryLevel(pub i32);
 impl GameControllerBatteryLevel {
     pub const Unknown: Self = Self(0i32);
@@ -350,7 +350,7 @@ impl windows_core::RuntimeType for GameControllerBatteryLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerFirmwareCorruptReason(pub i32);
 impl GameControllerFirmwareCorruptReason {
     pub const Unknown: Self = Self(0i32);
@@ -368,7 +368,7 @@ impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HeadsetLevel(pub i32);
 impl HeadsetLevel {
     pub const Off: Self = Self(0i32);
@@ -383,7 +383,7 @@ impl windows_core::RuntimeType for HeadsetLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HeadsetOperation(pub i32);
 impl HeadsetOperation {
     pub const Geq: Self = Self(0i32);
@@ -400,7 +400,7 @@ impl windows_core::RuntimeType for HeadsetOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemappingButtonCategory(pub i32);
 impl RemappingButtonCategory {
     pub const ButtonSettings: Self = Self(0i32);
@@ -423,7 +423,7 @@ impl windows_core::RuntimeType for RemappingButtonCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.RemappingButtonCategory;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HeadsetGeqGains {
     pub band1Gain: i32,
     pub band2Gain: i32,

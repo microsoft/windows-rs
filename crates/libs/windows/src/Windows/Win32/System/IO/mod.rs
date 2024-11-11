@@ -92,7 +92,7 @@ where
     PostQueuedCompletionStatus(completionport.param().abi(), core::mem::transmute(dwnumberofbytestransferred), core::mem::transmute(dwcompletionkey), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct IO_STATUS_BLOCK {
     pub Anonymous: IO_STATUS_BLOCK_0,
     pub Information: usize,
@@ -106,7 +106,7 @@ impl windows_core::TypeKind for IO_STATUS_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK_0 {
     pub Status: super::super::Foundation::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
@@ -120,7 +120,7 @@ impl windows_core::TypeKind for IO_STATUS_BLOCK_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -136,7 +136,7 @@ impl windows_core::TypeKind for OVERLAPPED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut core::ffi::c_void,
@@ -150,7 +150,7 @@ impl windows_core::TypeKind for OVERLAPPED_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
@@ -164,7 +164,7 @@ impl windows_core::TypeKind for OVERLAPPED_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: usize,
     pub lpOverlapped: *mut OVERLAPPED,

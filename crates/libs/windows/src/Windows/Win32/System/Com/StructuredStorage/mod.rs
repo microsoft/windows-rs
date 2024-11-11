@@ -2359,19 +2359,19 @@ pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
 impl windows_core::TypeKind for PIDMSI_STATUS_VALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSPEC_KIND(pub u32);
 impl windows_core::TypeKind for PROPSPEC_KIND {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_CHANGE_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPVAR_CHANGE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2410,7 +2410,7 @@ impl core::ops::Not for PROPVAR_CHANGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_COMPARE_FLAGS(pub i32);
 impl windows_core::TypeKind for PROPVAR_COMPARE_FLAGS {
     type TypeKind = windows_core::CopyType;
@@ -2449,25 +2449,25 @@ impl core::ops::Not for PROPVAR_COMPARE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
 impl windows_core::TypeKind for PROPVAR_COMPARE_UNIT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGFMT(pub u32);
 impl windows_core::TypeKind for STGFMT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STGMOVE(pub i32);
 impl windows_core::TypeKind for STGMOVE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
@@ -2481,7 +2481,7 @@ impl windows_core::TypeKind for BSTRBLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
@@ -2495,7 +2495,7 @@ impl windows_core::TypeKind for CABOOL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::BSTR,
@@ -2509,7 +2509,7 @@ impl windows_core::TypeKind for CABSTR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
@@ -2523,7 +2523,7 @@ impl windows_core::TypeKind for CABSTRBLOB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: windows_core::PSTR,
@@ -2537,7 +2537,7 @@ impl windows_core::TypeKind for CAC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
@@ -2551,7 +2551,7 @@ impl windows_core::TypeKind for CACLIPDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_core::GUID,
@@ -2565,7 +2565,7 @@ impl windows_core::TypeKind for CACLSID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
@@ -2579,7 +2579,7 @@ impl windows_core::TypeKind for CACY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -2593,7 +2593,7 @@ impl windows_core::TypeKind for CADATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -2607,7 +2607,7 @@ impl windows_core::TypeKind for CADBL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::super::super::Foundation::FILETIME,
@@ -2621,7 +2621,7 @@ impl windows_core::TypeKind for CAFILETIME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
@@ -2635,7 +2635,7 @@ impl windows_core::TypeKind for CAFLT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
@@ -2649,7 +2649,7 @@ impl windows_core::TypeKind for CAH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -2663,7 +2663,7 @@ impl windows_core::TypeKind for CAI {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -2677,7 +2677,7 @@ impl windows_core::TypeKind for CAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PSTR,
@@ -2691,7 +2691,7 @@ impl windows_core::TypeKind for CALPSTR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PWSTR,
@@ -2706,7 +2706,7 @@ impl windows_core::TypeKind for CALPWSTR {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
@@ -2722,7 +2722,7 @@ impl windows_core::TypeKind for CAPROPVARIANT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -2736,7 +2736,7 @@ impl windows_core::TypeKind for CASCODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
@@ -2750,7 +2750,7 @@ impl windows_core::TypeKind for CAUB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
@@ -2764,7 +2764,7 @@ impl windows_core::TypeKind for CAUH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
@@ -2778,7 +2778,7 @@ impl windows_core::TypeKind for CAUI {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -2792,7 +2792,7 @@ impl windows_core::TypeKind for CAUL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
@@ -2807,7 +2807,7 @@ impl windows_core::TypeKind for CLIPDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
@@ -2820,7 +2820,7 @@ impl windows_core::TypeKind for OLESTREAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
@@ -2835,7 +2835,7 @@ impl windows_core::TypeKind for OLESTREAMVTBL {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::super::Variant::VARENUM,
@@ -2855,7 +2855,7 @@ impl windows_core::TypeKind for PROPBAG2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
     pub Anonymous: PROPSPEC_0,
@@ -2869,7 +2869,7 @@ impl windows_core::TypeKind for PROPSPEC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: windows_core::PWSTR,
@@ -3038,7 +3038,7 @@ impl windows_core::TypeKind for PROPVARIANT_0_0_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -3053,7 +3053,7 @@ impl windows_core::TypeKind for RemSNB {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
@@ -3067,7 +3067,7 @@ impl windows_core::TypeKind for SERIALIZEDPROPERTYVALUE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_core::GUID,
     pub clsid: windows_core::GUID,
@@ -3087,7 +3087,7 @@ impl windows_core::TypeKind for STATPROPSETSTG {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_core::PWSTR,
     pub propid: u32,
@@ -3104,7 +3104,7 @@ impl windows_core::TypeKind for STATPROPSTG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,

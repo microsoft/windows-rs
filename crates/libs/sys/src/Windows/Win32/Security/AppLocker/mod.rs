@@ -88,7 +88,7 @@ pub type SAFER_OBJECT_INFO_CLASS = i32;
 pub type SAFER_POLICY_INFO_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -105,7 +105,7 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -127,7 +127,7 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -140,7 +140,7 @@ pub struct SAFER_HASH_IDENTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
@@ -148,7 +148,7 @@ pub struct SAFER_HASH_IDENTIFICATION2 {
     pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
@@ -156,7 +156,7 @@ pub struct SAFER_IDENTIFICATION_HEADER {
     pub lastModified: super::super::Foundation::FILETIME,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -164,7 +164,7 @@ pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub dwSaferFlags: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,

@@ -72,7 +72,7 @@ impl windows_core::RuntimeName for ThreadPool {
     const NAME: &'static str = "Windows.System.Threading.ThreadPool";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ThreadPoolTimer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ThreadPoolTimer, windows_core::IUnknown, windows_core::IInspectable);
 impl ThreadPoolTimer {
@@ -330,7 +330,7 @@ impl<F: FnMut(Option<&super::super::Foundation::IAsyncAction>) -> windows_core::
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
     pub const None: Self = Self(0u32);
@@ -376,7 +376,7 @@ impl core::ops::Not for WorkItemOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {
     pub const Low: Self = Self(-1i32);

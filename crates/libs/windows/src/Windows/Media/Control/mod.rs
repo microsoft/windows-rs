@@ -173,7 +173,7 @@ pub struct ITimelinePropertiesChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurrentSessionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrentSessionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CurrentSessionChangedEventArgs {}
@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for CurrentSessionChangedEventArgs {
 unsafe impl Send for CurrentSessionChangedEventArgs {}
 unsafe impl Sync for CurrentSessionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSession, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSession {
@@ -383,7 +383,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSession {
 unsafe impl Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionManager {
@@ -454,7 +454,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionMana
 unsafe impl Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionMediaProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
@@ -544,7 +544,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionMedi
 unsafe impl Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackControls, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
@@ -667,7 +667,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlay
 unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionPlaybackInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
@@ -727,7 +727,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlay
 unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GlobalSystemMediaTransportControlsSessionTimelineProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
@@ -787,7 +787,7 @@ impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionTime
 unsafe impl Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 unsafe impl Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPropertiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaPropertiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaPropertiesChangedEventArgs {}
@@ -804,7 +804,7 @@ impl windows_core::RuntimeName for MediaPropertiesChangedEventArgs {
 unsafe impl Send for MediaPropertiesChangedEventArgs {}
 unsafe impl Sync for MediaPropertiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PlaybackInfoChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaybackInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaybackInfoChangedEventArgs {}
@@ -821,7 +821,7 @@ impl windows_core::RuntimeName for PlaybackInfoChangedEventArgs {
 unsafe impl Send for PlaybackInfoChangedEventArgs {}
 unsafe impl Sync for PlaybackInfoChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SessionsChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SessionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SessionsChangedEventArgs {}
@@ -838,7 +838,7 @@ impl windows_core::RuntimeName for SessionsChangedEventArgs {
 unsafe impl Send for SessionsChangedEventArgs {}
 unsafe impl Sync for SessionsChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TimelinePropertiesChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TimelinePropertiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TimelinePropertiesChangedEventArgs {}
@@ -855,7 +855,7 @@ impl windows_core::RuntimeName for TimelinePropertiesChangedEventArgs {
 unsafe impl Send for TimelinePropertiesChangedEventArgs {}
 unsafe impl Sync for TimelinePropertiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Closed: Self = Self(0i32);

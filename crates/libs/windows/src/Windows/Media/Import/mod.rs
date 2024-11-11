@@ -318,7 +318,7 @@ pub struct IPhotoImportVideoSegment_Vtbl {
     Sidecars: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
@@ -428,7 +428,7 @@ impl windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResul
 unsafe impl Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportFindItemsResult {
@@ -673,7 +673,7 @@ impl windows_core::RuntimeName for PhotoImportFindItemsResult {
 unsafe impl Send for PhotoImportFindItemsResult {}
 unsafe impl Sync for PhotoImportFindItemsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportImportItemsResult {
@@ -790,7 +790,7 @@ impl windows_core::RuntimeName for PhotoImportImportItemsResult {
 unsafe impl Send for PhotoImportImportItemsResult {}
 unsafe impl Sync for PhotoImportImportItemsResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItem {
@@ -908,7 +908,7 @@ impl windows_core::RuntimeName for PhotoImportItem {
 unsafe impl Send for PhotoImportItem {}
 unsafe impl Sync for PhotoImportItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItemImportedEventArgs {
@@ -963,7 +963,7 @@ impl windows_core::RuntimeName for PhotoImportManager {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportOperation {
@@ -1016,7 +1016,7 @@ impl windows_core::RuntimeName for PhotoImportOperation {
 unsafe impl Send for PhotoImportOperation {}
 unsafe impl Sync for PhotoImportOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSelectionChangedEventArgs {
@@ -1041,7 +1041,7 @@ impl windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
 unsafe impl Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl Sync for PhotoImportSelectionChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable);
@@ -1156,7 +1156,7 @@ impl windows_core::RuntimeName for PhotoImportSession {
 unsafe impl Send for PhotoImportSession {}
 unsafe impl Sync for PhotoImportSession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportSidecar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSidecar, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSidecar {
@@ -1195,7 +1195,7 @@ impl windows_core::RuntimeName for PhotoImportSidecar {
 unsafe impl Send for PhotoImportSidecar {}
 unsafe impl Sync for PhotoImportSidecar {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSource, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSource {
@@ -1354,7 +1354,7 @@ impl windows_core::RuntimeName for PhotoImportSource {
 unsafe impl Send for PhotoImportSource {}
 unsafe impl Sync for PhotoImportSource {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportStorageMedium {
@@ -1425,7 +1425,7 @@ impl windows_core::RuntimeName for PhotoImportStorageMedium {
 unsafe impl Send for PhotoImportStorageMedium {}
 unsafe impl Sync for PhotoImportStorageMedium {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportVideoSegment {
@@ -1479,7 +1479,7 @@ impl windows_core::RuntimeName for PhotoImportVideoSegment {
 unsafe impl Send for PhotoImportVideoSegment {}
 unsafe impl Sync for PhotoImportVideoSegment {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
     pub const ReadWrite: Self = Self(0i32);
@@ -1493,7 +1493,7 @@ impl windows_core::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
     pub const Unknown: Self = Self(0i32);
@@ -1508,7 +1508,7 @@ impl windows_core::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
     pub const Unknown: Self = Self(0i32);
@@ -1522,7 +1522,7 @@ impl windows_core::RuntimeType for PhotoImportContentType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
     pub const OnlyImages: Self = Self(0i32);
@@ -1537,7 +1537,7 @@ impl windows_core::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
     pub const ImportEverything: Self = Self(0i32);
@@ -1552,7 +1552,7 @@ impl windows_core::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
     pub const SelectAll: Self = Self(0i32);
@@ -1566,7 +1566,7 @@ impl windows_core::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
     pub const Unknown: Self = Self(0i32);
@@ -1580,7 +1580,7 @@ impl windows_core::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
     pub const Generic: Self = Self(0i32);
@@ -1598,7 +1598,7 @@ impl windows_core::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
     pub const NotStarted: Self = Self(0i32);
@@ -1613,7 +1613,7 @@ impl windows_core::RuntimeType for PhotoImportStage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
     pub const Undefined: Self = Self(0i32);
@@ -1627,7 +1627,7 @@ impl windows_core::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
     pub const DoNotCreateSubfolders: Self = Self(0i32);
@@ -1642,7 +1642,7 @@ impl windows_core::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
     pub const Year: Self = Self(0i32);
@@ -1656,7 +1656,7 @@ impl windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,

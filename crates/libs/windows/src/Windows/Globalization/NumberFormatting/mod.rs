@@ -982,7 +982,7 @@ impl ISignificantDigitsOption_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CurrencyFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrencyFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CurrencyFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -1230,7 +1230,7 @@ impl windows_core::RuntimeName for CurrencyFormatter {
 unsafe impl Send for CurrencyFormatter {}
 unsafe impl Sync for CurrencyFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DecimalFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DecimalFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DecimalFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -1453,7 +1453,7 @@ impl windows_core::RuntimeName for DecimalFormatter {
 unsafe impl Send for DecimalFormatter {}
 unsafe impl Sync for DecimalFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IncrementNumberRounder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IncrementNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IncrementNumberRounder, INumberRounder);
@@ -1543,7 +1543,7 @@ impl windows_core::RuntimeName for IncrementNumberRounder {
 unsafe impl Send for IncrementNumberRounder {}
 unsafe impl Sync for IncrementNumberRounder {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NumeralSystemTranslator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NumeralSystemTranslator, windows_core::IUnknown, windows_core::IInspectable);
 impl NumeralSystemTranslator {
@@ -1615,7 +1615,7 @@ impl windows_core::RuntimeName for NumeralSystemTranslator {
 unsafe impl Send for NumeralSystemTranslator {}
 unsafe impl Sync for NumeralSystemTranslator {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PercentFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PercentFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PercentFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -1838,7 +1838,7 @@ impl windows_core::RuntimeName for PercentFormatter {
 unsafe impl Send for PercentFormatter {}
 unsafe impl Sync for PercentFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PermilleFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PermilleFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PermilleFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
@@ -2061,7 +2061,7 @@ impl windows_core::RuntimeName for PermilleFormatter {
 unsafe impl Send for PermilleFormatter {}
 unsafe impl Sync for PermilleFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SignificantDigitsNumberRounder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SignificantDigitsNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignificantDigitsNumberRounder, INumberRounder);
@@ -2151,7 +2151,7 @@ impl windows_core::RuntimeName for SignificantDigitsNumberRounder {
 unsafe impl Send for SignificantDigitsNumberRounder {}
 unsafe impl Sync for SignificantDigitsNumberRounder {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
     pub const UseSymbol: Self = Self(0i32);
@@ -2164,7 +2164,7 @@ impl windows_core::RuntimeType for CurrencyFormatterMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.NumberFormatting.CurrencyFormatterMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
     pub const None: Self = Self(0i32);

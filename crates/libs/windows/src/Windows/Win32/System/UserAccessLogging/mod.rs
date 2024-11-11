@@ -28,7 +28,7 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: windows_core::GUID,

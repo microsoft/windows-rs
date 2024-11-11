@@ -21,7 +21,7 @@ pub struct IAudioRoutingManagerStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AudioRoutingManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRoutingManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioRoutingManager {
@@ -81,7 +81,7 @@ impl windows_core::RuntimeName for AudioRoutingManager {
 unsafe impl Send for AudioRoutingManager {}
 unsafe impl Sync for AudioRoutingManager {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
@@ -100,7 +100,7 @@ impl windows_core::RuntimeType for AudioRoutingEndpoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AudioRoutingEndpoint;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {
     pub const None: Self = Self(0u32);

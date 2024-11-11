@@ -1682,37 +1682,37 @@ pub const PROGRESS_INDETERMINATE: i32 = -1i32;
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);
 pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(1i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for DEVICE_SELECTION_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
 impl windows_core::TypeKind for ERROR_ADVISE_MESSAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERROR_ADVISE_RESULT(pub i32);
 impl windows_core::TypeKind for ERROR_ADVISE_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
 impl windows_core::TypeKind for PROGRESS_DIALOG_CHECKBOX_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
 impl windows_core::TypeKind for PROGRESS_DIALOG_IMAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INPUT_STRING_TYPE(pub i32);
 impl windows_core::TypeKind for USER_INPUT_STRING_TYPE {
     type TypeKind = windows_core::CopyType;

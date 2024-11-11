@@ -86,7 +86,7 @@ impl IDirect3DSurface_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
     pub const VertexBuffer: Self = Self(1u32);
@@ -140,7 +140,7 @@ impl core::ops::Not for Direct3DBindings {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
     pub const Default: Self = Self(0i32);
@@ -155,7 +155,7 @@ impl windows_core::RuntimeType for Direct3DUsage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -167,7 +167,7 @@ impl windows_core::RuntimeType for Direct3DMultisampleDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq, Copy)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,

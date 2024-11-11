@@ -3486,49 +3486,49 @@ pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 impl windows_core::TypeKind for APP_CACHE_FINALIZE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APP_CACHE_STATE(pub i32);
 impl windows_core::TypeKind for APP_CACHE_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACHE_CONFIG(pub u32);
 impl windows_core::TypeKind for CACHE_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORTCMD(pub i32);
 impl windows_core::TypeKind for FORTCMD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORTSTAT(pub i32);
 impl windows_core::TypeKind for FORTSTAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FTP_FLAGS(pub u32);
 impl windows_core::TypeKind for FTP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TYPE(pub u32);
 impl windows_core::TypeKind for GOPHER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
 impl windows_core::TypeKind for HTTP_ADDREQ_FLAG {
     type TypeKind = windows_core::CopyType;
@@ -3567,55 +3567,55 @@ impl core::ops::Not for HTTP_ADDREQ_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_VERSION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_PUSH_WAIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_CLOSE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
 impl windows_core::TypeKind for INTERNET_ACCESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_AUTODIAL(pub u32);
 impl windows_core::TypeKind for INTERNET_AUTODIAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CONNECTION(pub u32);
 impl windows_core::TypeKind for INTERNET_CONNECTION {
     type TypeKind = windows_core::CopyType;
@@ -3654,37 +3654,37 @@ impl core::ops::Not for INTERNET_CONNECTION {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
 impl windows_core::TypeKind for INTERNET_COOKIE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN(pub u32);
 impl windows_core::TypeKind for INTERNET_PER_CONN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_SCHEME(pub i32);
 impl windows_core::TypeKind for INTERNET_SCHEME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_STATE(pub u32);
 impl windows_core::TypeKind for INTERNET_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InternetCookieState(pub i32);
 impl windows_core::TypeKind for InternetCookieState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 impl windows_core::TypeKind for PROXY_AUTO_DETECT_TYPE {
     type TypeKind = windows_core::CopyType;
@@ -3723,31 +3723,31 @@ impl core::ops::Not for PROXY_AUTO_DETECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUEST_TIMES(pub i32);
 impl windows_core::TypeKind for REQUEST_TIMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
 impl windows_core::TypeKind for URL_CACHE_LIMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WININET_SYNC_MODE(pub i32);
 impl windows_core::TypeKind for WININET_SYNC_MODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 impl windows_core::TypeKind for WPAD_CACHE_DELETE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_ENTRY {
     pub pwszUrl: windows_core::PWSTR,
     pub dwEntryType: u32,
@@ -3761,7 +3761,7 @@ impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_LIST {
     pub dwEntryCount: u32,
     pub pEntries: *mut APP_CACHE_DOWNLOAD_ENTRY,
@@ -3775,7 +3775,7 @@ impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_INFO {
     pub pwszManifestUrl: windows_core::PWSTR,
     pub ftLastAccessTime: super::super::Foundation::FILETIME,
@@ -3790,7 +3790,7 @@ impl windows_core::TypeKind for APP_CACHE_GROUP_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_LIST {
     pub dwAppCacheGroupCount: u32,
     pub pAppCacheGroups: *mut APP_CACHE_GROUP_INFO,
@@ -3804,7 +3804,7 @@ impl windows_core::TypeKind for APP_CACHE_GROUP_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_core::PSTR,
@@ -3819,7 +3819,7 @@ impl windows_core::TypeKind for AUTO_PROXY_SCRIPT_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
@@ -3832,7 +3832,7 @@ impl windows_core::TypeKind for AutoProxyHelperFunctions {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: isize,
     pub GetIPAddress: isize,
@@ -3853,7 +3853,7 @@ impl windows_core::TypeKind for AutoProxyHelperVtbl {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COOKIE_DLG_INFO {
     pub pszServer: windows_core::PWSTR,
     pub pic: *mut INTERNET_COOKIE,
@@ -3872,7 +3872,7 @@ impl windows_core::TypeKind for COOKIE_DLG_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: u32,
     pub fAllowSession: super::super::Foundation::BOOL,
@@ -3886,7 +3886,7 @@ impl windows_core::TypeKind for CookieDecision {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: *mut i8,
     pub AbstractFile: *mut i8,
@@ -3900,7 +3900,7 @@ impl windows_core::TypeKind for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: *mut i8,
     pub EmailAddress: *mut i8,
@@ -3914,7 +3914,7 @@ impl windows_core::TypeKind for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: *mut i8,
     pub QuestionText: *mut i8,
@@ -3928,7 +3928,7 @@ impl windows_core::TypeKind for GOPHER_ASK_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ATTRIBUTE_TYPE {
     pub CategoryId: u32,
     pub AttributeId: u32,
@@ -3943,7 +3943,7 @@ impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
     pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
@@ -3972,7 +3972,7 @@ impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [i8; 129],
     pub GopherType: GOPHER_TYPE,
@@ -3990,7 +3990,7 @@ impl windows_core::TypeKind for GOPHER_FIND_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [u16; 129],
     pub GopherType: GOPHER_TYPE,
@@ -4008,7 +4008,7 @@ impl windows_core::TypeKind for GOPHER_FIND_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: i32,
     pub MinutesNorth: i32,
@@ -4026,7 +4026,7 @@ impl windows_core::TypeKind for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: *mut i8,
 }
@@ -4039,7 +4039,7 @@ impl windows_core::TypeKind for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::super::Foundation::FILETIME,
 }
@@ -4052,7 +4052,7 @@ impl windows_core::TypeKind for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: *mut i8,
 }
@@ -4065,7 +4065,7 @@ impl windows_core::TypeKind for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: *mut i8,
 }
@@ -4078,7 +4078,7 @@ impl windows_core::TypeKind for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: i32,
 }
@@ -4091,7 +4091,7 @@ impl windows_core::TypeKind for GOPHER_SCORE_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: i32,
     pub UpperBound: i32,
@@ -4105,7 +4105,7 @@ impl windows_core::TypeKind for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: *mut i8,
 }
@@ -4118,7 +4118,7 @@ impl windows_core::TypeKind for GOPHER_SITE_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: i32,
 }
@@ -4131,7 +4131,7 @@ impl windows_core::TypeKind for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: u32,
 }
@@ -4144,7 +4144,7 @@ impl windows_core::TypeKind for GOPHER_TTL_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: *mut i8,
 }
@@ -4157,7 +4157,7 @@ impl windows_core::TypeKind for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: super::super::Foundation::BOOL,
 }
@@ -4170,7 +4170,7 @@ impl windows_core::TypeKind for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: *mut i8,
 }
@@ -4183,7 +4183,7 @@ impl windows_core::TypeKind for GOPHER_VERSION_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: *mut i8,
     pub Language: *mut i8,
@@ -4198,7 +4198,7 @@ impl windows_core::TypeKind for GOPHER_VIEW_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_PUSH_NOTIFICATION_STATUS {
     pub ChannelStatusValid: super::super::Foundation::BOOL,
     pub ChannelStatus: u32,
@@ -4212,7 +4212,7 @@ impl windows_core::TypeKind for HTTP_PUSH_NOTIFICATION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_PUSH_TRANSPORT_SETTING {
     pub TransportSettingId: windows_core::GUID,
     pub BrokerEventId: windows_core::GUID,
@@ -4242,7 +4242,7 @@ impl Default for HTTP_PUSH_WAIT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgTimes: [u64; 32],
@@ -4256,7 +4256,7 @@ impl windows_core::TypeKind for HTTP_REQUEST_TIMES {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: INTERNET_ASYNC_RESULT,
     pub Operation: HTTP_WEB_SOCKET_OPERATION,
@@ -4272,7 +4272,7 @@ impl windows_core::TypeKind for HTTP_WEB_SOCKET_ASYNC_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
@@ -4286,7 +4286,7 @@ impl windows_core::TypeKind for INTERNET_ASYNC_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
@@ -4302,7 +4302,7 @@ impl windows_core::TypeKind for INTERNET_AUTH_NOTIFY_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSA,
@@ -4324,7 +4324,7 @@ impl windows_core::TypeKind for INTERNET_BUFFERSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSW,
@@ -4346,7 +4346,7 @@ impl windows_core::TypeKind for INTERNET_BUFFERSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -4368,7 +4368,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
@@ -4382,7 +4382,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
@@ -4396,7 +4396,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -4418,7 +4418,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
@@ -4432,7 +4432,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
@@ -4446,7 +4446,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
@@ -4460,7 +4460,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
@@ -4474,7 +4474,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub dwCacheVersion: u32,
     pub lpszName: windows_core::PSTR,
@@ -4491,7 +4491,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub dwCacheVersion: u32,
     pub lpszName: windows_core::PWSTR,
@@ -4508,7 +4508,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_core::PSTR,
@@ -4536,7 +4536,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
@@ -4550,7 +4550,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_core::PWSTR,
@@ -4578,7 +4578,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
@@ -4592,7 +4592,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -4611,7 +4611,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -4630,7 +4630,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub ftLastModified: super::super::Foundation::FILETIME,
@@ -4644,7 +4644,7 @@ impl windows_core::TypeKind for INTERNET_CACHE_TIMESTAMPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CALLBACK_COOKIE {
     pub pcwszName: windows_core::PCWSTR,
     pub pcwszValue: windows_core::PCWSTR,
@@ -4662,7 +4662,7 @@ impl windows_core::TypeKind for INTERNET_CALLBACK_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
     pub ftStart: super::super::Foundation::FILETIME,
@@ -4682,7 +4682,7 @@ impl windows_core::TypeKind for INTERNET_CERTIFICATE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: INTERNET_STATE,
     pub dwFlags: u32,
@@ -4696,7 +4696,7 @@ impl windows_core::TypeKind for INTERNET_CONNECTED_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_COOKIE {
     pub cbSize: u32,
     pub pszName: windows_core::PSTR,
@@ -4717,7 +4717,7 @@ impl windows_core::TypeKind for INTERNET_COOKIE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -4736,7 +4736,7 @@ impl windows_core::TypeKind for INTERNET_COOKIE2 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CREDENTIALS {
     pub lpcwszHostName: windows_core::PCWSTR,
     pub dwPort: u32,
@@ -4755,7 +4755,7 @@ impl windows_core::TypeKind for INTERNET_CREDENTIALS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_CREDENTIALS_0 {
     pub Anonymous: INTERNET_CREDENTIALS_0_0,
     pub pAuthIdentityOpaque: *mut core::ffi::c_void,
@@ -4769,7 +4769,7 @@ impl windows_core::TypeKind for INTERNET_CREDENTIALS_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_CREDENTIALS_0_0 {
     pub lpcwszUserName: windows_core::PCWSTR,
     pub lpcwszPassword: windows_core::PCWSTR,
@@ -4783,7 +4783,7 @@ impl windows_core::TypeKind for INTERNET_CREDENTIALS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: usize,
     pub SourcePort: u32,
@@ -4799,7 +4799,7 @@ impl windows_core::TypeKind for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_DOWNLOAD_MODE_HANDLE {
     pub pcwszFileName: windows_core::PCWSTR,
     pub phFile: *mut super::super::Foundation::HANDLE,
@@ -4813,7 +4813,7 @@ impl windows_core::TypeKind for INTERNET_DOWNLOAD_MODE_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_END_BROWSER_SESSION_DATA {
     pub lpBuffer: *mut core::ffi::c_void,
     pub dwBufferLength: u32,
@@ -4827,7 +4827,7 @@ impl windows_core::TypeKind for INTERNET_END_BROWSER_SESSION_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONA {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONA_0,
@@ -4841,7 +4841,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
     pub dwValue: u32,
     pub pszValue: windows_core::PSTR,
@@ -4856,7 +4856,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PER_CONN_OPTIONW {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONW_0,
@@ -4870,7 +4870,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union INTERNET_PER_CONN_OPTIONW_0 {
     pub dwValue: u32,
     pub pszValue: windows_core::PWSTR,
@@ -4885,7 +4885,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_core::PSTR,
@@ -4902,7 +4902,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_core::PWSTR,
@@ -4919,7 +4919,7 @@ impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PREFETCH_STATUS {
     pub dwStatus: u32,
     pub dwSize: u32,
@@ -4933,7 +4933,7 @@ impl windows_core::TypeKind for INTERNET_PREFETCH_STATUS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: INTERNET_ACCESS_TYPE,
     pub lpszProxy: *mut i8,
@@ -4949,7 +4949,7 @@ impl windows_core::TypeKind for INTERNET_PROXY_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
@@ -4968,7 +4968,7 @@ impl windows_core::TypeKind for INTERNET_SECURITY_CONNECTION_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
     pub pCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -4989,7 +4989,7 @@ impl windows_core::TypeKind for INTERNET_SECURITY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub lpcwszHostName: windows_core::PCWSTR,
     pub fProxy: super::super::Foundation::BOOL,
@@ -5009,7 +5009,7 @@ impl windows_core::TypeKind for INTERNET_SERVER_CONNECTION_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
@@ -5023,7 +5023,7 @@ impl windows_core::TypeKind for INTERNET_VERSION_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -5042,7 +5042,7 @@ impl windows_core::TypeKind for IncomingCookieState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: super::super::Foundation::BOOL,
     pub fLeashed: super::super::Foundation::BOOL,
@@ -5058,7 +5058,7 @@ impl windows_core::TypeKind for InternetCookieHistory {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
@@ -5073,7 +5073,7 @@ impl windows_core::TypeKind for OutgoingCookieState {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ProofOfPossessionCookieInfo {
     pub name: windows_core::PWSTR,
     pub data: windows_core::PWSTR,
@@ -5090,7 +5090,7 @@ impl windows_core::TypeKind for ProofOfPossessionCookieInfo {
 }
 pub const ProofOfPossessionCookieInfoManager: windows_core::GUID = windows_core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URLCACHE_ENTRY_INFO {
     pub pwszSourceUrlName: windows_core::PWSTR,
     pub pwszLocalFileName: windows_core::PWSTR,
@@ -5117,7 +5117,7 @@ impl windows_core::TypeKind for URLCACHE_ENTRY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_core::PSTR,
@@ -5144,7 +5144,7 @@ impl windows_core::TypeKind for URL_COMPONENTSA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct URL_COMPONENTSW {
     pub dwStructSize: u32,
     pub lpszScheme: windows_core::PWSTR,
@@ -5171,7 +5171,7 @@ impl windows_core::TypeKind for URL_COMPONENTSW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO {
     pub fProxy: super::super::Foundation::BOOL,
     pub fBypass: super::super::Foundation::BOOL,
@@ -5188,7 +5188,7 @@ impl windows_core::TypeKind for WININET_PROXY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO_LIST {
     pub dwProxyInfoCount: u32,
     pub pProxyInfo: *mut WININET_PROXY_INFO,

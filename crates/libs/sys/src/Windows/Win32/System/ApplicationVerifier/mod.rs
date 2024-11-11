@@ -24,14 +24,14 @@ pub type eHeapAllocationState = i32;
 pub type eHeapEnumerationLevel = i32;
 pub type eUserAllocationState = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AVRF_BACKTRACE_INFORMATION {
     pub Depth: u32,
     pub Index: u32,
     pub ReturnAddresses: [u64; 32],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AVRF_HANDLE_OPERATION {
     pub Handle: u64,
     pub ProcessId: u32,
@@ -41,7 +41,7 @@ pub struct AVRF_HANDLE_OPERATION {
     pub BackTraceInformation: AVRF_BACKTRACE_INFORMATION,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AVRF_HEAP_ALLOCATION {
     pub HeapHandle: u64,
     pub UserAllocation: u64,

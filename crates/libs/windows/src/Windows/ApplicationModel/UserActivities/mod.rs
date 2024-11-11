@@ -304,7 +304,7 @@ pub struct IUserActivityVisualElements2_Vtbl {
     pub SetAttributionDisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivity, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivity {
@@ -479,7 +479,7 @@ impl windows_core::RuntimeName for UserActivity {
 unsafe impl Send for UserActivity {}
 unsafe impl Sync for UserActivity {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityAttribution(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityAttribution, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityAttribution {
@@ -553,7 +553,7 @@ impl windows_core::RuntimeName for UserActivityAttribution {
 unsafe impl Send for UserActivityAttribution {}
 unsafe impl Sync for UserActivityAttribution {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityChannel, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityChannel {
@@ -649,7 +649,7 @@ impl windows_core::RuntimeName for UserActivityChannel {
 unsafe impl Send for UserActivityChannel {}
 unsafe impl Sync for UserActivityChannel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityContentInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityContentInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityContentInfo, IUserActivityContentInfo);
@@ -685,7 +685,7 @@ impl windows_core::RuntimeName for UserActivityContentInfo {
 unsafe impl Send for UserActivityContentInfo {}
 unsafe impl Sync for UserActivityContentInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityRequest {
@@ -710,7 +710,7 @@ impl windows_core::RuntimeName for UserActivityRequest {
 unsafe impl Send for UserActivityRequest {}
 unsafe impl Sync for UserActivityRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityRequestManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityRequestManager {
@@ -750,7 +750,7 @@ impl windows_core::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityRequestedEventArgs {
@@ -782,7 +782,7 @@ impl windows_core::RuntimeName for UserActivityRequestedEventArgs {
 unsafe impl Send for UserActivityRequestedEventArgs {}
 unsafe impl Sync for UserActivityRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivitySession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivitySession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivitySession, super::super::Foundation::IClosable);
@@ -812,7 +812,7 @@ impl windows_core::RuntimeName for UserActivitySession {
 unsafe impl Send for UserActivitySession {}
 unsafe impl Sync for UserActivitySession {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivitySessionHistoryItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivitySessionHistoryItem, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivitySessionHistoryItem {
@@ -851,7 +851,7 @@ impl windows_core::RuntimeName for UserActivitySessionHistoryItem {
 unsafe impl Send for UserActivitySessionHistoryItem {}
 unsafe impl Sync for UserActivitySessionHistoryItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UserActivityVisualElements(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserActivityVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 impl UserActivityVisualElements {
@@ -945,7 +945,7 @@ impl windows_core::RuntimeName for UserActivityVisualElements {
 unsafe impl Send for UserActivityVisualElements {}
 unsafe impl Sync for UserActivityVisualElements {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
     pub const New: Self = Self(0i32);

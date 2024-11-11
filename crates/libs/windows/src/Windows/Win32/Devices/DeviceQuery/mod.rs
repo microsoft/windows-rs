@@ -277,7 +277,7 @@ pub const DevQueryStateClosed: DEV_QUERY_STATE = DEV_QUERY_STATE(3i32);
 pub const DevQueryStateEnumCompleted: DEV_QUERY_STATE = DEV_QUERY_STATE(1i32);
 pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROP_OPERATOR(pub u32);
 impl windows_core::TypeKind for DEVPROP_OPERATOR {
     type TypeKind = windows_core::CopyType;
@@ -316,32 +316,32 @@ impl core::ops::Not for DEVPROP_OPERATOR {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for DEV_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_FLAGS(pub i32);
 impl windows_core::TypeKind for DEV_QUERY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
 impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEV_QUERY_STATE(pub i32);
 impl windows_core::TypeKind for DEV_QUERY_STATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEVPROP_FILTER_EXPRESSION {
     pub Operator: DEVPROP_OPERATOR,
     pub Property: super::Properties::DEVPROPERTY,
@@ -358,7 +358,7 @@ impl windows_core::TypeKind for DEVPROP_FILTER_EXPRESSION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_OBJECT {
     pub ObjectType: DEV_OBJECT_TYPE,
     pub pszObjectId: windows_core::PCWSTR,
@@ -377,7 +377,7 @@ impl windows_core::TypeKind for DEV_OBJECT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DEV_QUERY_PARAMETER {
     pub Key: super::Properties::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
@@ -396,7 +396,7 @@ impl windows_core::TypeKind for DEV_QUERY_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DEV_QUERY_RESULT_ACTION_DATA {
     pub Action: DEV_QUERY_RESULT_ACTION,
     pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
@@ -413,7 +413,7 @@ impl windows_core::TypeKind for DEV_QUERY_RESULT_ACTION_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Devices_Properties")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,

@@ -101,7 +101,7 @@ impl IToastNotificationManagerStatics3_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DualSimTile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DualSimTile, windows_core::IUnknown, windows_core::IInspectable);
 impl DualSimTile {

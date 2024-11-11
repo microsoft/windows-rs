@@ -113,7 +113,7 @@ impl Interface {
 
             quote! {
                 #[repr(transparent)]
-                #[derive(PartialEq, Eq, Debug, Clone)]
+                #[derive(Clone, Debug, Eq, PartialEq)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
@@ -441,7 +441,7 @@ impl Interface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            // TODO: does this also need to be outside 
+            // TODO: does this also need to be outside
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }

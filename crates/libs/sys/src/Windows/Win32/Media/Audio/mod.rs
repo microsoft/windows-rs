@@ -828,7 +828,7 @@ pub type AudioSessionDisconnectReason = i32;
 pub type AudioSessionState = i32;
 pub type AudioStateMonitorSoundLevel = i32;
 #[repr(transparent)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -857,7 +857,7 @@ pub type SpatialAudioMetadataWriterOverflowMode = i32;
 pub type _AUDCLNT_BUFFERFLAGS = i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -878,7 +878,7 @@ pub struct ACMDRIVERDETAILSA {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRIVERDETAILSW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -898,7 +898,7 @@ pub struct ACMDRIVERDETAILSW {
     pub szFeatures: [u16; 512],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVFORMATSUGGEST {
     pub cbStruct: u32,
     pub fdwSuggest: u32,
@@ -908,7 +908,7 @@ pub struct ACMDRVFORMATSUGGEST {
     pub cbwfxDst: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -921,7 +921,7 @@ pub struct ACMDRVOPENDESCA {
     pub dnDevNode: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVOPENDESCW {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -934,7 +934,7 @@ pub struct ACMDRVOPENDESCW {
     pub dnDevNode: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -959,7 +959,7 @@ pub struct ACMDRVSTREAMHEADER {
     pub cbPreparedDstLength: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMINSTANCE {
     pub cbStruct: u32,
     pub pwfxSrc: *mut WAVEFORMATEX,
@@ -973,7 +973,7 @@ pub struct ACMDRVSTREAMINSTANCE {
     pub has: HACMSTREAM,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMDRVSTREAMSIZE {
     pub cbStruct: u32,
     pub fdwSize: u32,
@@ -981,7 +981,7 @@ pub struct ACMDRVSTREAMSIZE {
     pub cbDstLength: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -1001,7 +1001,7 @@ pub struct ACMFILTERCHOOSEA {
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERCHOOSEW {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -1021,7 +1021,7 @@ pub struct ACMFILTERCHOOSEW {
     pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -1032,7 +1032,7 @@ pub struct ACMFILTERDETAILSA {
     pub szFilter: [i8; 128],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERDETAILSW {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -1043,7 +1043,7 @@ pub struct ACMFILTERDETAILSW {
     pub szFilter: [u16; 128],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -1054,7 +1054,7 @@ pub struct ACMFILTERTAGDETAILSA {
     pub szFilterTag: [i8; 48],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFILTERTAGDETAILSW {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -1065,7 +1065,7 @@ pub struct ACMFILTERTAGDETAILSW {
     pub szFilterTag: [u16; 48],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -1085,7 +1085,7 @@ pub struct ACMFORMATCHOOSEA {
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATCHOOSEW {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -1105,7 +1105,7 @@ pub struct ACMFORMATCHOOSEW {
     pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,
@@ -1116,7 +1116,7 @@ pub struct ACMFORMATDETAILSA {
     pub szFormat: [i8; 128],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -1127,7 +1127,7 @@ pub struct ACMFORMATTAGDETAILSA {
     pub szFormatTag: [i8; 48],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMFORMATTAGDETAILSW {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -1139,7 +1139,7 @@ pub struct ACMFORMATTAGDETAILSW {
 }
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -1156,7 +1156,7 @@ pub struct ACMSTREAMHEADER {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
     pub fdwStatus: u32,
@@ -1172,7 +1172,7 @@ pub struct ACMSTREAMHEADER {
     pub dwReservedDriver: [u32; 10],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -1184,31 +1184,31 @@ pub struct AMBISONICS_PARAMS {
     pub pu32ChannelMap: *mut u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIO_EFFECT {
     pub id: windows_sys::core::GUID,
     pub canSetState: super::super::Foundation::BOOL,
     pub state: AUDIO_EFFECT_STATE,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub guidEventContext: windows_sys::core::GUID,
     pub bMuted: super::super::Foundation::BOOL,
@@ -1217,7 +1217,7 @@ pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
     pub afChannelVolumes: [f32; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1231,7 +1231,7 @@ pub struct AUXCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1245,7 +1245,7 @@ pub struct AUXCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -1256,7 +1256,7 @@ pub struct AUXCAPSA {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AUXCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -1267,12 +1267,12 @@ pub struct AUXCAPSW {
     pub dwSupport: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: super::super::Foundation::BOOL,
@@ -1280,7 +1280,7 @@ pub struct AudioClientProperties {
     pub Options: AUDCLNT_STREAMOPTIONS,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
     pub pEndpoint: *mut core::ffi::c_void,
@@ -1288,7 +1288,7 @@ pub struct AudioExtensionParams {
     pub pPnpDevnode: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
     pub guidAudioSession: windows_sys::core::GUID,
@@ -1296,7 +1296,7 @@ pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
 }
 pub const DeviceTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
@@ -1316,7 +1316,7 @@ pub type HWAVE = *mut core::ffi::c_void;
 pub type HWAVEIN = *mut core::ffi::c_void;
 pub type HWAVEOUT = *mut core::ffi::c_void;
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIEVENT {
     pub dwDeltaTime: u32,
     pub dwStreamID: u32,
@@ -1324,7 +1324,7 @@ pub struct MIDIEVENT {
     pub dwParms: [u32; 1],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIHDR {
     pub lpData: windows_sys::core::PSTR,
     pub dwBufferLength: u32,
@@ -1337,7 +1337,7 @@ pub struct MIDIHDR {
     pub dwReserved: [usize; 8],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1349,7 +1349,7 @@ pub struct MIDIINCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1361,7 +1361,7 @@ pub struct MIDIINCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -1370,7 +1370,7 @@ pub struct MIDIINCAPSA {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIINCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -1379,7 +1379,7 @@ pub struct MIDIINCAPSW {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1395,7 +1395,7 @@ pub struct MIDIOUTCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1411,7 +1411,7 @@ pub struct MIDIOUTCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -1424,7 +1424,7 @@ pub struct MIDIOUTCAPSA {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIOUTCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -1437,26 +1437,26 @@ pub struct MIDIOUTCAPSW {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIPROPTEMPO {
     pub cbStruct: u32,
     pub dwTempo: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDIPROPTIMEDIV {
     pub cbStruct: u32,
     pub dwTimeDiv: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIDISTRMBUFFVER {
     pub dwVersion: u32,
     pub dwMid: u32,
     pub dwOEMVersion: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1469,7 +1469,7 @@ pub struct MIXERCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1482,7 +1482,7 @@ pub struct MIXERCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -1492,7 +1492,7 @@ pub struct MIXERCAPSA {
     pub cDestinations: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -1502,7 +1502,7 @@ pub struct MIXERCAPSW {
     pub cDestinations: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -1515,33 +1515,33 @@ pub struct MIXERCONTROLA {
     pub Metrics: MIXERCONTROLA_1,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -1551,42 +1551,42 @@ pub struct MIXERCONTROLDETAILS {
     pub paDetails: *mut core::ffi::c_void,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
     pub cMultipleItems: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_BOOLEAN {
     pub fValue: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
     pub szName: [i8; 64],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_LISTTEXTW {
     pub dwParam1: u32,
     pub dwParam2: u32,
     pub szName: [u16; 64],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_SIGNED {
     pub lValue: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLDETAILS_UNSIGNED {
     pub dwValue: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW {
     pub cbStruct: u32,
     pub dwControlID: u32,
@@ -1599,33 +1599,33 @@ pub struct MIXERCONTROLW {
     pub Metrics: MIXERCONTROLW_1,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLW_0 {
     pub Anonymous1: MIXERCONTROLW_0_0,
     pub Anonymous2: MIXERCONTROLW_0_1,
     pub dwReserved: [u32; 6],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERCONTROLW_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERCONTROLW_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -1642,7 +1642,7 @@ pub struct MIXERLINEA {
     pub Target: MIXERLINEA_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
@@ -1652,7 +1652,7 @@ pub struct MIXERLINEA_0 {
     pub szPname: [i8; 32],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -1662,13 +1662,13 @@ pub struct MIXERLINECONTROLSA {
     pub pamxctrl: *mut MIXERCONTROLA,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINECONTROLSW {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -1678,13 +1678,13 @@ pub struct MIXERLINECONTROLSW {
     pub pamxctrl: *mut MIXERCONTROLW,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union MIXERLINECONTROLSW_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEW {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -1701,7 +1701,7 @@ pub struct MIXERLINEW {
     pub Target: MIXERLINEW_0,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct MIXERLINEW_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
@@ -1712,13 +1712,13 @@ pub struct MIXERLINEW_0 {
 }
 pub const MMDeviceEnumerator: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_sys::core::GUID,
     pub appId: windows_sys::core::GUID,
@@ -1728,7 +1728,7 @@ pub struct SpatialAudioClientActivationParams {
     pub minorVersion3: i32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1743,7 +1743,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub Orientation: *mut f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1759,33 +1759,33 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivity {
     pub Type: SpatialAudioHrtfDirectivityType,
     pub Scaling: f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivityCardioid {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub Order: f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDirectivityCone {
     pub directivity: SpatialAudioHrtfDirectivity,
     pub InnerAngle: f32,
     pub OuterAngle: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union SpatialAudioHrtfDirectivityUnion {
     pub Cone: SpatialAudioHrtfDirectivityCone,
     pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
     pub Omni: SpatialAudioHrtfDirectivity,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioHrtfDistanceDecay {
     pub Type: SpatialAudioHrtfDistanceDecayType,
     pub MaxGain: f32,
@@ -1794,7 +1794,7 @@ pub struct SpatialAudioHrtfDistanceDecay {
     pub CutoffDistance: f32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: u16,
     pub ItemCount: u16,
@@ -1802,7 +1802,7 @@ pub struct SpatialAudioMetadataItemsInfo {
     pub MaxValueBufferLength: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1813,7 +1813,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub NotifyObject: *mut core::ffi::c_void,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1826,7 +1826,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1841,7 +1841,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *const WAVEFORMATEX,
     pub StaticObjectTypeMask: AudioObjectType,
@@ -1856,13 +1856,13 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct VOLUMEWAVEFILTER {
     pub wfltr: WAVEFILTER,
     pub dwVolume: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFILTER {
     pub cbStruct: u32,
     pub dwFilterTag: u32,
@@ -1870,7 +1870,7 @@ pub struct WAVEFILTER {
     pub dwReserved: [u32; 5],
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMAT {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -1879,7 +1879,7 @@ pub struct WAVEFORMAT {
     pub nBlockAlign: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -1890,7 +1890,7 @@ pub struct WAVEFORMATEX {
     pub cbSize: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEFORMATEXTENSIBLE {
     pub Format: WAVEFORMATEX,
     pub Samples: WAVEFORMATEXTENSIBLE_0,
@@ -1898,14 +1898,14 @@ pub struct WAVEFORMATEXTENSIBLE {
     pub SubFormat: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union WAVEFORMATEXTENSIBLE_0 {
     pub wValidBitsPerSample: u16,
     pub wSamplesPerBlock: u16,
     pub wReserved: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEHDR {
     pub lpData: windows_sys::core::PSTR,
     pub dwBufferLength: u32,
@@ -1917,7 +1917,7 @@ pub struct WAVEHDR {
     pub reserved: usize,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1931,7 +1931,7 @@ pub struct WAVEINCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1945,7 +1945,7 @@ pub struct WAVEINCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -1956,7 +1956,7 @@ pub struct WAVEINCAPSA {
     pub wReserved1: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEINCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -1967,7 +1967,7 @@ pub struct WAVEINCAPSW {
     pub wReserved1: u16,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -1982,7 +1982,7 @@ pub struct WAVEOUTCAPS2A {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -1997,7 +1997,7 @@ pub struct WAVEOUTCAPS2W {
     pub NameGuid: windows_sys::core::GUID,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -2009,7 +2009,7 @@ pub struct WAVEOUTCAPSA {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct WAVEOUTCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -2021,7 +2021,7 @@ pub struct WAVEOUTCAPSW {
     pub dwSupport: u32,
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct tACMFORMATDETAILSW {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,

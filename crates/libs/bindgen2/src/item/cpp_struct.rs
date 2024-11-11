@@ -108,41 +108,32 @@ impl CppStruct {
             }
         };
 
-        let mut derive = quote! {};
+        let mut derive = Derive::new();
         let mut manual_clone = None;
 
         if writer.config.sys || is_copyable {
-            derive.combine(quote! { Copy, Clone, });
-        } else 
-            if !matches!(
-                TypeName(self.def.namespace(), self.def.name()),
-                TypeName::VARIANT | TypeName::PROPVARIANT) {
-                if has_explicit_layout {
-                    manual_clone =             Some(quote! {
-                        #cfg
-                        impl Clone for #name {
-                            fn clone(&self) -> Self {
-                                unsafe { core::mem::transmute_copy(self) }
-                            }
+            derive.add(["Clone", "Copy"]);
+        } else if !matches!(
+            TypeName(self.def.namespace(), self.def.name()),
+            TypeName::VARIANT | TypeName::PROPVARIANT
+        ) {
+            if has_explicit_layout {
+                manual_clone = Some(quote! {
+                    #cfg
+                    impl Clone for #name {
+                        fn clone(&self) -> Self {
+                            unsafe { core::mem::transmute_copy(self) }
                         }
-                    });
-                } else if !has_packing {
-                    derive.combine(quote! { Clone, });
-                }
-                
+                    }
+                });
+            } else if !has_packing {
+                derive.add(["Clone"]);
+            }
         }
 
         if !writer.config.sys && !has_explicit_layout && !has_packing {
-            derive.combine(quote! { Debug, PartialEq, });
+            derive.add(["Debug", "PartialEq"]);
         }
-
-        let derive = if derive.is_empty() {
-            derive
-        } else {
-            quote! {
-                #[derive(#derive)]
-            }
-        };
 
         // TODO: add any user-defined derive names
 

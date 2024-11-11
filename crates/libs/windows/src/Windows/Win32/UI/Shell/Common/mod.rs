@@ -183,31 +183,31 @@ pub const STRRET_CSTR: STRRET_TYPE = STRRET_TYPE(2i32);
 pub const STRRET_OFFSET: STRRET_TYPE = STRRET_TYPE(1i32);
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
 impl windows_core::TypeKind for DEVICE_SCALE_FACTOR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERCEIVED(pub i32);
 impl windows_core::TypeKind for PERCEIVED {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCOLSTATE(pub i32);
 impl windows_core::TypeKind for SHCOLSTATE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRRET_TYPE(pub i32);
 impl windows_core::TypeKind for STRRET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_core::PCWSTR,
     pub pszSpec: windows_core::PCWSTR,
@@ -221,7 +221,7 @@ impl windows_core::TypeKind for COMDLG_FILTERSPEC {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -234,7 +234,7 @@ impl windows_core::TypeKind for ITEMIDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
@@ -249,7 +249,7 @@ impl windows_core::TypeKind for SHELLDETAILS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],
@@ -263,7 +263,7 @@ impl windows_core::TypeKind for SHITEMID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct STRRET {
     pub uType: u32,
     pub Anonymous: STRRET_0,
@@ -277,7 +277,7 @@ impl windows_core::TypeKind for STRRET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_core::PWSTR,
     pub uOffset: u32,

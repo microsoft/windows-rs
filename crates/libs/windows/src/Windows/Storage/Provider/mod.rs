@@ -918,7 +918,7 @@ impl windows_core::RuntimeName for CachedFileUpdater {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CachedFileUpdaterUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterUI, windows_core::IUnknown, windows_core::IInspectable);
 impl CachedFileUpdaterUI {
@@ -1001,7 +1001,7 @@ impl windows_core::RuntimeName for CachedFileUpdaterUI {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdaterUI";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileUpdateRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUpdateRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUpdateRequest {
@@ -1069,7 +1069,7 @@ impl windows_core::RuntimeName for FileUpdateRequest {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequest";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileUpdateRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUpdateRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUpdateRequestDeferral {
@@ -1089,7 +1089,7 @@ impl windows_core::RuntimeName for FileUpdateRequestDeferral {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestDeferral";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FileUpdateRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileUpdateRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl FileUpdateRequestedEventArgs {
@@ -1112,7 +1112,7 @@ impl windows_core::RuntimeName for FileUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Storage.Provider.FileUpdateRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderFileTypeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderFileTypeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderFileTypeInfo {
@@ -1154,7 +1154,7 @@ impl windows_core::RuntimeName for StorageProviderFileTypeInfo {
 unsafe impl Send for StorageProviderFileTypeInfo {}
 unsafe impl Sync for StorageProviderFileTypeInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderGetContentInfoForPathResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderGetContentInfoForPathResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1212,7 +1212,7 @@ impl windows_core::RuntimeName for StorageProviderGetContentInfoForPathResult {
 unsafe impl Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl Sync for StorageProviderGetContentInfoForPathResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderGetPathForContentUriResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderGetPathForContentUriResult, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderGetPathForContentUriResult {
@@ -1280,7 +1280,7 @@ impl windows_core::RuntimeName for StorageProviderItemProperties {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderItemProperty(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderItemProperty, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderItemProperty {
@@ -1338,7 +1338,7 @@ impl windows_core::RuntimeName for StorageProviderItemProperty {
 unsafe impl Send for StorageProviderItemProperty {}
 unsafe impl Sync for StorageProviderItemProperty {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderItemPropertyDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderItemPropertyDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderItemPropertyDefinition {
@@ -1385,7 +1385,7 @@ impl windows_core::RuntimeName for StorageProviderItemPropertyDefinition {
 unsafe impl Send for StorageProviderItemPropertyDefinition {}
 unsafe impl Sync for StorageProviderItemPropertyDefinition {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderKnownFolderEntry {
@@ -1432,7 +1432,7 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderEntry {
 unsafe impl Send for StorageProviderKnownFolderEntry {}
 unsafe impl Sync for StorageProviderKnownFolderEntry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderSyncInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderKnownFolderSyncInfo {
@@ -1490,7 +1490,7 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderSyncInfo {
 unsafe impl Send for StorageProviderKnownFolderSyncInfo {}
 unsafe impl Sync for StorageProviderKnownFolderSyncInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderSyncRequestArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncRequestArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderKnownFolderSyncRequestArgs {
@@ -1524,7 +1524,7 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderSyncRequestArgs {
 unsafe impl Send for StorageProviderKnownFolderSyncRequestArgs {}
 unsafe impl Sync for StorageProviderKnownFolderSyncRequestArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderMoreInfoUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderMoreInfoUI, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderMoreInfoUI {
@@ -1574,7 +1574,7 @@ impl windows_core::RuntimeName for StorageProviderMoreInfoUI {
 unsafe impl Send for StorageProviderMoreInfoUI {}
 unsafe impl Sync for StorageProviderMoreInfoUI {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderQuotaUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderQuotaUI, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderQuotaUI {
@@ -1648,7 +1648,7 @@ impl windows_core::RuntimeName for StorageProviderQuotaUI {
 unsafe impl Send for StorageProviderQuotaUI {}
 unsafe impl Sync for StorageProviderQuotaUI {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderStatusUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderStatusUI, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderStatusUI {
@@ -1781,7 +1781,7 @@ impl windows_core::RuntimeName for StorageProviderStatusUI {
 unsafe impl Send for StorageProviderStatusUI {}
 unsafe impl Sync for StorageProviderStatusUI {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StorageProviderSyncRootInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StorageProviderSyncRootInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl StorageProviderSyncRootInfo {
@@ -2120,7 +2120,7 @@ impl<F: FnMut(Option<&StorageProviderKnownFolderSyncRequestArgs>) -> windows_cor
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
     pub const None: Self = Self(0u32);
@@ -2168,7 +2168,7 @@ impl core::ops::Not for CachedFileOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
     pub const Local: Self = Self(0i32);
@@ -2181,7 +2181,7 @@ impl windows_core::RuntimeType for CachedFileTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.CachedFileTarget;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
     pub const Incomplete: Self = Self(0i32);
@@ -2198,7 +2198,7 @@ impl windows_core::RuntimeType for FileUpdateStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.FileUpdateStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
     pub const NotNeeded: Self = Self(0i32);
@@ -2211,7 +2211,7 @@ impl windows_core::RuntimeType for ReadActivationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.ReadActivationMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
     pub const None: Self = Self(0u32);
@@ -2257,7 +2257,7 @@ impl core::ops::Not for StorageProviderHardlinkPolicy {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
     pub const Partial: Self = Self(0i32);
@@ -2272,7 +2272,7 @@ impl windows_core::RuntimeType for StorageProviderHydrationPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderHydrationPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
     pub const None: Self = Self(0u32);
@@ -2321,7 +2321,7 @@ impl core::ops::Not for StorageProviderHydrationPolicyModifier {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
     pub const Default: Self = Self(0u32);
@@ -2377,7 +2377,7 @@ impl core::ops::Not for StorageProviderInSyncPolicy {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderKnownFolderSyncStatus(pub i32);
 impl StorageProviderKnownFolderSyncStatus {
     pub const Available: Self = Self(0i32);
@@ -2391,7 +2391,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderKnownFolderSyncStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
     pub const Full: Self = Self(1i32);
@@ -2404,7 +2404,7 @@ impl windows_core::RuntimeType for StorageProviderPopulationPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderPopulationPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
     pub const Unknown: Self = Self(0i32);
@@ -2417,7 +2417,7 @@ impl windows_core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
     pub const InSync: Self = Self(0i32);
@@ -2434,7 +2434,7 @@ impl windows_core::RuntimeType for StorageProviderState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderUICommandState(pub i32);
 impl StorageProviderUICommandState {
     pub const Enabled: Self = Self(0i32);
@@ -2448,7 +2448,7 @@ impl windows_core::RuntimeType for StorageProviderUICommandState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUICommandState;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
     pub const Success: Self = Self(0i32);
@@ -2462,7 +2462,7 @@ impl windows_core::RuntimeType for StorageProviderUriSourceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderUriSourceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -2477,7 +2477,7 @@ impl windows_core::RuntimeType for UIStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.UIStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {
     pub const ReadOnly: Self = Self(0i32);

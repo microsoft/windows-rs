@@ -805,55 +805,55 @@ pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLIC
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CHARSET(pub i32);
 impl windows_core::TypeKind for DNS_CHARSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONFIG_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_CONFIG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
 impl windows_core::TypeKind for DNS_CONNECTION_POLICY_TAG {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_SWITCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_CONNECTION_PROXY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_FREE_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_FREE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_NAME_FORMAT(pub i32);
 impl windows_core::TypeKind for DNS_NAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_PROXY_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_QUERY_OPTIONS(pub u32);
 impl windows_core::TypeKind for DNS_QUERY_OPTIONS {
     type TypeKind = windows_core::CopyType;
@@ -892,25 +892,25 @@ impl core::ops::Not for DNS_QUERY_OPTIONS {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SECTION(pub i32);
 impl windows_core::TypeKind for DNS_SECTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SVCB_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for DNS_SVCB_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_TYPE(pub u16);
 impl windows_core::TypeKind for DNS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_AAAA_DATA {
     pub Ip6Address: IP6_ADDRESS,
 }
@@ -923,7 +923,7 @@ impl windows_core::TypeKind for DNS_AAAA_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR {
     pub MaxSa: [i8; 32],
     pub Data: DNS_ADDR_0,
@@ -937,7 +937,7 @@ impl windows_core::TypeKind for DNS_ADDR {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
 }
@@ -950,7 +950,7 @@ impl windows_core::TypeKind for DNS_ADDR_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_ADDR_ARRAY {
     pub MaxCount: u32,
     pub AddrCount: u32,
@@ -972,7 +972,7 @@ impl windows_core::TypeKind for DNS_ADDR_ARRAY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_APPLICATION_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -986,7 +986,7 @@ impl windows_core::TypeKind for DNS_APPLICATION_SETTINGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_ATMA_DATA {
     pub AddressType: u8,
     pub Address: [u8; 20],
@@ -1000,7 +1000,7 @@ impl windows_core::TypeKind for DNS_ATMA_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_A_DATA {
     pub IpAddress: u32,
 }
@@ -1013,7 +1013,7 @@ impl windows_core::TypeKind for DNS_A_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
     pub pwszConnectionName: windows_core::PCWSTR,
     pub dwIfIndex: u32,
@@ -1027,7 +1027,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_IFINDEX_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_IFINDEX_LIST {
     pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
     pub nEntries: u32,
@@ -1041,7 +1041,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_IFINDEX_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_NAME {
     pub wszName: [u16; 65],
 }
@@ -1054,7 +1054,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_NAME {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_NAME_LIST {
     pub cNames: u32,
     pub pNames: *mut DNS_CONNECTION_NAME,
@@ -1068,7 +1068,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_NAME_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
     pub pwszHost: windows_core::PCWSTR,
     pub pwszAppId: windows_core::PCWSTR,
@@ -1087,7 +1087,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_POLICY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
     pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
     pub nEntries: u32,
@@ -1101,7 +1101,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_POLICY_ENTRY_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
     pub Type: DNS_CONNECTION_PROXY_TYPE,
     pub Info: DNS_CONNECTION_PROXY_INFO,
@@ -1115,7 +1115,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_ELEMENT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO {
     pub Version: u32,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -1132,7 +1132,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
@@ -1146,7 +1146,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: windows_core::PWSTR,
     pub pwszUsername: windows_core::PWSTR,
@@ -1164,7 +1164,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: windows_core::PWSTR,
     pub pwszUsername: windows_core::PWSTR,
@@ -1179,7 +1179,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_CONNECTION_PROXY_INFO_EX {
     pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
     pub dwInterfaceIndex: u32,
@@ -1196,7 +1196,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_INFO_EX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_CONNECTION_PROXY_LIST {
     pub cProxies: u32,
     pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
@@ -1210,7 +1210,7 @@ impl windows_core::TypeKind for DNS_CONNECTION_PROXY_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_CUSTOM_SERVER {
     pub dwServerType: u32,
     pub ullFlags: u64,
@@ -1226,7 +1226,7 @@ impl windows_core::TypeKind for DNS_CUSTOM_SERVER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_core::PWSTR,
 }
@@ -1239,7 +1239,7 @@ impl windows_core::TypeKind for DNS_CUSTOM_SERVER_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [i8; 32],
 }
@@ -1252,7 +1252,7 @@ impl windows_core::TypeKind for DNS_CUSTOM_SERVER_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_DHCID_DATA {
     pub dwByteCount: u32,
     pub DHCID: [u8; 1],
@@ -1266,7 +1266,7 @@ impl windows_core::TypeKind for DNS_DHCID_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_DS_DATA {
     pub wKeyTag: u16,
     pub chAlgorithm: u8,
@@ -1284,7 +1284,7 @@ impl windows_core::TypeKind for DNS_DS_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER {
     pub Xid: u16,
     pub _bitfield1: u8,
@@ -1303,7 +1303,7 @@ impl windows_core::TypeKind for DNS_HEADER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
@@ -1318,7 +1318,7 @@ impl windows_core::TypeKind for DNS_HEADER_EXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_KEY_DATA {
     pub wFlags: u16,
     pub chProtocol: u8,
@@ -1336,7 +1336,7 @@ impl windows_core::TypeKind for DNS_KEY_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_LOC_DATA {
     pub wVersion: u16,
     pub wSize: u16,
@@ -1355,7 +1355,7 @@ impl windows_core::TypeKind for DNS_LOC_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_MESSAGE_BUFFER {
     pub MessageHead: DNS_HEADER,
     pub MessageBody: [i8; 1],
@@ -1369,7 +1369,7 @@ impl windows_core::TypeKind for DNS_MESSAGE_BUFFER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MINFO_DATAA {
     pub pNameMailbox: windows_core::PSTR,
     pub pNameErrorsMailbox: windows_core::PSTR,
@@ -1383,7 +1383,7 @@ impl windows_core::TypeKind for DNS_MINFO_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MINFO_DATAW {
     pub pNameMailbox: windows_core::PWSTR,
     pub pNameErrorsMailbox: windows_core::PWSTR,
@@ -1397,7 +1397,7 @@ impl windows_core::TypeKind for DNS_MINFO_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MX_DATAA {
     pub pNameExchange: windows_core::PSTR,
     pub wPreference: u16,
@@ -1412,7 +1412,7 @@ impl windows_core::TypeKind for DNS_MX_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_MX_DATAW {
     pub pNameExchange: windows_core::PWSTR,
     pub wPreference: u16,
@@ -1427,7 +1427,7 @@ impl windows_core::TypeKind for DNS_MX_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NAPTR_DATAA {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1445,7 +1445,7 @@ impl windows_core::TypeKind for DNS_NAPTR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NAPTR_DATAW {
     pub wOrder: u16,
     pub wPreference: u16,
@@ -1463,7 +1463,7 @@ impl windows_core::TypeKind for DNS_NAPTR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC3PARAM_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1481,7 +1481,7 @@ impl windows_core::TypeKind for DNS_NSEC3PARAM_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC3_DATA {
     pub chAlgorithm: u8,
     pub bFlags: u8,
@@ -1500,7 +1500,7 @@ impl windows_core::TypeKind for DNS_NSEC3_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC_DATAA {
     pub pNextDomainName: windows_core::PSTR,
     pub wTypeBitMapsLength: u16,
@@ -1516,7 +1516,7 @@ impl windows_core::TypeKind for DNS_NSEC_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NSEC_DATAW {
     pub pNextDomainName: windows_core::PWSTR,
     pub wTypeBitMapsLength: u16,
@@ -1532,7 +1532,7 @@ impl windows_core::TypeKind for DNS_NSEC_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NULL_DATA {
     pub dwByteCount: u32,
     pub Data: [u8; 1],
@@ -1546,7 +1546,7 @@ impl windows_core::TypeKind for DNS_NULL_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NXT_DATAA {
     pub pNameNext: windows_core::PSTR,
     pub wNumTypes: u16,
@@ -1561,7 +1561,7 @@ impl windows_core::TypeKind for DNS_NXT_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_NXT_DATAW {
     pub pNameNext: windows_core::PWSTR,
     pub wNumTypes: u16,
@@ -1576,7 +1576,7 @@ impl windows_core::TypeKind for DNS_NXT_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_OPT_DATA {
     pub wDataLength: u16,
     pub wPad: u16,
@@ -1591,7 +1591,7 @@ impl windows_core::TypeKind for DNS_OPT_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PROXY_INFORMATION {
     pub version: u32,
     pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
@@ -1606,7 +1606,7 @@ impl windows_core::TypeKind for DNS_PROXY_INFORMATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PTR_DATAA {
     pub pNameHost: windows_core::PSTR,
 }
@@ -1619,7 +1619,7 @@ impl windows_core::TypeKind for DNS_PTR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_PTR_DATAW {
     pub pNameHost: windows_core::PWSTR,
 }
@@ -1632,7 +1632,7 @@ impl windows_core::TypeKind for DNS_PTR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_CANCEL {
     pub Reserved: [i8; 32],
 }
@@ -1645,7 +1645,7 @@ impl windows_core::TypeKind for DNS_QUERY_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_RAW_CANCEL {
     pub reserved: [i8; 32],
 }
@@ -1658,7 +1658,7 @@ impl windows_core::TypeKind for DNS_QUERY_RAW_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_REQUEST {
     pub version: u32,
     pub resultsVersion: u32,
@@ -1685,7 +1685,7 @@ impl windows_core::TypeKind for DNS_QUERY_RAW_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_REQUEST_0 {
     pub maxSa: [i8; 32],
 }
@@ -1698,7 +1698,7 @@ impl windows_core::TypeKind for DNS_QUERY_RAW_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_RESULT {
     pub version: u32,
     pub queryStatus: i32,
@@ -1720,7 +1720,7 @@ impl windows_core::TypeKind for DNS_QUERY_RAW_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_QUERY_RAW_RESULT_0 {
     pub maxSa: [i8; 32],
 }
@@ -1733,7 +1733,7 @@ impl windows_core::TypeKind for DNS_QUERY_RAW_RESULT_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_REQUEST {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1753,7 +1753,7 @@ impl windows_core::TypeKind for DNS_QUERY_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_REQUEST3 {
     pub Version: u32,
     pub QueryName: windows_core::PCWSTR,
@@ -1777,7 +1777,7 @@ impl windows_core::TypeKind for DNS_QUERY_REQUEST3 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_QUERY_RESULT {
     pub Version: u32,
     pub QueryStatus: i32,
@@ -1794,7 +1794,7 @@ impl windows_core::TypeKind for DNS_QUERY_RESULT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_core::PSTR,
@@ -1814,7 +1814,7 @@ impl windows_core::TypeKind for DNS_RECORDA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
@@ -1912,7 +1912,7 @@ impl windows_core::TypeKind for DNS_RECORDA_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
@@ -1926,7 +1926,7 @@ impl windows_core::TypeKind for DNS_RECORDA_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORDW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_core::PWSTR,
@@ -1946,7 +1946,7 @@ impl windows_core::TypeKind for DNS_RECORDW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
@@ -2044,7 +2044,7 @@ impl windows_core::TypeKind for DNS_RECORDW_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORDW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
@@ -2058,7 +2058,7 @@ impl windows_core::TypeKind for DNS_RECORDW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
 }
@@ -2071,7 +2071,7 @@ impl windows_core::TypeKind for DNS_RECORD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_RECORD_OPTW {
     pub pNext: *mut DNS_RECORDW,
     pub pName: windows_core::PWSTR,
@@ -2092,7 +2092,7 @@ impl windows_core::TypeKind for DNS_RECORD_OPTW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
@@ -2106,7 +2106,7 @@ impl windows_core::TypeKind for DNS_RECORD_OPTW_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_RECORD_OPTW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
@@ -2120,7 +2120,7 @@ impl windows_core::TypeKind for DNS_RECORD_OPTW_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_RRSET {
     pub pFirstRR: *mut DNS_RECORDA,
     pub pLastRR: *mut DNS_RECORDA,
@@ -2134,7 +2134,7 @@ impl windows_core::TypeKind for DNS_RRSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2151,7 +2151,7 @@ impl windows_core::TypeKind for DNS_SERVICE_BROWSE_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: PDNS_SERVICE_BROWSE_CALLBACK,
     pub pBrowseCallbackV2: PDNS_QUERY_COMPLETION_ROUTINE,
@@ -2165,7 +2165,7 @@ impl windows_core::TypeKind for DNS_SERVICE_BROWSE_REQUEST_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_CANCEL {
     pub reserved: *mut core::ffi::c_void,
 }
@@ -2178,7 +2178,7 @@ impl windows_core::TypeKind for DNS_SERVICE_CANCEL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_INSTANCE {
     pub pszInstanceName: windows_core::PWSTR,
     pub pszHostName: windows_core::PWSTR,
@@ -2201,7 +2201,7 @@ impl windows_core::TypeKind for DNS_SERVICE_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2220,7 +2220,7 @@ impl windows_core::TypeKind for DNS_SERVICE_REGISTER_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
@@ -2237,7 +2237,7 @@ impl windows_core::TypeKind for DNS_SERVICE_RESOLVE_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SIG_DATAA {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -2259,7 +2259,7 @@ impl windows_core::TypeKind for DNS_SIG_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SIG_DATAW {
     pub wTypeCovered: u16,
     pub chAlgorithm: u8,
@@ -2281,7 +2281,7 @@ impl windows_core::TypeKind for DNS_SIG_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SOA_DATAA {
     pub pNamePrimaryServer: windows_core::PSTR,
     pub pNameAdministrator: windows_core::PSTR,
@@ -2300,7 +2300,7 @@ impl windows_core::TypeKind for DNS_SOA_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SOA_DATAW {
     pub pNamePrimaryServer: windows_core::PWSTR,
     pub pNameAdministrator: windows_core::PWSTR,
@@ -2319,7 +2319,7 @@ impl windows_core::TypeKind for DNS_SOA_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SRV_DATAA {
     pub pNameTarget: windows_core::PSTR,
     pub wPriority: u16,
@@ -2336,7 +2336,7 @@ impl windows_core::TypeKind for DNS_SRV_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SRV_DATAW {
     pub pNameTarget: windows_core::PWSTR,
     pub wPriority: u16,
@@ -2353,7 +2353,7 @@ impl windows_core::TypeKind for DNS_SRV_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_DATA {
     pub wSvcPriority: u16,
     pub pszTargetName: windows_core::PSTR,
@@ -2369,7 +2369,7 @@ impl windows_core::TypeKind for DNS_SVCB_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM {
     pub wSvcParamKey: u16,
     pub Anonymous: DNS_SVCB_PARAM_0,
@@ -2383,7 +2383,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union DNS_SVCB_PARAM_0 {
     pub pIpv4Hints: *mut DNS_SVCB_PARAM_IPV4,
     pub pIpv6Hints: *mut DNS_SVCB_PARAM_IPV6,
@@ -2403,7 +2403,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN {
     pub cIds: u16,
     pub rgIds: [DNS_SVCB_PARAM_ALPN_ID; 1],
@@ -2417,7 +2417,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_ALPN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_ALPN_ID {
     pub cBytes: u8,
     pub pbId: *mut u8,
@@ -2431,7 +2431,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_ALPN_ID {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_IPV4 {
     pub cIps: u16,
     pub rgIps: [u32; 1],
@@ -2445,7 +2445,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_IPV4 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_SVCB_PARAM_IPV6 {
     pub cIps: u16,
     pub rgIps: [IP6_ADDRESS; 1],
@@ -2459,7 +2459,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_IPV6 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_MANDATORY {
     pub cMandatoryKeys: u16,
     pub rgwMandatoryKeys: [u16; 1],
@@ -2473,7 +2473,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_MANDATORY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_SVCB_PARAM_UNKNOWN {
     pub cBytes: u16,
     pub pbSvcParamValue: [u8; 1],
@@ -2487,7 +2487,7 @@ impl windows_core::TypeKind for DNS_SVCB_PARAM_UNKNOWN {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TKEY_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -2511,7 +2511,7 @@ impl windows_core::TypeKind for DNS_TKEY_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TKEY_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -2535,7 +2535,7 @@ impl windows_core::TypeKind for DNS_TKEY_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TLSA_DATA {
     pub bCertUsage: u8,
     pub bSelector: u8,
@@ -2553,7 +2553,7 @@ impl windows_core::TypeKind for DNS_TLSA_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TSIG_DATAA {
     pub pNameAlgorithm: windows_core::PSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -2577,7 +2577,7 @@ impl windows_core::TypeKind for DNS_TSIG_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TSIG_DATAW {
     pub pNameAlgorithm: windows_core::PWSTR,
     pub pAlgorithmPacket: *mut u8,
@@ -2601,7 +2601,7 @@ impl windows_core::TypeKind for DNS_TSIG_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TXT_DATAA {
     pub dwStringCount: u32,
     pub pStringArray: [windows_core::PSTR; 1],
@@ -2615,7 +2615,7 @@ impl windows_core::TypeKind for DNS_TXT_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_TXT_DATAW {
     pub dwStringCount: u32,
     pub pStringArray: [windows_core::PWSTR; 1],
@@ -2629,7 +2629,7 @@ impl windows_core::TypeKind for DNS_TXT_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_UNKNOWN_DATA {
     pub dwByteCount: u32,
     pub bData: [u8; 1],
@@ -2643,7 +2643,7 @@ impl windows_core::TypeKind for DNS_UNKNOWN_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINSR_DATAA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -2659,7 +2659,7 @@ impl windows_core::TypeKind for DNS_WINSR_DATAA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINSR_DATAW {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -2675,7 +2675,7 @@ impl windows_core::TypeKind for DNS_WINSR_DATAW {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WINS_DATA {
     pub dwMappingFlag: u32,
     pub dwLookupTimeout: u32,
@@ -2692,7 +2692,7 @@ impl windows_core::TypeKind for DNS_WINS_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_QUESTION {
     pub QuestionType: u16,
     pub QuestionClass: u16,
@@ -2706,7 +2706,7 @@ impl windows_core::TypeKind for DNS_WIRE_QUESTION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DNS_WIRE_RECORD {
     pub RecordType: u16,
     pub RecordClass: u16,
@@ -2722,7 +2722,7 @@ impl windows_core::TypeKind for DNS_WIRE_RECORD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DNS_WKS_DATA {
     pub IpAddress: u32,
     pub chProtocol: u8,
@@ -2737,7 +2737,7 @@ impl windows_core::TypeKind for DNS_WKS_DATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IP4_ARRAY {
     pub AddrCount: u32,
     pub AddrArray: [u32; 1],
@@ -2752,7 +2752,7 @@ impl windows_core::TypeKind for IP4_ARRAY {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Qword: [u64; 2],
     pub IP6Dword: [u32; 4],
@@ -2771,7 +2771,7 @@ impl windows_core::TypeKind for IP6_ADDRESS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
@@ -2788,7 +2788,7 @@ impl windows_core::TypeKind for IP6_ADDRESS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDNS_QUERY_HANDLE {
     pub nameBuf: [u16; 256],
     pub wType: u16,
@@ -2805,7 +2805,7 @@ impl windows_core::TypeKind for MDNS_QUERY_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MDNS_QUERY_REQUEST {
     pub Version: u32,
     pub ulRefCount: u32,
@@ -2827,7 +2827,7 @@ impl windows_core::TypeKind for MDNS_QUERY_REQUEST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct _DnsRecordOptA {
     pub pNext: *mut DNS_RECORDA,
     pub pName: windows_core::PSTR,
@@ -2848,7 +2848,7 @@ impl windows_core::TypeKind for _DnsRecordOptA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
@@ -2862,7 +2862,7 @@ impl windows_core::TypeKind for _DnsRecordOptA_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union _DnsRecordOptA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,

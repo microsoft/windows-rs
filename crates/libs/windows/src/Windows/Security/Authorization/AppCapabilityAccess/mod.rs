@@ -55,7 +55,7 @@ pub struct IAppCapabilityStatics_Vtbl {
     CreateWithProcessIdForUser: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCapability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapability, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapability {
@@ -168,7 +168,7 @@ impl windows_core::RuntimeName for AppCapability {
 unsafe impl Send for AppCapability {}
 unsafe impl Sync for AppCapability {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapabilityAccessChangedEventArgs {}
@@ -185,7 +185,7 @@ impl windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
 unsafe impl Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);

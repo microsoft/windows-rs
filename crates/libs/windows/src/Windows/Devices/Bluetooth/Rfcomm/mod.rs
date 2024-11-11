@@ -155,7 +155,7 @@ pub struct IRfcommServiceProviderStatics_Vtbl {
     pub CreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommDeviceService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommDeviceService, super::super::super::Foundation::IClosable);
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for RfcommDeviceService {
 unsafe impl Send for RfcommDeviceService {}
 unsafe impl Sync for RfcommDeviceService {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommDeviceServicesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommDeviceServicesResult {
@@ -349,7 +349,7 @@ impl windows_core::RuntimeName for RfcommDeviceServicesResult {
 unsafe impl Send for RfcommDeviceServicesResult {}
 unsafe impl Sync for RfcommDeviceServicesResult {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommServiceId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommServiceId, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommServiceId {
@@ -440,7 +440,7 @@ impl windows_core::RuntimeName for RfcommServiceId {
 unsafe impl Send for RfcommServiceId {}
 unsafe impl Sync for RfcommServiceId {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RfcommServiceProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RfcommServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl RfcommServiceProvider {

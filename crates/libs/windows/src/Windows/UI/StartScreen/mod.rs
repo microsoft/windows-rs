@@ -321,7 +321,7 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JumpList(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JumpList, windows_core::IUnknown, windows_core::IInspectable);
 impl JumpList {
@@ -381,7 +381,7 @@ impl windows_core::RuntimeName for JumpList {
 unsafe impl Send for JumpList {}
 unsafe impl Sync for JumpList {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JumpListItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JumpListItem, windows_core::IUnknown, windows_core::IInspectable);
 impl JumpListItem {
@@ -483,7 +483,7 @@ impl windows_core::RuntimeName for JumpListItem {
 unsafe impl Send for JumpListItem {}
 unsafe impl Sync for JumpListItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SecondaryTile(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecondaryTile, windows_core::IUnknown, windows_core::IInspectable);
 impl SecondaryTile {
@@ -833,7 +833,7 @@ impl windows_core::RuntimeName for SecondaryTile {
 unsafe impl Send for SecondaryTile {}
 unsafe impl Sync for SecondaryTile {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SecondaryTileVisualElements(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 impl SecondaryTileVisualElements {
@@ -1011,7 +1011,7 @@ impl windows_core::RuntimeName for SecondaryTileVisualElements {
 unsafe impl Send for SecondaryTileVisualElements {}
 unsafe impl Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StartScreenManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartScreenManager, windows_core::IUnknown, windows_core::IInspectable);
 impl StartScreenManager {
@@ -1104,7 +1104,7 @@ impl windows_core::RuntimeName for StartScreenManager {
 unsafe impl Send for StartScreenManager {}
 unsafe impl Sync for StartScreenManager {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TileMixedRealityModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileMixedRealityModel, windows_core::IUnknown, windows_core::IInspectable);
 impl TileMixedRealityModel {
@@ -1163,7 +1163,7 @@ impl windows_core::RuntimeName for TileMixedRealityModel {
 unsafe impl Send for TileMixedRealityModel {}
 unsafe impl Sync for TileMixedRealityModel {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualElementsRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequest {
@@ -1210,7 +1210,7 @@ impl windows_core::RuntimeName for VisualElementsRequest {
 unsafe impl Send for VisualElementsRequest {}
 unsafe impl Sync for VisualElementsRequest {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualElementsRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequestDeferral {
@@ -1232,7 +1232,7 @@ impl windows_core::RuntimeName for VisualElementsRequestDeferral {
 unsafe impl Send for VisualElementsRequestDeferral {}
 unsafe impl Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VisualElementsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VisualElementsRequestedEventArgs {
@@ -1257,7 +1257,7 @@ impl windows_core::RuntimeName for VisualElementsRequestedEventArgs {
 unsafe impl Send for VisualElementsRequestedEventArgs {}
 unsafe impl Sync for VisualElementsRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
     pub const Dark: Self = Self(0i32);
@@ -1270,7 +1270,7 @@ impl windows_core::RuntimeType for ForegroundText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
     pub const Arguments: Self = Self(0i32);
@@ -1283,7 +1283,7 @@ impl windows_core::RuntimeType for JumpListItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
     pub const None: Self = Self(0i32);
@@ -1297,7 +1297,7 @@ impl windows_core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
     pub const Default: Self = Self(0i32);
@@ -1310,7 +1310,7 @@ impl windows_core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
     pub const None: Self = Self(0u32);
@@ -1358,7 +1358,7 @@ impl core::ops::Not for TileOptions {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TileSize(pub i32);
 impl TileSize {
     pub const Default: Self = Self(0i32);

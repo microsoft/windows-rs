@@ -274,7 +274,7 @@ pub type XPS_STYLE_SIMULATION = i32;
 pub type XPS_THUMBNAIL_SIZE = i32;
 pub type XPS_TILE_MODE = i32;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCSTR,
@@ -283,7 +283,7 @@ pub struct DOCINFOA {
     pub fwType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_sys::core::PCWSTR,
@@ -292,7 +292,7 @@ pub struct DOCINFOW {
     pub fwType: u32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
     pub ptSize: super::super::Foundation::POINT,
@@ -300,7 +300,7 @@ pub struct DRAWPATRECT {
     pub wPattern: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -309,39 +309,39 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lHeightOffset: i32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
     pub bSetPageDevice: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
     pub PageNumber: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
     pub sRGB: XPS_COLOR_0_0,
     pub scRGB: XPS_COLOR_0_1,
     pub context: XPS_COLOR_0_2,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_2 {
     pub channelCount: u8,
     pub channels: [f32; 9],
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
     pub red: u8,
@@ -349,7 +349,7 @@ pub struct XPS_COLOR_0_0 {
     pub blue: u8,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_COLOR_0_1 {
     pub alpha: f32,
     pub red: f32,
@@ -357,13 +357,13 @@ pub struct XPS_COLOR_0_1 {
     pub blue: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
@@ -371,7 +371,7 @@ pub struct XPS_GLYPH_INDEX {
     pub verticalOffset: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
@@ -379,7 +379,7 @@ pub struct XPS_GLYPH_MAPPING {
     pub glyphIndicesLength: u16,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -389,13 +389,13 @@ pub struct XPS_MATRIX {
     pub m32: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
@@ -403,7 +403,7 @@ pub struct XPS_RECT {
     pub height: f32,
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,

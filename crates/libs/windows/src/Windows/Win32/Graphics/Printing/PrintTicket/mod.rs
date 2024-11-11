@@ -116,13 +116,13 @@ pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
 pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDefaultDevmodeType(pub i32);
 impl windows_core::TypeKind for EDefaultDevmodeType {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EPrintTicketScope(pub i32);
 impl windows_core::TypeKind for EPrintTicketScope {
     type TypeKind = windows_core::CopyType;
