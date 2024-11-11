@@ -115,6 +115,15 @@ impl Class {
             });
 
         if let Some(default_interface) = self.default_interface() {
+            if default_interface.is_async() {
+                let default_interface = default_interface.write(writer);
+
+                return quote! {
+                    #cfg
+                    pub type #name = #default_interface;
+                }
+            }
+
             let is_exclusive = default_interface.is_exclusive();
             let default_interface = default_interface.write(writer);
 
@@ -191,6 +200,7 @@ impl Class {
         }
     }
 
+    // TODO: this can't use required_interfaces because the default might be `Type::Object`?
     pub fn default_interface(&self) -> Option<Type> {
         self.def
             .interface_impls()

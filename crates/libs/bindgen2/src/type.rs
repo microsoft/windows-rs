@@ -508,6 +508,13 @@ impl Type {
         matches!(self, Self::ArrayRef(_))
     }
 
+    pub fn is_async(&self) -> bool {
+        match self {
+            Self::Item(Item::Interface(item)) => item.def.is_async(),
+            _ => false,
+        }
+    }
+
     pub fn is_copyable(&self) -> bool {
         match self {
             Self::Item(item) => item.is_copyable(),

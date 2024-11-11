@@ -114,6 +114,10 @@ impl TypeDef {
             }
         }
 
+        self.is_async()
+    }
+
+    pub fn is_async(&self) -> bool {
         matches!(
             TypeName(self.namespace(), self.name()),
             TypeName::IAsyncAction
