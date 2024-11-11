@@ -1977,6 +1977,8 @@ unsafe impl windows_core::Interface for DtdEntity {
 impl windows_core::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
 }
+unsafe impl Send for DtdEntity {}
+unsafe impl Sync for DtdEntity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DtdNotation(windows_core::IUnknown);
@@ -2236,6 +2238,8 @@ unsafe impl windows_core::Interface for DtdNotation {
 impl windows_core::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
 }
+unsafe impl Send for DtdNotation {}
+unsafe impl Sync for DtdNotation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlAttribute(windows_core::IUnknown);
@@ -2506,6 +2510,8 @@ unsafe impl windows_core::Interface for XmlAttribute {
 impl windows_core::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
 }
+unsafe impl Send for XmlAttribute {}
+unsafe impl Sync for XmlAttribute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlCDataSection(windows_core::IUnknown);
@@ -2799,6 +2805,8 @@ unsafe impl windows_core::Interface for XmlCDataSection {
 impl windows_core::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
 }
+unsafe impl Send for XmlCDataSection {}
+unsafe impl Sync for XmlCDataSection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlComment(windows_core::IUnknown);
@@ -3085,6 +3093,8 @@ unsafe impl windows_core::Interface for XmlComment {
 impl windows_core::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
 }
+unsafe impl Send for XmlComment {}
+unsafe impl Sync for XmlComment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocument(windows_core::IUnknown);
@@ -3549,6 +3559,8 @@ unsafe impl windows_core::Interface for XmlDocument {
 impl windows_core::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
 }
+unsafe impl Send for XmlDocument {}
+unsafe impl Sync for XmlDocument {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentFragment(windows_core::IUnknown);
@@ -3794,6 +3806,8 @@ unsafe impl windows_core::Interface for XmlDocumentFragment {
 impl windows_core::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
 }
+unsafe impl Send for XmlDocumentFragment {}
+unsafe impl Sync for XmlDocumentFragment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentType(windows_core::IUnknown);
@@ -4062,6 +4076,8 @@ unsafe impl windows_core::Interface for XmlDocumentType {
 impl windows_core::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
 }
+unsafe impl Send for XmlDocumentType {}
+unsafe impl Sync for XmlDocumentType {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDomImplementation(windows_core::IUnknown);
@@ -4088,6 +4104,8 @@ unsafe impl windows_core::Interface for XmlDomImplementation {
 impl windows_core::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
 }
+unsafe impl Send for XmlDomImplementation {}
+unsafe impl Sync for XmlDomImplementation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlElement(windows_core::IUnknown);
@@ -4434,6 +4452,8 @@ unsafe impl windows_core::Interface for XmlElement {
 impl windows_core::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
 }
+unsafe impl Send for XmlElement {}
+unsafe impl Sync for XmlElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlEntityReference(windows_core::IUnknown);
@@ -4679,6 +4699,8 @@ unsafe impl windows_core::Interface for XmlEntityReference {
 impl windows_core::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
 }
+unsafe impl Send for XmlEntityReference {}
+unsafe impl Sync for XmlEntityReference {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlLoadSettings(windows_core::IUnknown);
@@ -4757,6 +4779,8 @@ unsafe impl windows_core::Interface for XmlLoadSettings {
 impl windows_core::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
 }
+unsafe impl Send for XmlLoadSettings {}
+unsafe impl Sync for XmlLoadSettings {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4889,6 +4913,10 @@ impl windows_core::RuntimeName for XmlNamedNodeMap {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNamedNodeMap";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for XmlNamedNodeMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for XmlNamedNodeMap {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlNodeList(windows_core::IUnknown);
@@ -4965,6 +4993,10 @@ unsafe impl windows_core::Interface for XmlNodeList {
 impl windows_core::RuntimeName for XmlNodeList {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNodeList";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for XmlNodeList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for XmlNodeList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlProcessingInstruction(windows_core::IUnknown);
@@ -5228,6 +5260,8 @@ unsafe impl windows_core::Interface for XmlProcessingInstruction {
 impl windows_core::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
 }
+unsafe impl Send for XmlProcessingInstruction {}
+unsafe impl Sync for XmlProcessingInstruction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlText(windows_core::IUnknown);
@@ -5521,6 +5555,8 @@ unsafe impl windows_core::Interface for XmlText {
 impl windows_core::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";
 }
+unsafe impl Send for XmlText {}
+unsafe impl Sync for XmlText {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct NodeType(pub i32);

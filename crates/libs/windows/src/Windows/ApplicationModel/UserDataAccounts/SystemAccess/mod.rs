@@ -664,6 +664,8 @@ unsafe impl windows_core::Interface for DeviceAccountConfiguration {
 impl windows_core::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
 }
+unsafe impl Send for DeviceAccountConfiguration {}
+unsafe impl Sync for DeviceAccountConfiguration {}
 pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
     #[cfg(feature = "Foundation_Collections")]

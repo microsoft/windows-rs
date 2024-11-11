@@ -70,3 +70,5 @@ unsafe impl windows_core::Interface for HolographicKeyboard {
 impl windows_core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
+unsafe impl Send for HolographicKeyboard {}
+unsafe impl Sync for HolographicKeyboard {}

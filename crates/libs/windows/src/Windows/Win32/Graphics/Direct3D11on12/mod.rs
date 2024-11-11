@@ -89,6 +89,10 @@ impl ID3D11On12Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Send for ID3D11On12Device {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Sync for ID3D11On12Device {}
 windows_core::imp::define_interface!(ID3D11On12Device1, ID3D11On12Device1_Vtbl, 0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
 impl core::ops::Deref for ID3D11On12Device1 {
     type Target = ID3D11On12Device;
@@ -130,6 +134,10 @@ impl ID3D11On12Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Send for ID3D11On12Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Sync for ID3D11On12Device1 {}
 windows_core::imp::define_interface!(ID3D11On12Device2, ID3D11On12Device2_Vtbl, 0xdc90f331_4740_43fa_866e_67f12cb58223);
 impl core::ops::Deref for ID3D11On12Device2 {
     type Target = ID3D11On12Device1;
@@ -197,6 +205,10 @@ impl ID3D11On12Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 impl windows_core::RuntimeName for ID3D11On12Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Send for ID3D11On12Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
+unsafe impl Sync for ID3D11On12Device2 {}
 #[repr(C)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3D11_RESOURCE_FLAGS {

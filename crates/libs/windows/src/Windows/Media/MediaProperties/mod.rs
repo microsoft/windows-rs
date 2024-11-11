@@ -833,6 +833,8 @@ unsafe impl windows_core::Interface for AudioEncodingProperties {
 impl windows_core::RuntimeName for AudioEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
 }
+unsafe impl Send for AudioEncodingProperties {}
+unsafe impl Sync for AudioEncodingProperties {}
 pub struct Av1ProfileIds;
 impl Av1ProfileIds {
     pub fn MainChromaSubsampling420BitDepth8() -> windows_core::Result<i32> {
@@ -972,6 +974,8 @@ unsafe impl windows_core::Interface for ContainerEncodingProperties {
 impl windows_core::RuntimeName for ContainerEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
 }
+unsafe impl Send for ContainerEncodingProperties {}
+unsafe impl Sync for ContainerEncodingProperties {}
 pub struct H264ProfileIds;
 impl H264ProfileIds {
     pub fn ConstrainedBaseline() -> windows_core::Result<i32> {
@@ -1311,6 +1315,8 @@ unsafe impl windows_core::Interface for ImageEncodingProperties {
 impl windows_core::RuntimeName for ImageEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ImageEncodingProperties";
 }
+unsafe impl Send for ImageEncodingProperties {}
+unsafe impl Sync for ImageEncodingProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaEncodingProfile(windows_core::IUnknown);
@@ -1532,6 +1538,8 @@ unsafe impl windows_core::Interface for MediaEncodingProfile {
 impl windows_core::RuntimeName for MediaEncodingProfile {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingProfile";
 }
+unsafe impl Send for MediaEncodingProfile {}
+unsafe impl Sync for MediaEncodingProfile {}
 pub struct MediaEncodingSubtypes;
 impl MediaEncodingSubtypes {
     pub fn Aac() -> windows_core::Result<windows_core::HSTRING> {
@@ -1970,6 +1978,10 @@ unsafe impl windows_core::Interface for MediaPropertySet {
 impl windows_core::RuntimeName for MediaPropertySet {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaPropertySet";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for MediaPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for MediaPropertySet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaRatio(windows_core::IUnknown);
@@ -2008,6 +2020,8 @@ unsafe impl windows_core::Interface for MediaRatio {
 impl windows_core::RuntimeName for MediaRatio {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaRatio";
 }
+unsafe impl Send for MediaRatio {}
+unsafe impl Sync for MediaRatio {}
 pub struct Mpeg2ProfileIds;
 impl Mpeg2ProfileIds {
     pub fn Simple() -> windows_core::Result<i32> {
@@ -2141,6 +2155,8 @@ unsafe impl windows_core::Interface for TimedMetadataEncodingProperties {
 impl windows_core::RuntimeName for TimedMetadataEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
 }
+unsafe impl Send for TimedMetadataEncodingProperties {}
+unsafe impl Sync for TimedMetadataEncodingProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoEncodingProperties(windows_core::IUnknown);
@@ -2326,6 +2342,8 @@ unsafe impl windows_core::Interface for VideoEncodingProperties {
 impl windows_core::RuntimeName for VideoEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.VideoEncodingProperties";
 }
+unsafe impl Send for VideoEncodingProperties {}
+unsafe impl Sync for VideoEncodingProperties {}
 pub struct Vp9ProfileIds;
 impl Vp9ProfileIds {
     pub fn Profile0ChromaSubsampling420BitDepth8() -> windows_core::Result<i32> {

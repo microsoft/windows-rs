@@ -253,6 +253,8 @@ unsafe impl windows_core::Interface for Direct3D11CaptureFrame {
 impl windows_core::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
 }
+unsafe impl Send for Direct3D11CaptureFrame {}
+unsafe impl Sync for Direct3D11CaptureFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Direct3D11CaptureFramePool(windows_core::IUnknown);
@@ -349,6 +351,8 @@ unsafe impl windows_core::Interface for Direct3D11CaptureFramePool {
 impl windows_core::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
 }
+unsafe impl Send for Direct3D11CaptureFramePool {}
+unsafe impl Sync for Direct3D11CaptureFramePool {}
 pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[cfg(feature = "Security_Authorization_AppCapabilityAccess")]
@@ -441,6 +445,8 @@ unsafe impl windows_core::Interface for GraphicsCaptureItem {
 impl windows_core::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
 }
+unsafe impl Send for GraphicsCaptureItem {}
+unsafe impl Sync for GraphicsCaptureItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GraphicsCapturePicker(windows_core::IUnknown);
@@ -471,6 +477,8 @@ unsafe impl windows_core::Interface for GraphicsCapturePicker {
 impl windows_core::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
 }
+unsafe impl Send for GraphicsCapturePicker {}
+unsafe impl Sync for GraphicsCapturePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GraphicsCaptureSession(windows_core::IUnknown);
@@ -561,6 +569,8 @@ unsafe impl windows_core::Interface for GraphicsCaptureSession {
 impl windows_core::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
 }
+unsafe impl Send for GraphicsCaptureSession {}
+unsafe impl Sync for GraphicsCaptureSession {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GraphicsCaptureAccessKind(pub i32);

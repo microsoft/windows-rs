@@ -99,6 +99,30 @@ impl TypeDef {
         None
     }
 
+    pub fn is_agile(&self) -> bool {
+        for attribute in self.attributes() {
+            match attribute.name() {
+                "AgileAttribute" => return true,
+                "MarshalingBehaviorAttribute" => {
+                    if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
+                        if let Value::I32(2) = **value {
+                            return true;
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        matches!(
+            TypeName(self.namespace(), self.name()),
+            TypeName::IAsyncAction
+                | TypeName::IAsyncActionWithProgress
+                | TypeName::IAsyncOperation
+                | TypeName::IAsyncOperationWithProgress
+        )
+    }
+
     // pub fn size(&self) -> usize {
     //     match self.kind() {
     //         TypeKind::Struct => {

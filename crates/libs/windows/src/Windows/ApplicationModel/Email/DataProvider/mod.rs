@@ -641,6 +641,8 @@ unsafe impl windows_core::Interface for EmailDataProviderConnection {
 impl windows_core::RuntimeName for EmailDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection";
 }
+unsafe impl Send for EmailDataProviderConnection {}
+unsafe impl Sync for EmailDataProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailDataProviderTriggerDetails(windows_core::IUnknown);
@@ -664,6 +666,8 @@ unsafe impl windows_core::Interface for EmailDataProviderTriggerDetails {
 impl windows_core::RuntimeName for EmailDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails";
 }
+unsafe impl Send for EmailDataProviderTriggerDetails {}
+unsafe impl Sync for EmailDataProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderRequest(windows_core::IUnknown);
@@ -718,6 +722,8 @@ unsafe impl windows_core::Interface for EmailMailboxCreateFolderRequest {
 impl windows_core::RuntimeName for EmailMailboxCreateFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest";
 }
+unsafe impl Send for EmailMailboxCreateFolderRequest {}
+unsafe impl Sync for EmailMailboxCreateFolderRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(windows_core::IUnknown);
@@ -748,6 +754,8 @@ unsafe impl windows_core::Interface for EmailMailboxCreateFolderRequestEventArgs
 impl windows_core::RuntimeName for EmailMailboxCreateFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxCreateFolderRequestEventArgs {}
+unsafe impl Sync for EmailMailboxCreateFolderRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDeleteFolderRequest(windows_core::IUnknown);
@@ -792,6 +800,8 @@ unsafe impl windows_core::Interface for EmailMailboxDeleteFolderRequest {
 impl windows_core::RuntimeName for EmailMailboxDeleteFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest";
 }
+unsafe impl Send for EmailMailboxDeleteFolderRequest {}
+unsafe impl Sync for EmailMailboxDeleteFolderRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(windows_core::IUnknown);
@@ -822,6 +832,8 @@ unsafe impl windows_core::Interface for EmailMailboxDeleteFolderRequestEventArgs
 impl windows_core::RuntimeName for EmailMailboxDeleteFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxDeleteFolderRequestEventArgs {}
+unsafe impl Sync for EmailMailboxDeleteFolderRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadAttachmentRequest(windows_core::IUnknown);
@@ -873,6 +885,8 @@ unsafe impl windows_core::Interface for EmailMailboxDownloadAttachmentRequest {
 impl windows_core::RuntimeName for EmailMailboxDownloadAttachmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest";
 }
+unsafe impl Send for EmailMailboxDownloadAttachmentRequest {}
+unsafe impl Sync for EmailMailboxDownloadAttachmentRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(windows_core::IUnknown);
@@ -903,6 +917,8 @@ unsafe impl windows_core::Interface for EmailMailboxDownloadAttachmentRequestEve
 impl windows_core::RuntimeName for EmailMailboxDownloadAttachmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
+unsafe impl Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadMessageRequest(windows_core::IUnknown);
@@ -947,6 +963,8 @@ unsafe impl windows_core::Interface for EmailMailboxDownloadMessageRequest {
 impl windows_core::RuntimeName for EmailMailboxDownloadMessageRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest";
 }
+unsafe impl Send for EmailMailboxDownloadMessageRequest {}
+unsafe impl Sync for EmailMailboxDownloadMessageRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(windows_core::IUnknown);
@@ -977,6 +995,8 @@ unsafe impl windows_core::Interface for EmailMailboxDownloadMessageRequestEventA
 impl windows_core::RuntimeName for EmailMailboxDownloadMessageRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxDownloadMessageRequestEventArgs {}
+unsafe impl Sync for EmailMailboxDownloadMessageRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxEmptyFolderRequest(windows_core::IUnknown);
@@ -1021,6 +1041,8 @@ unsafe impl windows_core::Interface for EmailMailboxEmptyFolderRequest {
 impl windows_core::RuntimeName for EmailMailboxEmptyFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest";
 }
+unsafe impl Send for EmailMailboxEmptyFolderRequest {}
+unsafe impl Sync for EmailMailboxEmptyFolderRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(windows_core::IUnknown);
@@ -1051,6 +1073,8 @@ unsafe impl windows_core::Interface for EmailMailboxEmptyFolderRequestEventArgs 
 impl windows_core::RuntimeName for EmailMailboxEmptyFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxEmptyFolderRequestEventArgs {}
+unsafe impl Sync for EmailMailboxEmptyFolderRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxForwardMeetingRequest(windows_core::IUnknown);
@@ -1131,6 +1155,8 @@ unsafe impl windows_core::Interface for EmailMailboxForwardMeetingRequest {
 impl windows_core::RuntimeName for EmailMailboxForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest";
 }
+unsafe impl Send for EmailMailboxForwardMeetingRequest {}
+unsafe impl Sync for EmailMailboxForwardMeetingRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(windows_core::IUnknown);
@@ -1161,6 +1187,8 @@ unsafe impl windows_core::Interface for EmailMailboxForwardMeetingRequestEventAr
 impl windows_core::RuntimeName for EmailMailboxForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxForwardMeetingRequestEventArgs {}
+unsafe impl Sync for EmailMailboxForwardMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(windows_core::IUnknown);
@@ -1208,6 +1236,8 @@ unsafe impl windows_core::Interface for EmailMailboxGetAutoReplySettingsRequest 
 impl windows_core::RuntimeName for EmailMailboxGetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest";
 }
+unsafe impl Send for EmailMailboxGetAutoReplySettingsRequest {}
+unsafe impl Sync for EmailMailboxGetAutoReplySettingsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(windows_core::IUnknown);
@@ -1238,6 +1268,8 @@ unsafe impl windows_core::Interface for EmailMailboxGetAutoReplySettingsRequestE
 impl windows_core::RuntimeName for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
+unsafe impl Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxMoveFolderRequest(windows_core::IUnknown);
@@ -1296,6 +1328,8 @@ unsafe impl windows_core::Interface for EmailMailboxMoveFolderRequest {
 impl windows_core::RuntimeName for EmailMailboxMoveFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest";
 }
+unsafe impl Send for EmailMailboxMoveFolderRequest {}
+unsafe impl Sync for EmailMailboxMoveFolderRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(windows_core::IUnknown);
@@ -1326,6 +1360,8 @@ unsafe impl windows_core::Interface for EmailMailboxMoveFolderRequestEventArgs {
 impl windows_core::RuntimeName for EmailMailboxMoveFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxMoveFolderRequestEventArgs {}
+unsafe impl Sync for EmailMailboxMoveFolderRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(windows_core::IUnknown);
@@ -1398,6 +1434,8 @@ unsafe impl windows_core::Interface for EmailMailboxProposeNewTimeForMeetingRequ
 impl windows_core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest";
 }
+unsafe impl Send for EmailMailboxProposeNewTimeForMeetingRequest {}
+unsafe impl Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(windows_core::IUnknown);
@@ -1428,6 +1466,8 @@ unsafe impl windows_core::Interface for EmailMailboxProposeNewTimeForMeetingRequ
 impl windows_core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
+unsafe impl Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxResolveRecipientsRequest(windows_core::IUnknown);
@@ -1477,6 +1517,8 @@ unsafe impl windows_core::Interface for EmailMailboxResolveRecipientsRequest {
 impl windows_core::RuntimeName for EmailMailboxResolveRecipientsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest";
 }
+unsafe impl Send for EmailMailboxResolveRecipientsRequest {}
+unsafe impl Sync for EmailMailboxResolveRecipientsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(windows_core::IUnknown);
@@ -1507,6 +1549,8 @@ unsafe impl windows_core::Interface for EmailMailboxResolveRecipientsRequestEven
 impl windows_core::RuntimeName for EmailMailboxResolveRecipientsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxResolveRecipientsRequestEventArgs {}
+unsafe impl Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequest(windows_core::IUnknown);
@@ -1582,6 +1626,8 @@ unsafe impl windows_core::Interface for EmailMailboxServerSearchReadBatchRequest
 impl windows_core::RuntimeName for EmailMailboxServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest";
 }
+unsafe impl Send for EmailMailboxServerSearchReadBatchRequest {}
+unsafe impl Sync for EmailMailboxServerSearchReadBatchRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
@@ -1612,6 +1658,8 @@ unsafe impl windows_core::Interface for EmailMailboxServerSearchReadBatchRequest
 impl windows_core::RuntimeName for EmailMailboxServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
+unsafe impl Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(windows_core::IUnknown);
@@ -1656,6 +1704,8 @@ unsafe impl windows_core::Interface for EmailMailboxSetAutoReplySettingsRequest 
 impl windows_core::RuntimeName for EmailMailboxSetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest";
 }
+unsafe impl Send for EmailMailboxSetAutoReplySettingsRequest {}
+unsafe impl Sync for EmailMailboxSetAutoReplySettingsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(windows_core::IUnknown);
@@ -1686,6 +1736,8 @@ unsafe impl windows_core::Interface for EmailMailboxSetAutoReplySettingsRequestE
 impl windows_core::RuntimeName for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
+unsafe impl Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManagerSyncRequest(windows_core::IUnknown);
@@ -1723,6 +1775,8 @@ unsafe impl windows_core::Interface for EmailMailboxSyncManagerSyncRequest {
 impl windows_core::RuntimeName for EmailMailboxSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest";
 }
+unsafe impl Send for EmailMailboxSyncManagerSyncRequest {}
+unsafe impl Sync for EmailMailboxSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
@@ -1753,6 +1807,8 @@ unsafe impl windows_core::Interface for EmailMailboxSyncManagerSyncRequestEventA
 impl windows_core::RuntimeName for EmailMailboxSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
+unsafe impl Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(windows_core::IUnknown);
@@ -1825,6 +1881,8 @@ unsafe impl windows_core::Interface for EmailMailboxUpdateMeetingResponseRequest
 impl windows_core::RuntimeName for EmailMailboxUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest";
 }
+unsafe impl Send for EmailMailboxUpdateMeetingResponseRequest {}
+unsafe impl Sync for EmailMailboxUpdateMeetingResponseRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(windows_core::IUnknown);
@@ -1855,6 +1913,8 @@ unsafe impl windows_core::Interface for EmailMailboxUpdateMeetingResponseRequest
 impl windows_core::RuntimeName for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
+unsafe impl Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxValidateCertificatesRequest(windows_core::IUnknown);
@@ -1904,6 +1964,8 @@ unsafe impl windows_core::Interface for EmailMailboxValidateCertificatesRequest 
 impl windows_core::RuntimeName for EmailMailboxValidateCertificatesRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest";
 }
+unsafe impl Send for EmailMailboxValidateCertificatesRequest {}
+unsafe impl Sync for EmailMailboxValidateCertificatesRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(windows_core::IUnknown);
@@ -1934,3 +1996,5 @@ unsafe impl windows_core::Interface for EmailMailboxValidateCertificatesRequestE
 impl windows_core::RuntimeName for EmailMailboxValidateCertificatesRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs";
 }
+unsafe impl Send for EmailMailboxValidateCertificatesRequestEventArgs {}
+unsafe impl Sync for EmailMailboxValidateCertificatesRequestEventArgs {}

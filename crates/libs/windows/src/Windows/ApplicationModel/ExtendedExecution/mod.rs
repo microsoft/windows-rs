@@ -49,6 +49,8 @@ unsafe impl windows_core::Interface for ExtendedExecutionRevokedEventArgs {
 impl windows_core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
 }
+unsafe impl Send for ExtendedExecutionRevokedEventArgs {}
+unsafe impl Sync for ExtendedExecutionRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionSession(windows_core::IUnknown);
@@ -131,6 +133,8 @@ unsafe impl windows_core::Interface for ExtendedExecutionSession {
 impl windows_core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";
 }
+unsafe impl Send for ExtendedExecutionSession {}
+unsafe impl Sync for ExtendedExecutionSession {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ExtendedExecutionReason(pub i32);

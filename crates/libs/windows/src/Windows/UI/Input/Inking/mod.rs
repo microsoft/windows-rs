@@ -1444,6 +1444,8 @@ unsafe impl windows_core::Interface for InkDrawingAttributes {
 impl windows_core::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
 }
+unsafe impl Send for InkDrawingAttributes {}
+unsafe impl Sync for InkDrawingAttributes {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkDrawingAttributesPencilProperties(windows_core::IUnknown);
@@ -1471,6 +1473,8 @@ unsafe impl windows_core::Interface for InkDrawingAttributesPencilProperties {
 impl windows_core::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
 }
+unsafe impl Send for InkDrawingAttributesPencilProperties {}
+unsafe impl Sync for InkDrawingAttributesPencilProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputConfiguration(windows_core::IUnknown);
@@ -1520,6 +1524,8 @@ unsafe impl windows_core::Interface for InkInputConfiguration {
 impl windows_core::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
 }
+unsafe impl Send for InkInputConfiguration {}
+unsafe impl Sync for InkInputConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputProcessingConfiguration(windows_core::IUnknown);
@@ -1558,6 +1564,8 @@ unsafe impl windows_core::Interface for InkInputProcessingConfiguration {
 impl windows_core::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
 }
+unsafe impl Send for InkInputProcessingConfiguration {}
+unsafe impl Sync for InkInputProcessingConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkManager(windows_core::IUnknown);
@@ -1820,6 +1828,8 @@ unsafe impl windows_core::Interface for InkModelerAttributes {
 impl windows_core::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
 }
+unsafe impl Send for InkModelerAttributes {}
+unsafe impl Sync for InkModelerAttributes {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPoint(windows_core::IUnknown);
@@ -1892,6 +1902,8 @@ unsafe impl windows_core::Interface for InkPoint {
 impl windows_core::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
 }
+unsafe impl Send for InkPoint {}
+unsafe impl Sync for InkPoint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenter(windows_core::IUnknown);
@@ -2038,6 +2050,8 @@ unsafe impl windows_core::Interface for InkPresenter {
 impl windows_core::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
 }
+unsafe impl Send for InkPresenter {}
+unsafe impl Sync for InkPresenter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterProtractor(windows_core::IUnknown);
@@ -2198,6 +2212,8 @@ unsafe impl windows_core::Interface for InkPresenterProtractor {
 impl windows_core::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
 }
+unsafe impl Send for InkPresenterProtractor {}
+unsafe impl Sync for InkPresenterProtractor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterRuler(windows_core::IUnknown);
@@ -2325,6 +2341,8 @@ unsafe impl windows_core::Interface for InkPresenterRuler {
 impl windows_core::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
 }
+unsafe impl Send for InkPresenterRuler {}
+unsafe impl Sync for InkPresenterRuler {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognitionResult(windows_core::IUnknown);
@@ -2364,6 +2382,8 @@ unsafe impl windows_core::Interface for InkRecognitionResult {
 impl windows_core::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
 }
+unsafe impl Send for InkRecognitionResult {}
+unsafe impl Sync for InkRecognitionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizer(windows_core::IUnknown);
@@ -2570,6 +2590,8 @@ unsafe impl windows_core::Interface for InkStroke {
 impl windows_core::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
 }
+unsafe impl Send for InkStroke {}
+unsafe impl Sync for InkStroke {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeBuilder(windows_core::IUnknown);
@@ -2909,6 +2931,8 @@ unsafe impl windows_core::Interface for InkStrokeInput {
 impl windows_core::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
 }
+unsafe impl Send for InkStrokeInput {}
+unsafe impl Sync for InkStrokeInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeRenderingSegment(windows_core::IUnknown);
@@ -2974,6 +2998,8 @@ unsafe impl windows_core::Interface for InkStrokeRenderingSegment {
 impl windows_core::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
 }
+unsafe impl Send for InkStrokeRenderingSegment {}
+unsafe impl Sync for InkStrokeRenderingSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokesCollectedEventArgs(windows_core::IUnknown);
@@ -3178,6 +3204,8 @@ unsafe impl windows_core::Interface for InkUnprocessedInput {
 impl windows_core::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
 }
+unsafe impl Send for InkUnprocessedInput {}
+unsafe impl Sync for InkUnprocessedInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenAndInkSettings(windows_core::IUnknown);
@@ -3250,6 +3278,8 @@ unsafe impl windows_core::Interface for PenAndInkSettings {
 impl windows_core::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";
 }
+unsafe impl Send for PenAndInkSettings {}
+unsafe impl Sync for PenAndInkSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HandwritingLineHeight(pub i32);

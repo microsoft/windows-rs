@@ -377,6 +377,8 @@ unsafe impl windows_core::Interface for LampArrayBitmapEffect {
 impl windows_core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
 }
+unsafe impl Send for LampArrayBitmapEffect {}
+unsafe impl Sync for LampArrayBitmapEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBitmapRequestedEventArgs(windows_core::IUnknown);
@@ -408,6 +410,8 @@ unsafe impl windows_core::Interface for LampArrayBitmapRequestedEventArgs {
 impl windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
 }
+unsafe impl Send for LampArrayBitmapRequestedEventArgs {}
+unsafe impl Sync for LampArrayBitmapRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBlinkEffect(windows_core::IUnknown);
@@ -539,6 +543,8 @@ unsafe impl windows_core::Interface for LampArrayBlinkEffect {
 impl windows_core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
 }
+unsafe impl Send for LampArrayBlinkEffect {}
+unsafe impl Sync for LampArrayBlinkEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayColorRampEffect(windows_core::IUnknown);
@@ -626,6 +632,8 @@ unsafe impl windows_core::Interface for LampArrayColorRampEffect {
 impl windows_core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
 }
+unsafe impl Send for LampArrayColorRampEffect {}
+unsafe impl Sync for LampArrayColorRampEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayCustomEffect(windows_core::IUnknown);
@@ -703,6 +711,8 @@ unsafe impl windows_core::Interface for LampArrayCustomEffect {
 impl windows_core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
 }
+unsafe impl Send for LampArrayCustomEffect {}
+unsafe impl Sync for LampArrayCustomEffect {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -851,6 +861,10 @@ unsafe impl windows_core::Interface for LampArrayEffectPlaylist {
 impl windows_core::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for LampArrayEffectPlaylist {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for LampArrayEffectPlaylist {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArraySolidEffect(windows_core::IUnknown);
@@ -938,6 +952,8 @@ unsafe impl windows_core::Interface for LampArraySolidEffect {
 impl windows_core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
 }
+unsafe impl Send for LampArraySolidEffect {}
+unsafe impl Sync for LampArraySolidEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayUpdateRequestedEventArgs(windows_core::IUnknown);
@@ -981,6 +997,8 @@ unsafe impl windows_core::Interface for LampArrayUpdateRequestedEventArgs {
 impl windows_core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
 }
+unsafe impl Send for LampArrayUpdateRequestedEventArgs {}
+unsafe impl Sync for LampArrayUpdateRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);

@@ -1130,6 +1130,8 @@ unsafe impl windows_core::Interface for ErrorDetails {
 impl windows_core::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
 }
+unsafe impl Send for ErrorDetails {}
+unsafe impl Sync for ErrorDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileLoggingSession(windows_core::IUnknown);
@@ -1211,6 +1213,8 @@ unsafe impl windows_core::Interface for FileLoggingSession {
 impl windows_core::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
 }
+unsafe impl Send for FileLoggingSession {}
+unsafe impl Sync for FileLoggingSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LogFileGeneratedEventArgs(windows_core::IUnknown);
@@ -1235,6 +1239,8 @@ unsafe impl windows_core::Interface for LogFileGeneratedEventArgs {
 impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
 }
+unsafe impl Send for LogFileGeneratedEventArgs {}
+unsafe impl Sync for LogFileGeneratedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingActivity(windows_core::IUnknown);
@@ -1403,6 +1409,8 @@ unsafe impl windows_core::Interface for LoggingActivity {
 impl windows_core::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
 }
+unsafe impl Send for LoggingActivity {}
+unsafe impl Sync for LoggingActivity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannel(windows_core::IUnknown);
@@ -1599,6 +1607,8 @@ unsafe impl windows_core::Interface for LoggingChannel {
 impl windows_core::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
 }
+unsafe impl Send for LoggingChannel {}
+unsafe impl Sync for LoggingChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannelOptions(windows_core::IUnknown);
@@ -1643,6 +1653,8 @@ unsafe impl windows_core::Interface for LoggingChannelOptions {
 impl windows_core::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
 }
+unsafe impl Send for LoggingChannelOptions {}
+unsafe impl Sync for LoggingChannelOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingFields(windows_core::IUnknown);
@@ -2126,6 +2138,8 @@ unsafe impl windows_core::Interface for LoggingFields {
 impl windows_core::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
 }
+unsafe impl Send for LoggingFields {}
+unsafe impl Sync for LoggingFields {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingOptions(windows_core::IUnknown);
@@ -2225,6 +2239,8 @@ unsafe impl windows_core::Interface for LoggingOptions {
 impl windows_core::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
 }
+unsafe impl Send for LoggingOptions {}
+unsafe impl Sync for LoggingOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingSession(windows_core::IUnknown);
@@ -2295,6 +2311,8 @@ unsafe impl windows_core::Interface for LoggingSession {
 impl windows_core::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
 }
+unsafe impl Send for LoggingSession {}
+unsafe impl Sync for LoggingSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
@@ -2330,6 +2348,8 @@ unsafe impl windows_core::Interface for RuntimeBrokerErrorSettings {
 impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
 }
+unsafe impl Send for RuntimeBrokerErrorSettings {}
+unsafe impl Sync for RuntimeBrokerErrorSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TracingStatusChangedEventArgs(windows_core::IUnknown);
@@ -2360,6 +2380,8 @@ unsafe impl windows_core::Interface for TracingStatusChangedEventArgs {
 impl windows_core::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
 }
+unsafe impl Send for TracingStatusChangedEventArgs {}
+unsafe impl Sync for TracingStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CausalityRelation(pub i32);

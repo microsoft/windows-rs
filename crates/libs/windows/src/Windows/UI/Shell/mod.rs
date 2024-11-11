@@ -411,6 +411,8 @@ unsafe impl windows_core::Interface for FocusSession {
 impl windows_core::RuntimeName for FocusSession {
     const NAME: &'static str = "Windows.UI.Shell.FocusSession";
 }
+unsafe impl Send for FocusSession {}
+unsafe impl Sync for FocusSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSessionManager(windows_core::IUnknown);
@@ -489,6 +491,8 @@ unsafe impl windows_core::Interface for FocusSessionManager {
 impl windows_core::RuntimeName for FocusSessionManager {
     const NAME: &'static str = "Windows.UI.Shell.FocusSessionManager";
 }
+unsafe impl Send for FocusSessionManager {}
+unsafe impl Sync for FocusSessionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecurityAppManager(windows_core::IUnknown);
@@ -533,6 +537,8 @@ unsafe impl windows_core::Interface for SecurityAppManager {
 impl windows_core::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
 }
+unsafe impl Send for SecurityAppManager {}
+unsafe impl Sync for SecurityAppManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandEventArgs(windows_core::IUnknown);
@@ -567,6 +573,8 @@ unsafe impl windows_core::Interface for ShareWindowCommandEventArgs {
 impl windows_core::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
 }
+unsafe impl Send for ShareWindowCommandEventArgs {}
+unsafe impl Sync for ShareWindowCommandEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandSource(windows_core::IUnknown);
@@ -633,6 +641,8 @@ unsafe impl windows_core::Interface for ShareWindowCommandSource {
 impl windows_core::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
 }
+unsafe impl Send for ShareWindowCommandSource {}
+unsafe impl Sync for ShareWindowCommandSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TaskbarManager(windows_core::IUnknown);
@@ -734,6 +744,8 @@ unsafe impl windows_core::Interface for TaskbarManager {
 impl windows_core::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";
 }
+unsafe impl Send for TaskbarManager {}
+unsafe impl Sync for TaskbarManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTab(windows_core::IUnknown);
@@ -825,6 +837,8 @@ unsafe impl windows_core::Interface for WindowTab {
 impl windows_core::RuntimeName for WindowTab {
     const NAME: &'static str = "Windows.UI.Shell.WindowTab";
 }
+unsafe impl Send for WindowTab {}
+unsafe impl Sync for WindowTab {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabCloseRequestedEventArgs(windows_core::IUnknown);
@@ -848,6 +862,8 @@ unsafe impl windows_core::Interface for WindowTabCloseRequestedEventArgs {
 impl windows_core::RuntimeName for WindowTabCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabCloseRequestedEventArgs";
 }
+unsafe impl Send for WindowTabCloseRequestedEventArgs {}
+unsafe impl Sync for WindowTabCloseRequestedEventArgs {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -963,6 +979,10 @@ unsafe impl windows_core::Interface for WindowTabCollection {
 impl windows_core::RuntimeName for WindowTabCollection {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for WindowTabCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for WindowTabCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabGroup(windows_core::IUnknown);
@@ -1011,6 +1031,8 @@ unsafe impl windows_core::Interface for WindowTabGroup {
 impl windows_core::RuntimeName for WindowTabGroup {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabGroup";
 }
+unsafe impl Send for WindowTabGroup {}
+unsafe impl Sync for WindowTabGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabIcon(windows_core::IUnknown);
@@ -1056,6 +1078,8 @@ unsafe impl windows_core::Interface for WindowTabIcon {
 impl windows_core::RuntimeName for WindowTabIcon {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabIcon";
 }
+unsafe impl Send for WindowTabIcon {}
+unsafe impl Sync for WindowTabIcon {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabManager(windows_core::IUnknown);
@@ -1165,6 +1189,8 @@ unsafe impl windows_core::Interface for WindowTabManager {
 impl windows_core::RuntimeName for WindowTabManager {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabManager";
 }
+unsafe impl Send for WindowTabManager {}
+unsafe impl Sync for WindowTabManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabSwitchRequestedEventArgs(windows_core::IUnknown);
@@ -1188,6 +1214,8 @@ unsafe impl windows_core::Interface for WindowTabSwitchRequestedEventArgs {
 impl windows_core::RuntimeName for WindowTabSwitchRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabSwitchRequestedEventArgs";
 }
+unsafe impl Send for WindowTabSwitchRequestedEventArgs {}
+unsafe impl Sync for WindowTabSwitchRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabTearOutRequestedEventArgs(windows_core::IUnknown);
@@ -1229,6 +1257,8 @@ unsafe impl windows_core::Interface for WindowTabTearOutRequestedEventArgs {
 impl windows_core::RuntimeName for WindowTabTearOutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabTearOutRequestedEventArgs";
 }
+unsafe impl Send for WindowTabTearOutRequestedEventArgs {}
+unsafe impl Sync for WindowTabTearOutRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabThumbnailRequestedEventArgs(windows_core::IUnknown);
@@ -1290,6 +1320,8 @@ unsafe impl windows_core::Interface for WindowTabThumbnailRequestedEventArgs {
 impl windows_core::RuntimeName for WindowTabThumbnailRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.WindowTabThumbnailRequestedEventArgs";
 }
+unsafe impl Send for WindowTabThumbnailRequestedEventArgs {}
+unsafe impl Sync for WindowTabThumbnailRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SecurityAppKind(pub i32);

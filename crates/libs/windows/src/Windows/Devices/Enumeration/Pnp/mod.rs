@@ -175,6 +175,8 @@ unsafe impl windows_core::Interface for PnpObject {
 impl windows_core::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
 }
+unsafe impl Send for PnpObject {}
+unsafe impl Sync for PnpObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -238,6 +240,10 @@ unsafe impl windows_core::Interface for PnpObjectCollection {
 impl windows_core::RuntimeName for PnpObjectCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for PnpObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for PnpObjectCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
@@ -276,6 +282,8 @@ unsafe impl windows_core::Interface for PnpObjectUpdate {
 impl windows_core::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
 }
+unsafe impl Send for PnpObjectUpdate {}
+unsafe impl Sync for PnpObjectUpdate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectWatcher(windows_core::IUnknown);
@@ -377,6 +385,8 @@ unsafe impl windows_core::Interface for PnpObjectWatcher {
 impl windows_core::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";
 }
+unsafe impl Send for PnpObjectWatcher {}
+unsafe impl Sync for PnpObjectWatcher {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PnpObjectType(pub i32);

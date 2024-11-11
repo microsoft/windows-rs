@@ -380,6 +380,8 @@ unsafe impl windows_core::Interface for GpioPinProviderValueChangedEventArgs {
 impl windows_core::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
 }
+unsafe impl Send for GpioPinProviderValueChangedEventArgs {}
+unsafe impl Sync for GpioPinProviderValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ProviderGpioPinDriveMode(pub i32);

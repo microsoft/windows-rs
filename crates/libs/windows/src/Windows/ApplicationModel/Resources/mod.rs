@@ -186,3 +186,5 @@ unsafe impl windows_core::Interface for ResourceLoader {
 impl windows_core::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
 }
+unsafe impl Send for ResourceLoader {}
+unsafe impl Sync for ResourceLoader {}

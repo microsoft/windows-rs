@@ -858,6 +858,8 @@ unsafe impl windows_core::Interface for SpatialGestureRecognizer {
 impl windows_core::RuntimeName for SpatialGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialGestureRecognizer";
 }
+unsafe impl Send for SpatialGestureRecognizer {}
+unsafe impl Sync for SpatialGestureRecognizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCanceledEventArgs(windows_core::IUnknown);
@@ -881,6 +883,8 @@ unsafe impl windows_core::Interface for SpatialHoldCanceledEventArgs {
 impl windows_core::RuntimeName for SpatialHoldCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs";
 }
+unsafe impl Send for SpatialHoldCanceledEventArgs {}
+unsafe impl Sync for SpatialHoldCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCompletedEventArgs(windows_core::IUnknown);
@@ -904,6 +908,8 @@ unsafe impl windows_core::Interface for SpatialHoldCompletedEventArgs {
 impl windows_core::RuntimeName for SpatialHoldCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs";
 }
+unsafe impl Send for SpatialHoldCompletedEventArgs {}
+unsafe impl Sync for SpatialHoldCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldStartedEventArgs(windows_core::IUnknown);
@@ -938,6 +944,8 @@ unsafe impl windows_core::Interface for SpatialHoldStartedEventArgs {
 impl windows_core::RuntimeName for SpatialHoldStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs";
 }
+unsafe impl Send for SpatialHoldStartedEventArgs {}
+unsafe impl Sync for SpatialHoldStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteraction(windows_core::IUnknown);
@@ -961,6 +969,8 @@ unsafe impl windows_core::Interface for SpatialInteraction {
 impl windows_core::RuntimeName for SpatialInteraction {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteraction";
 }
+unsafe impl Send for SpatialInteraction {}
+unsafe impl Sync for SpatialInteraction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionController(windows_core::IUnknown);
@@ -1036,6 +1046,8 @@ unsafe impl windows_core::Interface for SpatialInteractionController {
 impl windows_core::RuntimeName for SpatialInteractionController {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionController";
 }
+unsafe impl Send for SpatialInteractionController {}
+unsafe impl Sync for SpatialInteractionController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionControllerProperties(windows_core::IUnknown);
@@ -1101,6 +1113,8 @@ unsafe impl windows_core::Interface for SpatialInteractionControllerProperties {
 impl windows_core::RuntimeName for SpatialInteractionControllerProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties";
 }
+unsafe impl Send for SpatialInteractionControllerProperties {}
+unsafe impl Sync for SpatialInteractionControllerProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionDetectedEventArgs(windows_core::IUnknown);
@@ -1149,6 +1163,8 @@ unsafe impl windows_core::Interface for SpatialInteractionDetectedEventArgs {
 impl windows_core::RuntimeName for SpatialInteractionDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs";
 }
+unsafe impl Send for SpatialInteractionDetectedEventArgs {}
+unsafe impl Sync for SpatialInteractionDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionManager(windows_core::IUnknown);
@@ -1280,6 +1296,8 @@ unsafe impl windows_core::Interface for SpatialInteractionManager {
 impl windows_core::RuntimeName for SpatialInteractionManager {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionManager";
 }
+unsafe impl Send for SpatialInteractionManager {}
+unsafe impl Sync for SpatialInteractionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSource(windows_core::IUnknown);
@@ -1372,6 +1390,8 @@ unsafe impl windows_core::Interface for SpatialInteractionSource {
 impl windows_core::RuntimeName for SpatialInteractionSource {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSource";
 }
+unsafe impl Send for SpatialInteractionSource {}
+unsafe impl Sync for SpatialInteractionSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceEventArgs(windows_core::IUnknown);
@@ -1402,6 +1422,8 @@ unsafe impl windows_core::Interface for SpatialInteractionSourceEventArgs {
 impl windows_core::RuntimeName for SpatialInteractionSourceEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs";
 }
+unsafe impl Send for SpatialInteractionSourceEventArgs {}
+unsafe impl Sync for SpatialInteractionSourceEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceLocation(windows_core::IUnknown);
@@ -1464,6 +1486,8 @@ unsafe impl windows_core::Interface for SpatialInteractionSourceLocation {
 impl windows_core::RuntimeName for SpatialInteractionSourceLocation {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation";
 }
+unsafe impl Send for SpatialInteractionSourceLocation {}
+unsafe impl Sync for SpatialInteractionSourceLocation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceProperties(windows_core::IUnknown);
@@ -1509,6 +1533,8 @@ unsafe impl windows_core::Interface for SpatialInteractionSourceProperties {
 impl windows_core::RuntimeName for SpatialInteractionSourceProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties";
 }
+unsafe impl Send for SpatialInteractionSourceProperties {}
+unsafe impl Sync for SpatialInteractionSourceProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceState(windows_core::IUnknown);
@@ -1608,6 +1634,8 @@ unsafe impl windows_core::Interface for SpatialInteractionSourceState {
 impl windows_core::RuntimeName for SpatialInteractionSourceState {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceState";
 }
+unsafe impl Send for SpatialInteractionSourceState {}
+unsafe impl Sync for SpatialInteractionSourceState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCanceledEventArgs(windows_core::IUnknown);
@@ -1631,6 +1659,8 @@ unsafe impl windows_core::Interface for SpatialManipulationCanceledEventArgs {
 impl windows_core::RuntimeName for SpatialManipulationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs";
 }
+unsafe impl Send for SpatialManipulationCanceledEventArgs {}
+unsafe impl Sync for SpatialManipulationCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCompletedEventArgs(windows_core::IUnknown);
@@ -1665,6 +1695,8 @@ unsafe impl windows_core::Interface for SpatialManipulationCompletedEventArgs {
 impl windows_core::RuntimeName for SpatialManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs";
 }
+unsafe impl Send for SpatialManipulationCompletedEventArgs {}
+unsafe impl Sync for SpatialManipulationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationDelta(windows_core::IUnknown);
@@ -1689,6 +1721,8 @@ unsafe impl windows_core::Interface for SpatialManipulationDelta {
 impl windows_core::RuntimeName for SpatialManipulationDelta {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationDelta";
 }
+unsafe impl Send for SpatialManipulationDelta {}
+unsafe impl Sync for SpatialManipulationDelta {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationStartedEventArgs(windows_core::IUnknown);
@@ -1723,6 +1757,8 @@ unsafe impl windows_core::Interface for SpatialManipulationStartedEventArgs {
 impl windows_core::RuntimeName for SpatialManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs";
 }
+unsafe impl Send for SpatialManipulationStartedEventArgs {}
+unsafe impl Sync for SpatialManipulationStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationUpdatedEventArgs(windows_core::IUnknown);
@@ -1757,6 +1793,8 @@ unsafe impl windows_core::Interface for SpatialManipulationUpdatedEventArgs {
 impl windows_core::RuntimeName for SpatialManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs";
 }
+unsafe impl Send for SpatialManipulationUpdatedEventArgs {}
+unsafe impl Sync for SpatialManipulationUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCanceledEventArgs(windows_core::IUnknown);
@@ -1780,6 +1818,8 @@ unsafe impl windows_core::Interface for SpatialNavigationCanceledEventArgs {
 impl windows_core::RuntimeName for SpatialNavigationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs";
 }
+unsafe impl Send for SpatialNavigationCanceledEventArgs {}
+unsafe impl Sync for SpatialNavigationCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCompletedEventArgs(windows_core::IUnknown);
@@ -1811,6 +1851,8 @@ unsafe impl windows_core::Interface for SpatialNavigationCompletedEventArgs {
 impl windows_core::RuntimeName for SpatialNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs";
 }
+unsafe impl Send for SpatialNavigationCompletedEventArgs {}
+unsafe impl Sync for SpatialNavigationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationStartedEventArgs(windows_core::IUnknown);
@@ -1866,6 +1908,8 @@ unsafe impl windows_core::Interface for SpatialNavigationStartedEventArgs {
 impl windows_core::RuntimeName for SpatialNavigationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs";
 }
+unsafe impl Send for SpatialNavigationStartedEventArgs {}
+unsafe impl Sync for SpatialNavigationStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationUpdatedEventArgs(windows_core::IUnknown);
@@ -1897,6 +1941,8 @@ unsafe impl windows_core::Interface for SpatialNavigationUpdatedEventArgs {
 impl windows_core::RuntimeName for SpatialNavigationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs";
 }
+unsafe impl Send for SpatialNavigationUpdatedEventArgs {}
+unsafe impl Sync for SpatialNavigationUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerInteractionSourcePose(windows_core::IUnknown);
@@ -1952,6 +1998,8 @@ unsafe impl windows_core::Interface for SpatialPointerInteractionSourcePose {
 impl windows_core::RuntimeName for SpatialPointerInteractionSourcePose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose";
 }
+unsafe impl Send for SpatialPointerInteractionSourcePose {}
+unsafe impl Sync for SpatialPointerInteractionSourcePose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerPose(windows_core::IUnknown);
@@ -2024,6 +2072,8 @@ unsafe impl windows_core::Interface for SpatialPointerPose {
 impl windows_core::RuntimeName for SpatialPointerPose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerPose";
 }
+unsafe impl Send for SpatialPointerPose {}
+unsafe impl Sync for SpatialPointerPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionEndedEventArgs(windows_core::IUnknown);
@@ -2047,6 +2097,8 @@ unsafe impl windows_core::Interface for SpatialRecognitionEndedEventArgs {
 impl windows_core::RuntimeName for SpatialRecognitionEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs";
 }
+unsafe impl Send for SpatialRecognitionEndedEventArgs {}
+unsafe impl Sync for SpatialRecognitionEndedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionStartedEventArgs(windows_core::IUnknown);
@@ -2088,6 +2140,8 @@ unsafe impl windows_core::Interface for SpatialRecognitionStartedEventArgs {
 impl windows_core::RuntimeName for SpatialRecognitionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs";
 }
+unsafe impl Send for SpatialRecognitionStartedEventArgs {}
+unsafe impl Sync for SpatialRecognitionStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialTappedEventArgs(windows_core::IUnknown);
@@ -2129,6 +2183,8 @@ unsafe impl windows_core::Interface for SpatialTappedEventArgs {
 impl windows_core::RuntimeName for SpatialTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialTappedEventArgs";
 }
+unsafe impl Send for SpatialTappedEventArgs {}
+unsafe impl Sync for SpatialTappedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SpatialGestureSettings(pub u32);

@@ -642,6 +642,8 @@ unsafe impl windows_core::Interface for Print3DManager {
 impl windows_core::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
 }
+unsafe impl Send for Print3DManager {}
+unsafe impl Sync for Print3DManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTask(windows_core::IUnknown);
@@ -707,6 +709,8 @@ unsafe impl windows_core::Interface for Print3DTask {
 impl windows_core::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
 }
+unsafe impl Send for Print3DTask {}
+unsafe impl Sync for Print3DTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTaskCompletedEventArgs(windows_core::IUnknown);
@@ -737,6 +741,8 @@ unsafe impl windows_core::Interface for Print3DTaskCompletedEventArgs {
 impl windows_core::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
 }
+unsafe impl Send for Print3DTaskCompletedEventArgs {}
+unsafe impl Sync for Print3DTaskCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTaskRequest(windows_core::IUnknown);
@@ -763,6 +769,8 @@ unsafe impl windows_core::Interface for Print3DTaskRequest {
 impl windows_core::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
 }
+unsafe impl Send for Print3DTaskRequest {}
+unsafe impl Sync for Print3DTaskRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTaskRequestedEventArgs(windows_core::IUnknown);
@@ -786,6 +794,8 @@ unsafe impl windows_core::Interface for Print3DTaskRequestedEventArgs {
 impl windows_core::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
 }
+unsafe impl Send for Print3DTaskRequestedEventArgs {}
+unsafe impl Sync for Print3DTaskRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTaskSourceChangedEventArgs(windows_core::IUnknown);
@@ -809,6 +819,8 @@ unsafe impl windows_core::Interface for Print3DTaskSourceChangedEventArgs {
 impl windows_core::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
 }
+unsafe impl Send for Print3DTaskSourceChangedEventArgs {}
+unsafe impl Sync for Print3DTaskSourceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DTaskSourceRequestedArgs(windows_core::IUnknown);
@@ -832,6 +844,8 @@ unsafe impl windows_core::Interface for Print3DTaskSourceRequestedArgs {
 impl windows_core::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
 }
+unsafe impl Send for Print3DTaskSourceRequestedArgs {}
+unsafe impl Sync for Print3DTaskSourceRequestedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3D3MFPackage(windows_core::IUnknown);
@@ -963,6 +977,8 @@ unsafe impl windows_core::Interface for Printing3D3MFPackage {
 impl windows_core::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
 }
+unsafe impl Send for Printing3D3MFPackage {}
+unsafe impl Sync for Printing3D3MFPackage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DBaseMaterial(windows_core::IUnknown);
@@ -1027,6 +1043,8 @@ unsafe impl windows_core::Interface for Printing3DBaseMaterial {
 impl windows_core::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
 }
+unsafe impl Send for Printing3DBaseMaterial {}
+unsafe impl Sync for Printing3DBaseMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DBaseMaterialGroup(windows_core::IUnknown);
@@ -1068,6 +1086,8 @@ unsafe impl windows_core::Interface for Printing3DBaseMaterialGroup {
 impl windows_core::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
 }
+unsafe impl Send for Printing3DBaseMaterialGroup {}
+unsafe impl Sync for Printing3DBaseMaterialGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DColorMaterial(windows_core::IUnknown);
@@ -1115,6 +1135,8 @@ unsafe impl windows_core::Interface for Printing3DColorMaterial {
 impl windows_core::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
 }
+unsafe impl Send for Printing3DColorMaterial {}
+unsafe impl Sync for Printing3DColorMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DColorMaterialGroup(windows_core::IUnknown);
@@ -1156,6 +1178,8 @@ unsafe impl windows_core::Interface for Printing3DColorMaterialGroup {
 impl windows_core::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
 }
+unsafe impl Send for Printing3DColorMaterialGroup {}
+unsafe impl Sync for Printing3DColorMaterialGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DComponent(windows_core::IUnknown);
@@ -1248,6 +1272,8 @@ unsafe impl windows_core::Interface for Printing3DComponent {
 impl windows_core::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
 }
+unsafe impl Send for Printing3DComponent {}
+unsafe impl Sync for Printing3DComponent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DComponentWithMatrix(windows_core::IUnknown);
@@ -1298,6 +1324,8 @@ unsafe impl windows_core::Interface for Printing3DComponentWithMatrix {
 impl windows_core::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
 }
+unsafe impl Send for Printing3DComponentWithMatrix {}
+unsafe impl Sync for Printing3DComponentWithMatrix {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DCompositeMaterial(windows_core::IUnknown);
@@ -1329,6 +1357,8 @@ unsafe impl windows_core::Interface for Printing3DCompositeMaterial {
 impl windows_core::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
 }
+unsafe impl Send for Printing3DCompositeMaterial {}
+unsafe impl Sync for Printing3DCompositeMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DCompositeMaterialGroup(windows_core::IUnknown);
@@ -1392,6 +1422,8 @@ unsafe impl windows_core::Interface for Printing3DCompositeMaterialGroup {
 impl windows_core::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
 }
+unsafe impl Send for Printing3DCompositeMaterialGroup {}
+unsafe impl Sync for Printing3DCompositeMaterialGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DFaceReductionOptions(windows_core::IUnknown);
@@ -1448,6 +1480,8 @@ unsafe impl windows_core::Interface for Printing3DFaceReductionOptions {
 impl windows_core::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
 }
+unsafe impl Send for Printing3DFaceReductionOptions {}
+unsafe impl Sync for Printing3DFaceReductionOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DMaterial(windows_core::IUnknown);
@@ -1511,6 +1545,8 @@ unsafe impl windows_core::Interface for Printing3DMaterial {
 impl windows_core::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
 }
+unsafe impl Send for Printing3DMaterial {}
+unsafe impl Sync for Printing3DMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DMesh(windows_core::IUnknown);
@@ -1671,6 +1707,8 @@ unsafe impl windows_core::Interface for Printing3DMesh {
 impl windows_core::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
 }
+unsafe impl Send for Printing3DMesh {}
+unsafe impl Sync for Printing3DMesh {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DMeshVerificationResult(windows_core::IUnknown);
@@ -1710,6 +1748,8 @@ unsafe impl windows_core::Interface for Printing3DMeshVerificationResult {
 impl windows_core::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
 }
+unsafe impl Send for Printing3DMeshVerificationResult {}
+unsafe impl Sync for Printing3DMeshVerificationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DModel(windows_core::IUnknown);
@@ -1885,6 +1925,8 @@ unsafe impl windows_core::Interface for Printing3DModel {
 impl windows_core::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
 }
+unsafe impl Send for Printing3DModel {}
+unsafe impl Sync for Printing3DModel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DModelTexture(windows_core::IUnknown);
@@ -1944,6 +1986,8 @@ unsafe impl windows_core::Interface for Printing3DModelTexture {
 impl windows_core::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
 }
+unsafe impl Send for Printing3DModelTexture {}
+unsafe impl Sync for Printing3DModelTexture {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DMultiplePropertyMaterial(windows_core::IUnknown);
@@ -1975,6 +2019,8 @@ unsafe impl windows_core::Interface for Printing3DMultiplePropertyMaterial {
 impl windows_core::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
 }
+unsafe impl Send for Printing3DMultiplePropertyMaterial {}
+unsafe impl Sync for Printing3DMultiplePropertyMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DMultiplePropertyMaterialGroup(windows_core::IUnknown);
@@ -2024,6 +2070,8 @@ unsafe impl windows_core::Interface for Printing3DMultiplePropertyMaterialGroup 
 impl windows_core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
 }
+unsafe impl Send for Printing3DMultiplePropertyMaterialGroup {}
+unsafe impl Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DTexture2CoordMaterial(windows_core::IUnknown);
@@ -2083,6 +2131,8 @@ unsafe impl windows_core::Interface for Printing3DTexture2CoordMaterial {
 impl windows_core::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
 }
+unsafe impl Send for Printing3DTexture2CoordMaterial {}
+unsafe impl Sync for Printing3DTexture2CoordMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DTexture2CoordMaterialGroup(windows_core::IUnknown);
@@ -2138,6 +2188,8 @@ unsafe impl windows_core::Interface for Printing3DTexture2CoordMaterialGroup {
 impl windows_core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
 }
+unsafe impl Send for Printing3DTexture2CoordMaterialGroup {}
+unsafe impl Sync for Printing3DTexture2CoordMaterialGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Printing3DTextureResource(windows_core::IUnknown);
@@ -2188,6 +2240,8 @@ unsafe impl windows_core::Interface for Printing3DTextureResource {
 impl windows_core::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";
 }
+unsafe impl Send for Printing3DTextureResource {}
+unsafe impl Sync for Printing3DTextureResource {}
 windows_core::imp::define_interface!(Print3DTaskSourceRequestedHandler, Print3DTaskSourceRequestedHandler_Vtbl, 0xe9175e70_c917_46de_bb51_d9a94db3711f);
 impl windows_core::RuntimeType for Print3DTaskSourceRequestedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

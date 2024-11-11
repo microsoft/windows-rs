@@ -867,6 +867,8 @@ unsafe impl windows_core::Interface for CompositionConditionalValue {
 impl windows_core::RuntimeName for CompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
 }
+unsafe impl Send for CompositionConditionalValue {}
+unsafe impl Sync for CompositionConditionalValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1032,6 +1034,10 @@ unsafe impl windows_core::Interface for CompositionInteractionSourceCollection {
 impl windows_core::RuntimeName for CompositionInteractionSourceCollection {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionInteractionSourceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionInteractionSourceCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionSourceConfiguration(windows_core::IUnknown);
@@ -1190,6 +1196,8 @@ unsafe impl windows_core::Interface for InteractionSourceConfiguration {
 impl windows_core::RuntimeName for InteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionSourceConfiguration";
 }
+unsafe impl Send for InteractionSourceConfiguration {}
+unsafe impl Sync for InteractionSourceConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTracker(windows_core::IUnknown);
@@ -1652,6 +1660,8 @@ unsafe impl windows_core::Interface for InteractionTracker {
 impl windows_core::RuntimeName for InteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTracker";
 }
+unsafe impl Send for InteractionTracker {}
+unsafe impl Sync for InteractionTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(windows_core::IUnknown);
@@ -1682,6 +1692,8 @@ unsafe impl windows_core::Interface for InteractionTrackerCustomAnimationStateEn
 impl windows_core::RuntimeName for InteractionTrackerCustomAnimationStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs";
 }
+unsafe impl Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
+unsafe impl Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerIdleStateEnteredArgs(windows_core::IUnknown);
@@ -1712,6 +1724,8 @@ unsafe impl windows_core::Interface for InteractionTrackerIdleStateEnteredArgs {
 impl windows_core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs";
 }
+unsafe impl Send for InteractionTrackerIdleStateEnteredArgs {}
+unsafe impl Sync for InteractionTrackerIdleStateEnteredArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaModifier(windows_core::IUnknown);
@@ -1837,6 +1851,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInertiaModifier {
 impl windows_core::RuntimeName for InteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier";
 }
+unsafe impl Send for InteractionTrackerInertiaModifier {}
+unsafe impl Sync for InteractionTrackerInertiaModifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaMotion(windows_core::IUnknown);
@@ -2003,6 +2019,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInertiaMotion {
 impl windows_core::RuntimeName for InteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion";
 }
+unsafe impl Send for InteractionTrackerInertiaMotion {}
+unsafe impl Sync for InteractionTrackerInertiaMotion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaNaturalMotion(windows_core::IUnknown);
@@ -2169,6 +2187,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInertiaNaturalMotion {
 impl windows_core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion";
 }
+unsafe impl Send for InteractionTrackerInertiaNaturalMotion {}
+unsafe impl Sync for InteractionTrackerInertiaNaturalMotion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaRestingValue(windows_core::IUnknown);
@@ -2335,6 +2355,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInertiaRestingValue {
 impl windows_core::RuntimeName for InteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue";
 }
+unsafe impl Send for InteractionTrackerInertiaRestingValue {}
+unsafe impl Sync for InteractionTrackerInertiaRestingValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(windows_core::IUnknown);
@@ -2417,6 +2439,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInertiaStateEnteredArg
 impl windows_core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs";
 }
+unsafe impl Send for InteractionTrackerInertiaStateEnteredArgs {}
+unsafe impl Sync for InteractionTrackerInertiaStateEnteredArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(windows_core::IUnknown);
@@ -2447,6 +2471,8 @@ unsafe impl windows_core::Interface for InteractionTrackerInteractingStateEntere
 impl windows_core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs";
 }
+unsafe impl Send for InteractionTrackerInteractingStateEnteredArgs {}
+unsafe impl Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerRequestIgnoredArgs(windows_core::IUnknown);
@@ -2470,6 +2496,8 @@ unsafe impl windows_core::Interface for InteractionTrackerRequestIgnoredArgs {
 impl windows_core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs";
 }
+unsafe impl Send for InteractionTrackerRequestIgnoredArgs {}
+unsafe impl Sync for InteractionTrackerRequestIgnoredArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerValuesChangedArgs(windows_core::IUnknown);
@@ -2508,6 +2536,8 @@ unsafe impl windows_core::Interface for InteractionTrackerValuesChangedArgs {
 impl windows_core::RuntimeName for InteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs";
 }
+unsafe impl Send for InteractionTrackerValuesChangedArgs {}
+unsafe impl Sync for InteractionTrackerValuesChangedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaModifier(windows_core::IUnknown);
@@ -2633,6 +2663,8 @@ unsafe impl windows_core::Interface for InteractionTrackerVector2InertiaModifier
 impl windows_core::RuntimeName for InteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier";
 }
+unsafe impl Send for InteractionTrackerVector2InertiaModifier {}
+unsafe impl Sync for InteractionTrackerVector2InertiaModifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(windows_core::IUnknown);
@@ -2799,6 +2831,8 @@ unsafe impl windows_core::Interface for InteractionTrackerVector2InertiaNaturalM
 impl windows_core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion";
 }
+unsafe impl Send for InteractionTrackerVector2InertiaNaturalMotion {}
+unsafe impl Sync for InteractionTrackerVector2InertiaNaturalMotion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualInteractionSource(windows_core::IUnknown);
@@ -3156,6 +3190,8 @@ unsafe impl windows_core::Interface for VisualInteractionSource {
 impl windows_core::RuntimeName for VisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.VisualInteractionSource";
 }
+unsafe impl Send for VisualInteractionSource {}
+unsafe impl Sync for VisualInteractionSource {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct InteractionBindingAxisModes(pub u32);

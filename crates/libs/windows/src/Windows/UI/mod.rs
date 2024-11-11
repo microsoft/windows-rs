@@ -262,6 +262,8 @@ unsafe impl windows_core::Interface for ColorHelper {
 impl windows_core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
+unsafe impl Send for ColorHelper {}
+unsafe impl Sync for ColorHelper {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Colors(windows_core::IUnknown);
@@ -1128,6 +1130,8 @@ unsafe impl windows_core::Interface for Colors {
 impl windows_core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
+unsafe impl Send for Colors {}
+unsafe impl Sync for Colors {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIContentRoot(windows_core::IUnknown);
@@ -1151,6 +1155,8 @@ unsafe impl windows_core::Interface for UIContentRoot {
 impl windows_core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
+unsafe impl Send for UIContentRoot {}
+unsafe impl Sync for UIContentRoot {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIContext(windows_core::IUnknown);
@@ -1166,6 +1172,8 @@ unsafe impl windows_core::Interface for UIContext {
 impl windows_core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
 }
+unsafe impl Send for UIContext {}
+unsafe impl Sync for UIContext {}
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct Color {

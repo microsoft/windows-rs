@@ -256,6 +256,8 @@ unsafe impl windows_core::Interface for TargetedContentAction {
 impl windows_core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
 }
+unsafe impl Send for TargetedContentAction {}
+unsafe impl Sync for TargetedContentAction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -279,6 +281,8 @@ unsafe impl windows_core::Interface for TargetedContentAvailabilityChangedEventA
 impl windows_core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
 }
+unsafe impl Send for TargetedContentAvailabilityChangedEventArgs {}
+unsafe impl Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentChangedEventArgs(windows_core::IUnknown);
@@ -309,6 +313,8 @@ unsafe impl windows_core::Interface for TargetedContentChangedEventArgs {
 impl windows_core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
 }
+unsafe impl Send for TargetedContentChangedEventArgs {}
+unsafe impl Sync for TargetedContentChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentCollection(windows_core::IUnknown);
@@ -371,6 +377,8 @@ unsafe impl windows_core::Interface for TargetedContentCollection {
 impl windows_core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
 }
+unsafe impl Send for TargetedContentCollection {}
+unsafe impl Sync for TargetedContentCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentContainer(windows_core::IUnknown);
@@ -432,6 +440,8 @@ unsafe impl windows_core::Interface for TargetedContentContainer {
 impl windows_core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
 }
+unsafe impl Send for TargetedContentContainer {}
+unsafe impl Sync for TargetedContentContainer {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -464,6 +474,10 @@ unsafe impl windows_core::Interface for TargetedContentFile {
 impl windows_core::RuntimeName for TargetedContentFile {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentFile";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for TargetedContentFile {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -510,6 +524,10 @@ unsafe impl windows_core::Interface for TargetedContentImage {
 impl windows_core::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for TargetedContentImage {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for TargetedContentImage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentItem(windows_core::IUnknown);
@@ -564,6 +582,8 @@ unsafe impl windows_core::Interface for TargetedContentItem {
 impl windows_core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
 }
+unsafe impl Send for TargetedContentItem {}
+unsafe impl Sync for TargetedContentItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentItemState(windows_core::IUnknown);
@@ -594,6 +614,8 @@ unsafe impl windows_core::Interface for TargetedContentItemState {
 impl windows_core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
 }
+unsafe impl Send for TargetedContentItemState {}
+unsafe impl Sync for TargetedContentItemState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentObject(windows_core::IUnknown);
@@ -638,6 +660,8 @@ unsafe impl windows_core::Interface for TargetedContentObject {
 impl windows_core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
 }
+unsafe impl Send for TargetedContentObject {}
+unsafe impl Sync for TargetedContentObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentStateChangedEventArgs(windows_core::IUnknown);
@@ -661,6 +685,8 @@ unsafe impl windows_core::Interface for TargetedContentStateChangedEventArgs {
 impl windows_core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
 }
+unsafe impl Send for TargetedContentStateChangedEventArgs {}
+unsafe impl Sync for TargetedContentStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentSubscription(windows_core::IUnknown);
@@ -749,6 +775,8 @@ unsafe impl windows_core::Interface for TargetedContentSubscription {
 impl windows_core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
 }
+unsafe impl Send for TargetedContentSubscription {}
+unsafe impl Sync for TargetedContentSubscription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentSubscriptionOptions(windows_core::IUnknown);
@@ -803,6 +831,8 @@ unsafe impl windows_core::Interface for TargetedContentSubscriptionOptions {
 impl windows_core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
 }
+unsafe impl Send for TargetedContentSubscriptionOptions {}
+unsafe impl Sync for TargetedContentSubscriptionOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentValue(windows_core::IUnknown);
@@ -940,6 +970,8 @@ unsafe impl windows_core::Interface for TargetedContentValue {
 impl windows_core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";
 }
+unsafe impl Send for TargetedContentValue {}
+unsafe impl Sync for TargetedContentValue {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct TargetedContentAppInstallationState(pub i32);

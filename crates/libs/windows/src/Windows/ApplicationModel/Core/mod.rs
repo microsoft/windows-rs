@@ -508,6 +508,8 @@ unsafe impl windows_core::Interface for AppListEntry {
 impl windows_core::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
 }
+unsafe impl Send for AppListEntry {}
+unsafe impl Sync for AppListEntry {}
 pub struct CoreApplication;
 impl CoreApplication {
     pub fn Id() -> windows_core::Result<windows_core::HSTRING> {
@@ -939,6 +941,8 @@ unsafe impl windows_core::Interface for HostedViewClosingEventArgs {
 impl windows_core::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
 }
+unsafe impl Send for HostedViewClosingEventArgs {}
+unsafe impl Sync for HostedViewClosingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnhandledError(windows_core::IUnknown);
@@ -966,6 +970,8 @@ unsafe impl windows_core::Interface for UnhandledError {
 impl windows_core::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
 }
+unsafe impl Send for UnhandledError {}
+unsafe impl Sync for UnhandledError {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnhandledErrorDetectedEventArgs(windows_core::IUnknown);
@@ -989,6 +995,8 @@ unsafe impl windows_core::Interface for UnhandledErrorDetectedEventArgs {
 impl windows_core::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
 }
+unsafe impl Send for UnhandledErrorDetectedEventArgs {}
+unsafe impl Sync for UnhandledErrorDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppRestartFailureReason(pub i32);

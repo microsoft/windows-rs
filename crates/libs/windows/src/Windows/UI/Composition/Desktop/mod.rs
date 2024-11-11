@@ -153,3 +153,5 @@ unsafe impl windows_core::Interface for DesktopWindowTarget {
 impl windows_core::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
 }
+unsafe impl Send for DesktopWindowTarget {}
+unsafe impl Sync for DesktopWindowTarget {}

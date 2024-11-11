@@ -56,6 +56,8 @@ unsafe impl windows_core::Interface for DeviceServicingDetails {
 impl windows_core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
+unsafe impl Send for DeviceServicingDetails {}
+unsafe impl Sync for DeviceServicingDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseDetails(windows_core::IUnknown);
@@ -86,3 +88,5 @@ unsafe impl windows_core::Interface for DeviceUseDetails {
 impl windows_core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
+unsafe impl Send for DeviceUseDetails {}
+unsafe impl Sync for DeviceUseDetails {}

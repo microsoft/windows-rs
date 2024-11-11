@@ -867,6 +867,8 @@ unsafe impl windows_core::Interface for Certificate {
 impl windows_core::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
 }
+unsafe impl Send for Certificate {}
+unsafe impl Sync for Certificate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateChain(windows_core::IUnknown);
@@ -908,6 +910,8 @@ unsafe impl windows_core::Interface for CertificateChain {
 impl windows_core::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
 }
+unsafe impl Send for CertificateChain {}
+unsafe impl Sync for CertificateChain {}
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
     pub fn CreateRequestAsync<P0>(request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
@@ -1028,6 +1032,8 @@ unsafe impl windows_core::Interface for CertificateExtension {
 impl windows_core::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
 }
+unsafe impl Send for CertificateExtension {}
+unsafe impl Sync for CertificateExtension {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateKeyUsages(windows_core::IUnknown);
@@ -1139,6 +1145,8 @@ unsafe impl windows_core::Interface for CertificateKeyUsages {
 impl windows_core::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
 }
+unsafe impl Send for CertificateKeyUsages {}
+unsafe impl Sync for CertificateKeyUsages {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateQuery(windows_core::IUnknown);
@@ -1247,6 +1255,8 @@ unsafe impl windows_core::Interface for CertificateQuery {
 impl windows_core::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
 }
+unsafe impl Send for CertificateQuery {}
+unsafe impl Sync for CertificateQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateRequestProperties(windows_core::IUnknown);
@@ -1486,6 +1496,8 @@ unsafe impl windows_core::Interface for CertificateRequestProperties {
 impl windows_core::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
 }
+unsafe impl Send for CertificateRequestProperties {}
+unsafe impl Sync for CertificateRequestProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateStore(windows_core::IUnknown);
@@ -1523,6 +1535,8 @@ unsafe impl windows_core::Interface for CertificateStore {
 impl windows_core::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
 }
+unsafe impl Send for CertificateStore {}
+unsafe impl Sync for CertificateStore {}
 pub struct CertificateStores;
 impl CertificateStores {
     #[cfg(feature = "Foundation_Collections")]
@@ -1672,6 +1686,8 @@ unsafe impl windows_core::Interface for ChainBuildingParameters {
 impl windows_core::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
 }
+unsafe impl Send for ChainBuildingParameters {}
+unsafe impl Sync for ChainBuildingParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainValidationParameters(windows_core::IUnknown);
@@ -1722,6 +1738,8 @@ unsafe impl windows_core::Interface for ChainValidationParameters {
 impl windows_core::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
 }
+unsafe impl Send for ChainValidationParameters {}
+unsafe impl Sync for ChainValidationParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsAttachedSignature(windows_core::IUnknown);
@@ -1798,6 +1816,8 @@ unsafe impl windows_core::Interface for CmsAttachedSignature {
 impl windows_core::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
 }
+unsafe impl Send for CmsAttachedSignature {}
+unsafe impl Sync for CmsAttachedSignature {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsDetachedSignature(windows_core::IUnknown);
@@ -1871,6 +1891,8 @@ unsafe impl windows_core::Interface for CmsDetachedSignature {
 impl windows_core::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
 }
+unsafe impl Send for CmsDetachedSignature {}
+unsafe impl Sync for CmsDetachedSignature {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsSignerInfo(windows_core::IUnknown);
@@ -1926,6 +1948,8 @@ unsafe impl windows_core::Interface for CmsSignerInfo {
 impl windows_core::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
 }
+unsafe impl Send for CmsSignerInfo {}
+unsafe impl Sync for CmsSignerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsTimestampInfo(windows_core::IUnknown);
@@ -1964,6 +1988,8 @@ unsafe impl windows_core::Interface for CmsTimestampInfo {
 impl windows_core::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
 }
+unsafe impl Send for CmsTimestampInfo {}
+unsafe impl Sync for CmsTimestampInfo {}
 pub struct KeyAlgorithmNames;
 impl KeyAlgorithmNames {
     pub fn Rsa() -> windows_core::Result<windows_core::HSTRING> {
@@ -2208,6 +2234,8 @@ unsafe impl windows_core::Interface for PfxImportParameters {
 impl windows_core::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
 }
+unsafe impl Send for PfxImportParameters {}
+unsafe impl Sync for PfxImportParameters {}
 pub struct StandardCertificateStoreNames;
 impl StandardCertificateStoreNames {
     pub fn Personal() -> windows_core::Result<windows_core::HSTRING> {
@@ -2362,6 +2390,8 @@ unsafe impl windows_core::Interface for SubjectAlternativeNameInfo {
 impl windows_core::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
 }
+unsafe impl Send for SubjectAlternativeNameInfo {}
+unsafe impl Sync for SubjectAlternativeNameInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateEnrollmentManager(windows_core::IUnknown);
@@ -2419,6 +2449,8 @@ unsafe impl windows_core::Interface for UserCertificateEnrollmentManager {
 impl windows_core::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
 }
+unsafe impl Send for UserCertificateEnrollmentManager {}
+unsafe impl Sync for UserCertificateEnrollmentManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateStore(windows_core::IUnknown);
@@ -2462,6 +2494,8 @@ unsafe impl windows_core::Interface for UserCertificateStore {
 impl windows_core::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";
 }
+unsafe impl Send for UserCertificateStore {}
+unsafe impl Sync for UserCertificateStore {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CertificateChainPolicy(pub i32);

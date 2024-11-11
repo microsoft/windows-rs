@@ -3653,6 +3653,8 @@ unsafe impl windows_core::Interface for ContentLinkInfo {
 impl windows_core::RuntimeName for ContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.ContentLinkInfo";
 }
+unsafe impl Send for ContentLinkInfo {}
+unsafe impl Sync for ContentLinkInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FontWeights(windows_core::IUnknown);
@@ -3739,6 +3741,8 @@ unsafe impl windows_core::Interface for FontWeights {
 impl windows_core::RuntimeName for FontWeights {
     const NAME: &'static str = "Windows.UI.Text.FontWeights";
 }
+unsafe impl Send for FontWeights {}
+unsafe impl Sync for FontWeights {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextDocument(windows_core::IUnknown);
@@ -3958,6 +3962,8 @@ unsafe impl windows_core::Interface for RichEditTextDocument {
 impl windows_core::RuntimeName for RichEditTextDocument {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextDocument";
 }
+unsafe impl Send for RichEditTextDocument {}
+unsafe impl Sync for RichEditTextDocument {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextRange(windows_core::IUnknown);
@@ -4302,6 +4308,8 @@ unsafe impl windows_core::Interface for RichEditTextRange {
 impl windows_core::RuntimeName for RichEditTextRange {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextRange";
 }
+unsafe impl Send for RichEditTextRange {}
+unsafe impl Sync for RichEditTextRange {}
 pub struct TextConstants;
 impl TextConstants {
     pub fn AutoColor() -> windows_core::Result<super::Color> {

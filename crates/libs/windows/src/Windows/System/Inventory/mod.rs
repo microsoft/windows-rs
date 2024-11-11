@@ -85,3 +85,5 @@ unsafe impl windows_core::Interface for InstalledDesktopApp {
 impl windows_core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
+unsafe impl Send for InstalledDesktopApp {}
+unsafe impl Sync for InstalledDesktopApp {}

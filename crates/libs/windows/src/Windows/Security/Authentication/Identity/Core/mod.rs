@@ -198,6 +198,8 @@ unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorAuthenticatio
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
 }
+unsafe impl Send for MicrosoftAccountMultiFactorAuthenticationManager {}
+unsafe impl Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(windows_core::IUnknown);
@@ -229,6 +231,8 @@ unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorGetSessionsRe
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
 }
+unsafe impl Send for MicrosoftAccountMultiFactorGetSessionsResult {}
+unsafe impl Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(windows_core::IUnknown);
@@ -273,6 +277,8 @@ unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorOneTimeCodedI
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
 }
+unsafe impl Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
+unsafe impl Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(windows_core::IUnknown);
@@ -338,6 +344,8 @@ unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorSessionInfo {
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
 }
+unsafe impl Send for MicrosoftAccountMultiFactorSessionInfo {}
+unsafe impl Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(windows_core::IUnknown);
@@ -377,6 +385,8 @@ unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorUnregisteredA
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
 }
+unsafe impl Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
+unsafe impl Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);

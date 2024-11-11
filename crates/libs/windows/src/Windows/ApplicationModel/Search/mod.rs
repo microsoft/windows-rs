@@ -797,6 +797,10 @@ unsafe impl windows_core::Interface for SearchPaneQueryChangedEventArgs {
 impl windows_core::RuntimeName for SearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneQueryChangedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneQueryChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneQueryLinguisticDetails(windows_core::IUnknown);
@@ -835,6 +839,8 @@ unsafe impl windows_core::Interface for SearchPaneQueryLinguisticDetails {
 impl windows_core::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
 }
+unsafe impl Send for SearchPaneQueryLinguisticDetails {}
+unsafe impl Sync for SearchPaneQueryLinguisticDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -882,6 +888,10 @@ impl windows_core::RuntimeName for SearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneQuerySubmittedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneQuerySubmittedEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneResultSuggestionChosenEventArgs(windows_core::IUnknown);
@@ -911,6 +921,10 @@ unsafe impl windows_core::Interface for SearchPaneResultSuggestionChosenEventArg
 impl windows_core::RuntimeName for SearchPaneResultSuggestionChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneResultSuggestionChosenEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneResultSuggestionChosenEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -958,6 +972,10 @@ impl windows_core::RuntimeName for SearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneSuggestionsRequest {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneSuggestionsRequest {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneSuggestionsRequestDeferral(windows_core::IUnknown);
@@ -984,6 +1002,10 @@ unsafe impl windows_core::Interface for SearchPaneSuggestionsRequestDeferral {
 impl windows_core::RuntimeName for SearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneSuggestionsRequestDeferral {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneSuggestionsRequestDeferral {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1041,6 +1063,10 @@ impl windows_core::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneSuggestionsRequestedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneSuggestionsRequestedEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchPaneVisibilityChangedEventArgs(windows_core::IUnknown);
@@ -1070,6 +1096,10 @@ unsafe impl windows_core::Interface for SearchPaneVisibilityChangedEventArgs {
 impl windows_core::RuntimeName for SearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SearchPaneVisibilityChangedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SearchPaneVisibilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchQueryLinguisticDetails(windows_core::IUnknown);
@@ -1122,6 +1152,8 @@ unsafe impl windows_core::Interface for SearchQueryLinguisticDetails {
 impl windows_core::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
 }
+unsafe impl Send for SearchQueryLinguisticDetails {}
+unsafe impl Sync for SearchQueryLinguisticDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionCollection(windows_core::IUnknown);
@@ -1169,6 +1201,8 @@ unsafe impl windows_core::Interface for SearchSuggestionCollection {
 impl windows_core::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
 }
+unsafe impl Send for SearchSuggestionCollection {}
+unsafe impl Sync for SearchSuggestionCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequest(windows_core::IUnknown);
@@ -1206,6 +1240,8 @@ unsafe impl windows_core::Interface for SearchSuggestionsRequest {
 impl windows_core::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
 }
+unsafe impl Send for SearchSuggestionsRequest {}
+unsafe impl Sync for SearchSuggestionsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequestDeferral(windows_core::IUnknown);
@@ -1226,3 +1262,5 @@ unsafe impl windows_core::Interface for SearchSuggestionsRequestDeferral {
 impl windows_core::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";
 }
+unsafe impl Send for SearchSuggestionsRequestDeferral {}
+unsafe impl Sync for SearchSuggestionsRequestDeferral {}

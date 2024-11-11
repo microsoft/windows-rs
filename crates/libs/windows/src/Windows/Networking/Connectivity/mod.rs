@@ -543,6 +543,8 @@ unsafe impl windows_core::Interface for AttributedNetworkUsage {
 impl windows_core::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
 }
+unsafe impl Send for AttributedNetworkUsage {}
+unsafe impl Sync for AttributedNetworkUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CellularApnContext(windows_core::IUnknown);
@@ -643,6 +645,8 @@ unsafe impl windows_core::Interface for CellularApnContext {
 impl windows_core::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
 }
+unsafe impl Send for CellularApnContext {}
+unsafe impl Sync for CellularApnContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionCost(windows_core::IUnknown);
@@ -694,6 +698,8 @@ unsafe impl windows_core::Interface for ConnectionCost {
 impl windows_core::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
 }
+unsafe impl Send for ConnectionCost {}
+unsafe impl Sync for ConnectionCost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionProfile(windows_core::IUnknown);
@@ -876,6 +882,8 @@ unsafe impl windows_core::Interface for ConnectionProfile {
 impl windows_core::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
 }
+unsafe impl Send for ConnectionProfile {}
+unsafe impl Sync for ConnectionProfile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionProfileFilter(windows_core::IUnknown);
@@ -1021,6 +1029,8 @@ unsafe impl windows_core::Interface for ConnectionProfileFilter {
 impl windows_core::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
 }
+unsafe impl Send for ConnectionProfileFilter {}
+unsafe impl Sync for ConnectionProfileFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionSession(windows_core::IUnknown);
@@ -1049,6 +1059,8 @@ unsafe impl windows_core::Interface for ConnectionSession {
 impl windows_core::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
 }
+unsafe impl Send for ConnectionSession {}
+unsafe impl Sync for ConnectionSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectivityInterval(windows_core::IUnknown);
@@ -1079,6 +1091,8 @@ unsafe impl windows_core::Interface for ConnectivityInterval {
 impl windows_core::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
 }
+unsafe impl Send for ConnectivityInterval {}
+unsafe impl Sync for ConnectivityInterval {}
 pub struct ConnectivityManager;
 impl ConnectivityManager {
     pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
@@ -1168,6 +1182,8 @@ unsafe impl windows_core::Interface for DataPlanStatus {
 impl windows_core::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
 }
+unsafe impl Send for DataPlanStatus {}
+unsafe impl Sync for DataPlanStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPlanUsage(windows_core::IUnknown);
@@ -1198,6 +1214,8 @@ unsafe impl windows_core::Interface for DataPlanUsage {
 impl windows_core::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
 }
+unsafe impl Send for DataPlanUsage {}
+unsafe impl Sync for DataPlanUsage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1236,6 +1254,10 @@ unsafe impl windows_core::Interface for DataUsage {
 impl windows_core::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for DataUsage {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for DataUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IPInformation(windows_core::IUnknown);
@@ -1266,6 +1288,8 @@ unsafe impl windows_core::Interface for IPInformation {
 impl windows_core::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
 }
+unsafe impl Send for IPInformation {}
+unsafe impl Sync for IPInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanIdentifier(windows_core::IUnknown);
@@ -1303,6 +1327,8 @@ unsafe impl windows_core::Interface for LanIdentifier {
 impl windows_core::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
 }
+unsafe impl Send for LanIdentifier {}
+unsafe impl Sync for LanIdentifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanIdentifierData(windows_core::IUnknown);
@@ -1334,6 +1360,8 @@ unsafe impl windows_core::Interface for LanIdentifierData {
 impl windows_core::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
 }
+unsafe impl Send for LanIdentifierData {}
+unsafe impl Sync for LanIdentifierData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkAdapter(windows_core::IUnknown);
@@ -1392,6 +1420,8 @@ unsafe impl windows_core::Interface for NetworkAdapter {
 impl windows_core::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
 }
+unsafe impl Send for NetworkAdapter {}
+unsafe impl Sync for NetworkAdapter {}
 pub struct NetworkInformation;
 impl NetworkInformation {
     #[cfg(feature = "Foundation_Collections")]
@@ -1504,6 +1534,8 @@ unsafe impl windows_core::Interface for NetworkItem {
 impl windows_core::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
 }
+unsafe impl Send for NetworkItem {}
+unsafe impl Sync for NetworkItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkSecuritySettings(windows_core::IUnknown);
@@ -1534,6 +1566,8 @@ unsafe impl windows_core::Interface for NetworkSecuritySettings {
 impl windows_core::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
 }
+unsafe impl Send for NetworkSecuritySettings {}
+unsafe impl Sync for NetworkSecuritySettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkStateChangeEventDetails(windows_core::IUnknown);
@@ -1606,6 +1640,8 @@ unsafe impl windows_core::Interface for NetworkStateChangeEventDetails {
 impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
 }
+unsafe impl Send for NetworkStateChangeEventDetails {}
+unsafe impl Sync for NetworkStateChangeEventDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkUsage(windows_core::IUnknown);
@@ -1643,6 +1679,8 @@ unsafe impl windows_core::Interface for NetworkUsage {
 impl windows_core::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
 }
+unsafe impl Send for NetworkUsage {}
+unsafe impl Sync for NetworkUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderNetworkUsage(windows_core::IUnknown);
@@ -1680,6 +1718,8 @@ unsafe impl windows_core::Interface for ProviderNetworkUsage {
 impl windows_core::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
 }
+unsafe impl Send for ProviderNetworkUsage {}
+unsafe impl Sync for ProviderNetworkUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProxyConfiguration(windows_core::IUnknown);
@@ -1711,6 +1751,8 @@ unsafe impl windows_core::Interface for ProxyConfiguration {
 impl windows_core::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
 }
+unsafe impl Send for ProxyConfiguration {}
+unsafe impl Sync for ProxyConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RoutePolicy(windows_core::IUnknown);
@@ -1762,6 +1804,8 @@ unsafe impl windows_core::Interface for RoutePolicy {
 impl windows_core::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
 }
+unsafe impl Send for RoutePolicy {}
+unsafe impl Sync for RoutePolicy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WlanConnectionProfileDetails(windows_core::IUnknown);
@@ -1785,6 +1829,8 @@ unsafe impl windows_core::Interface for WlanConnectionProfileDetails {
 impl windows_core::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
 }
+unsafe impl Send for WlanConnectionProfileDetails {}
+unsafe impl Sync for WlanConnectionProfileDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwanConnectionProfileDetails(windows_core::IUnknown);
@@ -1844,6 +1890,8 @@ unsafe impl windows_core::Interface for WwanConnectionProfileDetails {
 impl windows_core::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
 }
+unsafe impl Send for WwanConnectionProfileDetails {}
+unsafe impl Sync for WwanConnectionProfileDetails {}
 windows_core::imp::define_interface!(NetworkStatusChangedEventHandler, NetworkStatusChangedEventHandler_Vtbl, 0x71ba143f_598e_49d0_84eb_8febaedcc195);
 impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

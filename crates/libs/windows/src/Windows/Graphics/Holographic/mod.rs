@@ -710,6 +710,8 @@ unsafe impl windows_core::Interface for HolographicCamera {
 impl windows_core::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
 }
+unsafe impl Send for HolographicCamera {}
+unsafe impl Sync for HolographicCamera {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraPose(windows_core::IUnknown);
@@ -812,6 +814,8 @@ unsafe impl windows_core::Interface for HolographicCameraPose {
 impl windows_core::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
 }
+unsafe impl Send for HolographicCameraPose {}
+unsafe impl Sync for HolographicCameraPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraRenderingParameters(windows_core::IUnknown);
@@ -909,6 +913,8 @@ unsafe impl windows_core::Interface for HolographicCameraRenderingParameters {
 impl windows_core::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
 }
+unsafe impl Send for HolographicCameraRenderingParameters {}
+unsafe impl Sync for HolographicCameraRenderingParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraViewportParameters(windows_core::IUnknown);
@@ -941,6 +947,8 @@ unsafe impl windows_core::Interface for HolographicCameraViewportParameters {
 impl windows_core::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
 }
+unsafe impl Send for HolographicCameraViewportParameters {}
+unsafe impl Sync for HolographicCameraViewportParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicDisplay(windows_core::IUnknown);
@@ -1024,6 +1032,8 @@ unsafe impl windows_core::Interface for HolographicDisplay {
 impl windows_core::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
 }
+unsafe impl Send for HolographicDisplay {}
+unsafe impl Sync for HolographicDisplay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrame(windows_core::IUnknown);
@@ -1119,6 +1129,8 @@ unsafe impl windows_core::Interface for HolographicFrame {
 impl windows_core::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
 }
+unsafe impl Send for HolographicFrame {}
+unsafe impl Sync for HolographicFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePrediction(windows_core::IUnknown);
@@ -1151,6 +1163,8 @@ unsafe impl windows_core::Interface for HolographicFramePrediction {
 impl windows_core::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
 }
+unsafe impl Send for HolographicFramePrediction {}
+unsafe impl Sync for HolographicFramePrediction {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1188,6 +1202,10 @@ unsafe impl windows_core::Interface for HolographicFramePresentationMonitor {
 impl windows_core::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for HolographicFramePresentationMonitor {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for HolographicFramePresentationMonitor {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1250,6 +1268,10 @@ unsafe impl windows_core::Interface for HolographicFramePresentationReport {
 impl windows_core::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for HolographicFramePresentationReport {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameRenderingReport(windows_core::IUnknown);
@@ -1301,6 +1323,8 @@ unsafe impl windows_core::Interface for HolographicFrameRenderingReport {
 impl windows_core::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
 }
+unsafe impl Send for HolographicFrameRenderingReport {}
+unsafe impl Sync for HolographicFrameRenderingReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutMonitor(windows_core::IUnknown);
@@ -1330,6 +1354,8 @@ unsafe impl windows_core::Interface for HolographicFrameScanoutMonitor {
 impl windows_core::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
 }
+unsafe impl Send for HolographicFrameScanoutMonitor {}
+unsafe impl Sync for HolographicFrameScanoutMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutReport(windows_core::IUnknown);
@@ -1381,6 +1407,8 @@ unsafe impl windows_core::Interface for HolographicFrameScanoutReport {
 impl windows_core::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
 }
+unsafe impl Send for HolographicFrameScanoutReport {}
+unsafe impl Sync for HolographicFrameScanoutReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayer(windows_core::IUnknown);
@@ -1434,6 +1462,8 @@ unsafe impl windows_core::Interface for HolographicQuadLayer {
 impl windows_core::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
 }
+unsafe impl Send for HolographicQuadLayer {}
+unsafe impl Sync for HolographicQuadLayer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayerUpdateParameters(windows_core::IUnknown);
@@ -1499,6 +1529,8 @@ unsafe impl windows_core::Interface for HolographicQuadLayerUpdateParameters {
 impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
 }
+unsafe impl Send for HolographicQuadLayerUpdateParameters {}
+unsafe impl Sync for HolographicQuadLayerUpdateParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpace(windows_core::IUnknown);
@@ -1660,6 +1692,8 @@ unsafe impl windows_core::Interface for HolographicSpace {
 impl windows_core::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
 }
+unsafe impl Send for HolographicSpace {}
+unsafe impl Sync for HolographicSpace {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraAddedEventArgs(windows_core::IUnknown);
@@ -1690,6 +1724,8 @@ unsafe impl windows_core::Interface for HolographicSpaceCameraAddedEventArgs {
 impl windows_core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
 }
+unsafe impl Send for HolographicSpaceCameraAddedEventArgs {}
+unsafe impl Sync for HolographicSpaceCameraAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraRemovedEventArgs(windows_core::IUnknown);
@@ -1713,6 +1749,8 @@ unsafe impl windows_core::Interface for HolographicSpaceCameraRemovedEventArgs {
 impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
 }
+unsafe impl Send for HolographicSpaceCameraRemovedEventArgs {}
+unsafe impl Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicViewConfiguration(windows_core::IUnknown);
@@ -1818,6 +1856,8 @@ unsafe impl windows_core::Interface for HolographicViewConfiguration {
 impl windows_core::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
 }
+unsafe impl Send for HolographicViewConfiguration {}
+unsafe impl Sync for HolographicViewConfiguration {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HolographicDepthReprojectionMethod(pub i32);

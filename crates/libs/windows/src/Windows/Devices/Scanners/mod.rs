@@ -871,6 +871,8 @@ unsafe impl windows_core::Interface for ImageScanner {
 impl windows_core::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
 }
+unsafe impl Send for ImageScanner {}
+unsafe impl Sync for ImageScanner {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerAutoConfiguration(windows_core::IUnknown);
@@ -913,6 +915,8 @@ unsafe impl windows_core::Interface for ImageScannerAutoConfiguration {
 impl windows_core::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
 }
+unsafe impl Send for ImageScannerAutoConfiguration {}
+unsafe impl Sync for ImageScannerAutoConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFeederConfiguration(windows_core::IUnknown);
@@ -1246,6 +1250,8 @@ unsafe impl windows_core::Interface for ImageScannerFeederConfiguration {
 impl windows_core::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
 }
+unsafe impl Send for ImageScannerFeederConfiguration {}
+unsafe impl Sync for ImageScannerFeederConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFlatbedConfiguration(windows_core::IUnknown);
@@ -1473,6 +1479,8 @@ unsafe impl windows_core::Interface for ImageScannerFlatbedConfiguration {
 impl windows_core::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
 }
+unsafe impl Send for ImageScannerFlatbedConfiguration {}
+unsafe impl Sync for ImageScannerFlatbedConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerPreviewResult(windows_core::IUnknown);
@@ -1503,6 +1511,8 @@ unsafe impl windows_core::Interface for ImageScannerPreviewResult {
 impl windows_core::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
 }
+unsafe impl Send for ImageScannerPreviewResult {}
+unsafe impl Sync for ImageScannerPreviewResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerScanResult(windows_core::IUnknown);
@@ -1527,6 +1537,8 @@ unsafe impl windows_core::Interface for ImageScannerScanResult {
 impl windows_core::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";
 }
+unsafe impl Send for ImageScannerScanResult {}
+unsafe impl Sync for ImageScannerScanResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ImageScannerAutoCroppingMode(pub i32);

@@ -313,6 +313,8 @@ unsafe impl windows_core::Interface for RfcommDeviceService {
 impl windows_core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
 }
+unsafe impl Send for RfcommDeviceService {}
+unsafe impl Sync for RfcommDeviceService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommDeviceServicesResult(windows_core::IUnknown);
@@ -344,6 +346,8 @@ unsafe impl windows_core::Interface for RfcommDeviceServicesResult {
 impl windows_core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
 }
+unsafe impl Send for RfcommDeviceServicesResult {}
+unsafe impl Sync for RfcommDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceId(windows_core::IUnknown);
@@ -433,6 +437,8 @@ unsafe impl windows_core::Interface for RfcommServiceId {
 impl windows_core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
 }
+unsafe impl Send for RfcommServiceId {}
+unsafe impl Sync for RfcommServiceId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceProvider(windows_core::IUnknown);
@@ -497,3 +503,5 @@ unsafe impl windows_core::Interface for RfcommServiceProvider {
 impl windows_core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";
 }
+unsafe impl Send for RfcommServiceProvider {}
+unsafe impl Sync for RfcommServiceProvider {}

@@ -125,6 +125,8 @@ unsafe impl windows_core::Interface for DnssdRegistrationResult {
 impl windows_core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
 }
+unsafe impl Send for DnssdRegistrationResult {}
+unsafe impl Sync for DnssdRegistrationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdServiceInstance(windows_core::IUnknown);
@@ -274,6 +276,8 @@ unsafe impl windows_core::Interface for DnssdServiceInstance {
 impl windows_core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
 }
+unsafe impl Send for DnssdServiceInstance {}
+unsafe impl Sync for DnssdServiceInstance {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -337,6 +341,10 @@ unsafe impl windows_core::Interface for DnssdServiceInstanceCollection {
 impl windows_core::RuntimeName for DnssdServiceInstanceCollection {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for DnssdServiceInstanceCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for DnssdServiceInstanceCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdServiceWatcher(windows_core::IUnknown);
@@ -410,6 +418,8 @@ unsafe impl windows_core::Interface for DnssdServiceWatcher {
 impl windows_core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";
 }
+unsafe impl Send for DnssdServiceWatcher {}
+unsafe impl Sync for DnssdServiceWatcher {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DnssdRegistrationStatus(pub i32);

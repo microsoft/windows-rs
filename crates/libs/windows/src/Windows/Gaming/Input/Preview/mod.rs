@@ -289,6 +289,8 @@ unsafe impl windows_core::Interface for LegacyGipGameControllerProvider {
 impl windows_core::RuntimeName for LegacyGipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.LegacyGipGameControllerProvider";
 }
+unsafe impl Send for LegacyGipGameControllerProvider {}
+unsafe impl Sync for LegacyGipGameControllerProvider {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DeviceCommand(pub i32);

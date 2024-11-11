@@ -45,6 +45,8 @@ unsafe impl windows_core::Interface for ExtendedExecutionForegroundRevokedEventA
 impl windows_core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
 }
+unsafe impl Send for ExtendedExecutionForegroundRevokedEventArgs {}
+unsafe impl Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionForegroundSession(windows_core::IUnknown);
@@ -116,6 +118,8 @@ unsafe impl windows_core::Interface for ExtendedExecutionForegroundSession {
 impl windows_core::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";
 }
+unsafe impl Send for ExtendedExecutionForegroundSession {}
+unsafe impl Sync for ExtendedExecutionForegroundSession {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);

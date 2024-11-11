@@ -129,3 +129,7 @@ unsafe impl windows_core::Interface for HolographicKeyboardPlacementOverridePrev
 impl windows_core::RuntimeName for HolographicKeyboardPlacementOverridePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for HolographicKeyboardPlacementOverridePreview {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for HolographicKeyboardPlacementOverridePreview {}

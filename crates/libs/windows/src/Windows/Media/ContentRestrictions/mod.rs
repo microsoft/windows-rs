@@ -107,6 +107,8 @@ unsafe impl windows_core::Interface for ContentRestrictionsBrowsePolicy {
 impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
 }
+unsafe impl Send for ContentRestrictionsBrowsePolicy {}
+unsafe impl Sync for ContentRestrictionsBrowsePolicy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentDescription(windows_core::IUnknown);
@@ -198,6 +200,8 @@ unsafe impl windows_core::Interface for RatedContentDescription {
 impl windows_core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
 }
+unsafe impl Send for RatedContentDescription {}
+unsafe impl Sync for RatedContentDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentRestrictions(windows_core::IUnknown);
@@ -272,6 +276,8 @@ unsafe impl windows_core::Interface for RatedContentRestrictions {
 impl windows_core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";
 }
+unsafe impl Send for RatedContentRestrictions {}
+unsafe impl Sync for RatedContentRestrictions {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ContentAccessRestrictionLevel(pub i32);

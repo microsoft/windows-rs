@@ -340,6 +340,8 @@ unsafe impl windows_core::Interface for PrintSupportCommunicationErrorDetectedEv
 impl windows_core::RuntimeName for PrintSupportCommunicationErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportCommunicationErrorDetectedEventArgs";
 }
+unsafe impl Send for PrintSupportCommunicationErrorDetectedEventArgs {}
+unsafe impl Sync for PrintSupportCommunicationErrorDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportExtensionSession(windows_core::IUnknown);
@@ -424,6 +426,8 @@ unsafe impl windows_core::Interface for PrintSupportExtensionSession {
 impl windows_core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
 }
+unsafe impl Send for PrintSupportExtensionSession {}
+unsafe impl Sync for PrintSupportExtensionSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportExtensionTriggerDetails(windows_core::IUnknown);
@@ -447,6 +451,8 @@ unsafe impl windows_core::Interface for PrintSupportExtensionTriggerDetails {
 impl windows_core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
 }
+unsafe impl Send for PrintSupportExtensionTriggerDetails {}
+unsafe impl Sync for PrintSupportExtensionTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportIppCommunicationConfiguration(windows_core::IUnknown);
@@ -491,6 +497,8 @@ unsafe impl windows_core::Interface for PrintSupportIppCommunicationConfiguratio
 impl windows_core::RuntimeName for PrintSupportIppCommunicationConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationConfiguration";
 }
+unsafe impl Send for PrintSupportIppCommunicationConfiguration {}
+unsafe impl Sync for PrintSupportIppCommunicationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportIppCommunicationTimeouts(windows_core::IUnknown);
@@ -540,6 +548,8 @@ unsafe impl windows_core::Interface for PrintSupportIppCommunicationTimeouts {
 impl windows_core::RuntimeName for PrintSupportIppCommunicationTimeouts {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationTimeouts";
 }
+unsafe impl Send for PrintSupportIppCommunicationTimeouts {}
+unsafe impl Sync for PrintSupportIppCommunicationTimeouts {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportMxdcImageQualityConfiguration(windows_core::IUnknown);
@@ -633,6 +643,8 @@ unsafe impl windows_core::Interface for PrintSupportMxdcImageQualityConfiguratio
 impl windows_core::RuntimeName for PrintSupportMxdcImageQualityConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportMxdcImageQualityConfiguration";
 }
+unsafe impl Send for PrintSupportMxdcImageQualityConfiguration {}
+unsafe impl Sync for PrintSupportMxdcImageQualityConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(windows_core::IUnknown);
@@ -724,6 +736,8 @@ unsafe impl windows_core::Interface for PrintSupportPrintDeviceCapabilitiesChang
 impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
 }
+unsafe impl Send for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
+unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
@@ -756,6 +770,8 @@ unsafe impl windows_core::Interface for PrintSupportPrintDeviceCapabilitiesUpdat
 impl windows_core::RuntimeName for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy";
 }
+unsafe impl Send for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
+unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintTicketElement(windows_core::IUnknown);
@@ -801,6 +817,8 @@ unsafe impl windows_core::Interface for PrintSupportPrintTicketElement {
 impl windows_core::RuntimeName for PrintSupportPrintTicketElement {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement";
 }
+unsafe impl Send for PrintSupportPrintTicketElement {}
+unsafe impl Sync for PrintSupportPrintTicketElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrintTicketValidationRequestedEventArgs(windows_core::IUnknown);
@@ -836,6 +854,8 @@ unsafe impl windows_core::Interface for PrintSupportPrintTicketValidationRequest
 impl windows_core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
 }
+unsafe impl Send for PrintSupportPrintTicketValidationRequestedEventArgs {}
+unsafe impl Sync for PrintSupportPrintTicketValidationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportPrinterSelectedEventArgs(windows_core::IUnknown);
@@ -914,6 +934,8 @@ unsafe impl windows_core::Interface for PrintSupportPrinterSelectedEventArgs {
 impl windows_core::RuntimeName for PrintSupportPrinterSelectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs";
 }
+unsafe impl Send for PrintSupportPrinterSelectedEventArgs {}
+unsafe impl Sync for PrintSupportPrinterSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportSessionInfo(windows_core::IUnknown);
@@ -946,6 +968,8 @@ unsafe impl windows_core::Interface for PrintSupportSessionInfo {
 impl windows_core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
 }
+unsafe impl Send for PrintSupportSessionInfo {}
+unsafe impl Sync for PrintSupportSessionInfo {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1024,6 +1048,10 @@ unsafe impl windows_core::Interface for PrintSupportSettingsActivatedEventArgs {
 impl windows_core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for PrintSupportSettingsActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for PrintSupportSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSupportSettingsUISession(windows_core::IUnknown);
@@ -1077,6 +1105,8 @@ unsafe impl windows_core::Interface for PrintSupportSettingsUISession {
 impl windows_core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";
 }
+unsafe impl Send for PrintSupportSettingsUISession {}
+unsafe impl Sync for PrintSupportSettingsUISession {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct IppCommunicationErrorKind(pub i32);

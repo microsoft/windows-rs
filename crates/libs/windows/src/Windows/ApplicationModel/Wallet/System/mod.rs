@@ -154,6 +154,10 @@ impl windows_core::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemSystemStore {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemSystemStore {}
+#[cfg(feature = "deprecated")]
 pub struct WalletManagerSystem;
 #[cfg(feature = "deprecated")]
 impl WalletManagerSystem {

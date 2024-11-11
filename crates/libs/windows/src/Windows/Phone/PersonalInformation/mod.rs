@@ -668,6 +668,8 @@ unsafe impl windows_core::Interface for ContactAddress {
 impl windows_core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactAddress";
 }
+unsafe impl Send for ContactAddress {}
+unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeRecord(windows_core::IUnknown);
@@ -712,6 +714,8 @@ unsafe impl windows_core::Interface for ContactChangeRecord {
 impl windows_core::RuntimeName for ContactChangeRecord {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactChangeRecord";
 }
+unsafe impl Send for ContactChangeRecord {}
+unsafe impl Sync for ContactChangeRecord {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInformation(windows_core::IUnknown);
@@ -856,6 +860,8 @@ unsafe impl windows_core::Interface for ContactInformation {
 impl windows_core::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactInformation";
 }
+unsafe impl Send for ContactInformation {}
+unsafe impl Sync for ContactInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryOptions(windows_core::IUnknown);
@@ -898,6 +904,8 @@ unsafe impl windows_core::Interface for ContactQueryOptions {
 impl windows_core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryOptions";
 }
+unsafe impl Send for ContactQueryOptions {}
+unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryResult(windows_core::IUnknown);
@@ -944,6 +952,8 @@ unsafe impl windows_core::Interface for ContactQueryResult {
 impl windows_core::RuntimeName for ContactQueryResult {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactQueryResult";
 }
+unsafe impl Send for ContactQueryResult {}
+unsafe impl Sync for ContactQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStore(windows_core::IUnknown);
@@ -1062,6 +1072,8 @@ unsafe impl windows_core::Interface for ContactStore {
 impl windows_core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.ContactStore";
 }
+unsafe impl Send for ContactStore {}
+unsafe impl Sync for ContactStore {}
 pub struct KnownContactProperties;
 impl KnownContactProperties {
     pub fn DisplayName() -> windows_core::Result<windows_core::HSTRING> {
@@ -1486,6 +1498,8 @@ unsafe impl windows_core::Interface for StoredContact {
 impl windows_core::RuntimeName for StoredContact {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.StoredContact";
 }
+unsafe impl Send for StoredContact {}
+unsafe impl Sync for StoredContact {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ContactChangeType(pub i32);

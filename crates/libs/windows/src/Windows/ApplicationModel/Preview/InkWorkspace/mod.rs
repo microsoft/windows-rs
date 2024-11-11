@@ -56,3 +56,5 @@ unsafe impl windows_core::Interface for InkWorkspaceHostedAppManager {
 impl windows_core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
 }
+unsafe impl Send for InkWorkspaceHostedAppManager {}
+unsafe impl Sync for InkWorkspaceHostedAppManager {}

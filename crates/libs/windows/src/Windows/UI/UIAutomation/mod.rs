@@ -78,6 +78,8 @@ unsafe impl windows_core::Interface for AutomationConnection {
 impl windows_core::RuntimeName for AutomationConnection {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnection";
 }
+unsafe impl Send for AutomationConnection {}
+unsafe impl Sync for AutomationConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnectionBoundObject(windows_core::IUnknown);
@@ -101,6 +103,8 @@ unsafe impl windows_core::Interface for AutomationConnectionBoundObject {
 impl windows_core::RuntimeName for AutomationConnectionBoundObject {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationConnectionBoundObject";
 }
+unsafe impl Send for AutomationConnectionBoundObject {}
+unsafe impl Sync for AutomationConnectionBoundObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationElement(windows_core::IUnknown);
@@ -140,6 +144,8 @@ unsafe impl windows_core::Interface for AutomationElement {
 impl windows_core::RuntimeName for AutomationElement {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationElement";
 }
+unsafe impl Send for AutomationElement {}
+unsafe impl Sync for AutomationElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationTextRange(windows_core::IUnknown);
@@ -155,3 +161,5 @@ unsafe impl windows_core::Interface for AutomationTextRange {
 impl windows_core::RuntimeName for AutomationTextRange {
     const NAME: &'static str = "Windows.UI.UIAutomation.AutomationTextRange";
 }
+unsafe impl Send for AutomationTextRange {}
+unsafe impl Sync for AutomationTextRange {}

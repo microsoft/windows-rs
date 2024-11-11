@@ -68,3 +68,5 @@ unsafe impl windows_core::Interface for PalmRejectionDelayZonePreview {
 impl windows_core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
+unsafe impl Send for PalmRejectionDelayZonePreview {}
+unsafe impl Sync for PalmRejectionDelayZonePreview {}

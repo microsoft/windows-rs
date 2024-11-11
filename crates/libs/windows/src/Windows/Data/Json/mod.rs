@@ -526,6 +526,10 @@ unsafe impl windows_core::Interface for JsonArray {
 impl windows_core::RuntimeName for JsonArray {
     const NAME: &'static str = "Windows.Data.Json.JsonArray";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for JsonArray {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for JsonArray {}
 pub struct JsonError;
 impl JsonError {
     pub fn GetJsonStatus(hresult: i32) -> windows_core::Result<JsonErrorStatus> {
@@ -803,6 +807,10 @@ unsafe impl windows_core::Interface for JsonObject {
 impl windows_core::RuntimeName for JsonObject {
     const NAME: &'static str = "Windows.Data.Json.JsonObject";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for JsonObject {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for JsonObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonValue(windows_core::IUnknown);
@@ -922,6 +930,8 @@ unsafe impl windows_core::Interface for JsonValue {
 impl windows_core::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";
 }
+unsafe impl Send for JsonValue {}
+unsafe impl Sync for JsonValue {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct JsonErrorStatus(pub i32);

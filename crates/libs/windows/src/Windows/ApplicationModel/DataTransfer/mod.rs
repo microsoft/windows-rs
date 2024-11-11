@@ -852,6 +852,8 @@ unsafe impl windows_core::Interface for ClipboardContentOptions {
 impl windows_core::RuntimeName for ClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
 }
+unsafe impl Send for ClipboardContentOptions {}
+unsafe impl Sync for ClipboardContentOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryChangedEventArgs(windows_core::IUnknown);
@@ -867,6 +869,8 @@ unsafe impl windows_core::Interface for ClipboardHistoryChangedEventArgs {
 impl windows_core::RuntimeName for ClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
 }
+unsafe impl Send for ClipboardHistoryChangedEventArgs {}
+unsafe impl Sync for ClipboardHistoryChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryItem(windows_core::IUnknown);
@@ -904,6 +908,8 @@ unsafe impl windows_core::Interface for ClipboardHistoryItem {
 impl windows_core::RuntimeName for ClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
 }
+unsafe impl Send for ClipboardHistoryItem {}
+unsafe impl Sync for ClipboardHistoryItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClipboardHistoryItemsResult(windows_core::IUnknown);
@@ -935,6 +941,8 @@ unsafe impl windows_core::Interface for ClipboardHistoryItemsResult {
 impl windows_core::RuntimeName for ClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
 }
+unsafe impl Send for ClipboardHistoryItemsResult {}
+unsafe impl Sync for ClipboardHistoryItemsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackage(windows_core::IUnknown);
@@ -1119,6 +1127,8 @@ unsafe impl windows_core::Interface for DataPackage {
 impl windows_core::RuntimeName for DataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackage";
 }
+unsafe impl Send for DataPackage {}
+unsafe impl Sync for DataPackage {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1360,6 +1370,10 @@ impl windows_core::RuntimeName for DataPackagePropertySet {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySet";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for DataPackagePropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for DataPackagePropertySet {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackagePropertySetView(windows_core::IUnknown);
@@ -1518,6 +1532,10 @@ unsafe impl windows_core::Interface for DataPackagePropertySetView {
 impl windows_core::RuntimeName for DataPackagePropertySetView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for DataPackagePropertySetView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for DataPackagePropertySetView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPackageView(windows_core::IUnknown);
@@ -1676,6 +1694,8 @@ unsafe impl windows_core::Interface for DataPackageView {
 impl windows_core::RuntimeName for DataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
 }
+unsafe impl Send for DataPackageView {}
+unsafe impl Sync for DataPackageView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProviderDeferral(windows_core::IUnknown);
@@ -1696,6 +1716,8 @@ unsafe impl windows_core::Interface for DataProviderDeferral {
 impl windows_core::RuntimeName for DataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
 }
+unsafe impl Send for DataProviderDeferral {}
+unsafe impl Sync for DataProviderDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProviderRequest(windows_core::IUnknown);
@@ -1740,6 +1762,8 @@ unsafe impl windows_core::Interface for DataProviderRequest {
 impl windows_core::RuntimeName for DataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderRequest";
 }
+unsafe impl Send for DataProviderRequest {}
+unsafe impl Sync for DataProviderRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequest(windows_core::IUnknown);
@@ -1788,6 +1812,8 @@ unsafe impl windows_core::Interface for DataRequest {
 impl windows_core::RuntimeName for DataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequest";
 }
+unsafe impl Send for DataRequest {}
+unsafe impl Sync for DataRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequestDeferral(windows_core::IUnknown);
@@ -1808,6 +1834,8 @@ unsafe impl windows_core::Interface for DataRequestDeferral {
 impl windows_core::RuntimeName for DataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
 }
+unsafe impl Send for DataRequestDeferral {}
+unsafe impl Sync for DataRequestDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataRequestedEventArgs(windows_core::IUnknown);
@@ -1831,6 +1859,8 @@ unsafe impl windows_core::Interface for DataRequestedEventArgs {
 impl windows_core::RuntimeName for DataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
 }
+unsafe impl Send for DataRequestedEventArgs {}
+unsafe impl Sync for DataRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataTransferManager(windows_core::IUnknown);
@@ -1974,6 +2004,8 @@ unsafe impl windows_core::Interface for OperationCompletedEventArgs {
 impl windows_core::RuntimeName for OperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
 }
+unsafe impl Send for OperationCompletedEventArgs {}
+unsafe impl Sync for OperationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareCompletedEventArgs(windows_core::IUnknown);
@@ -1997,6 +2029,8 @@ unsafe impl windows_core::Interface for ShareCompletedEventArgs {
 impl windows_core::RuntimeName for ShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
 }
+unsafe impl Send for ShareCompletedEventArgs {}
+unsafe impl Sync for ShareCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProvider(windows_core::IUnknown);
@@ -2065,6 +2099,8 @@ unsafe impl windows_core::Interface for ShareProvider {
 impl windows_core::RuntimeName for ShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
 }
+unsafe impl Send for ShareProvider {}
+unsafe impl Sync for ShareProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProviderOperation(windows_core::IUnknown);
@@ -2099,6 +2135,8 @@ unsafe impl windows_core::Interface for ShareProviderOperation {
 impl windows_core::RuntimeName for ShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
 }
+unsafe impl Send for ShareProviderOperation {}
+unsafe impl Sync for ShareProviderOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareProvidersRequestedEventArgs(windows_core::IUnknown);
@@ -2137,6 +2175,8 @@ unsafe impl windows_core::Interface for ShareProvidersRequestedEventArgs {
 impl windows_core::RuntimeName for ShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
 }
+unsafe impl Send for ShareProvidersRequestedEventArgs {}
+unsafe impl Sync for ShareProvidersRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareTargetInfo(windows_core::IUnknown);
@@ -2167,6 +2207,8 @@ unsafe impl windows_core::Interface for ShareTargetInfo {
 impl windows_core::RuntimeName for ShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
 }
+unsafe impl Send for ShareTargetInfo {}
+unsafe impl Sync for ShareTargetInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareUIOptions(windows_core::IUnknown);
@@ -2215,6 +2257,8 @@ unsafe impl windows_core::Interface for ShareUIOptions {
 impl windows_core::RuntimeName for ShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
 }
+unsafe impl Send for ShareUIOptions {}
+unsafe impl Sync for ShareUIOptions {}
 pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {
     #[cfg(feature = "Storage_Streams")]
@@ -2340,6 +2384,8 @@ unsafe impl windows_core::Interface for TargetApplicationChosenEventArgs {
 impl windows_core::RuntimeName for TargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";
 }
+unsafe impl Send for TargetApplicationChosenEventArgs {}
+unsafe impl Sync for TargetApplicationChosenEventArgs {}
 windows_core::imp::define_interface!(DataProviderHandler, DataProviderHandler_Vtbl, 0xe7ecd720_f2f4_4a2d_920e_170a2f482a27);
 impl windows_core::RuntimeType for DataProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -228,6 +228,8 @@ unsafe impl windows_core::Interface for CoreIncrementalInkStroke {
 impl windows_core::RuntimeName for CoreIncrementalInkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke";
 }
+unsafe impl Send for CoreIncrementalInkStroke {}
+unsafe impl Sync for CoreIncrementalInkStroke {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkIndependentInputSource(windows_core::IUnknown);
@@ -385,6 +387,8 @@ unsafe impl windows_core::Interface for CoreInkIndependentInputSource {
 impl windows_core::RuntimeName for CoreInkIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource";
 }
+unsafe impl Send for CoreInkIndependentInputSource {}
+unsafe impl Sync for CoreInkIndependentInputSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkPresenterHost(windows_core::IUnknown);
@@ -431,6 +435,8 @@ unsafe impl windows_core::Interface for CoreInkPresenterHost {
 impl windows_core::RuntimeName for CoreInkPresenterHost {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreInkPresenterHost";
 }
+unsafe impl Send for CoreInkPresenterHost {}
+unsafe impl Sync for CoreInkPresenterHost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateEventArgs(windows_core::IUnknown);
@@ -473,6 +479,8 @@ unsafe impl windows_core::Interface for CoreWetStrokeUpdateEventArgs {
 impl windows_core::RuntimeName for CoreWetStrokeUpdateEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs";
 }
+unsafe impl Send for CoreWetStrokeUpdateEventArgs {}
+unsafe impl Sync for CoreWetStrokeUpdateEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateSource(windows_core::IUnknown);
@@ -579,6 +587,8 @@ unsafe impl windows_core::Interface for CoreWetStrokeUpdateSource {
 impl windows_core::RuntimeName for CoreWetStrokeUpdateSource {
     const NAME: &'static str = "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource";
 }
+unsafe impl Send for CoreWetStrokeUpdateSource {}
+unsafe impl Sync for CoreWetStrokeUpdateSource {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CoreWetStrokeDisposition(pub i32);

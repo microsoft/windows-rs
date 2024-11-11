@@ -475,6 +475,8 @@ unsafe impl windows_core::Interface for IppAttributeError {
 impl windows_core::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
 }
+unsafe impl Send for IppAttributeError {}
+unsafe impl Sync for IppAttributeError {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeValue(windows_core::IUnknown);
@@ -975,6 +977,8 @@ unsafe impl windows_core::Interface for IppAttributeValue {
 impl windows_core::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
 }
+unsafe impl Send for IppAttributeValue {}
+unsafe impl Sync for IppAttributeValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppIntegerRange(windows_core::IUnknown);
@@ -1015,6 +1019,8 @@ unsafe impl windows_core::Interface for IppIntegerRange {
 impl windows_core::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
 }
+unsafe impl Send for IppIntegerRange {}
+unsafe impl Sync for IppIntegerRange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppPrintDevice(windows_core::IUnknown);
@@ -1193,6 +1199,8 @@ unsafe impl windows_core::Interface for IppPrintDevice {
 impl windows_core::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
 }
+unsafe impl Send for IppPrintDevice {}
+unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppResolution(windows_core::IUnknown);
@@ -1240,6 +1248,8 @@ unsafe impl windows_core::Interface for IppResolution {
 impl windows_core::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
 }
+unsafe impl Send for IppResolution {}
+unsafe impl Sync for IppResolution {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
@@ -1271,6 +1281,8 @@ unsafe impl windows_core::Interface for IppSetAttributesResult {
 impl windows_core::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
 }
+unsafe impl Send for IppSetAttributesResult {}
+unsafe impl Sync for IppSetAttributesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppTextWithLanguage(windows_core::IUnknown);
@@ -1311,6 +1323,8 @@ unsafe impl windows_core::Interface for IppTextWithLanguage {
 impl windows_core::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
 }
+unsafe impl Send for IppTextWithLanguage {}
+unsafe impl Sync for IppTextWithLanguage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PageConfigurationSettings(windows_core::IUnknown);
@@ -1356,6 +1370,8 @@ unsafe impl windows_core::Interface for PageConfigurationSettings {
 impl windows_core::RuntimeName for PageConfigurationSettings {
     const NAME: &'static str = "Windows.Devices.Printers.PageConfigurationSettings";
 }
+unsafe impl Send for PageConfigurationSettings {}
+unsafe impl Sync for PageConfigurationSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
@@ -1404,6 +1420,8 @@ unsafe impl windows_core::Interface for PdlPassthroughProvider {
 impl windows_core::RuntimeName for PdlPassthroughProvider {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughProvider";
 }
+unsafe impl Send for PdlPassthroughProvider {}
+unsafe impl Sync for PdlPassthroughProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughTarget(windows_core::IUnknown);
@@ -1444,6 +1462,8 @@ unsafe impl windows_core::Interface for PdlPassthroughTarget {
 impl windows_core::RuntimeName for PdlPassthroughTarget {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughTarget";
 }
+unsafe impl Send for PdlPassthroughTarget {}
+unsafe impl Sync for PdlPassthroughTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DDevice(windows_core::IUnknown);
@@ -1483,6 +1503,8 @@ unsafe impl windows_core::Interface for Print3DDevice {
 impl windows_core::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
 }
+unsafe impl Send for Print3DDevice {}
+unsafe impl Sync for Print3DDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSchema(windows_core::IUnknown);
@@ -1529,6 +1551,8 @@ unsafe impl windows_core::Interface for PrintSchema {
 impl windows_core::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";
 }
+unsafe impl Send for PrintSchema {}
+unsafe impl Sync for PrintSchema {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct IppAttributeErrorReason(pub i32);

@@ -241,6 +241,8 @@ unsafe impl windows_core::Interface for DisplayMonitor {
 impl windows_core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";
 }
+unsafe impl Send for DisplayMonitor {}
+unsafe impl Sync for DisplayMonitor {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayMonitorConnectionKind(pub i32);

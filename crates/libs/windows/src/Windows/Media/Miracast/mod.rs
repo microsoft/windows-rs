@@ -410,6 +410,8 @@ unsafe impl windows_core::Interface for MiracastReceiver {
 impl windows_core::RuntimeName for MiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiver";
 }
+unsafe impl Send for MiracastReceiver {}
+unsafe impl Sync for MiracastReceiver {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverApplySettingsResult(windows_core::IUnknown);
@@ -440,6 +442,8 @@ unsafe impl windows_core::Interface for MiracastReceiverApplySettingsResult {
 impl windows_core::RuntimeName for MiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
 }
+unsafe impl Send for MiracastReceiverApplySettingsResult {}
+unsafe impl Sync for MiracastReceiverApplySettingsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverConnection(windows_core::IUnknown);
@@ -519,6 +523,8 @@ unsafe impl windows_core::Interface for MiracastReceiverConnection {
 impl windows_core::RuntimeName for MiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnection";
 }
+unsafe impl Send for MiracastReceiverConnection {}
+unsafe impl Sync for MiracastReceiverConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(windows_core::IUnknown);
@@ -556,6 +562,8 @@ unsafe impl windows_core::Interface for MiracastReceiverConnectionCreatedEventAr
 impl windows_core::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
 }
+unsafe impl Send for MiracastReceiverConnectionCreatedEventArgs {}
+unsafe impl Sync for MiracastReceiverConnectionCreatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverCursorImageChannel(windows_core::IUnknown);
@@ -631,6 +639,8 @@ unsafe impl windows_core::Interface for MiracastReceiverCursorImageChannel {
 impl windows_core::RuntimeName for MiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
 }
+unsafe impl Send for MiracastReceiverCursorImageChannel {}
+unsafe impl Sync for MiracastReceiverCursorImageChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverCursorImageChannelSettings(windows_core::IUnknown);
@@ -671,6 +681,8 @@ unsafe impl windows_core::Interface for MiracastReceiverCursorImageChannelSettin
 impl windows_core::RuntimeName for MiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
 }
+unsafe impl Send for MiracastReceiverCursorImageChannelSettings {}
+unsafe impl Sync for MiracastReceiverCursorImageChannelSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverDisconnectedEventArgs(windows_core::IUnknown);
@@ -694,6 +706,8 @@ unsafe impl windows_core::Interface for MiracastReceiverDisconnectedEventArgs {
 impl windows_core::RuntimeName for MiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
 }
+unsafe impl Send for MiracastReceiverDisconnectedEventArgs {}
+unsafe impl Sync for MiracastReceiverDisconnectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverGameControllerDevice(windows_core::IUnknown);
@@ -760,6 +774,8 @@ unsafe impl windows_core::Interface for MiracastReceiverGameControllerDevice {
 impl windows_core::RuntimeName for MiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
 }
+unsafe impl Send for MiracastReceiverGameControllerDevice {}
+unsafe impl Sync for MiracastReceiverGameControllerDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverInputDevices(windows_core::IUnknown);
@@ -790,6 +806,8 @@ unsafe impl windows_core::Interface for MiracastReceiverInputDevices {
 impl windows_core::RuntimeName for MiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverInputDevices";
 }
+unsafe impl Send for MiracastReceiverInputDevices {}
+unsafe impl Sync for MiracastReceiverInputDevices {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverKeyboardDevice(windows_core::IUnknown);
@@ -845,6 +863,8 @@ unsafe impl windows_core::Interface for MiracastReceiverKeyboardDevice {
 impl windows_core::RuntimeName for MiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
 }
+unsafe impl Send for MiracastReceiverKeyboardDevice {}
+unsafe impl Sync for MiracastReceiverKeyboardDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(windows_core::IUnknown);
@@ -890,6 +910,8 @@ unsafe impl windows_core::Interface for MiracastReceiverMediaSourceCreatedEventA
 impl windows_core::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
 }
+unsafe impl Send for MiracastReceiverMediaSourceCreatedEventArgs {}
+unsafe impl Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSession(windows_core::IUnknown);
@@ -989,6 +1011,8 @@ unsafe impl windows_core::Interface for MiracastReceiverSession {
 impl windows_core::RuntimeName for MiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSession";
 }
+unsafe impl Send for MiracastReceiverSession {}
+unsafe impl Sync for MiracastReceiverSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSessionStartResult(windows_core::IUnknown);
@@ -1019,6 +1043,8 @@ unsafe impl windows_core::Interface for MiracastReceiverSessionStartResult {
 impl windows_core::RuntimeName for MiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSessionStartResult";
 }
+unsafe impl Send for MiracastReceiverSessionStartResult {}
+unsafe impl Sync for MiracastReceiverSessionStartResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSettings(windows_core::IUnknown);
@@ -1090,6 +1116,8 @@ unsafe impl windows_core::Interface for MiracastReceiverSettings {
 impl windows_core::RuntimeName for MiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSettings";
 }
+unsafe impl Send for MiracastReceiverSettings {}
+unsafe impl Sync for MiracastReceiverSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverStatus(windows_core::IUnknown);
@@ -1142,6 +1170,8 @@ unsafe impl windows_core::Interface for MiracastReceiverStatus {
 impl windows_core::RuntimeName for MiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStatus";
 }
+unsafe impl Send for MiracastReceiverStatus {}
+unsafe impl Sync for MiracastReceiverStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverStreamControl(windows_core::IUnknown);
@@ -1200,6 +1230,8 @@ unsafe impl windows_core::Interface for MiracastReceiverStreamControl {
 impl windows_core::RuntimeName for MiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStreamControl";
 }
+unsafe impl Send for MiracastReceiverStreamControl {}
+unsafe impl Sync for MiracastReceiverStreamControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverVideoStreamSettings(windows_core::IUnknown);
@@ -1240,6 +1272,8 @@ unsafe impl windows_core::Interface for MiracastReceiverVideoStreamSettings {
 impl windows_core::RuntimeName for MiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
 }
+unsafe impl Send for MiracastReceiverVideoStreamSettings {}
+unsafe impl Sync for MiracastReceiverVideoStreamSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastTransmitter(windows_core::IUnknown);
@@ -1300,6 +1334,8 @@ unsafe impl windows_core::Interface for MiracastTransmitter {
 impl windows_core::RuntimeName for MiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastTransmitter";
 }
+unsafe impl Send for MiracastTransmitter {}
+unsafe impl Sync for MiracastTransmitter {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);

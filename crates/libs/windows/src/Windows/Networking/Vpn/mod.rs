@@ -1787,6 +1787,8 @@ unsafe impl windows_core::Interface for VpnAppId {
 impl windows_core::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
 }
+unsafe impl Send for VpnAppId {}
+unsafe impl Sync for VpnAppId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannel(windows_core::IUnknown);
@@ -2125,6 +2127,8 @@ unsafe impl windows_core::Interface for VpnChannel {
 impl windows_core::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
 }
+unsafe impl Send for VpnChannel {}
+unsafe impl Sync for VpnChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityEventArgs(windows_core::IUnknown);
@@ -2148,6 +2152,8 @@ unsafe impl windows_core::Interface for VpnChannelActivityEventArgs {
 impl windows_core::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
 }
+unsafe impl Send for VpnChannelActivityEventArgs {}
+unsafe impl Sync for VpnChannelActivityEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityStateChangedArgs(windows_core::IUnknown);
@@ -2171,6 +2177,8 @@ unsafe impl windows_core::Interface for VpnChannelActivityStateChangedArgs {
 impl windows_core::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
 }
+unsafe impl Send for VpnChannelActivityStateChangedArgs {}
+unsafe impl Sync for VpnChannelActivityStateChangedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelConfiguration(windows_core::IUnknown);
@@ -2217,6 +2225,8 @@ unsafe impl windows_core::Interface for VpnChannelConfiguration {
 impl windows_core::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
 }
+unsafe impl Send for VpnChannelConfiguration {}
+unsafe impl Sync for VpnChannelConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCredential(windows_core::IUnknown);
@@ -2265,6 +2275,8 @@ unsafe impl windows_core::Interface for VpnCredential {
 impl windows_core::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
 }
+unsafe impl Send for VpnCredential {}
+unsafe impl Sync for VpnCredential {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomCheckBox(windows_core::IUnknown);
@@ -2340,6 +2352,8 @@ unsafe impl windows_core::Interface for VpnCustomCheckBox {
 impl windows_core::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
 }
+unsafe impl Send for VpnCustomCheckBox {}
+unsafe impl Sync for VpnCustomCheckBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomComboBox(windows_core::IUnknown);
@@ -2420,6 +2434,8 @@ unsafe impl windows_core::Interface for VpnCustomComboBox {
 impl windows_core::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
 }
+unsafe impl Send for VpnCustomComboBox {}
+unsafe impl Sync for VpnCustomComboBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomEditBox(windows_core::IUnknown);
@@ -2506,6 +2522,8 @@ unsafe impl windows_core::Interface for VpnCustomEditBox {
 impl windows_core::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
 }
+unsafe impl Send for VpnCustomEditBox {}
+unsafe impl Sync for VpnCustomEditBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomErrorBox(windows_core::IUnknown);
@@ -2563,6 +2581,8 @@ unsafe impl windows_core::Interface for VpnCustomErrorBox {
 impl windows_core::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
 }
+unsafe impl Send for VpnCustomErrorBox {}
+unsafe impl Sync for VpnCustomErrorBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptBooleanInput(windows_core::IUnknown);
@@ -2638,6 +2658,8 @@ unsafe impl windows_core::Interface for VpnCustomPromptBooleanInput {
 impl windows_core::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
 }
+unsafe impl Send for VpnCustomPromptBooleanInput {}
+unsafe impl Sync for VpnCustomPromptBooleanInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptOptionSelector(windows_core::IUnknown);
@@ -2710,6 +2732,8 @@ unsafe impl windows_core::Interface for VpnCustomPromptOptionSelector {
 impl windows_core::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
 }
+unsafe impl Send for VpnCustomPromptOptionSelector {}
+unsafe impl Sync for VpnCustomPromptOptionSelector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptText(windows_core::IUnknown);
@@ -2778,6 +2802,8 @@ unsafe impl windows_core::Interface for VpnCustomPromptText {
 impl windows_core::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
 }
+unsafe impl Send for VpnCustomPromptText {}
+unsafe impl Sync for VpnCustomPromptText {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptTextInput(windows_core::IUnknown);
@@ -2864,6 +2890,8 @@ unsafe impl windows_core::Interface for VpnCustomPromptTextInput {
 impl windows_core::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
 }
+unsafe impl Send for VpnCustomPromptTextInput {}
+unsafe impl Sync for VpnCustomPromptTextInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomTextBox(windows_core::IUnknown);
@@ -2932,6 +2960,8 @@ unsafe impl windows_core::Interface for VpnCustomTextBox {
 impl windows_core::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
 }
+unsafe impl Send for VpnCustomTextBox {}
+unsafe impl Sync for VpnCustomTextBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameAssignment(windows_core::IUnknown);
@@ -2977,6 +3007,8 @@ unsafe impl windows_core::Interface for VpnDomainNameAssignment {
 impl windows_core::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
 }
+unsafe impl Send for VpnDomainNameAssignment {}
+unsafe impl Sync for VpnDomainNameAssignment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameInfo(windows_core::IUnknown);
@@ -3058,6 +3090,8 @@ unsafe impl windows_core::Interface for VpnDomainNameInfo {
 impl windows_core::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
 }
+unsafe impl Send for VpnDomainNameInfo {}
+unsafe impl Sync for VpnDomainNameInfo {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3136,6 +3170,10 @@ unsafe impl windows_core::Interface for VpnForegroundActivatedEventArgs {
 impl windows_core::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for VpnForegroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for VpnForegroundActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnForegroundActivationOperation(windows_core::IUnknown);
@@ -3160,6 +3198,8 @@ unsafe impl windows_core::Interface for VpnForegroundActivationOperation {
 impl windows_core::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
 }
+unsafe impl Send for VpnForegroundActivationOperation {}
+unsafe impl Sync for VpnForegroundActivationOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnInterfaceId(windows_core::IUnknown);
@@ -3191,6 +3231,8 @@ unsafe impl windows_core::Interface for VpnInterfaceId {
 impl windows_core::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
 }
+unsafe impl Send for VpnInterfaceId {}
+unsafe impl Sync for VpnInterfaceId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnManagementAgent(windows_core::IUnknown);
@@ -3298,6 +3340,8 @@ unsafe impl windows_core::Interface for VpnManagementAgent {
 impl windows_core::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
 }
+unsafe impl Send for VpnManagementAgent {}
+unsafe impl Sync for VpnManagementAgent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceAssignment(windows_core::IUnknown);
@@ -3351,6 +3395,8 @@ unsafe impl windows_core::Interface for VpnNamespaceAssignment {
 impl windows_core::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
 }
+unsafe impl Send for VpnNamespaceAssignment {}
+unsafe impl Sync for VpnNamespaceAssignment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceInfo(windows_core::IUnknown);
@@ -3426,6 +3472,8 @@ unsafe impl windows_core::Interface for VpnNamespaceInfo {
 impl windows_core::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
 }
+unsafe impl Send for VpnNamespaceInfo {}
+unsafe impl Sync for VpnNamespaceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNativeProfile(windows_core::IUnknown);
@@ -3596,6 +3644,8 @@ unsafe impl windows_core::Interface for VpnNativeProfile {
 impl windows_core::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
 }
+unsafe impl Send for VpnNativeProfile {}
+unsafe impl Sync for VpnNativeProfile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPacketBuffer(windows_core::IUnknown);
@@ -3677,6 +3727,8 @@ unsafe impl windows_core::Interface for VpnPacketBuffer {
 impl windows_core::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
 }
+unsafe impl Send for VpnPacketBuffer {}
+unsafe impl Sync for VpnPacketBuffer {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3759,6 +3811,10 @@ unsafe impl windows_core::Interface for VpnPacketBufferList {
 impl windows_core::RuntimeName for VpnPacketBufferList {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for VpnPacketBufferList {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for VpnPacketBufferList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPickedCredential(windows_core::IUnknown);
@@ -3798,6 +3854,8 @@ unsafe impl windows_core::Interface for VpnPickedCredential {
 impl windows_core::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
 }
+unsafe impl Send for VpnPickedCredential {}
+unsafe impl Sync for VpnPickedCredential {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPlugInProfile(windows_core::IUnknown);
@@ -3935,6 +3993,8 @@ unsafe impl windows_core::Interface for VpnPlugInProfile {
 impl windows_core::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
 }
+unsafe impl Send for VpnPlugInProfile {}
+unsafe impl Sync for VpnPlugInProfile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRoute(windows_core::IUnknown);
@@ -3990,6 +4050,8 @@ unsafe impl windows_core::Interface for VpnRoute {
 impl windows_core::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
 }
+unsafe impl Send for VpnRoute {}
+unsafe impl Sync for VpnRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRouteAssignment(windows_core::IUnknown);
@@ -4088,6 +4150,8 @@ unsafe impl windows_core::Interface for VpnRouteAssignment {
 impl windows_core::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
 }
+unsafe impl Send for VpnRouteAssignment {}
+unsafe impl Sync for VpnRouteAssignment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnSystemHealth(windows_core::IUnknown);
@@ -4112,6 +4176,8 @@ unsafe impl windows_core::Interface for VpnSystemHealth {
 impl windows_core::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
 }
+unsafe impl Send for VpnSystemHealth {}
+unsafe impl Sync for VpnSystemHealth {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilter(windows_core::IUnknown);
@@ -4217,6 +4283,8 @@ unsafe impl windows_core::Interface for VpnTrafficFilter {
 impl windows_core::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
 }
+unsafe impl Send for VpnTrafficFilter {}
+unsafe impl Sync for VpnTrafficFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilterAssignment(windows_core::IUnknown);
@@ -4270,6 +4338,8 @@ unsafe impl windows_core::Interface for VpnTrafficFilterAssignment {
 impl windows_core::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";
 }
+unsafe impl Send for VpnTrafficFilterAssignment {}
+unsafe impl Sync for VpnTrafficFilterAssignment {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct VpnAppIdType(pub i32);

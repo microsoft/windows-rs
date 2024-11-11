@@ -172,6 +172,8 @@ unsafe impl windows_core::Interface for GameChatMessageReceivedEventArgs {
 impl windows_core::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
+unsafe impl Send for GameChatMessageReceivedEventArgs {}
+unsafe impl Sync for GameChatMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlay(windows_core::IUnknown);
@@ -213,6 +215,8 @@ unsafe impl windows_core::Interface for GameChatOverlay {
 impl windows_core::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
+unsafe impl Send for GameChatOverlay {}
+unsafe impl Sync for GameChatOverlay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlayMessageSource(windows_core::IUnknown);
@@ -254,6 +258,8 @@ unsafe impl windows_core::Interface for GameChatOverlayMessageSource {
 impl windows_core::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
+unsafe impl Send for GameChatOverlayMessageSource {}
+unsafe impl Sync for GameChatOverlayMessageSource {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -318,6 +324,10 @@ unsafe impl windows_core::Interface for GameUIProviderActivatedEventArgs {
 impl windows_core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for GameUIProviderActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for GameUIProviderActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GameChatMessageOrigin(pub i32);

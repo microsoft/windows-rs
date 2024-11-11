@@ -147,6 +147,8 @@ unsafe impl windows_core::Interface for PhoneNumberFormatter {
 impl windows_core::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
 }
+unsafe impl Send for PhoneNumberFormatter {}
+unsafe impl Sync for PhoneNumberFormatter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNumberInfo(windows_core::IUnknown);
@@ -256,6 +258,8 @@ unsafe impl windows_core::Interface for PhoneNumberInfo {
 impl windows_core::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";
 }
+unsafe impl Send for PhoneNumberInfo {}
+unsafe impl Sync for PhoneNumberInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PhoneNumberFormat(pub i32);

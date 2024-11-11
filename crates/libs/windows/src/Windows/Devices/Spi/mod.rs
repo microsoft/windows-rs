@@ -236,6 +236,8 @@ unsafe impl windows_core::Interface for SpiBusInfo {
 impl windows_core::RuntimeName for SpiBusInfo {
     const NAME: &'static str = "Windows.Devices.Spi.SpiBusInfo";
 }
+unsafe impl Send for SpiBusInfo {}
+unsafe impl Sync for SpiBusInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiConnectionSettings(windows_core::IUnknown);
@@ -317,6 +319,8 @@ unsafe impl windows_core::Interface for SpiConnectionSettings {
 impl windows_core::RuntimeName for SpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.SpiConnectionSettings";
 }
+unsafe impl Send for SpiConnectionSettings {}
+unsafe impl Sync for SpiConnectionSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiController(windows_core::IUnknown);
@@ -363,6 +367,8 @@ unsafe impl windows_core::Interface for SpiController {
 impl windows_core::RuntimeName for SpiController {
     const NAME: &'static str = "Windows.Devices.Spi.SpiController";
 }
+unsafe impl Send for SpiController {}
+unsafe impl Sync for SpiController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiDevice(windows_core::IUnknown);
@@ -445,6 +451,8 @@ unsafe impl windows_core::Interface for SpiDevice {
 impl windows_core::RuntimeName for SpiDevice {
     const NAME: &'static str = "Windows.Devices.Spi.SpiDevice";
 }
+unsafe impl Send for SpiDevice {}
+unsafe impl Sync for SpiDevice {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SpiMode(pub i32);

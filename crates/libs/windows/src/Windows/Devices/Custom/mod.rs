@@ -250,6 +250,8 @@ unsafe impl windows_core::Interface for CustomDevice {
 impl windows_core::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
+unsafe impl Send for CustomDevice {}
+unsafe impl Sync for CustomDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IOControlCode(windows_core::IUnknown);
@@ -312,6 +314,8 @@ unsafe impl windows_core::Interface for IOControlCode {
 impl windows_core::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
 }
+unsafe impl Send for IOControlCode {}
+unsafe impl Sync for IOControlCode {}
 pub struct KnownDeviceTypes;
 impl KnownDeviceTypes {
     pub fn Unknown() -> windows_core::Result<u16> {

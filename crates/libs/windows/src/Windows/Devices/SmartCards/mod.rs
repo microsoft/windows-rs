@@ -830,6 +830,8 @@ unsafe impl windows_core::Interface for CardAddedEventArgs {
 impl windows_core::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
 }
+unsafe impl Send for CardAddedEventArgs {}
+unsafe impl Sync for CardAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CardRemovedEventArgs(windows_core::IUnknown);
@@ -853,6 +855,8 @@ unsafe impl windows_core::Interface for CardRemovedEventArgs {
 impl windows_core::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
 }
+unsafe impl Send for CardRemovedEventArgs {}
+unsafe impl Sync for CardRemovedEventArgs {}
 pub struct KnownSmartCardAppletIds;
 impl KnownSmartCardAppletIds {
     #[cfg(feature = "Storage_Streams")]
@@ -922,6 +926,8 @@ unsafe impl windows_core::Interface for SmartCard {
 impl windows_core::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
 }
+unsafe impl Send for SmartCard {}
+unsafe impl Sync for SmartCard {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroup(windows_core::IUnknown);
@@ -1067,6 +1073,8 @@ unsafe impl windows_core::Interface for SmartCardAppletIdGroup {
 impl windows_core::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
 }
+unsafe impl Send for SmartCardAppletIdGroup {}
+unsafe impl Sync for SmartCardAppletIdGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroupRegistration(windows_core::IUnknown);
@@ -1140,6 +1148,8 @@ unsafe impl windows_core::Interface for SmartCardAppletIdGroupRegistration {
 impl windows_core::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
 }
+unsafe impl Send for SmartCardAppletIdGroupRegistration {}
+unsafe impl Sync for SmartCardAppletIdGroupRegistration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAutomaticResponseApdu(windows_core::IUnknown);
@@ -1285,6 +1295,8 @@ unsafe impl windows_core::Interface for SmartCardAutomaticResponseApdu {
 impl windows_core::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
 }
+unsafe impl Send for SmartCardAutomaticResponseApdu {}
+unsafe impl Sync for SmartCardAutomaticResponseApdu {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardChallengeContext(windows_core::IUnknown);
@@ -1359,6 +1371,8 @@ unsafe impl windows_core::Interface for SmartCardChallengeContext {
 impl windows_core::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
 }
+unsafe impl Send for SmartCardChallengeContext {}
+unsafe impl Sync for SmartCardChallengeContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardConnection(windows_core::IUnknown);
@@ -1391,6 +1405,8 @@ unsafe impl windows_core::Interface for SmartCardConnection {
 impl windows_core::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
 }
+unsafe impl Send for SmartCardConnection {}
+unsafe impl Sync for SmartCardConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGenerator(windows_core::IUnknown);
@@ -1565,6 +1581,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramGenerator {
 impl windows_core::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
 }
+unsafe impl Send for SmartCardCryptogramGenerator {}
+unsafe impl Sync for SmartCardCryptogramGenerator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(windows_core::IUnknown);
@@ -1603,6 +1621,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramMater
 impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
+unsafe impl Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
+unsafe impl Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(windows_core::IUnknown);
@@ -1641,6 +1661,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramMater
 impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
+unsafe impl Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
+unsafe impl Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(windows_core::IUnknown);
@@ -1679,6 +1701,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramStora
 impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
+unsafe impl Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
+unsafe impl Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialCharacteristics(windows_core::IUnknown);
@@ -1761,6 +1785,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramMaterialCharacteristi
 impl windows_core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
 }
+unsafe impl Send for SmartCardCryptogramMaterialCharacteristics {}
+unsafe impl Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(windows_core::IUnknown);
@@ -1812,6 +1838,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramMaterialPackageCharac
 impl windows_core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
 }
+unsafe impl Send for SmartCardCryptogramMaterialPackageCharacteristics {}
+unsafe impl Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPossessionProof(windows_core::IUnknown);
@@ -1843,6 +1871,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramMaterialPossessionPro
 impl windows_core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
 }
+unsafe impl Send for SmartCardCryptogramMaterialPossessionProof {}
+unsafe impl Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramPlacementStep(windows_core::IUnknown);
@@ -1973,6 +2003,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramPlacementStep {
 impl windows_core::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
 }
+unsafe impl Send for SmartCardCryptogramPlacementStep {}
+unsafe impl Sync for SmartCardCryptogramPlacementStep {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(windows_core::IUnknown);
@@ -2024,6 +2056,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramStorageKeyCharacteris
 impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
 }
+unsafe impl Send for SmartCardCryptogramStorageKeyCharacteristics {}
+unsafe impl Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyInfo(windows_core::IUnknown);
@@ -2100,6 +2134,8 @@ unsafe impl windows_core::Interface for SmartCardCryptogramStorageKeyInfo {
 impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
 }
+unsafe impl Send for SmartCardCryptogramStorageKeyInfo {}
+unsafe impl Sync for SmartCardCryptogramStorageKeyInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulator(windows_core::IUnknown);
@@ -2217,6 +2253,8 @@ unsafe impl windows_core::Interface for SmartCardEmulator {
 impl windows_core::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
 }
+unsafe impl Send for SmartCardEmulator {}
+unsafe impl Sync for SmartCardEmulator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(windows_core::IUnknown);
@@ -2310,6 +2348,8 @@ unsafe impl windows_core::Interface for SmartCardEmulatorApduReceivedEventArgs {
 impl windows_core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
 }
+unsafe impl Send for SmartCardEmulatorApduReceivedEventArgs {}
+unsafe impl Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(windows_core::IUnknown);
@@ -2340,6 +2380,8 @@ unsafe impl windows_core::Interface for SmartCardEmulatorConnectionDeactivatedEv
 impl windows_core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
 }
+unsafe impl Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
+unsafe impl Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionProperties(windows_core::IUnknown);
@@ -2370,6 +2412,8 @@ unsafe impl windows_core::Interface for SmartCardEmulatorConnectionProperties {
 impl windows_core::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
 }
+unsafe impl Send for SmartCardEmulatorConnectionProperties {}
+unsafe impl Sync for SmartCardEmulatorConnectionProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinPolicy(windows_core::IUnknown);
@@ -2459,6 +2503,8 @@ unsafe impl windows_core::Interface for SmartCardPinPolicy {
 impl windows_core::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
 }
+unsafe impl Send for SmartCardPinPolicy {}
+unsafe impl Sync for SmartCardPinPolicy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetDeferral(windows_core::IUnknown);
@@ -2479,6 +2525,8 @@ unsafe impl windows_core::Interface for SmartCardPinResetDeferral {
 impl windows_core::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
 }
+unsafe impl Send for SmartCardPinResetDeferral {}
+unsafe impl Sync for SmartCardPinResetDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetRequest(windows_core::IUnknown);
@@ -2525,6 +2573,8 @@ unsafe impl windows_core::Interface for SmartCardPinResetRequest {
 impl windows_core::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
 }
+unsafe impl Send for SmartCardPinResetRequest {}
+unsafe impl Sync for SmartCardPinResetRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardProvisioning(windows_core::IUnknown);
@@ -2663,6 +2713,8 @@ unsafe impl windows_core::Interface for SmartCardProvisioning {
 impl windows_core::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
 }
+unsafe impl Send for SmartCardProvisioning {}
+unsafe impl Sync for SmartCardProvisioning {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardReader(windows_core::IUnknown);
@@ -2765,6 +2817,8 @@ unsafe impl windows_core::Interface for SmartCardReader {
 impl windows_core::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
 }
+unsafe impl Send for SmartCardReader {}
+unsafe impl Sync for SmartCardReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardTriggerDetails(windows_core::IUnknown);
@@ -2832,6 +2886,8 @@ unsafe impl windows_core::Interface for SmartCardTriggerDetails {
 impl windows_core::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";
 }
+unsafe impl Send for SmartCardTriggerDetails {}
+unsafe impl Sync for SmartCardTriggerDetails {}
 windows_core::imp::define_interface!(SmartCardPinResetHandler, SmartCardPinResetHandler_Vtbl, 0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
 impl windows_core::RuntimeType for SmartCardPinResetHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

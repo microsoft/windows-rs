@@ -1660,6 +1660,8 @@ unsafe impl windows_core::Interface for ControlChannelTrigger {
 impl windows_core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
 }
+unsafe impl Send for ControlChannelTrigger {}
+unsafe impl Sync for ControlChannelTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocket(windows_core::IUnknown);
@@ -1858,6 +1860,8 @@ unsafe impl windows_core::Interface for DatagramSocket {
 impl windows_core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
 }
+unsafe impl Send for DatagramSocket {}
+unsafe impl Sync for DatagramSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketControl(windows_core::IUnknown);
@@ -1929,6 +1933,8 @@ unsafe impl windows_core::Interface for DatagramSocketControl {
 impl windows_core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
 }
+unsafe impl Send for DatagramSocketControl {}
+unsafe impl Sync for DatagramSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketInformation(windows_core::IUnknown);
@@ -1973,6 +1979,8 @@ unsafe impl windows_core::Interface for DatagramSocketInformation {
 impl windows_core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
 }
+unsafe impl Send for DatagramSocketInformation {}
+unsafe impl Sync for DatagramSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketMessageReceivedEventArgs(windows_core::IUnknown);
@@ -2026,6 +2034,8 @@ unsafe impl windows_core::Interface for DatagramSocketMessageReceivedEventArgs {
 impl windows_core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
 }
+unsafe impl Send for DatagramSocketMessageReceivedEventArgs {}
+unsafe impl Sync for DatagramSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocket(windows_core::IUnknown);
@@ -2158,6 +2168,8 @@ unsafe impl windows_core::Interface for MessageWebSocket {
 impl windows_core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
 }
+unsafe impl Send for MessageWebSocket {}
+unsafe impl Sync for MessageWebSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketControl(windows_core::IUnknown);
@@ -2301,6 +2313,8 @@ unsafe impl windows_core::Interface for MessageWebSocketControl {
 impl windows_core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
 }
+unsafe impl Send for MessageWebSocketControl {}
+unsafe impl Sync for MessageWebSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketInformation(windows_core::IUnknown);
@@ -2370,6 +2384,8 @@ unsafe impl windows_core::Interface for MessageWebSocketInformation {
 impl windows_core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
 }
+unsafe impl Send for MessageWebSocketInformation {}
+unsafe impl Sync for MessageWebSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketMessageReceivedEventArgs(windows_core::IUnknown);
@@ -2416,6 +2432,8 @@ unsafe impl windows_core::Interface for MessageWebSocketMessageReceivedEventArgs
 impl windows_core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
 }
+unsafe impl Send for MessageWebSocketMessageReceivedEventArgs {}
+unsafe impl Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocket(windows_core::IUnknown);
@@ -2491,6 +2509,8 @@ unsafe impl windows_core::Interface for ServerMessageWebSocket {
 impl windows_core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
 }
+unsafe impl Send for ServerMessageWebSocket {}
+unsafe impl Sync for ServerMessageWebSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketControl(windows_core::IUnknown);
@@ -2518,6 +2538,8 @@ unsafe impl windows_core::Interface for ServerMessageWebSocketControl {
 impl windows_core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
 }
+unsafe impl Send for ServerMessageWebSocketControl {}
+unsafe impl Sync for ServerMessageWebSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketInformation(windows_core::IUnknown);
@@ -2555,6 +2577,8 @@ unsafe impl windows_core::Interface for ServerMessageWebSocketInformation {
 impl windows_core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
 }
+unsafe impl Send for ServerMessageWebSocketInformation {}
+unsafe impl Sync for ServerMessageWebSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocket(windows_core::IUnknown);
@@ -2617,6 +2641,8 @@ unsafe impl windows_core::Interface for ServerStreamWebSocket {
 impl windows_core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
 }
+unsafe impl Send for ServerStreamWebSocket {}
+unsafe impl Sync for ServerStreamWebSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocketInformation(windows_core::IUnknown);
@@ -2654,6 +2680,8 @@ unsafe impl windows_core::Interface for ServerStreamWebSocketInformation {
 impl windows_core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
 }
+unsafe impl Send for ServerStreamWebSocketInformation {}
+unsafe impl Sync for ServerStreamWebSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityContext(windows_core::IUnknown);
@@ -2692,6 +2720,8 @@ unsafe impl windows_core::Interface for SocketActivityContext {
 impl windows_core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
 }
+unsafe impl Send for SocketActivityContext {}
+unsafe impl Sync for SocketActivityContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityInformation(windows_core::IUnknown);
@@ -2768,6 +2798,8 @@ unsafe impl windows_core::Interface for SocketActivityInformation {
 impl windows_core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
 }
+unsafe impl Send for SocketActivityInformation {}
+unsafe impl Sync for SocketActivityInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTriggerDetails(windows_core::IUnknown);
@@ -2798,6 +2830,8 @@ unsafe impl windows_core::Interface for SocketActivityTriggerDetails {
 impl windows_core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
 }
+unsafe impl Send for SocketActivityTriggerDetails {}
+unsafe impl Sync for SocketActivityTriggerDetails {}
 pub struct SocketError;
 impl SocketError {
     pub fn GetStatus(hresult: i32) -> windows_core::Result<SocketErrorStatus> {
@@ -2991,6 +3025,8 @@ unsafe impl windows_core::Interface for StreamSocket {
 impl windows_core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
 }
+unsafe impl Send for StreamSocket {}
+unsafe impl Sync for StreamSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketControl(windows_core::IUnknown);
@@ -3108,6 +3144,8 @@ unsafe impl windows_core::Interface for StreamSocketControl {
 impl windows_core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
 }
+unsafe impl Send for StreamSocketControl {}
+unsafe impl Sync for StreamSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketInformation(windows_core::IUnknown);
@@ -3226,6 +3264,8 @@ unsafe impl windows_core::Interface for StreamSocketInformation {
 impl windows_core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
 }
+unsafe impl Send for StreamSocketInformation {}
+unsafe impl Sync for StreamSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListener(windows_core::IUnknown);
@@ -3343,6 +3383,8 @@ unsafe impl windows_core::Interface for StreamSocketListener {
 impl windows_core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
 }
+unsafe impl Send for StreamSocketListener {}
+unsafe impl Sync for StreamSocketListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(windows_core::IUnknown);
@@ -3366,6 +3408,8 @@ unsafe impl windows_core::Interface for StreamSocketListenerConnectionReceivedEv
 impl windows_core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
 }
+unsafe impl Send for StreamSocketListenerConnectionReceivedEventArgs {}
+unsafe impl Sync for StreamSocketListenerConnectionReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerControl(windows_core::IUnknown);
@@ -3437,6 +3481,8 @@ unsafe impl windows_core::Interface for StreamSocketListenerControl {
 impl windows_core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
 }
+unsafe impl Send for StreamSocketListenerControl {}
+unsafe impl Sync for StreamSocketListenerControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerInformation(windows_core::IUnknown);
@@ -3460,6 +3506,8 @@ unsafe impl windows_core::Interface for StreamSocketListenerInformation {
 impl windows_core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
 }
+unsafe impl Send for StreamSocketListenerInformation {}
+unsafe impl Sync for StreamSocketListenerInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocket(windows_core::IUnknown);
@@ -3564,6 +3612,8 @@ unsafe impl windows_core::Interface for StreamWebSocket {
 impl windows_core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
 }
+unsafe impl Send for StreamWebSocket {}
+unsafe impl Sync for StreamWebSocket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketControl(windows_core::IUnknown);
@@ -3685,6 +3735,8 @@ unsafe impl windows_core::Interface for StreamWebSocketControl {
 impl windows_core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
 }
+unsafe impl Send for StreamWebSocketControl {}
+unsafe impl Sync for StreamWebSocketControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketInformation(windows_core::IUnknown);
@@ -3754,6 +3806,8 @@ unsafe impl windows_core::Interface for StreamWebSocketInformation {
 impl windows_core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
 }
+unsafe impl Send for StreamWebSocketInformation {}
+unsafe impl Sync for StreamWebSocketInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketClosedEventArgs(windows_core::IUnknown);
@@ -3784,6 +3838,8 @@ unsafe impl windows_core::Interface for WebSocketClosedEventArgs {
 impl windows_core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
 }
+unsafe impl Send for WebSocketClosedEventArgs {}
+unsafe impl Sync for WebSocketClosedEventArgs {}
 pub struct WebSocketError;
 impl WebSocketError {
     #[cfg(feature = "Web")]
@@ -3840,6 +3896,10 @@ unsafe impl windows_core::Interface for WebSocketKeepAlive {
 impl windows_core::RuntimeName for WebSocketKeepAlive {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketKeepAlive";
 }
+#[cfg(feature = "ApplicationModel_Background")]
+unsafe impl Send for WebSocketKeepAlive {}
+#[cfg(feature = "ApplicationModel_Background")]
+unsafe impl Sync for WebSocketKeepAlive {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
@@ -3898,6 +3958,8 @@ unsafe impl windows_core::Interface for WebSocketServerCustomValidationRequested
 impl windows_core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";
 }
+unsafe impl Send for WebSocketServerCustomValidationRequestedEventArgs {}
+unsafe impl Sync for WebSocketServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ControlChannelTriggerResetReason(pub i32);

@@ -410,6 +410,8 @@ unsafe impl windows_core::Interface for CameraIntrinsics {
 impl windows_core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
 }
+unsafe impl Send for CameraIntrinsics {}
+unsafe impl Sync for CameraIntrinsics {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthCorrelatedCoordinateMapper(windows_core::IUnknown);
@@ -471,6 +473,8 @@ unsafe impl windows_core::Interface for DepthCorrelatedCoordinateMapper {
 impl windows_core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
 }
+unsafe impl Send for DepthCorrelatedCoordinateMapper {}
+unsafe impl Sync for DepthCorrelatedCoordinateMapper {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameControlCapabilities(windows_core::IUnknown);
@@ -601,6 +605,8 @@ unsafe impl windows_core::Interface for FrameController {
 impl windows_core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
 }
+unsafe impl Send for FrameController {}
+unsafe impl Sync for FrameController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureCapabilities(windows_core::IUnknown);

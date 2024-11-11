@@ -1148,6 +1148,8 @@ unsafe impl windows_core::Interface for GattCharacteristic {
 impl windows_core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
 }
+unsafe impl Send for GattCharacteristic {}
+unsafe impl Sync for GattCharacteristic {}
 pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> windows_core::Result<windows_core::GUID> {
@@ -1686,6 +1688,8 @@ unsafe impl windows_core::Interface for GattCharacteristicsResult {
 impl windows_core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
 }
+unsafe impl Send for GattCharacteristicsResult {}
+unsafe impl Sync for GattCharacteristicsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattClientNotificationResult(windows_core::IUnknown);
@@ -1730,6 +1734,8 @@ unsafe impl windows_core::Interface for GattClientNotificationResult {
 impl windows_core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
 }
+unsafe impl Send for GattClientNotificationResult {}
+unsafe impl Sync for GattClientNotificationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDescriptor(windows_core::IUnknown);
@@ -1817,6 +1823,8 @@ unsafe impl windows_core::Interface for GattDescriptor {
 impl windows_core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
 }
+unsafe impl Send for GattDescriptor {}
+unsafe impl Sync for GattDescriptor {}
 pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> windows_core::Result<windows_core::GUID> {
@@ -1901,6 +1909,8 @@ unsafe impl windows_core::Interface for GattDescriptorsResult {
 impl windows_core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
 }
+unsafe impl Send for GattDescriptorsResult {}
+unsafe impl Sync for GattDescriptorsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceService(windows_core::IUnknown);
@@ -2157,6 +2167,8 @@ unsafe impl windows_core::Interface for GattDeviceService {
 impl windows_core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
 }
+unsafe impl Send for GattDeviceService {}
+unsafe impl Sync for GattDeviceService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceServicesResult(windows_core::IUnknown);
@@ -2195,6 +2207,8 @@ unsafe impl windows_core::Interface for GattDeviceServicesResult {
 impl windows_core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
 }
+unsafe impl Send for GattDeviceServicesResult {}
+unsafe impl Sync for GattDeviceServicesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristic(windows_core::IUnknown);
@@ -2353,6 +2367,8 @@ unsafe impl windows_core::Interface for GattLocalCharacteristic {
 impl windows_core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
 }
+unsafe impl Send for GattLocalCharacteristic {}
+unsafe impl Sync for GattLocalCharacteristic {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicParameters(windows_core::IUnknown);
@@ -2444,6 +2460,8 @@ unsafe impl windows_core::Interface for GattLocalCharacteristicParameters {
 impl windows_core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
 }
+unsafe impl Send for GattLocalCharacteristicParameters {}
+unsafe impl Sync for GattLocalCharacteristicParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicResult(windows_core::IUnknown);
@@ -2474,6 +2492,8 @@ unsafe impl windows_core::Interface for GattLocalCharacteristicResult {
 impl windows_core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
 }
+unsafe impl Send for GattLocalCharacteristicResult {}
+unsafe impl Sync for GattLocalCharacteristicResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptor(windows_core::IUnknown);
@@ -2547,6 +2567,8 @@ unsafe impl windows_core::Interface for GattLocalDescriptor {
 impl windows_core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
 }
+unsafe impl Send for GattLocalDescriptor {}
+unsafe impl Sync for GattLocalDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorParameters(windows_core::IUnknown);
@@ -2608,6 +2630,8 @@ unsafe impl windows_core::Interface for GattLocalDescriptorParameters {
 impl windows_core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
 }
+unsafe impl Send for GattLocalDescriptorParameters {}
+unsafe impl Sync for GattLocalDescriptorParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorResult(windows_core::IUnknown);
@@ -2638,6 +2662,8 @@ unsafe impl windows_core::Interface for GattLocalDescriptorResult {
 impl windows_core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
 }
+unsafe impl Send for GattLocalDescriptorResult {}
+unsafe impl Sync for GattLocalDescriptorResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalService(windows_core::IUnknown);
@@ -2679,6 +2705,8 @@ unsafe impl windows_core::Interface for GattLocalService {
 impl windows_core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
 }
+unsafe impl Send for GattLocalService {}
+unsafe impl Sync for GattLocalService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattPresentationFormat(windows_core::IUnknown);
@@ -2750,6 +2778,8 @@ unsafe impl windows_core::Interface for GattPresentationFormat {
 impl windows_core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
 }
+unsafe impl Send for GattPresentationFormat {}
+unsafe impl Sync for GattPresentationFormat {}
 pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
     pub fn Boolean() -> windows_core::Result<u8> {
@@ -3071,6 +3101,8 @@ unsafe impl windows_core::Interface for GattReadClientCharacteristicConfiguratio
 impl windows_core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
 }
+unsafe impl Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
+unsafe impl Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequest(windows_core::IUnknown);
@@ -3134,6 +3166,8 @@ unsafe impl windows_core::Interface for GattReadRequest {
 impl windows_core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
 }
+unsafe impl Send for GattReadRequest {}
+unsafe impl Sync for GattReadRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequestedEventArgs(windows_core::IUnknown);
@@ -3171,6 +3205,8 @@ unsafe impl windows_core::Interface for GattReadRequestedEventArgs {
 impl windows_core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
 }
+unsafe impl Send for GattReadRequestedEventArgs {}
+unsafe impl Sync for GattReadRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadResult(windows_core::IUnknown);
@@ -3209,6 +3245,8 @@ unsafe impl windows_core::Interface for GattReadResult {
 impl windows_core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
 }
+unsafe impl Send for GattReadResult {}
+unsafe impl Sync for GattReadResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReliableWriteTransaction(windows_core::IUnknown);
@@ -3255,6 +3293,8 @@ unsafe impl windows_core::Interface for GattReliableWriteTransaction {
 impl windows_core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
 }
+unsafe impl Send for GattReliableWriteTransaction {}
+unsafe impl Sync for GattReliableWriteTransaction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
@@ -3285,6 +3325,8 @@ unsafe impl windows_core::Interface for GattRequestStateChangedEventArgs {
 impl windows_core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
 }
+unsafe impl Send for GattRequestStateChangedEventArgs {}
+unsafe impl Sync for GattRequestStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProvider(windows_core::IUnknown);
@@ -3354,6 +3396,8 @@ unsafe impl windows_core::Interface for GattServiceProvider {
 impl windows_core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
 }
+unsafe impl Send for GattServiceProvider {}
+unsafe impl Sync for GattServiceProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
@@ -3384,6 +3428,8 @@ unsafe impl windows_core::Interface for GattServiceProviderAdvertisementStatusCh
 impl windows_core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
 }
+unsafe impl Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
+unsafe impl Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisingParameters(windows_core::IUnknown);
@@ -3445,6 +3491,8 @@ unsafe impl windows_core::Interface for GattServiceProviderAdvertisingParameters
 impl windows_core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
 }
+unsafe impl Send for GattServiceProviderAdvertisingParameters {}
+unsafe impl Sync for GattServiceProviderAdvertisingParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderResult(windows_core::IUnknown);
@@ -3475,6 +3523,8 @@ unsafe impl windows_core::Interface for GattServiceProviderResult {
 impl windows_core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
 }
+unsafe impl Send for GattServiceProviderResult {}
+unsafe impl Sync for GattServiceProviderResult {}
 pub struct GattServiceUuids;
 impl GattServiceUuids {
     pub fn Battery() -> windows_core::Result<windows_core::GUID> {
@@ -3722,6 +3772,8 @@ unsafe impl windows_core::Interface for GattSession {
 impl windows_core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
 }
+unsafe impl Send for GattSession {}
+unsafe impl Sync for GattSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
@@ -3752,6 +3804,8 @@ unsafe impl windows_core::Interface for GattSessionStatusChangedEventArgs {
 impl windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
 }
+unsafe impl Send for GattSessionStatusChangedEventArgs {}
+unsafe impl Sync for GattSessionStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSubscribedClient(windows_core::IUnknown);
@@ -3796,6 +3850,8 @@ unsafe impl windows_core::Interface for GattSubscribedClient {
 impl windows_core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
 }
+unsafe impl Send for GattSubscribedClient {}
+unsafe impl Sync for GattSubscribedClient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattValueChangedEventArgs(windows_core::IUnknown);
@@ -3827,6 +3883,8 @@ unsafe impl windows_core::Interface for GattValueChangedEventArgs {
 impl windows_core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
 }
+unsafe impl Send for GattValueChangedEventArgs {}
+unsafe impl Sync for GattValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequest(windows_core::IUnknown);
@@ -3894,6 +3952,8 @@ unsafe impl windows_core::Interface for GattWriteRequest {
 impl windows_core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
 }
+unsafe impl Send for GattWriteRequest {}
+unsafe impl Sync for GattWriteRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequestedEventArgs(windows_core::IUnknown);
@@ -3931,6 +3991,8 @@ unsafe impl windows_core::Interface for GattWriteRequestedEventArgs {
 impl windows_core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
 }
+unsafe impl Send for GattWriteRequestedEventArgs {}
+unsafe impl Sync for GattWriteRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteResult(windows_core::IUnknown);
@@ -3961,6 +4023,8 @@ unsafe impl windows_core::Interface for GattWriteResult {
 impl windows_core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";
 }
+unsafe impl Send for GattWriteResult {}
+unsafe impl Sync for GattWriteResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GattCharacteristicProperties(pub u32);

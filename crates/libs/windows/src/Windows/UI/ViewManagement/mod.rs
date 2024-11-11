@@ -654,6 +654,8 @@ unsafe impl windows_core::Interface for AccessibilitySettings {
 impl windows_core::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
 }
+unsafe impl Send for AccessibilitySettings {}
+unsafe impl Sync for AccessibilitySettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationViewSwitcher(windows_core::IUnknown);
@@ -691,6 +693,8 @@ unsafe impl windows_core::Interface for ActivationViewSwitcher {
 impl windows_core::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
 }
+unsafe impl Send for ActivationViewSwitcher {}
+unsafe impl Sync for ActivationViewSwitcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationView(windows_core::IUnknown);
@@ -1045,6 +1049,8 @@ unsafe impl windows_core::Interface for ApplicationView {
 impl windows_core::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
 }
+unsafe impl Send for ApplicationView {}
+unsafe impl Sync for ApplicationView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewConsolidatedEventArgs(windows_core::IUnknown);
@@ -1075,6 +1081,8 @@ unsafe impl windows_core::Interface for ApplicationViewConsolidatedEventArgs {
 impl windows_core::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
 }
+unsafe impl Send for ApplicationViewConsolidatedEventArgs {}
+unsafe impl Sync for ApplicationViewConsolidatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewScaling(windows_core::IUnknown);
@@ -1372,6 +1380,8 @@ unsafe impl windows_core::Interface for ApplicationViewTitleBar {
 impl windows_core::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
 }
+unsafe impl Send for ApplicationViewTitleBar {}
+unsafe impl Sync for ApplicationViewTitleBar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewTransferContext(windows_core::IUnknown);
@@ -1749,6 +1759,8 @@ unsafe impl windows_core::Interface for StatusBar {
 impl windows_core::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
 }
+unsafe impl Send for StatusBar {}
+unsafe impl Sync for StatusBar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatusBarProgressIndicator(windows_core::IUnknown);
@@ -1804,6 +1816,8 @@ unsafe impl windows_core::Interface for StatusBarProgressIndicator {
 impl windows_core::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
 }
+unsafe impl Send for StatusBarProgressIndicator {}
+unsafe impl Sync for StatusBarProgressIndicator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettings(windows_core::IUnknown);
@@ -2030,6 +2044,8 @@ unsafe impl windows_core::Interface for UISettings {
 impl windows_core::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
 }
+unsafe impl Send for UISettings {}
+unsafe impl Sync for UISettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(windows_core::IUnknown);
@@ -2045,6 +2061,8 @@ unsafe impl windows_core::Interface for UISettingsAnimationsEnabledChangedEventA
 impl windows_core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
 }
+unsafe impl Send for UISettingsAnimationsEnabledChangedEventArgs {}
+unsafe impl Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(windows_core::IUnknown);
@@ -2060,6 +2078,8 @@ unsafe impl windows_core::Interface for UISettingsAutoHideScrollBarsChangedEvent
 impl windows_core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
 }
+unsafe impl Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
+unsafe impl Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsMessageDurationChangedEventArgs(windows_core::IUnknown);
@@ -2075,6 +2095,8 @@ unsafe impl windows_core::Interface for UISettingsMessageDurationChangedEventArg
 impl windows_core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
 }
+unsafe impl Send for UISettingsMessageDurationChangedEventArgs {}
+unsafe impl Sync for UISettingsMessageDurationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIViewSettings(windows_core::IUnknown);
@@ -2108,6 +2130,8 @@ unsafe impl windows_core::Interface for UIViewSettings {
 impl windows_core::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
 }
+unsafe impl Send for UIViewSettings {}
+unsafe impl Sync for UIViewSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ViewModePreferences(windows_core::IUnknown);

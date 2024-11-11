@@ -422,6 +422,8 @@ unsafe impl windows_core::Interface for InkAnalysisInkBullet {
 impl windows_core::RuntimeName for InkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
 }
+unsafe impl Send for InkAnalysisInkBullet {}
+unsafe impl Sync for InkAnalysisInkBullet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisInkDrawing(windows_core::IUnknown);
@@ -513,6 +515,8 @@ unsafe impl windows_core::Interface for InkAnalysisInkDrawing {
 impl windows_core::RuntimeName for InkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
 }
+unsafe impl Send for InkAnalysisInkDrawing {}
+unsafe impl Sync for InkAnalysisInkDrawing {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisInkWord(windows_core::IUnknown);
@@ -597,6 +601,8 @@ unsafe impl windows_core::Interface for InkAnalysisInkWord {
 impl windows_core::RuntimeName for InkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
 }
+unsafe impl Send for InkAnalysisInkWord {}
+unsafe impl Sync for InkAnalysisInkWord {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisLine(windows_core::IUnknown);
@@ -680,6 +686,8 @@ unsafe impl windows_core::Interface for InkAnalysisLine {
 impl windows_core::RuntimeName for InkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
 }
+unsafe impl Send for InkAnalysisLine {}
+unsafe impl Sync for InkAnalysisLine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisListItem(windows_core::IUnknown);
@@ -756,6 +764,8 @@ unsafe impl windows_core::Interface for InkAnalysisListItem {
 impl windows_core::RuntimeName for InkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
 }
+unsafe impl Send for InkAnalysisListItem {}
+unsafe impl Sync for InkAnalysisListItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisNode(windows_core::IUnknown);
@@ -825,6 +835,8 @@ unsafe impl windows_core::Interface for InkAnalysisNode {
 impl windows_core::RuntimeName for InkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
 }
+unsafe impl Send for InkAnalysisNode {}
+unsafe impl Sync for InkAnalysisNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisParagraph(windows_core::IUnknown);
@@ -901,6 +913,8 @@ unsafe impl windows_core::Interface for InkAnalysisParagraph {
 impl windows_core::RuntimeName for InkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
 }
+unsafe impl Send for InkAnalysisParagraph {}
+unsafe impl Sync for InkAnalysisParagraph {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisResult(windows_core::IUnknown);
@@ -924,6 +938,8 @@ unsafe impl windows_core::Interface for InkAnalysisResult {
 impl windows_core::RuntimeName for InkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
 }
+unsafe impl Send for InkAnalysisResult {}
+unsafe impl Sync for InkAnalysisResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisRoot(windows_core::IUnknown);
@@ -1008,6 +1024,8 @@ unsafe impl windows_core::Interface for InkAnalysisRoot {
 impl windows_core::RuntimeName for InkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
 }
+unsafe impl Send for InkAnalysisRoot {}
+unsafe impl Sync for InkAnalysisRoot {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisWritingRegion(windows_core::IUnknown);
@@ -1084,6 +1102,8 @@ unsafe impl windows_core::Interface for InkAnalysisWritingRegion {
 impl windows_core::RuntimeName for InkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
 }
+unsafe impl Send for InkAnalysisWritingRegion {}
+unsafe impl Sync for InkAnalysisWritingRegion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalyzer(windows_core::IUnknown);
@@ -1170,6 +1190,8 @@ unsafe impl windows_core::Interface for InkAnalyzer {
 impl windows_core::RuntimeName for InkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalyzer";
 }
+unsafe impl Send for InkAnalyzer {}
+unsafe impl Sync for InkAnalyzer {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct InkAnalysisDrawingKind(pub i32);

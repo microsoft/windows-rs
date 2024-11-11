@@ -955,6 +955,8 @@ unsafe impl windows_core::Interface for RemoteSystem {
 impl windows_core::RuntimeName for RemoteSystem {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystem";
 }
+unsafe impl Send for RemoteSystem {}
+unsafe impl Sync for RemoteSystem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAddedEventArgs(windows_core::IUnknown);
@@ -978,6 +980,8 @@ unsafe impl windows_core::Interface for RemoteSystemAddedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs";
 }
+unsafe impl Send for RemoteSystemAddedEventArgs {}
+unsafe impl Sync for RemoteSystemAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemApp(windows_core::IUnknown);
@@ -1044,6 +1048,8 @@ unsafe impl windows_core::Interface for RemoteSystemApp {
 impl windows_core::RuntimeName for RemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemApp";
 }
+unsafe impl Send for RemoteSystemApp {}
+unsafe impl Sync for RemoteSystemApp {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAppRegistration(windows_core::IUnknown);
@@ -1101,6 +1107,8 @@ unsafe impl windows_core::Interface for RemoteSystemAppRegistration {
 impl windows_core::RuntimeName for RemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAppRegistration";
 }
+unsafe impl Send for RemoteSystemAppRegistration {}
+unsafe impl Sync for RemoteSystemAppRegistration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAuthorizationKindFilter(windows_core::IUnknown);
@@ -1135,6 +1143,8 @@ unsafe impl windows_core::Interface for RemoteSystemAuthorizationKindFilter {
 impl windows_core::RuntimeName for RemoteSystemAuthorizationKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter";
 }
+unsafe impl Send for RemoteSystemAuthorizationKindFilter {}
+unsafe impl Sync for RemoteSystemAuthorizationKindFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemConnectionInfo(windows_core::IUnknown);
@@ -1172,6 +1182,8 @@ unsafe impl windows_core::Interface for RemoteSystemConnectionInfo {
 impl windows_core::RuntimeName for RemoteSystemConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionInfo";
 }
+unsafe impl Send for RemoteSystemConnectionInfo {}
+unsafe impl Sync for RemoteSystemConnectionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemConnectionRequest(windows_core::IUnknown);
@@ -1254,6 +1266,8 @@ unsafe impl windows_core::Interface for RemoteSystemConnectionRequest {
 impl windows_core::RuntimeName for RemoteSystemConnectionRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionRequest";
 }
+unsafe impl Send for RemoteSystemConnectionRequest {}
+unsafe impl Sync for RemoteSystemConnectionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemDiscoveryTypeFilter(windows_core::IUnknown);
@@ -1288,6 +1302,8 @@ unsafe impl windows_core::Interface for RemoteSystemDiscoveryTypeFilter {
 impl windows_core::RuntimeName for RemoteSystemDiscoveryTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter";
 }
+unsafe impl Send for RemoteSystemDiscoveryTypeFilter {}
+unsafe impl Sync for RemoteSystemDiscoveryTypeFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(windows_core::IUnknown);
@@ -1303,6 +1319,8 @@ unsafe impl windows_core::Interface for RemoteSystemEnumerationCompletedEventArg
 impl windows_core::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs";
 }
+unsafe impl Send for RemoteSystemEnumerationCompletedEventArgs {}
+unsafe impl Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemKindFilter(windows_core::IUnknown);
@@ -1342,6 +1360,8 @@ unsafe impl windows_core::Interface for RemoteSystemKindFilter {
 impl windows_core::RuntimeName for RemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKindFilter";
 }
+unsafe impl Send for RemoteSystemKindFilter {}
+unsafe impl Sync for RemoteSystemKindFilter {}
 pub struct RemoteSystemKinds;
 impl RemoteSystemKinds {
     pub fn Phone() -> windows_core::Result<windows_core::HSTRING> {
@@ -1427,6 +1447,8 @@ unsafe impl windows_core::Interface for RemoteSystemRemovedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs";
 }
+unsafe impl Send for RemoteSystemRemovedEventArgs {}
+unsafe impl Sync for RemoteSystemRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSession(windows_core::IUnknown);
@@ -1510,6 +1532,8 @@ unsafe impl windows_core::Interface for RemoteSystemSession {
 impl windows_core::RuntimeName for RemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSession";
 }
+unsafe impl Send for RemoteSystemSession {}
+unsafe impl Sync for RemoteSystemSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionAddedEventArgs(windows_core::IUnknown);
@@ -1533,6 +1557,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionAddedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemSessionAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionAddedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionController(windows_core::IUnknown);
@@ -1599,6 +1625,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionController {
 impl windows_core::RuntimeName for RemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionController";
 }
+unsafe impl Send for RemoteSystemSessionController {}
+unsafe impl Sync for RemoteSystemSessionController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionCreationResult(windows_core::IUnknown);
@@ -1629,6 +1657,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionCreationResult {
 impl windows_core::RuntimeName for RemoteSystemSessionCreationResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult";
 }
+unsafe impl Send for RemoteSystemSessionCreationResult {}
+unsafe impl Sync for RemoteSystemSessionCreationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(windows_core::IUnknown);
@@ -1652,6 +1682,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionDisconnectedEventArgs
 impl windows_core::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionDisconnectedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInfo(windows_core::IUnknown);
@@ -1689,6 +1721,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionInfo {
 impl windows_core::RuntimeName for RemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInfo";
 }
+unsafe impl Send for RemoteSystemSessionInfo {}
+unsafe impl Sync for RemoteSystemSessionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitation(windows_core::IUnknown);
@@ -1719,6 +1753,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionInvitation {
 impl windows_core::RuntimeName for RemoteSystemSessionInvitation {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitation";
 }
+unsafe impl Send for RemoteSystemSessionInvitation {}
+unsafe impl Sync for RemoteSystemSessionInvitation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitationListener(windows_core::IUnknown);
@@ -1756,6 +1792,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionInvitationListener {
 impl windows_core::RuntimeName for RemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener";
 }
+unsafe impl Send for RemoteSystemSessionInvitationListener {}
+unsafe impl Sync for RemoteSystemSessionInvitationListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(windows_core::IUnknown);
@@ -1779,6 +1817,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionInvitationReceivedEve
 impl windows_core::RuntimeName for RemoteSystemSessionInvitationReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionInvitationReceivedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinRequest(windows_core::IUnknown);
@@ -1806,6 +1846,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionJoinRequest {
 impl windows_core::RuntimeName for RemoteSystemSessionJoinRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest";
 }
+unsafe impl Send for RemoteSystemSessionJoinRequest {}
+unsafe impl Sync for RemoteSystemSessionJoinRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(windows_core::IUnknown);
@@ -1836,6 +1878,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionJoinRequestedEventArg
 impl windows_core::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionJoinRequestedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinResult(windows_core::IUnknown);
@@ -1866,6 +1910,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionJoinResult {
 impl windows_core::RuntimeName for RemoteSystemSessionJoinResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult";
 }
+unsafe impl Send for RemoteSystemSessionJoinResult {}
+unsafe impl Sync for RemoteSystemSessionJoinResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionMessageChannel(windows_core::IUnknown);
@@ -1960,6 +2006,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionMessageChannel {
 impl windows_core::RuntimeName for RemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel";
 }
+unsafe impl Send for RemoteSystemSessionMessageChannel {}
+unsafe impl Sync for RemoteSystemSessionMessageChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionOptions(windows_core::IUnknown);
@@ -1994,6 +2042,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionOptions {
 impl windows_core::RuntimeName for RemoteSystemSessionOptions {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionOptions";
 }
+unsafe impl Send for RemoteSystemSessionOptions {}
+unsafe impl Sync for RemoteSystemSessionOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipant(windows_core::IUnknown);
@@ -2025,6 +2075,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionParticipant {
 impl windows_core::RuntimeName for RemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipant";
 }
+unsafe impl Send for RemoteSystemSessionParticipant {}
+unsafe impl Sync for RemoteSystemSessionParticipant {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(windows_core::IUnknown);
@@ -2048,6 +2100,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionParticipantAddedEvent
 impl windows_core::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionParticipantAddedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionParticipantAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(windows_core::IUnknown);
@@ -2071,6 +2125,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionParticipantRemovedEve
 impl windows_core::RuntimeName for RemoteSystemSessionParticipantRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionParticipantRemovedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantWatcher(windows_core::IUnknown);
@@ -2144,6 +2200,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionParticipantWatcher {
 impl windows_core::RuntimeName for RemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher";
 }
+unsafe impl Send for RemoteSystemSessionParticipantWatcher {}
+unsafe impl Sync for RemoteSystemSessionParticipantWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionRemovedEventArgs(windows_core::IUnknown);
@@ -2167,6 +2225,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionRemovedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemSessionRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionRemovedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionUpdatedEventArgs(windows_core::IUnknown);
@@ -2190,6 +2250,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionUpdatedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionUpdatedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(windows_core::IUnknown);
@@ -2221,6 +2283,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionValueSetReceivedEvent
 impl windows_core::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs";
 }
+unsafe impl Send for RemoteSystemSessionValueSetReceivedEventArgs {}
+unsafe impl Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionWatcher(windows_core::IUnknown);
@@ -2294,6 +2358,8 @@ unsafe impl windows_core::Interface for RemoteSystemSessionWatcher {
 impl windows_core::RuntimeName for RemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionWatcher";
 }
+unsafe impl Send for RemoteSystemSessionWatcher {}
+unsafe impl Sync for RemoteSystemSessionWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemStatusTypeFilter(windows_core::IUnknown);
@@ -2328,6 +2394,8 @@ unsafe impl windows_core::Interface for RemoteSystemStatusTypeFilter {
 impl windows_core::RuntimeName for RemoteSystemStatusTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter";
 }
+unsafe impl Send for RemoteSystemStatusTypeFilter {}
+unsafe impl Sync for RemoteSystemStatusTypeFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemUpdatedEventArgs(windows_core::IUnknown);
@@ -2351,6 +2419,8 @@ unsafe impl windows_core::Interface for RemoteSystemUpdatedEventArgs {
 impl windows_core::RuntimeName for RemoteSystemUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs";
 }
+unsafe impl Send for RemoteSystemUpdatedEventArgs {}
+unsafe impl Sync for RemoteSystemUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWatcher(windows_core::IUnknown);
@@ -2452,6 +2522,8 @@ unsafe impl windows_core::Interface for RemoteSystemWatcher {
 impl windows_core::RuntimeName for RemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcher";
 }
+unsafe impl Send for RemoteSystemWatcher {}
+unsafe impl Sync for RemoteSystemWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(windows_core::IUnknown);
@@ -2475,6 +2547,8 @@ unsafe impl windows_core::Interface for RemoteSystemWatcherErrorOccurredEventArg
 impl windows_core::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs";
 }
+unsafe impl Send for RemoteSystemWatcherErrorOccurredEventArgs {}
+unsafe impl Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWebAccountFilter(windows_core::IUnknown);
@@ -2514,6 +2588,8 @@ unsafe impl windows_core::Interface for RemoteSystemWebAccountFilter {
 impl windows_core::RuntimeName for RemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter";
 }
+unsafe impl Send for RemoteSystemWebAccountFilter {}
+unsafe impl Sync for RemoteSystemWebAccountFilter {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct RemoteSystemAccessStatus(pub i32);

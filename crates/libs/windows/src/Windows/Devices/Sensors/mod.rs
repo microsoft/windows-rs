@@ -2046,6 +2046,8 @@ unsafe impl windows_core::Interface for Accelerometer {
 impl windows_core::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
 }
+unsafe impl Send for Accelerometer {}
+unsafe impl Sync for Accelerometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerDataThreshold(windows_core::IUnknown);
@@ -2095,6 +2097,8 @@ unsafe impl windows_core::Interface for AccelerometerDataThreshold {
 impl windows_core::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
 }
+unsafe impl Send for AccelerometerDataThreshold {}
+unsafe impl Sync for AccelerometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerReading(windows_core::IUnknown);
@@ -2154,6 +2158,8 @@ unsafe impl windows_core::Interface for AccelerometerReading {
 impl windows_core::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
 }
+unsafe impl Send for AccelerometerReading {}
+unsafe impl Sync for AccelerometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -2177,6 +2183,8 @@ unsafe impl windows_core::Interface for AccelerometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
 }
+unsafe impl Send for AccelerometerReadingChangedEventArgs {}
+unsafe impl Sync for AccelerometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerShakenEventArgs(windows_core::IUnknown);
@@ -2200,6 +2208,8 @@ unsafe impl windows_core::Interface for AccelerometerShakenEventArgs {
 impl windows_core::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
 }
+unsafe impl Send for AccelerometerShakenEventArgs {}
+unsafe impl Sync for AccelerometerShakenEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensor(windows_core::IUnknown);
@@ -2310,6 +2320,8 @@ unsafe impl windows_core::Interface for ActivitySensor {
 impl windows_core::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
 }
+unsafe impl Send for ActivitySensor {}
+unsafe impl Sync for ActivitySensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReading(windows_core::IUnknown);
@@ -2347,6 +2359,8 @@ unsafe impl windows_core::Interface for ActivitySensorReading {
 impl windows_core::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
 }
+unsafe impl Send for ActivitySensorReading {}
+unsafe impl Sync for ActivitySensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReadingChangeReport(windows_core::IUnknown);
@@ -2370,6 +2384,8 @@ unsafe impl windows_core::Interface for ActivitySensorReadingChangeReport {
 impl windows_core::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
 }
+unsafe impl Send for ActivitySensorReadingChangeReport {}
+unsafe impl Sync for ActivitySensorReadingChangeReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -2393,6 +2409,8 @@ unsafe impl windows_core::Interface for ActivitySensorReadingChangedEventArgs {
 impl windows_core::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
 }
+unsafe impl Send for ActivitySensorReadingChangedEventArgs {}
+unsafe impl Sync for ActivitySensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorTriggerDetails(windows_core::IUnknown);
@@ -2417,6 +2435,8 @@ unsafe impl windows_core::Interface for ActivitySensorTriggerDetails {
 impl windows_core::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
 }
+unsafe impl Send for ActivitySensorTriggerDetails {}
+unsafe impl Sync for ActivitySensorTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveDimmingOptions(windows_core::IUnknown);
@@ -2444,6 +2464,8 @@ unsafe impl windows_core::Interface for AdaptiveDimmingOptions {
 impl windows_core::RuntimeName for AdaptiveDimmingOptions {
     const NAME: &'static str = "Windows.Devices.Sensors.AdaptiveDimmingOptions";
 }
+unsafe impl Send for AdaptiveDimmingOptions {}
+unsafe impl Sync for AdaptiveDimmingOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Altimeter(windows_core::IUnknown);
@@ -2534,6 +2556,8 @@ unsafe impl windows_core::Interface for Altimeter {
 impl windows_core::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
 }
+unsafe impl Send for Altimeter {}
+unsafe impl Sync for Altimeter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AltimeterReading(windows_core::IUnknown);
@@ -2579,6 +2603,8 @@ unsafe impl windows_core::Interface for AltimeterReading {
 impl windows_core::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
 }
+unsafe impl Send for AltimeterReading {}
+unsafe impl Sync for AltimeterReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AltimeterReadingChangedEventArgs(windows_core::IUnknown);
@@ -2602,6 +2628,8 @@ unsafe impl windows_core::Interface for AltimeterReadingChangedEventArgs {
 impl windows_core::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
 }
+unsafe impl Send for AltimeterReadingChangedEventArgs {}
+unsafe impl Sync for AltimeterReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Barometer(windows_core::IUnknown);
@@ -2715,6 +2743,8 @@ unsafe impl windows_core::Interface for Barometer {
 impl windows_core::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
 }
+unsafe impl Send for Barometer {}
+unsafe impl Sync for Barometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerDataThreshold(windows_core::IUnknown);
@@ -2742,6 +2772,8 @@ unsafe impl windows_core::Interface for BarometerDataThreshold {
 impl windows_core::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
 }
+unsafe impl Send for BarometerDataThreshold {}
+unsafe impl Sync for BarometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerReading(windows_core::IUnknown);
@@ -2787,6 +2819,8 @@ unsafe impl windows_core::Interface for BarometerReading {
 impl windows_core::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
 }
+unsafe impl Send for BarometerReading {}
+unsafe impl Sync for BarometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -2810,6 +2844,8 @@ unsafe impl windows_core::Interface for BarometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
 }
+unsafe impl Send for BarometerReadingChangedEventArgs {}
+unsafe impl Sync for BarometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compass(windows_core::IUnknown);
@@ -2936,6 +2972,8 @@ unsafe impl windows_core::Interface for Compass {
 impl windows_core::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
 }
+unsafe impl Send for Compass {}
+unsafe impl Sync for Compass {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassDataThreshold(windows_core::IUnknown);
@@ -2963,6 +3001,8 @@ unsafe impl windows_core::Interface for CompassDataThreshold {
 impl windows_core::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
 }
+unsafe impl Send for CompassDataThreshold {}
+unsafe impl Sync for CompassDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassReading(windows_core::IUnknown);
@@ -3022,6 +3062,8 @@ unsafe impl windows_core::Interface for CompassReading {
 impl windows_core::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
 }
+unsafe impl Send for CompassReading {}
+unsafe impl Sync for CompassReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassReadingChangedEventArgs(windows_core::IUnknown);
@@ -3045,6 +3087,8 @@ unsafe impl windows_core::Interface for CompassReadingChangedEventArgs {
 impl windows_core::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
 }
+unsafe impl Send for CompassReadingChangedEventArgs {}
+unsafe impl Sync for CompassReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectedPerson(windows_core::IUnknown);
@@ -3096,6 +3140,8 @@ unsafe impl windows_core::Interface for DetectedPerson {
 impl windows_core::RuntimeName for DetectedPerson {
     const NAME: &'static str = "Windows.Devices.Sensors.DetectedPerson";
 }
+unsafe impl Send for DetectedPerson {}
+unsafe impl Sync for DetectedPerson {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gyrometer(windows_core::IUnknown);
@@ -3222,6 +3268,8 @@ unsafe impl windows_core::Interface for Gyrometer {
 impl windows_core::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
 }
+unsafe impl Send for Gyrometer {}
+unsafe impl Sync for Gyrometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerDataThreshold(windows_core::IUnknown);
@@ -3271,6 +3319,8 @@ unsafe impl windows_core::Interface for GyrometerDataThreshold {
 impl windows_core::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
 }
+unsafe impl Send for GyrometerDataThreshold {}
+unsafe impl Sync for GyrometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerReading(windows_core::IUnknown);
@@ -3330,6 +3380,8 @@ unsafe impl windows_core::Interface for GyrometerReading {
 impl windows_core::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
 }
+unsafe impl Send for GyrometerReading {}
+unsafe impl Sync for GyrometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -3353,6 +3405,8 @@ unsafe impl windows_core::Interface for GyrometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
 }
+unsafe impl Send for GyrometerReadingChangedEventArgs {}
+unsafe impl Sync for GyrometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadOrientation(windows_core::IUnknown);
@@ -3390,6 +3444,8 @@ unsafe impl windows_core::Interface for HeadOrientation {
 impl windows_core::RuntimeName for HeadOrientation {
     const NAME: &'static str = "Windows.Devices.Sensors.HeadOrientation";
 }
+unsafe impl Send for HeadOrientation {}
+unsafe impl Sync for HeadOrientation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPosition(windows_core::IUnknown);
@@ -3420,6 +3476,8 @@ unsafe impl windows_core::Interface for HeadPosition {
 impl windows_core::RuntimeName for HeadPosition {
     const NAME: &'static str = "Windows.Devices.Sensors.HeadPosition";
 }
+unsafe impl Send for HeadPosition {}
+unsafe impl Sync for HeadPosition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleReading(windows_core::IUnknown);
@@ -3458,6 +3516,8 @@ unsafe impl windows_core::Interface for HingeAngleReading {
 impl windows_core::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
 }
+unsafe impl Send for HingeAngleReading {}
+unsafe impl Sync for HingeAngleReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleSensor(windows_core::IUnknown);
@@ -3548,6 +3608,8 @@ unsafe impl windows_core::Interface for HingeAngleSensor {
 impl windows_core::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
 }
+unsafe impl Send for HingeAngleSensor {}
+unsafe impl Sync for HingeAngleSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleSensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -3571,6 +3633,8 @@ unsafe impl windows_core::Interface for HingeAngleSensorReadingChangedEventArgs 
 impl windows_core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
 }
+unsafe impl Send for HingeAngleSensorReadingChangedEventArgs {}
+unsafe impl Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceFeatures(windows_core::IUnknown);
@@ -3630,6 +3694,8 @@ unsafe impl windows_core::Interface for HumanPresenceFeatures {
 impl windows_core::RuntimeName for HumanPresenceFeatures {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceFeatures";
 }
+unsafe impl Send for HumanPresenceFeatures {}
+unsafe impl Sync for HumanPresenceFeatures {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensor(windows_core::IUnknown);
@@ -3775,6 +3841,8 @@ unsafe impl windows_core::Interface for HumanPresenceSensor {
 impl windows_core::RuntimeName for HumanPresenceSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensor";
 }
+unsafe impl Send for HumanPresenceSensor {}
+unsafe impl Sync for HumanPresenceSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReading(windows_core::IUnknown);
@@ -3842,6 +3910,8 @@ unsafe impl windows_core::Interface for HumanPresenceSensorReading {
 impl windows_core::RuntimeName for HumanPresenceSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReading";
 }
+unsafe impl Send for HumanPresenceSensorReading {}
+unsafe impl Sync for HumanPresenceSensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -3865,6 +3935,8 @@ unsafe impl windows_core::Interface for HumanPresenceSensorReadingChangedEventAr
 impl windows_core::RuntimeName for HumanPresenceSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReadingChangedEventArgs";
 }
+unsafe impl Send for HumanPresenceSensorReadingChangedEventArgs {}
+unsafe impl Sync for HumanPresenceSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReadingUpdate(windows_core::IUnknown);
@@ -3944,6 +4016,8 @@ unsafe impl windows_core::Interface for HumanPresenceSensorReadingUpdate {
 impl windows_core::RuntimeName for HumanPresenceSensorReadingUpdate {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSensorReadingUpdate";
 }
+unsafe impl Send for HumanPresenceSensorReadingUpdate {}
+unsafe impl Sync for HumanPresenceSensorReadingUpdate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSettings(windows_core::IUnknown);
@@ -4137,6 +4211,8 @@ unsafe impl windows_core::Interface for HumanPresenceSettings {
 impl windows_core::RuntimeName for HumanPresenceSettings {
     const NAME: &'static str = "Windows.Devices.Sensors.HumanPresenceSettings";
 }
+unsafe impl Send for HumanPresenceSettings {}
+unsafe impl Sync for HumanPresenceSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Inclinometer(windows_core::IUnknown);
@@ -4290,6 +4366,8 @@ unsafe impl windows_core::Interface for Inclinometer {
 impl windows_core::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
 }
+unsafe impl Send for Inclinometer {}
+unsafe impl Sync for Inclinometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerDataThreshold(windows_core::IUnknown);
@@ -4339,6 +4417,8 @@ unsafe impl windows_core::Interface for InclinometerDataThreshold {
 impl windows_core::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
 }
+unsafe impl Send for InclinometerDataThreshold {}
+unsafe impl Sync for InclinometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerReading(windows_core::IUnknown);
@@ -4405,6 +4485,8 @@ unsafe impl windows_core::Interface for InclinometerReading {
 impl windows_core::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
 }
+unsafe impl Send for InclinometerReading {}
+unsafe impl Sync for InclinometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -4428,6 +4510,8 @@ unsafe impl windows_core::Interface for InclinometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
 }
+unsafe impl Send for InclinometerReadingChangedEventArgs {}
+unsafe impl Sync for InclinometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensor(windows_core::IUnknown);
@@ -4541,6 +4625,8 @@ unsafe impl windows_core::Interface for LightSensor {
 impl windows_core::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
 }
+unsafe impl Send for LightSensor {}
+unsafe impl Sync for LightSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorDataThreshold(windows_core::IUnknown);
@@ -4579,6 +4665,8 @@ unsafe impl windows_core::Interface for LightSensorDataThreshold {
 impl windows_core::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
 }
+unsafe impl Send for LightSensorDataThreshold {}
+unsafe impl Sync for LightSensorDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorReading(windows_core::IUnknown);
@@ -4624,6 +4712,8 @@ unsafe impl windows_core::Interface for LightSensorReading {
 impl windows_core::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
 }
+unsafe impl Send for LightSensorReading {}
+unsafe impl Sync for LightSensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -4647,6 +4737,8 @@ unsafe impl windows_core::Interface for LightSensorReadingChangedEventArgs {
 impl windows_core::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
 }
+unsafe impl Send for LightSensorReadingChangedEventArgs {}
+unsafe impl Sync for LightSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockOnLeaveOptions(windows_core::IUnknown);
@@ -4674,6 +4766,8 @@ unsafe impl windows_core::Interface for LockOnLeaveOptions {
 impl windows_core::RuntimeName for LockOnLeaveOptions {
     const NAME: &'static str = "Windows.Devices.Sensors.LockOnLeaveOptions";
 }
+unsafe impl Send for LockOnLeaveOptions {}
+unsafe impl Sync for LockOnLeaveOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Magnetometer(windows_core::IUnknown);
@@ -4800,6 +4894,8 @@ unsafe impl windows_core::Interface for Magnetometer {
 impl windows_core::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
 }
+unsafe impl Send for Magnetometer {}
+unsafe impl Sync for Magnetometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerDataThreshold(windows_core::IUnknown);
@@ -4849,6 +4945,8 @@ unsafe impl windows_core::Interface for MagnetometerDataThreshold {
 impl windows_core::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
 }
+unsafe impl Send for MagnetometerDataThreshold {}
+unsafe impl Sync for MagnetometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerReading(windows_core::IUnknown);
@@ -4915,6 +5013,8 @@ unsafe impl windows_core::Interface for MagnetometerReading {
 impl windows_core::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
 }
+unsafe impl Send for MagnetometerReading {}
+unsafe impl Sync for MagnetometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -4938,6 +5038,8 @@ unsafe impl windows_core::Interface for MagnetometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
 }
+unsafe impl Send for MagnetometerReadingChangedEventArgs {}
+unsafe impl Sync for MagnetometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensor(windows_core::IUnknown);
@@ -5096,6 +5198,8 @@ unsafe impl windows_core::Interface for OrientationSensor {
 impl windows_core::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
 }
+unsafe impl Send for OrientationSensor {}
+unsafe impl Sync for OrientationSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensorReading(windows_core::IUnknown);
@@ -5155,6 +5259,8 @@ unsafe impl windows_core::Interface for OrientationSensorReading {
 impl windows_core::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
 }
+unsafe impl Send for OrientationSensorReading {}
+unsafe impl Sync for OrientationSensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -5178,6 +5284,8 @@ unsafe impl windows_core::Interface for OrientationSensorReadingChangedEventArgs
 impl windows_core::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
 }
+unsafe impl Send for OrientationSensorReadingChangedEventArgs {}
+unsafe impl Sync for OrientationSensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Pedometer(windows_core::IUnknown);
@@ -5298,6 +5406,8 @@ unsafe impl windows_core::Interface for Pedometer {
 impl windows_core::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
 }
+unsafe impl Send for Pedometer {}
+unsafe impl Sync for Pedometer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerDataThreshold(windows_core::IUnknown);
@@ -5328,6 +5438,8 @@ unsafe impl windows_core::Interface for PedometerDataThreshold {
 impl windows_core::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
 }
+unsafe impl Send for PedometerDataThreshold {}
+unsafe impl Sync for PedometerDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerReading(windows_core::IUnknown);
@@ -5372,6 +5484,8 @@ unsafe impl windows_core::Interface for PedometerReading {
 impl windows_core::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
 }
+unsafe impl Send for PedometerReading {}
+unsafe impl Sync for PedometerReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerReadingChangedEventArgs(windows_core::IUnknown);
@@ -5395,6 +5509,8 @@ unsafe impl windows_core::Interface for PedometerReadingChangedEventArgs {
 impl windows_core::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
 }
+unsafe impl Send for PedometerReadingChangedEventArgs {}
+unsafe impl Sync for PedometerReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensor(windows_core::IUnknown);
@@ -5490,6 +5606,8 @@ unsafe impl windows_core::Interface for ProximitySensor {
 impl windows_core::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
 }
+unsafe impl Send for ProximitySensor {}
+unsafe impl Sync for ProximitySensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorDataThreshold(windows_core::IUnknown);
@@ -5520,6 +5638,8 @@ unsafe impl windows_core::Interface for ProximitySensorDataThreshold {
 impl windows_core::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
 }
+unsafe impl Send for ProximitySensorDataThreshold {}
+unsafe impl Sync for ProximitySensorDataThreshold {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorDisplayOnOffController(windows_core::IUnknown);
@@ -5541,6 +5661,8 @@ unsafe impl windows_core::Interface for ProximitySensorDisplayOnOffController {
 impl windows_core::RuntimeName for ProximitySensorDisplayOnOffController {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDisplayOnOffController";
 }
+unsafe impl Send for ProximitySensorDisplayOnOffController {}
+unsafe impl Sync for ProximitySensorDisplayOnOffController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorReading(windows_core::IUnknown);
@@ -5578,6 +5700,8 @@ unsafe impl windows_core::Interface for ProximitySensorReading {
 impl windows_core::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
 }
+unsafe impl Send for ProximitySensorReading {}
+unsafe impl Sync for ProximitySensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -5601,6 +5725,8 @@ unsafe impl windows_core::Interface for ProximitySensorReadingChangedEventArgs {
 impl windows_core::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
 }
+unsafe impl Send for ProximitySensorReadingChangedEventArgs {}
+unsafe impl Sync for ProximitySensorReadingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorDataThresholdTriggerDetails(windows_core::IUnknown);
@@ -5631,6 +5757,8 @@ unsafe impl windows_core::Interface for SensorDataThresholdTriggerDetails {
 impl windows_core::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
 }
+unsafe impl Send for SensorDataThresholdTriggerDetails {}
+unsafe impl Sync for SensorDataThresholdTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorQuaternion(windows_core::IUnknown);
@@ -5675,6 +5803,8 @@ unsafe impl windows_core::Interface for SensorQuaternion {
 impl windows_core::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
 }
+unsafe impl Send for SensorQuaternion {}
+unsafe impl Sync for SensorQuaternion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorRotationMatrix(windows_core::IUnknown);
@@ -5754,6 +5884,8 @@ unsafe impl windows_core::Interface for SensorRotationMatrix {
 impl windows_core::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
 }
+unsafe impl Send for SensorRotationMatrix {}
+unsafe impl Sync for SensorRotationMatrix {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleOrientationSensor(windows_core::IUnknown);
@@ -5837,6 +5969,8 @@ unsafe impl windows_core::Interface for SimpleOrientationSensor {
 impl windows_core::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
 }
+unsafe impl Send for SimpleOrientationSensor {}
+unsafe impl Sync for SimpleOrientationSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(windows_core::IUnknown);
@@ -5867,6 +6001,8 @@ unsafe impl windows_core::Interface for SimpleOrientationSensorOrientationChange
 impl windows_core::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";
 }
+unsafe impl Send for SimpleOrientationSensorOrientationChangedEventArgs {}
+unsafe impl Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WakeOnApproachOptions(windows_core::IUnknown);
@@ -5905,6 +6041,8 @@ unsafe impl windows_core::Interface for WakeOnApproachOptions {
 impl windows_core::RuntimeName for WakeOnApproachOptions {
     const NAME: &'static str = "Windows.Devices.Sensors.WakeOnApproachOptions";
 }
+unsafe impl Send for WakeOnApproachOptions {}
+unsafe impl Sync for WakeOnApproachOptions {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AccelerometerReadingType(pub i32);

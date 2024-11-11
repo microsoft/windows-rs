@@ -718,6 +718,8 @@ unsafe impl windows_core::Interface for HttpBufferContent {
 impl windows_core::RuntimeName for HttpBufferContent {
     const NAME: &'static str = "Windows.Web.Http.HttpBufferContent";
 }
+unsafe impl Send for HttpBufferContent {}
+unsafe impl Sync for HttpBufferContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpClient(windows_core::IUnknown);
@@ -992,6 +994,8 @@ unsafe impl windows_core::Interface for HttpClient {
 impl windows_core::RuntimeName for HttpClient {
     const NAME: &'static str = "Windows.Web.Http.HttpClient";
 }
+unsafe impl Send for HttpClient {}
+unsafe impl Sync for HttpClient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookie(windows_core::IUnknown);
@@ -1094,6 +1098,8 @@ unsafe impl windows_core::Interface for HttpCookie {
 impl windows_core::RuntimeName for HttpCookie {
     const NAME: &'static str = "Windows.Web.Http.HttpCookie";
 }
+unsafe impl Send for HttpCookie {}
+unsafe impl Sync for HttpCookie {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1157,6 +1163,10 @@ unsafe impl windows_core::Interface for HttpCookieCollection {
 impl windows_core::RuntimeName for HttpCookieCollection {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpCookieCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpCookieCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookieManager(windows_core::IUnknown);
@@ -1211,6 +1221,8 @@ unsafe impl windows_core::Interface for HttpCookieManager {
 impl windows_core::RuntimeName for HttpCookieManager {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieManager";
 }
+unsafe impl Send for HttpCookieManager {}
+unsafe impl Sync for HttpCookieManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpFormUrlEncodedContent(windows_core::IUnknown);
@@ -1309,6 +1321,8 @@ unsafe impl windows_core::Interface for HttpFormUrlEncodedContent {
 impl windows_core::RuntimeName for HttpFormUrlEncodedContent {
     const NAME: &'static str = "Windows.Web.Http.HttpFormUrlEncodedContent";
 }
+unsafe impl Send for HttpFormUrlEncodedContent {}
+unsafe impl Sync for HttpFormUrlEncodedContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetBufferResult(windows_core::IUnknown);
@@ -1373,6 +1387,8 @@ unsafe impl windows_core::Interface for HttpGetBufferResult {
 impl windows_core::RuntimeName for HttpGetBufferResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetBufferResult";
 }
+unsafe impl Send for HttpGetBufferResult {}
+unsafe impl Sync for HttpGetBufferResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetInputStreamResult(windows_core::IUnknown);
@@ -1437,6 +1453,8 @@ unsafe impl windows_core::Interface for HttpGetInputStreamResult {
 impl windows_core::RuntimeName for HttpGetInputStreamResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetInputStreamResult";
 }
+unsafe impl Send for HttpGetInputStreamResult {}
+unsafe impl Sync for HttpGetInputStreamResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetStringResult(windows_core::IUnknown);
@@ -1500,6 +1518,8 @@ unsafe impl windows_core::Interface for HttpGetStringResult {
 impl windows_core::RuntimeName for HttpGetStringResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetStringResult";
 }
+unsafe impl Send for HttpGetStringResult {}
+unsafe impl Sync for HttpGetStringResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMethod(windows_core::IUnknown);
@@ -1587,6 +1607,8 @@ unsafe impl windows_core::Interface for HttpMethod {
 impl windows_core::RuntimeName for HttpMethod {
     const NAME: &'static str = "Windows.Web.Http.HttpMethod";
 }
+unsafe impl Send for HttpMethod {}
+unsafe impl Sync for HttpMethod {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1716,6 +1738,10 @@ unsafe impl windows_core::Interface for HttpMultipartContent {
 impl windows_core::RuntimeName for HttpMultipartContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartContent";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpMultipartContent {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpMultipartContent {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1853,6 +1879,10 @@ unsafe impl windows_core::Interface for HttpMultipartFormDataContent {
 impl windows_core::RuntimeName for HttpMultipartFormDataContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartFormDataContent";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpMultipartFormDataContent {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpMultipartFormDataContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpRequestMessage(windows_core::IUnknown);
@@ -1978,6 +2008,8 @@ unsafe impl windows_core::Interface for HttpRequestMessage {
 impl windows_core::RuntimeName for HttpRequestMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestMessage";
 }
+unsafe impl Send for HttpRequestMessage {}
+unsafe impl Sync for HttpRequestMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpRequestResult(windows_core::IUnknown);
@@ -2034,6 +2066,8 @@ unsafe impl windows_core::Interface for HttpRequestResult {
 impl windows_core::RuntimeName for HttpRequestResult {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestResult";
 }
+unsafe impl Send for HttpRequestResult {}
+unsafe impl Sync for HttpRequestResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpResponseMessage(windows_core::IUnknown);
@@ -2173,6 +2207,8 @@ unsafe impl windows_core::Interface for HttpResponseMessage {
 impl windows_core::RuntimeName for HttpResponseMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpResponseMessage";
 }
+unsafe impl Send for HttpResponseMessage {}
+unsafe impl Sync for HttpResponseMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpStreamContent(windows_core::IUnknown);
@@ -2271,6 +2307,8 @@ unsafe impl windows_core::Interface for HttpStreamContent {
 impl windows_core::RuntimeName for HttpStreamContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStreamContent";
 }
+unsafe impl Send for HttpStreamContent {}
+unsafe impl Sync for HttpStreamContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpStringContent(windows_core::IUnknown);
@@ -2379,6 +2417,8 @@ unsafe impl windows_core::Interface for HttpStringContent {
 impl windows_core::RuntimeName for HttpStringContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStringContent";
 }
+unsafe impl Send for HttpStringContent {}
+unsafe impl Sync for HttpStringContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpTransportInformation(windows_core::IUnknown);
@@ -2435,6 +2475,8 @@ unsafe impl windows_core::Interface for HttpTransportInformation {
 impl windows_core::RuntimeName for HttpTransportInformation {
     const NAME: &'static str = "Windows.Web.Http.HttpTransportInformation";
 }
+unsafe impl Send for HttpTransportInformation {}
+unsafe impl Sync for HttpTransportInformation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HttpCompletionOption(pub i32);

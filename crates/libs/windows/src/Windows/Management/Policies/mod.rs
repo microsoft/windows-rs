@@ -173,6 +173,8 @@ unsafe impl windows_core::Interface for NamedPolicyData {
 impl windows_core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
 }
+unsafe impl Send for NamedPolicyData {}
+unsafe impl Sync for NamedPolicyData {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct NamedPolicyKind(pub i32);

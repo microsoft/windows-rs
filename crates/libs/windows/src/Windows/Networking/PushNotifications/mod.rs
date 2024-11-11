@@ -198,6 +198,8 @@ unsafe impl windows_core::Interface for PushNotificationChannel {
 impl windows_core::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
 }
+unsafe impl Send for PushNotificationChannel {}
+unsafe impl Sync for PushNotificationChannel {}
 pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
     pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
@@ -333,6 +335,8 @@ unsafe impl windows_core::Interface for PushNotificationChannelManagerForUser {
 impl windows_core::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
 }
+unsafe impl Send for PushNotificationChannelManagerForUser {}
+unsafe impl Sync for PushNotificationChannelManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
@@ -348,6 +352,8 @@ unsafe impl windows_core::Interface for PushNotificationChannelsRevokedEventArgs
 impl windows_core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
 }
+unsafe impl Send for PushNotificationChannelsRevokedEventArgs {}
+unsafe impl Sync for PushNotificationChannelsRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationReceivedEventArgs(windows_core::IUnknown);
@@ -413,6 +419,8 @@ unsafe impl windows_core::Interface for PushNotificationReceivedEventArgs {
 impl windows_core::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
 }
+unsafe impl Send for PushNotificationReceivedEventArgs {}
+unsafe impl Sync for PushNotificationReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawNotification(windows_core::IUnknown);
@@ -459,6 +467,8 @@ unsafe impl windows_core::Interface for RawNotification {
 impl windows_core::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";
 }
+unsafe impl Send for RawNotification {}
+unsafe impl Sync for RawNotification {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PushNotificationType(pub i32);

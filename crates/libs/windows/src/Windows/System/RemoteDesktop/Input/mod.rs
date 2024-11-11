@@ -112,6 +112,8 @@ unsafe impl windows_core::Interface for RemoteTextConnection {
 impl windows_core::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";
 }
+unsafe impl Send for RemoteTextConnection {}
+unsafe impl Sync for RemoteTextConnection {}
 windows_core::imp::define_interface!(RemoteTextConnectionDataHandler, RemoteTextConnectionDataHandler_Vtbl, 0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

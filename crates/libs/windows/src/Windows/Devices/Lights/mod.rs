@@ -265,6 +265,8 @@ unsafe impl windows_core::Interface for Lamp {
 impl windows_core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
 }
+unsafe impl Send for Lamp {}
+unsafe impl Sync for Lamp {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArray(windows_core::IUnknown);
@@ -487,6 +489,8 @@ unsafe impl windows_core::Interface for LampArray {
 impl windows_core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
 }
+unsafe impl Send for LampArray {}
+unsafe impl Sync for LampArray {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -510,6 +514,8 @@ unsafe impl windows_core::Interface for LampAvailabilityChangedEventArgs {
 impl windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
 }
+unsafe impl Send for LampAvailabilityChangedEventArgs {}
+unsafe impl Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampInfo(windows_core::IUnknown);
@@ -599,6 +605,8 @@ unsafe impl windows_core::Interface for LampInfo {
 impl windows_core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";
 }
+unsafe impl Send for LampInfo {}
+unsafe impl Sync for LampInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct LampArrayKind(pub i32);

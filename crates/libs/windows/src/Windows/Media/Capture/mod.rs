@@ -1919,6 +1919,8 @@ unsafe impl windows_core::Interface for AdvancedCapturedPhoto {
 impl windows_core::RuntimeName for AdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedCapturedPhoto";
 }
+unsafe impl Send for AdvancedCapturedPhoto {}
+unsafe impl Sync for AdvancedCapturedPhoto {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedPhotoCapture(windows_core::IUnknown);
@@ -1987,6 +1989,8 @@ unsafe impl windows_core::Interface for AdvancedPhotoCapture {
 impl windows_core::RuntimeName for AdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedPhotoCapture";
 }
+unsafe impl Send for AdvancedPhotoCapture {}
+unsafe impl Sync for AdvancedPhotoCapture {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastBackgroundService(windows_core::IUnknown);
@@ -2397,6 +2401,8 @@ unsafe impl windows_core::Interface for AppBroadcastCameraCaptureStateChangedEve
 impl windows_core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs";
 }
+unsafe impl Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
+unsafe impl Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastGlobalSettings(windows_core::IUnknown);
@@ -2642,6 +2648,8 @@ unsafe impl windows_core::Interface for AppBroadcastMicrophoneCaptureStateChange
 impl windows_core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs";
 }
+unsafe impl Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
+unsafe impl Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPlugIn(windows_core::IUnknown);
@@ -2687,6 +2695,8 @@ unsafe impl windows_core::Interface for AppBroadcastPlugIn {
 impl windows_core::RuntimeName for AppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugIn";
 }
+unsafe impl Send for AppBroadcastPlugIn {}
+unsafe impl Sync for AppBroadcastPlugIn {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPlugInManager(windows_core::IUnknown);
@@ -2752,6 +2762,8 @@ unsafe impl windows_core::Interface for AppBroadcastPlugInManager {
 impl windows_core::RuntimeName for AppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInManager";
 }
+unsafe impl Send for AppBroadcastPlugInManager {}
+unsafe impl Sync for AppBroadcastPlugInManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPlugInStateChangedEventArgs(windows_core::IUnknown);
@@ -2775,6 +2787,8 @@ unsafe impl windows_core::Interface for AppBroadcastPlugInStateChangedEventArgs 
 impl windows_core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs";
 }
+unsafe impl Send for AppBroadcastPlugInStateChangedEventArgs {}
+unsafe impl Sync for AppBroadcastPlugInStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPreview(windows_core::IUnknown);
@@ -2830,6 +2844,8 @@ unsafe impl windows_core::Interface for AppBroadcastPreview {
 impl windows_core::RuntimeName for AppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreview";
 }
+unsafe impl Send for AppBroadcastPreview {}
+unsafe impl Sync for AppBroadcastPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPreviewStateChangedEventArgs(windows_core::IUnknown);
@@ -2860,6 +2876,8 @@ unsafe impl windows_core::Interface for AppBroadcastPreviewStateChangedEventArgs
 impl windows_core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs";
 }
+unsafe impl Send for AppBroadcastPreviewStateChangedEventArgs {}
+unsafe impl Sync for AppBroadcastPreviewStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPreviewStreamReader(windows_core::IUnknown);
@@ -2934,6 +2952,8 @@ unsafe impl windows_core::Interface for AppBroadcastPreviewStreamReader {
 impl windows_core::RuntimeName for AppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamReader";
 }
+unsafe impl Send for AppBroadcastPreviewStreamReader {}
+unsafe impl Sync for AppBroadcastPreviewStreamReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPreviewStreamVideoFrame(windows_core::IUnknown);
@@ -2965,6 +2985,8 @@ unsafe impl windows_core::Interface for AppBroadcastPreviewStreamVideoFrame {
 impl windows_core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame";
 }
+unsafe impl Send for AppBroadcastPreviewStreamVideoFrame {}
+unsafe impl Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastPreviewStreamVideoHeader(windows_core::IUnknown);
@@ -3009,6 +3031,8 @@ unsafe impl windows_core::Interface for AppBroadcastPreviewStreamVideoHeader {
 impl windows_core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader";
 }
+unsafe impl Send for AppBroadcastPreviewStreamVideoHeader {}
+unsafe impl Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastProviderSettings(windows_core::IUnknown);
@@ -3205,6 +3229,8 @@ unsafe impl windows_core::Interface for AppBroadcastServices {
 impl windows_core::RuntimeName for AppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastServices";
 }
+unsafe impl Send for AppBroadcastServices {}
+unsafe impl Sync for AppBroadcastServices {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastSignInStateChangedEventArgs(windows_core::IUnknown);
@@ -3483,6 +3509,8 @@ unsafe impl windows_core::Interface for AppBroadcastState {
 impl windows_core::RuntimeName for AppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastState";
 }
+unsafe impl Send for AppBroadcastState {}
+unsafe impl Sync for AppBroadcastState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastStreamAudioFrame(windows_core::IUnknown);
@@ -3831,6 +3859,8 @@ unsafe impl windows_core::Interface for AppBroadcastViewerCountChangedEventArgs 
 impl windows_core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs";
 }
+unsafe impl Send for AppBroadcastViewerCountChangedEventArgs {}
+unsafe impl Sync for AppBroadcastViewerCountChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapture(windows_core::IUnknown);
@@ -4142,6 +4172,8 @@ unsafe impl windows_core::Interface for AppCaptureDurationGeneratedEventArgs {
 impl windows_core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs";
 }
+unsafe impl Send for AppCaptureDurationGeneratedEventArgs {}
+unsafe impl Sync for AppCaptureDurationGeneratedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureFileGeneratedEventArgs(windows_core::IUnknown);
@@ -4166,6 +4198,8 @@ unsafe impl windows_core::Interface for AppCaptureFileGeneratedEventArgs {
 impl windows_core::RuntimeName for AppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureFileGeneratedEventArgs";
 }
+unsafe impl Send for AppCaptureFileGeneratedEventArgs {}
+unsafe impl Sync for AppCaptureFileGeneratedEventArgs {}
 pub struct AppCaptureManager;
 impl AppCaptureManager {
     pub fn GetCurrentSettings() -> windows_core::Result<AppCaptureSettings> {
@@ -4269,6 +4303,8 @@ unsafe impl windows_core::Interface for AppCaptureMetadataWriter {
 impl windows_core::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
 }
+unsafe impl Send for AppCaptureMetadataWriter {}
+unsafe impl Sync for AppCaptureMetadataWriter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureMicrophoneCaptureStateChangedEventArgs(windows_core::IUnknown);
@@ -4299,6 +4335,8 @@ unsafe impl windows_core::Interface for AppCaptureMicrophoneCaptureStateChangedE
 impl windows_core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs";
 }
+unsafe impl Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
+unsafe impl Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureRecordOperation(windows_core::IUnknown);
@@ -4397,6 +4435,8 @@ unsafe impl windows_core::Interface for AppCaptureRecordOperation {
 impl windows_core::RuntimeName for AppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordOperation";
 }
+unsafe impl Send for AppCaptureRecordOperation {}
+unsafe impl Sync for AppCaptureRecordOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureRecordingStateChangedEventArgs(windows_core::IUnknown);
@@ -4427,6 +4467,8 @@ unsafe impl windows_core::Interface for AppCaptureRecordingStateChangedEventArgs
 impl windows_core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs";
 }
+unsafe impl Send for AppCaptureRecordingStateChangedEventArgs {}
+unsafe impl Sync for AppCaptureRecordingStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureServices(windows_core::IUnknown);
@@ -4471,6 +4513,8 @@ unsafe impl windows_core::Interface for AppCaptureServices {
 impl windows_core::RuntimeName for AppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureServices";
 }
+unsafe impl Send for AppCaptureServices {}
+unsafe impl Sync for AppCaptureServices {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCaptureSettings(windows_core::IUnknown);
@@ -4879,6 +4923,8 @@ unsafe impl windows_core::Interface for AppCaptureState {
 impl windows_core::RuntimeName for AppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureState";
 }
+unsafe impl Send for AppCaptureState {}
+unsafe impl Sync for AppCaptureState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraCaptureUI(windows_core::IUnknown);
@@ -4995,6 +5041,8 @@ unsafe impl windows_core::Interface for CameraCaptureUIPhotoCaptureSettings {
 impl windows_core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings";
 }
+unsafe impl Send for CameraCaptureUIPhotoCaptureSettings {}
+unsafe impl Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraCaptureUIVideoCaptureSettings(windows_core::IUnknown);
@@ -5055,6 +5103,8 @@ unsafe impl windows_core::Interface for CameraCaptureUIVideoCaptureSettings {
 impl windows_core::RuntimeName for CameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings";
 }
+unsafe impl Send for CameraCaptureUIVideoCaptureSettings {}
+unsafe impl Sync for CameraCaptureUIVideoCaptureSettings {}
 pub struct CameraOptionsUI;
 impl CameraOptionsUI {
     pub fn Show<P0>(mediacapture: P0) -> windows_core::Result<()>
@@ -5229,6 +5279,10 @@ unsafe impl windows_core::Interface for CapturedFrame {
 impl windows_core::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for CapturedFrame {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for CapturedFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CapturedFrameControlValues(windows_core::IUnknown);
@@ -5346,6 +5400,8 @@ unsafe impl windows_core::Interface for CapturedFrameControlValues {
 impl windows_core::RuntimeName for CapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrameControlValues";
 }
+unsafe impl Send for CapturedFrameControlValues {}
+unsafe impl Sync for CapturedFrameControlValues {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CapturedPhoto(windows_core::IUnknown);
@@ -5378,6 +5434,8 @@ unsafe impl windows_core::Interface for CapturedPhoto {
 impl windows_core::RuntimeName for CapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.CapturedPhoto";
 }
+unsafe impl Send for CapturedPhoto {}
+unsafe impl Sync for CapturedPhoto {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameBarServices(windows_core::IUnknown);
@@ -5451,6 +5509,8 @@ unsafe impl windows_core::Interface for GameBarServices {
 impl windows_core::RuntimeName for GameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServices";
 }
+unsafe impl Send for GameBarServices {}
+unsafe impl Sync for GameBarServices {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameBarServicesCommandEventArgs(windows_core::IUnknown);
@@ -5481,6 +5541,8 @@ unsafe impl windows_core::Interface for GameBarServicesCommandEventArgs {
 impl windows_core::RuntimeName for GameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesCommandEventArgs";
 }
+unsafe impl Send for GameBarServicesCommandEventArgs {}
+unsafe impl Sync for GameBarServicesCommandEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameBarServicesManager(windows_core::IUnknown);
@@ -5521,6 +5583,8 @@ unsafe impl windows_core::Interface for GameBarServicesManager {
 impl windows_core::RuntimeName for GameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManager";
 }
+unsafe impl Send for GameBarServicesManager {}
+unsafe impl Sync for GameBarServicesManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameBarServicesManagerGameBarServicesCreatedEventArgs(windows_core::IUnknown);
@@ -5544,6 +5608,8 @@ unsafe impl windows_core::Interface for GameBarServicesManagerGameBarServicesCre
 impl windows_core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs";
 }
+unsafe impl Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
+unsafe impl Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameBarServicesTargetInfo(windows_core::IUnknown);
@@ -5588,6 +5654,8 @@ unsafe impl windows_core::Interface for GameBarServicesTargetInfo {
 impl windows_core::RuntimeName for GameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesTargetInfo";
 }
+unsafe impl Send for GameBarServicesTargetInfo {}
+unsafe impl Sync for GameBarServicesTargetInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLagMediaRecording(windows_core::IUnknown);
@@ -6406,6 +6474,8 @@ unsafe impl windows_core::Interface for MediaCaptureDeviceExclusiveControlStatus
 impl windows_core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
 }
+unsafe impl Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
+unsafe impl Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaCaptureFailedEventArgs(windows_core::IUnknown);
@@ -6460,6 +6530,8 @@ unsafe impl windows_core::Interface for MediaCaptureFocusChangedEventArgs {
 impl windows_core::RuntimeName for MediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs";
 }
+unsafe impl Send for MediaCaptureFocusChangedEventArgs {}
+unsafe impl Sync for MediaCaptureFocusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaCaptureInitializationSettings(windows_core::IUnknown);
@@ -6716,6 +6788,8 @@ unsafe impl windows_core::Interface for MediaCaptureInitializationSettings {
 impl windows_core::RuntimeName for MediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureInitializationSettings";
 }
+unsafe impl Send for MediaCaptureInitializationSettings {}
+unsafe impl Sync for MediaCaptureInitializationSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaCapturePauseResult(windows_core::IUnknown);
@@ -6802,6 +6876,8 @@ unsafe impl windows_core::Interface for MediaCaptureRelativePanelWatcher {
 impl windows_core::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
 }
+unsafe impl Send for MediaCaptureRelativePanelWatcher {}
+unsafe impl Sync for MediaCaptureRelativePanelWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaCaptureSettings(windows_core::IUnknown);
@@ -7030,6 +7106,8 @@ unsafe impl windows_core::Interface for MediaCaptureVideoProfile {
 impl windows_core::RuntimeName for MediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfile";
 }
+unsafe impl Send for MediaCaptureVideoProfile {}
+unsafe impl Sync for MediaCaptureVideoProfile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaCaptureVideoProfileMediaDescription(windows_core::IUnknown);
@@ -7096,6 +7174,8 @@ unsafe impl windows_core::Interface for MediaCaptureVideoProfileMediaDescription
 impl windows_core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription";
 }
+unsafe impl Send for MediaCaptureVideoProfileMediaDescription {}
+unsafe impl Sync for MediaCaptureVideoProfileMediaDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OptionalReferencePhotoCapturedEventArgs(windows_core::IUnknown);
@@ -7127,6 +7207,8 @@ unsafe impl windows_core::Interface for OptionalReferencePhotoCapturedEventArgs 
 impl windows_core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs";
 }
+unsafe impl Send for OptionalReferencePhotoCapturedEventArgs {}
+unsafe impl Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoCapturedEventArgs(windows_core::IUnknown);
@@ -7166,6 +7248,8 @@ unsafe impl windows_core::Interface for PhotoCapturedEventArgs {
 impl windows_core::RuntimeName for PhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoCapturedEventArgs";
 }
+unsafe impl Send for PhotoCapturedEventArgs {}
+unsafe impl Sync for PhotoCapturedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoConfirmationCapturedEventArgs(windows_core::IUnknown);
@@ -7197,6 +7281,8 @@ unsafe impl windows_core::Interface for PhotoConfirmationCapturedEventArgs {
 impl windows_core::RuntimeName for PhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs";
 }
+unsafe impl Send for PhotoConfirmationCapturedEventArgs {}
+unsafe impl Sync for PhotoConfirmationCapturedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenCapture(windows_core::IUnknown);
@@ -7267,6 +7353,8 @@ unsafe impl windows_core::Interface for ScreenCapture {
 impl windows_core::RuntimeName for ScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.ScreenCapture";
 }
+unsafe impl Send for ScreenCapture {}
+unsafe impl Sync for ScreenCapture {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SourceSuspensionChangedEventArgs(windows_core::IUnknown);
@@ -7297,6 +7385,8 @@ unsafe impl windows_core::Interface for SourceSuspensionChangedEventArgs {
 impl windows_core::RuntimeName for SourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.SourceSuspensionChangedEventArgs";
 }
+unsafe impl Send for SourceSuspensionChangedEventArgs {}
+unsafe impl Sync for SourceSuspensionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoStreamConfiguration(windows_core::IUnknown);
@@ -7329,6 +7419,8 @@ unsafe impl windows_core::Interface for VideoStreamConfiguration {
 impl windows_core::RuntimeName for VideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.VideoStreamConfiguration";
 }
+unsafe impl Send for VideoStreamConfiguration {}
+unsafe impl Sync for VideoStreamConfiguration {}
 windows_core::imp::define_interface!(MediaCaptureFailedEventHandler, MediaCaptureFailedEventHandler_Vtbl, 0x2014effb_5cd8_4f08_a314_0d360da59f14);
 impl windows_core::RuntimeType for MediaCaptureFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -211,6 +211,8 @@ unsafe impl windows_core::Interface for CastingConnection {
 impl windows_core::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
 }
+unsafe impl Send for CastingConnection {}
+unsafe impl Sync for CastingConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingConnectionErrorOccurredEventArgs(windows_core::IUnknown);
@@ -241,6 +243,8 @@ unsafe impl windows_core::Interface for CastingConnectionErrorOccurredEventArgs 
 impl windows_core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
 }
+unsafe impl Send for CastingConnectionErrorOccurredEventArgs {}
+unsafe impl Sync for CastingConnectionErrorOccurredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevice(windows_core::IUnknown);
@@ -328,6 +332,8 @@ unsafe impl windows_core::Interface for CastingDevice {
 impl windows_core::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
 }
+unsafe impl Send for CastingDevice {}
+unsafe impl Sync for CastingDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePicker(windows_core::IUnknown);
@@ -407,6 +413,8 @@ unsafe impl windows_core::Interface for CastingDevicePicker {
 impl windows_core::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
 }
+unsafe impl Send for CastingDevicePicker {}
+unsafe impl Sync for CastingDevicePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePickerFilter(windows_core::IUnknown);
@@ -464,6 +472,8 @@ unsafe impl windows_core::Interface for CastingDevicePickerFilter {
 impl windows_core::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
 }
+unsafe impl Send for CastingDevicePickerFilter {}
+unsafe impl Sync for CastingDevicePickerFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDeviceSelectedEventArgs(windows_core::IUnknown);
@@ -487,6 +497,8 @@ unsafe impl windows_core::Interface for CastingDeviceSelectedEventArgs {
 impl windows_core::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
 }
+unsafe impl Send for CastingDeviceSelectedEventArgs {}
+unsafe impl Sync for CastingDeviceSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingSource(windows_core::IUnknown);
@@ -517,6 +529,8 @@ unsafe impl windows_core::Interface for CastingSource {
 impl windows_core::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";
 }
+unsafe impl Send for CastingSource {}
+unsafe impl Sync for CastingSource {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CastingConnectionErrorStatus(pub i32);

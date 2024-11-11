@@ -351,6 +351,8 @@ unsafe impl windows_core::Interface for PreviewBuildsManager {
 impl windows_core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
 }
+unsafe impl Send for PreviewBuildsManager {}
+unsafe impl Sync for PreviewBuildsManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreviewBuildsState(windows_core::IUnknown);
@@ -375,6 +377,8 @@ unsafe impl windows_core::Interface for PreviewBuildsState {
 impl windows_core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";
 }
+unsafe impl Send for PreviewBuildsState {}
+unsafe impl Sync for PreviewBuildsState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdate(windows_core::IUnknown);
@@ -556,6 +560,8 @@ unsafe impl windows_core::Interface for WindowsUpdate {
 impl windows_core::RuntimeName for WindowsUpdate {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdate";
 }
+unsafe impl Send for WindowsUpdate {}
+unsafe impl Sync for WindowsUpdate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionCompletedEventArgs(windows_core::IUnknown);
@@ -600,6 +606,8 @@ unsafe impl windows_core::Interface for WindowsUpdateActionCompletedEventArgs {
 impl windows_core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionCompletedEventArgs";
 }
+unsafe impl Send for WindowsUpdateActionCompletedEventArgs {}
+unsafe impl Sync for WindowsUpdateActionCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionProgress(windows_core::IUnknown);
@@ -630,6 +638,8 @@ unsafe impl windows_core::Interface for WindowsUpdateActionProgress {
 impl windows_core::RuntimeName for WindowsUpdateActionProgress {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionProgress";
 }
+unsafe impl Send for WindowsUpdateActionProgress {}
+unsafe impl Sync for WindowsUpdateActionProgress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionResult(windows_core::IUnknown);
@@ -674,6 +684,8 @@ unsafe impl windows_core::Interface for WindowsUpdateActionResult {
 impl windows_core::RuntimeName for WindowsUpdateActionResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateActionResult";
 }
+unsafe impl Send for WindowsUpdateActionResult {}
+unsafe impl Sync for WindowsUpdateActionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAdministrator(windows_core::IUnknown);
@@ -761,6 +773,8 @@ unsafe impl windows_core::Interface for WindowsUpdateAdministrator {
 impl windows_core::RuntimeName for WindowsUpdateAdministrator {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAdministrator";
 }
+unsafe impl Send for WindowsUpdateAdministrator {}
+unsafe impl Sync for WindowsUpdateAdministrator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateApprovalData(windows_core::IUnknown);
@@ -854,6 +868,8 @@ unsafe impl windows_core::Interface for WindowsUpdateApprovalData {
 impl windows_core::RuntimeName for WindowsUpdateApprovalData {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateApprovalData";
 }
+unsafe impl Send for WindowsUpdateApprovalData {}
+unsafe impl Sync for WindowsUpdateApprovalData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredInfo(windows_core::IUnknown);
@@ -884,6 +900,8 @@ unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredInfo {
 impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredInfo";
 }
+unsafe impl Send for WindowsUpdateAttentionRequiredInfo {}
+unsafe impl Sync for WindowsUpdateAttentionRequiredInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredReasonChangedEventArgs(windows_core::IUnknown);
@@ -914,6 +932,8 @@ unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredReasonChan
 impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs";
 }
+unsafe impl Send for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
+unsafe impl Sync for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateGetAdministratorResult(windows_core::IUnknown);
@@ -944,6 +964,8 @@ unsafe impl windows_core::Interface for WindowsUpdateGetAdministratorResult {
 impl windows_core::RuntimeName for WindowsUpdateGetAdministratorResult {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateGetAdministratorResult";
 }
+unsafe impl Send for WindowsUpdateGetAdministratorResult {}
+unsafe impl Sync for WindowsUpdateGetAdministratorResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateItem(windows_core::IUnknown);
@@ -1016,6 +1038,8 @@ unsafe impl windows_core::Interface for WindowsUpdateItem {
 impl windows_core::RuntimeName for WindowsUpdateItem {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateItem";
 }
+unsafe impl Send for WindowsUpdateItem {}
+unsafe impl Sync for WindowsUpdateItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateManager(windows_core::IUnknown);
@@ -1175,6 +1199,8 @@ unsafe impl windows_core::Interface for WindowsUpdateManager {
 impl windows_core::RuntimeName for WindowsUpdateManager {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateManager";
 }
+unsafe impl Send for WindowsUpdateManager {}
+unsafe impl Sync for WindowsUpdateManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateProgressChangedEventArgs(windows_core::IUnknown);
@@ -1205,6 +1231,8 @@ unsafe impl windows_core::Interface for WindowsUpdateProgressChangedEventArgs {
 impl windows_core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateProgressChangedEventArgs";
 }
+unsafe impl Send for WindowsUpdateProgressChangedEventArgs {}
+unsafe impl Sync for WindowsUpdateProgressChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateRestartRequestOptions(windows_core::IUnknown);
@@ -1321,6 +1349,8 @@ unsafe impl windows_core::Interface for WindowsUpdateRestartRequestOptions {
 impl windows_core::RuntimeName for WindowsUpdateRestartRequestOptions {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateRestartRequestOptions";
 }
+unsafe impl Send for WindowsUpdateRestartRequestOptions {}
+unsafe impl Sync for WindowsUpdateRestartRequestOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateScanCompletedEventArgs(windows_core::IUnknown);
@@ -1366,6 +1396,8 @@ unsafe impl windows_core::Interface for WindowsUpdateScanCompletedEventArgs {
 impl windows_core::RuntimeName for WindowsUpdateScanCompletedEventArgs {
     const NAME: &'static str = "Windows.Management.Update.WindowsUpdateScanCompletedEventArgs";
 }
+unsafe impl Send for WindowsUpdateScanCompletedEventArgs {}
+unsafe impl Sync for WindowsUpdateScanCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WindowsUpdateAdministratorOptions(pub u32);

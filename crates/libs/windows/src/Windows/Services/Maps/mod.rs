@@ -537,6 +537,8 @@ unsafe impl windows_core::Interface for EnhancedWaypoint {
 impl windows_core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
 }
+unsafe impl Send for EnhancedWaypoint {}
+unsafe impl Sync for EnhancedWaypoint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManeuverWarning(windows_core::IUnknown);
@@ -567,6 +569,8 @@ unsafe impl windows_core::Interface for ManeuverWarning {
 impl windows_core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
 }
+unsafe impl Send for ManeuverWarning {}
+unsafe impl Sync for ManeuverWarning {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapAddress(windows_core::IUnknown);
@@ -695,6 +699,8 @@ unsafe impl windows_core::Interface for MapAddress {
 impl windows_core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
 }
+unsafe impl Send for MapAddress {}
+unsafe impl Sync for MapAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocation(windows_core::IUnknown);
@@ -740,6 +746,8 @@ unsafe impl windows_core::Interface for MapLocation {
 impl windows_core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
 }
+unsafe impl Send for MapLocation {}
+unsafe impl Sync for MapLocation {}
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -825,6 +833,8 @@ unsafe impl windows_core::Interface for MapLocationFinderResult {
 impl windows_core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
 }
+unsafe impl Send for MapLocationFinderResult {}
+unsafe impl Sync for MapLocationFinderResult {}
 pub struct MapManager;
 impl MapManager {
     pub fn ShowDownloadedMapsUI() -> windows_core::Result<()> {
@@ -937,6 +947,8 @@ unsafe impl windows_core::Interface for MapRoute {
 impl windows_core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
 }
+unsafe impl Send for MapRoute {}
+unsafe impl Sync for MapRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
@@ -1021,6 +1033,8 @@ unsafe impl windows_core::Interface for MapRouteDrivingOptions {
 impl windows_core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
 }
+unsafe impl Send for MapRouteDrivingOptions {}
+unsafe impl Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -1215,6 +1229,8 @@ unsafe impl windows_core::Interface for MapRouteFinderResult {
 impl windows_core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
 }
+unsafe impl Send for MapRouteFinderResult {}
+unsafe impl Sync for MapRouteFinderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteLeg(windows_core::IUnknown);
@@ -1283,6 +1299,8 @@ unsafe impl windows_core::Interface for MapRouteLeg {
 impl windows_core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
 }
+unsafe impl Send for MapRouteLeg {}
+unsafe impl Sync for MapRouteLeg {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteManeuver(windows_core::IUnknown);
@@ -1371,6 +1389,8 @@ unsafe impl windows_core::Interface for MapRouteManeuver {
 impl windows_core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
 }
+unsafe impl Send for MapRouteManeuver {}
+unsafe impl Sync for MapRouteManeuver {}
 pub struct MapService;
 impl MapService {
     pub fn SetServiceToken(value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1550,6 +1570,8 @@ unsafe impl windows_core::Interface for PlaceInfo {
 impl windows_core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
 }
+unsafe impl Send for PlaceInfo {}
+unsafe impl Sync for PlaceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
@@ -1595,6 +1617,8 @@ unsafe impl windows_core::Interface for PlaceInfoCreateOptions {
 impl windows_core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";
 }
+unsafe impl Send for PlaceInfoCreateOptions {}
+unsafe impl Sync for PlaceInfoCreateOptions {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ManeuverWarningKind(pub i32);

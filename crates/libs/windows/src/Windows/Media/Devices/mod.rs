@@ -1149,6 +1149,8 @@ unsafe impl windows_core::Interface for AdvancedPhotoCaptureSettings {
 impl windows_core::RuntimeName for AdvancedPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
 }
+unsafe impl Send for AdvancedPhotoCaptureSettings {}
+unsafe impl Sync for AdvancedPhotoCaptureSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedPhotoControl(windows_core::IUnknown);
@@ -1194,6 +1196,8 @@ unsafe impl windows_core::Interface for AdvancedPhotoControl {
 impl windows_core::RuntimeName for AdvancedPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
 }
+unsafe impl Send for AdvancedPhotoControl {}
+unsafe impl Sync for AdvancedPhotoControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceController(windows_core::IUnknown);
@@ -1361,6 +1365,8 @@ unsafe impl windows_core::Interface for AudioDeviceModuleNotificationEventArgs {
 impl windows_core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
 }
+unsafe impl Send for AudioDeviceModuleNotificationEventArgs {}
+unsafe impl Sync for AudioDeviceModuleNotificationEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceModulesManager(windows_core::IUnknown);
@@ -1417,6 +1423,8 @@ unsafe impl windows_core::Interface for AudioDeviceModulesManager {
 impl windows_core::RuntimeName for AudioDeviceModulesManager {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
 }
+unsafe impl Send for AudioDeviceModulesManager {}
+unsafe impl Sync for AudioDeviceModulesManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallControl(windows_core::IUnknown);
@@ -1562,6 +1570,8 @@ unsafe impl windows_core::Interface for CallControl {
 impl windows_core::RuntimeName for CallControl {
     const NAME: &'static str = "Windows.Media.Devices.CallControl";
 }
+unsafe impl Send for CallControl {}
+unsafe impl Sync for CallControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionInfo(windows_core::IUnknown);
@@ -1606,6 +1616,8 @@ unsafe impl windows_core::Interface for CameraOcclusionInfo {
 impl windows_core::RuntimeName for CameraOcclusionInfo {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
 }
+unsafe impl Send for CameraOcclusionInfo {}
+unsafe impl Sync for CameraOcclusionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionState(windows_core::IUnknown);
@@ -1636,6 +1648,8 @@ unsafe impl windows_core::Interface for CameraOcclusionState {
 impl windows_core::RuntimeName for CameraOcclusionState {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
 }
+unsafe impl Send for CameraOcclusionState {}
+unsafe impl Sync for CameraOcclusionState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraOcclusionStateChangedEventArgs(windows_core::IUnknown);
@@ -1659,6 +1673,8 @@ unsafe impl windows_core::Interface for CameraOcclusionStateChangedEventArgs {
 impl windows_core::RuntimeName for CameraOcclusionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
 }
+unsafe impl Send for CameraOcclusionStateChangedEventArgs {}
+unsafe impl Sync for CameraOcclusionStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(windows_core::IUnknown);
@@ -1690,6 +1706,8 @@ unsafe impl windows_core::Interface for DefaultAudioCaptureDeviceChangedEventArg
 impl windows_core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
 }
+unsafe impl Send for DefaultAudioCaptureDeviceChangedEventArgs {}
+unsafe impl Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(windows_core::IUnknown);
@@ -1721,6 +1739,8 @@ unsafe impl windows_core::Interface for DefaultAudioRenderDeviceChangedEventArgs
 impl windows_core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
 }
+unsafe impl Send for DefaultAudioRenderDeviceChangedEventArgs {}
+unsafe impl Sync for DefaultAudioRenderDeviceChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialRequestedEventArgs(windows_core::IUnknown);
@@ -1748,6 +1768,8 @@ unsafe impl windows_core::Interface for DialRequestedEventArgs {
 impl windows_core::RuntimeName for DialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
 }
+unsafe impl Send for DialRequestedEventArgs {}
+unsafe impl Sync for DialRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowBounds(windows_core::IUnknown);
@@ -1804,6 +1826,8 @@ unsafe impl windows_core::Interface for DigitalWindowBounds {
 impl windows_core::RuntimeName for DigitalWindowBounds {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
 }
+unsafe impl Send for DigitalWindowBounds {}
+unsafe impl Sync for DigitalWindowBounds {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowCapability(windows_core::IUnknown);
@@ -1862,6 +1886,8 @@ unsafe impl windows_core::Interface for DigitalWindowCapability {
 impl windows_core::RuntimeName for DigitalWindowCapability {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
 }
+unsafe impl Send for DigitalWindowCapability {}
+unsafe impl Sync for DigitalWindowCapability {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DigitalWindowControl(windows_core::IUnknown);
@@ -1932,6 +1958,8 @@ unsafe impl windows_core::Interface for DigitalWindowControl {
 impl windows_core::RuntimeName for DigitalWindowControl {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
 }
+unsafe impl Send for DigitalWindowControl {}
+unsafe impl Sync for DigitalWindowControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExposureCompensationControl(windows_core::IUnknown);
@@ -2096,6 +2124,8 @@ unsafe impl windows_core::Interface for ExposurePriorityVideoControl {
 impl windows_core::RuntimeName for ExposurePriorityVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
 }
+unsafe impl Send for ExposurePriorityVideoControl {}
+unsafe impl Sync for ExposurePriorityVideoControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlashControl(windows_core::IUnknown);
@@ -2457,6 +2487,8 @@ unsafe impl windows_core::Interface for FocusSettings {
 impl windows_core::RuntimeName for FocusSettings {
     const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
 }
+unsafe impl Send for FocusSettings {}
+unsafe impl Sync for FocusSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdrVideoControl(windows_core::IUnknown);
@@ -2499,6 +2531,8 @@ unsafe impl windows_core::Interface for HdrVideoControl {
 impl windows_core::RuntimeName for HdrVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
 }
+unsafe impl Send for HdrVideoControl {}
+unsafe impl Sync for HdrVideoControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InfraredTorchControl(windows_core::IUnknown);
@@ -2573,6 +2607,8 @@ unsafe impl windows_core::Interface for InfraredTorchControl {
 impl windows_core::RuntimeName for InfraredTorchControl {
     const NAME: &'static str = "Windows.Media.Devices.InfraredTorchControl";
 }
+unsafe impl Send for InfraredTorchControl {}
+unsafe impl Sync for InfraredTorchControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsoSpeedControl(windows_core::IUnknown);
@@ -2690,6 +2726,8 @@ unsafe impl windows_core::Interface for KeypadPressedEventArgs {
 impl windows_core::RuntimeName for KeypadPressedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.KeypadPressedEventArgs";
 }
+unsafe impl Send for KeypadPressedEventArgs {}
+unsafe impl Sync for KeypadPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLagPhotoControl(windows_core::IUnknown);
@@ -3133,6 +3171,8 @@ unsafe impl windows_core::Interface for OpticalImageStabilizationControl {
 impl windows_core::RuntimeName for OpticalImageStabilizationControl {
     const NAME: &'static str = "Windows.Media.Devices.OpticalImageStabilizationControl";
 }
+unsafe impl Send for OpticalImageStabilizationControl {}
+unsafe impl Sync for OpticalImageStabilizationControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PanelBasedOptimizationControl(windows_core::IUnknown);
@@ -3169,6 +3209,8 @@ unsafe impl windows_core::Interface for PanelBasedOptimizationControl {
 impl windows_core::RuntimeName for PanelBasedOptimizationControl {
     const NAME: &'static str = "Windows.Media.Devices.PanelBasedOptimizationControl";
 }
+unsafe impl Send for PanelBasedOptimizationControl {}
+unsafe impl Sync for PanelBasedOptimizationControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoConfirmationControl(windows_core::IUnknown);
@@ -3236,6 +3278,8 @@ unsafe impl windows_core::Interface for RedialRequestedEventArgs {
 impl windows_core::RuntimeName for RedialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.RedialRequestedEventArgs";
 }
+unsafe impl Send for RedialRequestedEventArgs {}
+unsafe impl Sync for RedialRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegionOfInterest(windows_core::IUnknown);
@@ -3336,6 +3380,8 @@ unsafe impl windows_core::Interface for RegionOfInterest {
 impl windows_core::RuntimeName for RegionOfInterest {
     const NAME: &'static str = "Windows.Media.Devices.RegionOfInterest";
 }
+unsafe impl Send for RegionOfInterest {}
+unsafe impl Sync for RegionOfInterest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegionsOfInterestControl(windows_core::IUnknown);
@@ -3916,6 +3962,8 @@ unsafe impl windows_core::Interface for VideoDeviceControllerGetDevicePropertyRe
 impl windows_core::RuntimeName for VideoDeviceControllerGetDevicePropertyResult {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult";
 }
+unsafe impl Send for VideoDeviceControllerGetDevicePropertyResult {}
+unsafe impl Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTemporalDenoisingControl(windows_core::IUnknown);
@@ -3958,6 +4006,8 @@ unsafe impl windows_core::Interface for VideoTemporalDenoisingControl {
 impl windows_core::RuntimeName for VideoTemporalDenoisingControl {
     const NAME: &'static str = "Windows.Media.Devices.VideoTemporalDenoisingControl";
 }
+unsafe impl Send for VideoTemporalDenoisingControl {}
+unsafe impl Sync for VideoTemporalDenoisingControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WhiteBalanceControl(windows_core::IUnknown);
@@ -4152,6 +4202,8 @@ unsafe impl windows_core::Interface for ZoomSettings {
 impl windows_core::RuntimeName for ZoomSettings {
     const NAME: &'static str = "Windows.Media.Devices.ZoomSettings";
 }
+unsafe impl Send for ZoomSettings {}
+unsafe impl Sync for ZoomSettings {}
 windows_core::imp::define_interface!(CallControlEventHandler, CallControlEventHandler_Vtbl, 0x596f759f_50df_4454_bc63_4d3d01b61958);
 impl windows_core::RuntimeType for CallControlEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

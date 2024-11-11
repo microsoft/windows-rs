@@ -427,6 +427,10 @@ unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
 impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.BackgroundActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for BackgroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -458,6 +462,10 @@ unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.EnteredBackgroundEventArgs";
 }
+#[cfg(feature = "ApplicationModel")]
+unsafe impl Send for EnteredBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[cfg(feature = "Graphics_Printing")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -588,6 +596,10 @@ unsafe impl windows_core::Interface for HtmlPrintDocumentSource {
 impl windows_core::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
 }
+#[cfg(feature = "Graphics_Printing")]
+unsafe impl Send for HtmlPrintDocumentSource {}
+#[cfg(feature = "Graphics_Printing")]
+unsafe impl Sync for HtmlPrintDocumentSource {}
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -619,6 +631,10 @@ unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.LeavingBackgroundEventArgs";
 }
+#[cfg(feature = "ApplicationModel")]
+unsafe impl Send for LeavingBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
@@ -1501,6 +1517,10 @@ impl windows_core::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventArgs 
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
@@ -1711,6 +1731,10 @@ unsafe impl windows_core::Interface for WebUICommandLineActivatedEventArgs {
 impl windows_core::RuntimeName for WebUICommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUICommandLineActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for WebUICommandLineActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2036,6 +2060,10 @@ unsafe impl windows_core::Interface for WebUIContactPanelActivatedEventArgs {
 impl windows_core::RuntimeName for WebUIContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for WebUIContactPanelActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3471,6 +3499,10 @@ impl windows_core::RuntimeName for WebUIPhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for WebUIPhoneCallActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for WebUIPhoneCallActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(windows_core::IUnknown);
@@ -4147,6 +4179,10 @@ unsafe impl windows_core::Interface for WebUIStartupTaskActivatedEventArgs {
 impl windows_core::RuntimeName for WebUIStartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for WebUIStartupTaskActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]

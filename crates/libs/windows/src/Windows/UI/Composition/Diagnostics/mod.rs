@@ -72,6 +72,8 @@ unsafe impl windows_core::Interface for CompositionDebugHeatMaps {
 impl windows_core::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
 }
+unsafe impl Send for CompositionDebugHeatMaps {}
+unsafe impl Sync for CompositionDebugHeatMaps {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDebugSettings(windows_core::IUnknown);
@@ -108,6 +110,8 @@ unsafe impl windows_core::Interface for CompositionDebugSettings {
 impl windows_core::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
 }
+unsafe impl Send for CompositionDebugSettings {}
+unsafe impl Sync for CompositionDebugSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);

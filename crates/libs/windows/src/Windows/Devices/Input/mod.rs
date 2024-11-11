@@ -249,6 +249,8 @@ unsafe impl windows_core::Interface for KeyboardCapabilities {
 impl windows_core::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
 }
+unsafe impl Send for KeyboardCapabilities {}
+unsafe impl Sync for KeyboardCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseCapabilities(windows_core::IUnknown);
@@ -307,6 +309,8 @@ unsafe impl windows_core::Interface for MouseCapabilities {
 impl windows_core::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
 }
+unsafe impl Send for MouseCapabilities {}
+unsafe impl Sync for MouseCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MouseDevice(windows_core::IUnknown);
@@ -459,6 +463,8 @@ unsafe impl windows_core::Interface for PenButtonListener {
 impl windows_core::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
 }
+unsafe impl Send for PenButtonListener {}
+unsafe impl Sync for PenButtonListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDevice(windows_core::IUnknown);
@@ -500,6 +506,8 @@ unsafe impl windows_core::Interface for PenDevice {
 impl windows_core::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
 }
+unsafe impl Send for PenDevice {}
+unsafe impl Sync for PenDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockListener(windows_core::IUnknown);
@@ -575,6 +583,8 @@ unsafe impl windows_core::Interface for PenDockListener {
 impl windows_core::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
 }
+unsafe impl Send for PenDockListener {}
+unsafe impl Sync for PenDockListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenDockedEventArgs(windows_core::IUnknown);
@@ -590,6 +600,8 @@ unsafe impl windows_core::Interface for PenDockedEventArgs {
 impl windows_core::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
 }
+unsafe impl Send for PenDockedEventArgs {}
+unsafe impl Sync for PenDockedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonClickedEventArgs(windows_core::IUnknown);
@@ -605,6 +617,8 @@ unsafe impl windows_core::Interface for PenTailButtonClickedEventArgs {
 impl windows_core::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
 }
+unsafe impl Send for PenTailButtonClickedEventArgs {}
+unsafe impl Sync for PenTailButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonDoubleClickedEventArgs(windows_core::IUnknown);
@@ -620,6 +634,8 @@ unsafe impl windows_core::Interface for PenTailButtonDoubleClickedEventArgs {
 impl windows_core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
 }
+unsafe impl Send for PenTailButtonDoubleClickedEventArgs {}
+unsafe impl Sync for PenTailButtonDoubleClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenTailButtonLongPressedEventArgs(windows_core::IUnknown);
@@ -635,6 +651,8 @@ unsafe impl windows_core::Interface for PenTailButtonLongPressedEventArgs {
 impl windows_core::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
 }
+unsafe impl Send for PenTailButtonLongPressedEventArgs {}
+unsafe impl Sync for PenTailButtonLongPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenUndockedEventArgs(windows_core::IUnknown);
@@ -650,6 +668,8 @@ unsafe impl windows_core::Interface for PenUndockedEventArgs {
 impl windows_core::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
 }
+unsafe impl Send for PenUndockedEventArgs {}
+unsafe impl Sync for PenUndockedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerDevice(windows_core::IUnknown);
@@ -770,6 +790,8 @@ unsafe impl windows_core::Interface for TouchCapabilities {
 impl windows_core::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";
 }
+unsafe impl Send for TouchCapabilities {}
+unsafe impl Sync for TouchCapabilities {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PointerDeviceType(pub i32);

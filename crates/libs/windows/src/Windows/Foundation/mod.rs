@@ -61,6 +61,8 @@ impl IAsyncAction {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+unsafe impl Send for IAsyncAction {}
+unsafe impl Sync for IAsyncAction {}
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -188,6 +190,8 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress<TP
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+unsafe impl<TProgress: windows_core::RuntimeType + 'static> Send for IAsyncActionWithProgress<TProgress> {}
+unsafe impl<TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncActionWithProgress<TProgress> {}
 #[repr(C)]
 pub struct IAsyncActionWithProgress_Vtbl<TProgress>
 where
@@ -456,6 +460,8 @@ impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::Runt
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Send for IAsyncOperationWithProgress<TResult, TProgress> {}
+unsafe impl<TResult: windows_core::RuntimeType + 'static, TProgress: windows_core::RuntimeType + 'static> Sync for IAsyncOperationWithProgress<TResult, TProgress> {}
 #[repr(C)]
 pub struct IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
 where
@@ -612,6 +618,8 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
+unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
 #[repr(C)]
 pub struct IAsyncOperation_Vtbl<TResult>
 where
@@ -2409,6 +2417,8 @@ unsafe impl windows_core::Interface for Deferral {
 impl windows_core::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
 }
+unsafe impl Send for Deferral {}
+unsafe impl Sync for Deferral {}
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> windows_core::Result<windows_core::GUID> {
@@ -2475,6 +2485,8 @@ unsafe impl windows_core::Interface for MemoryBuffer {
 impl windows_core::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
 }
+unsafe impl Send for MemoryBuffer {}
+unsafe impl Sync for MemoryBuffer {}
 pub struct PropertyValue;
 impl PropertyValue {
     pub fn CreateEmpty() -> windows_core::Result<windows_core::IInspectable> {
@@ -2915,6 +2927,8 @@ unsafe impl windows_core::Interface for Uri {
 impl windows_core::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
 }
+unsafe impl Send for Uri {}
+unsafe impl Sync for Uri {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2995,6 +3009,10 @@ unsafe impl windows_core::Interface for WwwFormUrlDecoder {
 impl windows_core::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for WwwFormUrlDecoder {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for WwwFormUrlDecoder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);
@@ -3026,6 +3044,8 @@ unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
 impl windows_core::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";
 }
+unsafe impl Send for WwwFormUrlDecoderEntry {}
+unsafe impl Sync for WwwFormUrlDecoderEntry {}
 windows_core::imp::define_interface!(AsyncActionCompletedHandler, AsyncActionCompletedHandler_Vtbl, 0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
 impl windows_core::RuntimeType for AsyncActionCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

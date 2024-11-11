@@ -263,6 +263,8 @@ unsafe impl windows_core::Interface for ConditionForceEffect {
 impl windows_core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
+unsafe impl Send for ConditionForceEffect {}
+unsafe impl Sync for ConditionForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConstantForceEffect(windows_core::IUnknown);
@@ -323,6 +325,8 @@ unsafe impl windows_core::Interface for ConstantForceEffect {
 impl windows_core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
 }
+unsafe impl Send for ConstantForceEffect {}
+unsafe impl Sync for ConstantForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ForceFeedbackMotor(windows_core::IUnknown);
@@ -424,6 +428,8 @@ unsafe impl windows_core::Interface for ForceFeedbackMotor {
 impl windows_core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
+unsafe impl Send for ForceFeedbackMotor {}
+unsafe impl Sync for ForceFeedbackMotor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeriodicForceEffect(windows_core::IUnknown);
@@ -494,6 +500,8 @@ unsafe impl windows_core::Interface for PeriodicForceEffect {
 impl windows_core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
+unsafe impl Send for PeriodicForceEffect {}
+unsafe impl Sync for PeriodicForceEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RampForceEffect(windows_core::IUnknown);
@@ -554,6 +562,8 @@ unsafe impl windows_core::Interface for RampForceEffect {
 impl windows_core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
 }
+unsafe impl Send for RampForceEffect {}
+unsafe impl Sync for RampForceEffect {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ConditionForceEffectKind(pub i32);

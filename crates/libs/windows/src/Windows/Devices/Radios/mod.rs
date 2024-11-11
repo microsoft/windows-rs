@@ -114,6 +114,8 @@ unsafe impl windows_core::Interface for Radio {
 impl windows_core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
 }
+unsafe impl Send for Radio {}
+unsafe impl Sync for Radio {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct RadioAccessStatus(pub i32);

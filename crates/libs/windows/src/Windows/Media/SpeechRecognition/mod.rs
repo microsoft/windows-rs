@@ -514,6 +514,8 @@ unsafe impl windows_core::Interface for SpeechContinuousRecognitionCompletedEven
 impl windows_core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs";
 }
+unsafe impl Send for SpeechContinuousRecognitionCompletedEventArgs {}
+unsafe impl Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(windows_core::IUnknown);
@@ -537,6 +539,8 @@ unsafe impl windows_core::Interface for SpeechContinuousRecognitionResultGenerat
 impl windows_core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs";
 }
+unsafe impl Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
+unsafe impl Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechContinuousRecognitionSession(windows_core::IUnknown);
@@ -631,6 +635,8 @@ unsafe impl windows_core::Interface for SpeechContinuousRecognitionSession {
 impl windows_core::RuntimeName for SpeechContinuousRecognitionSession {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession";
 }
+unsafe impl Send for SpeechContinuousRecognitionSession {}
+unsafe impl Sync for SpeechContinuousRecognitionSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionCompilationResult(windows_core::IUnknown);
@@ -654,6 +660,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionCompilationResult {
 impl windows_core::RuntimeName for SpeechRecognitionCompilationResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult";
 }
+unsafe impl Send for SpeechRecognitionCompilationResult {}
+unsafe impl Sync for SpeechRecognitionCompilationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionGrammarFileConstraint(windows_core::IUnknown);
@@ -743,6 +751,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionGrammarFileConstraint {
 impl windows_core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint";
 }
+unsafe impl Send for SpeechRecognitionGrammarFileConstraint {}
+unsafe impl Sync for SpeechRecognitionGrammarFileConstraint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionHypothesis(windows_core::IUnknown);
@@ -766,6 +776,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionHypothesis {
 impl windows_core::RuntimeName for SpeechRecognitionHypothesis {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis";
 }
+unsafe impl Send for SpeechRecognitionHypothesis {}
+unsafe impl Sync for SpeechRecognitionHypothesis {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(windows_core::IUnknown);
@@ -789,6 +801,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionHypothesisGeneratedEven
 impl windows_core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs";
 }
+unsafe impl Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
+unsafe impl Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionListConstraint(windows_core::IUnknown);
@@ -878,6 +892,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionListConstraint {
 impl windows_core::RuntimeName for SpeechRecognitionListConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint";
 }
+unsafe impl Send for SpeechRecognitionListConstraint {}
+unsafe impl Sync for SpeechRecognitionListConstraint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(windows_core::IUnknown);
@@ -901,6 +917,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionQualityDegradingEventAr
 impl windows_core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs";
 }
+unsafe impl Send for SpeechRecognitionQualityDegradingEventArgs {}
+unsafe impl Sync for SpeechRecognitionQualityDegradingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionResult(windows_core::IUnknown);
@@ -989,6 +1007,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionResult {
 impl windows_core::RuntimeName for SpeechRecognitionResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionResult";
 }
+unsafe impl Send for SpeechRecognitionResult {}
+unsafe impl Sync for SpeechRecognitionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionSemanticInterpretation(windows_core::IUnknown);
@@ -1013,6 +1033,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionSemanticInterpretation 
 impl windows_core::RuntimeName for SpeechRecognitionSemanticInterpretation {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation";
 }
+unsafe impl Send for SpeechRecognitionSemanticInterpretation {}
+unsafe impl Sync for SpeechRecognitionSemanticInterpretation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionTopicConstraint(windows_core::IUnknown);
@@ -1100,6 +1122,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionTopicConstraint {
 impl windows_core::RuntimeName for SpeechRecognitionTopicConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint";
 }
+unsafe impl Send for SpeechRecognitionTopicConstraint {}
+unsafe impl Sync for SpeechRecognitionTopicConstraint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(windows_core::IUnknown);
@@ -1157,6 +1181,8 @@ unsafe impl windows_core::Interface for SpeechRecognitionVoiceCommandDefinitionC
 impl windows_core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint";
 }
+unsafe impl Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
+unsafe impl Sync for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizer(windows_core::IUnknown);
@@ -1352,6 +1378,8 @@ unsafe impl windows_core::Interface for SpeechRecognizer {
 impl windows_core::RuntimeName for SpeechRecognizer {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizer";
 }
+unsafe impl Send for SpeechRecognizer {}
+unsafe impl Sync for SpeechRecognizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerStateChangedEventArgs(windows_core::IUnknown);
@@ -1375,6 +1403,8 @@ unsafe impl windows_core::Interface for SpeechRecognizerStateChangedEventArgs {
 impl windows_core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs";
 }
+unsafe impl Send for SpeechRecognizerStateChangedEventArgs {}
+unsafe impl Sync for SpeechRecognizerStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerTimeouts(windows_core::IUnknown);
@@ -1424,6 +1454,8 @@ unsafe impl windows_core::Interface for SpeechRecognizerTimeouts {
 impl windows_core::RuntimeName for SpeechRecognizerTimeouts {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts";
 }
+unsafe impl Send for SpeechRecognizerTimeouts {}
+unsafe impl Sync for SpeechRecognizerTimeouts {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerUIOptions(windows_core::IUnknown);
@@ -1484,6 +1516,8 @@ unsafe impl windows_core::Interface for SpeechRecognizerUIOptions {
 impl windows_core::RuntimeName for SpeechRecognizerUIOptions {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions";
 }
+unsafe impl Send for SpeechRecognizerUIOptions {}
+unsafe impl Sync for SpeechRecognizerUIOptions {}
 pub struct VoiceCommandManager;
 impl VoiceCommandManager {
     #[cfg(feature = "Storage_Streams")]
@@ -1552,6 +1586,8 @@ unsafe impl windows_core::Interface for VoiceCommandSet {
 impl windows_core::RuntimeName for VoiceCommandSet {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";
 }
+unsafe impl Send for VoiceCommandSet {}
+unsafe impl Sync for VoiceCommandSet {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SpeechContinuousRecognitionMode(pub i32);

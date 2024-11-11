@@ -212,6 +212,8 @@ unsafe impl windows_core::Interface for I2cConnectionSettings {
 impl windows_core::RuntimeName for I2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.I2cConnectionSettings";
 }
+unsafe impl Send for I2cConnectionSettings {}
+unsafe impl Sync for I2cConnectionSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cController(windows_core::IUnknown);
@@ -258,6 +260,8 @@ unsafe impl windows_core::Interface for I2cController {
 impl windows_core::RuntimeName for I2cController {
     const NAME: &'static str = "Windows.Devices.I2c.I2cController";
 }
+unsafe impl Send for I2cController {}
+unsafe impl Sync for I2cController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cDevice(windows_core::IUnknown);
@@ -351,6 +355,8 @@ unsafe impl windows_core::Interface for I2cDevice {
 impl windows_core::RuntimeName for I2cDevice {
     const NAME: &'static str = "Windows.Devices.I2c.I2cDevice";
 }
+unsafe impl Send for I2cDevice {}
+unsafe impl Sync for I2cDevice {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct I2cBusSpeed(pub i32);

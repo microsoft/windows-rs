@@ -326,6 +326,8 @@ unsafe impl windows_core::Interface for PrintTicketCapabilities {
 impl windows_core::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
 }
+unsafe impl Send for PrintTicketCapabilities {}
+unsafe impl Sync for PrintTicketCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketFeature(windows_core::IUnknown);
@@ -407,6 +409,8 @@ unsafe impl windows_core::Interface for PrintTicketFeature {
 impl windows_core::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
 }
+unsafe impl Send for PrintTicketFeature {}
+unsafe impl Sync for PrintTicketFeature {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketOption(windows_core::IUnknown);
@@ -482,6 +486,8 @@ unsafe impl windows_core::Interface for PrintTicketOption {
 impl windows_core::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
 }
+unsafe impl Send for PrintTicketOption {}
+unsafe impl Sync for PrintTicketOption {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketParameterDefinition(windows_core::IUnknown);
@@ -548,6 +554,8 @@ unsafe impl windows_core::Interface for PrintTicketParameterDefinition {
 impl windows_core::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
 }
+unsafe impl Send for PrintTicketParameterDefinition {}
+unsafe impl Sync for PrintTicketParameterDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketParameterInitializer(windows_core::IUnknown);
@@ -600,6 +608,8 @@ unsafe impl windows_core::Interface for PrintTicketParameterInitializer {
 impl windows_core::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
 }
+unsafe impl Send for PrintTicketParameterInitializer {}
+unsafe impl Sync for PrintTicketParameterInitializer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketValue(windows_core::IUnknown);
@@ -637,6 +647,8 @@ unsafe impl windows_core::Interface for PrintTicketValue {
 impl windows_core::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
 }
+unsafe impl Send for PrintTicketValue {}
+unsafe impl Sync for PrintTicketValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WorkflowPrintTicket(windows_core::IUnknown);
@@ -839,6 +851,8 @@ unsafe impl windows_core::Interface for WorkflowPrintTicket {
 impl windows_core::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
 }
+unsafe impl Send for WorkflowPrintTicket {}
+unsafe impl Sync for WorkflowPrintTicket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WorkflowPrintTicketValidationResult(windows_core::IUnknown);
@@ -869,6 +883,8 @@ unsafe impl windows_core::Interface for WorkflowPrintTicketValidationResult {
 impl windows_core::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
 }
+unsafe impl Send for WorkflowPrintTicketValidationResult {}
+unsafe impl Sync for WorkflowPrintTicketValidationResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);

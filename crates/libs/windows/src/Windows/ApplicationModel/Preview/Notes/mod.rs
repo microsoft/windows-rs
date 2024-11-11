@@ -109,6 +109,8 @@ unsafe impl windows_core::Interface for NotePlacementChangedPreviewEventArgs {
 impl windows_core::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
 }
+unsafe impl Send for NotePlacementChangedPreviewEventArgs {}
+unsafe impl Sync for NotePlacementChangedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NoteVisibilityChangedPreviewEventArgs(windows_core::IUnknown);
@@ -139,6 +141,8 @@ unsafe impl windows_core::Interface for NoteVisibilityChangedPreviewEventArgs {
 impl windows_core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
 }
+unsafe impl Send for NoteVisibilityChangedPreviewEventArgs {}
+unsafe impl Sync for NoteVisibilityChangedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotesWindowManagerPreview(windows_core::IUnknown);
@@ -295,6 +299,8 @@ unsafe impl windows_core::Interface for NotesWindowManagerPreview {
 impl windows_core::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
 }
+unsafe impl Send for NotesWindowManagerPreview {}
+unsafe impl Sync for NotesWindowManagerPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(windows_core::IUnknown);
@@ -329,3 +335,5 @@ unsafe impl windows_core::Interface for NotesWindowManagerPreviewShowNoteOptions
 impl windows_core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";
 }
+unsafe impl Send for NotesWindowManagerPreviewShowNoteOptions {}
+unsafe impl Sync for NotesWindowManagerPreviewShowNoteOptions {}

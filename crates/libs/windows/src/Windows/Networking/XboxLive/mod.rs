@@ -343,6 +343,8 @@ unsafe impl windows_core::Interface for XboxLiveDeviceAddress {
 impl windows_core::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
 }
+unsafe impl Send for XboxLiveDeviceAddress {}
+unsafe impl Sync for XboxLiveDeviceAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPair(windows_core::IUnknown);
@@ -457,6 +459,8 @@ unsafe impl windows_core::Interface for XboxLiveEndpointPair {
 impl windows_core::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
 }
+unsafe impl Send for XboxLiveEndpointPair {}
+unsafe impl Sync for XboxLiveEndpointPair {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairCreationResult(windows_core::IUnknown);
@@ -501,6 +505,8 @@ unsafe impl windows_core::Interface for XboxLiveEndpointPairCreationResult {
 impl windows_core::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
 }
+unsafe impl Send for XboxLiveEndpointPairCreationResult {}
+unsafe impl Sync for XboxLiveEndpointPairCreationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(windows_core::IUnknown);
@@ -531,6 +537,8 @@ unsafe impl windows_core::Interface for XboxLiveEndpointPairStateChangedEventArg
 impl windows_core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
 }
+unsafe impl Send for XboxLiveEndpointPairStateChangedEventArgs {}
+unsafe impl Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairTemplate(windows_core::IUnknown);
@@ -668,6 +676,8 @@ unsafe impl windows_core::Interface for XboxLiveEndpointPairTemplate {
 impl windows_core::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
 }
+unsafe impl Send for XboxLiveEndpointPairTemplate {}
+unsafe impl Sync for XboxLiveEndpointPairTemplate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(windows_core::IUnknown);
@@ -691,6 +701,8 @@ unsafe impl windows_core::Interface for XboxLiveInboundEndpointPairCreatedEventA
 impl windows_core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
 }
+unsafe impl Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
+unsafe impl Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServiceMeasurement(windows_core::IUnknown);
@@ -889,6 +901,8 @@ unsafe impl windows_core::Interface for XboxLiveQualityOfServiceMeasurement {
 impl windows_core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
 }
+unsafe impl Send for XboxLiveQualityOfServiceMeasurement {}
+unsafe impl Sync for XboxLiveQualityOfServiceMeasurement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServiceMetricResult(windows_core::IUnknown);
@@ -933,6 +947,8 @@ unsafe impl windows_core::Interface for XboxLiveQualityOfServiceMetricResult {
 impl windows_core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
 }
+unsafe impl Send for XboxLiveQualityOfServiceMetricResult {}
+unsafe impl Sync for XboxLiveQualityOfServiceMetricResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(windows_core::IUnknown);
@@ -971,6 +987,8 @@ unsafe impl windows_core::Interface for XboxLiveQualityOfServicePrivatePayloadRe
 impl windows_core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";
 }
+unsafe impl Send for XboxLiveQualityOfServicePrivatePayloadResult {}
+unsafe impl Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);

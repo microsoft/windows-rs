@@ -98,6 +98,8 @@ unsafe impl windows_core::Interface for ErrorReceivedEventArgs {
 impl windows_core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
 }
+unsafe impl Send for ErrorReceivedEventArgs {}
+unsafe impl Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinChangedEventArgs(windows_core::IUnknown);
@@ -121,6 +123,8 @@ unsafe impl windows_core::Interface for PinChangedEventArgs {
 impl windows_core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
 }
+unsafe impl Send for PinChangedEventArgs {}
+unsafe impl Sync for PinChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SerialDevice(windows_core::IUnknown);
@@ -373,6 +377,8 @@ unsafe impl windows_core::Interface for SerialDevice {
 impl windows_core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";
 }
+unsafe impl Send for SerialDevice {}
+unsafe impl Sync for SerialDevice {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SerialError(pub i32);

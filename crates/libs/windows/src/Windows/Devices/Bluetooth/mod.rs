@@ -650,6 +650,8 @@ unsafe impl windows_core::Interface for BluetoothAdapter {
 impl windows_core::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
 }
+unsafe impl Send for BluetoothAdapter {}
+unsafe impl Sync for BluetoothAdapter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothClassOfDevice(windows_core::IUnknown);
@@ -710,6 +712,8 @@ unsafe impl windows_core::Interface for BluetoothClassOfDevice {
 impl windows_core::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
 }
+unsafe impl Send for BluetoothClassOfDevice {}
+unsafe impl Sync for BluetoothClassOfDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDevice(windows_core::IUnknown);
@@ -977,6 +981,8 @@ unsafe impl windows_core::Interface for BluetoothDevice {
 impl windows_core::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
 }
+unsafe impl Send for BluetoothDevice {}
+unsafe impl Sync for BluetoothDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDeviceId(windows_core::IUnknown);
@@ -1024,6 +1030,8 @@ unsafe impl windows_core::Interface for BluetoothDeviceId {
 impl windows_core::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
 }
+unsafe impl Send for BluetoothDeviceId {}
+unsafe impl Sync for BluetoothDeviceId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAppearance(windows_core::IUnknown);
@@ -1077,6 +1085,8 @@ unsafe impl windows_core::Interface for BluetoothLEAppearance {
 impl windows_core::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
 }
+unsafe impl Send for BluetoothLEAppearance {}
+unsafe impl Sync for BluetoothLEAppearance {}
 pub struct BluetoothLEAppearanceCategories;
 impl BluetoothLEAppearanceCategories {
     pub fn Uncategorized() -> windows_core::Result<u16> {
@@ -1434,6 +1444,8 @@ unsafe impl windows_core::Interface for BluetoothLEConnectionParameters {
 impl windows_core::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
 }
+unsafe impl Send for BluetoothLEConnectionParameters {}
+unsafe impl Sync for BluetoothLEConnectionParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhy(windows_core::IUnknown);
@@ -1464,6 +1476,8 @@ unsafe impl windows_core::Interface for BluetoothLEConnectionPhy {
 impl windows_core::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
 }
+unsafe impl Send for BluetoothLEConnectionPhy {}
+unsafe impl Sync for BluetoothLEConnectionPhy {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhyInfo(windows_core::IUnknown);
@@ -1501,6 +1515,8 @@ unsafe impl windows_core::Interface for BluetoothLEConnectionPhyInfo {
 impl windows_core::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
 }
+unsafe impl Send for BluetoothLEConnectionPhyInfo {}
+unsafe impl Sync for BluetoothLEConnectionPhyInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEDevice(windows_core::IUnknown);
@@ -1815,6 +1831,8 @@ unsafe impl windows_core::Interface for BluetoothLEDevice {
 impl windows_core::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
 }
+unsafe impl Send for BluetoothLEDevice {}
+unsafe impl Sync for BluetoothLEDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParameters(windows_core::IUnknown);
@@ -1881,6 +1899,8 @@ unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParameters
 impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
 }
+unsafe impl Send for BluetoothLEPreferredConnectionParameters {}
+unsafe impl Sync for BluetoothLEPreferredConnectionParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(windows_core::IUnknown);
@@ -1909,6 +1929,8 @@ unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParameters
 impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
 }
+unsafe impl Send for BluetoothLEPreferredConnectionParametersRequest {}
+unsafe impl Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothSignalStrengthFilter(windows_core::IUnknown);
@@ -1988,6 +2010,8 @@ unsafe impl windows_core::Interface for BluetoothSignalStrengthFilter {
 impl windows_core::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
 }
+unsafe impl Send for BluetoothSignalStrengthFilter {}
+unsafe impl Sync for BluetoothSignalStrengthFilter {}
 pub struct BluetoothUuidHelper;
 impl BluetoothUuidHelper {
     pub fn FromShortId(shortid: u32) -> windows_core::Result<windows_core::GUID> {

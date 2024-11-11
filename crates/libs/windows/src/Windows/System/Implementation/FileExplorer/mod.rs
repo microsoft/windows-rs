@@ -234,3 +234,5 @@ unsafe impl windows_core::Interface for SysStorageProviderEventReceivedEventArgs
 impl windows_core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
 }
+unsafe impl Send for SysStorageProviderEventReceivedEventArgs {}
+unsafe impl Sync for SysStorageProviderEventReceivedEventArgs {}

@@ -399,6 +399,8 @@ unsafe impl windows_core::Interface for UserDataTask {
 impl windows_core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
 }
+unsafe impl Send for UserDataTask {}
+unsafe impl Sync for UserDataTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskBatch(windows_core::IUnknown);
@@ -423,6 +425,8 @@ unsafe impl windows_core::Interface for UserDataTaskBatch {
 impl windows_core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
 }
+unsafe impl Send for UserDataTaskBatch {}
+unsafe impl Sync for UserDataTaskBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskList(windows_core::IUnknown);
@@ -569,6 +573,8 @@ unsafe impl windows_core::Interface for UserDataTaskList {
 impl windows_core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
 }
+unsafe impl Send for UserDataTaskList {}
+unsafe impl Sync for UserDataTaskList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListLimitedWriteOperations(windows_core::IUnknown);
@@ -616,6 +622,8 @@ unsafe impl windows_core::Interface for UserDataTaskListLimitedWriteOperations {
 impl windows_core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
 }
+unsafe impl Send for UserDataTaskListLimitedWriteOperations {}
+unsafe impl Sync for UserDataTaskListLimitedWriteOperations {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManager(windows_core::IUnknown);
@@ -686,6 +694,8 @@ unsafe impl windows_core::Interface for UserDataTaskListSyncManager {
 impl windows_core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
 }
+unsafe impl Send for UserDataTaskListSyncManager {}
+unsafe impl Sync for UserDataTaskListSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskManager(windows_core::IUnknown);
@@ -737,6 +747,8 @@ unsafe impl windows_core::Interface for UserDataTaskManager {
 impl windows_core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
 }
+unsafe impl Send for UserDataTaskManager {}
+unsafe impl Sync for UserDataTaskManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskQueryOptions(windows_core::IUnknown);
@@ -782,6 +794,8 @@ unsafe impl windows_core::Interface for UserDataTaskQueryOptions {
 impl windows_core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
 }
+unsafe impl Send for UserDataTaskQueryOptions {}
+unsafe impl Sync for UserDataTaskQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskReader(windows_core::IUnknown);
@@ -805,6 +819,8 @@ unsafe impl windows_core::Interface for UserDataTaskReader {
 impl windows_core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
 }
+unsafe impl Send for UserDataTaskReader {}
+unsafe impl Sync for UserDataTaskReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRecurrenceProperties(windows_core::IUnknown);
@@ -934,6 +950,8 @@ unsafe impl windows_core::Interface for UserDataTaskRecurrenceProperties {
 impl windows_core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
 }
+unsafe impl Send for UserDataTaskRecurrenceProperties {}
+unsafe impl Sync for UserDataTaskRecurrenceProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskRegenerationProperties(windows_core::IUnknown);
@@ -1007,6 +1025,8 @@ unsafe impl windows_core::Interface for UserDataTaskRegenerationProperties {
 impl windows_core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
 }
+unsafe impl Send for UserDataTaskRegenerationProperties {}
+unsafe impl Sync for UserDataTaskRegenerationProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskStore(windows_core::IUnknown);
@@ -1052,6 +1072,8 @@ unsafe impl windows_core::Interface for UserDataTaskStore {
 impl windows_core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
 }
+unsafe impl Send for UserDataTaskStore {}
+unsafe impl Sync for UserDataTaskStore {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataTaskDaysOfWeek(pub u32);

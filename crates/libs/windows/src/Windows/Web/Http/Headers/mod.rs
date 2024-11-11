@@ -1011,6 +1011,10 @@ unsafe impl windows_core::Interface for HttpCacheDirectiveHeaderValueCollection 
 impl windows_core::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpCacheDirectiveHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpCacheDirectiveHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpChallengeHeaderValue(windows_core::IUnknown);
@@ -1089,6 +1093,8 @@ unsafe impl windows_core::Interface for HttpChallengeHeaderValue {
 impl windows_core::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
 }
+unsafe impl Send for HttpChallengeHeaderValue {}
+unsafe impl Sync for HttpChallengeHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1215,6 +1221,10 @@ unsafe impl windows_core::Interface for HttpChallengeHeaderValueCollection {
 impl windows_core::RuntimeName for HttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpChallengeHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpChallengeHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpConnectionOptionHeaderValue(windows_core::IUnknown);
@@ -1272,6 +1282,8 @@ unsafe impl windows_core::Interface for HttpConnectionOptionHeaderValue {
 impl windows_core::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
 }
+unsafe impl Send for HttpConnectionOptionHeaderValue {}
+unsafe impl Sync for HttpConnectionOptionHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1398,6 +1410,10 @@ unsafe impl windows_core::Interface for HttpConnectionOptionHeaderValueCollectio
 impl windows_core::RuntimeName for HttpConnectionOptionHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpConnectionOptionHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpConnectionOptionHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingHeaderValue(windows_core::IUnknown);
@@ -1455,6 +1471,8 @@ unsafe impl windows_core::Interface for HttpContentCodingHeaderValue {
 impl windows_core::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
 }
+unsafe impl Send for HttpContentCodingHeaderValue {}
+unsafe impl Sync for HttpContentCodingHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1581,6 +1599,10 @@ unsafe impl windows_core::Interface for HttpContentCodingHeaderValueCollection {
 impl windows_core::RuntimeName for HttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpContentCodingHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpContentCodingHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentCodingWithQualityHeaderValue(windows_core::IUnknown);
@@ -1651,6 +1673,8 @@ unsafe impl windows_core::Interface for HttpContentCodingWithQualityHeaderValue 
 impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
 }
+unsafe impl Send for HttpContentCodingWithQualityHeaderValue {}
+unsafe impl Sync for HttpContentCodingWithQualityHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1777,6 +1801,10 @@ unsafe impl windows_core::Interface for HttpContentCodingWithQualityHeaderValueC
 impl windows_core::RuntimeName for HttpContentCodingWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpContentCodingWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpContentCodingWithQualityHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentDispositionHeaderValue(windows_core::IUnknown);
@@ -1893,6 +1921,8 @@ unsafe impl windows_core::Interface for HttpContentDispositionHeaderValue {
 impl windows_core::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
 }
+unsafe impl Send for HttpContentDispositionHeaderValue {}
+unsafe impl Sync for HttpContentDispositionHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2124,6 +2154,10 @@ unsafe impl windows_core::Interface for HttpContentHeaderCollection {
 impl windows_core::RuntimeName for HttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentHeaderCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpContentHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpContentHeaderCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpContentRangeHeaderValue(windows_core::IUnknown);
@@ -2218,6 +2252,8 @@ unsafe impl windows_core::Interface for HttpContentRangeHeaderValue {
 impl windows_core::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
 }
+unsafe impl Send for HttpContentRangeHeaderValue {}
+unsafe impl Sync for HttpContentRangeHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookiePairHeaderValue(windows_core::IUnknown);
@@ -2292,6 +2328,8 @@ unsafe impl windows_core::Interface for HttpCookiePairHeaderValue {
 impl windows_core::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
 }
+unsafe impl Send for HttpCookiePairHeaderValue {}
+unsafe impl Sync for HttpCookiePairHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2418,6 +2456,10 @@ unsafe impl windows_core::Interface for HttpCookiePairHeaderValueCollection {
 impl windows_core::RuntimeName for HttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpCookiePairHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpCookiePairHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCredentialsHeaderValue(windows_core::IUnknown);
@@ -2496,6 +2538,8 @@ unsafe impl windows_core::Interface for HttpCredentialsHeaderValue {
 impl windows_core::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
 }
+unsafe impl Send for HttpCredentialsHeaderValue {}
+unsafe impl Sync for HttpCredentialsHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDateOrDeltaHeaderValue(windows_core::IUnknown);
@@ -2550,6 +2594,8 @@ unsafe impl windows_core::Interface for HttpDateOrDeltaHeaderValue {
 impl windows_core::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
 }
+unsafe impl Send for HttpDateOrDeltaHeaderValue {}
+unsafe impl Sync for HttpDateOrDeltaHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpExpectationHeaderValue(windows_core::IUnknown);
@@ -2632,6 +2678,8 @@ unsafe impl windows_core::Interface for HttpExpectationHeaderValue {
 impl windows_core::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
 }
+unsafe impl Send for HttpExpectationHeaderValue {}
+unsafe impl Sync for HttpExpectationHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2758,6 +2806,10 @@ unsafe impl windows_core::Interface for HttpExpectationHeaderValueCollection {
 impl windows_core::RuntimeName for HttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpExpectationHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpExpectationHeaderValueCollection {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2884,6 +2936,10 @@ unsafe impl windows_core::Interface for HttpLanguageHeaderValueCollection {
 impl windows_core::RuntimeName for HttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+unsafe impl Send for HttpLanguageHeaderValueCollection {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
+unsafe impl Sync for HttpLanguageHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(windows_core::IUnknown);
@@ -2954,6 +3010,8 @@ unsafe impl windows_core::Interface for HttpLanguageRangeWithQualityHeaderValue 
 impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
 }
+unsafe impl Send for HttpLanguageRangeWithQualityHeaderValue {}
+unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3080,6 +3138,10 @@ unsafe impl windows_core::Interface for HttpLanguageRangeWithQualityHeaderValueC
 impl windows_core::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMediaTypeHeaderValue(windows_core::IUnknown);
@@ -3160,6 +3222,8 @@ unsafe impl windows_core::Interface for HttpMediaTypeHeaderValue {
 impl windows_core::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
 }
+unsafe impl Send for HttpMediaTypeHeaderValue {}
+unsafe impl Sync for HttpMediaTypeHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMediaTypeWithQualityHeaderValue(windows_core::IUnknown);
@@ -3260,6 +3324,8 @@ unsafe impl windows_core::Interface for HttpMediaTypeWithQualityHeaderValue {
 impl windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
 }
+unsafe impl Send for HttpMediaTypeWithQualityHeaderValue {}
+unsafe impl Sync for HttpMediaTypeWithQualityHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3387,6 +3453,10 @@ impl windows_core::RuntimeName for HttpMediaTypeWithQualityHeaderValueCollection
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpMediaTypeWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMethodHeaderValueCollection(windows_core::IUnknown);
@@ -3512,6 +3582,10 @@ unsafe impl windows_core::Interface for HttpMethodHeaderValueCollection {
 impl windows_core::RuntimeName for HttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMethodHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpMethodHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpMethodHeaderValueCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpNameValueHeaderValue(windows_core::IUnknown);
@@ -3586,6 +3660,8 @@ unsafe impl windows_core::Interface for HttpNameValueHeaderValue {
 impl windows_core::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
 }
+unsafe impl Send for HttpNameValueHeaderValue {}
+unsafe impl Sync for HttpNameValueHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpProductHeaderValue(windows_core::IUnknown);
@@ -3656,6 +3732,8 @@ unsafe impl windows_core::Interface for HttpProductHeaderValue {
 impl windows_core::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
 }
+unsafe impl Send for HttpProductHeaderValue {}
+unsafe impl Sync for HttpProductHeaderValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpProductInfoHeaderValue(windows_core::IUnknown);
@@ -3726,6 +3804,8 @@ unsafe impl windows_core::Interface for HttpProductInfoHeaderValue {
 impl windows_core::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
 }
+unsafe impl Send for HttpProductInfoHeaderValue {}
+unsafe impl Sync for HttpProductInfoHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3852,6 +3932,10 @@ unsafe impl windows_core::Interface for HttpProductInfoHeaderValueCollection {
 impl windows_core::RuntimeName for HttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpProductInfoHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpProductInfoHeaderValueCollection {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4144,6 +4228,10 @@ impl windows_core::RuntimeName for HttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpRequestHeaderCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpRequestHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpRequestHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
@@ -4341,6 +4429,10 @@ unsafe impl windows_core::Interface for HttpResponseHeaderCollection {
 impl windows_core::RuntimeName for HttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpResponseHeaderCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpResponseHeaderCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpResponseHeaderCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpTransferCodingHeaderValue(windows_core::IUnknown);
@@ -4406,6 +4498,8 @@ unsafe impl windows_core::Interface for HttpTransferCodingHeaderValue {
 impl windows_core::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
 }
+unsafe impl Send for HttpTransferCodingHeaderValue {}
+unsafe impl Sync for HttpTransferCodingHeaderValue {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4532,3 +4626,7 @@ unsafe impl windows_core::Interface for HttpTransferCodingHeaderValueCollection 
 impl windows_core::RuntimeName for HttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for HttpTransferCodingHeaderValueCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for HttpTransferCodingHeaderValueCollection {}

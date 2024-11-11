@@ -51,3 +51,5 @@ unsafe impl windows_core::Interface for VibrationDevice {
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
+unsafe impl Send for VibrationDevice {}
+unsafe impl Sync for VibrationDevice {}

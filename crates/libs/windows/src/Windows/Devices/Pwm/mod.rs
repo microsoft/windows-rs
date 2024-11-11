@@ -166,6 +166,8 @@ unsafe impl windows_core::Interface for PwmController {
 impl windows_core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
+unsafe impl Send for PwmController {}
+unsafe impl Sync for PwmController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmPin(windows_core::IUnknown);
@@ -231,6 +233,8 @@ unsafe impl windows_core::Interface for PwmPin {
 impl windows_core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
+unsafe impl Send for PwmPin {}
+unsafe impl Sync for PwmPin {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PwmPulsePolarity(pub i32);

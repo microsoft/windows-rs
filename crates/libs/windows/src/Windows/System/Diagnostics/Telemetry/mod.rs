@@ -77,6 +77,8 @@ unsafe impl windows_core::Interface for PlatformTelemetryRegistrationResult {
 impl windows_core::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
 }
+unsafe impl Send for PlatformTelemetryRegistrationResult {}
+unsafe impl Sync for PlatformTelemetryRegistrationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformTelemetryRegistrationSettings(windows_core::IUnknown);
@@ -122,6 +124,8 @@ unsafe impl windows_core::Interface for PlatformTelemetryRegistrationSettings {
 impl windows_core::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";
 }
+unsafe impl Send for PlatformTelemetryRegistrationSettings {}
+unsafe impl Sync for PlatformTelemetryRegistrationSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);

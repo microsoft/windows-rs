@@ -160,6 +160,8 @@ unsafe impl windows_core::Interface for EyesPose {
 impl windows_core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
+unsafe impl Send for EyesPose {}
+unsafe impl Sync for EyesPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshObserver(windows_core::IUnknown);
@@ -233,6 +235,8 @@ unsafe impl windows_core::Interface for HandMeshObserver {
 impl windows_core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
+unsafe impl Send for HandMeshObserver {}
+unsafe impl Sync for HandMeshObserver {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshVertexState(windows_core::IUnknown);
@@ -269,6 +273,8 @@ unsafe impl windows_core::Interface for HandMeshVertexState {
 impl windows_core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
+unsafe impl Send for HandMeshVertexState {}
+unsafe impl Sync for HandMeshVertexState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandPose(windows_core::IUnknown);
@@ -320,6 +326,8 @@ unsafe impl windows_core::Interface for HandPose {
 impl windows_core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
+unsafe impl Send for HandPose {}
+unsafe impl Sync for HandPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPose(windows_core::IUnknown);
@@ -360,6 +368,8 @@ unsafe impl windows_core::Interface for HeadPose {
 impl windows_core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
+unsafe impl Send for HeadPose {}
+unsafe impl Sync for HeadPose {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HandJointKind(pub i32);

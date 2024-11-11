@@ -80,3 +80,5 @@ unsafe impl windows_core::Interface for DeviceLockdownProfileInformation {
 impl windows_core::RuntimeName for DeviceLockdownProfileInformation {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation";
 }
+unsafe impl Send for DeviceLockdownProfileInformation {}
+unsafe impl Sync for DeviceLockdownProfileInformation {}

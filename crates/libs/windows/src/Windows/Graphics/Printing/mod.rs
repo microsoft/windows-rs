@@ -848,6 +848,8 @@ unsafe impl windows_core::Interface for PrintManager {
 impl windows_core::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
 }
+unsafe impl Send for PrintManager {}
+unsafe impl Sync for PrintManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageInfo(windows_core::IUnknown);
@@ -926,6 +928,8 @@ unsafe impl windows_core::Interface for PrintPageInfo {
 impl windows_core::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
 }
+unsafe impl Send for PrintPageInfo {}
+unsafe impl Sync for PrintPageInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRange(windows_core::IUnknown);
@@ -972,6 +976,8 @@ unsafe impl windows_core::Interface for PrintPageRange {
 impl windows_core::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
 }
+unsafe impl Send for PrintPageRange {}
+unsafe impl Sync for PrintPageRange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptions(windows_core::IUnknown);
@@ -1021,6 +1027,8 @@ unsafe impl windows_core::Interface for PrintPageRangeOptions {
 impl windows_core::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
 }
+unsafe impl Send for PrintPageRangeOptions {}
+unsafe impl Sync for PrintPageRangeOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTask(windows_core::IUnknown);
@@ -1148,6 +1156,8 @@ unsafe impl windows_core::Interface for PrintTask {
 impl windows_core::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
 }
+unsafe impl Send for PrintTask {}
+unsafe impl Sync for PrintTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskCompletedEventArgs(windows_core::IUnknown);
@@ -1171,6 +1181,8 @@ unsafe impl windows_core::Interface for PrintTaskCompletedEventArgs {
 impl windows_core::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
 }
+unsafe impl Send for PrintTaskCompletedEventArgs {}
+unsafe impl Sync for PrintTaskCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptions(windows_core::IUnknown);
@@ -1375,6 +1387,8 @@ unsafe impl windows_core::Interface for PrintTaskOptions {
 impl windows_core::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
 }
+unsafe impl Send for PrintTaskOptions {}
+unsafe impl Sync for PrintTaskOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskProgressingEventArgs(windows_core::IUnknown);
@@ -1398,6 +1412,8 @@ unsafe impl windows_core::Interface for PrintTaskProgressingEventArgs {
 impl windows_core::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
 }
+unsafe impl Send for PrintTaskProgressingEventArgs {}
+unsafe impl Sync for PrintTaskProgressingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequest(windows_core::IUnknown);
@@ -1438,6 +1454,8 @@ unsafe impl windows_core::Interface for PrintTaskRequest {
 impl windows_core::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
 }
+unsafe impl Send for PrintTaskRequest {}
+unsafe impl Sync for PrintTaskRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedDeferral(windows_core::IUnknown);
@@ -1458,6 +1476,8 @@ unsafe impl windows_core::Interface for PrintTaskRequestedDeferral {
 impl windows_core::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
 }
+unsafe impl Send for PrintTaskRequestedDeferral {}
+unsafe impl Sync for PrintTaskRequestedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedEventArgs(windows_core::IUnknown);
@@ -1481,6 +1501,8 @@ unsafe impl windows_core::Interface for PrintTaskRequestedEventArgs {
 impl windows_core::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
 }
+unsafe impl Send for PrintTaskRequestedEventArgs {}
+unsafe impl Sync for PrintTaskRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedArgs(windows_core::IUnknown);
@@ -1518,6 +1540,8 @@ unsafe impl windows_core::Interface for PrintTaskSourceRequestedArgs {
 impl windows_core::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
 }
+unsafe impl Send for PrintTaskSourceRequestedArgs {}
+unsafe impl Sync for PrintTaskSourceRequestedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedDeferral(windows_core::IUnknown);
@@ -1538,6 +1562,8 @@ unsafe impl windows_core::Interface for PrintTaskSourceRequestedDeferral {
 impl windows_core::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";
 }
+unsafe impl Send for PrintTaskSourceRequestedDeferral {}
+unsafe impl Sync for PrintTaskSourceRequestedDeferral {}
 pub struct StandardPrintTaskOptions;
 impl StandardPrintTaskOptions {
     pub fn MediaSize() -> windows_core::Result<windows_core::HSTRING> {

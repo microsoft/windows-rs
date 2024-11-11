@@ -398,6 +398,8 @@ unsafe impl windows_core::Interface for BackgroundAudioTrack {
 impl windows_core::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
 }
+unsafe impl Send for BackgroundAudioTrack {}
+unsafe impl Sync for BackgroundAudioTrack {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmbeddedAudioTrack(windows_core::IUnknown);
@@ -422,6 +424,8 @@ unsafe impl windows_core::Interface for EmbeddedAudioTrack {
 impl windows_core::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
 }
+unsafe impl Send for EmbeddedAudioTrack {}
+unsafe impl Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaClip(windows_core::IUnknown);
@@ -602,6 +606,8 @@ unsafe impl windows_core::Interface for MediaClip {
 impl windows_core::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
 }
+unsafe impl Send for MediaClip {}
+unsafe impl Sync for MediaClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaComposition(windows_core::IUnknown);
@@ -784,6 +790,8 @@ unsafe impl windows_core::Interface for MediaComposition {
 impl windows_core::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
 }
+unsafe impl Send for MediaComposition {}
+unsafe impl Sync for MediaComposition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlay(windows_core::IUnknown);
@@ -880,6 +888,8 @@ unsafe impl windows_core::Interface for MediaOverlay {
 impl windows_core::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
 }
+unsafe impl Send for MediaOverlay {}
+unsafe impl Sync for MediaOverlay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlayLayer(windows_core::IUnknown);
@@ -940,6 +950,8 @@ unsafe impl windows_core::Interface for MediaOverlayLayer {
 impl windows_core::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";
 }
+unsafe impl Send for MediaOverlayLayer {}
+unsafe impl Sync for MediaOverlayLayer {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MediaTrimmingPreference(pub i32);

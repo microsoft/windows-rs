@@ -282,6 +282,8 @@ unsafe impl windows_core::Interface for SimpleHapticsController {
 impl windows_core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
+unsafe impl Send for SimpleHapticsController {}
+unsafe impl Sync for SimpleHapticsController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsControllerFeedback(windows_core::IUnknown);
@@ -312,6 +314,8 @@ unsafe impl windows_core::Interface for SimpleHapticsControllerFeedback {
 impl windows_core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
+unsafe impl Send for SimpleHapticsControllerFeedback {}
+unsafe impl Sync for SimpleHapticsControllerFeedback {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VibrationDevice(windows_core::IUnknown);
@@ -377,6 +381,8 @@ unsafe impl windows_core::Interface for VibrationDevice {
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
 }
+unsafe impl Send for VibrationDevice {}
+unsafe impl Sync for VibrationDevice {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct VibrationAccessStatus(pub i32);

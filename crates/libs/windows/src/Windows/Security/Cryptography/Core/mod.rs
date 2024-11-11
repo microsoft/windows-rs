@@ -762,6 +762,8 @@ unsafe impl windows_core::Interface for AsymmetricKeyAlgorithmProvider {
 impl windows_core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
 }
+unsafe impl Send for AsymmetricKeyAlgorithmProvider {}
+unsafe impl Sync for AsymmetricKeyAlgorithmProvider {}
 pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[cfg(feature = "Storage_Streams")]
@@ -950,6 +952,8 @@ unsafe impl windows_core::Interface for CryptographicHash {
 impl windows_core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
 }
+unsafe impl Send for CryptographicHash {}
+unsafe impl Sync for CryptographicHash {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicKey(windows_core::IUnknown);
@@ -1005,6 +1009,8 @@ unsafe impl windows_core::Interface for CryptographicKey {
 impl windows_core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
 }
+unsafe impl Send for CryptographicKey {}
+unsafe impl Sync for CryptographicKey {}
 pub struct EccCurveNames;
 impl EccCurveNames {
     pub fn BrainpoolP160r1() -> windows_core::Result<windows_core::HSTRING> {
@@ -1324,6 +1330,8 @@ unsafe impl windows_core::Interface for EncryptedAndAuthenticatedData {
 impl windows_core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
 }
+unsafe impl Send for EncryptedAndAuthenticatedData {}
+unsafe impl Sync for EncryptedAndAuthenticatedData {}
 pub struct HashAlgorithmNames;
 impl HashAlgorithmNames {
     pub fn Md5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1422,6 +1430,8 @@ unsafe impl windows_core::Interface for HashAlgorithmProvider {
 impl windows_core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
 }
+unsafe impl Send for HashAlgorithmProvider {}
+unsafe impl Sync for HashAlgorithmProvider {}
 pub struct KeyDerivationAlgorithmNames;
 impl KeyDerivationAlgorithmNames {
     pub fn Pbkdf2Md5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1600,6 +1610,8 @@ unsafe impl windows_core::Interface for KeyDerivationAlgorithmProvider {
 impl windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
 }
+unsafe impl Send for KeyDerivationAlgorithmProvider {}
+unsafe impl Sync for KeyDerivationAlgorithmProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationParameters(windows_core::IUnknown);
@@ -1699,6 +1711,8 @@ unsafe impl windows_core::Interface for KeyDerivationParameters {
 impl windows_core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
 }
+unsafe impl Send for KeyDerivationParameters {}
+unsafe impl Sync for KeyDerivationParameters {}
 pub struct MacAlgorithmNames;
 impl MacAlgorithmNames {
     pub fn HmacMd5() -> windows_core::Result<windows_core::HSTRING> {
@@ -1807,6 +1821,8 @@ unsafe impl windows_core::Interface for MacAlgorithmProvider {
 impl windows_core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
 }
+unsafe impl Send for MacAlgorithmProvider {}
+unsafe impl Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -2012,6 +2028,8 @@ unsafe impl windows_core::Interface for SymmetricKeyAlgorithmProvider {
 impl windows_core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";
 }
+unsafe impl Send for SymmetricKeyAlgorithmProvider {}
+unsafe impl Sync for SymmetricKeyAlgorithmProvider {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);

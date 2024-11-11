@@ -135,6 +135,15 @@ impl Class {
                 }
             };
 
+            let agile = self.def.is_agile().then(||{
+                quote! {
+                    #cfg
+                    unsafe impl Send for #name {}
+                    #cfg
+                    unsafe impl Sync for #name {}
+                }
+            });
+
             quote! {
                 #cfg
                 #[repr(transparent)]
@@ -159,6 +168,7 @@ impl Class {
                     const IID: windows_core::GUID = <#default_interface as windows_core::Interface>::IID;
                 }
                 #runtime_name
+                #agile
             }
         } else {
             quote! {

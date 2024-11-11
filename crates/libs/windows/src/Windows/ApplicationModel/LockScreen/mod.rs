@@ -132,6 +132,8 @@ unsafe impl windows_core::Interface for LockApplicationHost {
 impl windows_core::RuntimeName for LockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockApplicationHost";
 }
+unsafe impl Send for LockApplicationHost {}
+unsafe impl Sync for LockApplicationHost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenBadge(windows_core::IUnknown);
@@ -182,6 +184,8 @@ unsafe impl windows_core::Interface for LockScreenBadge {
 impl windows_core::RuntimeName for LockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenBadge";
 }
+unsafe impl Send for LockScreenBadge {}
+unsafe impl Sync for LockScreenBadge {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenInfo(windows_core::IUnknown);
@@ -286,6 +290,8 @@ unsafe impl windows_core::Interface for LockScreenInfo {
 impl windows_core::RuntimeName for LockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenInfo";
 }
+unsafe impl Send for LockScreenInfo {}
+unsafe impl Sync for LockScreenInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
@@ -306,6 +312,8 @@ unsafe impl windows_core::Interface for LockScreenUnlockingDeferral {
 impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
 }
+unsafe impl Send for LockScreenUnlockingDeferral {}
+unsafe impl Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
@@ -336,3 +344,5 @@ unsafe impl windows_core::Interface for LockScreenUnlockingEventArgs {
 impl windows_core::RuntimeName for LockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";
 }
+unsafe impl Send for LockScreenUnlockingEventArgs {}
+unsafe impl Sync for LockScreenUnlockingEventArgs {}

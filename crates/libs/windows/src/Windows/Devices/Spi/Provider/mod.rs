@@ -324,6 +324,8 @@ unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
 impl windows_core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
 }
+unsafe impl Send for ProviderSpiConnectionSettings {}
+unsafe impl Sync for ProviderSpiConnectionSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ProviderSpiMode(pub i32);

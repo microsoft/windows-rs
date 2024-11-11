@@ -138,6 +138,8 @@ unsafe impl windows_core::Interface for Battery {
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Devices.Power.Battery";
 }
+unsafe impl Send for Battery {}
+unsafe impl Sync for Battery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BatteryReport(windows_core::IUnknown);
@@ -190,6 +192,8 @@ unsafe impl windows_core::Interface for BatteryReport {
 impl windows_core::RuntimeName for BatteryReport {
     const NAME: &'static str = "Windows.Devices.Power.BatteryReport";
 }
+unsafe impl Send for BatteryReport {}
+unsafe impl Sync for BatteryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridData(windows_core::IUnknown);
@@ -220,6 +224,8 @@ unsafe impl windows_core::Interface for PowerGridData {
 impl windows_core::RuntimeName for PowerGridData {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridData";
 }
+unsafe impl Send for PowerGridData {}
+unsafe impl Sync for PowerGridData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridForecast(windows_core::IUnknown);
@@ -280,3 +286,5 @@ unsafe impl windows_core::Interface for PowerGridForecast {
 impl windows_core::RuntimeName for PowerGridForecast {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridForecast";
 }
+unsafe impl Send for PowerGridForecast {}
+unsafe impl Sync for PowerGridForecast {}

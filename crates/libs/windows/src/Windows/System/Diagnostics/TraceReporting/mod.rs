@@ -169,6 +169,8 @@ unsafe impl windows_core::Interface for PlatformDiagnosticTraceInfo {
 impl windows_core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
 }
+unsafe impl Send for PlatformDiagnosticTraceInfo {}
+unsafe impl Sync for PlatformDiagnosticTraceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(windows_core::IUnknown);
@@ -199,6 +201,8 @@ unsafe impl windows_core::Interface for PlatformDiagnosticTraceRuntimeInfo {
 impl windows_core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";
 }
+unsafe impl Send for PlatformDiagnosticTraceRuntimeInfo {}
+unsafe impl Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticActionState(pub i32);

@@ -344,6 +344,8 @@ unsafe impl windows_core::Interface for WiFiDirectService {
 impl windows_core::RuntimeName for WiFiDirectService {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectService";
 }
+unsafe impl Send for WiFiDirectService {}
+unsafe impl Sync for WiFiDirectService {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAdvertiser(windows_core::IUnknown);
@@ -555,6 +557,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceAdvertiser {
 impl windows_core::RuntimeName for WiFiDirectServiceAdvertiser {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser";
 }
+unsafe impl Send for WiFiDirectServiceAdvertiser {}
+unsafe impl Sync for WiFiDirectServiceAdvertiser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(windows_core::IUnknown);
@@ -586,6 +590,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceAutoAcceptSessionConnec
 impl windows_core::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
 }
+unsafe impl Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+unsafe impl Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceProvisioningInfo(windows_core::IUnknown);
@@ -616,6 +622,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceProvisioningInfo {
 impl windows_core::RuntimeName for WiFiDirectServiceProvisioningInfo {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo";
 }
+unsafe impl Send for WiFiDirectServiceProvisioningInfo {}
+unsafe impl Sync for WiFiDirectServiceProvisioningInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(windows_core::IUnknown);
@@ -647,6 +655,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceRemotePortAddedEventArg
 impl windows_core::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs";
 }
+unsafe impl Send for WiFiDirectServiceRemotePortAddedEventArgs {}
+unsafe impl Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSession(windows_core::IUnknown);
@@ -775,6 +785,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceSession {
 impl windows_core::RuntimeName for WiFiDirectServiceSession {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession";
 }
+unsafe impl Send for WiFiDirectServiceSession {}
+unsafe impl Sync for WiFiDirectServiceSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(windows_core::IUnknown);
@@ -799,6 +811,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceSessionDeferredEventArg
 impl windows_core::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs";
 }
+unsafe impl Send for WiFiDirectServiceSessionDeferredEventArgs {}
+unsafe impl Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequest(windows_core::IUnknown);
@@ -843,6 +857,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequest {
 impl windows_core::RuntimeName for WiFiDirectServiceSessionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest";
 }
+unsafe impl Send for WiFiDirectServiceSessionRequest {}
+unsafe impl Sync for WiFiDirectServiceSessionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(windows_core::IUnknown);
@@ -866,6 +882,8 @@ unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequestedEventAr
 impl windows_core::RuntimeName for WiFiDirectServiceSessionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs";
 }
+unsafe impl Send for WiFiDirectServiceSessionRequestedEventArgs {}
+unsafe impl Sync for WiFiDirectServiceSessionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);

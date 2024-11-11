@@ -329,6 +329,8 @@ unsafe impl windows_core::Interface for WebUICommandBar {
 impl windows_core::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
 }
+unsafe impl Send for WebUICommandBar {}
+unsafe impl Sync for WebUICommandBar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarBitmapIcon(windows_core::IUnknown);
@@ -380,6 +382,8 @@ unsafe impl windows_core::Interface for WebUICommandBarBitmapIcon {
 impl windows_core::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
 }
+unsafe impl Send for WebUICommandBarBitmapIcon {}
+unsafe impl Sync for WebUICommandBarBitmapIcon {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarConfirmationButton(windows_core::IUnknown);
@@ -429,6 +433,8 @@ unsafe impl windows_core::Interface for WebUICommandBarConfirmationButton {
 impl windows_core::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
 }
+unsafe impl Send for WebUICommandBarConfirmationButton {}
+unsafe impl Sync for WebUICommandBarConfirmationButton {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarIconButton(windows_core::IUnknown);
@@ -525,6 +531,8 @@ unsafe impl windows_core::Interface for WebUICommandBarIconButton {
 impl windows_core::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
 }
+unsafe impl Send for WebUICommandBarIconButton {}
+unsafe impl Sync for WebUICommandBarIconButton {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarItemInvokedEventArgs(windows_core::IUnknown);
@@ -548,6 +556,8 @@ unsafe impl windows_core::Interface for WebUICommandBarItemInvokedEventArgs {
 impl windows_core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
 }
+unsafe impl Send for WebUICommandBarItemInvokedEventArgs {}
+unsafe impl Sync for WebUICommandBarItemInvokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSizeChangedEventArgs(windows_core::IUnknown);
@@ -571,6 +581,8 @@ unsafe impl windows_core::Interface for WebUICommandBarSizeChangedEventArgs {
 impl windows_core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
 }
+unsafe impl Send for WebUICommandBarSizeChangedEventArgs {}
+unsafe impl Sync for WebUICommandBarSizeChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSymbolIcon(windows_core::IUnknown);
@@ -616,6 +628,8 @@ unsafe impl windows_core::Interface for WebUICommandBarSymbolIcon {
 impl windows_core::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";
 }
+unsafe impl Send for WebUICommandBarSymbolIcon {}
+unsafe impl Sync for WebUICommandBarSymbolIcon {}
 windows_core::imp::define_interface!(MenuClosedEventHandler, MenuClosedEventHandler_Vtbl, 0x435387c8_4dd0_4c52_9489_d390ce7721d2);
 impl windows_core::RuntimeType for MenuClosedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

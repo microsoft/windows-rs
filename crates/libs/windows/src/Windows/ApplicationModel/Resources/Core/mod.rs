@@ -288,6 +288,8 @@ unsafe impl windows_core::Interface for NamedResource {
 impl windows_core::RuntimeName for NamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.NamedResource";
 }
+unsafe impl Send for NamedResource {}
+unsafe impl Sync for NamedResource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceCandidate(windows_core::IUnknown);
@@ -370,6 +372,8 @@ unsafe impl windows_core::Interface for ResourceCandidate {
 impl windows_core::RuntimeName for ResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidate";
 }
+unsafe impl Send for ResourceCandidate {}
+unsafe impl Sync for ResourceCandidate {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -433,6 +437,10 @@ unsafe impl windows_core::Interface for ResourceCandidateVectorView {
 impl windows_core::RuntimeName for ResourceCandidateVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidateVectorView";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceCandidateVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceCandidateVectorView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceContext(windows_core::IUnknown);
@@ -571,6 +579,8 @@ unsafe impl windows_core::Interface for ResourceContext {
 impl windows_core::RuntimeName for ResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContext";
 }
+unsafe impl Send for ResourceContext {}
+unsafe impl Sync for ResourceContext {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -631,6 +641,10 @@ unsafe impl windows_core::Interface for ResourceContextLanguagesVectorView {
 impl windows_core::RuntimeName for ResourceContextLanguagesVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContextLanguagesVectorView";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceContextLanguagesVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceContextLanguagesVectorView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceManager(windows_core::IUnknown);
@@ -718,6 +732,8 @@ unsafe impl windows_core::Interface for ResourceManager {
 impl windows_core::RuntimeName for ResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceManager";
 }
+unsafe impl Send for ResourceManager {}
+unsafe impl Sync for ResourceManager {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -807,6 +823,10 @@ impl windows_core::RuntimeName for ResourceMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMap";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceMap {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceMapIterator(windows_core::IUnknown);
@@ -858,6 +878,10 @@ unsafe impl windows_core::Interface for ResourceMapIterator {
 impl windows_core::RuntimeName for ResourceMapIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapIterator";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceMapIterator {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -916,6 +940,10 @@ impl windows_core::RuntimeName for ResourceMapMapView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapMapView";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceMapMapView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceMapMapView {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceMapMapViewIterator(windows_core::IUnknown);
@@ -967,6 +995,10 @@ unsafe impl windows_core::Interface for ResourceMapMapViewIterator {
 impl windows_core::RuntimeName for ResourceMapMapViewIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceMapMapViewIterator {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceMapMapViewIterator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceQualifier(windows_core::IUnknown);
@@ -1018,6 +1050,8 @@ unsafe impl windows_core::Interface for ResourceQualifier {
 impl windows_core::RuntimeName for ResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifier";
 }
+unsafe impl Send for ResourceQualifier {}
+unsafe impl Sync for ResourceQualifier {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1075,6 +1109,10 @@ unsafe impl windows_core::Interface for ResourceQualifierMapView {
 impl windows_core::RuntimeName for ResourceQualifierMapView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierMapView";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceQualifierMapView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1167,6 +1205,10 @@ impl windows_core::RuntimeName for ResourceQualifierObservableMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceQualifierObservableMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceQualifierObservableMap {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceQualifierVectorView(windows_core::IUnknown);
@@ -1229,6 +1271,10 @@ unsafe impl windows_core::Interface for ResourceQualifierVectorView {
 impl windows_core::RuntimeName for ResourceQualifierVectorView {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifierVectorView";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ResourceQualifierVectorView {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ResourceQualifierVectorView {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ResourceCandidateKind(pub i32);

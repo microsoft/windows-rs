@@ -251,6 +251,8 @@ unsafe impl windows_core::Interface for LocalLocation {
 impl windows_core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
 }
+unsafe impl Send for LocalLocation {}
+unsafe impl Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
@@ -302,6 +304,8 @@ unsafe impl windows_core::Interface for LocalLocationFinderResult {
 impl windows_core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
 }
+unsafe impl Send for LocalLocationFinderResult {}
+unsafe impl Sync for LocalLocationFinderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationHoursOfOperationItem(windows_core::IUnknown);
@@ -340,6 +344,8 @@ unsafe impl windows_core::Interface for LocalLocationHoursOfOperationItem {
 impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
 }
+unsafe impl Send for LocalLocationHoursOfOperationItem {}
+unsafe impl Sync for LocalLocationHoursOfOperationItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
@@ -377,6 +383,8 @@ unsafe impl windows_core::Interface for LocalLocationRatingInfo {
 impl windows_core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
 }
+unsafe impl Send for LocalLocationRatingInfo {}
+unsafe impl Sync for LocalLocationRatingInfo {}
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     pub fn CreateFromLocalLocation<P0>(location: P0) -> windows_core::Result<super::PlaceInfo>

@@ -123,6 +123,8 @@ unsafe impl windows_core::Interface for UserDataAccountPartnerAccountInfo {
 impl windows_core::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
 }
+unsafe impl Send for UserDataAccountPartnerAccountInfo {}
+unsafe impl Sync for UserDataAccountPartnerAccountInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderAddAccountOperation(windows_core::IUnknown);
@@ -166,6 +168,8 @@ unsafe impl windows_core::Interface for UserDataAccountProviderAddAccountOperati
 impl windows_core::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
 }
+unsafe impl Send for UserDataAccountProviderAddAccountOperation {}
+unsafe impl Sync for UserDataAccountProviderAddAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderResolveErrorsOperation(windows_core::IUnknown);
@@ -201,6 +205,8 @@ unsafe impl windows_core::Interface for UserDataAccountProviderResolveErrorsOper
 impl windows_core::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
 }
+unsafe impl Send for UserDataAccountProviderResolveErrorsOperation {}
+unsafe impl Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderSettingsOperation(windows_core::IUnknown);
@@ -236,6 +242,8 @@ unsafe impl windows_core::Interface for UserDataAccountProviderSettingsOperation
 impl windows_core::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";
 }
+unsafe impl Send for UserDataAccountProviderSettingsOperation {}
+unsafe impl Sync for UserDataAccountProviderSettingsOperation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);

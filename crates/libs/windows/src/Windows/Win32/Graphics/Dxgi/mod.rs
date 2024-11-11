@@ -124,6 +124,8 @@ impl IDXGIAdapter_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter {}
+unsafe impl Send for IDXGIAdapter {}
+unsafe impl Sync for IDXGIAdapter {}
 windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f61_3839_4626_91fd_086879011a05);
 impl core::ops::Deref for IDXGIAdapter1 {
     type Target = IDXGIAdapter;
@@ -165,6 +167,8 @@ impl IDXGIAdapter1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter1 {}
+unsafe impl Send for IDXGIAdapter1 {}
+unsafe impl Sync for IDXGIAdapter1 {}
 windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
 impl core::ops::Deref for IDXGIAdapter2 {
     type Target = IDXGIAdapter1;
@@ -206,6 +210,8 @@ impl IDXGIAdapter2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter2 {}
+unsafe impl Send for IDXGIAdapter2 {}
+unsafe impl Sync for IDXGIAdapter2 {}
 windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967a4_1392_4310_a798_8053ce3e93fd);
 impl core::ops::Deref for IDXGIAdapter3 {
     type Target = IDXGIAdapter2;
@@ -313,6 +319,8 @@ impl IDXGIAdapter3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter3 {}
+unsafe impl Send for IDXGIAdapter3 {}
+unsafe impl Sync for IDXGIAdapter3 {}
 windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 impl core::ops::Deref for IDXGIAdapter4 {
     type Target = IDXGIAdapter3;
@@ -354,6 +362,8 @@ impl IDXGIAdapter4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIAdapter4 {}
+unsafe impl Send for IDXGIAdapter4 {}
+unsafe impl Sync for IDXGIAdapter4 {}
 windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9e_40fe_8806_88f90c12b441);
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
 impl IDXGIDebug {
@@ -382,6 +392,8 @@ impl IDXGIDebug_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDebug {}
+unsafe impl Send for IDXGIDebug {}
+unsafe impl Sync for IDXGIDebug {}
 windows_core::imp::define_interface!(IDXGIDebug1, IDXGIDebug1_Vtbl, 0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
 impl core::ops::Deref for IDXGIDebug1 {
     type Target = IDXGIDebug;
@@ -439,6 +451,8 @@ impl IDXGIDebug1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDebug1 {}
+unsafe impl Send for IDXGIDebug1 {}
+unsafe impl Sync for IDXGIDebug1 {}
 windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_Vtbl, 0x2633066b_4514_4c7a_8fd8_12ea98059d18);
 windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, windows_core::IUnknown);
 impl IDXGIDecodeSwapChain {
@@ -564,6 +578,8 @@ impl IDXGIDecodeSwapChain_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDecodeSwapChain {}
+unsafe impl Send for IDXGIDecodeSwapChain {}
+unsafe impl Sync for IDXGIDecodeSwapChain {}
 windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
 impl core::ops::Deref for IDXGIDevice {
     type Target = IDXGIObject;
@@ -662,6 +678,10 @@ impl IDXGIDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIDevice {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIDevice {}
 windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f_6276_48ba_ba28_070143b4392c);
 impl core::ops::Deref for IDXGIDevice1 {
     type Target = IDXGIDevice;
@@ -719,6 +739,10 @@ impl IDXGIDevice1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIDevice1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIDevice1 {}
 windows_core::imp::define_interface!(IDXGIDevice2, IDXGIDevice2_Vtbl, 0x05008617_fbfd_4051_a790_144884b4f6a9);
 impl core::ops::Deref for IDXGIDevice2 {
     type Target = IDXGIDevice1;
@@ -782,6 +806,10 @@ impl IDXGIDevice2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIDevice2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIDevice2 {}
 windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c_3244_4afd_bf18_a6d3beda5023);
 impl core::ops::Deref for IDXGIDevice3 {
     type Target = IDXGIDevice2;
@@ -819,6 +847,10 @@ impl IDXGIDevice3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIDevice3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIDevice3 {}
 windows_core::imp::define_interface!(IDXGIDevice4, IDXGIDevice4_Vtbl, 0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
 impl core::ops::Deref for IDXGIDevice4 {
     type Target = IDXGIDevice3;
@@ -876,6 +908,10 @@ impl IDXGIDevice4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIDevice4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIDevice4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIDevice4 {}
 windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_Vtbl, 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 impl core::ops::Deref for IDXGIDeviceSubObject {
     type Target = IDXGIObject;
@@ -914,6 +950,8 @@ impl IDXGIDeviceSubObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
+unsafe impl Send for IDXGIDeviceSubObject {}
+unsafe impl Sync for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
 windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, windows_core::IUnknown);
 impl IDXGIDisplayControl {
@@ -958,6 +996,8 @@ impl IDXGIDisplayControl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIDisplayControl {}
+unsafe impl Send for IDXGIDisplayControl {}
+unsafe impl Sync for IDXGIDisplayControl {}
 windows_core::imp::define_interface!(IDXGIFactory, IDXGIFactory_Vtbl, 0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
 impl core::ops::Deref for IDXGIFactory {
     type Target = IDXGIObject;
@@ -1072,6 +1112,10 @@ impl IDXGIFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory {}
 windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae78_f26f_4dba_a829_253c83d1b387);
 impl core::ops::Deref for IDXGIFactory1 {
     type Target = IDXGIFactory;
@@ -1125,6 +1169,10 @@ impl IDXGIFactory1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory1 {}
 windows_core::imp::define_interface!(IDXGIFactory2, IDXGIFactory2_Vtbl, 0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
 impl core::ops::Deref for IDXGIFactory2 {
     type Target = IDXGIFactory1;
@@ -1362,6 +1410,10 @@ impl IDXGIFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory2 {}
 windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x25483823_cd46_4c7d_86ca_47aa95b837bd);
 impl core::ops::Deref for IDXGIFactory3 {
     type Target = IDXGIFactory2;
@@ -1399,6 +1451,10 @@ impl IDXGIFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory3 {}
 windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
 impl core::ops::Deref for IDXGIFactory4 {
     type Target = IDXGIFactory3;
@@ -1457,6 +1513,10 @@ impl IDXGIFactory4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory4 {}
 windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
 impl core::ops::Deref for IDXGIFactory5 {
     type Target = IDXGIFactory4;
@@ -1494,6 +1554,10 @@ impl IDXGIFactory5_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory5 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory5 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory5 {}
 windows_core::imp::define_interface!(IDXGIFactory6, IDXGIFactory6_Vtbl, 0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
 impl core::ops::Deref for IDXGIFactory6 {
     type Target = IDXGIFactory5;
@@ -1535,6 +1599,10 @@ impl IDXGIFactory6_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory6 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory6 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory6 {}
 windows_core::imp::define_interface!(IDXGIFactory7, IDXGIFactory7_Vtbl, 0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
 impl core::ops::Deref for IDXGIFactory7 {
     type Target = IDXGIFactory6;
@@ -1595,6 +1663,10 @@ impl IDXGIFactory7_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactory7 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactory7 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactory7 {}
 windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
 windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, windows_core::IUnknown);
 impl IDXGIFactoryMedia {
@@ -1668,6 +1740,10 @@ impl IDXGIFactoryMedia_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIFactoryMedia {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIFactoryMedia {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIFactoryMedia {}
 windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd67441c7_672a_476f_9e82_cd55b44949ce);
 windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, windows_core::IUnknown);
 impl IDXGIInfoQueue {
@@ -2077,6 +2153,8 @@ impl IDXGIInfoQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIInfoQueue {}
+unsafe impl Send for IDXGIInfoQueue {}
+unsafe impl Sync for IDXGIInfoQueue {}
 windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d8e1289_d7b3_465f_8126_250e349af85d);
 impl core::ops::Deref for IDXGIKeyedMutex {
     type Target = IDXGIDeviceSubObject;
@@ -2124,6 +2202,8 @@ impl IDXGIKeyedMutex_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIKeyedMutex {}
+unsafe impl Send for IDXGIKeyedMutex {}
+unsafe impl Sync for IDXGIKeyedMutex {}
 windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
 windows_core::imp::interface_hierarchy!(IDXGIObject, windows_core::IUnknown);
 impl IDXGIObject {
@@ -2192,6 +2272,8 @@ impl IDXGIObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIObject {}
+unsafe impl Send for IDXGIObject {}
+unsafe impl Sync for IDXGIObject {}
 windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c735_4690_8d52_5a8dc20213aa);
 impl core::ops::Deref for IDXGIOutput {
     type Target = IDXGIObject;
@@ -2386,6 +2468,10 @@ impl IDXGIOutput_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput {}
 windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8_939b_4b83_a340_a685226666cc);
 impl core::ops::Deref for IDXGIOutput1 {
     type Target = IDXGIOutput;
@@ -2480,6 +2566,10 @@ impl IDXGIOutput1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput1 {}
 windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1_2724_4663_99b1_da969de28364);
 impl core::ops::Deref for IDXGIOutput2 {
     type Target = IDXGIOutput1;
@@ -2517,6 +2607,10 @@ impl IDXGIOutput2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput2 {}
 windows_core::imp::define_interface!(IDXGIOutput3, IDXGIOutput3_Vtbl, 0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
 impl core::ops::Deref for IDXGIOutput3 {
     type Target = IDXGIOutput2;
@@ -2568,6 +2662,10 @@ impl IDXGIOutput3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput3 {}
 windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35_2196_414d_9f53_617884032a60);
 impl core::ops::Deref for IDXGIOutput4 {
     type Target = IDXGIOutput3;
@@ -2619,6 +2717,10 @@ impl IDXGIOutput4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput4 {}
 windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424_ab52_42eb_833c_0c42fd282d98);
 impl core::ops::Deref for IDXGIOutput5 {
     type Target = IDXGIOutput4;
@@ -2670,6 +2772,10 @@ impl IDXGIOutput5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput5 {}
 windows_core::imp::define_interface!(IDXGIOutput6, IDXGIOutput6_Vtbl, 0x068346e8_aaec_4b84_add7_137f513f77a1);
 impl core::ops::Deref for IDXGIOutput6 {
     type Target = IDXGIOutput5;
@@ -2738,6 +2844,10 @@ impl IDXGIOutput6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGIOutput6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGIOutput6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGIOutput6 {}
 windows_core::imp::define_interface!(IDXGIOutputDuplication, IDXGIOutputDuplication_Vtbl, 0x191cfac3_a341_470d_b26e_a864f428319c);
 impl core::ops::Deref for IDXGIOutputDuplication {
     type Target = IDXGIObject;
@@ -2861,6 +2971,10 @@ impl IDXGIOutputDuplication_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGIOutputDuplication {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGIOutputDuplication {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGIOutputDuplication {}
 windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
 impl core::ops::Deref for IDXGIResource {
     type Target = IDXGIDeviceSubObject;
@@ -2949,6 +3063,8 @@ impl IDXGIResource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGIResource {}
+unsafe impl Send for IDXGIResource {}
+unsafe impl Sync for IDXGIResource {}
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
 impl core::ops::Deref for IDXGIResource1 {
     type Target = IDXGIResource;
@@ -3020,6 +3136,10 @@ impl IDXGIResource1_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 impl windows_core::RuntimeName for IDXGIResource1 {}
+#[cfg(feature = "Win32_Security")]
+unsafe impl Send for IDXGIResource1 {}
+#[cfg(feature = "Win32_Security")]
+unsafe impl Sync for IDXGIResource1 {}
 windows_core::imp::define_interface!(IDXGISurface, IDXGISurface_Vtbl, 0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
 impl core::ops::Deref for IDXGISurface {
     type Target = IDXGIDeviceSubObject;
@@ -3091,6 +3211,10 @@ impl IDXGISurface_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISurface {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISurface {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISurface {}
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
 impl core::ops::Deref for IDXGISurface1 {
     type Target = IDXGISurface;
@@ -3151,6 +3275,10 @@ impl IDXGISurface1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGISurface1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGISurface1 {}
 windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 impl core::ops::Deref for IDXGISurface2 {
     type Target = IDXGISurface1;
@@ -3192,6 +3320,10 @@ impl IDXGISurface2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDXGISurface2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDXGISurface2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDXGISurface2 {}
 windows_core::imp::define_interface!(IDXGISwapChain, IDXGISwapChain_Vtbl, 0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
 impl core::ops::Deref for IDXGISwapChain {
     type Target = IDXGIDeviceSubObject;
@@ -3363,6 +3495,10 @@ impl IDXGISwapChain_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISwapChain {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISwapChain {}
 windows_core::imp::define_interface!(IDXGISwapChain1, IDXGISwapChain1_Vtbl, 0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
 impl core::ops::Deref for IDXGISwapChain1 {
     type Target = IDXGISwapChain;
@@ -3565,6 +3701,10 @@ impl IDXGISwapChain1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISwapChain1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISwapChain1 {}
 windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8be2ac4_199f_4946_b331_79599fb98de7);
 impl core::ops::Deref for IDXGISwapChain2 {
     type Target = IDXGISwapChain1;
@@ -3672,6 +3812,10 @@ impl IDXGISwapChain2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISwapChain2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISwapChain2 {}
 windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
 impl core::ops::Deref for IDXGISwapChain3 {
     type Target = IDXGISwapChain2;
@@ -3761,6 +3905,10 @@ impl IDXGISwapChain3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISwapChain3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISwapChain3 {}
 windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 impl core::ops::Deref for IDXGISwapChain4 {
     type Target = IDXGISwapChain3;
@@ -3798,6 +3946,10 @@ impl IDXGISwapChain4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDXGISwapChain4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for IDXGISwapChain4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for IDXGISwapChain4 {}
 windows_core::imp::define_interface!(IDXGISwapChainMedia, IDXGISwapChainMedia_Vtbl, 0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 windows_core::imp::interface_hierarchy!(IDXGISwapChainMedia, windows_core::IUnknown);
 impl IDXGISwapChainMedia {
@@ -3849,6 +4001,8 @@ impl IDXGISwapChainMedia_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDXGISwapChainMedia {}
+unsafe impl Send for IDXGISwapChainMedia {}
+unsafe impl Sync for IDXGISwapChainMedia {}
 windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vtbl, 0x9f251514_9d4d_4902_9d60_18988ab7d4b5);
 windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, windows_core::IUnknown);
 impl IDXGraphicsAnalysis {

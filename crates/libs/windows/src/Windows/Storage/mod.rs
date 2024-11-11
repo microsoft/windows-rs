@@ -2796,6 +2796,8 @@ unsafe impl windows_core::Interface for AppDataPaths {
 impl windows_core::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
 }
+unsafe impl Send for AppDataPaths {}
+unsafe impl Sync for AppDataPaths {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationData(windows_core::IUnknown);
@@ -2966,6 +2968,8 @@ unsafe impl windows_core::Interface for ApplicationData {
 impl windows_core::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
 }
+unsafe impl Send for ApplicationData {}
+unsafe impl Sync for ApplicationData {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3067,6 +3071,10 @@ unsafe impl windows_core::Interface for ApplicationDataCompositeValue {
 impl windows_core::RuntimeName for ApplicationDataCompositeValue {
     const NAME: &'static str = "Windows.Storage.ApplicationDataCompositeValue";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ApplicationDataCompositeValue {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ApplicationDataCompositeValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationDataContainer(windows_core::IUnknown);
@@ -3129,6 +3137,8 @@ unsafe impl windows_core::Interface for ApplicationDataContainer {
 impl windows_core::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
 }
+unsafe impl Send for ApplicationDataContainer {}
+unsafe impl Sync for ApplicationDataContainer {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3223,6 +3233,10 @@ unsafe impl windows_core::Interface for ApplicationDataContainerSettings {
 impl windows_core::RuntimeName for ApplicationDataContainerSettings {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainerSettings";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ApplicationDataContainerSettings {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ApplicationDataContainerSettings {}
 pub struct CachedFileManager;
 impl CachedFileManager {
     #[cfg(feature = "Storage_Streams")]
@@ -3801,6 +3815,8 @@ unsafe impl windows_core::Interface for SetVersionDeferral {
 impl windows_core::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
 }
+unsafe impl Send for SetVersionDeferral {}
+unsafe impl Sync for SetVersionDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SetVersionRequest(windows_core::IUnknown);
@@ -3838,6 +3854,8 @@ unsafe impl windows_core::Interface for SetVersionRequest {
 impl windows_core::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
 }
+unsafe impl Send for SetVersionRequest {}
+unsafe impl Sync for SetVersionRequest {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4871,6 +4889,8 @@ unsafe impl windows_core::Interface for StorageLibraryChange {
 impl windows_core::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
 }
+unsafe impl Send for StorageLibraryChange {}
+unsafe impl Sync for StorageLibraryChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeReader(windows_core::IUnknown);
@@ -4909,6 +4929,8 @@ unsafe impl windows_core::Interface for StorageLibraryChangeReader {
 impl windows_core::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
 }
+unsafe impl Send for StorageLibraryChangeReader {}
+unsafe impl Sync for StorageLibraryChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTracker(windows_core::IUnknown);
@@ -4951,6 +4973,8 @@ unsafe impl windows_core::Interface for StorageLibraryChangeTracker {
 impl windows_core::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
 }
+unsafe impl Send for StorageLibraryChangeTracker {}
+unsafe impl Sync for StorageLibraryChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerOptions(windows_core::IUnknown);
@@ -4985,6 +5009,8 @@ unsafe impl windows_core::Interface for StorageLibraryChangeTrackerOptions {
 impl windows_core::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
 }
+unsafe impl Send for StorageLibraryChangeTrackerOptions {}
+unsafe impl Sync for StorageLibraryChangeTrackerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryLastChangeId(windows_core::IUnknown);
@@ -5011,6 +5037,8 @@ unsafe impl windows_core::Interface for StorageLibraryLastChangeId {
 impl windows_core::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
 }
+unsafe impl Send for StorageLibraryLastChangeId {}
+unsafe impl Sync for StorageLibraryLastChangeId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProvider(windows_core::IUnknown);
@@ -5157,6 +5185,8 @@ unsafe impl windows_core::Interface for SystemAudioProperties {
 impl windows_core::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
 }
+unsafe impl Send for SystemAudioProperties {}
+unsafe impl Sync for SystemAudioProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemDataPaths(windows_core::IUnknown);
@@ -5295,6 +5325,8 @@ unsafe impl windows_core::Interface for SystemDataPaths {
 impl windows_core::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
 }
+unsafe impl Send for SystemDataPaths {}
+unsafe impl Sync for SystemDataPaths {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemGPSProperties(windows_core::IUnknown);
@@ -5325,6 +5357,8 @@ unsafe impl windows_core::Interface for SystemGPSProperties {
 impl windows_core::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
 }
+unsafe impl Send for SystemGPSProperties {}
+unsafe impl Sync for SystemGPSProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemImageProperties(windows_core::IUnknown);
@@ -5355,6 +5389,8 @@ unsafe impl windows_core::Interface for SystemImageProperties {
 impl windows_core::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
 }
+unsafe impl Send for SystemImageProperties {}
+unsafe impl Sync for SystemImageProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaProperties(windows_core::IUnknown);
@@ -5413,6 +5449,8 @@ unsafe impl windows_core::Interface for SystemMediaProperties {
 impl windows_core::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
 }
+unsafe impl Send for SystemMediaProperties {}
+unsafe impl Sync for SystemMediaProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMusicProperties(windows_core::IUnknown);
@@ -5485,6 +5523,8 @@ unsafe impl windows_core::Interface for SystemMusicProperties {
 impl windows_core::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
 }
+unsafe impl Send for SystemMusicProperties {}
+unsafe impl Sync for SystemMusicProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemPhotoProperties(windows_core::IUnknown);
@@ -5536,6 +5576,8 @@ unsafe impl windows_core::Interface for SystemPhotoProperties {
 impl windows_core::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
 }
+unsafe impl Send for SystemPhotoProperties {}
+unsafe impl Sync for SystemPhotoProperties {}
 pub struct SystemProperties;
 impl SystemProperties {
     pub fn Author() -> windows_core::Result<windows_core::HSTRING> {
@@ -5675,6 +5717,8 @@ unsafe impl windows_core::Interface for SystemVideoProperties {
 impl windows_core::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
 }
+unsafe impl Send for SystemVideoProperties {}
+unsafe impl Sync for SystemVideoProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataPaths(windows_core::IUnknown);
@@ -5844,6 +5888,8 @@ unsafe impl windows_core::Interface for UserDataPaths {
 impl windows_core::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";
 }
+unsafe impl Send for UserDataPaths {}
+unsafe impl Sync for UserDataPaths {}
 windows_core::imp::define_interface!(ApplicationDataSetVersionHandler, ApplicationDataSetVersionHandler_Vtbl, 0xa05791e6_cc9f_4687_acab_a364fd785463);
 impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

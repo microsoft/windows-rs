@@ -196,6 +196,8 @@ unsafe impl windows_core::Interface for DialApp {
 impl windows_core::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
 }
+unsafe impl Send for DialApp {}
+unsafe impl Sync for DialApp {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialAppStateDetails(windows_core::IUnknown);
@@ -226,6 +228,8 @@ unsafe impl windows_core::Interface for DialAppStateDetails {
 impl windows_core::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
 }
+unsafe impl Send for DialAppStateDetails {}
+unsafe impl Sync for DialAppStateDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevice(windows_core::IUnknown);
@@ -297,6 +301,8 @@ unsafe impl windows_core::Interface for DialDevice {
 impl windows_core::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
 }
+unsafe impl Send for DialDevice {}
+unsafe impl Sync for DialDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePicker(windows_core::IUnknown);
@@ -412,6 +418,8 @@ unsafe impl windows_core::Interface for DialDevicePicker {
 impl windows_core::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
 }
+unsafe impl Send for DialDevicePicker {}
+unsafe impl Sync for DialDevicePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
@@ -436,6 +444,8 @@ unsafe impl windows_core::Interface for DialDevicePickerFilter {
 impl windows_core::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
 }
+unsafe impl Send for DialDevicePickerFilter {}
+unsafe impl Sync for DialDevicePickerFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDeviceSelectedEventArgs(windows_core::IUnknown);
@@ -459,6 +469,8 @@ unsafe impl windows_core::Interface for DialDeviceSelectedEventArgs {
 impl windows_core::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
 }
+unsafe impl Send for DialDeviceSelectedEventArgs {}
+unsafe impl Sync for DialDeviceSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDisconnectButtonClickedEventArgs(windows_core::IUnknown);
@@ -482,6 +494,8 @@ unsafe impl windows_core::Interface for DialDisconnectButtonClickedEventArgs {
 impl windows_core::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
 }
+unsafe impl Send for DialDisconnectButtonClickedEventArgs {}
+unsafe impl Sync for DialDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverApp(windows_core::IUnknown);
@@ -534,6 +548,8 @@ unsafe impl windows_core::Interface for DialReceiverApp {
 impl windows_core::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
 }
+unsafe impl Send for DialReceiverApp {}
+unsafe impl Sync for DialReceiverApp {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DialAppLaunchResult(pub i32);

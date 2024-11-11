@@ -211,6 +211,8 @@ unsafe impl windows_core::Interface for AppServiceClosedEventArgs {
 impl windows_core::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
 }
+unsafe impl Send for AppServiceClosedEventArgs {}
+unsafe impl Sync for AppServiceClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceConnection(windows_core::IUnknown);
@@ -350,6 +352,8 @@ unsafe impl windows_core::Interface for AppServiceConnection {
 impl windows_core::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
 }
+unsafe impl Send for AppServiceConnection {}
+unsafe impl Sync for AppServiceConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceDeferral(windows_core::IUnknown);
@@ -370,6 +374,8 @@ unsafe impl windows_core::Interface for AppServiceDeferral {
 impl windows_core::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
 }
+unsafe impl Send for AppServiceDeferral {}
+unsafe impl Sync for AppServiceDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequest(windows_core::IUnknown);
@@ -405,6 +411,8 @@ unsafe impl windows_core::Interface for AppServiceRequest {
 impl windows_core::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
 }
+unsafe impl Send for AppServiceRequest {}
+unsafe impl Sync for AppServiceRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceRequestReceivedEventArgs(windows_core::IUnknown);
@@ -435,6 +443,8 @@ unsafe impl windows_core::Interface for AppServiceRequestReceivedEventArgs {
 impl windows_core::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
 }
+unsafe impl Send for AppServiceRequestReceivedEventArgs {}
+unsafe impl Sync for AppServiceRequestReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceResponse(windows_core::IUnknown);
@@ -466,6 +476,8 @@ unsafe impl windows_core::Interface for AppServiceResponse {
 impl windows_core::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
 }
+unsafe impl Send for AppServiceResponse {}
+unsafe impl Sync for AppServiceResponse {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppServiceTriggerDetails(windows_core::IUnknown);
@@ -524,6 +536,8 @@ unsafe impl windows_core::Interface for AppServiceTriggerDetails {
 impl windows_core::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
 }
+unsafe impl Send for AppServiceTriggerDetails {}
+unsafe impl Sync for AppServiceTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatelessAppServiceResponse(windows_core::IUnknown);
@@ -555,6 +569,8 @@ unsafe impl windows_core::Interface for StatelessAppServiceResponse {
 impl windows_core::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
 }
+unsafe impl Send for StatelessAppServiceResponse {}
+unsafe impl Sync for StatelessAppServiceResponse {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppServiceClosedStatus(pub i32);

@@ -165,6 +165,8 @@ unsafe impl windows_core::Interface for AppCapability {
 impl windows_core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
 }
+unsafe impl Send for AppCapability {}
+unsafe impl Sync for AppCapability {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
@@ -180,6 +182,8 @@ unsafe impl windows_core::Interface for AppCapabilityAccessChangedEventArgs {
 impl windows_core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";
 }
+unsafe impl Send for AppCapabilityAccessChangedEventArgs {}
+unsafe impl Sync for AppCapabilityAccessChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppCapabilityAccessStatus(pub i32);

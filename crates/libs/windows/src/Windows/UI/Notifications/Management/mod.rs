@@ -103,6 +103,8 @@ unsafe impl windows_core::Interface for UserNotificationListener {
 impl windows_core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
+unsafe impl Send for UserNotificationListener {}
+unsafe impl Sync for UserNotificationListener {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);

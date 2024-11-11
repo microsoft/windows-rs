@@ -160,6 +160,8 @@ unsafe impl windows_core::Interface for Enterprise {
 impl windows_core::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
 }
+unsafe impl Send for Enterprise {}
+unsafe impl Sync for Enterprise {}
 pub struct EnterpriseEnrollmentManager;
 impl EnterpriseEnrollmentManager {
     #[cfg(feature = "Foundation_Collections")]

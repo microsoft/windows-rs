@@ -402,6 +402,15 @@ impl CppInterface {
                 }
             });
 
+            if self.def.is_agile() {
+                result.combine(quote! {
+                    #cfg
+                    unsafe impl Send for #name {}
+                    #cfg
+                    unsafe impl Sync for #name {}
+                });
+            }
+
             result
         }
     }

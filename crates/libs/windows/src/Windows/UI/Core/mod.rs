@@ -2455,6 +2455,8 @@ unsafe impl windows_core::Interface for AcceleratorKeyEventArgs {
 impl windows_core::RuntimeName for AcceleratorKeyEventArgs {
     const NAME: &'static str = "Windows.UI.Core.AcceleratorKeyEventArgs";
 }
+unsafe impl Send for AcceleratorKeyEventArgs {}
+unsafe impl Sync for AcceleratorKeyEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationProviderRequestedEventArgs(windows_core::IUnknown);
@@ -2524,6 +2526,8 @@ unsafe impl windows_core::Interface for BackRequestedEventArgs {
 impl windows_core::RuntimeName for BackRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.BackRequestedEventArgs";
 }
+unsafe impl Send for BackRequestedEventArgs {}
+unsafe impl Sync for BackRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterReceivedEventArgs(windows_core::IUnknown);
@@ -2638,6 +2642,8 @@ unsafe impl windows_core::Interface for CoreAcceleratorKeys {
 impl windows_core::RuntimeName for CoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.CoreAcceleratorKeys";
 }
+unsafe impl Send for CoreAcceleratorKeys {}
+unsafe impl Sync for CoreAcceleratorKeys {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreComponentInputSource(windows_core::IUnknown);
@@ -2949,6 +2955,8 @@ unsafe impl windows_core::Interface for CoreComponentInputSource {
 impl windows_core::RuntimeName for CoreComponentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreComponentInputSource";
 }
+unsafe impl Send for CoreComponentInputSource {}
+unsafe impl Sync for CoreComponentInputSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreCursor(windows_core::IUnknown);
@@ -2989,6 +2997,8 @@ unsafe impl windows_core::Interface for CoreCursor {
 impl windows_core::RuntimeName for CoreCursor {
     const NAME: &'static str = "Windows.UI.Core.CoreCursor";
 }
+unsafe impl Send for CoreCursor {}
+unsafe impl Sync for CoreCursor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDispatcher(windows_core::IUnknown);
@@ -3100,6 +3110,8 @@ unsafe impl windows_core::Interface for CoreDispatcher {
 impl windows_core::RuntimeName for CoreDispatcher {
     const NAME: &'static str = "Windows.UI.Core.CoreDispatcher";
 }
+unsafe impl Send for CoreDispatcher {}
+unsafe impl Sync for CoreDispatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIndependentInputSource(windows_core::IUnknown);
@@ -3333,6 +3345,8 @@ unsafe impl windows_core::Interface for CoreIndependentInputSource {
 impl windows_core::RuntimeName for CoreIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSource";
 }
+unsafe impl Send for CoreIndependentInputSource {}
+unsafe impl Sync for CoreIndependentInputSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIndependentInputSourceController(windows_core::IUnknown);
@@ -3415,6 +3429,8 @@ unsafe impl windows_core::Interface for CoreIndependentInputSourceController {
 impl windows_core::RuntimeName for CoreIndependentInputSourceController {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSourceController";
 }
+unsafe impl Send for CoreIndependentInputSourceController {}
+unsafe impl Sync for CoreIndependentInputSourceController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindow(windows_core::IUnknown);
@@ -4259,6 +4275,8 @@ unsafe impl windows_core::Interface for CoreWindowResizeManager {
 impl windows_core::RuntimeName for CoreWindowResizeManager {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowResizeManager";
 }
+unsafe impl Send for CoreWindowResizeManager {}
+unsafe impl Sync for CoreWindowResizeManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IdleDispatchedHandlerArgs(windows_core::IUnknown);
@@ -4470,6 +4488,8 @@ unsafe impl windows_core::Interface for SystemNavigationManager {
 impl windows_core::RuntimeName for SystemNavigationManager {
     const NAME: &'static str = "Windows.UI.Core.SystemNavigationManager";
 }
+unsafe impl Send for SystemNavigationManager {}
+unsafe impl Sync for SystemNavigationManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TouchHitTestingEventArgs(windows_core::IUnknown);

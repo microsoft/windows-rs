@@ -110,3 +110,5 @@ unsafe impl windows_core::Interface for DataProtectionProvider {
 impl windows_core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
 }
+unsafe impl Send for DataProtectionProvider {}
+unsafe impl Sync for DataProtectionProvider {}

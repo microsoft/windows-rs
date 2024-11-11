@@ -202,6 +202,8 @@ unsafe impl windows_core::Interface for DevicePortalConnection {
 impl windows_core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
+unsafe impl Send for DevicePortalConnection {}
+unsafe impl Sync for DevicePortalConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionClosedEventArgs(windows_core::IUnknown);
@@ -225,6 +227,8 @@ unsafe impl windows_core::Interface for DevicePortalConnectionClosedEventArgs {
 impl windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
 }
+unsafe impl Send for DevicePortalConnectionClosedEventArgs {}
+unsafe impl Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(windows_core::IUnknown);
@@ -279,6 +283,8 @@ unsafe impl windows_core::Interface for DevicePortalConnectionRequestReceivedEve
 impl windows_core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
 }
+unsafe impl Send for DevicePortalConnectionRequestReceivedEventArgs {}
+unsafe impl Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DevicePortalConnectionClosedReason(pub i32);

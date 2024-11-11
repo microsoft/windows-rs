@@ -1322,6 +1322,8 @@ unsafe impl windows_core::Interface for BackgroundDownloader {
 impl windows_core::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
 }
+unsafe impl Send for BackgroundDownloader {}
+unsafe impl Sync for BackgroundDownloader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroup(windows_core::IUnknown);
@@ -1364,6 +1366,8 @@ unsafe impl windows_core::Interface for BackgroundTransferCompletionGroup {
 impl windows_core::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
 }
+unsafe impl Send for BackgroundTransferCompletionGroup {}
+unsafe impl Sync for BackgroundTransferCompletionGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(windows_core::IUnknown);
@@ -1396,6 +1400,8 @@ unsafe impl windows_core::Interface for BackgroundTransferCompletionGroupTrigger
 impl windows_core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
 }
+unsafe impl Send for BackgroundTransferCompletionGroupTriggerDetails {}
+unsafe impl Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferContentPart(windows_core::IUnknown);
@@ -1452,6 +1458,8 @@ unsafe impl windows_core::Interface for BackgroundTransferContentPart {
 impl windows_core::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
 }
+unsafe impl Send for BackgroundTransferContentPart {}
+unsafe impl Sync for BackgroundTransferContentPart {}
 pub struct BackgroundTransferError;
 impl BackgroundTransferError {
     #[cfg(feature = "Web")]
@@ -1513,6 +1521,8 @@ unsafe impl windows_core::Interface for BackgroundTransferGroup {
 impl windows_core::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
 }
+unsafe impl Send for BackgroundTransferGroup {}
+unsafe impl Sync for BackgroundTransferGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(windows_core::IUnknown);
@@ -1551,6 +1561,8 @@ unsafe impl windows_core::Interface for BackgroundTransferRangesDownloadedEventA
 impl windows_core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
 }
+unsafe impl Send for BackgroundTransferRangesDownloadedEventArgs {}
+unsafe impl Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundUploader(windows_core::IUnknown);
@@ -1848,6 +1860,8 @@ unsafe impl windows_core::Interface for BackgroundUploader {
 impl windows_core::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
 }
+unsafe impl Send for BackgroundUploader {}
+unsafe impl Sync for BackgroundUploader {}
 pub struct ContentPrefetcher;
 impl ContentPrefetcher {
     #[cfg(feature = "Foundation_Collections")]
@@ -2089,6 +2103,8 @@ unsafe impl windows_core::Interface for DownloadOperation {
 impl windows_core::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
 }
+unsafe impl Send for DownloadOperation {}
+unsafe impl Sync for DownloadOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResponseInformation(windows_core::IUnknown);
@@ -2134,6 +2150,8 @@ unsafe impl windows_core::Interface for ResponseInformation {
 impl windows_core::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
 }
+unsafe impl Send for ResponseInformation {}
+unsafe impl Sync for ResponseInformation {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2164,6 +2182,10 @@ unsafe impl windows_core::Interface for UnconstrainedTransferRequestResult {
 impl windows_core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for UnconstrainedTransferRequestResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UploadOperation(windows_core::IUnknown);
@@ -2294,6 +2316,8 @@ unsafe impl windows_core::Interface for UploadOperation {
 impl windows_core::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";
 }
+unsafe impl Send for UploadOperation {}
+unsafe impl Sync for UploadOperation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferBehavior(pub i32);

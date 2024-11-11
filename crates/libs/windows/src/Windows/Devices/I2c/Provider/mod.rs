@@ -307,6 +307,8 @@ unsafe impl windows_core::Interface for ProviderI2cConnectionSettings {
 impl windows_core::RuntimeName for ProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";
 }
+unsafe impl Send for ProviderI2cConnectionSettings {}
+unsafe impl Sync for ProviderI2cConnectionSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ProviderI2cBusSpeed(pub i32);

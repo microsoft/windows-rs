@@ -927,6 +927,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironment {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironment {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentCreateResult(windows_core::IUnknown);
@@ -977,6 +981,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentCreateResult {
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentCreateResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1036,6 +1044,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentFile {
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentFile {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentFile {}
 #[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsEnvironmentHost;
 #[cfg(feature = "deprecated")]
@@ -1109,6 +1121,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentLaunchFileResu
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentLaunchFileResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1303,6 +1319,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOptions {}
+#[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 #[cfg(feature = "deprecated")]
 impl IsolatedWindowsEnvironmentOwnerRegistration {
@@ -1391,6 +1411,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationDa
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(windows_core::IUnknown);
@@ -1429,6 +1453,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationRe
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(windows_core::IUnknown);
@@ -1466,6 +1494,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentPostMessageRes
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentPostMessageResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1523,6 +1555,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentProcess {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentProcess {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(windows_core::IUnknown);
@@ -1564,6 +1600,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileReque
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1611,6 +1651,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFileResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFileResult {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(windows_core::IUnknown);
@@ -1653,6 +1697,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestO
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(windows_core::IUnknown);
@@ -1690,6 +1738,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderRes
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFolderResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1737,6 +1789,10 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult 
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentStartProcessResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentStartProcessResult {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(windows_core::IUnknown);
@@ -1778,6 +1834,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentTelemetryParam
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentTelemetryParameters {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1832,6 +1892,10 @@ unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentUserInfo {
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentUserInfo {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentUserInfo {}
 #[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsHostMessenger;
 #[cfg(feature = "deprecated")]

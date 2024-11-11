@@ -738,6 +738,8 @@ unsafe impl windows_core::Interface for DisplayAdapter {
 impl windows_core::RuntimeName for DisplayAdapter {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayAdapter";
 }
+unsafe impl Send for DisplayAdapter {}
+unsafe impl Sync for DisplayAdapter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayDevice(windows_core::IUnknown);
@@ -838,6 +840,8 @@ unsafe impl windows_core::Interface for DisplayDevice {
 impl windows_core::RuntimeName for DisplayDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayDevice";
 }
+unsafe impl Send for DisplayDevice {}
+unsafe impl Sync for DisplayDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayFence(windows_core::IUnknown);
@@ -853,6 +857,8 @@ unsafe impl windows_core::Interface for DisplayFence {
 impl windows_core::RuntimeName for DisplayFence {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayFence";
 }
+unsafe impl Send for DisplayFence {}
+unsafe impl Sync for DisplayFence {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManager(windows_core::IUnknown);
@@ -1050,6 +1056,8 @@ unsafe impl windows_core::Interface for DisplayManager {
 impl windows_core::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
 }
+unsafe impl Send for DisplayManager {}
+unsafe impl Sync for DisplayManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerChangedEventArgs(windows_core::IUnknown);
@@ -1084,6 +1092,8 @@ unsafe impl windows_core::Interface for DisplayManagerChangedEventArgs {
 impl windows_core::RuntimeName for DisplayManagerChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
 }
+unsafe impl Send for DisplayManagerChangedEventArgs {}
+unsafe impl Sync for DisplayManagerChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerDisabledEventArgs(windows_core::IUnknown);
@@ -1118,6 +1128,8 @@ unsafe impl windows_core::Interface for DisplayManagerDisabledEventArgs {
 impl windows_core::RuntimeName for DisplayManagerDisabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
 }
+unsafe impl Send for DisplayManagerDisabledEventArgs {}
+unsafe impl Sync for DisplayManagerDisabledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerEnabledEventArgs(windows_core::IUnknown);
@@ -1152,6 +1164,8 @@ unsafe impl windows_core::Interface for DisplayManagerEnabledEventArgs {
 impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
 }
+unsafe impl Send for DisplayManagerEnabledEventArgs {}
+unsafe impl Sync for DisplayManagerEnabledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(windows_core::IUnknown);
@@ -1186,6 +1200,8 @@ unsafe impl windows_core::Interface for DisplayManagerPathsFailedOrInvalidatedEv
 impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
 }
+unsafe impl Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+unsafe impl Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerResultWithState(windows_core::IUnknown);
@@ -1223,6 +1239,8 @@ unsafe impl windows_core::Interface for DisplayManagerResultWithState {
 impl windows_core::RuntimeName for DisplayManagerResultWithState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerResultWithState";
 }
+unsafe impl Send for DisplayManagerResultWithState {}
+unsafe impl Sync for DisplayManagerResultWithState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayModeInfo(windows_core::IUnknown);
@@ -1318,6 +1336,8 @@ unsafe impl windows_core::Interface for DisplayModeInfo {
 impl windows_core::RuntimeName for DisplayModeInfo {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayModeInfo";
 }
+unsafe impl Send for DisplayModeInfo {}
+unsafe impl Sync for DisplayModeInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayMuxDevice(windows_core::IUnknown);
@@ -1429,6 +1449,8 @@ unsafe impl windows_core::Interface for DisplayMuxDevice {
 impl windows_core::RuntimeName for DisplayMuxDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayMuxDevice";
 }
+unsafe impl Send for DisplayMuxDevice {}
+unsafe impl Sync for DisplayMuxDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPath(windows_core::IUnknown);
@@ -1627,6 +1649,8 @@ unsafe impl windows_core::Interface for DisplayPath {
 impl windows_core::RuntimeName for DisplayPath {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPath";
 }
+unsafe impl Send for DisplayPath {}
+unsafe impl Sync for DisplayPath {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPrimaryDescription(windows_core::IUnknown);
@@ -1721,6 +1745,8 @@ unsafe impl windows_core::Interface for DisplayPrimaryDescription {
 impl windows_core::RuntimeName for DisplayPrimaryDescription {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPrimaryDescription";
 }
+unsafe impl Send for DisplayPrimaryDescription {}
+unsafe impl Sync for DisplayPrimaryDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayScanout(windows_core::IUnknown);
@@ -1736,6 +1762,8 @@ unsafe impl windows_core::Interface for DisplayScanout {
 impl windows_core::RuntimeName for DisplayScanout {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayScanout";
 }
+unsafe impl Send for DisplayScanout {}
+unsafe impl Sync for DisplayScanout {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySource(windows_core::IUnknown);
@@ -1796,6 +1824,8 @@ unsafe impl windows_core::Interface for DisplaySource {
 impl windows_core::RuntimeName for DisplaySource {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySource";
 }
+unsafe impl Send for DisplaySource {}
+unsafe impl Sync for DisplaySource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayState(windows_core::IUnknown);
@@ -1930,6 +1960,8 @@ unsafe impl windows_core::Interface for DisplayState {
 impl windows_core::RuntimeName for DisplayState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayState";
 }
+unsafe impl Send for DisplayState {}
+unsafe impl Sync for DisplayState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayStateOperationResult(windows_core::IUnknown);
@@ -1960,6 +1992,8 @@ unsafe impl windows_core::Interface for DisplayStateOperationResult {
 impl windows_core::RuntimeName for DisplayStateOperationResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayStateOperationResult";
 }
+unsafe impl Send for DisplayStateOperationResult {}
+unsafe impl Sync for DisplayStateOperationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySurface(windows_core::IUnknown);
@@ -1975,6 +2009,8 @@ unsafe impl windows_core::Interface for DisplaySurface {
 impl windows_core::RuntimeName for DisplaySurface {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySurface";
 }
+unsafe impl Send for DisplaySurface {}
+unsafe impl Sync for DisplaySurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTarget(windows_core::IUnknown);
@@ -2096,6 +2132,8 @@ unsafe impl windows_core::Interface for DisplayTarget {
 impl windows_core::RuntimeName for DisplayTarget {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTarget";
 }
+unsafe impl Send for DisplayTarget {}
+unsafe impl Sync for DisplayTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTask(windows_core::IUnknown);
@@ -2133,6 +2171,8 @@ unsafe impl windows_core::Interface for DisplayTask {
 impl windows_core::RuntimeName for DisplayTask {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTask";
 }
+unsafe impl Send for DisplayTask {}
+unsafe impl Sync for DisplayTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskPool(windows_core::IUnknown);
@@ -2173,6 +2213,8 @@ unsafe impl windows_core::Interface for DisplayTaskPool {
 impl windows_core::RuntimeName for DisplayTaskPool {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskPool";
 }
+unsafe impl Send for DisplayTaskPool {}
+unsafe impl Sync for DisplayTaskPool {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskResult(windows_core::IUnknown);
@@ -2210,6 +2252,8 @@ unsafe impl windows_core::Interface for DisplayTaskResult {
 impl windows_core::RuntimeName for DisplayTaskResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskResult";
 }
+unsafe impl Send for DisplayTaskResult {}
+unsafe impl Sync for DisplayTaskResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayView(windows_core::IUnknown);
@@ -2265,6 +2309,8 @@ unsafe impl windows_core::Interface for DisplayView {
 impl windows_core::RuntimeName for DisplayView {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayView";
 }
+unsafe impl Send for DisplayView {}
+unsafe impl Sync for DisplayView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayWireFormat(windows_core::IUnknown);
@@ -2348,6 +2394,8 @@ unsafe impl windows_core::Interface for DisplayWireFormat {
 impl windows_core::RuntimeName for DisplayWireFormat {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayWireFormat";
 }
+unsafe impl Send for DisplayWireFormat {}
+unsafe impl Sync for DisplayWireFormat {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DisplayBitsPerChannel(pub u32);

@@ -600,6 +600,8 @@ unsafe impl windows_core::Interface for PaymentAddress {
 impl windows_core::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
 }
+unsafe impl Send for PaymentAddress {}
+unsafe impl Sync for PaymentAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCanMakePaymentResult(windows_core::IUnknown);
@@ -633,6 +635,8 @@ unsafe impl windows_core::Interface for PaymentCanMakePaymentResult {
 impl windows_core::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
 }
+unsafe impl Send for PaymentCanMakePaymentResult {}
+unsafe impl Sync for PaymentCanMakePaymentResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCurrencyAmount(windows_core::IUnknown);
@@ -698,6 +702,8 @@ unsafe impl windows_core::Interface for PaymentCurrencyAmount {
 impl windows_core::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
 }
+unsafe impl Send for PaymentCurrencyAmount {}
+unsafe impl Sync for PaymentCurrencyAmount {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetails(windows_core::IUnknown);
@@ -807,6 +813,8 @@ unsafe impl windows_core::Interface for PaymentDetails {
 impl windows_core::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
 }
+unsafe impl Send for PaymentDetails {}
+unsafe impl Sync for PaymentDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetailsModifier(windows_core::IUnknown);
@@ -892,6 +900,8 @@ unsafe impl windows_core::Interface for PaymentDetailsModifier {
 impl windows_core::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
 }
+unsafe impl Send for PaymentDetailsModifier {}
+unsafe impl Sync for PaymentDetailsModifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentItem(windows_core::IUnknown);
@@ -957,6 +967,8 @@ unsafe impl windows_core::Interface for PaymentItem {
 impl windows_core::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
 }
+unsafe impl Send for PaymentItem {}
+unsafe impl Sync for PaymentItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMediator(windows_core::IUnknown);
@@ -1019,6 +1031,8 @@ unsafe impl windows_core::Interface for PaymentMediator {
 impl windows_core::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
 }
+unsafe impl Send for PaymentMediator {}
+unsafe impl Sync for PaymentMediator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMerchantInfo(windows_core::IUnknown);
@@ -1069,6 +1083,8 @@ unsafe impl windows_core::Interface for PaymentMerchantInfo {
 impl windows_core::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
 }
+unsafe impl Send for PaymentMerchantInfo {}
+unsafe impl Sync for PaymentMerchantInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMethodData(windows_core::IUnknown);
@@ -1124,6 +1140,8 @@ unsafe impl windows_core::Interface for PaymentMethodData {
 impl windows_core::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
 }
+unsafe impl Send for PaymentMethodData {}
+unsafe impl Sync for PaymentMethodData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentOptions(windows_core::IUnknown);
@@ -1202,6 +1220,8 @@ unsafe impl windows_core::Interface for PaymentOptions {
 impl windows_core::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
 }
+unsafe impl Send for PaymentOptions {}
+unsafe impl Sync for PaymentOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequest(windows_core::IUnknown);
@@ -1311,6 +1331,8 @@ unsafe impl windows_core::Interface for PaymentRequest {
 impl windows_core::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
 }
+unsafe impl Send for PaymentRequest {}
+unsafe impl Sync for PaymentRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedArgs(windows_core::IUnknown);
@@ -1355,6 +1377,8 @@ unsafe impl windows_core::Interface for PaymentRequestChangedArgs {
 impl windows_core::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
 }
+unsafe impl Send for PaymentRequestChangedArgs {}
+unsafe impl Sync for PaymentRequestChangedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);
@@ -1426,6 +1450,8 @@ unsafe impl windows_core::Interface for PaymentRequestChangedResult {
 impl windows_core::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
 }
+unsafe impl Send for PaymentRequestChangedResult {}
+unsafe impl Sync for PaymentRequestChangedResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestSubmitResult(windows_core::IUnknown);
@@ -1456,6 +1482,8 @@ unsafe impl windows_core::Interface for PaymentRequestSubmitResult {
 impl windows_core::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
 }
+unsafe impl Send for PaymentRequestSubmitResult {}
+unsafe impl Sync for PaymentRequestSubmitResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentResponse(windows_core::IUnknown);
@@ -1521,6 +1549,8 @@ unsafe impl windows_core::Interface for PaymentResponse {
 impl windows_core::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
 }
+unsafe impl Send for PaymentResponse {}
+unsafe impl Sync for PaymentResponse {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentShippingOption(windows_core::IUnknown);
@@ -1615,6 +1645,8 @@ unsafe impl windows_core::Interface for PaymentShippingOption {
 impl windows_core::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
 }
+unsafe impl Send for PaymentShippingOption {}
+unsafe impl Sync for PaymentShippingOption {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentToken(windows_core::IUnknown);
@@ -1661,6 +1693,8 @@ unsafe impl windows_core::Interface for PaymentToken {
 impl windows_core::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";
 }
+unsafe impl Send for PaymentToken {}
+unsafe impl Sync for PaymentToken {}
 windows_core::imp::define_interface!(PaymentRequestChangedHandler, PaymentRequestChangedHandler_Vtbl, 0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
 impl windows_core::RuntimeType for PaymentRequestChangedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

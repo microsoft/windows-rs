@@ -543,6 +543,8 @@ unsafe impl windows_core::Interface for AppWindow {
 impl windows_core::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
 }
+unsafe impl Send for AppWindow {}
+unsafe impl Sync for AppWindow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowChangedEventArgs(windows_core::IUnknown);
@@ -615,6 +617,8 @@ unsafe impl windows_core::Interface for AppWindowChangedEventArgs {
 impl windows_core::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
 }
+unsafe impl Send for AppWindowChangedEventArgs {}
+unsafe impl Sync for AppWindowChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowCloseRequestedEventArgs(windows_core::IUnknown);
@@ -649,6 +653,8 @@ unsafe impl windows_core::Interface for AppWindowCloseRequestedEventArgs {
 impl windows_core::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
 }
+unsafe impl Send for AppWindowCloseRequestedEventArgs {}
+unsafe impl Sync for AppWindowCloseRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowClosedEventArgs(windows_core::IUnknown);
@@ -672,6 +678,8 @@ unsafe impl windows_core::Interface for AppWindowClosedEventArgs {
 impl windows_core::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
 }
+unsafe impl Send for AppWindowClosedEventArgs {}
+unsafe impl Sync for AppWindowClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowFrame(windows_core::IUnknown);
@@ -707,6 +715,8 @@ unsafe impl windows_core::Interface for AppWindowFrame {
 impl windows_core::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
 }
+unsafe impl Send for AppWindowFrame {}
+unsafe impl Sync for AppWindowFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPlacement(windows_core::IUnknown);
@@ -744,6 +754,8 @@ unsafe impl windows_core::Interface for AppWindowPlacement {
 impl windows_core::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
 }
+unsafe impl Send for AppWindowPlacement {}
+unsafe impl Sync for AppWindowPlacement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresentationConfiguration(windows_core::IUnknown);
@@ -767,6 +779,8 @@ unsafe impl windows_core::Interface for AppWindowPresentationConfiguration {
 impl windows_core::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
 }
+unsafe impl Send for AppWindowPresentationConfiguration {}
+unsafe impl Sync for AppWindowPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresenter(windows_core::IUnknown);
@@ -814,6 +828,8 @@ unsafe impl windows_core::Interface for AppWindowPresenter {
 impl windows_core::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
 }
+unsafe impl Send for AppWindowPresenter {}
+unsafe impl Sync for AppWindowPresenter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBar(windows_core::IUnknown);
@@ -1035,6 +1051,8 @@ unsafe impl windows_core::Interface for AppWindowTitleBar {
 impl windows_core::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
 }
+unsafe impl Send for AppWindowTitleBar {}
+unsafe impl Sync for AppWindowTitleBar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBarOcclusion(windows_core::IUnknown);
@@ -1058,6 +1076,8 @@ unsafe impl windows_core::Interface for AppWindowTitleBarOcclusion {
 impl windows_core::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
 }
+unsafe impl Send for AppWindowTitleBarOcclusion {}
+unsafe impl Sync for AppWindowTitleBarOcclusion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
@@ -1088,6 +1108,8 @@ unsafe impl windows_core::Interface for CompactOverlayPresentationConfiguration 
 impl windows_core::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
 }
+unsafe impl Send for CompactOverlayPresentationConfiguration {}
+unsafe impl Sync for CompactOverlayPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultPresentationConfiguration(windows_core::IUnknown);
@@ -1118,6 +1140,8 @@ unsafe impl windows_core::Interface for DefaultPresentationConfiguration {
 impl windows_core::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
 }
+unsafe impl Send for DefaultPresentationConfiguration {}
+unsafe impl Sync for DefaultPresentationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayRegion(windows_core::IUnknown);
@@ -1183,6 +1207,8 @@ unsafe impl windows_core::Interface for DisplayRegion {
 impl windows_core::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
 }
+unsafe impl Send for DisplayRegion {}
+unsafe impl Sync for DisplayRegion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullScreenPresentationConfiguration(windows_core::IUnknown);
@@ -1224,6 +1250,8 @@ unsafe impl windows_core::Interface for FullScreenPresentationConfiguration {
 impl windows_core::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 }
+unsafe impl Send for FullScreenPresentationConfiguration {}
+unsafe impl Sync for FullScreenPresentationConfiguration {}
 pub struct WindowServices;
 impl WindowServices {
     #[cfg(feature = "Foundation_Collections")]
@@ -1311,6 +1339,8 @@ unsafe impl windows_core::Interface for WindowingEnvironment {
 impl windows_core::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
 }
+unsafe impl Send for WindowingEnvironment {}
+unsafe impl Sync for WindowingEnvironment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
@@ -1334,6 +1364,8 @@ unsafe impl windows_core::Interface for WindowingEnvironmentAddedEventArgs {
 impl windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
 }
+unsafe impl Send for WindowingEnvironmentAddedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
@@ -1349,6 +1381,8 @@ unsafe impl windows_core::Interface for WindowingEnvironmentChangedEventArgs {
 impl windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
 }
+unsafe impl Send for WindowingEnvironmentChangedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
@@ -1372,6 +1406,8 @@ unsafe impl windows_core::Interface for WindowingEnvironmentRemovedEventArgs {
 impl windows_core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
 }
+unsafe impl Send for WindowingEnvironmentRemovedEventArgs {}
+unsafe impl Sync for WindowingEnvironmentRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppWindowClosedReason(pub i32);

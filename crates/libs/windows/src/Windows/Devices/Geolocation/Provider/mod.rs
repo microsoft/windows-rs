@@ -66,6 +66,8 @@ unsafe impl windows_core::Interface for GeolocationProvider {
 impl windows_core::RuntimeName for GeolocationProvider {
     const NAME: &'static str = "Windows.Devices.Geolocation.Provider.GeolocationProvider";
 }
+unsafe impl Send for GeolocationProvider {}
+unsafe impl Sync for GeolocationProvider {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct LocationOverrideStatus(pub i32);

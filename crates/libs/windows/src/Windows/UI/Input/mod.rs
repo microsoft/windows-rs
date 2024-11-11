@@ -1019,6 +1019,8 @@ unsafe impl windows_core::Interface for AttachableInputObject {
 impl windows_core::RuntimeName for AttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.AttachableInputObject";
 }
+unsafe impl Send for AttachableInputObject {}
+unsafe impl Sync for AttachableInputObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CrossSlidingEventArgs(windows_core::IUnknown);
@@ -1764,6 +1766,8 @@ unsafe impl windows_core::Interface for InputActivationListener {
 impl windows_core::RuntimeName for InputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListener";
 }
+unsafe impl Send for InputActivationListener {}
+unsafe impl Sync for InputActivationListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputActivationListenerActivationChangedEventArgs(windows_core::IUnknown);
@@ -1787,6 +1791,8 @@ unsafe impl windows_core::Interface for InputActivationListenerActivationChanged
 impl windows_core::RuntimeName for InputActivationListenerActivationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListenerActivationChangedEventArgs";
 }
+unsafe impl Send for InputActivationListenerActivationChangedEventArgs {}
+unsafe impl Sync for InputActivationListenerActivationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyboardDeliveryInterceptor(windows_core::IUnknown);
@@ -1854,6 +1860,8 @@ unsafe impl windows_core::Interface for KeyboardDeliveryInterceptor {
 impl windows_core::RuntimeName for KeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.KeyboardDeliveryInterceptor";
 }
+unsafe impl Send for KeyboardDeliveryInterceptor {}
+unsafe impl Sync for KeyboardDeliveryInterceptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManipulationCompletedEventArgs(windows_core::IUnknown);
@@ -2491,6 +2499,8 @@ unsafe impl windows_core::Interface for PointerVisualizationSettings {
 impl windows_core::RuntimeName for PointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.PointerVisualizationSettings";
 }
+unsafe impl Send for PointerVisualizationSettings {}
+unsafe impl Sync for PointerVisualizationSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialController(windows_core::IUnknown);
@@ -2692,6 +2702,8 @@ unsafe impl windows_core::Interface for RadialController {
 impl windows_core::RuntimeName for RadialController {
     const NAME: &'static str = "Windows.UI.Input.RadialController";
 }
+unsafe impl Send for RadialController {}
+unsafe impl Sync for RadialController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonClickedEventArgs(windows_core::IUnknown);
@@ -2723,6 +2735,8 @@ unsafe impl windows_core::Interface for RadialControllerButtonClickedEventArgs {
 impl windows_core::RuntimeName for RadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonClickedEventArgs";
 }
+unsafe impl Send for RadialControllerButtonClickedEventArgs {}
+unsafe impl Sync for RadialControllerButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonHoldingEventArgs(windows_core::IUnknown);
@@ -2754,6 +2768,8 @@ unsafe impl windows_core::Interface for RadialControllerButtonHoldingEventArgs {
 impl windows_core::RuntimeName for RadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonHoldingEventArgs";
 }
+unsafe impl Send for RadialControllerButtonHoldingEventArgs {}
+unsafe impl Sync for RadialControllerButtonHoldingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonPressedEventArgs(windows_core::IUnknown);
@@ -2785,6 +2801,8 @@ unsafe impl windows_core::Interface for RadialControllerButtonPressedEventArgs {
 impl windows_core::RuntimeName for RadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonPressedEventArgs";
 }
+unsafe impl Send for RadialControllerButtonPressedEventArgs {}
+unsafe impl Sync for RadialControllerButtonPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerButtonReleasedEventArgs(windows_core::IUnknown);
@@ -2816,6 +2834,8 @@ unsafe impl windows_core::Interface for RadialControllerButtonReleasedEventArgs 
 impl windows_core::RuntimeName for RadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonReleasedEventArgs";
 }
+unsafe impl Send for RadialControllerButtonReleasedEventArgs {}
+unsafe impl Sync for RadialControllerButtonReleasedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerConfiguration(windows_core::IUnknown);
@@ -2911,6 +2931,8 @@ unsafe impl windows_core::Interface for RadialControllerConfiguration {
 impl windows_core::RuntimeName for RadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerConfiguration";
 }
+unsafe impl Send for RadialControllerConfiguration {}
+unsafe impl Sync for RadialControllerConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerControlAcquiredEventArgs(windows_core::IUnknown);
@@ -2949,6 +2971,8 @@ unsafe impl windows_core::Interface for RadialControllerControlAcquiredEventArgs
 impl windows_core::RuntimeName for RadialControllerControlAcquiredEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerControlAcquiredEventArgs";
 }
+unsafe impl Send for RadialControllerControlAcquiredEventArgs {}
+unsafe impl Sync for RadialControllerControlAcquiredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerMenu(windows_core::IUnknown);
@@ -3005,6 +3029,8 @@ unsafe impl windows_core::Interface for RadialControllerMenu {
 impl windows_core::RuntimeName for RadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenu";
 }
+unsafe impl Send for RadialControllerMenu {}
+unsafe impl Sync for RadialControllerMenu {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerMenuItem(windows_core::IUnknown);
@@ -3095,6 +3121,8 @@ unsafe impl windows_core::Interface for RadialControllerMenuItem {
 impl windows_core::RuntimeName for RadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenuItem";
 }
+unsafe impl Send for RadialControllerMenuItem {}
+unsafe impl Sync for RadialControllerMenuItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerRotationChangedEventArgs(windows_core::IUnknown);
@@ -3140,6 +3168,8 @@ unsafe impl windows_core::Interface for RadialControllerRotationChangedEventArgs
 impl windows_core::RuntimeName for RadialControllerRotationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerRotationChangedEventArgs";
 }
+unsafe impl Send for RadialControllerRotationChangedEventArgs {}
+unsafe impl Sync for RadialControllerRotationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContact(windows_core::IUnknown);
@@ -3170,6 +3200,8 @@ unsafe impl windows_core::Interface for RadialControllerScreenContact {
 impl windows_core::RuntimeName for RadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContact";
 }
+unsafe impl Send for RadialControllerScreenContact {}
+unsafe impl Sync for RadialControllerScreenContact {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactContinuedEventArgs(windows_core::IUnknown);
@@ -3208,6 +3240,8 @@ unsafe impl windows_core::Interface for RadialControllerScreenContactContinuedEv
 impl windows_core::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs";
 }
+unsafe impl Send for RadialControllerScreenContactContinuedEventArgs {}
+unsafe impl Sync for RadialControllerScreenContactContinuedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactEndedEventArgs(windows_core::IUnknown);
@@ -3239,6 +3273,8 @@ unsafe impl windows_core::Interface for RadialControllerScreenContactEndedEventA
 impl windows_core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactEndedEventArgs";
 }
+unsafe impl Send for RadialControllerScreenContactEndedEventArgs {}
+unsafe impl Sync for RadialControllerScreenContactEndedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RadialControllerScreenContactStartedEventArgs(windows_core::IUnknown);
@@ -3277,6 +3313,8 @@ unsafe impl windows_core::Interface for RadialControllerScreenContactStartedEven
 impl windows_core::RuntimeName for RadialControllerScreenContactStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactStartedEventArgs";
 }
+unsafe impl Send for RadialControllerScreenContactStartedEventArgs {}
+unsafe impl Sync for RadialControllerScreenContactStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RightTappedEventArgs(windows_core::IUnknown);
@@ -3406,6 +3444,8 @@ unsafe impl windows_core::Interface for SystemButtonEventController {
 impl windows_core::RuntimeName for SystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.SystemButtonEventController";
 }
+unsafe impl Send for SystemButtonEventController {}
+unsafe impl Sync for SystemButtonEventController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionButtonEventArgs(windows_core::IUnknown);
@@ -3440,6 +3480,8 @@ unsafe impl windows_core::Interface for SystemFunctionButtonEventArgs {
 impl windows_core::RuntimeName for SystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionButtonEventArgs";
 }
+unsafe impl Send for SystemFunctionButtonEventArgs {}
+unsafe impl Sync for SystemFunctionButtonEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionLockChangedEventArgs(windows_core::IUnknown);
@@ -3481,6 +3523,8 @@ unsafe impl windows_core::Interface for SystemFunctionLockChangedEventArgs {
 impl windows_core::RuntimeName for SystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockChangedEventArgs";
 }
+unsafe impl Send for SystemFunctionLockChangedEventArgs {}
+unsafe impl Sync for SystemFunctionLockChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(windows_core::IUnknown);
@@ -3522,6 +3566,8 @@ unsafe impl windows_core::Interface for SystemFunctionLockIndicatorChangedEventA
 impl windows_core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs";
 }
+unsafe impl Send for SystemFunctionLockIndicatorChangedEventArgs {}
+unsafe impl Sync for SystemFunctionLockIndicatorChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TappedEventArgs(windows_core::IUnknown);

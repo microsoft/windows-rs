@@ -48,6 +48,8 @@ impl IDWriteAsyncResult_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteAsyncResult {}
+unsafe impl Send for IDWriteAsyncResult {}
+unsafe impl Sync for IDWriteAsyncResult {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget, IDWriteBitmapRenderTarget_Vtbl, 0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
 windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget {
@@ -167,6 +169,10 @@ impl IDWriteBitmapRenderTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteBitmapRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteBitmapRenderTarget {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget1, IDWriteBitmapRenderTarget1_Vtbl, 0x791e8298_3ef3_4230_9880_c9bdecc42064);
 impl core::ops::Deref for IDWriteBitmapRenderTarget1 {
     type Target = IDWriteBitmapRenderTarget;
@@ -217,6 +223,10 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget1 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteBitmapRenderTarget1 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteBitmapRenderTarget1 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget2, IDWriteBitmapRenderTarget2_Vtbl, 0xc553a742_fc01_44da_a66e_b8b9ed6c3995);
 impl core::ops::Deref for IDWriteBitmapRenderTarget2 {
     type Target = IDWriteBitmapRenderTarget1;
@@ -261,6 +271,10 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget2 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteBitmapRenderTarget2 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteBitmapRenderTarget2 {}
 windows_core::imp::define_interface!(IDWriteBitmapRenderTarget3, IDWriteBitmapRenderTarget3_Vtbl, 0xaeec37db_c337_40f1_8e2a_9a41b167b238);
 impl core::ops::Deref for IDWriteBitmapRenderTarget3 {
     type Target = IDWriteBitmapRenderTarget2;
@@ -328,6 +342,10 @@ impl IDWriteBitmapRenderTarget3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteBitmapRenderTarget3 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteBitmapRenderTarget3 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteBitmapRenderTarget3 {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator, IDWriteColorGlyphRunEnumerator_Vtbl, 0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
 windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, windows_core::IUnknown);
 impl IDWriteColorGlyphRunEnumerator {
@@ -383,6 +401,8 @@ impl IDWriteColorGlyphRunEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator {}
+unsafe impl Send for IDWriteColorGlyphRunEnumerator {}
+unsafe impl Sync for IDWriteColorGlyphRunEnumerator {}
 windows_core::imp::define_interface!(IDWriteColorGlyphRunEnumerator1, IDWriteColorGlyphRunEnumerator1_Vtbl, 0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
 impl core::ops::Deref for IDWriteColorGlyphRunEnumerator1 {
     type Target = IDWriteColorGlyphRunEnumerator;
@@ -424,6 +444,8 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator1 {}
+unsafe impl Send for IDWriteColorGlyphRunEnumerator1 {}
+unsafe impl Sync for IDWriteColorGlyphRunEnumerator1 {}
 windows_core::imp::define_interface!(IDWriteFactory, IDWriteFactory_Vtbl, 0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
 windows_core::imp::interface_hierarchy!(IDWriteFactory, windows_core::IUnknown);
 impl IDWriteFactory {
@@ -820,6 +842,10 @@ impl IDWriteFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteFactory {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteFactory {}
 windows_core::imp::define_interface!(IDWriteFactory1, IDWriteFactory1_Vtbl, 0x30572f99_dac6_41db_a16e_0486307e606a);
 impl core::ops::Deref for IDWriteFactory1 {
     type Target = IDWriteFactory;
@@ -880,6 +906,10 @@ impl IDWriteFactory1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory1 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteFactory1 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteFactory1 {}
 windows_core::imp::define_interface!(IDWriteFactory2, IDWriteFactory2_Vtbl, 0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
 impl core::ops::Deref for IDWriteFactory2 {
     type Target = IDWriteFactory1;
@@ -995,6 +1025,10 @@ impl IDWriteFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory2 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteFactory2 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteFactory2 {}
 windows_core::imp::define_interface!(IDWriteFactory3, IDWriteFactory3_Vtbl, 0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
 impl core::ops::Deref for IDWriteFactory3 {
     type Target = IDWriteFactory2;
@@ -1184,6 +1218,10 @@ impl IDWriteFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteFactory3 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteFactory3 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteFactory3 {}
 windows_core::imp::define_interface!(IDWriteFactory4, IDWriteFactory4_Vtbl, 0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
 impl core::ops::Deref for IDWriteFactory4 {
     type Target = IDWriteFactory3;
@@ -1277,6 +1315,10 @@ impl IDWriteFactory4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteFactory4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteFactory4 {}
 windows_core::imp::define_interface!(IDWriteFactory5, IDWriteFactory5_Vtbl, 0x958db99a_be2a_4f09_af7d_65189803d1d3);
 impl core::ops::Deref for IDWriteFactory5 {
     type Target = IDWriteFactory4;
@@ -1389,6 +1431,10 @@ impl IDWriteFactory5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory5 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteFactory5 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteFactory5 {}
 windows_core::imp::define_interface!(IDWriteFactory6, IDWriteFactory6_Vtbl, 0xf3744d80_21f7_42eb_b35d_995bc72fc223);
 impl core::ops::Deref for IDWriteFactory6 {
     type Target = IDWriteFactory5;
@@ -1558,6 +1604,10 @@ impl IDWriteFactory6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory6 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteFactory6 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteFactory6 {}
 windows_core::imp::define_interface!(IDWriteFactory7, IDWriteFactory7_Vtbl, 0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
 impl core::ops::Deref for IDWriteFactory7 {
     type Target = IDWriteFactory6;
@@ -1628,6 +1678,10 @@ impl IDWriteFactory7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory7 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteFactory7 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteFactory7 {}
 windows_core::imp::define_interface!(IDWriteFactory8, IDWriteFactory8_Vtbl, 0xee0a7fb5_def4_4c23_a454_c9c7dc878398);
 impl core::ops::Deref for IDWriteFactory8 {
     type Target = IDWriteFactory7;
@@ -1676,6 +1730,10 @@ impl IDWriteFactory8_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteFactory8 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteFactory8 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteFactory8 {}
 windows_core::imp::define_interface!(IDWriteFont, IDWriteFont_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
 windows_core::imp::interface_hierarchy!(IDWriteFont, windows_core::IUnknown);
 impl IDWriteFont {
@@ -1835,6 +1893,8 @@ impl IDWriteFont_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont {}
+unsafe impl Send for IDWriteFont {}
+unsafe impl Sync for IDWriteFont {}
 windows_core::imp::define_interface!(IDWriteFont1, IDWriteFont1_Vtbl, 0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
 impl core::ops::Deref for IDWriteFont1 {
     type Target = IDWriteFont;
@@ -1904,6 +1964,8 @@ impl IDWriteFont1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont1 {}
+unsafe impl Send for IDWriteFont1 {}
+unsafe impl Sync for IDWriteFont1 {}
 windows_core::imp::define_interface!(IDWriteFont2, IDWriteFont2_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 impl core::ops::Deref for IDWriteFont2 {
     type Target = IDWriteFont1;
@@ -1938,6 +2000,8 @@ impl IDWriteFont2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont2 {}
+unsafe impl Send for IDWriteFont2 {}
+unsafe impl Sync for IDWriteFont2 {}
 windows_core::imp::define_interface!(IDWriteFont3, IDWriteFont3_Vtbl, 0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
 impl core::ops::Deref for IDWriteFont3 {
     type Target = IDWriteFont2;
@@ -2032,6 +2096,8 @@ impl IDWriteFont3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFont3 {}
+unsafe impl Send for IDWriteFont3 {}
+unsafe impl Sync for IDWriteFont3 {}
 windows_core::imp::define_interface!(IDWriteFontCollection, IDWriteFontCollection_Vtbl, 0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollection, windows_core::IUnknown);
 impl IDWriteFontCollection {
@@ -2113,6 +2179,8 @@ impl IDWriteFontCollection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection {}
+unsafe impl Send for IDWriteFontCollection {}
+unsafe impl Sync for IDWriteFontCollection {}
 windows_core::imp::define_interface!(IDWriteFontCollection1, IDWriteFontCollection1_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116c);
 impl core::ops::Deref for IDWriteFontCollection1 {
     type Target = IDWriteFontCollection;
@@ -2174,6 +2242,8 @@ impl IDWriteFontCollection1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection1 {}
+unsafe impl Send for IDWriteFontCollection1 {}
+unsafe impl Sync for IDWriteFontCollection1 {}
 windows_core::imp::define_interface!(IDWriteFontCollection2, IDWriteFontCollection2_Vtbl, 0x514039c6_4617_4064_bf8b_92ea83e506e0);
 impl core::ops::Deref for IDWriteFontCollection2 {
     type Target = IDWriteFontCollection1;
@@ -2265,6 +2335,8 @@ impl IDWriteFontCollection2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection2 {}
+unsafe impl Send for IDWriteFontCollection2 {}
+unsafe impl Sync for IDWriteFontCollection2 {}
 windows_core::imp::define_interface!(IDWriteFontCollection3, IDWriteFontCollection3_Vtbl, 0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
 impl core::ops::Deref for IDWriteFontCollection3 {
     type Target = IDWriteFontCollection2;
@@ -2299,6 +2371,8 @@ impl IDWriteFontCollection3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection3 {}
+unsafe impl Send for IDWriteFontCollection3 {}
+unsafe impl Sync for IDWriteFontCollection3 {}
 windows_core::imp::define_interface!(IDWriteFontCollectionLoader, IDWriteFontCollectionLoader_Vtbl, 0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
 windows_core::imp::interface_hierarchy!(IDWriteFontCollectionLoader, windows_core::IUnknown);
 impl IDWriteFontCollectionLoader {
@@ -2337,6 +2411,8 @@ impl IDWriteFontCollectionLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollectionLoader {}
+unsafe impl Send for IDWriteFontCollectionLoader {}
+unsafe impl Sync for IDWriteFontCollectionLoader {}
 windows_core::imp::define_interface!(IDWriteFontDownloadListener, IDWriteFontDownloadListener_Vtbl, 0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadListener, windows_core::IUnknown);
 impl IDWriteFontDownloadListener {
@@ -2369,6 +2445,8 @@ impl IDWriteFontDownloadListener_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontDownloadListener {}
+unsafe impl Send for IDWriteFontDownloadListener {}
+unsafe impl Sync for IDWriteFontDownloadListener {}
 windows_core::imp::define_interface!(IDWriteFontDownloadQueue, IDWriteFontDownloadQueue_Vtbl, 0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
 windows_core::imp::interface_hierarchy!(IDWriteFontDownloadQueue, windows_core::IUnknown);
 impl IDWriteFontDownloadQueue {
@@ -2463,6 +2541,8 @@ impl IDWriteFontDownloadQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontDownloadQueue {}
+unsafe impl Send for IDWriteFontDownloadQueue {}
+unsafe impl Sync for IDWriteFontDownloadQueue {}
 windows_core::imp::define_interface!(IDWriteFontFace, IDWriteFontFace_Vtbl, 0x5f49804d_7024_4d43_bfa9_d25984f53849);
 windows_core::imp::interface_hierarchy!(IDWriteFontFace, windows_core::IUnknown);
 impl IDWriteFontFace {
@@ -2670,6 +2750,10 @@ impl IDWriteFontFace_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace {}
 windows_core::imp::define_interface!(IDWriteFontFace1, IDWriteFontFace1_Vtbl, 0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
 impl core::ops::Deref for IDWriteFontFace1 {
     type Target = IDWriteFontFace;
@@ -2860,6 +2944,10 @@ impl IDWriteFontFace1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace1 {}
 windows_core::imp::define_interface!(IDWriteFontFace2, IDWriteFontFace2_Vtbl, 0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
 impl core::ops::Deref for IDWriteFontFace2 {
     type Target = IDWriteFontFace1;
@@ -2944,6 +3032,10 @@ impl IDWriteFontFace2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace2 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace2 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace2 {}
 windows_core::imp::define_interface!(IDWriteFontFace3, IDWriteFontFace3_Vtbl, 0xd37d7598_09be_4222_a236_2081341cc1f2);
 impl core::ops::Deref for IDWriteFontFace3 {
     type Target = IDWriteFontFace2;
@@ -3161,6 +3253,10 @@ impl IDWriteFontFace3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace3 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace3 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace3 {}
 windows_core::imp::define_interface!(IDWriteFontFace4, IDWriteFontFace4_Vtbl, 0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
 impl core::ops::Deref for IDWriteFontFace4 {
     type Target = IDWriteFontFace3;
@@ -3242,6 +3338,10 @@ impl IDWriteFontFace4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace4 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace4 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace4 {}
 windows_core::imp::define_interface!(IDWriteFontFace5, IDWriteFontFace5_Vtbl, 0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
 impl core::ops::Deref for IDWriteFontFace5 {
     type Target = IDWriteFontFace4;
@@ -3332,6 +3432,10 @@ impl IDWriteFontFace5_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace5 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace5 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace5 {}
 windows_core::imp::define_interface!(IDWriteFontFace6, IDWriteFontFace6_Vtbl, 0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
 impl core::ops::Deref for IDWriteFontFace6 {
     type Target = IDWriteFontFace5;
@@ -3396,6 +3500,10 @@ impl IDWriteFontFace6_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace6 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace6 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace6 {}
 windows_core::imp::define_interface!(IDWriteFontFace7, IDWriteFontFace7_Vtbl, 0x3945b85b_bc95_40f7_b72c_8b73bfc7e13b);
 impl core::ops::Deref for IDWriteFontFace7 {
     type Target = IDWriteFontFace6;
@@ -3453,6 +3561,10 @@ impl IDWriteFontFace7_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWriteFontFace7 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWriteFontFace7 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWriteFontFace7 {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference, IDWriteFontFaceReference_Vtbl, 0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
 windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference, windows_core::IUnknown);
 impl IDWriteFontFaceReference {
@@ -3645,6 +3757,8 @@ impl IDWriteFontFaceReference_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFaceReference {}
+unsafe impl Send for IDWriteFontFaceReference {}
+unsafe impl Sync for IDWriteFontFaceReference {}
 windows_core::imp::define_interface!(IDWriteFontFaceReference1, IDWriteFontFaceReference1_Vtbl, 0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
 impl core::ops::Deref for IDWriteFontFaceReference1 {
     type Target = IDWriteFontFaceReference;
@@ -3709,6 +3823,8 @@ impl IDWriteFontFaceReference1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFaceReference1 {}
+unsafe impl Send for IDWriteFontFaceReference1 {}
+unsafe impl Sync for IDWriteFontFaceReference1 {}
 windows_core::imp::define_interface!(IDWriteFontFallback, IDWriteFontFallback_Vtbl, 0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallback, windows_core::IUnknown);
 impl IDWriteFontFallback {
@@ -3742,6 +3858,8 @@ impl IDWriteFontFallback_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallback {}
+unsafe impl Send for IDWriteFontFallback {}
+unsafe impl Sync for IDWriteFontFallback {}
 windows_core::imp::define_interface!(IDWriteFontFallback1, IDWriteFontFallback1_Vtbl, 0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
 impl core::ops::Deref for IDWriteFontFallback1 {
     type Target = IDWriteFontFallback;
@@ -3781,6 +3899,8 @@ impl IDWriteFontFallback1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallback1 {}
+unsafe impl Send for IDWriteFontFallback1 {}
+unsafe impl Sync for IDWriteFontFallback1 {}
 windows_core::imp::define_interface!(IDWriteFontFallbackBuilder, IDWriteFontFallbackBuilder_Vtbl, 0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
 windows_core::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, windows_core::IUnknown);
 impl IDWriteFontFallbackBuilder {
@@ -3847,6 +3967,8 @@ impl IDWriteFontFallbackBuilder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallbackBuilder {}
+unsafe impl Send for IDWriteFontFallbackBuilder {}
+unsafe impl Sync for IDWriteFontFallbackBuilder {}
 windows_core::imp::define_interface!(IDWriteFontFamily, IDWriteFontFamily_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7add);
 impl core::ops::Deref for IDWriteFontFamily {
     type Target = IDWriteFontList;
@@ -3925,6 +4047,8 @@ impl IDWriteFontFamily_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily {}
+unsafe impl Send for IDWriteFontFamily {}
+unsafe impl Sync for IDWriteFontFamily {}
 windows_core::imp::define_interface!(IDWriteFontFamily1, IDWriteFontFamily1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
 impl core::ops::Deref for IDWriteFontFamily1 {
     type Target = IDWriteFontFamily;
@@ -3996,6 +4120,8 @@ impl IDWriteFontFamily1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily1 {}
+unsafe impl Send for IDWriteFontFamily1 {}
+unsafe impl Sync for IDWriteFontFamily1 {}
 windows_core::imp::define_interface!(IDWriteFontFamily2, IDWriteFontFamily2_Vtbl, 0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
 impl core::ops::Deref for IDWriteFontFamily2 {
     type Target = IDWriteFontFamily1;
@@ -4057,6 +4183,8 @@ impl IDWriteFontFamily2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily2 {}
+unsafe impl Send for IDWriteFontFamily2 {}
+unsafe impl Sync for IDWriteFontFamily2 {}
 windows_core::imp::define_interface!(IDWriteFontFile, IDWriteFontFile_Vtbl, 0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFile, windows_core::IUnknown);
 impl IDWriteFontFile {
@@ -4115,6 +4243,8 @@ impl IDWriteFontFile_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFile {}
+unsafe impl Send for IDWriteFontFile {}
+unsafe impl Sync for IDWriteFontFile {}
 windows_core::imp::define_interface!(IDWriteFontFileEnumerator, IDWriteFontFileEnumerator_Vtbl, 0x72755049_5ff7_435d_8348_4be97cfa6c7c);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileEnumerator, windows_core::IUnknown);
 impl IDWriteFontFileEnumerator {
@@ -4170,6 +4300,8 @@ impl IDWriteFontFileEnumerator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileEnumerator {}
+unsafe impl Send for IDWriteFontFileEnumerator {}
+unsafe impl Sync for IDWriteFontFileEnumerator {}
 windows_core::imp::define_interface!(IDWriteFontFileLoader, IDWriteFontFileLoader_Vtbl, 0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileLoader, windows_core::IUnknown);
 impl IDWriteFontFileLoader {
@@ -4205,6 +4337,8 @@ impl IDWriteFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileLoader {}
+unsafe impl Send for IDWriteFontFileLoader {}
+unsafe impl Sync for IDWriteFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteFontFileStream, IDWriteFontFileStream_Vtbl, 0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
 windows_core::imp::interface_hierarchy!(IDWriteFontFileStream, windows_core::IUnknown);
 impl IDWriteFontFileStream {
@@ -4280,6 +4414,8 @@ impl IDWriteFontFileStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFileStream {}
+unsafe impl Send for IDWriteFontFileStream {}
+unsafe impl Sync for IDWriteFontFileStream {}
 windows_core::imp::define_interface!(IDWriteFontList, IDWriteFontList_Vtbl, 0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
 windows_core::imp::interface_hierarchy!(IDWriteFontList, windows_core::IUnknown);
 impl IDWriteFontList {
@@ -4345,6 +4481,8 @@ impl IDWriteFontList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList {}
+unsafe impl Send for IDWriteFontList {}
+unsafe impl Sync for IDWriteFontList {}
 windows_core::imp::define_interface!(IDWriteFontList1, IDWriteFontList1_Vtbl, 0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
 impl core::ops::Deref for IDWriteFontList1 {
     type Target = IDWriteFontList;
@@ -4416,6 +4554,8 @@ impl IDWriteFontList1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList1 {}
+unsafe impl Send for IDWriteFontList1 {}
+unsafe impl Sync for IDWriteFontList1 {}
 windows_core::imp::define_interface!(IDWriteFontList2, IDWriteFontList2_Vtbl, 0xc0763a34_77af_445a_b735_08c37b0a5bf5);
 impl core::ops::Deref for IDWriteFontList2 {
     type Target = IDWriteFontList1;
@@ -4457,6 +4597,8 @@ impl IDWriteFontList2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList2 {}
+unsafe impl Send for IDWriteFontList2 {}
+unsafe impl Sync for IDWriteFontList2 {}
 windows_core::imp::define_interface!(IDWriteFontResource, IDWriteFontResource_Vtbl, 0x1f803a76_6871_48e8_987f_b975551c50f2);
 windows_core::imp::interface_hierarchy!(IDWriteFontResource, windows_core::IUnknown);
 impl IDWriteFontResource {
@@ -4626,6 +4768,8 @@ impl IDWriteFontResource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontResource {}
+unsafe impl Send for IDWriteFontResource {}
+unsafe impl Sync for IDWriteFontResource {}
 windows_core::imp::define_interface!(IDWriteFontSet, IDWriteFontSet_Vtbl, 0x53585141_d9f8_4095_8321_d73cf6bd116b);
 windows_core::imp::interface_hierarchy!(IDWriteFontSet, windows_core::IUnknown);
 impl IDWriteFontSet {
@@ -4801,6 +4945,8 @@ impl IDWriteFontSet_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet {}
+unsafe impl Send for IDWriteFontSet {}
+unsafe impl Sync for IDWriteFontSet {}
 windows_core::imp::define_interface!(IDWriteFontSet1, IDWriteFontSet1_Vtbl, 0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
 impl core::ops::Deref for IDWriteFontSet1 {
     type Target = IDWriteFontSet;
@@ -5026,6 +5172,8 @@ impl IDWriteFontSet1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet1 {}
+unsafe impl Send for IDWriteFontSet1 {}
+unsafe impl Sync for IDWriteFontSet1 {}
 windows_core::imp::define_interface!(IDWriteFontSet2, IDWriteFontSet2_Vtbl, 0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
 impl core::ops::Deref for IDWriteFontSet2 {
     type Target = IDWriteFontSet1;
@@ -5060,6 +5208,8 @@ impl IDWriteFontSet2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet2 {}
+unsafe impl Send for IDWriteFontSet2 {}
+unsafe impl Sync for IDWriteFontSet2 {}
 windows_core::imp::define_interface!(IDWriteFontSet3, IDWriteFontSet3_Vtbl, 0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
 impl core::ops::Deref for IDWriteFontSet3 {
     type Target = IDWriteFontSet2;
@@ -5117,6 +5267,8 @@ impl IDWriteFontSet3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet3 {}
+unsafe impl Send for IDWriteFontSet3 {}
+unsafe impl Sync for IDWriteFontSet3 {}
 windows_core::imp::define_interface!(IDWriteFontSet4, IDWriteFontSet4_Vtbl, 0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
 impl core::ops::Deref for IDWriteFontSet4 {
     type Target = IDWriteFontSet3;
@@ -5174,6 +5326,8 @@ impl IDWriteFontSet4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet4 {}
+unsafe impl Send for IDWriteFontSet4 {}
+unsafe impl Sync for IDWriteFontSet4 {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder, IDWriteFontSetBuilder_Vtbl, 0x2f642afe_9c68_4f40_b8be_457401afcb3d);
 windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, windows_core::IUnknown);
 impl IDWriteFontSetBuilder {
@@ -5251,6 +5405,8 @@ impl IDWriteFontSetBuilder_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder {}
+unsafe impl Send for IDWriteFontSetBuilder {}
+unsafe impl Sync for IDWriteFontSetBuilder {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder1, IDWriteFontSetBuilder1_Vtbl, 0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
 impl core::ops::Deref for IDWriteFontSetBuilder1 {
     type Target = IDWriteFontSetBuilder;
@@ -5288,6 +5444,8 @@ impl IDWriteFontSetBuilder1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder1 {}
+unsafe impl Send for IDWriteFontSetBuilder1 {}
+unsafe impl Sync for IDWriteFontSetBuilder1 {}
 windows_core::imp::define_interface!(IDWriteFontSetBuilder2, IDWriteFontSetBuilder2_Vtbl, 0xee5ba612_b131_463c_8f4f_3189b9401e45);
 impl core::ops::Deref for IDWriteFontSetBuilder2 {
     type Target = IDWriteFontSetBuilder1;
@@ -5341,6 +5499,8 @@ impl IDWriteFontSetBuilder2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder2 {}
+unsafe impl Send for IDWriteFontSetBuilder2 {}
+unsafe impl Sync for IDWriteFontSetBuilder2 {}
 windows_core::imp::define_interface!(IDWriteGdiInterop, IDWriteGdiInterop_Vtbl, 0x1edd9491_9853_4299_898f_6432983b6f3a);
 windows_core::imp::interface_hierarchy!(IDWriteGdiInterop, windows_core::IUnknown);
 impl IDWriteGdiInterop {
@@ -5468,6 +5628,10 @@ impl IDWriteGdiInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IDWriteGdiInterop {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for IDWriteGdiInterop {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for IDWriteGdiInterop {}
 windows_core::imp::define_interface!(IDWriteGdiInterop1, IDWriteGdiInterop1_Vtbl, 0x4556be70_3abd_4f70_90be_421780a6f515);
 impl core::ops::Deref for IDWriteGdiInterop1 {
     type Target = IDWriteGdiInterop;
@@ -5580,6 +5744,10 @@ impl IDWriteGdiInterop1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl windows_core::RuntimeName for IDWriteGdiInterop1 {}
+#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Send for IDWriteGdiInterop1 {}
+#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+unsafe impl Sync for IDWriteGdiInterop1 {}
 windows_core::imp::define_interface!(IDWriteGlyphRunAnalysis, IDWriteGlyphRunAnalysis_Vtbl, 0x7d97dbf7_e085_42d4_81e3_6a883bded118);
 windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, windows_core::IUnknown);
 impl IDWriteGlyphRunAnalysis {
@@ -5641,6 +5809,8 @@ impl IDWriteGlyphRunAnalysis_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteGlyphRunAnalysis {}
+unsafe impl Send for IDWriteGlyphRunAnalysis {}
+unsafe impl Sync for IDWriteGlyphRunAnalysis {}
 windows_core::imp::define_interface!(IDWriteInMemoryFontFileLoader, IDWriteInMemoryFontFileLoader_Vtbl, 0xdc102f47_a12d_4b1c_822d_9e117e33043f);
 impl core::ops::Deref for IDWriteInMemoryFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -5699,6 +5869,8 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteInMemoryFontFileLoader {}
+unsafe impl Send for IDWriteInMemoryFontFileLoader {}
+unsafe impl Sync for IDWriteInMemoryFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteInlineObject, IDWriteInlineObject_Vtbl, 0x8339fde3_106f_47ab_8373_1c6295eb10b3);
 windows_core::imp::interface_hierarchy!(IDWriteInlineObject, windows_core::IUnknown);
 impl IDWriteInlineObject {
@@ -5780,6 +5952,8 @@ impl IDWriteInlineObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteInlineObject {}
+unsafe impl Send for IDWriteInlineObject {}
+unsafe impl Sync for IDWriteInlineObject {}
 windows_core::imp::define_interface!(IDWriteLocalFontFileLoader, IDWriteLocalFontFileLoader_Vtbl, 0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
 impl core::ops::Deref for IDWriteLocalFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -5851,6 +6025,8 @@ impl IDWriteLocalFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteLocalFontFileLoader {}
+unsafe impl Send for IDWriteLocalFontFileLoader {}
+unsafe impl Sync for IDWriteLocalFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteLocalizedStrings, IDWriteLocalizedStrings_Vtbl, 0x08256209_099a_4b34_b86d_c22b110e7771);
 windows_core::imp::interface_hierarchy!(IDWriteLocalizedStrings, windows_core::IUnknown);
 impl IDWriteLocalizedStrings {
@@ -5949,6 +6125,8 @@ impl IDWriteLocalizedStrings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteLocalizedStrings {}
+unsafe impl Send for IDWriteLocalizedStrings {}
+unsafe impl Sync for IDWriteLocalizedStrings {}
 windows_core::imp::define_interface!(IDWriteNumberSubstitution, IDWriteNumberSubstitution_Vtbl, 0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
 windows_core::imp::interface_hierarchy!(IDWriteNumberSubstitution, windows_core::IUnknown);
 #[repr(C)]
@@ -5965,6 +6143,8 @@ impl IDWriteNumberSubstitution_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteNumberSubstitution {}
+unsafe impl Send for IDWriteNumberSubstitution {}
+unsafe impl Sync for IDWriteNumberSubstitution {}
 windows_core::imp::define_interface!(IDWritePaintReader, IDWritePaintReader_Vtbl, 0x8128e912_3b97_42a5_ab6c_24aad3a86e54);
 windows_core::imp::interface_hierarchy!(IDWritePaintReader, windows_core::IUnknown);
 impl IDWritePaintReader {
@@ -6095,6 +6275,10 @@ impl IDWritePaintReader_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for IDWritePaintReader {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for IDWritePaintReader {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for IDWritePaintReader {}
 windows_core::imp::define_interface!(IDWritePixelSnapping, IDWritePixelSnapping_Vtbl, 0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
 windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, windows_core::IUnknown);
 impl IDWritePixelSnapping {
@@ -6160,6 +6344,8 @@ impl IDWritePixelSnapping_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWritePixelSnapping {}
+unsafe impl Send for IDWritePixelSnapping {}
+unsafe impl Sync for IDWritePixelSnapping {}
 windows_core::imp::define_interface!(IDWriteRemoteFontFileLoader, IDWriteRemoteFontFileLoader_Vtbl, 0x68648c83_6ede_46c0_ab46_20083a887fde);
 impl core::ops::Deref for IDWriteRemoteFontFileLoader {
     type Target = IDWriteFontFileLoader;
@@ -6243,6 +6429,8 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileLoader {}
+unsafe impl Send for IDWriteRemoteFontFileLoader {}
+unsafe impl Sync for IDWriteRemoteFontFileLoader {}
 windows_core::imp::define_interface!(IDWriteRemoteFontFileStream, IDWriteRemoteFontFileStream_Vtbl, 0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
 impl core::ops::Deref for IDWriteRemoteFontFileStream {
     type Target = IDWriteFontFileStream;
@@ -6324,6 +6512,8 @@ impl IDWriteRemoteFontFileStream_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileStream {}
+unsafe impl Send for IDWriteRemoteFontFileStream {}
+unsafe impl Sync for IDWriteRemoteFontFileStream {}
 windows_core::imp::define_interface!(IDWriteRenderingParams, IDWriteRenderingParams_Vtbl, 0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
 windows_core::imp::interface_hierarchy!(IDWriteRenderingParams, windows_core::IUnknown);
 impl IDWriteRenderingParams {
@@ -6395,6 +6585,8 @@ impl IDWriteRenderingParams_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams {}
+unsafe impl Send for IDWriteRenderingParams {}
+unsafe impl Sync for IDWriteRenderingParams {}
 windows_core::imp::define_interface!(IDWriteRenderingParams1, IDWriteRenderingParams1_Vtbl, 0x94413cf4_a6fc_4248_8b50_6674348fcad3);
 impl core::ops::Deref for IDWriteRenderingParams1 {
     type Target = IDWriteRenderingParams;
@@ -6429,6 +6621,8 @@ impl IDWriteRenderingParams1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams1 {}
+unsafe impl Send for IDWriteRenderingParams1 {}
+unsafe impl Sync for IDWriteRenderingParams1 {}
 windows_core::imp::define_interface!(IDWriteRenderingParams2, IDWriteRenderingParams2_Vtbl, 0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
 impl core::ops::Deref for IDWriteRenderingParams2 {
     type Target = IDWriteRenderingParams1;
@@ -6463,6 +6657,8 @@ impl IDWriteRenderingParams2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams2 {}
+unsafe impl Send for IDWriteRenderingParams2 {}
+unsafe impl Sync for IDWriteRenderingParams2 {}
 windows_core::imp::define_interface!(IDWriteRenderingParams3, IDWriteRenderingParams3_Vtbl, 0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
 impl core::ops::Deref for IDWriteRenderingParams3 {
     type Target = IDWriteRenderingParams2;
@@ -6497,6 +6693,8 @@ impl IDWriteRenderingParams3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams3 {}
+unsafe impl Send for IDWriteRenderingParams3 {}
+unsafe impl Sync for IDWriteRenderingParams3 {}
 windows_core::imp::define_interface!(IDWriteStringList, IDWriteStringList_Vtbl, 0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
 windows_core::imp::interface_hierarchy!(IDWriteStringList, windows_core::IUnknown);
 impl IDWriteStringList {
@@ -6582,6 +6780,8 @@ impl IDWriteStringList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteStringList {}
+unsafe impl Send for IDWriteStringList {}
+unsafe impl Sync for IDWriteStringList {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSink, IDWriteTextAnalysisSink_Vtbl, 0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink, windows_core::IUnknown);
 impl IDWriteTextAnalysisSink {
@@ -6646,6 +6846,8 @@ impl IDWriteTextAnalysisSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSink {}
+unsafe impl Send for IDWriteTextAnalysisSink {}
+unsafe impl Sync for IDWriteTextAnalysisSink {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSink1, IDWriteTextAnalysisSink1_Vtbl, 0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
 impl core::ops::Deref for IDWriteTextAnalysisSink1 {
     type Target = IDWriteTextAnalysisSink;
@@ -6684,6 +6886,8 @@ impl IDWriteTextAnalysisSink1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSink1 {}
+unsafe impl Send for IDWriteTextAnalysisSink1 {}
+unsafe impl Sync for IDWriteTextAnalysisSink1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSource, IDWriteTextAnalysisSource_Vtbl, 0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource, windows_core::IUnknown);
 impl IDWriteTextAnalysisSource {
@@ -6755,6 +6959,8 @@ impl IDWriteTextAnalysisSource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSource {}
+unsafe impl Send for IDWriteTextAnalysisSource {}
+unsafe impl Sync for IDWriteTextAnalysisSource {}
 windows_core::imp::define_interface!(IDWriteTextAnalysisSource1, IDWriteTextAnalysisSource1_Vtbl, 0x639cfad8_0fb4_4b21_a58a_067920120009);
 impl core::ops::Deref for IDWriteTextAnalysisSource1 {
     type Target = IDWriteTextAnalysisSource;
@@ -6789,6 +6995,8 @@ impl IDWriteTextAnalysisSource1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSource1 {}
+unsafe impl Send for IDWriteTextAnalysisSource1 {}
+unsafe impl Sync for IDWriteTextAnalysisSource1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer, IDWriteTextAnalyzer_Vtbl, 0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
 windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer, windows_core::IUnknown);
 impl IDWriteTextAnalyzer {
@@ -7072,6 +7280,8 @@ impl IDWriteTextAnalyzer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer {}
+unsafe impl Send for IDWriteTextAnalyzer {}
+unsafe impl Sync for IDWriteTextAnalyzer {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer1, IDWriteTextAnalyzer1_Vtbl, 0x80dad800_e21f_4e83_96ce_bfcce500db7c);
 impl core::ops::Deref for IDWriteTextAnalyzer1 {
     type Target = IDWriteTextAnalyzer;
@@ -7274,6 +7484,8 @@ impl IDWriteTextAnalyzer1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer1 {}
+unsafe impl Send for IDWriteTextAnalyzer1 {}
+unsafe impl Sync for IDWriteTextAnalyzer1 {}
 windows_core::imp::define_interface!(IDWriteTextAnalyzer2, IDWriteTextAnalyzer2_Vtbl, 0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
 impl core::ops::Deref for IDWriteTextAnalyzer2 {
     type Target = IDWriteTextAnalyzer1;
@@ -7349,6 +7561,8 @@ impl IDWriteTextAnalyzer2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer2 {}
+unsafe impl Send for IDWriteTextAnalyzer2 {}
+unsafe impl Sync for IDWriteTextAnalyzer2 {}
 windows_core::imp::define_interface!(IDWriteTextFormat, IDWriteTextFormat_Vtbl, 0x9c906818_31d7_4fd3_a151_7c5e225db55a);
 windows_core::imp::interface_hierarchy!(IDWriteTextFormat, windows_core::IUnknown);
 impl IDWriteTextFormat {
@@ -7630,6 +7844,8 @@ impl IDWriteTextFormat_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat {}
+unsafe impl Send for IDWriteTextFormat {}
+unsafe impl Sync for IDWriteTextFormat {}
 windows_core::imp::define_interface!(IDWriteTextFormat1, IDWriteTextFormat1_Vtbl, 0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
 impl core::ops::Deref for IDWriteTextFormat1 {
     type Target = IDWriteTextFormat;
@@ -7750,6 +7966,8 @@ impl IDWriteTextFormat1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat1 {}
+unsafe impl Send for IDWriteTextFormat1 {}
+unsafe impl Sync for IDWriteTextFormat1 {}
 windows_core::imp::define_interface!(IDWriteTextFormat2, IDWriteTextFormat2_Vtbl, 0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
 impl core::ops::Deref for IDWriteTextFormat2 {
     type Target = IDWriteTextFormat1;
@@ -7797,6 +8015,8 @@ impl IDWriteTextFormat2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat2 {}
+unsafe impl Send for IDWriteTextFormat2 {}
+unsafe impl Sync for IDWriteTextFormat2 {}
 windows_core::imp::define_interface!(IDWriteTextFormat3, IDWriteTextFormat3_Vtbl, 0x6d3b5641_e550_430d_a85b_b7bf48a93427);
 impl core::ops::Deref for IDWriteTextFormat3 {
     type Target = IDWriteTextFormat2;
@@ -7874,6 +8094,8 @@ impl IDWriteTextFormat3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat3 {}
+unsafe impl Send for IDWriteTextFormat3 {}
+unsafe impl Sync for IDWriteTextFormat3 {}
 windows_core::imp::define_interface!(IDWriteTextLayout, IDWriteTextLayout_Vtbl, 0x53737037_6d14_410b_9bfe_0b182bb70961);
 impl core::ops::Deref for IDWriteTextLayout {
     type Target = IDWriteTextFormat;
@@ -8335,6 +8557,8 @@ impl IDWriteTextLayout_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout {}
+unsafe impl Send for IDWriteTextLayout {}
+unsafe impl Sync for IDWriteTextLayout {}
 windows_core::imp::define_interface!(IDWriteTextLayout1, IDWriteTextLayout1_Vtbl, 0x9064d822_80a7_465c_a986_df65f78b8feb);
 impl core::ops::Deref for IDWriteTextLayout1 {
     type Target = IDWriteTextLayout;
@@ -8405,6 +8629,8 @@ impl IDWriteTextLayout1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout1 {}
+unsafe impl Send for IDWriteTextLayout1 {}
+unsafe impl Sync for IDWriteTextLayout1 {}
 windows_core::imp::define_interface!(IDWriteTextLayout2, IDWriteTextLayout2_Vtbl, 0x1093c18f_8d5e_43f0_b064_0917311b525e);
 impl core::ops::Deref for IDWriteTextLayout2 {
     type Target = IDWriteTextLayout1;
@@ -8535,6 +8761,8 @@ impl IDWriteTextLayout2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout2 {}
+unsafe impl Send for IDWriteTextLayout2 {}
+unsafe impl Sync for IDWriteTextLayout2 {}
 windows_core::imp::define_interface!(IDWriteTextLayout3, IDWriteTextLayout3_Vtbl, 0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
 impl core::ops::Deref for IDWriteTextLayout3 {
     type Target = IDWriteTextLayout2;
@@ -8602,6 +8830,8 @@ impl IDWriteTextLayout3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout3 {}
+unsafe impl Send for IDWriteTextLayout3 {}
+unsafe impl Sync for IDWriteTextLayout3 {}
 windows_core::imp::define_interface!(IDWriteTextLayout4, IDWriteTextLayout4_Vtbl, 0x05a9bf42_223f_4441_b5fb_8263685f55e9);
 impl core::ops::Deref for IDWriteTextLayout4 {
     type Target = IDWriteTextLayout3;
@@ -8679,6 +8909,8 @@ impl IDWriteTextLayout4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout4 {}
+unsafe impl Send for IDWriteTextLayout4 {}
+unsafe impl Sync for IDWriteTextLayout4 {}
 windows_core::imp::define_interface!(IDWriteTextRenderer, IDWriteTextRenderer_Vtbl, 0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
 impl core::ops::Deref for IDWriteTextRenderer {
     type Target = IDWritePixelSnapping;
@@ -8761,6 +8993,8 @@ impl IDWriteTextRenderer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer {}
+unsafe impl Send for IDWriteTextRenderer {}
+unsafe impl Sync for IDWriteTextRenderer {}
 windows_core::imp::define_interface!(IDWriteTextRenderer1, IDWriteTextRenderer1_Vtbl, 0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
 impl core::ops::Deref for IDWriteTextRenderer1 {
     type Target = IDWriteTextRenderer;
@@ -8843,6 +9077,8 @@ impl IDWriteTextRenderer1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer1 {}
+unsafe impl Send for IDWriteTextRenderer1 {}
+unsafe impl Sync for IDWriteTextRenderer1 {}
 windows_core::imp::define_interface!(IDWriteTypography, IDWriteTypography_Vtbl, 0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);
 windows_core::imp::interface_hierarchy!(IDWriteTypography, windows_core::IUnknown);
 impl IDWriteTypography {
@@ -8901,6 +9137,8 @@ impl IDWriteTypography_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDWriteTypography {}
+unsafe impl Send for IDWriteTypography {}
+unsafe impl Sync for IDWriteTypography {}
 pub const DWRITE_ALPHA_MAX: u32 = 255u32;
 pub const DWRITE_AUTOMATIC_FONT_AXES_NONE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(0i32);
 pub const DWRITE_AUTOMATIC_FONT_AXES_OPTICAL_SIZE: DWRITE_AUTOMATIC_FONT_AXES = DWRITE_AUTOMATIC_FONT_AXES(1i32);

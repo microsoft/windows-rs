@@ -225,6 +225,8 @@ unsafe impl windows_core::Interface for UserDataTaskDataProviderConnection {
 impl windows_core::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
 }
+unsafe impl Send for UserDataTaskDataProviderConnection {}
+unsafe impl Sync for UserDataTaskDataProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskDataProviderTriggerDetails(windows_core::IUnknown);
@@ -248,6 +250,8 @@ unsafe impl windows_core::Interface for UserDataTaskDataProviderTriggerDetails {
 impl windows_core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
 }
+unsafe impl Send for UserDataTaskDataProviderTriggerDetails {}
+unsafe impl Sync for UserDataTaskDataProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequest(windows_core::IUnknown);
@@ -292,6 +296,8 @@ unsafe impl windows_core::Interface for UserDataTaskListCompleteTaskRequest {
 impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
 }
+unsafe impl Send for UserDataTaskListCompleteTaskRequest {}
+unsafe impl Sync for UserDataTaskListCompleteTaskRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequestEventArgs(windows_core::IUnknown);
@@ -322,6 +328,8 @@ unsafe impl windows_core::Interface for UserDataTaskListCompleteTaskRequestEvent
 impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
 }
+unsafe impl Send for UserDataTaskListCompleteTaskRequestEventArgs {}
+unsafe impl Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequest(windows_core::IUnknown);
@@ -369,6 +377,8 @@ unsafe impl windows_core::Interface for UserDataTaskListCreateOrUpdateTaskReques
 impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
 }
+unsafe impl Send for UserDataTaskListCreateOrUpdateTaskRequest {}
+unsafe impl Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(windows_core::IUnknown);
@@ -399,6 +409,8 @@ unsafe impl windows_core::Interface for UserDataTaskListCreateOrUpdateTaskReques
 impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
 }
+unsafe impl Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
+unsafe impl Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequest(windows_core::IUnknown);
@@ -443,6 +455,8 @@ unsafe impl windows_core::Interface for UserDataTaskListDeleteTaskRequest {
 impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
 }
+unsafe impl Send for UserDataTaskListDeleteTaskRequest {}
+unsafe impl Sync for UserDataTaskListDeleteTaskRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequestEventArgs(windows_core::IUnknown);
@@ -473,6 +487,8 @@ unsafe impl windows_core::Interface for UserDataTaskListDeleteTaskRequestEventAr
 impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
 }
+unsafe impl Send for UserDataTaskListDeleteTaskRequestEventArgs {}
+unsafe impl Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequest(windows_core::IUnknown);
@@ -517,6 +533,8 @@ unsafe impl windows_core::Interface for UserDataTaskListSkipOccurrenceRequest {
 impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
 }
+unsafe impl Send for UserDataTaskListSkipOccurrenceRequest {}
+unsafe impl Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(windows_core::IUnknown);
@@ -547,6 +565,8 @@ unsafe impl windows_core::Interface for UserDataTaskListSkipOccurrenceRequestEve
 impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
 }
+unsafe impl Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
+unsafe impl Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequest(windows_core::IUnknown);
@@ -584,6 +604,8 @@ unsafe impl windows_core::Interface for UserDataTaskListSyncManagerSyncRequest {
 impl windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
 }
+unsafe impl Send for UserDataTaskListSyncManagerSyncRequest {}
+unsafe impl Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
@@ -614,3 +636,5 @@ unsafe impl windows_core::Interface for UserDataTaskListSyncManagerSyncRequestEv
 impl windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";
 }
+unsafe impl Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
+unsafe impl Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}

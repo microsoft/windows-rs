@@ -235,6 +235,8 @@ unsafe impl windows_core::Interface for ComponentLoadFailedEventArgs {
 impl windows_core::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
 }
+unsafe impl Send for ComponentLoadFailedEventArgs {}
+unsafe impl Sync for ComponentLoadFailedEventArgs {}
 pub struct ComponentRenewal;
 impl ComponentRenewal {
     pub fn RenewSystemComponentsAsync<P0>(information: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
@@ -317,6 +319,8 @@ unsafe impl windows_core::Interface for HdcpSession {
 impl windows_core::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
 }
+unsafe impl Send for HdcpSession {}
+unsafe impl Sync for HdcpSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionManager(windows_core::IUnknown);
@@ -390,6 +394,8 @@ unsafe impl windows_core::Interface for MediaProtectionManager {
 impl windows_core::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
 }
+unsafe impl Send for MediaProtectionManager {}
+unsafe impl Sync for MediaProtectionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionPMPServer(windows_core::IUnknown);
@@ -428,6 +434,8 @@ unsafe impl windows_core::Interface for MediaProtectionPMPServer {
 impl windows_core::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
 }
+unsafe impl Send for MediaProtectionPMPServer {}
+unsafe impl Sync for MediaProtectionPMPServer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionServiceCompletion(windows_core::IUnknown);
@@ -448,6 +456,8 @@ unsafe impl windows_core::Interface for MediaProtectionServiceCompletion {
 impl windows_core::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
 }
+unsafe impl Send for MediaProtectionServiceCompletion {}
+unsafe impl Sync for MediaProtectionServiceCompletion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionCapabilities(windows_core::IUnknown);
@@ -478,6 +488,8 @@ unsafe impl windows_core::Interface for ProtectionCapabilities {
 impl windows_core::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
 }
+unsafe impl Send for ProtectionCapabilities {}
+unsafe impl Sync for ProtectionCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalInformation(windows_core::IUnknown);
@@ -502,6 +514,8 @@ unsafe impl windows_core::Interface for RevocationAndRenewalInformation {
 impl windows_core::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
 }
+unsafe impl Send for RevocationAndRenewalInformation {}
+unsafe impl Sync for RevocationAndRenewalInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalItem(windows_core::IUnknown);
@@ -553,6 +567,8 @@ unsafe impl windows_core::Interface for RevocationAndRenewalItem {
 impl windows_core::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
 }
+unsafe impl Send for RevocationAndRenewalItem {}
+unsafe impl Sync for RevocationAndRenewalItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServiceRequestedEventArgs(windows_core::IUnknown);
@@ -591,6 +607,8 @@ unsafe impl windows_core::Interface for ServiceRequestedEventArgs {
 impl windows_core::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";
 }
+unsafe impl Send for ServiceRequestedEventArgs {}
+unsafe impl Sync for ServiceRequestedEventArgs {}
 windows_core::imp::define_interface!(ComponentLoadFailedEventHandler, ComponentLoadFailedEventHandler_Vtbl, 0x95da643c_6db9_424b_86ca_091af432081c);
 impl windows_core::RuntimeType for ComponentLoadFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

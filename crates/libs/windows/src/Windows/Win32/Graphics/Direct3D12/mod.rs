@@ -85,6 +85,8 @@ impl ID3D12CommandAllocator_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandAllocator {}
+unsafe impl Send for ID3D12CommandAllocator {}
+unsafe impl Sync for ID3D12CommandAllocator {}
 windows_core::imp::define_interface!(ID3D12CommandList, ID3D12CommandList_Vtbl, 0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
 impl core::ops::Deref for ID3D12CommandList {
     type Target = ID3D12DeviceChild;
@@ -119,6 +121,8 @@ impl ID3D12CommandList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandList {}
+unsafe impl Send for ID3D12CommandList {}
+unsafe impl Sync for ID3D12CommandList {}
 windows_core::imp::define_interface!(ID3D12CommandQueue, ID3D12CommandQueue_Vtbl, 0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
 impl core::ops::Deref for ID3D12CommandQueue {
     type Target = ID3D12Pageable;
@@ -291,6 +295,8 @@ impl ID3D12CommandQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandQueue {}
+unsafe impl Send for ID3D12CommandQueue {}
+unsafe impl Sync for ID3D12CommandQueue {}
 windows_core::imp::define_interface!(ID3D12CommandSignature, ID3D12CommandSignature_Vtbl, 0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
 impl core::ops::Deref for ID3D12CommandSignature {
     type Target = ID3D12Pageable;
@@ -313,6 +319,8 @@ impl ID3D12CommandSignature_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandSignature {}
+unsafe impl Send for ID3D12CommandSignature {}
+unsafe impl Sync for ID3D12CommandSignature {}
 windows_core::imp::define_interface!(ID3D12Debug, ID3D12Debug_Vtbl, 0x344488b7_6846_474b_b989_f027448245e0);
 windows_core::imp::interface_hierarchy!(ID3D12Debug, windows_core::IUnknown);
 impl ID3D12Debug {
@@ -341,6 +349,8 @@ impl ID3D12Debug_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug {}
+unsafe impl Send for ID3D12Debug {}
+unsafe impl Sync for ID3D12Debug {}
 windows_core::imp::define_interface!(ID3D12Debug1, ID3D12Debug1_Vtbl, 0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
 windows_core::imp::interface_hierarchy!(ID3D12Debug1, windows_core::IUnknown);
 impl ID3D12Debug1 {
@@ -398,6 +408,8 @@ impl ID3D12Debug1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug1 {}
+unsafe impl Send for ID3D12Debug1 {}
+unsafe impl Sync for ID3D12Debug1 {}
 windows_core::imp::define_interface!(ID3D12Debug2, ID3D12Debug2_Vtbl, 0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
 windows_core::imp::interface_hierarchy!(ID3D12Debug2, windows_core::IUnknown);
 impl ID3D12Debug2 {
@@ -426,6 +438,8 @@ impl ID3D12Debug2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug2 {}
+unsafe impl Send for ID3D12Debug2 {}
+unsafe impl Sync for ID3D12Debug2 {}
 windows_core::imp::define_interface!(ID3D12Debug3, ID3D12Debug3_Vtbl, 0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
 impl core::ops::Deref for ID3D12Debug3 {
     type Target = ID3D12Debug;
@@ -489,6 +503,8 @@ impl ID3D12Debug3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug3 {}
+unsafe impl Send for ID3D12Debug3 {}
+unsafe impl Sync for ID3D12Debug3 {}
 windows_core::imp::define_interface!(ID3D12Debug4, ID3D12Debug4_Vtbl, 0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
 impl core::ops::Deref for ID3D12Debug4 {
     type Target = ID3D12Debug3;
@@ -523,6 +539,8 @@ impl ID3D12Debug4_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug4 {}
+unsafe impl Send for ID3D12Debug4 {}
+unsafe impl Sync for ID3D12Debug4 {}
 windows_core::imp::define_interface!(ID3D12Debug5, ID3D12Debug5_Vtbl, 0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
 impl core::ops::Deref for ID3D12Debug5 {
     type Target = ID3D12Debug4;
@@ -560,6 +578,8 @@ impl ID3D12Debug5_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug5 {}
+unsafe impl Send for ID3D12Debug5 {}
+unsafe impl Sync for ID3D12Debug5 {}
 windows_core::imp::define_interface!(ID3D12Debug6, ID3D12Debug6_Vtbl, 0x82a816d6_5d01_4157_97d0_4975463fd1ed);
 impl core::ops::Deref for ID3D12Debug6 {
     type Target = ID3D12Debug5;
@@ -597,6 +617,8 @@ impl ID3D12Debug6_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug6 {}
+unsafe impl Send for ID3D12Debug6 {}
+unsafe impl Sync for ID3D12Debug6 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList, ID3D12DebugCommandList_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053f);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList, windows_core::IUnknown);
 impl ID3D12DebugCommandList {
@@ -651,6 +673,8 @@ impl ID3D12DebugCommandList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList {}
+unsafe impl Send for ID3D12DebugCommandList {}
+unsafe impl Sync for ID3D12DebugCommandList {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList1, ID3D12DebugCommandList1_Vtbl, 0x102ca951_311b_4b01_b11f_ecb83e061b37);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList1, windows_core::IUnknown);
 impl ID3D12DebugCommandList1 {
@@ -705,6 +729,8 @@ impl ID3D12DebugCommandList1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList1 {}
+unsafe impl Send for ID3D12DebugCommandList1 {}
+unsafe impl Sync for ID3D12DebugCommandList1 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList2, ID3D12DebugCommandList2_Vtbl, 0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
 impl core::ops::Deref for ID3D12DebugCommandList2 {
     type Target = ID3D12DebugCommandList;
@@ -752,6 +778,8 @@ impl ID3D12DebugCommandList2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList2 {}
+unsafe impl Send for ID3D12DebugCommandList2 {}
+unsafe impl Sync for ID3D12DebugCommandList2 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandList3, ID3D12DebugCommandList3_Vtbl, 0x197d5e15_4d37_4d34_af78_724cd70fdb1f);
 impl core::ops::Deref for ID3D12DebugCommandList3 {
     type Target = ID3D12DebugCommandList2;
@@ -805,6 +833,8 @@ impl ID3D12DebugCommandList3_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList3 {}
+unsafe impl Send for ID3D12DebugCommandList3 {}
+unsafe impl Sync for ID3D12DebugCommandList3 {}
 windows_core::imp::define_interface!(ID3D12DebugCommandQueue, ID3D12DebugCommandQueue_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053a);
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue, windows_core::IUnknown);
 impl ID3D12DebugCommandQueue {
@@ -836,6 +866,8 @@ impl ID3D12DebugCommandQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandQueue {}
+unsafe impl Send for ID3D12DebugCommandQueue {}
+unsafe impl Sync for ID3D12DebugCommandQueue {}
 windows_core::imp::define_interface!(ID3D12DebugCommandQueue1, ID3D12DebugCommandQueue1_Vtbl, 0x16be35a2_bfd6_49f2_bcae_eaae4aff862d);
 impl core::ops::Deref for ID3D12DebugCommandQueue1 {
     type Target = ID3D12DebugCommandQueue;
@@ -889,6 +921,8 @@ impl ID3D12DebugCommandQueue1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandQueue1 {}
+unsafe impl Send for ID3D12DebugCommandQueue1 {}
+unsafe impl Sync for ID3D12DebugCommandQueue1 {}
 windows_core::imp::define_interface!(ID3D12DebugDevice, ID3D12DebugDevice_Vtbl, 0x3febd6dd_4973_4787_8194_e45f9e28923e);
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice, windows_core::IUnknown);
 impl ID3D12DebugDevice {
@@ -940,6 +974,8 @@ impl ID3D12DebugDevice_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugDevice {}
+unsafe impl Send for ID3D12DebugDevice {}
+unsafe impl Sync for ID3D12DebugDevice {}
 windows_core::imp::define_interface!(ID3D12DebugDevice1, ID3D12DebugDevice1_Vtbl, 0xa9b71770_d099_4a65_a698_3dee10020f88);
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice1, windows_core::IUnknown);
 impl ID3D12DebugDevice1 {
@@ -991,6 +1027,8 @@ impl ID3D12DebugDevice1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugDevice1 {}
+unsafe impl Send for ID3D12DebugDevice1 {}
+unsafe impl Sync for ID3D12DebugDevice1 {}
 windows_core::imp::define_interface!(ID3D12DebugDevice2, ID3D12DebugDevice2_Vtbl, 0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
 impl core::ops::Deref for ID3D12DebugDevice2 {
     type Target = ID3D12DebugDevice;
@@ -1038,6 +1076,8 @@ impl ID3D12DebugDevice2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugDevice2 {}
+unsafe impl Send for ID3D12DebugDevice2 {}
+unsafe impl Sync for ID3D12DebugDevice2 {}
 windows_core::imp::define_interface!(ID3D12DescriptorHeap, ID3D12DescriptorHeap_Vtbl, 0x8efb471d_616c_4f49_90f7_127bb763fa51);
 impl core::ops::Deref for ID3D12DescriptorHeap {
     type Target = ID3D12Pageable;
@@ -1101,6 +1141,8 @@ impl ID3D12DescriptorHeap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DescriptorHeap {}
+unsafe impl Send for ID3D12DescriptorHeap {}
+unsafe impl Sync for ID3D12DescriptorHeap {}
 windows_core::imp::define_interface!(ID3D12Device, ID3D12Device_Vtbl, 0x189819f1_1db6_4b57_be54_1821339b85f7);
 impl core::ops::Deref for ID3D12Device {
     type Target = ID3D12Object;
@@ -1658,6 +1700,10 @@ impl ID3D12Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device {}
 windows_core::imp::define_interface!(ID3D12Device1, ID3D12Device1_Vtbl, 0x77acce80_638e_4e65_8895_c1f23386863e);
 impl core::ops::Deref for ID3D12Device1 {
     type Target = ID3D12Device;
@@ -1725,6 +1771,10 @@ impl ID3D12Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device1 {}
 windows_core::imp::define_interface!(ID3D12Device10, ID3D12Device10_Vtbl, 0x517f8718_aa66_49f9_b02b_a7ab89c06031);
 impl core::ops::Deref for ID3D12Device10 {
     type Target = ID3D12Device9;
@@ -1822,6 +1872,10 @@ impl ID3D12Device10_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device10 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device10 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device10 {}
 windows_core::imp::define_interface!(ID3D12Device11, ID3D12Device11_Vtbl, 0x5405c344_d457_444e_b4dd_2366e45aee39);
 impl core::ops::Deref for ID3D12Device11 {
     type Target = ID3D12Device10;
@@ -1859,6 +1913,10 @@ impl ID3D12Device11_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device11 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device11 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device11 {}
 windows_core::imp::define_interface!(ID3D12Device12, ID3D12Device12_Vtbl, 0x5af5c532_4c91_4cd0_b541_15a405395fc5);
 impl core::ops::Deref for ID3D12Device12 {
     type Target = ID3D12Device11;
@@ -1902,6 +1960,10 @@ impl ID3D12Device12_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device12 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device12 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device12 {}
 windows_core::imp::define_interface!(ID3D12Device13, ID3D12Device13_Vtbl, 0x14eecffc_4df8_40f7_a118_5c816f45695e);
 impl core::ops::Deref for ID3D12Device13 {
     type Target = ID3D12Device12;
@@ -1943,6 +2005,10 @@ impl ID3D12Device13_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device13 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device13 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device13 {}
 windows_core::imp::define_interface!(ID3D12Device14, ID3D12Device14_Vtbl, 0x5f6e592d_d895_44c2_8e4a_88ad4926d323);
 impl core::ops::Deref for ID3D12Device14 {
     type Target = ID3D12Device13;
@@ -1988,6 +2054,10 @@ impl ID3D12Device14_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device14 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device14 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device14 {}
 windows_core::imp::define_interface!(ID3D12Device2, ID3D12Device2_Vtbl, 0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
 impl core::ops::Deref for ID3D12Device2 {
     type Target = ID3D12Device1;
@@ -2029,6 +2099,10 @@ impl ID3D12Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device2 {}
 windows_core::imp::define_interface!(ID3D12Device3, ID3D12Device3_Vtbl, 0x81dadc15_2bad_4392_93c5_101345c4aa98);
 impl core::ops::Deref for ID3D12Device3 {
     type Target = ID3D12Device2;
@@ -2101,6 +2175,10 @@ impl ID3D12Device3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device3 {}
 windows_core::imp::define_interface!(ID3D12Device4, ID3D12Device4_Vtbl, 0xe865df17_a9ee_46f9_a463_3098315aa2e5);
 impl core::ops::Deref for ID3D12Device4 {
     type Target = ID3D12Device3;
@@ -2225,6 +2303,10 @@ impl ID3D12Device4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device4 {}
 windows_core::imp::define_interface!(ID3D12Device5, ID3D12Device5_Vtbl, 0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
 impl core::ops::Deref for ID3D12Device5 {
     type Target = ID3D12Device4;
@@ -2352,6 +2434,10 @@ impl ID3D12Device5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device5 {}
 windows_core::imp::define_interface!(ID3D12Device6, ID3D12Device6_Vtbl, 0xc70b221b_40e4_4a17_89af_025a0727a6dc);
 impl core::ops::Deref for ID3D12Device6 {
     type Target = ID3D12Device5;
@@ -2392,6 +2478,10 @@ impl ID3D12Device6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device6 {}
 windows_core::imp::define_interface!(ID3D12Device7, ID3D12Device7_Vtbl, 0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
 impl core::ops::Deref for ID3D12Device7 {
     type Target = ID3D12Device6;
@@ -2451,6 +2541,10 @@ impl ID3D12Device7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device7 {}
 windows_core::imp::define_interface!(ID3D12Device8, ID3D12Device8_Vtbl, 0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
 impl core::ops::Deref for ID3D12Device8 {
     type Target = ID3D12Device7;
@@ -2561,6 +2655,10 @@ impl ID3D12Device8_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device8 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device8 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device8 {}
 windows_core::imp::define_interface!(ID3D12Device9, ID3D12Device9_Vtbl, 0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
 impl core::ops::Deref for ID3D12Device9 {
     type Target = ID3D12Device8;
@@ -2628,6 +2726,10 @@ impl ID3D12Device9_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl windows_core::RuntimeName for ID3D12Device9 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Send for ID3D12Device9 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+unsafe impl Sync for ID3D12Device9 {}
 windows_core::imp::define_interface!(ID3D12DeviceChild, ID3D12DeviceChild_Vtbl, 0x905db94b_a00c_4140_9df5_2b64ca9ea357);
 impl core::ops::Deref for ID3D12DeviceChild {
     type Target = ID3D12Object;
@@ -2665,6 +2767,8 @@ impl ID3D12DeviceChild_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceChild {}
+unsafe impl Send for ID3D12DeviceChild {}
+unsafe impl Sync for ID3D12DeviceChild {}
 windows_core::imp::define_interface!(ID3D12DeviceConfiguration, ID3D12DeviceConfiguration_Vtbl, 0x78dbf87b_f766_422b_a61c_c8c446bdb9ad);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration, windows_core::IUnknown);
 impl ID3D12DeviceConfiguration {
@@ -2739,6 +2843,10 @@ impl ID3D12DeviceConfiguration_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D12DeviceConfiguration {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12DeviceConfiguration {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12DeviceConfiguration {}
 windows_core::imp::define_interface!(ID3D12DeviceConfiguration1, ID3D12DeviceConfiguration1_Vtbl, 0xed342442_6343_4e16_bb82_a3a577874e56);
 impl core::ops::Deref for ID3D12DeviceConfiguration1 {
     type Target = ID3D12DeviceConfiguration;
@@ -2784,6 +2892,10 @@ impl ID3D12DeviceConfiguration1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D12DeviceConfiguration1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12DeviceConfiguration1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12DeviceConfiguration1 {}
 windows_core::imp::define_interface!(ID3D12DeviceFactory, ID3D12DeviceFactory_Vtbl, 0x61f307d3_d34e_4e7c_8374_3ba4de23cccb);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceFactory, windows_core::IUnknown);
 impl ID3D12DeviceFactory {
@@ -2890,6 +3002,10 @@ impl ID3D12DeviceFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D12DeviceFactory {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12DeviceFactory {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12DeviceFactory {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData_Vtbl, 0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
@@ -2945,6 +3061,8 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedData {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedData {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedData {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData1, ID3D12DeviceRemovedExtendedData1_Vtbl, 0x9727a022_cf1d_4dda_9eba_effa653fc506);
 impl core::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
     type Target = ID3D12DeviceRemovedExtendedData;
@@ -3006,6 +3124,8 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedData1 {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedData1 {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedData1 {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData2, ID3D12DeviceRemovedExtendedData2_Vtbl, 0x67fc5816_e4ca_4915_bf18_42541272da54);
 impl core::ops::Deref for ID3D12DeviceRemovedExtendedData2 {
     type Target = ID3D12DeviceRemovedExtendedData1;
@@ -3053,6 +3173,8 @@ impl ID3D12DeviceRemovedExtendedData2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedData2 {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedData2 {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedData2 {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings, ID3D12DeviceRemovedExtendedDataSettings_Vtbl, 0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedDataSettings, windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedDataSettings {
@@ -3104,6 +3226,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedDataSettings {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedDataSettings {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings1, ID3D12DeviceRemovedExtendedDataSettings1_Vtbl, 0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
 impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings;
@@ -3141,6 +3265,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings1 {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedDataSettings1 {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedDataSettings1 {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedDataSettings2, ID3D12DeviceRemovedExtendedDataSettings2_Vtbl, 0x61552388_01ab_4008_a436_83db189566ea);
 impl core::ops::Deref for ID3D12DeviceRemovedExtendedDataSettings2 {
     type Target = ID3D12DeviceRemovedExtendedDataSettings1;
@@ -3181,6 +3307,8 @@ impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings2 {}
+unsafe impl Send for ID3D12DeviceRemovedExtendedDataSettings2 {}
+unsafe impl Sync for ID3D12DeviceRemovedExtendedDataSettings2 {}
 windows_core::imp::define_interface!(ID3D12Fence, ID3D12Fence_Vtbl, 0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
 impl core::ops::Deref for ID3D12Fence {
     type Target = ID3D12Pageable;
@@ -3241,6 +3369,8 @@ impl ID3D12Fence_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Fence {}
+unsafe impl Send for ID3D12Fence {}
+unsafe impl Sync for ID3D12Fence {}
 windows_core::imp::define_interface!(ID3D12Fence1, ID3D12Fence1_Vtbl, 0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
 impl core::ops::Deref for ID3D12Fence1 {
     type Target = ID3D12Fence;
@@ -3275,6 +3405,8 @@ impl ID3D12Fence1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Fence1 {}
+unsafe impl Send for ID3D12Fence1 {}
+unsafe impl Sync for ID3D12Fence1 {}
 windows_core::imp::define_interface!(ID3D12FunctionParameterReflection, ID3D12FunctionParameterReflection_Vtbl);
 impl ID3D12FunctionParameterReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3321,6 +3453,10 @@ impl ID3D12FunctionParameterReflection {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12FunctionParameterReflection {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12FunctionParameterReflection {}
 windows_core::imp::define_interface!(ID3D12FunctionReflection, ID3D12FunctionReflection_Vtbl);
 impl ID3D12FunctionReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3452,6 +3588,10 @@ impl ID3D12FunctionReflection {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12FunctionReflection {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12FunctionReflection {}
 windows_core::imp::define_interface!(ID3D12GBVDiagnostics, ID3D12GBVDiagnostics_Vtbl, 0x597985ab_9b75_4dbb_be23_0761195bebee);
 windows_core::imp::interface_hierarchy!(ID3D12GBVDiagnostics, windows_core::IUnknown);
 impl ID3D12GBVDiagnostics {
@@ -3566,6 +3706,10 @@ impl ID3D12GBVDiagnostics_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12GBVDiagnostics {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12GBVDiagnostics {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12GBVDiagnostics {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList, ID3D12GraphicsCommandList_Vtbl, 0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
 impl core::ops::Deref for ID3D12GraphicsCommandList {
     type Target = ID3D12CommandList;
@@ -4187,6 +4331,10 @@ impl ID3D12GraphicsCommandList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList1_Vtbl, 0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
 impl core::ops::Deref for ID3D12GraphicsCommandList1 {
     type Target = ID3D12GraphicsCommandList;
@@ -4293,6 +4441,10 @@ impl ID3D12GraphicsCommandList1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList1 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList10, ID3D12GraphicsCommandList10_Vtbl, 0x7013c015_d161_4b63_a08c_238552dd8acc);
 impl core::ops::Deref for ID3D12GraphicsCommandList10 {
     type Target = ID3D12GraphicsCommandList9;
@@ -4343,6 +4495,10 @@ impl ID3D12GraphicsCommandList10_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList10 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList10 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList10 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList2_Vtbl, 0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
 impl core::ops::Deref for ID3D12GraphicsCommandList2 {
     type Target = ID3D12GraphicsCommandList1;
@@ -4380,6 +4536,10 @@ impl ID3D12GraphicsCommandList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList2 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList3_Vtbl, 0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
 impl core::ops::Deref for ID3D12GraphicsCommandList3 {
     type Target = ID3D12GraphicsCommandList2;
@@ -4420,6 +4580,10 @@ impl ID3D12GraphicsCommandList3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList3 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList4_Vtbl, 0x8754318e_d3a9_4541_98cf_645b50dc4874);
 impl core::ops::Deref for ID3D12GraphicsCommandList4 {
     type Target = ID3D12GraphicsCommandList3;
@@ -4557,6 +4721,10 @@ impl ID3D12GraphicsCommandList4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList4 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList4 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList5_Vtbl, 0x55050859_4024_474c_87f5_6472eaee44ea);
 impl core::ops::Deref for ID3D12GraphicsCommandList5 {
     type Target = ID3D12GraphicsCommandList4;
@@ -4610,6 +4778,10 @@ impl ID3D12GraphicsCommandList5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList5 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList5 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList5 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList6_Vtbl, 0xc3827890_e548_4cfa_96cf_5689a9370f80);
 impl core::ops::Deref for ID3D12GraphicsCommandList6 {
     type Target = ID3D12GraphicsCommandList5;
@@ -4647,6 +4819,10 @@ impl ID3D12GraphicsCommandList6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList6 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList6 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList6 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList7_Vtbl, 0xdd171223_8b61_4769_90e3_160ccde4e2c1);
 impl core::ops::Deref for ID3D12GraphicsCommandList7 {
     type Target = ID3D12GraphicsCommandList6;
@@ -4684,6 +4860,10 @@ impl ID3D12GraphicsCommandList7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList7 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList7 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList7 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList8, ID3D12GraphicsCommandList8_Vtbl, 0xee936ef9_599d_4d28_938e_23c4ad05ce51);
 impl core::ops::Deref for ID3D12GraphicsCommandList8 {
     type Target = ID3D12GraphicsCommandList7;
@@ -4721,6 +4901,10 @@ impl ID3D12GraphicsCommandList8_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList8 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList8 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList8 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList9, ID3D12GraphicsCommandList9_Vtbl, 0x34ed2808_ffe6_4c2b_b11a_cabd2b0c59e1);
 impl core::ops::Deref for ID3D12GraphicsCommandList9 {
     type Target = ID3D12GraphicsCommandList8;
@@ -4771,6 +4955,10 @@ impl ID3D12GraphicsCommandList9_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList9 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12GraphicsCommandList9 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12GraphicsCommandList9 {}
 windows_core::imp::define_interface!(ID3D12Heap, ID3D12Heap_Vtbl, 0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
 impl core::ops::Deref for ID3D12Heap {
     type Target = ID3D12Pageable;
@@ -4807,6 +4995,8 @@ impl ID3D12Heap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Heap {}
+unsafe impl Send for ID3D12Heap {}
+unsafe impl Sync for ID3D12Heap {}
 windows_core::imp::define_interface!(ID3D12Heap1, ID3D12Heap1_Vtbl, 0x572f7389_2168_49e3_9693_d6df5871bf6d);
 impl core::ops::Deref for ID3D12Heap1 {
     type Target = ID3D12Heap;
@@ -4844,6 +5034,8 @@ impl ID3D12Heap1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Heap1 {}
+unsafe impl Send for ID3D12Heap1 {}
+unsafe impl Sync for ID3D12Heap1 {}
 windows_core::imp::define_interface!(ID3D12InfoQueue, ID3D12InfoQueue_Vtbl, 0x0742a90b_c387_483f_b946_30a7e4e61458);
 windows_core::imp::interface_hierarchy!(ID3D12InfoQueue, windows_core::IUnknown);
 impl ID3D12InfoQueue {
@@ -5233,6 +5425,8 @@ impl ID3D12InfoQueue_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12InfoQueue {}
+unsafe impl Send for ID3D12InfoQueue {}
+unsafe impl Sync for ID3D12InfoQueue {}
 windows_core::imp::define_interface!(ID3D12InfoQueue1, ID3D12InfoQueue1_Vtbl, 0x2852dd88_b484_4c0c_b6b1_67168500e600);
 impl core::ops::Deref for ID3D12InfoQueue1 {
     type Target = ID3D12InfoQueue;
@@ -5280,6 +5474,8 @@ impl ID3D12InfoQueue1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12InfoQueue1 {}
+unsafe impl Send for ID3D12InfoQueue1 {}
+unsafe impl Sync for ID3D12InfoQueue1 {}
 windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryReflection_Vtbl, 0x8e349d19_54db_4a56_9dc9_119d87bdb804);
 windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
 impl ID3D12LibraryReflection {
@@ -5328,6 +5524,8 @@ impl ID3D12LibraryReflection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12LibraryReflection {}
+unsafe impl Send for ID3D12LibraryReflection {}
+unsafe impl Sync for ID3D12LibraryReflection {}
 windows_core::imp::define_interface!(ID3D12LifetimeOwner, ID3D12LifetimeOwner_Vtbl, 0xe667af9f_cd56_4f46_83ce_032e595d70a8);
 windows_core::imp::interface_hierarchy!(ID3D12LifetimeOwner, windows_core::IUnknown);
 impl ID3D12LifetimeOwner {
@@ -5356,6 +5554,8 @@ impl ID3D12LifetimeOwner_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12LifetimeOwner {}
+unsafe impl Send for ID3D12LifetimeOwner {}
+unsafe impl Sync for ID3D12LifetimeOwner {}
 windows_core::imp::define_interface!(ID3D12LifetimeTracker, ID3D12LifetimeTracker_Vtbl, 0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
 impl core::ops::Deref for ID3D12LifetimeTracker {
     type Target = ID3D12DeviceChild;
@@ -5393,6 +5593,8 @@ impl ID3D12LifetimeTracker_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12LifetimeTracker {}
+unsafe impl Send for ID3D12LifetimeTracker {}
+unsafe impl Sync for ID3D12LifetimeTracker {}
 windows_core::imp::define_interface!(ID3D12ManualWriteTrackingResource, ID3D12ManualWriteTrackingResource_Vtbl, 0x86ca3b85_49ad_4b6e_aed5_eddb18540f41);
 windows_core::imp::interface_hierarchy!(ID3D12ManualWriteTrackingResource, windows_core::IUnknown);
 impl ID3D12ManualWriteTrackingResource {
@@ -5421,6 +5623,8 @@ impl ID3D12ManualWriteTrackingResource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ManualWriteTrackingResource {}
+unsafe impl Send for ID3D12ManualWriteTrackingResource {}
+unsafe impl Sync for ID3D12ManualWriteTrackingResource {}
 windows_core::imp::define_interface!(ID3D12MetaCommand, ID3D12MetaCommand_Vtbl, 0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
 impl core::ops::Deref for ID3D12MetaCommand {
     type Target = ID3D12Pageable;
@@ -5455,6 +5659,8 @@ impl ID3D12MetaCommand_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12MetaCommand {}
+unsafe impl Send for ID3D12MetaCommand {}
+unsafe impl Sync for ID3D12MetaCommand {}
 windows_core::imp::define_interface!(ID3D12Object, ID3D12Object_Vtbl, 0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
 windows_core::imp::interface_hierarchy!(ID3D12Object, windows_core::IUnknown);
 impl ID3D12Object {
@@ -5522,6 +5728,8 @@ impl ID3D12Object_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Object {}
+unsafe impl Send for ID3D12Object {}
+unsafe impl Sync for ID3D12Object {}
 windows_core::imp::define_interface!(ID3D12Pageable, ID3D12Pageable_Vtbl, 0x63ee58fb_1268_4835_86da_f008ce62f0d6);
 impl core::ops::Deref for ID3D12Pageable {
     type Target = ID3D12DeviceChild;
@@ -5544,6 +5752,8 @@ impl ID3D12Pageable_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Pageable {}
+unsafe impl Send for ID3D12Pageable {}
+unsafe impl Sync for ID3D12Pageable {}
 windows_core::imp::define_interface!(ID3D12PipelineLibrary, ID3D12PipelineLibrary_Vtbl, 0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
 impl core::ops::Deref for ID3D12PipelineLibrary {
     type Target = ID3D12DeviceChild;
@@ -5642,6 +5852,10 @@ impl ID3D12PipelineLibrary_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12PipelineLibrary {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12PipelineLibrary {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12PipelineLibrary {}
 windows_core::imp::define_interface!(ID3D12PipelineLibrary1, ID3D12PipelineLibrary1_Vtbl, 0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
 impl core::ops::Deref for ID3D12PipelineLibrary1 {
     type Target = ID3D12PipelineLibrary;
@@ -5684,6 +5898,10 @@ impl ID3D12PipelineLibrary1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12PipelineLibrary1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12PipelineLibrary1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12PipelineLibrary1 {}
 windows_core::imp::define_interface!(ID3D12PipelineState, ID3D12PipelineState_Vtbl, 0x765a30f3_f624_4c6f_a828_ace948622445);
 impl core::ops::Deref for ID3D12PipelineState {
     type Target = ID3D12Pageable;
@@ -5732,6 +5950,10 @@ impl ID3D12PipelineState_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D12PipelineState {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12PipelineState {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12PipelineState {}
 windows_core::imp::define_interface!(ID3D12ProtectedResourceSession, ID3D12ProtectedResourceSession_Vtbl, 0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
 impl core::ops::Deref for ID3D12ProtectedResourceSession {
     type Target = ID3D12ProtectedSession;
@@ -5768,6 +5990,8 @@ impl ID3D12ProtectedResourceSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedResourceSession {}
+unsafe impl Send for ID3D12ProtectedResourceSession {}
+unsafe impl Sync for ID3D12ProtectedResourceSession {}
 windows_core::imp::define_interface!(ID3D12ProtectedResourceSession1, ID3D12ProtectedResourceSession1_Vtbl, 0xd6f12dd6_76fb_406e_8961_4296eefc0409);
 impl core::ops::Deref for ID3D12ProtectedResourceSession1 {
     type Target = ID3D12ProtectedResourceSession;
@@ -5804,6 +6028,8 @@ impl ID3D12ProtectedResourceSession1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedResourceSession1 {}
+unsafe impl Send for ID3D12ProtectedResourceSession1 {}
+unsafe impl Sync for ID3D12ProtectedResourceSession1 {}
 windows_core::imp::define_interface!(ID3D12ProtectedSession, ID3D12ProtectedSession_Vtbl, 0xa1533d18_0ac1_4084_85b9_89a96116806b);
 impl core::ops::Deref for ID3D12ProtectedSession {
     type Target = ID3D12DeviceChild;
@@ -5854,6 +6080,8 @@ impl ID3D12ProtectedSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedSession {}
+unsafe impl Send for ID3D12ProtectedSession {}
+unsafe impl Sync for ID3D12ProtectedSession {}
 windows_core::imp::define_interface!(ID3D12QueryHeap, ID3D12QueryHeap_Vtbl, 0x0d9658ae_ed45_469e_a61d_970ec583cab4);
 impl core::ops::Deref for ID3D12QueryHeap {
     type Target = ID3D12Pageable;
@@ -5876,6 +6104,8 @@ impl ID3D12QueryHeap_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12QueryHeap {}
+unsafe impl Send for ID3D12QueryHeap {}
+unsafe impl Sync for ID3D12QueryHeap {}
 windows_core::imp::define_interface!(ID3D12Resource, ID3D12Resource_Vtbl, 0x696442be_a72e_4059_bc79_5b5c98040fad);
 impl core::ops::Deref for ID3D12Resource {
     type Target = ID3D12Pageable;
@@ -5982,6 +6212,10 @@ impl ID3D12Resource_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12Resource {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12Resource {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12Resource {}
 windows_core::imp::define_interface!(ID3D12Resource1, ID3D12Resource1_Vtbl, 0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
 impl core::ops::Deref for ID3D12Resource1 {
     type Target = ID3D12Resource;
@@ -6022,6 +6256,10 @@ impl ID3D12Resource1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12Resource1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12Resource1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12Resource1 {}
 windows_core::imp::define_interface!(ID3D12Resource2, ID3D12Resource2_Vtbl, 0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
 impl core::ops::Deref for ID3D12Resource2 {
     type Target = ID3D12Resource1;
@@ -6065,6 +6303,10 @@ impl ID3D12Resource2_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12Resource2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12Resource2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12Resource2 {}
 windows_core::imp::define_interface!(ID3D12RootSignature, ID3D12RootSignature_Vtbl, 0xc54a6b66_72df_4ee8_8be5_a946a1429214);
 impl core::ops::Deref for ID3D12RootSignature {
     type Target = ID3D12DeviceChild;
@@ -6087,6 +6329,8 @@ impl ID3D12RootSignature_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12RootSignature {}
+unsafe impl Send for ID3D12RootSignature {}
+unsafe impl Sync for ID3D12RootSignature {}
 windows_core::imp::define_interface!(ID3D12RootSignatureDeserializer, ID3D12RootSignatureDeserializer_Vtbl, 0x34ab647b_3cc8_46ac_841b_c0965645c046);
 windows_core::imp::interface_hierarchy!(ID3D12RootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12RootSignatureDeserializer {
@@ -6115,6 +6359,8 @@ impl ID3D12RootSignatureDeserializer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12RootSignatureDeserializer {}
+unsafe impl Send for ID3D12RootSignatureDeserializer {}
+unsafe impl Sync for ID3D12RootSignatureDeserializer {}
 windows_core::imp::define_interface!(ID3D12SDKConfiguration, ID3D12SDKConfiguration_Vtbl, 0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration, windows_core::IUnknown);
 impl ID3D12SDKConfiguration {
@@ -6146,6 +6392,8 @@ impl ID3D12SDKConfiguration_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12SDKConfiguration {}
+unsafe impl Send for ID3D12SDKConfiguration {}
+unsafe impl Sync for ID3D12SDKConfiguration {}
 windows_core::imp::define_interface!(ID3D12SDKConfiguration1, ID3D12SDKConfiguration1_Vtbl, 0x8aaf9303_ad25_48b9_9a57_d9c37e009d9f);
 impl core::ops::Deref for ID3D12SDKConfiguration1 {
     type Target = ID3D12SDKConfiguration;
@@ -6198,6 +6446,8 @@ impl ID3D12SDKConfiguration1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12SDKConfiguration1 {}
+unsafe impl Send for ID3D12SDKConfiguration1 {}
+unsafe impl Sync for ID3D12SDKConfiguration1 {}
 windows_core::imp::define_interface!(ID3D12ShaderCacheSession, ID3D12ShaderCacheSession_Vtbl, 0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
 impl core::ops::Deref for ID3D12ShaderCacheSession {
     type Target = ID3D12DeviceChild;
@@ -6267,6 +6517,8 @@ impl ID3D12ShaderCacheSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ShaderCacheSession {}
+unsafe impl Send for ID3D12ShaderCacheSession {}
+unsafe impl Sync for ID3D12ShaderCacheSession {}
 windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflection_Vtbl, 0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
 windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, windows_core::IUnknown);
 impl ID3D12ShaderReflection {
@@ -6529,6 +6781,10 @@ impl ID3D12ShaderReflection_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl windows_core::RuntimeName for ID3D12ShaderReflection {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12ShaderReflection {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12ShaderReflection {}
 windows_core::imp::define_interface!(ID3D12ShaderReflectionConstantBuffer, ID3D12ShaderReflectionConstantBuffer_Vtbl);
 impl ID3D12ShaderReflectionConstantBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6598,6 +6854,10 @@ impl ID3D12ShaderReflectionConstantBuffer {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12ShaderReflectionConstantBuffer {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12ShaderReflectionConstantBuffer {}
 windows_core::imp::define_interface!(ID3D12ShaderReflectionType, ID3D12ShaderReflectionType_Vtbl);
 impl ID3D12ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -6768,6 +7028,10 @@ impl ID3D12ShaderReflectionType {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Send for ID3D12ShaderReflectionType {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl Sync for ID3D12ShaderReflectionType {}
 windows_core::imp::define_interface!(ID3D12ShaderReflectionVariable, ID3D12ShaderReflectionVariable_Vtbl);
 impl ID3D12ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::Result<()> {
@@ -6835,6 +7099,8 @@ impl ID3D12ShaderReflectionVariable {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+unsafe impl Send for ID3D12ShaderReflectionVariable {}
+unsafe impl Sync for ID3D12ShaderReflectionVariable {}
 windows_core::imp::define_interface!(ID3D12SharingContract, ID3D12SharingContract_Vtbl, 0x0adf7d52_929c_4e61_addb_ffed30de66ef);
 windows_core::imp::interface_hierarchy!(ID3D12SharingContract, windows_core::IUnknown);
 impl ID3D12SharingContract {
@@ -6903,6 +7169,8 @@ impl ID3D12SharingContract_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12SharingContract {}
+unsafe impl Send for ID3D12SharingContract {}
+unsafe impl Sync for ID3D12SharingContract {}
 windows_core::imp::define_interface!(ID3D12StateObject, ID3D12StateObject_Vtbl, 0x47016943_fca8_4594_93ea_af258b55346d);
 impl core::ops::Deref for ID3D12StateObject {
     type Target = ID3D12Pageable;
@@ -6925,6 +7193,8 @@ impl ID3D12StateObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12StateObject {}
+unsafe impl Send for ID3D12StateObject {}
+unsafe impl Sync for ID3D12StateObject {}
 windows_core::imp::define_interface!(ID3D12StateObjectProperties, ID3D12StateObjectProperties_Vtbl, 0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
 windows_core::imp::interface_hierarchy!(ID3D12StateObjectProperties, windows_core::IUnknown);
 impl ID3D12StateObjectProperties {
@@ -6992,6 +7262,8 @@ impl ID3D12StateObjectProperties_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12StateObjectProperties {}
+unsafe impl Send for ID3D12StateObjectProperties {}
+unsafe impl Sync for ID3D12StateObjectProperties {}
 windows_core::imp::define_interface!(ID3D12StateObjectProperties1, ID3D12StateObjectProperties1_Vtbl, 0x460caac7_1d24_446a_a184_ca67db494138);
 impl core::ops::Deref for ID3D12StateObjectProperties1 {
     type Target = ID3D12StateObjectProperties;
@@ -7031,6 +7303,8 @@ impl ID3D12StateObjectProperties1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12StateObjectProperties1 {}
+unsafe impl Send for ID3D12StateObjectProperties1 {}
+unsafe impl Sync for ID3D12StateObjectProperties1 {}
 windows_core::imp::define_interface!(ID3D12SwapChainAssistant, ID3D12SwapChainAssistant_Vtbl, 0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
 windows_core::imp::interface_hierarchy!(ID3D12SwapChainAssistant, windows_core::IUnknown);
 impl ID3D12SwapChainAssistant {
@@ -7102,6 +7376,8 @@ impl ID3D12SwapChainAssistant_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12SwapChainAssistant {}
+unsafe impl Send for ID3D12SwapChainAssistant {}
+unsafe impl Sync for ID3D12SwapChainAssistant {}
 windows_core::imp::define_interface!(ID3D12Tools, ID3D12Tools_Vtbl, 0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
 windows_core::imp::interface_hierarchy!(ID3D12Tools, windows_core::IUnknown);
 impl ID3D12Tools {
@@ -7146,6 +7422,8 @@ impl ID3D12Tools_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Tools {}
+unsafe impl Send for ID3D12Tools {}
+unsafe impl Sync for ID3D12Tools {}
 windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, ID3D12VersionedRootSignatureDeserializer_Vtbl, 0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
 windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
@@ -7194,6 +7472,8 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12VersionedRootSignatureDeserializer {}
+unsafe impl Send for ID3D12VersionedRootSignatureDeserializer {}
+unsafe impl Sync for ID3D12VersionedRootSignatureDeserializer {}
 windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12VirtualizationGuestDevice_Vtbl, 0xbc66d368_7373_4943_8757_fc87dc79e476);
 windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, windows_core::IUnknown);
 impl ID3D12VirtualizationGuestDevice {
@@ -7255,6 +7535,8 @@ impl ID3D12VirtualizationGuestDevice_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12VirtualizationGuestDevice {}
+unsafe impl Send for ID3D12VirtualizationGuestDevice {}
+unsafe impl Sync for ID3D12VirtualizationGuestDevice {}
 windows_core::imp::define_interface!(ID3D12WorkGraphProperties, ID3D12WorkGraphProperties_Vtbl, 0x065acf71_f863_4b89_82f4_02e4d5886757);
 windows_core::imp::interface_hierarchy!(ID3D12WorkGraphProperties, windows_core::IUnknown);
 impl ID3D12WorkGraphProperties {
@@ -7413,6 +7695,8 @@ impl ID3D12WorkGraphProperties_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12WorkGraphProperties {}
+unsafe impl Send for ID3D12WorkGraphProperties {}
+unsafe impl Sync for ID3D12WorkGraphProperties {}
 pub const CLSID_D3D12Debug: windows_core::GUID = windows_core::GUID::from_u128(0xf2352aeb_dd84_49fe_b97b_a9dcfdcc1b4f);
 pub const CLSID_D3D12DeviceFactory: windows_core::GUID = windows_core::GUID::from_u128(0x114863bf_c386_4aee_b39d_8f0bbb062955);
 pub const CLSID_D3D12DeviceRemovedExtendedData: windows_core::GUID = windows_core::GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2);

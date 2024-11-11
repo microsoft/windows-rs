@@ -615,6 +615,8 @@ unsafe impl windows_core::Interface for DeviceAccessChangedEventArgs {
 impl windows_core::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
 }
+unsafe impl Send for DeviceAccessChangedEventArgs {}
+unsafe impl Sync for DeviceAccessChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceAccessInformation(windows_core::IUnknown);
@@ -681,6 +683,8 @@ unsafe impl windows_core::Interface for DeviceAccessInformation {
 impl windows_core::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
 }
+unsafe impl Send for DeviceAccessInformation {}
+unsafe impl Sync for DeviceAccessInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceConnectionChangeTriggerDetails(windows_core::IUnknown);
@@ -704,6 +708,8 @@ unsafe impl windows_core::Interface for DeviceConnectionChangeTriggerDetails {
 impl windows_core::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
 }
+unsafe impl Send for DeviceConnectionChangeTriggerDetails {}
+unsafe impl Sync for DeviceConnectionChangeTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceDisconnectButtonClickedEventArgs(windows_core::IUnknown);
@@ -727,6 +733,8 @@ unsafe impl windows_core::Interface for DeviceDisconnectButtonClickedEventArgs {
 impl windows_core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
 }
+unsafe impl Send for DeviceDisconnectButtonClickedEventArgs {}
+unsafe impl Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformation(windows_core::IUnknown);
@@ -979,6 +987,8 @@ unsafe impl windows_core::Interface for DeviceInformation {
 impl windows_core::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
 }
+unsafe impl Send for DeviceInformation {}
+unsafe impl Sync for DeviceInformation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1042,6 +1052,10 @@ unsafe impl windows_core::Interface for DeviceInformationCollection {
 impl windows_core::RuntimeName for DeviceInformationCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for DeviceInformationCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for DeviceInformationCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationCustomPairing(windows_core::IUnknown);
@@ -1117,6 +1131,8 @@ unsafe impl windows_core::Interface for DeviceInformationCustomPairing {
 impl windows_core::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
 }
+unsafe impl Send for DeviceInformationCustomPairing {}
+unsafe impl Sync for DeviceInformationCustomPairing {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationPairing(windows_core::IUnknown);
@@ -1212,6 +1228,8 @@ unsafe impl windows_core::Interface for DeviceInformationPairing {
 impl windows_core::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
 }
+unsafe impl Send for DeviceInformationPairing {}
+unsafe impl Sync for DeviceInformationPairing {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceInformationUpdate(windows_core::IUnknown);
@@ -1250,6 +1268,8 @@ unsafe impl windows_core::Interface for DeviceInformationUpdate {
 impl windows_core::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
 }
+unsafe impl Send for DeviceInformationUpdate {}
+unsafe impl Sync for DeviceInformationUpdate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingRequestedEventArgs(windows_core::IUnknown);
@@ -1314,6 +1334,8 @@ unsafe impl windows_core::Interface for DevicePairingRequestedEventArgs {
 impl windows_core::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
 }
+unsafe impl Send for DevicePairingRequestedEventArgs {}
+unsafe impl Sync for DevicePairingRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingResult(windows_core::IUnknown);
@@ -1344,6 +1366,8 @@ unsafe impl windows_core::Interface for DevicePairingResult {
 impl windows_core::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
 }
+unsafe impl Send for DevicePairingResult {}
+unsafe impl Sync for DevicePairingResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingSetMembersRequestedEventArgs(windows_core::IUnknown);
@@ -1382,6 +1406,8 @@ unsafe impl windows_core::Interface for DevicePairingSetMembersRequestedEventArg
 impl windows_core::RuntimeName for DevicePairingSetMembersRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingSetMembersRequestedEventArgs";
 }
+unsafe impl Send for DevicePairingSetMembersRequestedEventArgs {}
+unsafe impl Sync for DevicePairingSetMembersRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePicker(windows_core::IUnknown);
@@ -1504,6 +1530,8 @@ unsafe impl windows_core::Interface for DevicePicker {
 impl windows_core::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
 }
+unsafe impl Send for DevicePicker {}
+unsafe impl Sync for DevicePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePickerAppearance(windows_core::IUnknown);
@@ -1609,6 +1637,8 @@ unsafe impl windows_core::Interface for DevicePickerAppearance {
 impl windows_core::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
 }
+unsafe impl Send for DevicePickerAppearance {}
+unsafe impl Sync for DevicePickerAppearance {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePickerFilter(windows_core::IUnknown);
@@ -1641,6 +1671,8 @@ unsafe impl windows_core::Interface for DevicePickerFilter {
 impl windows_core::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
 }
+unsafe impl Send for DevicePickerFilter {}
+unsafe impl Sync for DevicePickerFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceSelectedEventArgs(windows_core::IUnknown);
@@ -1664,6 +1696,8 @@ unsafe impl windows_core::Interface for DeviceSelectedEventArgs {
 impl windows_core::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
 }
+unsafe impl Send for DeviceSelectedEventArgs {}
+unsafe impl Sync for DeviceSelectedEventArgs {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1785,6 +1819,10 @@ unsafe impl windows_core::Interface for DeviceThumbnail {
 impl windows_core::RuntimeName for DeviceThumbnail {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceThumbnail";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for DeviceThumbnail {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for DeviceThumbnail {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUnpairingResult(windows_core::IUnknown);
@@ -1808,6 +1846,8 @@ unsafe impl windows_core::Interface for DeviceUnpairingResult {
 impl windows_core::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
 }
+unsafe impl Send for DeviceUnpairingResult {}
+unsafe impl Sync for DeviceUnpairingResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcher(windows_core::IUnknown);
@@ -1920,6 +1960,8 @@ unsafe impl windows_core::Interface for DeviceWatcher {
 impl windows_core::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
 }
+unsafe impl Send for DeviceWatcher {}
+unsafe impl Sync for DeviceWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherEvent(windows_core::IUnknown);
@@ -1957,6 +1999,8 @@ unsafe impl windows_core::Interface for DeviceWatcherEvent {
 impl windows_core::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
 }
+unsafe impl Send for DeviceWatcherEvent {}
+unsafe impl Sync for DeviceWatcherEvent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherTriggerDetails(windows_core::IUnknown);
@@ -1981,6 +2025,8 @@ unsafe impl windows_core::Interface for DeviceWatcherTriggerDetails {
 impl windows_core::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
 }
+unsafe impl Send for DeviceWatcherTriggerDetails {}
+unsafe impl Sync for DeviceWatcherTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnclosureLocation(windows_core::IUnknown);
@@ -2025,6 +2071,8 @@ unsafe impl windows_core::Interface for EnclosureLocation {
 impl windows_core::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";
 }
+unsafe impl Send for EnclosureLocation {}
+unsafe impl Sync for EnclosureLocation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DeviceAccessStatus(pub i32);

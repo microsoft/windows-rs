@@ -90,6 +90,8 @@ unsafe impl windows_core::Interface for AdcChannel {
 impl windows_core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
+unsafe impl Send for AdcChannel {}
+unsafe impl Sync for AdcChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcController(windows_core::IUnknown);
@@ -183,6 +185,8 @@ unsafe impl windows_core::Interface for AdcController {
 impl windows_core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
+unsafe impl Send for AdcController {}
+unsafe impl Sync for AdcController {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AdcChannelMode(pub i32);

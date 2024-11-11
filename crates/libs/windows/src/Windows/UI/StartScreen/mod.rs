@@ -378,6 +378,8 @@ unsafe impl windows_core::Interface for JumpList {
 impl windows_core::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
 }
+unsafe impl Send for JumpList {}
+unsafe impl Sync for JumpList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JumpListItem(windows_core::IUnknown);
@@ -478,6 +480,8 @@ unsafe impl windows_core::Interface for JumpListItem {
 impl windows_core::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
 }
+unsafe impl Send for JumpListItem {}
+unsafe impl Sync for JumpListItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTile(windows_core::IUnknown);
@@ -826,6 +830,8 @@ unsafe impl windows_core::Interface for SecondaryTile {
 impl windows_core::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
 }
+unsafe impl Send for SecondaryTile {}
+unsafe impl Sync for SecondaryTile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTileVisualElements(windows_core::IUnknown);
@@ -1002,6 +1008,8 @@ unsafe impl windows_core::Interface for SecondaryTileVisualElements {
 impl windows_core::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
 }
+unsafe impl Send for SecondaryTileVisualElements {}
+unsafe impl Sync for SecondaryTileVisualElements {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartScreenManager(windows_core::IUnknown);
@@ -1093,6 +1101,8 @@ unsafe impl windows_core::Interface for StartScreenManager {
 impl windows_core::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
 }
+unsafe impl Send for StartScreenManager {}
+unsafe impl Sync for StartScreenManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileMixedRealityModel(windows_core::IUnknown);
@@ -1150,6 +1160,8 @@ unsafe impl windows_core::Interface for TileMixedRealityModel {
 impl windows_core::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
 }
+unsafe impl Send for TileMixedRealityModel {}
+unsafe impl Sync for TileMixedRealityModel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequest(windows_core::IUnknown);
@@ -1195,6 +1207,8 @@ unsafe impl windows_core::Interface for VisualElementsRequest {
 impl windows_core::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
 }
+unsafe impl Send for VisualElementsRequest {}
+unsafe impl Sync for VisualElementsRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestDeferral(windows_core::IUnknown);
@@ -1215,6 +1229,8 @@ unsafe impl windows_core::Interface for VisualElementsRequestDeferral {
 impl windows_core::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
 }
+unsafe impl Send for VisualElementsRequestDeferral {}
+unsafe impl Sync for VisualElementsRequestDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestedEventArgs(windows_core::IUnknown);
@@ -1238,6 +1254,8 @@ unsafe impl windows_core::Interface for VisualElementsRequestedEventArgs {
 impl windows_core::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";
 }
+unsafe impl Send for VisualElementsRequestedEventArgs {}
+unsafe impl Sync for VisualElementsRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ForegroundText(pub i32);

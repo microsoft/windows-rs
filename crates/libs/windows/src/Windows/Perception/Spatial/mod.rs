@@ -529,6 +529,8 @@ unsafe impl windows_core::Interface for SpatialAnchor {
 impl windows_core::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
 }
+unsafe impl Send for SpatialAnchor {}
+unsafe impl Sync for SpatialAnchor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExportSufficiency(windows_core::IUnknown);
@@ -566,6 +568,8 @@ unsafe impl windows_core::Interface for SpatialAnchorExportSufficiency {
 impl windows_core::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
 }
+unsafe impl Send for SpatialAnchorExportSufficiency {}
+unsafe impl Sync for SpatialAnchorExportSufficiency {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExporter(windows_core::IUnknown);
@@ -620,6 +624,8 @@ unsafe impl windows_core::Interface for SpatialAnchorExporter {
 impl windows_core::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
 }
+unsafe impl Send for SpatialAnchorExporter {}
+unsafe impl Sync for SpatialAnchorExporter {}
 pub struct SpatialAnchorManager;
 impl SpatialAnchorManager {
     pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<SpatialAnchorStore>> {
@@ -660,6 +666,8 @@ unsafe impl windows_core::Interface for SpatialAnchorRawCoordinateSystemAdjusted
 impl windows_core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
 }
+unsafe impl Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
+unsafe impl Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorStore(windows_core::IUnknown);
@@ -702,6 +710,8 @@ unsafe impl windows_core::Interface for SpatialAnchorStore {
 impl windows_core::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
 }
+unsafe impl Send for SpatialAnchorStore {}
+unsafe impl Sync for SpatialAnchorStore {}
 #[cfg(feature = "deprecated")]
 pub struct SpatialAnchorTransferManager;
 #[cfg(feature = "deprecated")]
@@ -803,6 +813,8 @@ unsafe impl windows_core::Interface for SpatialBoundingVolume {
 impl windows_core::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
 }
+unsafe impl Send for SpatialBoundingVolume {}
+unsafe impl Sync for SpatialBoundingVolume {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialCoordinateSystem(windows_core::IUnknown);
@@ -830,6 +842,8 @@ unsafe impl windows_core::Interface for SpatialCoordinateSystem {
 impl windows_core::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
 }
+unsafe impl Send for SpatialCoordinateSystem {}
+unsafe impl Sync for SpatialCoordinateSystem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntity(windows_core::IUnknown);
@@ -892,6 +906,8 @@ unsafe impl windows_core::Interface for SpatialEntity {
 impl windows_core::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
 }
+unsafe impl Send for SpatialEntity {}
+unsafe impl Sync for SpatialEntity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityAddedEventArgs(windows_core::IUnknown);
@@ -915,6 +931,8 @@ unsafe impl windows_core::Interface for SpatialEntityAddedEventArgs {
 impl windows_core::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
 }
+unsafe impl Send for SpatialEntityAddedEventArgs {}
+unsafe impl Sync for SpatialEntityAddedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityRemovedEventArgs(windows_core::IUnknown);
@@ -938,6 +956,8 @@ unsafe impl windows_core::Interface for SpatialEntityRemovedEventArgs {
 impl windows_core::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
 }
+unsafe impl Send for SpatialEntityRemovedEventArgs {}
+unsafe impl Sync for SpatialEntityRemovedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityStore(windows_core::IUnknown);
@@ -1001,6 +1021,8 @@ unsafe impl windows_core::Interface for SpatialEntityStore {
 impl windows_core::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
 }
+unsafe impl Send for SpatialEntityStore {}
+unsafe impl Sync for SpatialEntityStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityUpdatedEventArgs(windows_core::IUnknown);
@@ -1024,6 +1046,8 @@ unsafe impl windows_core::Interface for SpatialEntityUpdatedEventArgs {
 impl windows_core::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
 }
+unsafe impl Send for SpatialEntityUpdatedEventArgs {}
+unsafe impl Sync for SpatialEntityUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityWatcher(windows_core::IUnknown);
@@ -1111,6 +1135,8 @@ unsafe impl windows_core::Interface for SpatialEntityWatcher {
 impl windows_core::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
 }
+unsafe impl Send for SpatialEntityWatcher {}
+unsafe impl Sync for SpatialEntityWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocation(windows_core::IUnknown);
@@ -1191,6 +1217,8 @@ unsafe impl windows_core::Interface for SpatialLocation {
 impl windows_core::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
 }
+unsafe impl Send for SpatialLocation {}
+unsafe impl Sync for SpatialLocation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocator(windows_core::IUnknown);
@@ -1325,6 +1353,8 @@ unsafe impl windows_core::Interface for SpatialLocator {
 impl windows_core::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
 }
+unsafe impl Send for SpatialLocator {}
+unsafe impl Sync for SpatialLocator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorAttachedFrameOfReference(windows_core::IUnknown);
@@ -1391,6 +1421,8 @@ unsafe impl windows_core::Interface for SpatialLocatorAttachedFrameOfReference {
 impl windows_core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
 }
+unsafe impl Send for SpatialLocatorAttachedFrameOfReference {}
+unsafe impl Sync for SpatialLocatorAttachedFrameOfReference {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(windows_core::IUnknown);
@@ -1418,6 +1450,8 @@ unsafe impl windows_core::Interface for SpatialLocatorPositionalTrackingDeactiva
 impl windows_core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
 }
+unsafe impl Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
+unsafe impl Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStageFrameOfReference(windows_core::IUnknown);
@@ -1504,6 +1538,8 @@ unsafe impl windows_core::Interface for SpatialStageFrameOfReference {
 impl windows_core::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
 }
+unsafe impl Send for SpatialStageFrameOfReference {}
+unsafe impl Sync for SpatialStageFrameOfReference {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStationaryFrameOfReference(windows_core::IUnknown);
@@ -1527,6 +1563,8 @@ unsafe impl windows_core::Interface for SpatialStationaryFrameOfReference {
 impl windows_core::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";
 }
+unsafe impl Send for SpatialStationaryFrameOfReference {}
+unsafe impl Sync for SpatialStationaryFrameOfReference {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SpatialAnchorExportPurpose(pub i32);

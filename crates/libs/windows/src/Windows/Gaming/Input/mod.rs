@@ -660,6 +660,8 @@ unsafe impl windows_core::Interface for ArcadeStick {
 impl windows_core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
 }
+unsafe impl Send for ArcadeStick {}
+unsafe impl Sync for ArcadeStick {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlightStick(windows_core::IUnknown);
@@ -815,6 +817,8 @@ unsafe impl windows_core::Interface for FlightStick {
 impl windows_core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
 }
+unsafe impl Send for FlightStick {}
+unsafe impl Sync for FlightStick {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gamepad(windows_core::IUnknown);
@@ -978,6 +982,8 @@ unsafe impl windows_core::Interface for Gamepad {
 impl windows_core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
 }
+unsafe impl Send for Gamepad {}
+unsafe impl Sync for Gamepad {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Headset(windows_core::IUnknown);
@@ -1017,6 +1023,8 @@ unsafe impl windows_core::Interface for Headset {
 impl windows_core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
 }
+unsafe impl Send for Headset {}
+unsafe impl Sync for Headset {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RacingWheel(windows_core::IUnknown);
@@ -1212,6 +1220,8 @@ unsafe impl windows_core::Interface for RacingWheel {
 impl windows_core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
 }
+unsafe impl Send for RacingWheel {}
+unsafe impl Sync for RacingWheel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawGameController(windows_core::IUnknown);
@@ -1432,6 +1442,8 @@ unsafe impl windows_core::Interface for RawGameController {
 impl windows_core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
 }
+unsafe impl Send for RawGameController {}
+unsafe impl Sync for RawGameController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UINavigationController(windows_core::IUnknown);
@@ -1591,6 +1603,8 @@ unsafe impl windows_core::Interface for UINavigationController {
 impl windows_core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
 }
+unsafe impl Send for UINavigationController {}
+unsafe impl Sync for UINavigationController {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ArcadeStickButtons(pub u32);

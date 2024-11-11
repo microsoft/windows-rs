@@ -135,6 +135,8 @@ unsafe impl windows_core::Interface for SystemUpdateItem {
 impl windows_core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
 }
+unsafe impl Send for SystemUpdateItem {}
+unsafe impl Sync for SystemUpdateItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateLastErrorInfo(windows_core::IUnknown);
@@ -172,6 +174,8 @@ unsafe impl windows_core::Interface for SystemUpdateLastErrorInfo {
 impl windows_core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
 }
+unsafe impl Send for SystemUpdateLastErrorInfo {}
+unsafe impl Sync for SystemUpdateLastErrorInfo {}
 pub struct SystemUpdateManager;
 impl SystemUpdateManager {
     pub fn IsSupported() -> windows_core::Result<bool> {

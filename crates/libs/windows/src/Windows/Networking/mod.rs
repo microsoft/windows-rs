@@ -156,6 +156,8 @@ unsafe impl windows_core::Interface for EndpointPair {
 impl windows_core::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
+unsafe impl Send for EndpointPair {}
+unsafe impl Sync for EndpointPair {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HostName(windows_core::IUnknown);
@@ -246,6 +248,8 @@ unsafe impl windows_core::Interface for HostName {
 impl windows_core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
 }
+unsafe impl Send for HostName {}
+unsafe impl Sync for HostName {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DomainNameType(pub i32);

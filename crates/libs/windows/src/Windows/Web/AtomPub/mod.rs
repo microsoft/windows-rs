@@ -364,6 +364,10 @@ impl windows_core::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
 }
 #[cfg(feature = "Web_Syndication")]
+unsafe impl Send for AtomPubClient {}
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Sync for AtomPubClient {}
+#[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceCollection(windows_core::IUnknown);
@@ -501,6 +505,10 @@ impl windows_core::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
 }
 #[cfg(feature = "Web_Syndication")]
+unsafe impl Send for ResourceCollection {}
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Sync for ResourceCollection {}
+#[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServiceDocument(windows_core::IUnknown);
@@ -614,6 +622,10 @@ unsafe impl windows_core::Interface for ServiceDocument {
 impl windows_core::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
 }
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Send for ServiceDocument {}
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Sync for ServiceDocument {}
 #[cfg(feature = "Web_Syndication")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -736,3 +748,7 @@ unsafe impl windows_core::Interface for Workspace {
 impl windows_core::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";
 }
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Send for Workspace {}
+#[cfg(feature = "Web_Syndication")]
+unsafe impl Sync for Workspace {}

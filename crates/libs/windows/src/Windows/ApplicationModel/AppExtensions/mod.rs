@@ -244,6 +244,8 @@ unsafe impl windows_core::Interface for AppExtension {
 impl windows_core::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
 }
+unsafe impl Send for AppExtension {}
+unsafe impl Sync for AppExtension {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionCatalog(windows_core::IUnknown);
@@ -401,6 +403,8 @@ unsafe impl windows_core::Interface for AppExtensionPackageInstalledEventArgs {
 impl windows_core::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
 }
+unsafe impl Send for AppExtensionPackageInstalledEventArgs {}
+unsafe impl Sync for AppExtensionPackageInstalledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
@@ -431,6 +435,8 @@ unsafe impl windows_core::Interface for AppExtensionPackageStatusChangedEventArg
 impl windows_core::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
 }
+unsafe impl Send for AppExtensionPackageStatusChangedEventArgs {}
+unsafe impl Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
@@ -461,6 +467,8 @@ unsafe impl windows_core::Interface for AppExtensionPackageUninstallingEventArgs
 impl windows_core::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
 }
+unsafe impl Send for AppExtensionPackageUninstallingEventArgs {}
+unsafe impl Sync for AppExtensionPackageUninstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
@@ -499,6 +507,8 @@ unsafe impl windows_core::Interface for AppExtensionPackageUpdatedEventArgs {
 impl windows_core::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
 }
+unsafe impl Send for AppExtensionPackageUpdatedEventArgs {}
+unsafe impl Sync for AppExtensionPackageUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
@@ -529,3 +539,5 @@ unsafe impl windows_core::Interface for AppExtensionPackageUpdatingEventArgs {
 impl windows_core::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
 }
+unsafe impl Send for AppExtensionPackageUpdatingEventArgs {}
+unsafe impl Sync for AppExtensionPackageUpdatingEventArgs {}

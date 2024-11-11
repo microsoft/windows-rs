@@ -92,6 +92,8 @@ unsafe impl windows_core::Interface for UserDataAvailabilityStateChangedEventArg
 impl windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
+unsafe impl Send for UserDataAvailabilityStateChangedEventArgs {}
+unsafe impl Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataBufferUnprotectResult(windows_core::IUnknown);
@@ -123,6 +125,8 @@ unsafe impl windows_core::Interface for UserDataBufferUnprotectResult {
 impl windows_core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
+unsafe impl Send for UserDataBufferUnprotectResult {}
+unsafe impl Sync for UserDataBufferUnprotectResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataProtectionManager(windows_core::IUnknown);
@@ -224,6 +228,8 @@ unsafe impl windows_core::Interface for UserDataProtectionManager {
 impl windows_core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
+unsafe impl Send for UserDataProtectionManager {}
+unsafe impl Sync for UserDataProtectionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataStorageItemProtectionInfo(windows_core::IUnknown);
@@ -247,6 +253,8 @@ unsafe impl windows_core::Interface for UserDataStorageItemProtectionInfo {
 impl windows_core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
+unsafe impl Send for UserDataStorageItemProtectionInfo {}
+unsafe impl Sync for UserDataStorageItemProtectionInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataAvailability(pub i32);

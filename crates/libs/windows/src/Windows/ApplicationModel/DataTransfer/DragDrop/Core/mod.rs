@@ -279,6 +279,8 @@ unsafe impl windows_core::Interface for CoreDragDropManager {
 impl windows_core::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
+unsafe impl Send for CoreDragDropManager {}
+unsafe impl Sync for CoreDragDropManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragInfo(windows_core::IUnknown);
@@ -323,6 +325,8 @@ unsafe impl windows_core::Interface for CoreDragInfo {
 impl windows_core::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
+unsafe impl Send for CoreDragInfo {}
+unsafe impl Sync for CoreDragInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragOperation(windows_core::IUnknown);
@@ -402,6 +406,8 @@ unsafe impl windows_core::Interface for CoreDragOperation {
 impl windows_core::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
+unsafe impl Send for CoreDragOperation {}
+unsafe impl Sync for CoreDragOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragUIOverride(windows_core::IUnknown);
@@ -482,6 +488,8 @@ unsafe impl windows_core::Interface for CoreDragUIOverride {
 impl windows_core::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
+unsafe impl Send for CoreDragUIOverride {}
+unsafe impl Sync for CoreDragUIOverride {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDropOperationTargetRequestedEventArgs(windows_core::IUnknown);
@@ -505,6 +513,8 @@ unsafe impl windows_core::Interface for CoreDropOperationTargetRequestedEventArg
 impl windows_core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
 }
+unsafe impl Send for CoreDropOperationTargetRequestedEventArgs {}
+unsafe impl Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CoreDragUIContentMode(pub u32);

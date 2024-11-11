@@ -62,6 +62,8 @@ unsafe impl windows_core::Interface for CharacterGrouping {
 impl windows_core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
 }
+unsafe impl Send for CharacterGrouping {}
+unsafe impl Sync for CharacterGrouping {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -149,3 +151,7 @@ unsafe impl windows_core::Interface for CharacterGroupings {
 impl windows_core::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CharacterGroupings {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CharacterGroupings {}

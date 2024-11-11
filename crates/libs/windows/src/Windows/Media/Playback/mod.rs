@@ -1269,6 +1269,8 @@ unsafe impl windows_core::Interface for CurrentMediaPlaybackItemChangedEventArgs
 impl windows_core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
 }
+unsafe impl Send for CurrentMediaPlaybackItemChangedEventArgs {}
+unsafe impl Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreak(windows_core::IUnknown);
@@ -1341,6 +1343,8 @@ unsafe impl windows_core::Interface for MediaBreak {
 impl windows_core::RuntimeName for MediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreak";
 }
+unsafe impl Send for MediaBreak {}
+unsafe impl Sync for MediaBreak {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakEndedEventArgs(windows_core::IUnknown);
@@ -1364,6 +1368,8 @@ unsafe impl windows_core::Interface for MediaBreakEndedEventArgs {
 impl windows_core::RuntimeName for MediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakEndedEventArgs";
 }
+unsafe impl Send for MediaBreakEndedEventArgs {}
+unsafe impl Sync for MediaBreakEndedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakManager(windows_core::IUnknown);
@@ -1461,6 +1467,8 @@ unsafe impl windows_core::Interface for MediaBreakManager {
 impl windows_core::RuntimeName for MediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakManager";
 }
+unsafe impl Send for MediaBreakManager {}
+unsafe impl Sync for MediaBreakManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakSchedule(windows_core::IUnknown);
@@ -1548,6 +1556,8 @@ unsafe impl windows_core::Interface for MediaBreakSchedule {
 impl windows_core::RuntimeName for MediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSchedule";
 }
+unsafe impl Send for MediaBreakSchedule {}
+unsafe impl Sync for MediaBreakSchedule {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakSeekedOverEventArgs(windows_core::IUnknown);
@@ -1586,6 +1596,8 @@ unsafe impl windows_core::Interface for MediaBreakSeekedOverEventArgs {
 impl windows_core::RuntimeName for MediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSeekedOverEventArgs";
 }
+unsafe impl Send for MediaBreakSeekedOverEventArgs {}
+unsafe impl Sync for MediaBreakSeekedOverEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakSkippedEventArgs(windows_core::IUnknown);
@@ -1609,6 +1621,8 @@ unsafe impl windows_core::Interface for MediaBreakSkippedEventArgs {
 impl windows_core::RuntimeName for MediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSkippedEventArgs";
 }
+unsafe impl Send for MediaBreakSkippedEventArgs {}
+unsafe impl Sync for MediaBreakSkippedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaBreakStartedEventArgs(windows_core::IUnknown);
@@ -1632,6 +1646,8 @@ unsafe impl windows_core::Interface for MediaBreakStartedEventArgs {
 impl windows_core::RuntimeName for MediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakStartedEventArgs";
 }
+unsafe impl Send for MediaBreakStartedEventArgs {}
+unsafe impl Sync for MediaBreakStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaItemDisplayProperties(windows_core::IUnknown);
@@ -1693,6 +1709,8 @@ unsafe impl windows_core::Interface for MediaItemDisplayProperties {
 impl windows_core::RuntimeName for MediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.MediaItemDisplayProperties";
 }
+unsafe impl Send for MediaItemDisplayProperties {}
+unsafe impl Sync for MediaItemDisplayProperties {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1781,6 +1799,10 @@ unsafe impl windows_core::Interface for MediaPlaybackAudioTrackList {
 impl windows_core::RuntimeName for MediaPlaybackAudioTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackAudioTrackList";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Send for MediaPlaybackAudioTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Sync for MediaPlaybackAudioTrackList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManager(windows_core::IUnknown);
@@ -2025,6 +2047,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManager {
 impl windows_core::RuntimeName for MediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManager";
 }
+unsafe impl Send for MediaPlaybackCommandManager {}
+unsafe impl Sync for MediaPlaybackCommandManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(windows_core::IUnknown);
@@ -2066,6 +2090,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerAutoRepeatMod
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerCommandBehavior(windows_core::IUnknown);
@@ -2121,6 +2147,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerCommandBehavi
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerCommandBehavior {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior";
 }
+unsafe impl Send for MediaPlaybackCommandManagerCommandBehavior {}
+unsafe impl Sync for MediaPlaybackCommandManagerCommandBehavior {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(windows_core::IUnknown);
@@ -2155,6 +2183,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerFastForwardRe
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(windows_core::IUnknown);
@@ -2189,6 +2219,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerNextReceivedE
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(windows_core::IUnknown);
@@ -2223,6 +2255,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPauseReceived
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(windows_core::IUnknown);
@@ -2257,6 +2291,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPlayReceivedE
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(windows_core::IUnknown);
@@ -2298,6 +2334,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPositionRecei
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(windows_core::IUnknown);
@@ -2332,6 +2370,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerPreviousRecei
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(windows_core::IUnknown);
@@ -2373,6 +2413,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerRateReceivedE
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(windows_core::IUnknown);
@@ -2407,6 +2449,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerRewindReceive
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(windows_core::IUnknown);
@@ -2448,6 +2492,8 @@ unsafe impl windows_core::Interface for MediaPlaybackCommandManagerShuffleReceiv
 impl windows_core::RuntimeName for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs";
 }
+unsafe impl Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
+unsafe impl Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackItem(windows_core::IUnknown);
@@ -2669,6 +2715,8 @@ unsafe impl windows_core::Interface for MediaPlaybackItem {
 impl windows_core::RuntimeName for MediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItem";
 }
+unsafe impl Send for MediaPlaybackItem {}
+unsafe impl Sync for MediaPlaybackItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackItemError(windows_core::IUnknown);
@@ -2699,6 +2747,8 @@ unsafe impl windows_core::Interface for MediaPlaybackItemError {
 impl windows_core::RuntimeName for MediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemError";
 }
+unsafe impl Send for MediaPlaybackItemError {}
+unsafe impl Sync for MediaPlaybackItemError {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackItemFailedEventArgs(windows_core::IUnknown);
@@ -2729,6 +2779,8 @@ unsafe impl windows_core::Interface for MediaPlaybackItemFailedEventArgs {
 impl windows_core::RuntimeName for MediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemFailedEventArgs";
 }
+unsafe impl Send for MediaPlaybackItemFailedEventArgs {}
+unsafe impl Sync for MediaPlaybackItemFailedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackItemOpenedEventArgs(windows_core::IUnknown);
@@ -2752,6 +2804,8 @@ unsafe impl windows_core::Interface for MediaPlaybackItemOpenedEventArgs {
 impl windows_core::RuntimeName for MediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs";
 }
+unsafe impl Send for MediaPlaybackItemOpenedEventArgs {}
+unsafe impl Sync for MediaPlaybackItemOpenedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackList(windows_core::IUnknown);
@@ -2941,6 +2995,8 @@ unsafe impl windows_core::Interface for MediaPlaybackList {
 impl windows_core::RuntimeName for MediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackList";
 }
+unsafe impl Send for MediaPlaybackList {}
+unsafe impl Sync for MediaPlaybackList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackSession(windows_core::IUnknown);
@@ -3338,6 +3394,8 @@ unsafe impl windows_core::Interface for MediaPlaybackSession {
 impl windows_core::RuntimeName for MediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSession";
 }
+unsafe impl Send for MediaPlaybackSession {}
+unsafe impl Sync for MediaPlaybackSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackSessionBufferingStartedEventArgs(windows_core::IUnknown);
@@ -3361,6 +3419,8 @@ unsafe impl windows_core::Interface for MediaPlaybackSessionBufferingStartedEven
 impl windows_core::RuntimeName for MediaPlaybackSessionBufferingStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs";
 }
+unsafe impl Send for MediaPlaybackSessionBufferingStartedEventArgs {}
+unsafe impl Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackSessionOutputDegradationPolicyState(windows_core::IUnknown);
@@ -3384,6 +3444,8 @@ unsafe impl windows_core::Interface for MediaPlaybackSessionOutputDegradationPol
 impl windows_core::RuntimeName for MediaPlaybackSessionOutputDegradationPolicyState {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState";
 }
+unsafe impl Send for MediaPlaybackSessionOutputDegradationPolicyState {}
+unsafe impl Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackSphericalVideoProjection(windows_core::IUnknown);
@@ -3459,6 +3521,8 @@ unsafe impl windows_core::Interface for MediaPlaybackSphericalVideoProjection {
 impl windows_core::RuntimeName for MediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSphericalVideoProjection";
 }
+unsafe impl Send for MediaPlaybackSphericalVideoProjection {}
+unsafe impl Sync for MediaPlaybackSphericalVideoProjection {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3548,6 +3612,10 @@ impl windows_core::RuntimeName for MediaPlaybackTimedMetadataTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList";
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Send for MediaPlaybackTimedMetadataTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Sync for MediaPlaybackTimedMetadataTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlaybackVideoTrackList(windows_core::IUnknown);
@@ -3635,6 +3703,10 @@ unsafe impl windows_core::Interface for MediaPlaybackVideoTrackList {
 impl windows_core::RuntimeName for MediaPlaybackVideoTrackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackVideoTrackList";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Send for MediaPlaybackVideoTrackList {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
+unsafe impl Sync for MediaPlaybackVideoTrackList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlayer(windows_core::IUnknown);
@@ -4285,6 +4357,8 @@ unsafe impl windows_core::Interface for MediaPlayer {
 impl windows_core::RuntimeName for MediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayer";
 }
+unsafe impl Send for MediaPlayer {}
+unsafe impl Sync for MediaPlayer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlayerDataReceivedEventArgs(windows_core::IUnknown);
@@ -4309,6 +4383,8 @@ unsafe impl windows_core::Interface for MediaPlayerDataReceivedEventArgs {
 impl windows_core::RuntimeName for MediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerDataReceivedEventArgs";
 }
+unsafe impl Send for MediaPlayerDataReceivedEventArgs {}
+unsafe impl Sync for MediaPlayerDataReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlayerFailedEventArgs(windows_core::IUnknown);
@@ -4346,6 +4422,8 @@ unsafe impl windows_core::Interface for MediaPlayerFailedEventArgs {
 impl windows_core::RuntimeName for MediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerFailedEventArgs";
 }
+unsafe impl Send for MediaPlayerFailedEventArgs {}
+unsafe impl Sync for MediaPlayerFailedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlayerRateChangedEventArgs(windows_core::IUnknown);
@@ -4369,6 +4447,8 @@ unsafe impl windows_core::Interface for MediaPlayerRateChangedEventArgs {
 impl windows_core::RuntimeName for MediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerRateChangedEventArgs";
 }
+unsafe impl Send for MediaPlayerRateChangedEventArgs {}
+unsafe impl Sync for MediaPlayerRateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPlayerSurface(windows_core::IUnknown);
@@ -4413,6 +4493,8 @@ unsafe impl windows_core::Interface for MediaPlayerSurface {
 impl windows_core::RuntimeName for MediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerSurface";
 }
+unsafe impl Send for MediaPlayerSurface {}
+unsafe impl Sync for MediaPlayerSurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackMediaMarker(windows_core::IUnknown);
@@ -4466,6 +4548,8 @@ unsafe impl windows_core::Interface for PlaybackMediaMarker {
 impl windows_core::RuntimeName for PlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarker";
 }
+unsafe impl Send for PlaybackMediaMarker {}
+unsafe impl Sync for PlaybackMediaMarker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackMediaMarkerReachedEventArgs(windows_core::IUnknown);
@@ -4489,6 +4573,8 @@ unsafe impl windows_core::Interface for PlaybackMediaMarkerReachedEventArgs {
 impl windows_core::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs";
 }
+unsafe impl Send for PlaybackMediaMarkerReachedEventArgs {}
+unsafe impl Sync for PlaybackMediaMarkerReachedEventArgs {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4539,6 +4625,10 @@ unsafe impl windows_core::Interface for PlaybackMediaMarkerSequence {
 impl windows_core::RuntimeName for PlaybackMediaMarkerSequence {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerSequence";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for PlaybackMediaMarkerSequence {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for PlaybackMediaMarkerSequence {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(windows_core::IUnknown);
@@ -4577,6 +4667,8 @@ unsafe impl windows_core::Interface for TimedMetadataPresentationModeChangedEven
 impl windows_core::RuntimeName for TimedMetadataPresentationModeChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs";
 }
+unsafe impl Send for TimedMetadataPresentationModeChangedEventArgs {}
+unsafe impl Sync for TimedMetadataPresentationModeChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AutoLoadedDisplayPropertyKind(pub i32);

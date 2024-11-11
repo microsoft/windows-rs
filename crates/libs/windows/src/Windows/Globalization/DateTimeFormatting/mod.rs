@@ -316,6 +316,8 @@ unsafe impl windows_core::Interface for DateTimeFormatter {
 impl windows_core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
+unsafe impl Send for DateTimeFormatter {}
+unsafe impl Sync for DateTimeFormatter {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DayFormat(pub i32);

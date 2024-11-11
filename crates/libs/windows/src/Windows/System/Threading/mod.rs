@@ -147,6 +147,8 @@ unsafe impl windows_core::Interface for ThreadPoolTimer {
 impl windows_core::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";
 }
+unsafe impl Send for ThreadPoolTimer {}
+unsafe impl Sync for ThreadPoolTimer {}
 windows_core::imp::define_interface!(TimerDestroyedHandler, TimerDestroyedHandler_Vtbl, 0x34ed19fa_8384_4eb9_8209_fb5094eeec35);
 impl windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

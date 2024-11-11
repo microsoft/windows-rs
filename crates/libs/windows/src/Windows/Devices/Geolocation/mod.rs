@@ -512,6 +512,8 @@ unsafe impl windows_core::Interface for CivicAddress {
 impl windows_core::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
 }
+unsafe impl Send for CivicAddress {}
+unsafe impl Sync for CivicAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeoboundingBox(windows_core::IUnknown);
@@ -641,6 +643,8 @@ unsafe impl windows_core::Interface for GeoboundingBox {
 impl windows_core::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
 }
+unsafe impl Send for GeoboundingBox {}
+unsafe impl Sync for GeoboundingBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geocircle(windows_core::IUnknown);
@@ -715,6 +719,8 @@ unsafe impl windows_core::Interface for Geocircle {
 impl windows_core::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
 }
+unsafe impl Send for Geocircle {}
+unsafe impl Sync for Geocircle {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geocoordinate(windows_core::IUnknown);
@@ -822,6 +828,8 @@ unsafe impl windows_core::Interface for Geocoordinate {
 impl windows_core::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
 }
+unsafe impl Send for Geocoordinate {}
+unsafe impl Sync for Geocoordinate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeocoordinateSatelliteData(windows_core::IUnknown);
@@ -873,6 +881,8 @@ unsafe impl windows_core::Interface for GeocoordinateSatelliteData {
 impl windows_core::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
 }
+unsafe impl Send for GeocoordinateSatelliteData {}
+unsafe impl Sync for GeocoordinateSatelliteData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geolocator(windows_core::IUnknown);
@@ -1042,6 +1052,8 @@ unsafe impl windows_core::Interface for Geolocator {
 impl windows_core::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
 }
+unsafe impl Send for Geolocator {}
+unsafe impl Sync for Geolocator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geopath(windows_core::IUnknown);
@@ -1122,6 +1134,8 @@ unsafe impl windows_core::Interface for Geopath {
 impl windows_core::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
 }
+unsafe impl Send for Geopath {}
+unsafe impl Sync for Geopath {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geopoint(windows_core::IUnknown);
@@ -1189,6 +1203,8 @@ unsafe impl windows_core::Interface for Geopoint {
 impl windows_core::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
 }
+unsafe impl Send for Geopoint {}
+unsafe impl Sync for Geopoint {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geoposition(windows_core::IUnknown);
@@ -1226,6 +1242,8 @@ unsafe impl windows_core::Interface for Geoposition {
 impl windows_core::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
 }
+unsafe impl Send for Geoposition {}
+unsafe impl Sync for Geoposition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geovisit(windows_core::IUnknown);
@@ -1263,6 +1281,8 @@ unsafe impl windows_core::Interface for Geovisit {
 impl windows_core::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
 }
+unsafe impl Send for Geovisit {}
+unsafe impl Sync for Geovisit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitMonitor(windows_core::IUnknown);
@@ -1325,6 +1345,8 @@ unsafe impl windows_core::Interface for GeovisitMonitor {
 impl windows_core::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
 }
+unsafe impl Send for GeovisitMonitor {}
+unsafe impl Sync for GeovisitMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitStateChangedEventArgs(windows_core::IUnknown);
@@ -1348,6 +1370,8 @@ unsafe impl windows_core::Interface for GeovisitStateChangedEventArgs {
 impl windows_core::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
 }
+unsafe impl Send for GeovisitStateChangedEventArgs {}
+unsafe impl Sync for GeovisitStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitTriggerDetails(windows_core::IUnknown);
@@ -1372,6 +1396,8 @@ unsafe impl windows_core::Interface for GeovisitTriggerDetails {
 impl windows_core::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
 }
+unsafe impl Send for GeovisitTriggerDetails {}
+unsafe impl Sync for GeovisitTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PositionChangedEventArgs(windows_core::IUnknown);
@@ -1395,6 +1421,8 @@ unsafe impl windows_core::Interface for PositionChangedEventArgs {
 impl windows_core::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
 }
+unsafe impl Send for PositionChangedEventArgs {}
+unsafe impl Sync for PositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatusChangedEventArgs(windows_core::IUnknown);
@@ -1418,6 +1446,8 @@ unsafe impl windows_core::Interface for StatusChangedEventArgs {
 impl windows_core::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
 }
+unsafe impl Send for StatusChangedEventArgs {}
+unsafe impl Sync for StatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VenueData(windows_core::IUnknown);
@@ -1448,6 +1478,8 @@ unsafe impl windows_core::Interface for VenueData {
 impl windows_core::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";
 }
+unsafe impl Send for VenueData {}
+unsafe impl Sync for VenueData {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AltitudeReferenceSystem(pub i32);

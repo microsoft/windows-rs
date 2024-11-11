@@ -522,6 +522,10 @@ impl windows_core::RuntimeName for PlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnection";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToConnection {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToConnection {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToConnectionErrorEventArgs(windows_core::IUnknown);
@@ -559,6 +563,10 @@ unsafe impl windows_core::Interface for PlayToConnectionErrorEventArgs {
 impl windows_core::RuntimeName for PlayToConnectionErrorEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToConnectionErrorEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -598,6 +606,10 @@ impl windows_core::RuntimeName for PlayToConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToConnectionStateChangedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToConnectionStateChangedEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToConnectionTransferredEventArgs(windows_core::IUnknown);
@@ -635,6 +647,10 @@ unsafe impl windows_core::Interface for PlayToConnectionTransferredEventArgs {
 impl windows_core::RuntimeName for PlayToConnectionTransferredEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToConnectionTransferredEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToConnectionTransferredEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -717,6 +733,10 @@ unsafe impl windows_core::Interface for PlayToManager {
 impl windows_core::RuntimeName for PlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToManager";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToManager {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToReceiver(windows_core::IUnknown);
@@ -1048,6 +1068,10 @@ impl windows_core::RuntimeName for PlayToSource {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSource";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToSource {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToSource {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceDeferral(windows_core::IUnknown);
@@ -1074,6 +1098,10 @@ unsafe impl windows_core::Interface for PlayToSourceDeferral {
 impl windows_core::RuntimeName for PlayToSourceDeferral {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceDeferral";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToSourceDeferral {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToSourceDeferral {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1126,6 +1154,10 @@ impl windows_core::RuntimeName for PlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequest";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToSourceRequest {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToSourceRequest {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceRequestedEventArgs(windows_core::IUnknown);
@@ -1155,6 +1187,10 @@ unsafe impl windows_core::Interface for PlayToSourceRequestedEventArgs {
 impl windows_core::RuntimeName for PlayToSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToSourceRequestedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToSourceRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1217,6 +1253,10 @@ unsafe impl windows_core::Interface for PlayToSourceSelectedEventArgs {
 impl windows_core::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PlayToSourceSelectedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PlayToSourceSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackRateChangeRequestedEventArgs(windows_core::IUnknown);

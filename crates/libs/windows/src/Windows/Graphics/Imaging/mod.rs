@@ -841,6 +841,8 @@ unsafe impl windows_core::Interface for BitmapBuffer {
 impl windows_core::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
 }
+unsafe impl Send for BitmapBuffer {}
+unsafe impl Sync for BitmapBuffer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapCodecInformation(windows_core::IUnknown);
@@ -887,6 +889,8 @@ unsafe impl windows_core::Interface for BitmapCodecInformation {
 impl windows_core::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
 }
+unsafe impl Send for BitmapCodecInformation {}
+unsafe impl Sync for BitmapCodecInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapDecoder(windows_core::IUnknown);
@@ -1141,6 +1145,8 @@ unsafe impl windows_core::Interface for BitmapDecoder {
 impl windows_core::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
 }
+unsafe impl Send for BitmapDecoder {}
+unsafe impl Sync for BitmapDecoder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapEncoder(windows_core::IUnknown);
@@ -1352,6 +1358,8 @@ unsafe impl windows_core::Interface for BitmapEncoder {
 impl windows_core::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
 }
+unsafe impl Send for BitmapEncoder {}
+unsafe impl Sync for BitmapEncoder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapFrame(windows_core::IUnknown);
@@ -1481,6 +1489,8 @@ unsafe impl windows_core::Interface for BitmapFrame {
 impl windows_core::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
 }
+unsafe impl Send for BitmapFrame {}
+unsafe impl Sync for BitmapFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapProperties(windows_core::IUnknown);
@@ -1520,6 +1530,8 @@ unsafe impl windows_core::Interface for BitmapProperties {
 impl windows_core::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
 }
+unsafe impl Send for BitmapProperties {}
+unsafe impl Sync for BitmapProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
@@ -1548,6 +1560,8 @@ unsafe impl windows_core::Interface for BitmapPropertiesView {
 impl windows_core::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
 }
+unsafe impl Send for BitmapPropertiesView {}
+unsafe impl Sync for BitmapPropertiesView {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1634,6 +1648,10 @@ unsafe impl windows_core::Interface for BitmapPropertySet {
 impl windows_core::RuntimeName for BitmapPropertySet {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertySet";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for BitmapPropertySet {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for BitmapPropertySet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTransform(windows_core::IUnknown);
@@ -1723,6 +1741,8 @@ unsafe impl windows_core::Interface for BitmapTransform {
 impl windows_core::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
 }
+unsafe impl Send for BitmapTransform {}
+unsafe impl Sync for BitmapTransform {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTypedValue(windows_core::IUnknown);
@@ -1766,6 +1786,8 @@ unsafe impl windows_core::Interface for BitmapTypedValue {
 impl windows_core::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
 }
+unsafe impl Send for BitmapTypedValue {}
+unsafe impl Sync for BitmapTypedValue {}
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1887,6 +1909,10 @@ unsafe impl windows_core::Interface for ImageStream {
 impl windows_core::RuntimeName for ImageStream {
     const NAME: &'static str = "Windows.Graphics.Imaging.ImageStream";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for ImageStream {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for ImageStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PixelDataProvider(windows_core::IUnknown);
@@ -1910,6 +1936,8 @@ unsafe impl windows_core::Interface for PixelDataProvider {
 impl windows_core::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
 }
+unsafe impl Send for PixelDataProvider {}
+unsafe impl Sync for PixelDataProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SoftwareBitmap(windows_core::IUnknown);
@@ -2112,6 +2140,8 @@ unsafe impl windows_core::Interface for SoftwareBitmap {
 impl windows_core::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";
 }
+unsafe impl Send for SoftwareBitmap {}
+unsafe impl Sync for SoftwareBitmap {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BitmapAlphaMode(pub i32);

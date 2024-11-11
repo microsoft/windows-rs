@@ -222,6 +222,10 @@ impl windows_core::RuntimeName for PhoneCallOrigin {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for PhoneCallOrigin {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PhoneCallOrigin {}
+#[cfg(feature = "deprecated")]
 pub struct PhoneCallOriginManager;
 #[cfg(feature = "deprecated")]
 impl PhoneCallOriginManager {

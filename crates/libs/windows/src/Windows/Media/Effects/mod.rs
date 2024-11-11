@@ -952,6 +952,8 @@ unsafe impl windows_core::Interface for AcousticEchoCancellationConfiguration {
 impl windows_core::RuntimeName for AcousticEchoCancellationConfiguration {
     const NAME: &'static str = "Windows.Media.Effects.AcousticEchoCancellationConfiguration";
 }
+unsafe impl Send for AcousticEchoCancellationConfiguration {}
+unsafe impl Sync for AcousticEchoCancellationConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioCaptureEffectsManager(windows_core::IUnknown);
@@ -990,6 +992,8 @@ unsafe impl windows_core::Interface for AudioCaptureEffectsManager {
 impl windows_core::RuntimeName for AudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
 }
+unsafe impl Send for AudioCaptureEffectsManager {}
+unsafe impl Sync for AudioCaptureEffectsManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffect(windows_core::IUnknown);
@@ -1038,6 +1042,8 @@ unsafe impl windows_core::Interface for AudioEffect {
 impl windows_core::RuntimeName for AudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
 }
+unsafe impl Send for AudioEffect {}
+unsafe impl Sync for AudioEffect {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffectDefinition(windows_core::IUnknown);
@@ -1090,6 +1096,8 @@ unsafe impl windows_core::Interface for AudioEffectDefinition {
 impl windows_core::RuntimeName for AudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
 }
+unsafe impl Send for AudioEffectDefinition {}
+unsafe impl Sync for AudioEffectDefinition {}
 pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[cfg(feature = "Media_Render")]
@@ -1185,6 +1193,8 @@ unsafe impl windows_core::Interface for AudioRenderEffectsManager {
 impl windows_core::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
 }
+unsafe impl Send for AudioRenderEffectsManager {}
+unsafe impl Sync for AudioRenderEffectsManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositeVideoFrameContext(windows_core::IUnknown);
@@ -1234,6 +1244,8 @@ unsafe impl windows_core::Interface for CompositeVideoFrameContext {
 impl windows_core::RuntimeName for CompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
 }
+unsafe impl Send for CompositeVideoFrameContext {}
+unsafe impl Sync for CompositeVideoFrameContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessAudioFrameContext(windows_core::IUnknown);
@@ -1264,6 +1276,8 @@ unsafe impl windows_core::Interface for ProcessAudioFrameContext {
 impl windows_core::RuntimeName for ProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessAudioFrameContext";
 }
+unsafe impl Send for ProcessAudioFrameContext {}
+unsafe impl Sync for ProcessAudioFrameContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessVideoFrameContext(windows_core::IUnknown);
@@ -1294,6 +1308,8 @@ unsafe impl windows_core::Interface for ProcessVideoFrameContext {
 impl windows_core::RuntimeName for ProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessVideoFrameContext";
 }
+unsafe impl Send for ProcessVideoFrameContext {}
+unsafe impl Sync for ProcessVideoFrameContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlowMotionEffectDefinition(windows_core::IUnknown);
@@ -1344,6 +1360,8 @@ unsafe impl windows_core::Interface for SlowMotionEffectDefinition {
 impl windows_core::RuntimeName for SlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
 }
+unsafe impl Send for SlowMotionEffectDefinition {}
+unsafe impl Sync for SlowMotionEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoCompositorDefinition(windows_core::IUnknown);
@@ -1396,6 +1414,8 @@ unsafe impl windows_core::Interface for VideoCompositorDefinition {
 impl windows_core::RuntimeName for VideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoCompositorDefinition";
 }
+unsafe impl Send for VideoCompositorDefinition {}
+unsafe impl Sync for VideoCompositorDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoEffectDefinition(windows_core::IUnknown);
@@ -1448,6 +1468,8 @@ unsafe impl windows_core::Interface for VideoEffectDefinition {
 impl windows_core::RuntimeName for VideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoEffectDefinition";
 }
+unsafe impl Send for VideoEffectDefinition {}
+unsafe impl Sync for VideoEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTransformEffectDefinition(windows_core::IUnknown);
@@ -1568,6 +1590,8 @@ unsafe impl windows_core::Interface for VideoTransformEffectDefinition {
 impl windows_core::RuntimeName for VideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformEffectDefinition";
 }
+unsafe impl Send for VideoTransformEffectDefinition {}
+unsafe impl Sync for VideoTransformEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTransformSphericalProjection(windows_core::IUnknown);
@@ -1645,6 +1669,8 @@ unsafe impl windows_core::Interface for VideoTransformSphericalProjection {
 impl windows_core::RuntimeName for VideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformSphericalProjection";
 }
+unsafe impl Send for VideoTransformSphericalProjection {}
+unsafe impl Sync for VideoTransformSphericalProjection {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AudioEffectState(pub i32);

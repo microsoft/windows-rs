@@ -67,6 +67,8 @@ unsafe impl windows_core::Interface for BackPressedEventArgs {
 impl windows_core::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
+unsafe impl Send for BackPressedEventArgs {}
+unsafe impl Sync for BackPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraEventArgs(windows_core::IUnknown);
@@ -82,6 +84,8 @@ unsafe impl windows_core::Interface for CameraEventArgs {
 impl windows_core::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
 }
+unsafe impl Send for CameraEventArgs {}
+unsafe impl Sync for CameraEventArgs {}
 pub struct HardwareButtons;
 impl HardwareButtons {
     pub fn BackPressed<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>

@@ -358,6 +358,8 @@ unsafe impl windows_core::Interface for AdvertisingManagerForUser {
 impl windows_core::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
 }
+unsafe impl Send for AdvertisingManagerForUser {}
+unsafe impl Sync for AdvertisingManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AssignedAccessSettings(windows_core::IUnknown);
@@ -414,6 +416,8 @@ unsafe impl windows_core::Interface for AssignedAccessSettings {
 impl windows_core::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
 }
+unsafe impl Send for AssignedAccessSettings {}
+unsafe impl Sync for AssignedAccessSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticsSettings(windows_core::IUnknown);
@@ -463,6 +467,8 @@ unsafe impl windows_core::Interface for DiagnosticsSettings {
 impl windows_core::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
 }
+unsafe impl Send for DiagnosticsSettings {}
+unsafe impl Sync for DiagnosticsSettings {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -530,6 +536,10 @@ unsafe impl windows_core::Interface for FirstSignInSettings {
 impl windows_core::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for FirstSignInSettings {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for FirstSignInSettings {}
 pub struct GlobalizationPreferences;
 impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
@@ -684,6 +694,8 @@ unsafe impl windows_core::Interface for GlobalizationPreferencesForUser {
 impl windows_core::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
 }
+unsafe impl Send for GlobalizationPreferencesForUser {}
+unsafe impl Sync for GlobalizationPreferencesForUser {}
 pub struct LockScreen;
 impl LockScreen {
     pub fn RequestSetImageFeedAsync<P0>(syndicationfeeduri: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>
@@ -934,6 +946,8 @@ unsafe impl windows_core::Interface for UserProfilePersonalizationSettings {
 impl windows_core::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
 }
+unsafe impl Send for UserProfilePersonalizationSettings {}
+unsafe impl Sync for UserProfilePersonalizationSettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AccountPictureKind(pub i32);

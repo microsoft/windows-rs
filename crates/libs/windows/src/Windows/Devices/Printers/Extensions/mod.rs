@@ -173,6 +173,8 @@ unsafe impl windows_core::Interface for Print3DWorkflow {
 impl windows_core::RuntimeName for Print3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflow";
 }
+unsafe impl Send for Print3DWorkflow {}
+unsafe impl Sync for Print3DWorkflow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(windows_core::IUnknown);
@@ -211,6 +213,8 @@ unsafe impl windows_core::Interface for Print3DWorkflowPrintRequestedEventArgs {
 impl windows_core::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs";
 }
+unsafe impl Send for Print3DWorkflowPrintRequestedEventArgs {}
+unsafe impl Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(windows_core::IUnknown);
@@ -234,6 +238,8 @@ unsafe impl windows_core::Interface for Print3DWorkflowPrinterChangedEventArgs {
 impl windows_core::RuntimeName for Print3DWorkflowPrinterChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs";
 }
+unsafe impl Send for Print3DWorkflowPrinterChangedEventArgs {}
+unsafe impl Sync for Print3DWorkflowPrinterChangedEventArgs {}
 pub struct PrintExtensionContext;
 impl PrintExtensionContext {
     pub fn FromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
@@ -284,6 +290,8 @@ unsafe impl windows_core::Interface for PrintNotificationEventDetails {
 impl windows_core::RuntimeName for PrintNotificationEventDetails {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintNotificationEventDetails";
 }
+unsafe impl Send for PrintNotificationEventDetails {}
+unsafe impl Sync for PrintNotificationEventDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfiguration(windows_core::IUnknown);

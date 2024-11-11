@@ -116,6 +116,8 @@ unsafe impl windows_core::Interface for PerformLocalActionRequestedEventArgs {
 impl windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.PerformLocalActionRequestedEventArgs";
 }
+unsafe impl Send for PerformLocalActionRequestedEventArgs {}
+unsafe impl Sync for PerformLocalActionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionInfo(windows_core::IUnknown);
@@ -158,6 +160,8 @@ unsafe impl windows_core::Interface for RemoteDesktopConnectionInfo {
 impl windows_core::RuntimeName for RemoteDesktopConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo";
 }
+unsafe impl Send for RemoteDesktopConnectionInfo {}
+unsafe impl Sync for RemoteDesktopConnectionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionRemoteInfo(windows_core::IUnknown);
@@ -230,6 +234,8 @@ unsafe impl windows_core::Interface for RemoteDesktopConnectionRemoteInfo {
 impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionRemoteInfo";
 }
+unsafe impl Send for RemoteDesktopConnectionRemoteInfo {}
+unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
@@ -270,6 +276,8 @@ unsafe impl windows_core::Interface for RemoteDesktopInfo {
 impl windows_core::RuntimeName for RemoteDesktopInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo";
 }
+unsafe impl Send for RemoteDesktopInfo {}
+unsafe impl Sync for RemoteDesktopInfo {}
 pub struct RemoteDesktopRegistrar;
 impl RemoteDesktopRegistrar {
     #[cfg(feature = "Foundation_Collections")]

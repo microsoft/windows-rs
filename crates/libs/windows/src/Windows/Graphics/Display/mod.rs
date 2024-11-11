@@ -418,6 +418,8 @@ unsafe impl windows_core::Interface for AdvancedColorInfo {
 impl windows_core::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
 }
+unsafe impl Send for AdvancedColorInfo {}
+unsafe impl Sync for AdvancedColorInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverride(windows_core::IUnknown);
@@ -545,6 +547,8 @@ unsafe impl windows_core::Interface for BrightnessOverride {
 impl windows_core::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
 }
+unsafe impl Send for BrightnessOverride {}
+unsafe impl Sync for BrightnessOverride {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverrideSettings(windows_core::IUnknown);
@@ -597,6 +601,8 @@ unsafe impl windows_core::Interface for BrightnessOverrideSettings {
 impl windows_core::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
 }
+unsafe impl Send for BrightnessOverrideSettings {}
+unsafe impl Sync for BrightnessOverrideSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorOverrideSettings(windows_core::IUnknown);
@@ -630,6 +636,8 @@ unsafe impl windows_core::Interface for ColorOverrideSettings {
 impl windows_core::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
 }
+unsafe impl Send for ColorOverrideSettings {}
+unsafe impl Sync for ColorOverrideSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverride(windows_core::IUnknown);
@@ -755,6 +763,8 @@ unsafe impl windows_core::Interface for DisplayEnhancementOverride {
 impl windows_core::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
 }
+unsafe impl Send for DisplayEnhancementOverride {}
+unsafe impl Sync for DisplayEnhancementOverride {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilities(windows_core::IUnknown);
@@ -793,6 +803,8 @@ unsafe impl windows_core::Interface for DisplayEnhancementOverrideCapabilities {
 impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
 }
+unsafe impl Send for DisplayEnhancementOverrideCapabilities {}
+unsafe impl Sync for DisplayEnhancementOverrideCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(windows_core::IUnknown);
@@ -816,6 +828,8 @@ unsafe impl windows_core::Interface for DisplayEnhancementOverrideCapabilitiesCh
 impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
 }
+unsafe impl Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+unsafe impl Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayInformation(windows_core::IUnknown);
@@ -1025,6 +1039,8 @@ unsafe impl windows_core::Interface for DisplayInformation {
 impl windows_core::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
 }
+unsafe impl Send for DisplayInformation {}
+unsafe impl Sync for DisplayInformation {}
 #[cfg(feature = "deprecated")]
 pub struct DisplayProperties;
 #[cfg(feature = "deprecated")]
@@ -1187,6 +1203,8 @@ unsafe impl windows_core::Interface for DisplayServices {
 impl windows_core::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
 }
+unsafe impl Send for DisplayServices {}
+unsafe impl Sync for DisplayServices {}
 windows_core::imp::define_interface!(DisplayPropertiesEventHandler, DisplayPropertiesEventHandler_Vtbl, 0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
 impl windows_core::RuntimeType for DisplayPropertiesEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

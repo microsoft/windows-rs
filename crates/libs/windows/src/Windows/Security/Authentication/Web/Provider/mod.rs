@@ -791,6 +791,8 @@ unsafe impl windows_core::Interface for WebAccountClientView {
 impl windows_core::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
 }
+unsafe impl Send for WebAccountClientView {}
+unsafe impl Sync for WebAccountClientView {}
 pub struct WebAccountManager;
 impl WebAccountManager {
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -1086,6 +1088,8 @@ unsafe impl windows_core::Interface for WebAccountProviderAddAccountOperation {
 impl windows_core::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
 }
+unsafe impl Send for WebAccountProviderAddAccountOperation {}
+unsafe impl Sync for WebAccountProviderAddAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderDeleteAccountOperation(windows_core::IUnknown);
@@ -1130,6 +1134,8 @@ unsafe impl windows_core::Interface for WebAccountProviderDeleteAccountOperation
 impl windows_core::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
 }
+unsafe impl Send for WebAccountProviderDeleteAccountOperation {}
+unsafe impl Sync for WebAccountProviderDeleteAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderGetTokenSilentOperation(windows_core::IUnknown);
@@ -1204,6 +1210,8 @@ unsafe impl windows_core::Interface for WebAccountProviderGetTokenSilentOperatio
 impl windows_core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
 }
+unsafe impl Send for WebAccountProviderGetTokenSilentOperation {}
+unsafe impl Sync for WebAccountProviderGetTokenSilentOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderManageAccountOperation(windows_core::IUnknown);
@@ -1240,6 +1248,8 @@ unsafe impl windows_core::Interface for WebAccountProviderManageAccountOperation
 impl windows_core::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
 }
+unsafe impl Send for WebAccountProviderManageAccountOperation {}
+unsafe impl Sync for WebAccountProviderManageAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderRequestTokenOperation(windows_core::IUnknown);
@@ -1306,6 +1316,8 @@ unsafe impl windows_core::Interface for WebAccountProviderRequestTokenOperation 
 impl windows_core::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
 }
+unsafe impl Send for WebAccountProviderRequestTokenOperation {}
+unsafe impl Sync for WebAccountProviderRequestTokenOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderRetrieveCookiesOperation(windows_core::IUnknown);
@@ -1378,6 +1390,8 @@ unsafe impl windows_core::Interface for WebAccountProviderRetrieveCookiesOperati
 impl windows_core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
 }
+unsafe impl Send for WebAccountProviderRetrieveCookiesOperation {}
+unsafe impl Sync for WebAccountProviderRetrieveCookiesOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderSignOutAccountOperation(windows_core::IUnknown);
@@ -1436,6 +1450,8 @@ unsafe impl windows_core::Interface for WebAccountProviderSignOutAccountOperatio
 impl windows_core::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
 }
+unsafe impl Send for WebAccountProviderSignOutAccountOperation {}
+unsafe impl Sync for WebAccountProviderSignOutAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderTriggerDetails(windows_core::IUnknown);
@@ -1468,6 +1484,8 @@ unsafe impl windows_core::Interface for WebAccountProviderTriggerDetails {
 impl windows_core::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
 }
+unsafe impl Send for WebAccountProviderTriggerDetails {}
+unsafe impl Sync for WebAccountProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderTokenRequest(windows_core::IUnknown);
@@ -1557,6 +1575,8 @@ unsafe impl windows_core::Interface for WebProviderTokenRequest {
 impl windows_core::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
 }
+unsafe impl Send for WebProviderTokenRequest {}
+unsafe impl Sync for WebProviderTokenRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderTokenResponse(windows_core::IUnknown);
@@ -1595,6 +1615,8 @@ unsafe impl windows_core::Interface for WebProviderTokenResponse {
 impl windows_core::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";
 }
+unsafe impl Send for WebProviderTokenResponse {}
+unsafe impl Sync for WebProviderTokenResponse {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WebAccountClientViewType(pub i32);

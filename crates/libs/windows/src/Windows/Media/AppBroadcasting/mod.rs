@@ -102,6 +102,8 @@ unsafe impl windows_core::Interface for AppBroadcastingMonitor {
 impl windows_core::RuntimeName for AppBroadcastingMonitor {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingMonitor";
 }
+unsafe impl Send for AppBroadcastingMonitor {}
+unsafe impl Sync for AppBroadcastingMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatus(windows_core::IUnknown);
@@ -132,6 +134,8 @@ unsafe impl windows_core::Interface for AppBroadcastingStatus {
 impl windows_core::RuntimeName for AppBroadcastingStatus {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatus";
 }
+unsafe impl Send for AppBroadcastingStatus {}
+unsafe impl Sync for AppBroadcastingStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingStatusDetails(windows_core::IUnknown);
@@ -204,6 +208,8 @@ unsafe impl windows_core::Interface for AppBroadcastingStatusDetails {
 impl windows_core::RuntimeName for AppBroadcastingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails";
 }
+unsafe impl Send for AppBroadcastingStatusDetails {}
+unsafe impl Sync for AppBroadcastingStatusDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastingUI(windows_core::IUnknown);
@@ -251,3 +257,5 @@ unsafe impl windows_core::Interface for AppBroadcastingUI {
 impl windows_core::RuntimeName for AppBroadcastingUI {
     const NAME: &'static str = "Windows.Media.AppBroadcasting.AppBroadcastingUI";
 }
+unsafe impl Send for AppBroadcastingUI {}
+unsafe impl Sync for AppBroadcastingUI {}

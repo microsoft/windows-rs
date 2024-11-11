@@ -175,6 +175,8 @@ unsafe impl windows_core::Interface for PdfDocument {
 impl windows_core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
 }
+unsafe impl Send for PdfDocument {}
+unsafe impl Sync for PdfDocument {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPage(windows_core::IUnknown);
@@ -261,6 +263,8 @@ unsafe impl windows_core::Interface for PdfPage {
 impl windows_core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
 }
+unsafe impl Send for PdfPage {}
+unsafe impl Sync for PdfPage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPageDimensions(windows_core::IUnknown);
@@ -312,6 +316,8 @@ unsafe impl windows_core::Interface for PdfPageDimensions {
 impl windows_core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
 }
+unsafe impl Send for PdfPageDimensions {}
+unsafe impl Sync for PdfPageDimensions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPageRenderOptions(windows_core::IUnknown);
@@ -403,6 +409,8 @@ unsafe impl windows_core::Interface for PdfPageRenderOptions {
 impl windows_core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";
 }
+unsafe impl Send for PdfPageRenderOptions {}
+unsafe impl Sync for PdfPageRenderOptions {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PdfPageRotation(pub i32);

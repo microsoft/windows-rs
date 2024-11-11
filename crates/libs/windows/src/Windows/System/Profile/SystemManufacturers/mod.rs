@@ -89,6 +89,8 @@ unsafe impl windows_core::Interface for OemSupportInfo {
 impl windows_core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
+unsafe impl Send for OemSupportInfo {}
+unsafe impl Sync for OemSupportInfo {}
 pub struct SmbiosInformation;
 impl SmbiosInformation {
     pub fn SerialNumber() -> windows_core::Result<windows_core::HSTRING> {
@@ -170,6 +172,8 @@ unsafe impl windows_core::Interface for SystemSupportDeviceInfo {
 impl windows_core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
 }
+unsafe impl Send for SystemSupportDeviceInfo {}
+unsafe impl Sync for SystemSupportDeviceInfo {}
 pub struct SystemSupportInfo;
 impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> windows_core::Result<windows_core::HSTRING> {

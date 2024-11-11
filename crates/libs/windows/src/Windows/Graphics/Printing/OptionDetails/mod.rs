@@ -985,6 +985,8 @@ unsafe impl windows_core::Interface for PrintBindingOptionDetails {
 impl windows_core::RuntimeName for PrintBindingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
 }
+unsafe impl Send for PrintBindingOptionDetails {}
+unsafe impl Sync for PrintBindingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBorderingOptionDetails(windows_core::IUnknown);
@@ -1085,6 +1087,8 @@ unsafe impl windows_core::Interface for PrintBorderingOptionDetails {
 impl windows_core::RuntimeName for PrintBorderingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
 }
+unsafe impl Send for PrintBorderingOptionDetails {}
+unsafe impl Sync for PrintBorderingOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCollationOptionDetails(windows_core::IUnknown);
@@ -1185,6 +1189,8 @@ unsafe impl windows_core::Interface for PrintCollationOptionDetails {
 impl windows_core::RuntimeName for PrintCollationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
 }
+unsafe impl Send for PrintCollationOptionDetails {}
+unsafe impl Sync for PrintCollationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintColorModeOptionDetails(windows_core::IUnknown);
@@ -1285,6 +1291,8 @@ unsafe impl windows_core::Interface for PrintColorModeOptionDetails {
 impl windows_core::RuntimeName for PrintColorModeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
 }
+unsafe impl Send for PrintColorModeOptionDetails {}
+unsafe impl Sync for PrintColorModeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCopiesOptionDetails(windows_core::IUnknown);
@@ -1391,6 +1399,8 @@ unsafe impl windows_core::Interface for PrintCopiesOptionDetails {
 impl windows_core::RuntimeName for PrintCopiesOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
 }
+unsafe impl Send for PrintCopiesOptionDetails {}
+unsafe impl Sync for PrintCopiesOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemDetails(windows_core::IUnknown);
@@ -1425,6 +1435,8 @@ unsafe impl windows_core::Interface for PrintCustomItemDetails {
 impl windows_core::RuntimeName for PrintCustomItemDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
 }
+unsafe impl Send for PrintCustomItemDetails {}
+unsafe impl Sync for PrintCustomItemDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemListOptionDetails(windows_core::IUnknown);
@@ -1548,6 +1560,8 @@ unsafe impl windows_core::Interface for PrintCustomItemListOptionDetails {
 impl windows_core::RuntimeName for PrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
 }
+unsafe impl Send for PrintCustomItemListOptionDetails {}
+unsafe impl Sync for PrintCustomItemListOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomTextOptionDetails(windows_core::IUnknown);
@@ -1662,6 +1676,8 @@ unsafe impl windows_core::Interface for PrintCustomTextOptionDetails {
 impl windows_core::RuntimeName for PrintCustomTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
 }
+unsafe impl Send for PrintCustomTextOptionDetails {}
+unsafe impl Sync for PrintCustomTextOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomToggleOptionDetails(windows_core::IUnknown);
@@ -1765,6 +1781,8 @@ unsafe impl windows_core::Interface for PrintCustomToggleOptionDetails {
 impl windows_core::RuntimeName for PrintCustomToggleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
 }
+unsafe impl Send for PrintCustomToggleOptionDetails {}
+unsafe impl Sync for PrintCustomToggleOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintDuplexOptionDetails(windows_core::IUnknown);
@@ -1865,6 +1883,8 @@ unsafe impl windows_core::Interface for PrintDuplexOptionDetails {
 impl windows_core::RuntimeName for PrintDuplexOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
 }
+unsafe impl Send for PrintDuplexOptionDetails {}
+unsafe impl Sync for PrintDuplexOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintHolePunchOptionDetails(windows_core::IUnknown);
@@ -1965,6 +1985,8 @@ unsafe impl windows_core::Interface for PrintHolePunchOptionDetails {
 impl windows_core::RuntimeName for PrintHolePunchOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
 }
+unsafe impl Send for PrintHolePunchOptionDetails {}
+unsafe impl Sync for PrintHolePunchOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaSizeOptionDetails(windows_core::IUnknown);
@@ -2065,6 +2087,8 @@ unsafe impl windows_core::Interface for PrintMediaSizeOptionDetails {
 impl windows_core::RuntimeName for PrintMediaSizeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
 }
+unsafe impl Send for PrintMediaSizeOptionDetails {}
+unsafe impl Sync for PrintMediaSizeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaTypeOptionDetails(windows_core::IUnknown);
@@ -2165,6 +2189,8 @@ unsafe impl windows_core::Interface for PrintMediaTypeOptionDetails {
 impl windows_core::RuntimeName for PrintMediaTypeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
 }
+unsafe impl Send for PrintMediaTypeOptionDetails {}
+unsafe impl Sync for PrintMediaTypeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintOrientationOptionDetails(windows_core::IUnknown);
@@ -2265,6 +2291,8 @@ unsafe impl windows_core::Interface for PrintOrientationOptionDetails {
 impl windows_core::RuntimeName for PrintOrientationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
 }
+unsafe impl Send for PrintOrientationOptionDetails {}
+unsafe impl Sync for PrintOrientationOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptionDetails(windows_core::IUnknown);
@@ -2357,6 +2385,8 @@ unsafe impl windows_core::Interface for PrintPageRangeOptionDetails {
 impl windows_core::RuntimeName for PrintPageRangeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
 }
+unsafe impl Send for PrintPageRangeOptionDetails {}
+unsafe impl Sync for PrintPageRangeOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintQualityOptionDetails(windows_core::IUnknown);
@@ -2457,6 +2487,8 @@ unsafe impl windows_core::Interface for PrintQualityOptionDetails {
 impl windows_core::RuntimeName for PrintQualityOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
 }
+unsafe impl Send for PrintQualityOptionDetails {}
+unsafe impl Sync for PrintQualityOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintStapleOptionDetails(windows_core::IUnknown);
@@ -2557,6 +2589,8 @@ unsafe impl windows_core::Interface for PrintStapleOptionDetails {
 impl windows_core::RuntimeName for PrintStapleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
 }
+unsafe impl Send for PrintStapleOptionDetails {}
+unsafe impl Sync for PrintStapleOptionDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionChangedEventArgs(windows_core::IUnknown);
@@ -2580,6 +2614,8 @@ unsafe impl windows_core::Interface for PrintTaskOptionChangedEventArgs {
 impl windows_core::RuntimeName for PrintTaskOptionChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
 }
+unsafe impl Send for PrintTaskOptionChangedEventArgs {}
+unsafe impl Sync for PrintTaskOptionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionDetails(windows_core::IUnknown);
@@ -2682,6 +2718,8 @@ unsafe impl windows_core::Interface for PrintTaskOptionDetails {
 impl windows_core::RuntimeName for PrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";
 }
+unsafe impl Send for PrintTaskOptionDetails {}
+unsafe impl Sync for PrintTaskOptionDetails {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PrintOptionStates(pub u32);

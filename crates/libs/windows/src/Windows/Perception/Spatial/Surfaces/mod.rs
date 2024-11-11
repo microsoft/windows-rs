@@ -198,6 +198,8 @@ unsafe impl windows_core::Interface for SpatialSurfaceInfo {
 impl windows_core::RuntimeName for SpatialSurfaceInfo {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo";
 }
+unsafe impl Send for SpatialSurfaceInfo {}
+unsafe impl Sync for SpatialSurfaceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMesh(windows_core::IUnknown);
@@ -257,6 +259,8 @@ unsafe impl windows_core::Interface for SpatialSurfaceMesh {
 impl windows_core::RuntimeName for SpatialSurfaceMesh {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh";
 }
+unsafe impl Send for SpatialSurfaceMesh {}
+unsafe impl Sync for SpatialSurfaceMesh {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshBuffer(windows_core::IUnknown);
@@ -303,6 +307,8 @@ unsafe impl windows_core::Interface for SpatialSurfaceMeshBuffer {
 impl windows_core::RuntimeName for SpatialSurfaceMeshBuffer {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer";
 }
+unsafe impl Send for SpatialSurfaceMeshBuffer {}
+unsafe impl Sync for SpatialSurfaceMeshBuffer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshOptions(windows_core::IUnknown);
@@ -401,6 +407,8 @@ unsafe impl windows_core::Interface for SpatialSurfaceMeshOptions {
 impl windows_core::RuntimeName for SpatialSurfaceMeshOptions {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions";
 }
+unsafe impl Send for SpatialSurfaceMeshOptions {}
+unsafe impl Sync for SpatialSurfaceMeshOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceObserver(windows_core::IUnknown);
@@ -481,3 +489,5 @@ unsafe impl windows_core::Interface for SpatialSurfaceObserver {
 impl windows_core::RuntimeName for SpatialSurfaceObserver {
     const NAME: &'static str = "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver";
 }
+unsafe impl Send for SpatialSurfaceObserver {}
+unsafe impl Sync for SpatialSurfaceObserver {}

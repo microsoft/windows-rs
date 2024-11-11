@@ -3155,6 +3155,8 @@ unsafe impl windows_core::Interface for CompositionObject {
 impl windows_core::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
 }
+unsafe impl Send for CompositionObject {}
+unsafe impl Sync for CompositionObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLight(windows_core::IUnknown);
@@ -3307,6 +3309,8 @@ unsafe impl windows_core::Interface for CompositionLight {
 impl windows_core::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
 }
+unsafe impl Send for CompositionLight {}
+unsafe impl Sync for CompositionLight {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AmbientLight(windows_core::IUnknown);
@@ -3481,6 +3485,8 @@ unsafe impl windows_core::Interface for AmbientLight {
 impl windows_core::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
 }
+unsafe impl Send for AmbientLight {}
+unsafe impl Sync for AmbientLight {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationController(windows_core::IUnknown);
@@ -3663,6 +3669,8 @@ unsafe impl windows_core::Interface for AnimationController {
 impl windows_core::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
 }
+unsafe impl Send for AnimationController {}
+unsafe impl Sync for AnimationController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationPropertyInfo(windows_core::IUnknown);
@@ -3813,6 +3821,8 @@ unsafe impl windows_core::Interface for AnimationPropertyInfo {
 impl windows_core::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
 }
+unsafe impl Send for AnimationPropertyInfo {}
+unsafe impl Sync for AnimationPropertyInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEasingFunction(windows_core::IUnknown);
@@ -4042,6 +4052,8 @@ unsafe impl windows_core::Interface for CompositionEasingFunction {
 impl windows_core::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
 }
+unsafe impl Send for CompositionEasingFunction {}
+unsafe impl Sync for CompositionEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackEasingFunction(windows_core::IUnknown);
@@ -4181,6 +4193,8 @@ unsafe impl windows_core::Interface for BackEasingFunction {
 impl windows_core::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
 }
+unsafe impl Send for BackEasingFunction {}
+unsafe impl Sync for BackEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionAnimation(windows_core::IUnknown);
@@ -4389,6 +4403,8 @@ unsafe impl windows_core::Interface for CompositionAnimation {
 impl windows_core::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
 }
+unsafe impl Send for CompositionAnimation {}
+unsafe impl Sync for CompositionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyFrameAnimation(windows_core::IUnknown);
@@ -4692,6 +4708,8 @@ unsafe impl windows_core::Interface for KeyFrameAnimation {
 impl windows_core::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
 }
+unsafe impl Send for KeyFrameAnimation {}
+unsafe impl Sync for KeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BooleanKeyFrameAnimation(windows_core::IUnknown);
@@ -4999,6 +5017,8 @@ unsafe impl windows_core::Interface for BooleanKeyFrameAnimation {
 impl windows_core::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
 }
+unsafe impl Send for BooleanKeyFrameAnimation {}
+unsafe impl Sync for BooleanKeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceEasingFunction(windows_core::IUnknown);
@@ -5145,6 +5165,8 @@ unsafe impl windows_core::Interface for BounceEasingFunction {
 impl windows_core::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
 }
+unsafe impl Send for BounceEasingFunction {}
+unsafe impl Sync for BounceEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NaturalMotionAnimation(windows_core::IUnknown);
@@ -5386,6 +5408,8 @@ unsafe impl windows_core::Interface for NaturalMotionAnimation {
 impl windows_core::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
 }
+unsafe impl Send for NaturalMotionAnimation {}
+unsafe impl Sync for NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarNaturalMotionAnimation(windows_core::IUnknown);
@@ -5666,6 +5690,8 @@ unsafe impl windows_core::Interface for ScalarNaturalMotionAnimation {
 impl windows_core::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
 }
+unsafe impl Send for ScalarNaturalMotionAnimation {}
+unsafe impl Sync for ScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceScalarNaturalMotionAnimation(windows_core::IUnknown);
@@ -5968,6 +5994,8 @@ unsafe impl windows_core::Interface for BounceScalarNaturalMotionAnimation {
 impl windows_core::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
 }
+unsafe impl Send for BounceScalarNaturalMotionAnimation {}
+unsafe impl Sync for BounceScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2NaturalMotionAnimation(windows_core::IUnknown);
@@ -6254,6 +6282,8 @@ unsafe impl windows_core::Interface for Vector2NaturalMotionAnimation {
 impl windows_core::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
 }
+unsafe impl Send for Vector2NaturalMotionAnimation {}
+unsafe impl Sync for Vector2NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector2NaturalMotionAnimation(windows_core::IUnknown);
@@ -6562,6 +6592,8 @@ unsafe impl windows_core::Interface for BounceVector2NaturalMotionAnimation {
 impl windows_core::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
 }
+unsafe impl Send for BounceVector2NaturalMotionAnimation {}
+unsafe impl Sync for BounceVector2NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3NaturalMotionAnimation(windows_core::IUnknown);
@@ -6848,6 +6880,8 @@ unsafe impl windows_core::Interface for Vector3NaturalMotionAnimation {
 impl windows_core::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
 }
+unsafe impl Send for Vector3NaturalMotionAnimation {}
+unsafe impl Sync for Vector3NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector3NaturalMotionAnimation(windows_core::IUnknown);
@@ -7156,6 +7190,8 @@ unsafe impl windows_core::Interface for BounceVector3NaturalMotionAnimation {
 impl windows_core::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 }
+unsafe impl Send for BounceVector3NaturalMotionAnimation {}
+unsafe impl Sync for BounceVector3NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CircleEasingFunction(windows_core::IUnknown);
@@ -7288,6 +7324,8 @@ unsafe impl windows_core::Interface for CircleEasingFunction {
 impl windows_core::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
 }
+unsafe impl Send for CircleEasingFunction {}
+unsafe impl Sync for CircleEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorKeyFrameAnimation(windows_core::IUnknown);
@@ -7613,6 +7651,8 @@ unsafe impl windows_core::Interface for ColorKeyFrameAnimation {
 impl windows_core::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
 }
+unsafe impl Send for ColorKeyFrameAnimation {}
+unsafe impl Sync for ColorKeyFrameAnimation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -7778,6 +7818,10 @@ unsafe impl windows_core::Interface for CompositionAnimationGroup {
 impl windows_core::RuntimeName for CompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimationGroup";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionAnimationGroup {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionAnimationGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBrush(windows_core::IUnknown);
@@ -7903,6 +7947,8 @@ unsafe impl windows_core::Interface for CompositionBrush {
 impl windows_core::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
 }
+unsafe impl Send for CompositionBrush {}
+unsafe impl Sync for CompositionBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBackdropBrush(windows_core::IUnknown);
@@ -8028,6 +8074,8 @@ unsafe impl windows_core::Interface for CompositionBackdropBrush {
 impl windows_core::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
 }
+unsafe impl Send for CompositionBackdropBrush {}
+unsafe impl Sync for CompositionBackdropBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBatchCompletedEventArgs(windows_core::IUnknown);
@@ -8153,6 +8201,8 @@ unsafe impl windows_core::Interface for CompositionBatchCompletedEventArgs {
 impl windows_core::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
 }
+unsafe impl Send for CompositionBatchCompletedEventArgs {}
+unsafe impl Sync for CompositionBatchCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCapabilities(windows_core::IUnknown);
@@ -8207,6 +8257,8 @@ unsafe impl windows_core::Interface for CompositionCapabilities {
 impl windows_core::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
 }
+unsafe impl Send for CompositionCapabilities {}
+unsafe impl Sync for CompositionCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionClip(windows_core::IUnknown);
@@ -8419,6 +8471,8 @@ unsafe impl windows_core::Interface for CompositionClip {
 impl windows_core::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
 }
+unsafe impl Send for CompositionClip {}
+unsafe impl Sync for CompositionClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorBrush(windows_core::IUnknown);
@@ -8555,6 +8609,8 @@ unsafe impl windows_core::Interface for CompositionColorBrush {
 impl windows_core::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
 }
+unsafe impl Send for CompositionColorBrush {}
+unsafe impl Sync for CompositionColorBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorGradientStop(windows_core::IUnknown);
@@ -8702,6 +8758,8 @@ unsafe impl windows_core::Interface for CompositionColorGradientStop {
 impl windows_core::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
 }
+unsafe impl Send for CompositionColorGradientStop {}
+unsafe impl Sync for CompositionColorGradientStop {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -8810,6 +8868,10 @@ unsafe impl windows_core::Interface for CompositionColorGradientStopCollection {
 impl windows_core::RuntimeName for CompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStopCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionColorGradientStopCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionColorGradientStopCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCommitBatch(windows_core::IUnknown);
@@ -8963,6 +9025,8 @@ unsafe impl windows_core::Interface for CompositionCommitBatch {
 impl windows_core::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
 }
+unsafe impl Send for CompositionCommitBatch {}
+unsafe impl Sync for CompositionCommitBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShape(windows_core::IUnknown);
@@ -9162,6 +9226,8 @@ unsafe impl windows_core::Interface for CompositionShape {
 impl windows_core::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
 }
+unsafe impl Send for CompositionShape {}
+unsafe impl Sync for CompositionShape {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionContainerShape(windows_core::IUnknown);
@@ -9369,6 +9435,8 @@ unsafe impl windows_core::Interface for CompositionContainerShape {
 impl windows_core::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
 }
+unsafe impl Send for CompositionContainerShape {}
+unsafe impl Sync for CompositionContainerShape {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDrawingSurface(windows_core::IUnknown);
@@ -9550,6 +9618,8 @@ unsafe impl windows_core::Interface for CompositionDrawingSurface {
 impl windows_core::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
 }
+unsafe impl Send for CompositionDrawingSurface {}
+unsafe impl Sync for CompositionDrawingSurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectBrush(windows_core::IUnknown);
@@ -9689,6 +9759,8 @@ unsafe impl windows_core::Interface for CompositionEffectBrush {
 impl windows_core::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
 }
+unsafe impl Send for CompositionEffectBrush {}
+unsafe impl Sync for CompositionEffectBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectFactory(windows_core::IUnknown);
@@ -9835,6 +9907,8 @@ unsafe impl windows_core::Interface for CompositionEffectFactory {
 impl windows_core::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
 }
+unsafe impl Send for CompositionEffectFactory {}
+unsafe impl Sync for CompositionEffectFactory {}
 #[cfg(feature = "Graphics_Effects")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -9876,6 +9950,10 @@ unsafe impl windows_core::Interface for CompositionEffectSourceParameter {
 impl windows_core::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
 }
+#[cfg(feature = "Graphics_Effects")]
+unsafe impl Send for CompositionEffectSourceParameter {}
+#[cfg(feature = "Graphics_Effects")]
+unsafe impl Sync for CompositionEffectSourceParameter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometry(windows_core::IUnknown);
@@ -10034,6 +10112,8 @@ unsafe impl windows_core::Interface for CompositionGeometry {
 impl windows_core::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
 }
+unsafe impl Send for CompositionGeometry {}
+unsafe impl Sync for CompositionGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEllipseGeometry(windows_core::IUnknown);
@@ -10218,6 +10298,8 @@ unsafe impl windows_core::Interface for CompositionEllipseGeometry {
 impl windows_core::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
 }
+unsafe impl Send for CompositionEllipseGeometry {}
+unsafe impl Sync for CompositionEllipseGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometricClip(windows_core::IUnknown);
@@ -10458,6 +10540,8 @@ unsafe impl windows_core::Interface for CompositionGeometricClip {
 impl windows_core::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
 }
+unsafe impl Send for CompositionGeometricClip {}
+unsafe impl Sync for CompositionGeometricClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGradientBrush(windows_core::IUnknown);
@@ -10711,6 +10795,8 @@ unsafe impl windows_core::Interface for CompositionGradientBrush {
 impl windows_core::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
 }
+unsafe impl Send for CompositionGradientBrush {}
+unsafe impl Sync for CompositionGradientBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGraphicsDevice(windows_core::IUnknown);
@@ -10897,6 +10983,8 @@ unsafe impl windows_core::Interface for CompositionGraphicsDevice {
 impl windows_core::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
 }
+unsafe impl Send for CompositionGraphicsDevice {}
+unsafe impl Sync for CompositionGraphicsDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLineGeometry(windows_core::IUnknown);
@@ -11081,6 +11169,8 @@ unsafe impl windows_core::Interface for CompositionLineGeometry {
 impl windows_core::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
 }
+unsafe impl Send for CompositionLineGeometry {}
+unsafe impl Sync for CompositionLineGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLinearGradientBrush(windows_core::IUnknown);
@@ -11360,6 +11450,8 @@ unsafe impl windows_core::Interface for CompositionLinearGradientBrush {
 impl windows_core::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
 }
+unsafe impl Send for CompositionLinearGradientBrush {}
+unsafe impl Sync for CompositionLinearGradientBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMaskBrush(windows_core::IUnknown);
@@ -11513,6 +11605,8 @@ unsafe impl windows_core::Interface for CompositionMaskBrush {
 impl windows_core::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
 }
+unsafe impl Send for CompositionMaskBrush {}
+unsafe impl Sync for CompositionMaskBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMipmapSurface(windows_core::IUnknown);
@@ -11676,6 +11770,8 @@ unsafe impl windows_core::Interface for CompositionMipmapSurface {
 impl windows_core::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
 }
+unsafe impl Send for CompositionMipmapSurface {}
+unsafe impl Sync for CompositionMipmapSurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionNineGridBrush(windows_core::IUnknown);
@@ -11930,6 +12026,8 @@ unsafe impl windows_core::Interface for CompositionNineGridBrush {
 impl windows_core::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
 }
+unsafe impl Send for CompositionNineGridBrush {}
+unsafe impl Sync for CompositionNineGridBrush {}
 #[cfg(feature = "Graphics")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -11967,6 +12065,10 @@ unsafe impl windows_core::Interface for CompositionPath {
 impl windows_core::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
 }
+#[cfg(feature = "Graphics")]
+unsafe impl Send for CompositionPath {}
+#[cfg(feature = "Graphics")]
+unsafe impl Sync for CompositionPath {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPathGeometry(windows_core::IUnknown);
@@ -12141,6 +12243,8 @@ unsafe impl windows_core::Interface for CompositionPathGeometry {
 impl windows_core::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
 }
+unsafe impl Send for CompositionPathGeometry {}
+unsafe impl Sync for CompositionPathGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadow(windows_core::IUnknown);
@@ -12329,6 +12433,8 @@ unsafe impl windows_core::Interface for CompositionProjectedShadow {
 impl windows_core::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
 }
+unsafe impl Send for CompositionProjectedShadow {}
+unsafe impl Sync for CompositionProjectedShadow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowCaster(windows_core::IUnknown);
@@ -12482,6 +12588,8 @@ unsafe impl windows_core::Interface for CompositionProjectedShadowCaster {
 impl windows_core::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
 }
+unsafe impl Send for CompositionProjectedShadowCaster {}
+unsafe impl Sync for CompositionProjectedShadowCaster {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -12680,6 +12788,10 @@ unsafe impl windows_core::Interface for CompositionProjectedShadowCasterCollecti
 impl windows_core::RuntimeName for CompositionProjectedShadowCasterCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCasterCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionProjectedShadowCasterCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowReceiver(windows_core::IUnknown);
@@ -12819,6 +12931,8 @@ unsafe impl windows_core::Interface for CompositionProjectedShadowReceiver {
 impl windows_core::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
 }
+unsafe impl Send for CompositionProjectedShadowReceiver {}
+unsafe impl Sync for CompositionProjectedShadowReceiver {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -12984,6 +13098,10 @@ unsafe impl windows_core::Interface for CompositionProjectedShadowReceiverUnorde
 impl windows_core::RuntimeName for CompositionProjectedShadowReceiverUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionProjectedShadowReceiverUnorderedCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPropertySet(windows_core::IUnknown);
@@ -13220,6 +13338,8 @@ unsafe impl windows_core::Interface for CompositionPropertySet {
 impl windows_core::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
 }
+unsafe impl Send for CompositionPropertySet {}
+unsafe impl Sync for CompositionPropertySet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRadialGradientBrush(windows_core::IUnknown);
@@ -13512,6 +13632,8 @@ unsafe impl windows_core::Interface for CompositionRadialGradientBrush {
 impl windows_core::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
 }
+unsafe impl Send for CompositionRadialGradientBrush {}
+unsafe impl Sync for CompositionRadialGradientBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRectangleGeometry(windows_core::IUnknown);
@@ -13696,6 +13818,8 @@ unsafe impl windows_core::Interface for CompositionRectangleGeometry {
 impl windows_core::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
 }
+unsafe impl Send for CompositionRectangleGeometry {}
+unsafe impl Sync for CompositionRectangleGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRoundedRectangleGeometry(windows_core::IUnknown);
@@ -13893,6 +14017,8 @@ unsafe impl windows_core::Interface for CompositionRoundedRectangleGeometry {
 impl windows_core::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
 }
+unsafe impl Send for CompositionRoundedRectangleGeometry {}
+unsafe impl Sync for CompositionRoundedRectangleGeometry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionScopedBatch(windows_core::IUnknown);
@@ -14058,6 +14184,8 @@ unsafe impl windows_core::Interface for CompositionScopedBatch {
 impl windows_core::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
 }
+unsafe impl Send for CompositionScopedBatch {}
+unsafe impl Sync for CompositionScopedBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShadow(windows_core::IUnknown);
@@ -14183,6 +14311,8 @@ unsafe impl windows_core::Interface for CompositionShadow {
 impl windows_core::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
 }
+unsafe impl Send for CompositionShadow {}
+unsafe impl Sync for CompositionShadow {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -14399,6 +14529,10 @@ unsafe impl windows_core::Interface for CompositionShapeCollection {
 impl windows_core::RuntimeName for CompositionShapeCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShapeCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionShapeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionShapeCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSpriteShape(windows_core::IUnknown);
@@ -14736,6 +14870,8 @@ unsafe impl windows_core::Interface for CompositionSpriteShape {
 impl windows_core::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
 }
+unsafe impl Send for CompositionSpriteShape {}
+unsafe impl Sync for CompositionSpriteShape {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -14940,6 +15076,10 @@ unsafe impl windows_core::Interface for CompositionStrokeDashArray {
 impl windows_core::RuntimeName for CompositionStrokeDashArray {
     const NAME: &'static str = "Windows.UI.Composition.CompositionStrokeDashArray";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for CompositionStrokeDashArray {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for CompositionStrokeDashArray {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSurfaceBrush(windows_core::IUnknown);
@@ -15221,6 +15361,8 @@ unsafe impl windows_core::Interface for CompositionSurfaceBrush {
 impl windows_core::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
 }
+unsafe impl Send for CompositionSurfaceBrush {}
+unsafe impl Sync for CompositionSurfaceBrush {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTarget(windows_core::IUnknown);
@@ -15360,6 +15502,8 @@ unsafe impl windows_core::Interface for CompositionTarget {
 impl windows_core::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
 }
+unsafe impl Send for CompositionTarget {}
+unsafe impl Sync for CompositionTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTexture(windows_core::IUnknown);
@@ -15524,6 +15668,8 @@ unsafe impl windows_core::Interface for CompositionTexture {
 impl windows_core::RuntimeName for CompositionTexture {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTexture";
 }
+unsafe impl Send for CompositionTexture {}
+unsafe impl Sync for CompositionTexture {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTransform(windows_core::IUnknown);
@@ -15649,6 +15795,8 @@ unsafe impl windows_core::Interface for CompositionTransform {
 impl windows_core::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
 }
+unsafe impl Send for CompositionTransform {}
+unsafe impl Sync for CompositionTransform {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionViewBox(windows_core::IUnknown);
@@ -15833,6 +15981,8 @@ unsafe impl windows_core::Interface for CompositionViewBox {
 impl windows_core::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
 }
+unsafe impl Send for CompositionViewBox {}
+unsafe impl Sync for CompositionViewBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVirtualDrawingSurface(windows_core::IUnknown);
@@ -16019,6 +16169,8 @@ unsafe impl windows_core::Interface for CompositionVirtualDrawingSurface {
 impl windows_core::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
 }
+unsafe impl Send for CompositionVirtualDrawingSurface {}
+unsafe impl Sync for CompositionVirtualDrawingSurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVisualSurface(windows_core::IUnknown);
@@ -16184,6 +16336,8 @@ unsafe impl windows_core::Interface for CompositionVisualSurface {
 impl windows_core::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
 }
+unsafe impl Send for CompositionVisualSurface {}
+unsafe impl Sync for CompositionVisualSurface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compositor(windows_core::IUnknown);
@@ -16819,6 +16973,8 @@ unsafe impl windows_core::Interface for Compositor {
 impl windows_core::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
 }
+unsafe impl Send for Compositor {}
+unsafe impl Sync for Compositor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Visual(windows_core::IUnknown);
@@ -17208,6 +17364,8 @@ unsafe impl windows_core::Interface for Visual {
 impl windows_core::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
 }
+unsafe impl Send for Visual {}
+unsafe impl Sync for Visual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContainerVisual(windows_core::IUnknown);
@@ -17605,6 +17763,8 @@ unsafe impl windows_core::Interface for ContainerVisual {
 impl windows_core::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
 }
+unsafe impl Send for ContainerVisual {}
+unsafe impl Sync for ContainerVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CubicBezierEasingFunction(windows_core::IUnknown);
@@ -17746,6 +17906,8 @@ unsafe impl windows_core::Interface for CubicBezierEasingFunction {
 impl windows_core::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
 }
+unsafe impl Send for CubicBezierEasingFunction {}
+unsafe impl Sync for CubicBezierEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DelegatedInkTrailVisual(windows_core::IUnknown);
@@ -18180,6 +18342,8 @@ unsafe impl windows_core::Interface for DelegatedInkTrailVisual {
 impl windows_core::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
 }
+unsafe impl Send for DelegatedInkTrailVisual {}
+unsafe impl Sync for DelegatedInkTrailVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DistantLight(windows_core::IUnknown);
@@ -18381,6 +18545,8 @@ unsafe impl windows_core::Interface for DistantLight {
 impl windows_core::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
 }
+unsafe impl Send for DistantLight {}
+unsafe impl Sync for DistantLight {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DropShadow(windows_core::IUnknown);
@@ -18577,6 +18743,8 @@ unsafe impl windows_core::Interface for DropShadow {
 impl windows_core::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
 }
+unsafe impl Send for DropShadow {}
+unsafe impl Sync for DropShadow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ElasticEasingFunction(windows_core::IUnknown);
@@ -18723,6 +18891,8 @@ unsafe impl windows_core::Interface for ElasticEasingFunction {
 impl windows_core::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
 }
+unsafe impl Send for ElasticEasingFunction {}
+unsafe impl Sync for ElasticEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExponentialEasingFunction(windows_core::IUnknown);
@@ -18862,6 +19032,8 @@ unsafe impl windows_core::Interface for ExponentialEasingFunction {
 impl windows_core::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
 }
+unsafe impl Send for ExponentialEasingFunction {}
+unsafe impl Sync for ExponentialEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExpressionAnimation(windows_core::IUnknown);
@@ -19081,6 +19253,8 @@ unsafe impl windows_core::Interface for ExpressionAnimation {
 impl windows_core::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
 }
+unsafe impl Send for ExpressionAnimation {}
+unsafe impl Sync for ExpressionAnimation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -19267,6 +19441,10 @@ impl windows_core::RuntimeName for ImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ImplicitAnimationCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ImplicitAnimationCollection {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
@@ -19448,6 +19626,10 @@ unsafe impl windows_core::Interface for InitialValueExpressionCollection {
 impl windows_core::RuntimeName for InitialValueExpressionCollection {
     const NAME: &'static str = "Windows.UI.Composition.InitialValueExpressionCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for InitialValueExpressionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for InitialValueExpressionCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InsetClip(windows_core::IUnknown);
@@ -19704,6 +19886,8 @@ unsafe impl windows_core::Interface for InsetClip {
 impl windows_core::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
 }
+unsafe impl Send for InsetClip {}
+unsafe impl Sync for InsetClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LayerVisual(windows_core::IUnknown);
@@ -20129,6 +20313,8 @@ unsafe impl windows_core::Interface for LayerVisual {
 impl windows_core::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
 }
+unsafe impl Send for LayerVisual {}
+unsafe impl Sync for LayerVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
@@ -20254,6 +20440,8 @@ unsafe impl windows_core::Interface for LinearEasingFunction {
 impl windows_core::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
 }
+unsafe impl Send for LinearEasingFunction {}
+unsafe impl Sync for LinearEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PathKeyFrameAnimation(windows_core::IUnknown);
@@ -20574,6 +20762,8 @@ unsafe impl windows_core::Interface for PathKeyFrameAnimation {
 impl windows_core::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
 }
+unsafe impl Send for PathKeyFrameAnimation {}
+unsafe impl Sync for PathKeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointLight(windows_core::IUnknown);
@@ -20830,6 +21020,8 @@ unsafe impl windows_core::Interface for PointLight {
 impl windows_core::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
 }
+unsafe impl Send for PointLight {}
+unsafe impl Sync for PointLight {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerEasingFunction(windows_core::IUnknown);
@@ -20969,6 +21161,8 @@ unsafe impl windows_core::Interface for PowerEasingFunction {
 impl windows_core::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
 }
+unsafe impl Send for PowerEasingFunction {}
+unsafe impl Sync for PowerEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QuaternionKeyFrameAnimation(windows_core::IUnknown);
@@ -21285,6 +21479,8 @@ unsafe impl windows_core::Interface for QuaternionKeyFrameAnimation {
 impl windows_core::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
 }
+unsafe impl Send for QuaternionKeyFrameAnimation {}
+unsafe impl Sync for QuaternionKeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RectangleClip(windows_core::IUnknown);
@@ -21593,6 +21789,8 @@ unsafe impl windows_core::Interface for RectangleClip {
 impl windows_core::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
 }
+unsafe impl Send for RectangleClip {}
+unsafe impl Sync for RectangleClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RedirectVisual(windows_core::IUnknown);
@@ -22004,6 +22202,8 @@ unsafe impl windows_core::Interface for RedirectVisual {
 impl windows_core::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
 }
+unsafe impl Send for RedirectVisual {}
+unsafe impl Sync for RedirectVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RenderingDeviceReplacedEventArgs(windows_core::IUnknown);
@@ -22136,6 +22336,8 @@ unsafe impl windows_core::Interface for RenderingDeviceReplacedEventArgs {
 impl windows_core::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
 }
+unsafe impl Send for RenderingDeviceReplacedEventArgs {}
+unsafe impl Sync for RenderingDeviceReplacedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
@@ -22450,6 +22652,8 @@ unsafe impl windows_core::Interface for ScalarKeyFrameAnimation {
 impl windows_core::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
 }
+unsafe impl Send for ScalarKeyFrameAnimation {}
+unsafe impl Sync for ScalarKeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShapeVisual(windows_core::IUnknown);
@@ -22869,6 +23073,8 @@ unsafe impl windows_core::Interface for ShapeVisual {
 impl windows_core::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
 }
+unsafe impl Send for ShapeVisual {}
+unsafe impl Sync for ShapeVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SineEasingFunction(windows_core::IUnknown);
@@ -23001,6 +23207,8 @@ unsafe impl windows_core::Interface for SineEasingFunction {
 impl windows_core::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
 }
+unsafe impl Send for SineEasingFunction {}
+unsafe impl Sync for SineEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpotLight(windows_core::IUnknown);
@@ -23336,6 +23544,8 @@ unsafe impl windows_core::Interface for SpotLight {
 impl windows_core::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
 }
+unsafe impl Send for SpotLight {}
+unsafe impl Sync for SpotLight {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringScalarNaturalMotionAnimation(windows_core::IUnknown);
@@ -23638,6 +23848,8 @@ unsafe impl windows_core::Interface for SpringScalarNaturalMotionAnimation {
 impl windows_core::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
 }
+unsafe impl Send for SpringScalarNaturalMotionAnimation {}
+unsafe impl Sync for SpringScalarNaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector2NaturalMotionAnimation(windows_core::IUnknown);
@@ -23946,6 +24158,8 @@ unsafe impl windows_core::Interface for SpringVector2NaturalMotionAnimation {
 impl windows_core::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
 }
+unsafe impl Send for SpringVector2NaturalMotionAnimation {}
+unsafe impl Sync for SpringVector2NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector3NaturalMotionAnimation(windows_core::IUnknown);
@@ -24254,6 +24468,8 @@ unsafe impl windows_core::Interface for SpringVector3NaturalMotionAnimation {
 impl windows_core::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
 }
+unsafe impl Send for SpringVector3NaturalMotionAnimation {}
+unsafe impl Sync for SpringVector3NaturalMotionAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpriteVisual(windows_core::IUnknown);
@@ -24679,6 +24895,8 @@ unsafe impl windows_core::Interface for SpriteVisual {
 impl windows_core::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
 }
+unsafe impl Send for SpriteVisual {}
+unsafe impl Sync for SpriteVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StepEasingFunction(windows_core::IUnknown);
@@ -24859,6 +25077,8 @@ unsafe impl windows_core::Interface for StepEasingFunction {
 impl windows_core::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
 }
+unsafe impl Send for StepEasingFunction {}
+unsafe impl Sync for StepEasingFunction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2KeyFrameAnimation(windows_core::IUnknown);
@@ -25175,6 +25395,8 @@ unsafe impl windows_core::Interface for Vector2KeyFrameAnimation {
 impl windows_core::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
 }
+unsafe impl Send for Vector2KeyFrameAnimation {}
+unsafe impl Sync for Vector2KeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);
@@ -25491,6 +25713,8 @@ unsafe impl windows_core::Interface for Vector3KeyFrameAnimation {
 impl windows_core::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
 }
+unsafe impl Send for Vector3KeyFrameAnimation {}
+unsafe impl Sync for Vector3KeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector4KeyFrameAnimation(windows_core::IUnknown);
@@ -25807,6 +26031,8 @@ unsafe impl windows_core::Interface for Vector4KeyFrameAnimation {
 impl windows_core::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
 }
+unsafe impl Send for Vector4KeyFrameAnimation {}
+unsafe impl Sync for Vector4KeyFrameAnimation {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -25996,6 +26222,10 @@ impl windows_core::RuntimeName for VisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for VisualCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for VisualCollection {}
+#[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualUnorderedCollection(windows_core::IUnknown);
@@ -26160,6 +26390,10 @@ unsafe impl windows_core::Interface for VisualUnorderedCollection {
 impl windows_core::RuntimeName for VisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualUnorderedCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for VisualUnorderedCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for VisualUnorderedCollection {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AnimationControllerProgressBehavior(pub i32);

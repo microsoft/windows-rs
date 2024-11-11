@@ -1914,6 +1914,8 @@ unsafe impl windows_core::Interface for ActivitySensorTrigger {
 impl windows_core::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
 }
+unsafe impl Send for ActivitySensorTrigger {}
+unsafe impl Sync for ActivitySensorTrigger {}
 pub struct AlarmApplicationManager;
 impl AlarmApplicationManager {
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>> {
@@ -1977,6 +1979,8 @@ unsafe impl windows_core::Interface for AppBroadcastTrigger {
 impl windows_core::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
 }
+unsafe impl Send for AppBroadcastTrigger {}
+unsafe impl Sync for AppBroadcastTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastTriggerProviderInfo(windows_core::IUnknown);
@@ -2059,6 +2063,8 @@ unsafe impl windows_core::Interface for AppBroadcastTriggerProviderInfo {
 impl windows_core::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
 }
+unsafe impl Send for AppBroadcastTriggerProviderInfo {}
+unsafe impl Sync for AppBroadcastTriggerProviderInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationTrigger(windows_core::IUnknown);
@@ -2101,6 +2107,8 @@ unsafe impl windows_core::Interface for ApplicationTrigger {
 impl windows_core::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
 }
+unsafe impl Send for ApplicationTrigger {}
+unsafe impl Sync for ApplicationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationTriggerDetails(windows_core::IUnknown);
@@ -2125,6 +2133,8 @@ unsafe impl windows_core::Interface for ApplicationTriggerDetails {
 impl windows_core::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
 }
+unsafe impl Send for ApplicationTriggerDetails {}
+unsafe impl Sync for ApplicationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreNotificationTrigger(windows_core::IUnknown);
@@ -2149,6 +2159,8 @@ unsafe impl windows_core::Interface for AppointmentStoreNotificationTrigger {
 impl windows_core::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
 }
+unsafe impl Send for AppointmentStoreNotificationTrigger {}
+unsafe impl Sync for AppointmentStoreNotificationTrigger {}
 pub struct BackgroundExecutionManager;
 impl BackgroundExecutionManager {
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
@@ -2389,6 +2401,8 @@ unsafe impl windows_core::Interface for BackgroundTaskCompletedEventArgs {
 impl windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
 }
+unsafe impl Send for BackgroundTaskCompletedEventArgs {}
+unsafe impl Sync for BackgroundTaskCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskDeferral(windows_core::IUnknown);
@@ -2409,6 +2423,8 @@ unsafe impl windows_core::Interface for BackgroundTaskDeferral {
 impl windows_core::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
 }
+unsafe impl Send for BackgroundTaskDeferral {}
+unsafe impl Sync for BackgroundTaskDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskProgressEventArgs(windows_core::IUnknown);
@@ -2439,6 +2455,8 @@ unsafe impl windows_core::Interface for BackgroundTaskProgressEventArgs {
 impl windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
 }
+unsafe impl Send for BackgroundTaskProgressEventArgs {}
+unsafe impl Sync for BackgroundTaskProgressEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskRegistration(windows_core::IUnknown);
@@ -2558,6 +2576,8 @@ unsafe impl windows_core::Interface for BackgroundTaskRegistration {
 impl windows_core::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
 }
+unsafe impl Send for BackgroundTaskRegistration {}
+unsafe impl Sync for BackgroundTaskRegistration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskRegistrationGroup(windows_core::IUnknown);
@@ -2627,6 +2647,8 @@ unsafe impl windows_core::Interface for BackgroundTaskRegistrationGroup {
 impl windows_core::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
 }
+unsafe impl Send for BackgroundTaskRegistrationGroup {}
+unsafe impl Sync for BackgroundTaskRegistrationGroup {}
 pub struct BackgroundWorkCost;
 impl BackgroundWorkCost {
     pub fn CurrentBackgroundWorkCost() -> windows_core::Result<BackgroundWorkCostValue> {
@@ -2744,6 +2766,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger
 impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
 }
+unsafe impl Send for BluetoothLEAdvertisementPublisherTrigger {}
+unsafe impl Sync for BluetoothLEAdvertisementPublisherTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(windows_core::IUnknown);
@@ -2839,6 +2863,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTrigger {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
 }
+unsafe impl Send for BluetoothLEAdvertisementWatcherTrigger {}
+unsafe impl Sync for BluetoothLEAdvertisementWatcherTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterTrigger(windows_core::IUnknown);
@@ -2863,6 +2889,8 @@ unsafe impl windows_core::Interface for CachedFileUpdaterTrigger {
 impl windows_core::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
 }
+unsafe impl Send for CachedFileUpdaterTrigger {}
+unsafe impl Sync for CachedFileUpdaterTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterTriggerDetails(windows_core::IUnknown);
@@ -2902,6 +2930,8 @@ unsafe impl windows_core::Interface for CachedFileUpdaterTriggerDetails {
 impl windows_core::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
 }
+unsafe impl Send for CachedFileUpdaterTriggerDetails {}
+unsafe impl Sync for CachedFileUpdaterTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageNotificationTrigger(windows_core::IUnknown);
@@ -2926,6 +2956,8 @@ unsafe impl windows_core::Interface for ChatMessageNotificationTrigger {
 impl windows_core::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
 }
+unsafe impl Send for ChatMessageNotificationTrigger {}
+unsafe impl Sync for ChatMessageNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageReceivedNotificationTrigger(windows_core::IUnknown);
@@ -2950,6 +2982,8 @@ unsafe impl windows_core::Interface for ChatMessageReceivedNotificationTrigger {
 impl windows_core::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
 }
+unsafe impl Send for ChatMessageReceivedNotificationTrigger {}
+unsafe impl Sync for ChatMessageReceivedNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(windows_core::IUnknown);
@@ -2974,6 +3008,8 @@ unsafe impl windows_core::Interface for CommunicationBlockingAppSetAsActiveTrigg
 impl windows_core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
 }
+unsafe impl Send for CommunicationBlockingAppSetAsActiveTrigger {}
+unsafe impl Sync for CommunicationBlockingAppSetAsActiveTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStoreNotificationTrigger(windows_core::IUnknown);
@@ -2998,6 +3034,8 @@ unsafe impl windows_core::Interface for ContactStoreNotificationTrigger {
 impl windows_core::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
 }
+unsafe impl Send for ContactStoreNotificationTrigger {}
+unsafe impl Sync for ContactStoreNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentPrefetchTrigger(windows_core::IUnknown);
@@ -3156,6 +3194,8 @@ unsafe impl windows_core::Interface for DeviceConnectionChangeTrigger {
 impl windows_core::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
 }
+unsafe impl Send for DeviceConnectionChangeTrigger {}
+unsafe impl Sync for DeviceConnectionChangeTrigger {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3245,6 +3285,8 @@ unsafe impl windows_core::Interface for DeviceServicingTrigger {
 impl windows_core::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
 }
+unsafe impl Send for DeviceServicingTrigger {}
+unsafe impl Sync for DeviceServicingTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseTrigger(windows_core::IUnknown);
@@ -3283,6 +3325,8 @@ unsafe impl windows_core::Interface for DeviceUseTrigger {
 impl windows_core::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
 }
+unsafe impl Send for DeviceUseTrigger {}
+unsafe impl Sync for DeviceUseTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherTrigger(windows_core::IUnknown);
@@ -3323,6 +3367,8 @@ unsafe impl windows_core::Interface for EmailStoreNotificationTrigger {
 impl windows_core::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
 }
+unsafe impl Send for EmailStoreNotificationTrigger {}
+unsafe impl Sync for EmailStoreNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicNotificationTrigger(windows_core::IUnknown);
@@ -3384,6 +3430,8 @@ unsafe impl windows_core::Interface for GattCharacteristicNotificationTrigger {
 impl windows_core::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
 }
+unsafe impl Send for GattCharacteristicNotificationTrigger {}
+unsafe impl Sync for GattCharacteristicNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTrigger(windows_core::IUnknown);
@@ -3442,6 +3490,8 @@ unsafe impl windows_core::Interface for GattServiceProviderTrigger {
 impl windows_core::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
 }
+unsafe impl Send for GattServiceProviderTrigger {}
+unsafe impl Sync for GattServiceProviderTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTriggerResult(windows_core::IUnknown);
@@ -3473,6 +3523,8 @@ unsafe impl windows_core::Interface for GattServiceProviderTriggerResult {
 impl windows_core::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
 }
+unsafe impl Send for GattServiceProviderTriggerResult {}
+unsafe impl Sync for GattServiceProviderTriggerResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitTrigger(windows_core::IUnknown);
@@ -3510,6 +3562,8 @@ unsafe impl windows_core::Interface for GeovisitTrigger {
 impl windows_core::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
 }
+unsafe impl Send for GeovisitTrigger {}
+unsafe impl Sync for GeovisitTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocationTrigger(windows_core::IUnknown);
@@ -3544,6 +3598,8 @@ unsafe impl windows_core::Interface for LocationTrigger {
 impl windows_core::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
 }
+unsafe impl Send for LocationTrigger {}
+unsafe impl Sync for LocationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MaintenanceTrigger(windows_core::IUnknown);
@@ -3651,6 +3707,8 @@ unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotification
 impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
 }
+unsafe impl Send for MobileBroadbandDeviceServiceNotificationTrigger {}
+unsafe impl Sync for MobileBroadbandDeviceServiceNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
@@ -3675,6 +3733,8 @@ unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
 impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
 }
+unsafe impl Send for MobileBroadbandPcoDataChangeTrigger {}
+unsafe impl Sync for MobileBroadbandPcoDataChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
@@ -3699,6 +3759,8 @@ unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger
 impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
 }
+unsafe impl Send for MobileBroadbandPinLockStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandPinLockStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
@@ -3723,6 +3785,8 @@ unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
 impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
 }
+unsafe impl Send for MobileBroadbandRadioStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandRadioStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
@@ -3747,6 +3811,8 @@ unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTr
 impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
 }
+unsafe impl Send for MobileBroadbandRegistrationStateChangeTrigger {}
+unsafe impl Sync for MobileBroadbandRegistrationStateChangeTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
@@ -3771,6 +3837,8 @@ unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
 impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
 }
+unsafe impl Send for NetworkOperatorDataUsageTrigger {}
+unsafe impl Sync for NetworkOperatorDataUsageTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(windows_core::IUnknown);
@@ -3853,6 +3921,8 @@ unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
 impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
 }
+unsafe impl Send for PaymentAppCanMakePaymentTrigger {}
+unsafe impl Sync for PaymentAppCanMakePaymentTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneTrigger(windows_core::IUnknown);
@@ -3896,6 +3966,8 @@ unsafe impl windows_core::Interface for PhoneTrigger {
 impl windows_core::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
 }
+unsafe impl Send for PhoneTrigger {}
+unsafe impl Sync for PhoneTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationTrigger(windows_core::IUnknown);
@@ -3930,6 +4002,8 @@ unsafe impl windows_core::Interface for PushNotificationTrigger {
 impl windows_core::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
 }
+unsafe impl Send for PushNotificationTrigger {}
+unsafe impl Sync for PushNotificationTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableTrigger(windows_core::IUnknown);
@@ -3954,6 +4028,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
 impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
 }
+unsafe impl Send for RcsEndUserMessageAvailableTrigger {}
+unsafe impl Sync for RcsEndUserMessageAvailableTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommConnectionTrigger(windows_core::IUnknown);
@@ -4034,6 +4110,8 @@ unsafe impl windows_core::Interface for RfcommConnectionTrigger {
 impl windows_core::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
 }
+unsafe impl Send for RfcommConnectionTrigger {}
+unsafe impl Sync for RfcommConnectionTrigger {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4096,6 +4174,8 @@ unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
 impl windows_core::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
 }
+unsafe impl Send for SensorDataThresholdTrigger {}
+unsafe impl Sync for SensorDataThresholdTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardTrigger(windows_core::IUnknown);
@@ -4163,6 +4243,8 @@ unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
 impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
 }
+unsafe impl Send for SmsMessageReceivedTrigger {}
+unsafe impl Sync for SmsMessageReceivedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTrigger(windows_core::IUnknown);
@@ -4194,6 +4276,8 @@ unsafe impl windows_core::Interface for SocketActivityTrigger {
 impl windows_core::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
 }
+unsafe impl Send for SocketActivityTrigger {}
+unsafe impl Sync for SocketActivityTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
@@ -4225,6 +4309,8 @@ unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
 impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
 }
+unsafe impl Send for StorageLibraryChangeTrackerTrigger {}
+unsafe impl Sync for StorageLibraryChangeTrackerTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryContentChangedTrigger(windows_core::IUnknown);
@@ -4365,6 +4451,8 @@ unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
 impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
 }
+unsafe impl Send for TetheringEntitlementCheckTrigger {}
+unsafe impl Sync for TetheringEntitlementCheckTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimeTrigger(windows_core::IUnknown);
@@ -4440,6 +4528,8 @@ unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
 impl windows_core::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
 }
+unsafe impl Send for ToastNotificationActionTrigger {}
+unsafe impl Sync for ToastNotificationActionTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
@@ -4474,6 +4564,8 @@ unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
 impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
 }
+unsafe impl Send for ToastNotificationHistoryChangedTrigger {}
+unsafe impl Sync for ToastNotificationHistoryChangedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
@@ -4502,6 +4594,8 @@ unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
 impl windows_core::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";
 }
+unsafe impl Send for UserNotificationChangedTrigger {}
+unsafe impl Sync for UserNotificationChangedTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
@@ -4526,6 +4620,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotConnectTrigger";
 }
+unsafe impl Send for WiFiOnDemandHotspotConnectTrigger {}
+unsafe impl Sync for WiFiOnDemandHotspotConnectTrigger {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
@@ -4550,6 +4646,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger
 impl windows_core::RuntimeName for WiFiOnDemandHotspotUpdateMetadataTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger";
 }
+unsafe impl Send for WiFiOnDemandHotspotUpdateMetadataTrigger {}
+unsafe impl Sync for WiFiOnDemandHotspotUpdateMetadataTrigger {}
 windows_core::imp::define_interface!(BackgroundTaskCanceledEventHandler, BackgroundTaskCanceledEventHandler_Vtbl, 0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
 impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

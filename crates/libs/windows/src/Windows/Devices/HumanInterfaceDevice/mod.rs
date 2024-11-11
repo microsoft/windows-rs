@@ -272,6 +272,8 @@ unsafe impl windows_core::Interface for HidBooleanControl {
 impl windows_core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
 }
+unsafe impl Send for HidBooleanControl {}
+unsafe impl Sync for HidBooleanControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidBooleanControlDescription(windows_core::IUnknown);
@@ -338,6 +340,8 @@ unsafe impl windows_core::Interface for HidBooleanControlDescription {
 impl windows_core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
 }
+unsafe impl Send for HidBooleanControlDescription {}
+unsafe impl Sync for HidBooleanControlDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidCollection(windows_core::IUnknown);
@@ -382,6 +386,8 @@ unsafe impl windows_core::Interface for HidCollection {
 impl windows_core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
 }
+unsafe impl Send for HidCollection {}
+unsafe impl Sync for HidCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidDevice(windows_core::IUnknown);
@@ -567,6 +573,8 @@ unsafe impl windows_core::Interface for HidDevice {
 impl windows_core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
 }
+unsafe impl Send for HidDevice {}
+unsafe impl Sync for HidDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidFeatureReport(windows_core::IUnknown);
@@ -640,6 +648,8 @@ unsafe impl windows_core::Interface for HidFeatureReport {
 impl windows_core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
 }
+unsafe impl Send for HidFeatureReport {}
+unsafe impl Sync for HidFeatureReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidInputReport(windows_core::IUnknown);
@@ -721,6 +731,8 @@ unsafe impl windows_core::Interface for HidInputReport {
 impl windows_core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
 }
+unsafe impl Send for HidInputReport {}
+unsafe impl Sync for HidInputReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidInputReportReceivedEventArgs(windows_core::IUnknown);
@@ -744,6 +756,8 @@ unsafe impl windows_core::Interface for HidInputReportReceivedEventArgs {
 impl windows_core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
 }
+unsafe impl Send for HidInputReportReceivedEventArgs {}
+unsafe impl Sync for HidInputReportReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidNumericControl(windows_core::IUnknown);
@@ -817,6 +831,8 @@ unsafe impl windows_core::Interface for HidNumericControl {
 impl windows_core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
 }
+unsafe impl Send for HidNumericControl {}
+unsafe impl Sync for HidNumericControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidNumericControlDescription(windows_core::IUnknown);
@@ -946,6 +962,8 @@ unsafe impl windows_core::Interface for HidNumericControlDescription {
 impl windows_core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
 }
+unsafe impl Send for HidNumericControlDescription {}
+unsafe impl Sync for HidNumericControlDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidOutputReport(windows_core::IUnknown);
@@ -1019,6 +1037,8 @@ unsafe impl windows_core::Interface for HidOutputReport {
 impl windows_core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";
 }
+unsafe impl Send for HidOutputReport {}
+unsafe impl Sync for HidOutputReport {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HidCollectionType(pub i32);

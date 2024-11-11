@@ -131,6 +131,8 @@ impl ID2D1AnalysisTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1AnalysisTransform {}
+unsafe impl Send for ID2D1AnalysisTransform {}
+unsafe impl Sync for ID2D1AnalysisTransform {}
 windows_core::imp::define_interface!(ID2D1Bitmap, ID2D1Bitmap_Vtbl, 0xa2296057_ea42_4099_983b_539fb6505426);
 impl core::ops::Deref for ID2D1Bitmap {
     type Target = ID2D1Image;
@@ -267,6 +269,10 @@ impl ID2D1Bitmap_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID2D1Bitmap {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1Bitmap {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1Bitmap {}
 windows_core::imp::define_interface!(ID2D1Bitmap1, ID2D1Bitmap1_Vtbl, 0xa898a84c_3873_4588_b08b_ebbf978df041);
 impl core::ops::Deref for ID2D1Bitmap1 {
     type Target = ID2D1Bitmap;
@@ -367,6 +373,10 @@ impl ID2D1Bitmap1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID2D1Bitmap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1Bitmap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1Bitmap1 {}
 windows_core::imp::define_interface!(ID2D1BitmapBrush, ID2D1BitmapBrush_Vtbl, 0x2cd906aa_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1BitmapBrush {
     type Target = ID2D1Brush;
@@ -482,6 +492,10 @@ impl ID2D1BitmapBrush_Vtbl {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for ID2D1BitmapBrush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1BitmapBrush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1BitmapBrush {}
 windows_core::imp::define_interface!(ID2D1BitmapBrush1, ID2D1BitmapBrush1_Vtbl, 0x41343a53_e41a_49a2_91cd_21793bbb62e5);
 impl core::ops::Deref for ID2D1BitmapBrush1 {
     type Target = ID2D1BitmapBrush;
@@ -532,6 +546,10 @@ impl ID2D1BitmapBrush1_Vtbl {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for ID2D1BitmapBrush1 {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1BitmapBrush1 {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1BitmapBrush1 {}
 windows_core::imp::define_interface!(ID2D1BitmapRenderTarget, ID2D1BitmapRenderTarget_Vtbl, 0x2cd90695_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1BitmapRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -576,6 +594,10 @@ impl ID2D1BitmapRenderTarget_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1BitmapRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1BitmapRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1BitmapRenderTarget {}
 windows_core::imp::define_interface!(ID2D1BlendTransform, ID2D1BlendTransform_Vtbl, 0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
 impl core::ops::Deref for ID2D1BlendTransform {
     type Target = ID2D1ConcreteTransform;
@@ -623,6 +645,8 @@ impl ID2D1BlendTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1BlendTransform {}
+unsafe impl Send for ID2D1BlendTransform {}
+unsafe impl Sync for ID2D1BlendTransform {}
 windows_core::imp::define_interface!(ID2D1BorderTransform, ID2D1BorderTransform_Vtbl, 0x4998735c_3a19_473c_9781_656847e3a347);
 impl core::ops::Deref for ID2D1BorderTransform {
     type Target = ID2D1ConcreteTransform;
@@ -690,6 +714,8 @@ impl ID2D1BorderTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1BorderTransform {}
+unsafe impl Send for ID2D1BorderTransform {}
+unsafe impl Sync for ID2D1BorderTransform {}
 windows_core::imp::define_interface!(ID2D1BoundsAdjustmentTransform, ID2D1BoundsAdjustmentTransform_Vtbl, 0x90f732e2_5092_4606_a819_8651970baccd);
 impl core::ops::Deref for ID2D1BoundsAdjustmentTransform {
     type Target = ID2D1TransformNode;
@@ -739,6 +765,8 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1BoundsAdjustmentTransform {}
+unsafe impl Send for ID2D1BoundsAdjustmentTransform {}
+unsafe impl Sync for ID2D1BoundsAdjustmentTransform {}
 windows_core::imp::define_interface!(ID2D1Brush, ID2D1Brush_Vtbl, 0x2cd906a8_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Brush {
     type Target = ID2D1Resource;
@@ -817,6 +845,10 @@ impl ID2D1Brush_Vtbl {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for ID2D1Brush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1Brush {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1Brush {}
 windows_core::imp::define_interface!(ID2D1ColorContext, ID2D1ColorContext_Vtbl, 0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
 impl core::ops::Deref for ID2D1ColorContext {
     type Target = ID2D1Resource;
@@ -874,6 +906,8 @@ impl ID2D1ColorContext_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ColorContext {}
+unsafe impl Send for ID2D1ColorContext {}
+unsafe impl Sync for ID2D1ColorContext {}
 windows_core::imp::define_interface!(ID2D1ColorContext1, ID2D1ColorContext1_Vtbl, 0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
 impl core::ops::Deref for ID2D1ColorContext1 {
     type Target = ID2D1ColorContext;
@@ -942,6 +976,10 @@ impl ID2D1ColorContext1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID2D1ColorContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID2D1ColorContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID2D1ColorContext1 {}
 windows_core::imp::define_interface!(ID2D1CommandList, ID2D1CommandList_Vtbl, 0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
 impl core::ops::Deref for ID2D1CommandList {
     type Target = ID2D1Image;
@@ -988,6 +1026,8 @@ impl ID2D1CommandList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1CommandList {}
+unsafe impl Send for ID2D1CommandList {}
+unsafe impl Sync for ID2D1CommandList {}
 windows_core::imp::define_interface!(ID2D1CommandSink, ID2D1CommandSink_Vtbl, 0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
 windows_core::imp::interface_hierarchy!(ID2D1CommandSink, windows_core::IUnknown);
 impl ID2D1CommandSink {
@@ -1361,6 +1401,10 @@ impl ID2D1CommandSink_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink {}
 windows_core::imp::define_interface!(ID2D1CommandSink1, ID2D1CommandSink1_Vtbl, 0x9eb767fd_4269_4467_b8c2_eb30cb305743);
 impl core::ops::Deref for ID2D1CommandSink1 {
     type Target = ID2D1CommandSink;
@@ -1398,6 +1442,10 @@ impl ID2D1CommandSink1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink1 {}
 windows_core::imp::define_interface!(ID2D1CommandSink2, ID2D1CommandSink2_Vtbl, 0x3bab440e_417e_47df_a2e2_bc0be6a00916);
 impl core::ops::Deref for ID2D1CommandSink2 {
     type Target = ID2D1CommandSink1;
@@ -1473,6 +1521,10 @@ impl ID2D1CommandSink2_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink2 {}
 windows_core::imp::define_interface!(ID2D1CommandSink3, ID2D1CommandSink3_Vtbl, 0x18079135_4cf3_4868_bc8e_06067e6d242d);
 impl core::ops::Deref for ID2D1CommandSink3 {
     type Target = ID2D1CommandSink2;
@@ -1514,6 +1566,10 @@ impl ID2D1CommandSink3_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink3 {}
 windows_core::imp::define_interface!(ID2D1CommandSink4, ID2D1CommandSink4_Vtbl, 0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
 impl core::ops::Deref for ID2D1CommandSink4 {
     type Target = ID2D1CommandSink3;
@@ -1551,6 +1607,10 @@ impl ID2D1CommandSink4_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink4 {}
 windows_core::imp::define_interface!(ID2D1CommandSink5, ID2D1CommandSink5_Vtbl, 0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
 impl core::ops::Deref for ID2D1CommandSink5 {
     type Target = ID2D1CommandSink4;
@@ -1595,6 +1655,10 @@ impl ID2D1CommandSink5_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1CommandSink5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1CommandSink5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1CommandSink5 {}
 windows_core::imp::define_interface!(ID2D1ComputeInfo, ID2D1ComputeInfo_Vtbl, 0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
 impl core::ops::Deref for ID2D1ComputeInfo {
     type Target = ID2D1RenderInfo;
@@ -1655,6 +1719,8 @@ impl ID2D1ComputeInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ComputeInfo {}
+unsafe impl Send for ID2D1ComputeInfo {}
+unsafe impl Sync for ID2D1ComputeInfo {}
 windows_core::imp::define_interface!(ID2D1ComputeTransform, ID2D1ComputeTransform_Vtbl, 0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
 impl core::ops::Deref for ID2D1ComputeTransform {
     type Target = ID2D1Transform;
@@ -1705,6 +1771,8 @@ impl ID2D1ComputeTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ComputeTransform {}
+unsafe impl Send for ID2D1ComputeTransform {}
+unsafe impl Sync for ID2D1ComputeTransform {}
 windows_core::imp::define_interface!(ID2D1ConcreteTransform, ID2D1ConcreteTransform_Vtbl, 0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
 impl core::ops::Deref for ID2D1ConcreteTransform {
     type Target = ID2D1TransformNode;
@@ -1755,6 +1823,8 @@ impl ID2D1ConcreteTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ConcreteTransform {}
+unsafe impl Send for ID2D1ConcreteTransform {}
+unsafe impl Sync for ID2D1ConcreteTransform {}
 windows_core::imp::define_interface!(ID2D1DCRenderTarget, ID2D1DCRenderTarget_Vtbl, 0x1c51bc64_de61_46fd_9899_63a5d8f03950);
 impl core::ops::Deref for ID2D1DCRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -1799,6 +1869,10 @@ impl ID2D1DCRenderTarget_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DCRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DCRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DCRenderTarget {}
 windows_core::imp::define_interface!(ID2D1Device, ID2D1Device_Vtbl, 0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
 impl core::ops::Deref for ID2D1Device {
     type Target = ID2D1Resource;
@@ -1901,6 +1975,10 @@ impl ID2D1Device_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device {}
 windows_core::imp::define_interface!(ID2D1Device1, ID2D1Device1_Vtbl, 0xd21768e1_23a4_4823_a14b_7c3eba85d658);
 impl core::ops::Deref for ID2D1Device1 {
     type Target = ID2D1Device;
@@ -1968,6 +2046,10 @@ impl ID2D1Device1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device1 {}
+#[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device1 {}
 windows_core::imp::define_interface!(ID2D1Device2, ID2D1Device2_Vtbl, 0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
 impl core::ops::Deref for ID2D1Device2 {
     type Target = ID2D1Device1;
@@ -2049,6 +2131,10 @@ impl ID2D1Device2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device2 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device2 {}
 windows_core::imp::define_interface!(ID2D1Device3, ID2D1Device3_Vtbl, 0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
 impl core::ops::Deref for ID2D1Device3 {
     type Target = ID2D1Device2;
@@ -2093,6 +2179,10 @@ impl ID2D1Device3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device3 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device3 {}
 windows_core::imp::define_interface!(ID2D1Device4, ID2D1Device4_Vtbl, 0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
 impl core::ops::Deref for ID2D1Device4 {
     type Target = ID2D1Device3;
@@ -2160,6 +2250,10 @@ impl ID2D1Device4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device4 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device4 {}
 windows_core::imp::define_interface!(ID2D1Device5, ID2D1Device5_Vtbl, 0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
 impl core::ops::Deref for ID2D1Device5 {
     type Target = ID2D1Device4;
@@ -2204,6 +2298,10 @@ impl ID2D1Device5_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device5 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device5 {}
 windows_core::imp::define_interface!(ID2D1Device6, ID2D1Device6_Vtbl, 0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
 impl core::ops::Deref for ID2D1Device6 {
     type Target = ID2D1Device5;
@@ -2248,6 +2346,10 @@ impl ID2D1Device6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device6 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device6 {}
 windows_core::imp::define_interface!(ID2D1Device7, ID2D1Device7_Vtbl, 0xf07c8968_dd4e_4ba6_9cbd_eb6d3752dcbb);
 impl core::ops::Deref for ID2D1Device7 {
     type Target = ID2D1Device6;
@@ -2292,6 +2394,10 @@ impl ID2D1Device7_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 impl windows_core::RuntimeName for ID2D1Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Send for ID2D1Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+unsafe impl Sync for ID2D1Device7 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext, ID2D1DeviceContext_Vtbl, 0xe8f7fe7a_191c_466d_ad95_975678bda998);
 impl core::ops::Deref for ID2D1DeviceContext {
     type Target = ID2D1RenderTarget;
@@ -2929,6 +3035,10 @@ impl ID2D1DeviceContext_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext {}
 windows_core::imp::define_interface!(ID2D1DeviceContext1, ID2D1DeviceContext1_Vtbl, 0xd37f57e4_6908_459f_a199_e72f24f79987);
 impl core::ops::Deref for ID2D1DeviceContext1 {
     type Target = ID2D1DeviceContext;
@@ -3014,6 +3124,10 @@ impl ID2D1DeviceContext1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext1 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext2, ID2D1DeviceContext2_Vtbl, 0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
 impl core::ops::Deref for ID2D1DeviceContext2 {
     type Target = ID2D1DeviceContext1;
@@ -3254,6 +3368,10 @@ impl ID2D1DeviceContext2_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext2 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext3, ID2D1DeviceContext3_Vtbl, 0x235a7496_8351_414c_bcd4_6672ab2d8e00);
 impl core::ops::Deref for ID2D1DeviceContext3 {
     type Target = ID2D1DeviceContext2;
@@ -3315,6 +3433,10 @@ impl ID2D1DeviceContext3_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext3 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext4, ID2D1DeviceContext4_Vtbl, 0x8c427831_3d90_4476_b647_c4fae349e4db);
 impl core::ops::Deref for ID2D1DeviceContext4 {
     type Target = ID2D1DeviceContext3;
@@ -3470,6 +3592,10 @@ impl ID2D1DeviceContext4_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1DeviceContext4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1DeviceContext4 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext5, ID2D1DeviceContext5_Vtbl, 0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
 impl core::ops::Deref for ID2D1DeviceContext5 {
     type Target = ID2D1DeviceContext4;
@@ -3579,6 +3705,10 @@ impl ID2D1DeviceContext5_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext5 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext6, ID2D1DeviceContext6_Vtbl, 0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
 impl core::ops::Deref for ID2D1DeviceContext6 {
     type Target = ID2D1DeviceContext5;
@@ -3623,6 +3753,10 @@ impl ID2D1DeviceContext6_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext6 {}
 windows_core::imp::define_interface!(ID2D1DeviceContext7, ID2D1DeviceContext7_Vtbl, 0xec891cf7_9b69_4851_9def_4e0915771e62);
 impl core::ops::Deref for ID2D1DeviceContext7 {
     type Target = ID2D1DeviceContext6;
@@ -3702,6 +3836,10 @@ impl ID2D1DeviceContext7_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1DeviceContext7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1DeviceContext7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1DeviceContext7 {}
 windows_core::imp::define_interface!(ID2D1DrawInfo, ID2D1DrawInfo_Vtbl, 0x693ce632_7f2f_45de_93fe_18d88b37aa21);
 impl core::ops::Deref for ID2D1DrawInfo {
     type Target = ID2D1RenderInfo;
@@ -3785,6 +3923,8 @@ impl ID2D1DrawInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1DrawInfo {}
+unsafe impl Send for ID2D1DrawInfo {}
+unsafe impl Sync for ID2D1DrawInfo {}
 windows_core::imp::define_interface!(ID2D1DrawTransform, ID2D1DrawTransform_Vtbl, 0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
 impl core::ops::Deref for ID2D1DrawTransform {
     type Target = ID2D1Transform;
@@ -3822,6 +3962,8 @@ impl ID2D1DrawTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1DrawTransform {}
+unsafe impl Send for ID2D1DrawTransform {}
+unsafe impl Sync for ID2D1DrawTransform {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock, ID2D1DrawingStateBlock_Vtbl, 0x28506e39_ebf6_46a1_bb47_fd85565ab957);
 impl core::ops::Deref for ID2D1DrawingStateBlock {
     type Target = ID2D1Resource;
@@ -3913,6 +4055,10 @@ impl ID2D1DrawingStateBlock_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1DrawingStateBlock {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1DrawingStateBlock {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1DrawingStateBlock {}
 windows_core::imp::define_interface!(ID2D1DrawingStateBlock1, ID2D1DrawingStateBlock1_Vtbl, 0x689f1f85_c72e_4e33_8f19_85754efd5ace);
 impl core::ops::Deref for ID2D1DrawingStateBlock1 {
     type Target = ID2D1DrawingStateBlock;
@@ -3971,6 +4117,10 @@ impl ID2D1DrawingStateBlock1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 impl windows_core::RuntimeName for ID2D1DrawingStateBlock1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Send for ID2D1DrawingStateBlock1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
+unsafe impl Sync for ID2D1DrawingStateBlock1 {}
 windows_core::imp::define_interface!(ID2D1Effect, ID2D1Effect_Vtbl, 0x28211a43_7d89_476f_8181_2d6159b220ad);
 impl core::ops::Deref for ID2D1Effect {
     type Target = ID2D1Properties;
@@ -4056,6 +4206,8 @@ impl ID2D1Effect_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Effect {}
+unsafe impl Send for ID2D1Effect {}
+unsafe impl Sync for ID2D1Effect {}
 windows_core::imp::define_interface!(ID2D1EffectContext, ID2D1EffectContext_Vtbl, 0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
 windows_core::imp::interface_hierarchy!(ID2D1EffectContext, windows_core::IUnknown);
 impl ID2D1EffectContext {
@@ -4409,6 +4561,10 @@ impl ID2D1EffectContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext {}
 windows_core::imp::define_interface!(ID2D1EffectContext1, ID2D1EffectContext1_Vtbl, 0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
 impl core::ops::Deref for ID2D1EffectContext1 {
     type Target = ID2D1EffectContext;
@@ -4453,6 +4609,10 @@ impl ID2D1EffectContext1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext1 {}
 windows_core::imp::define_interface!(ID2D1EffectContext2, ID2D1EffectContext2_Vtbl, 0x577ad2a0_9fc7_4dda_8b18_dab810140052);
 impl core::ops::Deref for ID2D1EffectContext2 {
     type Target = ID2D1EffectContext1;
@@ -4525,6 +4685,10 @@ impl ID2D1EffectContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1EffectContext2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1EffectContext2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1EffectContext2 {}
 windows_core::imp::define_interface!(ID2D1EffectImpl, ID2D1EffectImpl_Vtbl, 0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
 windows_core::imp::interface_hierarchy!(ID2D1EffectImpl, windows_core::IUnknown);
 impl ID2D1EffectImpl {
@@ -4583,6 +4747,8 @@ impl ID2D1EffectImpl_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1EffectImpl {}
+unsafe impl Send for ID2D1EffectImpl {}
+unsafe impl Sync for ID2D1EffectImpl {}
 windows_core::imp::define_interface!(ID2D1EllipseGeometry, ID2D1EllipseGeometry_Vtbl, 0x2cd906a4_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1EllipseGeometry {
     type Target = ID2D1Geometry;
@@ -4626,6 +4792,10 @@ impl ID2D1EllipseGeometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1EllipseGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1EllipseGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1EllipseGeometry {}
 windows_core::imp::define_interface!(ID2D1Factory, ID2D1Factory_Vtbl, 0x06152247_6f50_465a_9245_118bfd3b6007);
 windows_core::imp::interface_hierarchy!(ID2D1Factory, windows_core::IUnknown);
 impl ID2D1Factory {
@@ -4926,6 +5096,10 @@ impl ID2D1Factory_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1Factory {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1Factory {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1Factory {}
 windows_core::imp::define_interface!(ID2D1Factory1, ID2D1Factory1_Vtbl, 0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
 impl core::ops::Deref for ID2D1Factory1 {
     type Target = ID2D1Factory;
@@ -5129,6 +5303,10 @@ impl ID2D1Factory1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory1 {}
 windows_core::imp::define_interface!(ID2D1Factory2, ID2D1Factory2_Vtbl, 0x94f81a73_9212_4376_9c58_b16a3a0d3992);
 impl core::ops::Deref for ID2D1Factory2 {
     type Target = ID2D1Factory1;
@@ -5180,6 +5358,10 @@ impl ID2D1Factory2_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory2 {}
 windows_core::imp::define_interface!(ID2D1Factory3, ID2D1Factory3_Vtbl, 0x0869759f_4f00_413f_b03e_2bda45404d0f);
 impl core::ops::Deref for ID2D1Factory3 {
     type Target = ID2D1Factory2;
@@ -5231,6 +5413,10 @@ impl ID2D1Factory3_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory3 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory3 {}
 windows_core::imp::define_interface!(ID2D1Factory4, ID2D1Factory4_Vtbl, 0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
 impl core::ops::Deref for ID2D1Factory4 {
     type Target = ID2D1Factory3;
@@ -5282,6 +5468,10 @@ impl ID2D1Factory4_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory4 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory4 {}
 windows_core::imp::define_interface!(ID2D1Factory5, ID2D1Factory5_Vtbl, 0xc4349994_838e_4b0f_8cab_44997d9eeacc);
 impl core::ops::Deref for ID2D1Factory5 {
     type Target = ID2D1Factory4;
@@ -5333,6 +5523,10 @@ impl ID2D1Factory5_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory5 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory5 {}
 windows_core::imp::define_interface!(ID2D1Factory6, ID2D1Factory6_Vtbl, 0xf9976f46_f642_44c1_97ca_da32ea2a2635);
 impl core::ops::Deref for ID2D1Factory6 {
     type Target = ID2D1Factory5;
@@ -5384,6 +5578,10 @@ impl ID2D1Factory6_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory6 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory6 {}
 windows_core::imp::define_interface!(ID2D1Factory7, ID2D1Factory7_Vtbl, 0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
 impl core::ops::Deref for ID2D1Factory7 {
     type Target = ID2D1Factory6;
@@ -5435,6 +5633,10 @@ impl ID2D1Factory7_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory7 {}
 windows_core::imp::define_interface!(ID2D1Factory8, ID2D1Factory8_Vtbl, 0x677c9311_f36d_4b1f_ae86_86d1223ffd3a);
 impl core::ops::Deref for ID2D1Factory8 {
     type Target = ID2D1Factory7;
@@ -5486,6 +5688,10 @@ impl ID2D1Factory8_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1Factory8 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1Factory8 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1Factory8 {}
 windows_core::imp::define_interface!(ID2D1GdiInteropRenderTarget, ID2D1GdiInteropRenderTarget_Vtbl, 0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
 windows_core::imp::interface_hierarchy!(ID2D1GdiInteropRenderTarget, windows_core::IUnknown);
 impl ID2D1GdiInteropRenderTarget {
@@ -5537,6 +5743,10 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for ID2D1GdiInteropRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Send for ID2D1GdiInteropRenderTarget {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl Sync for ID2D1GdiInteropRenderTarget {}
 windows_core::imp::define_interface!(ID2D1GdiMetafile, ID2D1GdiMetafile_Vtbl, 0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
 impl core::ops::Deref for ID2D1GdiMetafile {
     type Target = ID2D1Resource;
@@ -5597,6 +5807,10 @@ impl ID2D1GdiMetafile_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GdiMetafile {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GdiMetafile {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GdiMetafile {}
 windows_core::imp::define_interface!(ID2D1GdiMetafile1, ID2D1GdiMetafile1_Vtbl, 0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
 impl core::ops::Deref for ID2D1GdiMetafile1 {
     type Target = ID2D1GdiMetafile;
@@ -5658,6 +5872,10 @@ impl ID2D1GdiMetafile1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GdiMetafile1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GdiMetafile1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GdiMetafile1 {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink, ID2D1GdiMetafileSink_Vtbl, 0x82237326_8111_4f7c_bcf4_b5c1175564fe);
 windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink, windows_core::IUnknown);
 impl ID2D1GdiMetafileSink {
@@ -5686,6 +5904,8 @@ impl ID2D1GdiMetafileSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1GdiMetafileSink {}
+unsafe impl Send for ID2D1GdiMetafileSink {}
+unsafe impl Sync for ID2D1GdiMetafileSink {}
 windows_core::imp::define_interface!(ID2D1GdiMetafileSink1, ID2D1GdiMetafileSink1_Vtbl, 0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
 impl core::ops::Deref for ID2D1GdiMetafileSink1 {
     type Target = ID2D1GdiMetafileSink;
@@ -5720,6 +5940,8 @@ impl ID2D1GdiMetafileSink1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1GdiMetafileSink1 {}
+unsafe impl Send for ID2D1GdiMetafileSink1 {}
+unsafe impl Sync for ID2D1GdiMetafileSink1 {}
 windows_core::imp::define_interface!(ID2D1Geometry, ID2D1Geometry_Vtbl, 0x2cd906a1_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Geometry {
     type Target = ID2D1Resource;
@@ -6007,6 +6229,10 @@ impl ID2D1Geometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1Geometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1Geometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1Geometry {}
 windows_core::imp::define_interface!(ID2D1GeometryGroup, ID2D1GeometryGroup_Vtbl, 0x2cd906a6_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1GeometryGroup {
     type Target = ID2D1Geometry;
@@ -6071,6 +6297,10 @@ impl ID2D1GeometryGroup_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1GeometryGroup {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1GeometryGroup {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1GeometryGroup {}
 windows_core::imp::define_interface!(ID2D1GeometryRealization, ID2D1GeometryRealization_Vtbl, 0xa16907d7_bc02_4801_99e8_8cf7f485f774);
 impl core::ops::Deref for ID2D1GeometryRealization {
     type Target = ID2D1Resource;
@@ -6093,6 +6323,8 @@ impl ID2D1GeometryRealization_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1GeometryRealization {}
+unsafe impl Send for ID2D1GeometryRealization {}
+unsafe impl Sync for ID2D1GeometryRealization {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 windows_core::imp::define_interface!(ID2D1GeometrySink, ID2D1GeometrySink_Vtbl, 0x2cd9069f_12e2_11dc_9fed_001143a055f9);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -6198,6 +6430,10 @@ impl ID2D1GeometrySink_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GeometrySink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GeometrySink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GeometrySink {}
 windows_core::imp::define_interface!(ID2D1GradientMesh, ID2D1GradientMesh_Vtbl, 0xf292e401_c050_4cde_83d7_04962d3b23c2);
 impl core::ops::Deref for ID2D1GradientMesh {
     type Target = ID2D1Resource;
@@ -6252,6 +6488,10 @@ impl ID2D1GradientMesh_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientMesh {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientMesh {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientMesh {}
 windows_core::imp::define_interface!(ID2D1GradientStopCollection, ID2D1GradientStopCollection_Vtbl, 0x2cd906a7_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1GradientStopCollection {
     type Target = ID2D1Resource;
@@ -6326,6 +6566,10 @@ impl ID2D1GradientStopCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientStopCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientStopCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientStopCollection {}
 windows_core::imp::define_interface!(ID2D1GradientStopCollection1, ID2D1GradientStopCollection1_Vtbl, 0xae1572f4_5dd0_4777_998b_9279472ae63b);
 impl core::ops::Deref for ID2D1GradientStopCollection1 {
     type Target = ID2D1GradientStopCollection;
@@ -6410,6 +6654,10 @@ impl ID2D1GradientStopCollection1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1GradientStopCollection1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1GradientStopCollection1 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1GradientStopCollection1 {}
 windows_core::imp::define_interface!(ID2D1HwndRenderTarget, ID2D1HwndRenderTarget_Vtbl, 0x2cd90698_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1HwndRenderTarget {
     type Target = ID2D1RenderTarget;
@@ -6474,6 +6722,10 @@ impl ID2D1HwndRenderTarget_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1HwndRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1HwndRenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1HwndRenderTarget {}
 windows_core::imp::define_interface!(ID2D1Image, ID2D1Image_Vtbl, 0x65019f75_8da2_497c_b32c_dfa34e48ede6);
 impl core::ops::Deref for ID2D1Image {
     type Target = ID2D1Resource;
@@ -6496,6 +6748,8 @@ impl ID2D1Image_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Image {}
+unsafe impl Send for ID2D1Image {}
+unsafe impl Sync for ID2D1Image {}
 windows_core::imp::define_interface!(ID2D1ImageBrush, ID2D1ImageBrush_Vtbl, 0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
 impl core::ops::Deref for ID2D1ImageBrush {
     type Target = ID2D1Brush;
@@ -6641,6 +6895,10 @@ impl ID2D1ImageBrush_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1ImageBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1ImageBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1ImageBrush {}
 windows_core::imp::define_interface!(ID2D1ImageSource, ID2D1ImageSource_Vtbl, 0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
 impl core::ops::Deref for ID2D1ImageSource {
     type Target = ID2D1Image;
@@ -6695,6 +6953,8 @@ impl ID2D1ImageSource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ImageSource {}
+unsafe impl Send for ID2D1ImageSource {}
+unsafe impl Sync for ID2D1ImageSource {}
 windows_core::imp::define_interface!(ID2D1ImageSourceFromWic, ID2D1ImageSourceFromWic_Vtbl, 0x77395441_1c8f_4555_8683_f50dab0fe792);
 impl core::ops::Deref for ID2D1ImageSourceFromWic {
     type Target = ID2D1ImageSource;
@@ -6769,6 +7029,10 @@ impl ID2D1ImageSourceFromWic_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1ImageSourceFromWic {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1ImageSourceFromWic {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1ImageSourceFromWic {}
 windows_core::imp::define_interface!(ID2D1Ink, ID2D1Ink_Vtbl, 0xb499923b_7029_478f_a8b3_432c7c5f5312);
 impl core::ops::Deref for ID2D1Ink {
     type Target = ID2D1Resource;
@@ -6923,6 +7187,10 @@ impl ID2D1Ink_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1Ink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1Ink {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1Ink {}
 windows_core::imp::define_interface!(ID2D1InkStyle, ID2D1InkStyle_Vtbl, 0xbae8b344_23fc_4071_8cb5_d05d6f073848);
 impl core::ops::Deref for ID2D1InkStyle {
     type Target = ID2D1Resource;
@@ -7001,6 +7269,10 @@ impl ID2D1InkStyle_Vtbl {
 }
 #[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeName for ID2D1InkStyle {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Send for ID2D1InkStyle {}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl Sync for ID2D1InkStyle {}
 windows_core::imp::define_interface!(ID2D1Layer, ID2D1Layer_Vtbl, 0x2cd9069b_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Layer {
     type Target = ID2D1Resource;
@@ -7044,6 +7316,10 @@ impl ID2D1Layer_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1Layer {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1Layer {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1Layer {}
 windows_core::imp::define_interface!(ID2D1LinearGradientBrush, ID2D1LinearGradientBrush_Vtbl, 0x2cd906ab_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1LinearGradientBrush {
     type Target = ID2D1Brush;
@@ -7146,6 +7422,10 @@ impl ID2D1LinearGradientBrush_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1LinearGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1LinearGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1LinearGradientBrush {}
 windows_core::imp::define_interface!(ID2D1LookupTable3D, ID2D1LookupTable3D_Vtbl, 0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
 impl core::ops::Deref for ID2D1LookupTable3D {
     type Target = ID2D1Resource;
@@ -7168,6 +7448,8 @@ impl ID2D1LookupTable3D_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1LookupTable3D {}
+unsafe impl Send for ID2D1LookupTable3D {}
+unsafe impl Sync for ID2D1LookupTable3D {}
 windows_core::imp::define_interface!(ID2D1Mesh, ID2D1Mesh_Vtbl, 0x2cd906c2_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1Mesh {
     type Target = ID2D1Resource;
@@ -7209,6 +7491,8 @@ impl ID2D1Mesh_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Mesh {}
+unsafe impl Send for ID2D1Mesh {}
+unsafe impl Sync for ID2D1Mesh {}
 windows_core::imp::define_interface!(ID2D1Multithread, ID2D1Multithread_Vtbl, 0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
 windows_core::imp::interface_hierarchy!(ID2D1Multithread, windows_core::IUnknown);
 impl ID2D1Multithread {
@@ -7260,6 +7544,8 @@ impl ID2D1Multithread_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Multithread {}
+unsafe impl Send for ID2D1Multithread {}
+unsafe impl Sync for ID2D1Multithread {}
 windows_core::imp::define_interface!(ID2D1OffsetTransform, ID2D1OffsetTransform_Vtbl, 0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
 impl core::ops::Deref for ID2D1OffsetTransform {
     type Target = ID2D1TransformNode;
@@ -7305,6 +7591,8 @@ impl ID2D1OffsetTransform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1OffsetTransform {}
+unsafe impl Send for ID2D1OffsetTransform {}
+unsafe impl Sync for ID2D1OffsetTransform {}
 windows_core::imp::define_interface!(ID2D1PathGeometry, ID2D1PathGeometry_Vtbl, 0x2cd906a5_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1PathGeometry {
     type Target = ID2D1Geometry;
@@ -7407,6 +7695,10 @@ impl ID2D1PathGeometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1PathGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1PathGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1PathGeometry {}
 windows_core::imp::define_interface!(ID2D1PathGeometry1, ID2D1PathGeometry1_Vtbl, 0x62baa2d2_ab54_41b7_b872_787e0106a421);
 impl core::ops::Deref for ID2D1PathGeometry1 {
     type Target = ID2D1PathGeometry;
@@ -7448,6 +7740,10 @@ impl ID2D1PathGeometry1_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1PathGeometry1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1PathGeometry1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1PathGeometry1 {}
 windows_core::imp::define_interface!(ID2D1PrintControl, ID2D1PrintControl_Vtbl, 0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
 windows_core::imp::interface_hierarchy!(ID2D1PrintControl, windows_core::IUnknown);
 impl ID2D1PrintControl {
@@ -7496,6 +7792,10 @@ impl ID2D1PrintControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1PrintControl {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1PrintControl {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1PrintControl {}
 windows_core::imp::define_interface!(ID2D1Properties, ID2D1Properties_Vtbl, 0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
 windows_core::imp::interface_hierarchy!(ID2D1Properties, windows_core::IUnknown);
 impl ID2D1Properties {
@@ -7643,6 +7943,8 @@ impl ID2D1Properties_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Properties {}
+unsafe impl Send for ID2D1Properties {}
+unsafe impl Sync for ID2D1Properties {}
 windows_core::imp::define_interface!(ID2D1RadialGradientBrush, ID2D1RadialGradientBrush_Vtbl, 0x2cd906ac_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RadialGradientBrush {
     type Target = ID2D1Brush;
@@ -7785,6 +8087,10 @@ impl ID2D1RadialGradientBrush_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1RadialGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RadialGradientBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RadialGradientBrush {}
 windows_core::imp::define_interface!(ID2D1RectangleGeometry, ID2D1RectangleGeometry_Vtbl, 0x2cd906a2_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RectangleGeometry {
     type Target = ID2D1Geometry;
@@ -7828,6 +8134,10 @@ impl ID2D1RectangleGeometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1RectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RectangleGeometry {}
 windows_core::imp::define_interface!(ID2D1RenderInfo, ID2D1RenderInfo_Vtbl, 0x519ae1bd_d19a_420d_b849_364f594776b7);
 windows_core::imp::interface_hierarchy!(ID2D1RenderInfo, windows_core::IUnknown);
 impl ID2D1RenderInfo {
@@ -7892,6 +8202,8 @@ impl ID2D1RenderInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1RenderInfo {}
+unsafe impl Send for ID2D1RenderInfo {}
+unsafe impl Sync for ID2D1RenderInfo {}
 windows_core::imp::define_interface!(ID2D1RenderTarget, ID2D1RenderTarget_Vtbl, 0x2cd90694_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RenderTarget {
     type Target = ID2D1Resource;
@@ -8743,6 +9055,10 @@ impl ID2D1RenderTarget_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 impl windows_core::RuntimeName for ID2D1RenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Send for ID2D1RenderTarget {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
+unsafe impl Sync for ID2D1RenderTarget {}
 windows_core::imp::define_interface!(ID2D1Resource, ID2D1Resource_Vtbl, 0x2cd90691_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1Resource, windows_core::IUnknown);
 impl ID2D1Resource {
@@ -8773,6 +9089,8 @@ impl ID2D1Resource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Resource {}
+unsafe impl Send for ID2D1Resource {}
+unsafe impl Sync for ID2D1Resource {}
 windows_core::imp::define_interface!(ID2D1ResourceTexture, ID2D1ResourceTexture_Vtbl, 0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
 windows_core::imp::interface_hierarchy!(ID2D1ResourceTexture, windows_core::IUnknown);
 impl ID2D1ResourceTexture {
@@ -8801,6 +9119,8 @@ impl ID2D1ResourceTexture_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1ResourceTexture {}
+unsafe impl Send for ID2D1ResourceTexture {}
+unsafe impl Sync for ID2D1ResourceTexture {}
 windows_core::imp::define_interface!(ID2D1RoundedRectangleGeometry, ID2D1RoundedRectangleGeometry_Vtbl, 0x2cd906a3_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1RoundedRectangleGeometry {
     type Target = ID2D1Geometry;
@@ -8842,6 +9162,10 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1RoundedRectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1RoundedRectangleGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1RoundedRectangleGeometry {}
 windows_core::imp::define_interface!(ID2D1SolidColorBrush, ID2D1SolidColorBrush_Vtbl, 0x2cd906a9_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1SolidColorBrush {
     type Target = ID2D1Brush;
@@ -8898,6 +9222,10 @@ impl ID2D1SolidColorBrush_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1SolidColorBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1SolidColorBrush {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1SolidColorBrush {}
 windows_core::imp::define_interface!(ID2D1SourceTransform, ID2D1SourceTransform_Vtbl, 0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
 impl core::ops::Deref for ID2D1SourceTransform {
     type Target = ID2D1Transform;
@@ -8954,6 +9282,10 @@ impl ID2D1SourceTransform_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SourceTransform {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SourceTransform {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SourceTransform {}
 windows_core::imp::define_interface!(ID2D1SpriteBatch, ID2D1SpriteBatch_Vtbl, 0x4dc583bf_3a10_438a_8722_e9765224f1f1);
 impl core::ops::Deref for ID2D1SpriteBatch {
     type Target = ID2D1Resource;
@@ -9071,6 +9403,10 @@ impl ID2D1SpriteBatch_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1SpriteBatch {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1SpriteBatch {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1SpriteBatch {}
 windows_core::imp::define_interface!(ID2D1StrokeStyle, ID2D1StrokeStyle_Vtbl, 0x2cd9069d_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1StrokeStyle {
     type Target = ID2D1Resource;
@@ -9188,6 +9524,8 @@ impl ID2D1StrokeStyle_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1StrokeStyle {}
+unsafe impl Send for ID2D1StrokeStyle {}
+unsafe impl Sync for ID2D1StrokeStyle {}
 windows_core::imp::define_interface!(ID2D1StrokeStyle1, ID2D1StrokeStyle1_Vtbl, 0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
 impl core::ops::Deref for ID2D1StrokeStyle1 {
     type Target = ID2D1StrokeStyle;
@@ -9222,6 +9560,8 @@ impl ID2D1StrokeStyle1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1StrokeStyle1 {}
+unsafe impl Send for ID2D1StrokeStyle1 {}
+unsafe impl Sync for ID2D1StrokeStyle1 {}
 windows_core::imp::define_interface!(ID2D1SvgAttribute, ID2D1SvgAttribute_Vtbl, 0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
 impl core::ops::Deref for ID2D1SvgAttribute {
     type Target = ID2D1Resource;
@@ -9274,6 +9614,8 @@ impl ID2D1SvgAttribute_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1SvgAttribute {}
+unsafe impl Send for ID2D1SvgAttribute {}
+unsafe impl Sync for ID2D1SvgAttribute {}
 windows_core::imp::define_interface!(ID2D1SvgDocument, ID2D1SvgDocument_Vtbl, 0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
 impl core::ops::Deref for ID2D1SvgDocument {
     type Target = ID2D1Resource;
@@ -9500,6 +9842,10 @@ impl ID2D1SvgDocument_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 impl windows_core::RuntimeName for ID2D1SvgDocument {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Send for ID2D1SvgDocument {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
+unsafe impl Sync for ID2D1SvgDocument {}
 windows_core::imp::define_interface!(ID2D1SvgElement, ID2D1SvgElement_Vtbl, 0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
 impl core::ops::Deref for ID2D1SvgElement {
     type Target = ID2D1Resource;
@@ -9917,6 +10263,8 @@ impl ID2D1SvgElement_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1SvgElement {}
+unsafe impl Send for ID2D1SvgElement {}
+unsafe impl Sync for ID2D1SvgElement {}
 windows_core::imp::define_interface!(ID2D1SvgGlyphStyle, ID2D1SvgGlyphStyle_Vtbl, 0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
 impl core::ops::Deref for ID2D1SvgGlyphStyle {
     type Target = ID2D1Resource;
@@ -10002,6 +10350,8 @@ impl ID2D1SvgGlyphStyle_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1SvgGlyphStyle {}
+unsafe impl Send for ID2D1SvgGlyphStyle {}
+unsafe impl Sync for ID2D1SvgGlyphStyle {}
 windows_core::imp::define_interface!(ID2D1SvgPaint, ID2D1SvgPaint_Vtbl, 0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
 impl core::ops::Deref for ID2D1SvgPaint {
     type Target = ID2D1SvgAttribute;
@@ -10115,6 +10465,10 @@ impl ID2D1SvgPaint_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SvgPaint {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPaint {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPaint {}
 windows_core::imp::define_interface!(ID2D1SvgPathData, ID2D1SvgPathData_Vtbl, 0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
 impl core::ops::Deref for ID2D1SvgPathData {
     type Target = ID2D1SvgAttribute;
@@ -10246,6 +10600,10 @@ impl ID2D1SvgPathData_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SvgPathData {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPathData {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPathData {}
 windows_core::imp::define_interface!(ID2D1SvgPointCollection, ID2D1SvgPointCollection_Vtbl, 0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
 impl core::ops::Deref for ID2D1SvgPointCollection {
     type Target = ID2D1SvgAttribute;
@@ -10324,6 +10682,10 @@ impl ID2D1SvgPointCollection_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1SvgPointCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1SvgPointCollection {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1SvgPointCollection {}
 windows_core::imp::define_interface!(ID2D1SvgStrokeDashArray, ID2D1SvgStrokeDashArray_Vtbl, 0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
 impl core::ops::Deref for ID2D1SvgStrokeDashArray {
     type Target = ID2D1SvgAttribute;
@@ -10411,6 +10773,8 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1SvgStrokeDashArray {}
+unsafe impl Send for ID2D1SvgStrokeDashArray {}
+unsafe impl Sync for ID2D1SvgStrokeDashArray {}
 windows_core::imp::define_interface!(ID2D1TessellationSink, ID2D1TessellationSink_Vtbl, 0x2cd906c1_12e2_11dc_9fed_001143a055f9);
 windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, windows_core::IUnknown);
 impl ID2D1TessellationSink {
@@ -10455,6 +10819,10 @@ impl ID2D1TessellationSink_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::RuntimeName for ID2D1TessellationSink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Send for ID2D1TessellationSink {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+unsafe impl Sync for ID2D1TessellationSink {}
 windows_core::imp::define_interface!(ID2D1Transform, ID2D1Transform_Vtbl, 0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
 impl core::ops::Deref for ID2D1Transform {
     type Target = ID2D1TransformNode;
@@ -10519,6 +10887,8 @@ impl ID2D1Transform_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1Transform {}
+unsafe impl Send for ID2D1Transform {}
+unsafe impl Sync for ID2D1Transform {}
 windows_core::imp::define_interface!(ID2D1TransformGraph, ID2D1TransformGraph_Vtbl, 0x13d29038_c3e6_4034_9081_13b53a417992);
 windows_core::imp::interface_hierarchy!(ID2D1TransformGraph, windows_core::IUnknown);
 impl ID2D1TransformGraph {
@@ -10649,6 +11019,8 @@ impl ID2D1TransformGraph_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1TransformGraph {}
+unsafe impl Send for ID2D1TransformGraph {}
+unsafe impl Sync for ID2D1TransformGraph {}
 windows_core::imp::define_interface!(ID2D1TransformNode, ID2D1TransformNode_Vtbl, 0xb2efe1e7_729f_4102_949f_505fa21bf666);
 windows_core::imp::interface_hierarchy!(ID2D1TransformNode, windows_core::IUnknown);
 impl ID2D1TransformNode {
@@ -10677,6 +11049,8 @@ impl ID2D1TransformNode_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1TransformNode {}
+unsafe impl Send for ID2D1TransformNode {}
+unsafe impl Sync for ID2D1TransformNode {}
 windows_core::imp::define_interface!(ID2D1TransformedGeometry, ID2D1TransformedGeometry_Vtbl, 0x2cd906bb_12e2_11dc_9fed_001143a055f9);
 impl core::ops::Deref for ID2D1TransformedGeometry {
     type Target = ID2D1Geometry;
@@ -10733,6 +11107,10 @@ impl ID2D1TransformedGeometry_Vtbl {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl windows_core::RuntimeName for ID2D1TransformedGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Send for ID2D1TransformedGeometry {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+unsafe impl Sync for ID2D1TransformedGeometry {}
 windows_core::imp::define_interface!(ID2D1TransformedImageSource, ID2D1TransformedImageSource_Vtbl, 0x7f1f79e5_2796_416c_8f55_700f911445e5);
 impl core::ops::Deref for ID2D1TransformedImageSource {
     type Target = ID2D1Image;
@@ -10778,6 +11156,8 @@ impl ID2D1TransformedImageSource_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1TransformedImageSource {}
+unsafe impl Send for ID2D1TransformedImageSource {}
+unsafe impl Sync for ID2D1TransformedImageSource {}
 windows_core::imp::define_interface!(ID2D1VertexBuffer, ID2D1VertexBuffer_Vtbl, 0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);
 windows_core::imp::interface_hierarchy!(ID2D1VertexBuffer, windows_core::IUnknown);
 impl ID2D1VertexBuffer {
@@ -10815,6 +11195,8 @@ impl ID2D1VertexBuffer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID2D1VertexBuffer {}
+unsafe impl Send for ID2D1VertexBuffer {}
+unsafe impl Sync for ID2D1VertexBuffer {}
 pub const CLSID_D2D12DAffineTransform: windows_core::GUID = windows_core::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);
 pub const CLSID_D2D13DPerspectiveTransform: windows_core::GUID = windows_core::GUID::from_u128(0xc2844d0b_3d86_46e7_85ba_526c9240f3fb);
 pub const CLSID_D2D13DTransform: windows_core::GUID = windows_core::GUID::from_u128(0xe8467b04_ec61_4b8a_b5de_d4d73debea5a);

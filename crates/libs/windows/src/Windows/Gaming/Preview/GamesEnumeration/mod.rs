@@ -453,6 +453,8 @@ unsafe impl windows_core::Interface for GameListEntry {
 impl windows_core::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
 }
+unsafe impl Send for GameListEntry {}
+unsafe impl Sync for GameListEntry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
@@ -590,6 +592,8 @@ unsafe impl windows_core::Interface for GameModeConfiguration {
 impl windows_core::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
 }
+unsafe impl Send for GameModeConfiguration {}
+unsafe impl Sync for GameModeConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
@@ -631,6 +635,8 @@ unsafe impl windows_core::Interface for GameModeUserConfiguration {
 impl windows_core::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
 }
+unsafe impl Send for GameModeUserConfiguration {}
+unsafe impl Sync for GameModeUserConfiguration {}
 windows_core::imp::define_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
 impl windows_core::RuntimeType for GameListChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

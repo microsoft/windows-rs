@@ -78,6 +78,8 @@ unsafe impl windows_core::Interface for AudioRoutingManager {
 impl windows_core::RuntimeName for AudioRoutingManager {
     const NAME: &'static str = "Windows.Phone.Media.Devices.AudioRoutingManager";
 }
+unsafe impl Send for AudioRoutingManager {}
+unsafe impl Sync for AudioRoutingManager {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AudioRoutingEndpoint(pub i32);

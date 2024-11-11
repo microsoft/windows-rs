@@ -450,6 +450,8 @@ unsafe impl windows_core::Interface for BufferProtectUnprotectResult {
 impl windows_core::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
 }
+unsafe impl Send for BufferProtectUnprotectResult {}
+unsafe impl Sync for BufferProtectUnprotectResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionInfo(windows_core::IUnknown);
@@ -480,6 +482,8 @@ unsafe impl windows_core::Interface for DataProtectionInfo {
 impl windows_core::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
 }
+unsafe impl Send for DataProtectionInfo {}
+unsafe impl Sync for DataProtectionInfo {}
 pub struct DataProtectionManager;
 impl DataProtectionManager {
     #[cfg(feature = "Storage_Streams")]
@@ -596,6 +600,8 @@ unsafe impl windows_core::Interface for FileProtectionInfo {
 impl windows_core::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
 }
+unsafe impl Send for FileProtectionInfo {}
+unsafe impl Sync for FileProtectionInfo {}
 pub struct FileProtectionManager;
 impl FileProtectionManager {
     #[cfg(feature = "Storage")]
@@ -824,6 +830,8 @@ unsafe impl windows_core::Interface for FileUnprotectOptions {
 impl windows_core::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
 }
+unsafe impl Send for FileUnprotectOptions {}
+unsafe impl Sync for FileUnprotectOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessResumedEventArgs(windows_core::IUnknown);
@@ -848,6 +856,8 @@ unsafe impl windows_core::Interface for ProtectedAccessResumedEventArgs {
 impl windows_core::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
 }
+unsafe impl Send for ProtectedAccessResumedEventArgs {}
+unsafe impl Sync for ProtectedAccessResumedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessSuspendingEventArgs(windows_core::IUnknown);
@@ -886,6 +896,8 @@ unsafe impl windows_core::Interface for ProtectedAccessSuspendingEventArgs {
 impl windows_core::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
 }
+unsafe impl Send for ProtectedAccessSuspendingEventArgs {}
+unsafe impl Sync for ProtectedAccessSuspendingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerExportResult(windows_core::IUnknown);
@@ -917,6 +929,8 @@ unsafe impl windows_core::Interface for ProtectedContainerExportResult {
 impl windows_core::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
 }
+unsafe impl Send for ProtectedContainerExportResult {}
+unsafe impl Sync for ProtectedContainerExportResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerImportResult(windows_core::IUnknown);
@@ -948,6 +962,8 @@ unsafe impl windows_core::Interface for ProtectedContainerImportResult {
 impl windows_core::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
 }
+unsafe impl Send for ProtectedContainerImportResult {}
+unsafe impl Sync for ProtectedContainerImportResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContentRevokedEventArgs(windows_core::IUnknown);
@@ -972,6 +988,8 @@ unsafe impl windows_core::Interface for ProtectedContentRevokedEventArgs {
 impl windows_core::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
 }
+unsafe impl Send for ProtectedContentRevokedEventArgs {}
+unsafe impl Sync for ProtectedContentRevokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedFileCreateResult(windows_core::IUnknown);
@@ -1011,6 +1029,8 @@ unsafe impl windows_core::Interface for ProtectedFileCreateResult {
 impl windows_core::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
 }
+unsafe impl Send for ProtectedFileCreateResult {}
+unsafe impl Sync for ProtectedFileCreateResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyAuditInfo(windows_core::IUnknown);
@@ -1087,6 +1107,8 @@ unsafe impl windows_core::Interface for ProtectionPolicyAuditInfo {
 impl windows_core::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
 }
+unsafe impl Send for ProtectionPolicyAuditInfo {}
+unsafe impl Sync for ProtectionPolicyAuditInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyManager(windows_core::IUnknown);
@@ -1425,6 +1447,8 @@ unsafe impl windows_core::Interface for ProtectionPolicyManager {
 impl windows_core::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
 }
+unsafe impl Send for ProtectionPolicyManager {}
+unsafe impl Sync for ProtectionPolicyManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ThreadNetworkContext(windows_core::IUnknown);
@@ -1446,6 +1470,8 @@ unsafe impl windows_core::Interface for ThreadNetworkContext {
 impl windows_core::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";
 }
+unsafe impl Send for ThreadNetworkContext {}
+unsafe impl Sync for ThreadNetworkContext {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DataProtectionStatus(pub i32);

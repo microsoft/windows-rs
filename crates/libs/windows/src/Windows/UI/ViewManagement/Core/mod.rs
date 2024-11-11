@@ -286,6 +286,8 @@ unsafe impl windows_core::Interface for CoreFrameworkInputView {
 impl windows_core::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
 }
+unsafe impl Send for CoreFrameworkInputView {}
+unsafe impl Sync for CoreFrameworkInputView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(windows_core::IUnknown);
@@ -324,6 +326,8 @@ unsafe impl windows_core::Interface for CoreFrameworkInputViewAnimationStartingE
 impl windows_core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
 }
+unsafe impl Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
+unsafe impl Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
@@ -355,6 +359,8 @@ unsafe impl windows_core::Interface for CoreFrameworkInputViewOcclusionsChangedE
 impl windows_core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
 }
+unsafe impl Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+unsafe impl Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputView(windows_core::IUnknown);
@@ -549,6 +555,8 @@ unsafe impl windows_core::Interface for CoreInputView {
 impl windows_core::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
 }
+unsafe impl Send for CoreInputView {}
+unsafe impl Sync for CoreInputView {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewAnimationStartingEventArgs(windows_core::IUnknown);
@@ -591,6 +599,8 @@ unsafe impl windows_core::Interface for CoreInputViewAnimationStartingEventArgs 
 impl windows_core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
 }
+unsafe impl Send for CoreInputViewAnimationStartingEventArgs {}
+unsafe impl Sync for CoreInputViewAnimationStartingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewHidingEventArgs(windows_core::IUnknown);
@@ -614,6 +624,8 @@ unsafe impl windows_core::Interface for CoreInputViewHidingEventArgs {
 impl windows_core::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
 }
+unsafe impl Send for CoreInputViewHidingEventArgs {}
+unsafe impl Sync for CoreInputViewHidingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusion(windows_core::IUnknown);
@@ -644,6 +656,8 @@ unsafe impl windows_core::Interface for CoreInputViewOcclusion {
 impl windows_core::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
 }
+unsafe impl Send for CoreInputViewOcclusion {}
+unsafe impl Sync for CoreInputViewOcclusion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
@@ -679,6 +693,8 @@ unsafe impl windows_core::Interface for CoreInputViewOcclusionsChangedEventArgs 
 impl windows_core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
 }
+unsafe impl Send for CoreInputViewOcclusionsChangedEventArgs {}
+unsafe impl Sync for CoreInputViewOcclusionsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewShowingEventArgs(windows_core::IUnknown);
@@ -702,6 +718,8 @@ unsafe impl windows_core::Interface for CoreInputViewShowingEventArgs {
 impl windows_core::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
 }
+unsafe impl Send for CoreInputViewShowingEventArgs {}
+unsafe impl Sync for CoreInputViewShowingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(windows_core::IUnknown);
@@ -754,6 +772,8 @@ unsafe impl windows_core::Interface for CoreInputViewTransferringXYFocusEventArg
 impl windows_core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
 }
+unsafe impl Send for CoreInputViewTransferringXYFocusEventArgs {}
+unsafe impl Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsController(windows_core::IUnknown);
@@ -800,6 +820,8 @@ unsafe impl windows_core::Interface for UISettingsController {
 impl windows_core::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";
 }
+unsafe impl Send for UISettingsController {}
+unsafe impl Sync for UISettingsController {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CoreInputViewKind(pub i32);

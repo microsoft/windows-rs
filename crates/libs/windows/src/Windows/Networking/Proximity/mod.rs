@@ -208,6 +208,8 @@ unsafe impl windows_core::Interface for ConnectionRequestedEventArgs {
 impl windows_core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
 }
+unsafe impl Send for ConnectionRequestedEventArgs {}
+unsafe impl Sync for ConnectionRequestedEventArgs {}
 pub struct PeerFinder;
 impl PeerFinder {
     pub fn AllowBluetooth() -> windows_core::Result<bool> {
@@ -402,6 +404,8 @@ unsafe impl windows_core::Interface for PeerInformation {
 impl windows_core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
 }
+unsafe impl Send for PeerInformation {}
+unsafe impl Sync for PeerInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeerWatcher(windows_core::IUnknown);
@@ -503,6 +507,8 @@ unsafe impl windows_core::Interface for PeerWatcher {
 impl windows_core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
 }
+unsafe impl Send for PeerWatcher {}
+unsafe impl Sync for PeerWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityDevice(windows_core::IUnknown);
@@ -669,6 +675,8 @@ unsafe impl windows_core::Interface for ProximityDevice {
 impl windows_core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
 }
+unsafe impl Send for ProximityDevice {}
+unsafe impl Sync for ProximityDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityMessage(windows_core::IUnknown);
@@ -714,6 +722,8 @@ unsafe impl windows_core::Interface for ProximityMessage {
 impl windows_core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
 }
+unsafe impl Send for ProximityMessage {}
+unsafe impl Sync for ProximityMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TriggeredConnectionStateChangedEventArgs(windows_core::IUnknown);
@@ -752,6 +762,8 @@ unsafe impl windows_core::Interface for TriggeredConnectionStateChangedEventArgs
 impl windows_core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
 }
+unsafe impl Send for TriggeredConnectionStateChangedEventArgs {}
+unsafe impl Sync for TriggeredConnectionStateChangedEventArgs {}
 windows_core::imp::define_interface!(DeviceArrivedEventHandler, DeviceArrivedEventHandler_Vtbl, 0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911);
 impl windows_core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

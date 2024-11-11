@@ -1130,6 +1130,8 @@ unsafe impl windows_core::Interface for AudioBuffer {
 impl windows_core::RuntimeName for AudioBuffer {
     const NAME: &'static str = "Windows.Media.AudioBuffer";
 }
+unsafe impl Send for AudioBuffer {}
+unsafe impl Sync for AudioBuffer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrame(windows_core::IUnknown);
@@ -1243,6 +1245,8 @@ unsafe impl windows_core::Interface for AudioFrame {
 impl windows_core::RuntimeName for AudioFrame {
     const NAME: &'static str = "Windows.Media.AudioFrame";
 }
+unsafe impl Send for AudioFrame {}
+unsafe impl Sync for AudioFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(windows_core::IUnknown);
@@ -1266,6 +1270,8 @@ unsafe impl windows_core::Interface for AutoRepeatModeChangeRequestedEventArgs {
 impl windows_core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
 }
+unsafe impl Send for AutoRepeatModeChangeRequestedEventArgs {}
+unsafe impl Sync for AutoRepeatModeChangeRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageDisplayProperties(windows_core::IUnknown);
@@ -1304,6 +1310,8 @@ unsafe impl windows_core::Interface for ImageDisplayProperties {
 impl windows_core::RuntimeName for ImageDisplayProperties {
     const NAME: &'static str = "Windows.Media.ImageDisplayProperties";
 }
+unsafe impl Send for ImageDisplayProperties {}
+unsafe impl Sync for ImageDisplayProperties {}
 #[cfg(feature = "deprecated")]
 pub struct MediaControl;
 #[cfg(feature = "deprecated")]
@@ -1643,6 +1651,8 @@ unsafe impl windows_core::Interface for MediaExtensionManager {
 impl windows_core::RuntimeName for MediaExtensionManager {
     const NAME: &'static str = "Windows.Media.MediaExtensionManager";
 }
+unsafe impl Send for MediaExtensionManager {}
+unsafe impl Sync for MediaExtensionManager {}
 pub struct MediaMarkerTypes;
 impl MediaMarkerTypes {
     pub fn Bookmark() -> windows_core::Result<windows_core::HSTRING> {
@@ -1683,6 +1693,8 @@ unsafe impl windows_core::Interface for MediaProcessingTriggerDetails {
 impl windows_core::RuntimeName for MediaProcessingTriggerDetails {
     const NAME: &'static str = "Windows.Media.MediaProcessingTriggerDetails";
 }
+unsafe impl Send for MediaProcessingTriggerDetails {}
+unsafe impl Sync for MediaProcessingTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineController(windows_core::IUnknown);
@@ -1828,6 +1840,8 @@ unsafe impl windows_core::Interface for MediaTimelineController {
 impl windows_core::RuntimeName for MediaTimelineController {
     const NAME: &'static str = "Windows.Media.MediaTimelineController";
 }
+unsafe impl Send for MediaTimelineController {}
+unsafe impl Sync for MediaTimelineController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineControllerFailedEventArgs(windows_core::IUnknown);
@@ -1851,6 +1865,8 @@ unsafe impl windows_core::Interface for MediaTimelineControllerFailedEventArgs {
 impl windows_core::RuntimeName for MediaTimelineControllerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.MediaTimelineControllerFailedEventArgs";
 }
+unsafe impl Send for MediaTimelineControllerFailedEventArgs {}
+unsafe impl Sync for MediaTimelineControllerFailedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MusicDisplayProperties(windows_core::IUnknown);
@@ -1941,6 +1957,8 @@ unsafe impl windows_core::Interface for MusicDisplayProperties {
 impl windows_core::RuntimeName for MusicDisplayProperties {
     const NAME: &'static str = "Windows.Media.MusicDisplayProperties";
 }
+unsafe impl Send for MusicDisplayProperties {}
+unsafe impl Sync for MusicDisplayProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackPositionChangeRequestedEventArgs(windows_core::IUnknown);
@@ -1964,6 +1982,8 @@ unsafe impl windows_core::Interface for PlaybackPositionChangeRequestedEventArgs
 impl windows_core::RuntimeName for PlaybackPositionChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlaybackPositionChangeRequestedEventArgs";
 }
+unsafe impl Send for PlaybackPositionChangeRequestedEventArgs {}
+unsafe impl Sync for PlaybackPositionChangeRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackRateChangeRequestedEventArgs(windows_core::IUnknown);
@@ -1987,6 +2007,8 @@ unsafe impl windows_core::Interface for PlaybackRateChangeRequestedEventArgs {
 impl windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlaybackRateChangeRequestedEventArgs";
 }
+unsafe impl Send for PlaybackRateChangeRequestedEventArgs {}
+unsafe impl Sync for PlaybackRateChangeRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(windows_core::IUnknown);
@@ -2010,6 +2032,8 @@ unsafe impl windows_core::Interface for ShuffleEnabledChangeRequestedEventArgs {
 impl windows_core::RuntimeName for ShuffleEnabledChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.ShuffleEnabledChangeRequestedEventArgs";
 }
+unsafe impl Send for ShuffleEnabledChangeRequestedEventArgs {}
+unsafe impl Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControls(windows_core::IUnknown);
@@ -2306,6 +2330,8 @@ unsafe impl windows_core::Interface for SystemMediaTransportControls {
 impl windows_core::RuntimeName for SystemMediaTransportControls {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControls";
 }
+unsafe impl Send for SystemMediaTransportControls {}
+unsafe impl Sync for SystemMediaTransportControls {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(windows_core::IUnknown);
@@ -2329,6 +2355,8 @@ unsafe impl windows_core::Interface for SystemMediaTransportControlsButtonPresse
 impl windows_core::RuntimeName for SystemMediaTransportControlsButtonPressedEventArgs {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsButtonPressedEventArgs";
 }
+unsafe impl Send for SystemMediaTransportControlsButtonPressedEventArgs {}
+unsafe impl Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsDisplayUpdater(windows_core::IUnknown);
@@ -2423,6 +2451,8 @@ unsafe impl windows_core::Interface for SystemMediaTransportControlsDisplayUpdat
 impl windows_core::RuntimeName for SystemMediaTransportControlsDisplayUpdater {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsDisplayUpdater";
 }
+unsafe impl Send for SystemMediaTransportControlsDisplayUpdater {}
+unsafe impl Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(windows_core::IUnknown);
@@ -2446,6 +2476,8 @@ unsafe impl windows_core::Interface for SystemMediaTransportControlsPropertyChan
 impl windows_core::RuntimeName for SystemMediaTransportControlsPropertyChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsPropertyChangedEventArgs";
 }
+unsafe impl Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
+unsafe impl Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsTimelineProperties(windows_core::IUnknown);
@@ -2524,6 +2556,8 @@ unsafe impl windows_core::Interface for SystemMediaTransportControlsTimelineProp
 impl windows_core::RuntimeName for SystemMediaTransportControlsTimelineProperties {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsTimelineProperties";
 }
+unsafe impl Send for SystemMediaTransportControlsTimelineProperties {}
+unsafe impl Sync for SystemMediaTransportControlsTimelineProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoDisplayProperties(windows_core::IUnknown);
@@ -2570,6 +2604,8 @@ unsafe impl windows_core::Interface for VideoDisplayProperties {
 impl windows_core::RuntimeName for VideoDisplayProperties {
     const NAME: &'static str = "Windows.Media.VideoDisplayProperties";
 }
+unsafe impl Send for VideoDisplayProperties {}
+unsafe impl Sync for VideoDisplayProperties {}
 pub struct VideoEffects;
 impl VideoEffects {
     pub fn VideoStabilization() -> windows_core::Result<windows_core::HSTRING> {
@@ -2780,6 +2816,8 @@ unsafe impl windows_core::Interface for VideoFrame {
 impl windows_core::RuntimeName for VideoFrame {
     const NAME: &'static str = "Windows.Media.VideoFrame";
 }
+unsafe impl Send for VideoFrame {}
+unsafe impl Sync for VideoFrame {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AudioBufferAccessMode(pub i32);

@@ -294,6 +294,8 @@ unsafe impl windows_core::Interface for WiFiDirectAdvertisement {
 impl windows_core::RuntimeName for WiFiDirectAdvertisement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisement";
 }
+unsafe impl Send for WiFiDirectAdvertisement {}
+unsafe impl Sync for WiFiDirectAdvertisement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectAdvertisementPublisher(windows_core::IUnknown);
@@ -353,6 +355,8 @@ unsafe impl windows_core::Interface for WiFiDirectAdvertisementPublisher {
 impl windows_core::RuntimeName for WiFiDirectAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher";
 }
+unsafe impl Send for WiFiDirectAdvertisementPublisher {}
+unsafe impl Sync for WiFiDirectAdvertisementPublisher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(windows_core::IUnknown);
@@ -383,6 +387,8 @@ unsafe impl windows_core::Interface for WiFiDirectAdvertisementPublisherStatusCh
 impl windows_core::RuntimeName for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs";
 }
+unsafe impl Send for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
+unsafe impl Sync for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectConnectionListener(windows_core::IUnknown);
@@ -420,6 +426,8 @@ unsafe impl windows_core::Interface for WiFiDirectConnectionListener {
 impl windows_core::RuntimeName for WiFiDirectConnectionListener {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionListener";
 }
+unsafe impl Send for WiFiDirectConnectionListener {}
+unsafe impl Sync for WiFiDirectConnectionListener {}
 #[cfg(feature = "Devices_Enumeration")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -492,6 +500,10 @@ unsafe impl windows_core::Interface for WiFiDirectConnectionParameters {
 impl windows_core::RuntimeName for WiFiDirectConnectionParameters {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters";
 }
+#[cfg(feature = "Devices_Enumeration")]
+unsafe impl Send for WiFiDirectConnectionParameters {}
+#[cfg(feature = "Devices_Enumeration")]
+unsafe impl Sync for WiFiDirectConnectionParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectConnectionRequest(windows_core::IUnknown);
@@ -521,6 +533,8 @@ unsafe impl windows_core::Interface for WiFiDirectConnectionRequest {
 impl windows_core::RuntimeName for WiFiDirectConnectionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest";
 }
+unsafe impl Send for WiFiDirectConnectionRequest {}
+unsafe impl Sync for WiFiDirectConnectionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectConnectionRequestedEventArgs(windows_core::IUnknown);
@@ -544,6 +558,8 @@ unsafe impl windows_core::Interface for WiFiDirectConnectionRequestedEventArgs {
 impl windows_core::RuntimeName for WiFiDirectConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs";
 }
+unsafe impl Send for WiFiDirectConnectionRequestedEventArgs {}
+unsafe impl Sync for WiFiDirectConnectionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectDevice(windows_core::IUnknown);
@@ -637,6 +653,8 @@ unsafe impl windows_core::Interface for WiFiDirectDevice {
 impl windows_core::RuntimeName for WiFiDirectDevice {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectDevice";
 }
+unsafe impl Send for WiFiDirectDevice {}
+unsafe impl Sync for WiFiDirectDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectInformationElement(windows_core::IUnknown);
@@ -727,6 +745,8 @@ unsafe impl windows_core::Interface for WiFiDirectInformationElement {
 impl windows_core::RuntimeName for WiFiDirectInformationElement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectInformationElement";
 }
+unsafe impl Send for WiFiDirectInformationElement {}
+unsafe impl Sync for WiFiDirectInformationElement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectLegacySettings(windows_core::IUnknown);
@@ -781,6 +801,8 @@ unsafe impl windows_core::Interface for WiFiDirectLegacySettings {
 impl windows_core::RuntimeName for WiFiDirectLegacySettings {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectLegacySettings";
 }
+unsafe impl Send for WiFiDirectLegacySettings {}
+unsafe impl Sync for WiFiDirectLegacySettings {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);

@@ -412,6 +412,8 @@ unsafe impl windows_core::Interface for BarcodeScannerDisableScannerRequest {
 impl windows_core::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
 }
+unsafe impl Send for BarcodeScannerDisableScannerRequest {}
+unsafe impl Sync for BarcodeScannerDisableScannerRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(windows_core::IUnknown);
@@ -442,6 +444,8 @@ unsafe impl windows_core::Interface for BarcodeScannerDisableScannerRequestEvent
 impl windows_core::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerDisableScannerRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerEnableScannerRequest(windows_core::IUnknown);
@@ -486,6 +490,8 @@ unsafe impl windows_core::Interface for BarcodeScannerEnableScannerRequest {
 impl windows_core::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
 }
+unsafe impl Send for BarcodeScannerEnableScannerRequest {}
+unsafe impl Sync for BarcodeScannerEnableScannerRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(windows_core::IUnknown);
@@ -516,6 +522,8 @@ unsafe impl windows_core::Interface for BarcodeScannerEnableScannerRequestEventA
 impl windows_core::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerEnableScannerRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerFrameReader(windows_core::IUnknown);
@@ -579,6 +587,8 @@ unsafe impl windows_core::Interface for BarcodeScannerFrameReader {
 impl windows_core::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
 }
+unsafe impl Send for BarcodeScannerFrameReader {}
+unsafe impl Sync for BarcodeScannerFrameReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(windows_core::IUnknown);
@@ -602,6 +612,8 @@ unsafe impl windows_core::Interface for BarcodeScannerFrameReaderFrameArrivedEve
 impl windows_core::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
 }
+unsafe impl Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+unsafe impl Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(windows_core::IUnknown);
@@ -656,6 +668,8 @@ unsafe impl windows_core::Interface for BarcodeScannerGetSymbologyAttributesRequ
 impl windows_core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
 }
+unsafe impl Send for BarcodeScannerGetSymbologyAttributesRequest {}
+unsafe impl Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(windows_core::IUnknown);
@@ -686,6 +700,8 @@ unsafe impl windows_core::Interface for BarcodeScannerGetSymbologyAttributesRequ
 impl windows_core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerHideVideoPreviewRequest(windows_core::IUnknown);
@@ -730,6 +746,8 @@ unsafe impl windows_core::Interface for BarcodeScannerHideVideoPreviewRequest {
 impl windows_core::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
 }
+unsafe impl Send for BarcodeScannerHideVideoPreviewRequest {}
+unsafe impl Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(windows_core::IUnknown);
@@ -760,6 +778,8 @@ unsafe impl windows_core::Interface for BarcodeScannerHideVideoPreviewRequestEve
 impl windows_core::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerProviderConnection(windows_core::IUnknown);
@@ -1013,6 +1033,8 @@ unsafe impl windows_core::Interface for BarcodeScannerProviderConnection {
 impl windows_core::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
 }
+unsafe impl Send for BarcodeScannerProviderConnection {}
+unsafe impl Sync for BarcodeScannerProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerProviderTriggerDetails(windows_core::IUnknown);
@@ -1036,6 +1058,8 @@ unsafe impl windows_core::Interface for BarcodeScannerProviderTriggerDetails {
 impl windows_core::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
 }
+unsafe impl Send for BarcodeScannerProviderTriggerDetails {}
+unsafe impl Sync for BarcodeScannerProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(windows_core::IUnknown);
@@ -1088,6 +1112,8 @@ unsafe impl windows_core::Interface for BarcodeScannerSetActiveSymbologiesReques
 impl windows_core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
 }
+unsafe impl Send for BarcodeScannerSetActiveSymbologiesRequest {}
+unsafe impl Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(windows_core::IUnknown);
@@ -1118,6 +1144,8 @@ unsafe impl windows_core::Interface for BarcodeScannerSetActiveSymbologiesReques
 impl windows_core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(windows_core::IUnknown);
@@ -1176,6 +1204,8 @@ unsafe impl windows_core::Interface for BarcodeScannerSetSymbologyAttributesRequ
 impl windows_core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
 }
+unsafe impl Send for BarcodeScannerSetSymbologyAttributesRequest {}
+unsafe impl Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(windows_core::IUnknown);
@@ -1206,6 +1236,8 @@ unsafe impl windows_core::Interface for BarcodeScannerSetSymbologyAttributesRequ
 impl windows_core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(windows_core::IUnknown);
@@ -1250,6 +1282,8 @@ unsafe impl windows_core::Interface for BarcodeScannerStartSoftwareTriggerReques
 impl windows_core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
 }
+unsafe impl Send for BarcodeScannerStartSoftwareTriggerRequest {}
+unsafe impl Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(windows_core::IUnknown);
@@ -1280,6 +1314,8 @@ unsafe impl windows_core::Interface for BarcodeScannerStartSoftwareTriggerReques
 impl windows_core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(windows_core::IUnknown);
@@ -1324,6 +1360,8 @@ unsafe impl windows_core::Interface for BarcodeScannerStopSoftwareTriggerRequest
 impl windows_core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
 }
+unsafe impl Send for BarcodeScannerStopSoftwareTriggerRequest {}
+unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(windows_core::IUnknown);
@@ -1354,6 +1392,8 @@ unsafe impl windows_core::Interface for BarcodeScannerStopSoftwareTriggerRequest
 impl windows_core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
 }
+unsafe impl Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+unsafe impl Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerVideoFrame(windows_core::IUnknown);
@@ -1405,6 +1445,8 @@ unsafe impl windows_core::Interface for BarcodeScannerVideoFrame {
 impl windows_core::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
 }
+unsafe impl Send for BarcodeScannerVideoFrame {}
+unsafe impl Sync for BarcodeScannerVideoFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeSymbologyAttributesBuilder(windows_core::IUnknown);
@@ -1468,6 +1510,8 @@ unsafe impl windows_core::Interface for BarcodeSymbologyAttributesBuilder {
 impl windows_core::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
 }
+unsafe impl Send for BarcodeSymbologyAttributesBuilder {}
+unsafe impl Sync for BarcodeSymbologyAttributesBuilder {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BarcodeScannerTriggerState(pub i32);

@@ -1040,6 +1040,8 @@ unsafe impl windows_core::Interface for AddPackageOptions {
 impl windows_core::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
 }
+unsafe impl Send for AddPackageOptions {}
+unsafe impl Sync for AddPackageOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerManager(windows_core::IUnknown);
@@ -1087,6 +1089,8 @@ unsafe impl windows_core::Interface for AppInstallerManager {
 impl windows_core::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
 }
+unsafe impl Send for AppInstallerManager {}
+unsafe impl Sync for AppInstallerManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoUpdateSettingsOptions(windows_core::IUnknown);
@@ -1260,6 +1264,8 @@ unsafe impl windows_core::Interface for AutoUpdateSettingsOptions {
 impl windows_core::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
 }
+unsafe impl Send for AutoUpdateSettingsOptions {}
+unsafe impl Sync for AutoUpdateSettingsOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerOptions(windows_core::IUnknown);
@@ -1313,6 +1319,8 @@ unsafe impl windows_core::Interface for CreateSharedPackageContainerOptions {
 impl windows_core::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
 }
+unsafe impl Send for CreateSharedPackageContainerOptions {}
+unsafe impl Sync for CreateSharedPackageContainerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerResult(windows_core::IUnknown);
@@ -1350,6 +1358,8 @@ unsafe impl windows_core::Interface for CreateSharedPackageContainerResult {
 impl windows_core::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
 }
+unsafe impl Send for CreateSharedPackageContainerResult {}
+unsafe impl Sync for CreateSharedPackageContainerResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerOptions(windows_core::IUnknown);
@@ -1395,6 +1405,8 @@ unsafe impl windows_core::Interface for DeleteSharedPackageContainerOptions {
 impl windows_core::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
 }
+unsafe impl Send for DeleteSharedPackageContainerOptions {}
+unsafe impl Sync for DeleteSharedPackageContainerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerResult(windows_core::IUnknown);
@@ -1425,6 +1437,8 @@ unsafe impl windows_core::Interface for DeleteSharedPackageContainerResult {
 impl windows_core::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
 }
+unsafe impl Send for DeleteSharedPackageContainerResult {}
+unsafe impl Sync for DeleteSharedPackageContainerResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentResult(windows_core::IUnknown);
@@ -1469,6 +1483,8 @@ unsafe impl windows_core::Interface for DeploymentResult {
 impl windows_core::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
 }
+unsafe impl Send for DeploymentResult {}
+unsafe impl Sync for DeploymentResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindSharedPackageContainerOptions(windows_core::IUnknown);
@@ -1514,6 +1530,8 @@ unsafe impl windows_core::Interface for FindSharedPackageContainerOptions {
 impl windows_core::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
 }
+unsafe impl Send for FindSharedPackageContainerOptions {}
+unsafe impl Sync for FindSharedPackageContainerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageAllUserProvisioningOptions(windows_core::IUnknown);
@@ -1564,6 +1582,8 @@ unsafe impl windows_core::Interface for PackageAllUserProvisioningOptions {
 impl windows_core::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
 }
+unsafe impl Send for PackageAllUserProvisioningOptions {}
+unsafe impl Sync for PackageAllUserProvisioningOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManager(windows_core::IUnknown);
@@ -2182,6 +2202,8 @@ unsafe impl windows_core::Interface for PackageManager {
 impl windows_core::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
 }
+unsafe impl Send for PackageManager {}
+unsafe impl Sync for PackageManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManagerDebugSettings(windows_core::IUnknown);
@@ -2220,6 +2242,8 @@ unsafe impl windows_core::Interface for PackageManagerDebugSettings {
 impl windows_core::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
 }
+unsafe impl Send for PackageManagerDebugSettings {}
+unsafe impl Sync for PackageManagerDebugSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUserInformation(windows_core::IUnknown);
@@ -2250,6 +2274,8 @@ unsafe impl windows_core::Interface for PackageUserInformation {
 impl windows_core::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
 }
+unsafe impl Send for PackageUserInformation {}
+unsafe impl Sync for PackageUserInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageVolume(windows_core::IUnknown);
@@ -2441,6 +2467,8 @@ unsafe impl windows_core::Interface for PackageVolume {
 impl windows_core::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
 }
+unsafe impl Send for PackageVolume {}
+unsafe impl Sync for PackageVolume {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegisterPackageOptions(windows_core::IUnknown);
@@ -2604,6 +2632,8 @@ unsafe impl windows_core::Interface for RegisterPackageOptions {
 impl windows_core::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
 }
+unsafe impl Send for RegisterPackageOptions {}
+unsafe impl Sync for RegisterPackageOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemovePackageOptions(windows_core::IUnknown);
@@ -2660,6 +2690,8 @@ unsafe impl windows_core::Interface for RemovePackageOptions {
 impl windows_core::RuntimeName for RemovePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RemovePackageOptions";
 }
+unsafe impl Send for RemovePackageOptions {}
+unsafe impl Sync for RemovePackageOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainer(windows_core::IUnknown);
@@ -2715,6 +2747,8 @@ unsafe impl windows_core::Interface for SharedPackageContainer {
 impl windows_core::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
 }
+unsafe impl Send for SharedPackageContainer {}
+unsafe impl Sync for SharedPackageContainer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerManager(windows_core::IUnknown);
@@ -2799,6 +2833,8 @@ unsafe impl windows_core::Interface for SharedPackageContainerManager {
 impl windows_core::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
 }
+unsafe impl Send for SharedPackageContainerManager {}
+unsafe impl Sync for SharedPackageContainerManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerMember(windows_core::IUnknown);
@@ -2832,6 +2868,8 @@ unsafe impl windows_core::Interface for SharedPackageContainerMember {
 impl windows_core::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
 }
+unsafe impl Send for SharedPackageContainerMember {}
+unsafe impl Sync for SharedPackageContainerMember {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StagePackageOptions(windows_core::IUnknown);
@@ -3000,6 +3038,8 @@ unsafe impl windows_core::Interface for StagePackageOptions {
 impl windows_core::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
 }
+unsafe impl Send for StagePackageOptions {}
+unsafe impl Sync for StagePackageOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerOptions(windows_core::IUnknown);
@@ -3045,6 +3085,8 @@ unsafe impl windows_core::Interface for UpdateSharedPackageContainerOptions {
 impl windows_core::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
 }
+unsafe impl Send for UpdateSharedPackageContainerOptions {}
+unsafe impl Sync for UpdateSharedPackageContainerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerResult(windows_core::IUnknown);
@@ -3075,6 +3117,8 @@ unsafe impl windows_core::Interface for UpdateSharedPackageContainerResult {
 impl windows_core::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";
 }
+unsafe impl Send for UpdateSharedPackageContainerResult {}
+unsafe impl Sync for UpdateSharedPackageContainerResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AddPackageByAppInstallerOptions(pub u32);

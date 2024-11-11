@@ -3035,6 +3035,8 @@ unsafe impl windows_core::Interface for BarcodeScanner {
 impl windows_core::RuntimeName for BarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScanner";
 }
+unsafe impl Send for BarcodeScanner {}
+unsafe impl Sync for BarcodeScanner {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerCapabilities(windows_core::IUnknown);
@@ -3093,6 +3095,8 @@ unsafe impl windows_core::Interface for BarcodeScannerCapabilities {
 impl windows_core::RuntimeName for BarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerCapabilities";
 }
+unsafe impl Send for BarcodeScannerCapabilities {}
+unsafe impl Sync for BarcodeScannerCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDataReceivedEventArgs(windows_core::IUnknown);
@@ -3116,6 +3120,8 @@ unsafe impl windows_core::Interface for BarcodeScannerDataReceivedEventArgs {
 impl windows_core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
 }
+unsafe impl Send for BarcodeScannerDataReceivedEventArgs {}
+unsafe impl Sync for BarcodeScannerDataReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerErrorOccurredEventArgs(windows_core::IUnknown);
@@ -3153,6 +3159,8 @@ unsafe impl windows_core::Interface for BarcodeScannerErrorOccurredEventArgs {
 impl windows_core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
 }
+unsafe impl Send for BarcodeScannerErrorOccurredEventArgs {}
+unsafe impl Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(windows_core::IUnknown);
@@ -3177,6 +3185,8 @@ unsafe impl windows_core::Interface for BarcodeScannerImagePreviewReceivedEventA
 impl windows_core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
 }
+unsafe impl Send for BarcodeScannerImagePreviewReceivedEventArgs {}
+unsafe impl Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerReport(windows_core::IUnknown);
@@ -3231,6 +3241,8 @@ unsafe impl windows_core::Interface for BarcodeScannerReport {
 impl windows_core::RuntimeName for BarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerReport";
 }
+unsafe impl Send for BarcodeScannerReport {}
+unsafe impl Sync for BarcodeScannerReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(windows_core::IUnknown);
@@ -3261,6 +3273,8 @@ unsafe impl windows_core::Interface for BarcodeScannerStatusUpdatedEventArgs {
 impl windows_core::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
 }
+unsafe impl Send for BarcodeScannerStatusUpdatedEventArgs {}
+unsafe impl Sync for BarcodeScannerStatusUpdatedEventArgs {}
 pub struct BarcodeSymbologies;
 impl BarcodeSymbologies {
     pub fn Unknown() -> windows_core::Result<u32> {
@@ -3937,6 +3951,8 @@ unsafe impl windows_core::Interface for BarcodeSymbologyAttributes {
 impl windows_core::RuntimeName for BarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
 }
+unsafe impl Send for BarcodeSymbologyAttributes {}
+unsafe impl Sync for BarcodeSymbologyAttributes {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawer(windows_core::IUnknown);
@@ -4064,6 +4080,8 @@ unsafe impl windows_core::Interface for CashDrawer {
 impl windows_core::RuntimeName for CashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawer";
 }
+unsafe impl Send for CashDrawer {}
+unsafe impl Sync for CashDrawer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCapabilities(windows_core::IUnknown);
@@ -4122,6 +4140,8 @@ unsafe impl windows_core::Interface for CashDrawerCapabilities {
 impl windows_core::RuntimeName for CashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCapabilities";
 }
+unsafe impl Send for CashDrawerCapabilities {}
+unsafe impl Sync for CashDrawerCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCloseAlarm(windows_core::IUnknown);
@@ -4203,6 +4223,8 @@ unsafe impl windows_core::Interface for CashDrawerCloseAlarm {
 impl windows_core::RuntimeName for CashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCloseAlarm";
 }
+unsafe impl Send for CashDrawerCloseAlarm {}
+unsafe impl Sync for CashDrawerCloseAlarm {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerClosedEventArgs(windows_core::IUnknown);
@@ -4227,6 +4249,8 @@ unsafe impl windows_core::Interface for CashDrawerClosedEventArgs {
 impl windows_core::RuntimeName for CashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
 }
+unsafe impl Send for CashDrawerClosedEventArgs {}
+unsafe impl Sync for CashDrawerClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerEventSource(windows_core::IUnknown);
@@ -4271,6 +4295,8 @@ unsafe impl windows_core::Interface for CashDrawerEventSource {
 impl windows_core::RuntimeName for CashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerEventSource";
 }
+unsafe impl Send for CashDrawerEventSource {}
+unsafe impl Sync for CashDrawerEventSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerOpenedEventArgs(windows_core::IUnknown);
@@ -4295,6 +4321,8 @@ unsafe impl windows_core::Interface for CashDrawerOpenedEventArgs {
 impl windows_core::RuntimeName for CashDrawerOpenedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
 }
+unsafe impl Send for CashDrawerOpenedEventArgs {}
+unsafe impl Sync for CashDrawerOpenedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatus(windows_core::IUnknown);
@@ -4325,6 +4353,8 @@ unsafe impl windows_core::Interface for CashDrawerStatus {
 impl windows_core::RuntimeName for CashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatus";
 }
+unsafe impl Send for CashDrawerStatus {}
+unsafe impl Sync for CashDrawerStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatusUpdatedEventArgs(windows_core::IUnknown);
@@ -4348,6 +4378,8 @@ unsafe impl windows_core::Interface for CashDrawerStatusUpdatedEventArgs {
 impl windows_core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
 }
+unsafe impl Send for CashDrawerStatusUpdatedEventArgs {}
+unsafe impl Sync for CashDrawerStatusUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScanner(windows_core::IUnknown);
@@ -4614,6 +4646,8 @@ unsafe impl windows_core::Interface for ClaimedBarcodeScanner {
 impl windows_core::RuntimeName for ClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScanner";
 }
+unsafe impl Send for ClaimedBarcodeScanner {}
+unsafe impl Sync for ClaimedBarcodeScanner {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(windows_core::IUnknown);
@@ -4629,6 +4663,8 @@ unsafe impl windows_core::Interface for ClaimedBarcodeScannerClosedEventArgs {
 impl windows_core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
 }
+unsafe impl Send for ClaimedBarcodeScannerClosedEventArgs {}
+unsafe impl Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawer(windows_core::IUnknown);
@@ -4756,6 +4792,8 @@ unsafe impl windows_core::Interface for ClaimedCashDrawer {
 impl windows_core::RuntimeName for ClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawer";
 }
+unsafe impl Send for ClaimedCashDrawer {}
+unsafe impl Sync for ClaimedCashDrawer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawerClosedEventArgs(windows_core::IUnknown);
@@ -4771,6 +4809,8 @@ unsafe impl windows_core::Interface for ClaimedCashDrawerClosedEventArgs {
 impl windows_core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
 }
+unsafe impl Send for ClaimedCashDrawerClosedEventArgs {}
+unsafe impl Sync for ClaimedCashDrawerClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedJournalPrinter(windows_core::IUnknown);
@@ -4913,6 +4953,8 @@ unsafe impl windows_core::Interface for ClaimedJournalPrinter {
 impl windows_core::RuntimeName for ClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedJournalPrinter";
 }
+unsafe impl Send for ClaimedJournalPrinter {}
+unsafe impl Sync for ClaimedJournalPrinter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplay(windows_core::IUnknown);
@@ -5184,6 +5226,8 @@ unsafe impl windows_core::Interface for ClaimedLineDisplay {
 impl windows_core::RuntimeName for ClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplay";
 }
+unsafe impl Send for ClaimedLineDisplay {}
+unsafe impl Sync for ClaimedLineDisplay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplayClosedEventArgs(windows_core::IUnknown);
@@ -5199,6 +5243,8 @@ unsafe impl windows_core::Interface for ClaimedLineDisplayClosedEventArgs {
 impl windows_core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
 }
+unsafe impl Send for ClaimedLineDisplayClosedEventArgs {}
+unsafe impl Sync for ClaimedLineDisplayClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReader(windows_core::IUnknown);
@@ -5453,6 +5499,8 @@ unsafe impl windows_core::Interface for ClaimedMagneticStripeReader {
 impl windows_core::RuntimeName for ClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
 }
+unsafe impl Send for ClaimedMagneticStripeReader {}
+unsafe impl Sync for ClaimedMagneticStripeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(windows_core::IUnknown);
@@ -5468,6 +5516,8 @@ unsafe impl windows_core::Interface for ClaimedMagneticStripeReaderClosedEventAr
 impl windows_core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
 }
+unsafe impl Send for ClaimedMagneticStripeReaderClosedEventArgs {}
+unsafe impl Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinter(windows_core::IUnknown);
@@ -5635,6 +5685,8 @@ unsafe impl windows_core::Interface for ClaimedPosPrinter {
 impl windows_core::RuntimeName for ClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinter";
 }
+unsafe impl Send for ClaimedPosPrinter {}
+unsafe impl Sync for ClaimedPosPrinter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinterClosedEventArgs(windows_core::IUnknown);
@@ -5650,6 +5702,8 @@ unsafe impl windows_core::Interface for ClaimedPosPrinterClosedEventArgs {
 impl windows_core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
 }
+unsafe impl Send for ClaimedPosPrinterClosedEventArgs {}
+unsafe impl Sync for ClaimedPosPrinterClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedReceiptPrinter(windows_core::IUnknown);
@@ -5827,6 +5881,8 @@ unsafe impl windows_core::Interface for ClaimedReceiptPrinter {
 impl windows_core::RuntimeName for ClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedReceiptPrinter";
 }
+unsafe impl Send for ClaimedReceiptPrinter {}
+unsafe impl Sync for ClaimedReceiptPrinter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedSlipPrinter(windows_core::IUnknown);
@@ -6044,6 +6100,8 @@ unsafe impl windows_core::Interface for ClaimedSlipPrinter {
 impl windows_core::RuntimeName for ClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedSlipPrinter";
 }
+unsafe impl Send for ClaimedSlipPrinter {}
+unsafe impl Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrintJob(windows_core::IUnknown);
@@ -6095,6 +6153,8 @@ unsafe impl windows_core::Interface for JournalPrintJob {
 impl windows_core::RuntimeName for JournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrintJob";
 }
+unsafe impl Send for JournalPrintJob {}
+unsafe impl Sync for JournalPrintJob {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrinterCapabilities(windows_core::IUnknown);
@@ -6246,6 +6306,8 @@ unsafe impl windows_core::Interface for JournalPrinterCapabilities {
 impl windows_core::RuntimeName for JournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrinterCapabilities";
 }
+unsafe impl Send for JournalPrinterCapabilities {}
+unsafe impl Sync for JournalPrinterCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplay(windows_core::IUnknown);
@@ -6368,6 +6430,8 @@ unsafe impl windows_core::Interface for LineDisplay {
 impl windows_core::RuntimeName for LineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplay";
 }
+unsafe impl Send for LineDisplay {}
+unsafe impl Sync for LineDisplay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayAttributes(windows_core::IUnknown);
@@ -6464,6 +6528,8 @@ unsafe impl windows_core::Interface for LineDisplayAttributes {
 impl windows_core::RuntimeName for LineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayAttributes";
 }
+unsafe impl Send for LineDisplayAttributes {}
+unsafe impl Sync for LineDisplayAttributes {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCapabilities(windows_core::IUnknown);
@@ -6606,6 +6672,8 @@ unsafe impl windows_core::Interface for LineDisplayCapabilities {
 impl windows_core::RuntimeName for LineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCapabilities";
 }
+unsafe impl Send for LineDisplayCapabilities {}
+unsafe impl Sync for LineDisplayCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursor(windows_core::IUnknown);
@@ -6688,6 +6756,8 @@ unsafe impl windows_core::Interface for LineDisplayCursor {
 impl windows_core::RuntimeName for LineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursor";
 }
+unsafe impl Send for LineDisplayCursor {}
+unsafe impl Sync for LineDisplayCursor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursorAttributes(windows_core::IUnknown);
@@ -6748,6 +6818,8 @@ unsafe impl windows_core::Interface for LineDisplayCursorAttributes {
 impl windows_core::RuntimeName for LineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursorAttributes";
 }
+unsafe impl Send for LineDisplayCursorAttributes {}
+unsafe impl Sync for LineDisplayCursorAttributes {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCustomGlyphs(windows_core::IUnknown);
@@ -6790,6 +6862,8 @@ unsafe impl windows_core::Interface for LineDisplayCustomGlyphs {
 impl windows_core::RuntimeName for LineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
 }
+unsafe impl Send for LineDisplayCustomGlyphs {}
+unsafe impl Sync for LineDisplayCustomGlyphs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayMarquee(windows_core::IUnknown);
@@ -6853,6 +6927,8 @@ unsafe impl windows_core::Interface for LineDisplayMarquee {
 impl windows_core::RuntimeName for LineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayMarquee";
 }
+unsafe impl Send for LineDisplayMarquee {}
+unsafe impl Sync for LineDisplayMarquee {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatisticsCategorySelector(windows_core::IUnknown);
@@ -6890,6 +6966,8 @@ unsafe impl windows_core::Interface for LineDisplayStatisticsCategorySelector {
 impl windows_core::RuntimeName for LineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
 }
+unsafe impl Send for LineDisplayStatisticsCategorySelector {}
+unsafe impl Sync for LineDisplayStatisticsCategorySelector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatusUpdatedEventArgs(windows_core::IUnknown);
@@ -6913,6 +6991,8 @@ unsafe impl windows_core::Interface for LineDisplayStatusUpdatedEventArgs {
 impl windows_core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
 }
+unsafe impl Send for LineDisplayStatusUpdatedEventArgs {}
+unsafe impl Sync for LineDisplayStatusUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStoredBitmap(windows_core::IUnknown);
@@ -6943,6 +7023,8 @@ unsafe impl windows_core::Interface for LineDisplayStoredBitmap {
 impl windows_core::RuntimeName for LineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStoredBitmap";
 }
+unsafe impl Send for LineDisplayStoredBitmap {}
+unsafe impl Sync for LineDisplayStoredBitmap {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayWindow(windows_core::IUnknown);
@@ -7110,6 +7192,8 @@ unsafe impl windows_core::Interface for LineDisplayWindow {
 impl windows_core::RuntimeName for LineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayWindow";
 }
+unsafe impl Send for LineDisplayWindow {}
+unsafe impl Sync for LineDisplayWindow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReader(windows_core::IUnknown);
@@ -7237,6 +7321,8 @@ unsafe impl windows_core::Interface for MagneticStripeReader {
 impl windows_core::RuntimeName for MagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReader";
 }
+unsafe impl Send for MagneticStripeReader {}
+unsafe impl Sync for MagneticStripeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(windows_core::IUnknown);
@@ -7386,6 +7472,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderAamvaCardDataReceive
 impl windows_core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
 }
+unsafe impl Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
+unsafe impl Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(windows_core::IUnknown);
@@ -7465,6 +7553,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderBankCardDataReceived
 impl windows_core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
 }
+unsafe impl Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
+unsafe impl Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderCapabilities(windows_core::IUnknown);
@@ -7558,6 +7648,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderCapabilities {
 impl windows_core::RuntimeName for MagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
 }
+unsafe impl Send for MagneticStripeReaderCapabilities {}
+unsafe impl Sync for MagneticStripeReaderCapabilities {}
 pub struct MagneticStripeReaderCardTypes;
 impl MagneticStripeReaderCardTypes {
     pub fn Unknown() -> windows_core::Result<u32> {
@@ -7678,6 +7770,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderErrorOccurredEventAr
 impl windows_core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
 }
+unsafe impl Send for MagneticStripeReaderErrorOccurredEventArgs {}
+unsafe impl Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderReport(windows_core::IUnknown);
@@ -7760,6 +7854,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderReport {
 impl windows_core::RuntimeName for MagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderReport";
 }
+unsafe impl Send for MagneticStripeReaderReport {}
+unsafe impl Sync for MagneticStripeReaderReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(windows_core::IUnknown);
@@ -7790,6 +7886,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderStatusUpdatedEventAr
 impl windows_core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
 }
+unsafe impl Send for MagneticStripeReaderStatusUpdatedEventArgs {}
+unsafe impl Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderTrackData(windows_core::IUnknown);
@@ -7830,6 +7928,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderTrackData {
 impl windows_core::RuntimeName for MagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
 }
+unsafe impl Send for MagneticStripeReaderTrackData {}
+unsafe impl Sync for MagneticStripeReaderTrackData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(windows_core::IUnknown);
@@ -7853,6 +7953,8 @@ unsafe impl windows_core::Interface for MagneticStripeReaderVendorSpecificCardDa
 impl windows_core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
 }
+unsafe impl Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
+unsafe impl Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinter(windows_core::IUnknown);
@@ -7997,6 +8099,8 @@ unsafe impl windows_core::Interface for PosPrinter {
 impl windows_core::RuntimeName for PosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinter";
 }
+unsafe impl Send for PosPrinter {}
+unsafe impl Sync for PosPrinter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterCapabilities(windows_core::IUnknown);
@@ -8083,6 +8187,8 @@ unsafe impl windows_core::Interface for PosPrinterCapabilities {
 impl windows_core::RuntimeName for PosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCapabilities";
 }
+unsafe impl Send for PosPrinterCapabilities {}
+unsafe impl Sync for PosPrinterCapabilities {}
 pub struct PosPrinterCharacterSetIds;
 impl PosPrinterCharacterSetIds {
     pub fn Utf16LE() -> windows_core::Result<u32> {
@@ -8149,6 +8255,8 @@ unsafe impl windows_core::Interface for PosPrinterFontProperty {
 impl windows_core::RuntimeName for PosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterFontProperty";
 }
+unsafe impl Send for PosPrinterFontProperty {}
+unsafe impl Sync for PosPrinterFontProperty {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterPrintOptions(windows_core::IUnknown);
@@ -8315,6 +8423,8 @@ unsafe impl windows_core::Interface for PosPrinterPrintOptions {
 impl windows_core::RuntimeName for PosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterPrintOptions";
 }
+unsafe impl Send for PosPrinterPrintOptions {}
+unsafe impl Sync for PosPrinterPrintOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(windows_core::IUnknown);
@@ -8330,6 +8440,8 @@ unsafe impl windows_core::Interface for PosPrinterReleaseDeviceRequestedEventArg
 impl windows_core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
 }
+unsafe impl Send for PosPrinterReleaseDeviceRequestedEventArgs {}
+unsafe impl Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatus(windows_core::IUnknown);
@@ -8360,6 +8472,8 @@ unsafe impl windows_core::Interface for PosPrinterStatus {
 impl windows_core::RuntimeName for PosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatus";
 }
+unsafe impl Send for PosPrinterStatus {}
+unsafe impl Sync for PosPrinterStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatusUpdatedEventArgs(windows_core::IUnknown);
@@ -8383,6 +8497,8 @@ unsafe impl windows_core::Interface for PosPrinterStatusUpdatedEventArgs {
 impl windows_core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
 }
+unsafe impl Send for PosPrinterStatusUpdatedEventArgs {}
+unsafe impl Sync for PosPrinterStatusUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrintJob(windows_core::IUnknown);
@@ -8542,6 +8658,8 @@ unsafe impl windows_core::Interface for ReceiptPrintJob {
 impl windows_core::RuntimeName for ReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrintJob";
 }
+unsafe impl Send for ReceiptPrintJob {}
+unsafe impl Sync for ReceiptPrintJob {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrinterCapabilities(windows_core::IUnknown);
@@ -8779,6 +8897,8 @@ unsafe impl windows_core::Interface for ReceiptPrinterCapabilities {
 impl windows_core::RuntimeName for ReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
 }
+unsafe impl Send for ReceiptPrinterCapabilities {}
+unsafe impl Sync for ReceiptPrinterCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrintJob(windows_core::IUnknown);
@@ -8922,6 +9042,8 @@ unsafe impl windows_core::Interface for SlipPrintJob {
 impl windows_core::RuntimeName for SlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrintJob";
 }
+unsafe impl Send for SlipPrintJob {}
+unsafe impl Sync for SlipPrintJob {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrinterCapabilities(windows_core::IUnknown);
@@ -9152,6 +9274,8 @@ unsafe impl windows_core::Interface for SlipPrinterCapabilities {
 impl windows_core::RuntimeName for SlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrinterCapabilities";
 }
+unsafe impl Send for SlipPrinterCapabilities {}
+unsafe impl Sync for SlipPrinterCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnifiedPosErrorData(windows_core::IUnknown);
@@ -9206,6 +9330,8 @@ unsafe impl windows_core::Interface for UnifiedPosErrorData {
 impl windows_core::RuntimeName for UnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.UnifiedPosErrorData";
 }
+unsafe impl Send for UnifiedPosErrorData {}
+unsafe impl Sync for UnifiedPosErrorData {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BarcodeScannerStatus(pub i32);

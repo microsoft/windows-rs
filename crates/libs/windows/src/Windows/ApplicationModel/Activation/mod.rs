@@ -5097,6 +5097,8 @@ unsafe impl windows_core::Interface for AppointmentsProviderAddAppointmentActiva
 impl windows_core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
 }
+unsafe impl Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+unsafe impl Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
@@ -5158,6 +5160,8 @@ unsafe impl windows_core::Interface for AppointmentsProviderRemoveAppointmentAct
 impl windows_core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
 }
+unsafe impl Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+unsafe impl Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
@@ -5219,6 +5223,8 @@ unsafe impl windows_core::Interface for AppointmentsProviderReplaceAppointmentAc
 impl windows_core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
 }
+unsafe impl Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+unsafe impl Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
@@ -5293,6 +5299,8 @@ unsafe impl windows_core::Interface for AppointmentsProviderShowAppointmentDetai
 impl windows_core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
+unsafe impl Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+unsafe impl Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
@@ -5360,6 +5368,8 @@ unsafe impl windows_core::Interface for AppointmentsProviderShowTimeFrameActivat
 impl windows_core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
+unsafe impl Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+unsafe impl Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
@@ -5385,6 +5395,8 @@ unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
 impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
 }
+unsafe impl Send for BackgroundActivatedEventArgs {}
+unsafe impl Sync for BackgroundActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
@@ -5438,6 +5450,8 @@ unsafe impl windows_core::Interface for BarcodeScannerPreviewActivatedEventArgs 
 impl windows_core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
 }
+unsafe impl Send for BarcodeScannerPreviewActivatedEventArgs {}
+unsafe impl Sync for BarcodeScannerPreviewActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
@@ -5492,6 +5506,8 @@ unsafe impl windows_core::Interface for CachedFileUpdaterActivatedEventArgs {
 impl windows_core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
 }
+unsafe impl Send for CachedFileUpdaterActivatedEventArgs {}
+unsafe impl Sync for CachedFileUpdaterActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraSettingsActivatedEventArgs(windows_core::IUnknown);
@@ -5544,6 +5560,8 @@ unsafe impl windows_core::Interface for CameraSettingsActivatedEventArgs {
 impl windows_core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
 }
+unsafe impl Send for CameraSettingsActivatedEventArgs {}
+unsafe impl Sync for CameraSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivatedEventArgs(windows_core::IUnknown);
@@ -5597,6 +5615,8 @@ unsafe impl windows_core::Interface for CommandLineActivatedEventArgs {
 impl windows_core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
 }
+unsafe impl Send for CommandLineActivatedEventArgs {}
+unsafe impl Sync for CommandLineActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivationOperation(windows_core::IUnknown);
@@ -5645,6 +5665,8 @@ unsafe impl windows_core::Interface for CommandLineActivationOperation {
 impl windows_core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
 }
+unsafe impl Send for CommandLineActivationOperation {}
+unsafe impl Sync for CommandLineActivationOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCallActivatedEventArgs(windows_core::IUnknown);
@@ -5712,6 +5734,8 @@ unsafe impl windows_core::Interface for ContactCallActivatedEventArgs {
 impl windows_core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
 }
+unsafe impl Send for ContactCallActivatedEventArgs {}
+unsafe impl Sync for ContactCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMapActivatedEventArgs(windows_core::IUnknown);
@@ -5773,6 +5797,8 @@ unsafe impl windows_core::Interface for ContactMapActivatedEventArgs {
 impl windows_core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
 }
+unsafe impl Send for ContactMapActivatedEventArgs {}
+unsafe impl Sync for ContactMapActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMessageActivatedEventArgs(windows_core::IUnknown);
@@ -5840,6 +5866,8 @@ unsafe impl windows_core::Interface for ContactMessageActivatedEventArgs {
 impl windows_core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
 }
+unsafe impl Send for ContactMessageActivatedEventArgs {}
+unsafe impl Sync for ContactMessageActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelActivatedEventArgs(windows_core::IUnknown);
@@ -5902,6 +5930,8 @@ unsafe impl windows_core::Interface for ContactPanelActivatedEventArgs {
 impl windows_core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
 }
+unsafe impl Send for ContactPanelActivatedEventArgs {}
+unsafe impl Sync for ContactPanelActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPickerActivatedEventArgs(windows_core::IUnknown);
@@ -5948,6 +5978,8 @@ unsafe impl windows_core::Interface for ContactPickerActivatedEventArgs {
 impl windows_core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
 }
+unsafe impl Send for ContactPickerActivatedEventArgs {}
+unsafe impl Sync for ContactPickerActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPostActivatedEventArgs(windows_core::IUnknown);
@@ -6015,6 +6047,8 @@ unsafe impl windows_core::Interface for ContactPostActivatedEventArgs {
 impl windows_core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
 }
+unsafe impl Send for ContactPostActivatedEventArgs {}
+unsafe impl Sync for ContactPostActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactVideoCallActivatedEventArgs(windows_core::IUnknown);
@@ -6082,6 +6116,8 @@ unsafe impl windows_core::Interface for ContactVideoCallActivatedEventArgs {
 impl windows_core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
 }
+unsafe impl Send for ContactVideoCallActivatedEventArgs {}
+unsafe impl Sync for ContactVideoCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceActivatedEventArgs(windows_core::IUnknown);
@@ -6157,6 +6193,8 @@ unsafe impl windows_core::Interface for DeviceActivatedEventArgs {
 impl windows_core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
 }
+unsafe impl Send for DeviceActivatedEventArgs {}
+unsafe impl Sync for DeviceActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingActivatedEventArgs(windows_core::IUnknown);
@@ -6211,6 +6249,8 @@ unsafe impl windows_core::Interface for DevicePairingActivatedEventArgs {
 impl windows_core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
 }
+unsafe impl Send for DevicePairingActivatedEventArgs {}
+unsafe impl Sync for DevicePairingActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverActivatedEventArgs(windows_core::IUnknown);
@@ -6293,6 +6333,8 @@ unsafe impl windows_core::Interface for DialReceiverActivatedEventArgs {
 impl windows_core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
 }
+unsafe impl Send for DialReceiverActivatedEventArgs {}
+unsafe impl Sync for DialReceiverActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileActivatedEventArgs(windows_core::IUnknown);
@@ -6384,6 +6426,8 @@ unsafe impl windows_core::Interface for FileActivatedEventArgs {
 impl windows_core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
 }
+unsafe impl Send for FileActivatedEventArgs {}
+unsafe impl Sync for FileActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerActivatedEventArgs(windows_core::IUnknown);
@@ -6445,6 +6489,8 @@ unsafe impl windows_core::Interface for FileOpenPickerActivatedEventArgs {
 impl windows_core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
 }
+unsafe impl Send for FileOpenPickerActivatedEventArgs {}
+unsafe impl Sync for FileOpenPickerActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -6517,6 +6563,10 @@ unsafe impl windows_core::Interface for FileOpenPickerContinuationEventArgs {
 impl windows_core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerActivatedEventArgs(windows_core::IUnknown);
@@ -6585,6 +6635,8 @@ unsafe impl windows_core::Interface for FileSavePickerActivatedEventArgs {
 impl windows_core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
 }
+unsafe impl Send for FileSavePickerActivatedEventArgs {}
+unsafe impl Sync for FileSavePickerActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -6658,6 +6710,10 @@ impl windows_core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderPickerContinuationEventArgs(windows_core::IUnknown);
@@ -6729,6 +6785,10 @@ unsafe impl windows_core::Interface for FolderPickerContinuationEventArgs {
 impl windows_core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LaunchActivatedEventArgs(windows_core::IUnknown);
@@ -6818,6 +6878,8 @@ unsafe impl windows_core::Interface for LaunchActivatedEventArgs {
 impl windows_core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
 }
+unsafe impl Send for LaunchActivatedEventArgs {}
+unsafe impl Sync for LaunchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenActivatedEventArgs(windows_core::IUnknown);
@@ -6871,6 +6933,8 @@ unsafe impl windows_core::Interface for LockScreenActivatedEventArgs {
 impl windows_core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
 }
+unsafe impl Send for LockScreenActivatedEventArgs {}
+unsafe impl Sync for LockScreenActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallActivatedEventArgs(windows_core::IUnknown);
@@ -6946,6 +7010,8 @@ unsafe impl windows_core::Interface for LockScreenCallActivatedEventArgs {
 impl windows_core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
 }
+unsafe impl Send for LockScreenCallActivatedEventArgs {}
+unsafe impl Sync for LockScreenCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenComponentActivatedEventArgs(windows_core::IUnknown);
@@ -6984,6 +7050,8 @@ unsafe impl windows_core::Interface for LockScreenComponentActivatedEventArgs {
 impl windows_core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 }
+unsafe impl Send for LockScreenComponentActivatedEventArgs {}
+unsafe impl Sync for LockScreenComponentActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallActivatedEventArgs(windows_core::IUnknown);
@@ -7037,6 +7105,8 @@ unsafe impl windows_core::Interface for PhoneCallActivatedEventArgs {
 impl windows_core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
 }
+unsafe impl Send for PhoneCallActivatedEventArgs {}
+unsafe impl Sync for PhoneCallActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerReturnedActivatedEventArgs(windows_core::IUnknown);
@@ -7082,6 +7152,8 @@ unsafe impl windows_core::Interface for PickerReturnedActivatedEventArgs {
 impl windows_core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
 }
+unsafe impl Send for PickerReturnedActivatedEventArgs {}
+unsafe impl Sync for PickerReturnedActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowActivatedEventArgs(windows_core::IUnknown);
@@ -7128,6 +7200,8 @@ unsafe impl windows_core::Interface for Print3DWorkflowActivatedEventArgs {
 impl windows_core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
 }
+unsafe impl Send for Print3DWorkflowActivatedEventArgs {}
+unsafe impl Sync for Print3DWorkflowActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
@@ -7174,6 +7248,8 @@ unsafe impl windows_core::Interface for PrintTaskSettingsActivatedEventArgs {
 impl windows_core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
 }
+unsafe impl Send for PrintTaskSettingsActivatedEventArgs {}
+unsafe impl Sync for PrintTaskSettingsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolActivatedEventArgs(windows_core::IUnknown);
@@ -7257,6 +7333,8 @@ unsafe impl windows_core::Interface for ProtocolActivatedEventArgs {
 impl windows_core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
 }
+unsafe impl Send for ProtocolActivatedEventArgs {}
+unsafe impl Sync for ProtocolActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
@@ -7348,6 +7426,8 @@ unsafe impl windows_core::Interface for ProtocolForResultsActivatedEventArgs {
 impl windows_core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
 }
+unsafe impl Send for ProtocolForResultsActivatedEventArgs {}
+unsafe impl Sync for ProtocolForResultsActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
@@ -7401,6 +7481,8 @@ unsafe impl windows_core::Interface for RestrictedLaunchActivatedEventArgs {
 impl windows_core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
 }
+unsafe impl Send for RestrictedLaunchActivatedEventArgs {}
+unsafe impl Sync for RestrictedLaunchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchActivatedEventArgs(windows_core::IUnknown);
@@ -7484,6 +7566,8 @@ unsafe impl windows_core::Interface for SearchActivatedEventArgs {
 impl windows_core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
 }
+unsafe impl Send for SearchActivatedEventArgs {}
+unsafe impl Sync for SearchActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareTargetActivatedEventArgs(windows_core::IUnknown);
@@ -7538,6 +7622,8 @@ unsafe impl windows_core::Interface for ShareTargetActivatedEventArgs {
 impl windows_core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
 }
+unsafe impl Send for ShareTargetActivatedEventArgs {}
+unsafe impl Sync for ShareTargetActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SplashScreen(windows_core::IUnknown);
@@ -7628,6 +7714,8 @@ unsafe impl windows_core::Interface for StartupTaskActivatedEventArgs {
 impl windows_core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
 }
+unsafe impl Send for StartupTaskActivatedEventArgs {}
+unsafe impl Sync for StartupTaskActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileActivatedInfo(windows_core::IUnknown);
@@ -7652,6 +7740,8 @@ unsafe impl windows_core::Interface for TileActivatedInfo {
 impl windows_core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
 }
+unsafe impl Send for TileActivatedInfo {}
+unsafe impl Sync for TileActivatedInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActivatedEventArgs(windows_core::IUnknown);
@@ -7720,6 +7810,8 @@ unsafe impl windows_core::Interface for ToastNotificationActivatedEventArgs {
 impl windows_core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
 }
+unsafe impl Send for ToastNotificationActivatedEventArgs {}
+unsafe impl Sync for ToastNotificationActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
@@ -7766,6 +7858,8 @@ unsafe impl windows_core::Interface for UserDataAccountProviderActivatedEventArg
 impl windows_core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
 }
+unsafe impl Send for UserDataAccountProviderActivatedEventArgs {}
+unsafe impl Sync for UserDataAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandActivatedEventArgs(windows_core::IUnknown);
@@ -7820,6 +7914,8 @@ unsafe impl windows_core::Interface for VoiceCommandActivatedEventArgs {
 impl windows_core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
 }
+unsafe impl Send for VoiceCommandActivatedEventArgs {}
+unsafe impl Sync for VoiceCommandActivatedEventArgs {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -7892,6 +7988,10 @@ unsafe impl windows_core::Interface for WalletActionActivatedEventArgs {
 impl windows_core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletActionActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletActionActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderActivatedEventArgs(windows_core::IUnknown);
@@ -7946,6 +8046,8 @@ unsafe impl windows_core::Interface for WebAccountProviderActivatedEventArgs {
 impl windows_core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
 }
+unsafe impl Send for WebAccountProviderActivatedEventArgs {}
+unsafe impl Sync for WebAccountProviderActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
@@ -8000,6 +8102,8 @@ unsafe impl windows_core::Interface for WebAuthenticationBrokerContinuationEvent
 impl windows_core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
 }
+unsafe impl Send for WebAuthenticationBrokerContinuationEventArgs {}
+unsafe impl Sync for WebAuthenticationBrokerContinuationEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ActivationKind(pub i32);

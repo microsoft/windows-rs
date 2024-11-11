@@ -2059,6 +2059,8 @@ unsafe impl windows_core::Interface for SmsAppMessage {
 impl windows_core::RuntimeName for SmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsAppMessage";
 }
+unsafe impl Send for SmsAppMessage {}
+unsafe impl Sync for SmsAppMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2132,6 +2134,10 @@ unsafe impl windows_core::Interface for SmsBinaryMessage {
 impl windows_core::RuntimeName for SmsBinaryMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBinaryMessage";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SmsBinaryMessage {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SmsBinaryMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsBroadcastMessage(windows_core::IUnknown);
@@ -2254,6 +2260,8 @@ unsafe impl windows_core::Interface for SmsBroadcastMessage {
 impl windows_core::RuntimeName for SmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBroadcastMessage";
 }
+unsafe impl Send for SmsBroadcastMessage {}
+unsafe impl Sync for SmsBroadcastMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2718,6 +2726,8 @@ unsafe impl windows_core::Interface for SmsFilterRule {
 impl windows_core::RuntimeName for SmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRule";
 }
+unsafe impl Send for SmsFilterRule {}
+unsafe impl Sync for SmsFilterRule {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsFilterRules(windows_core::IUnknown);
@@ -2759,6 +2769,8 @@ unsafe impl windows_core::Interface for SmsFilterRules {
 impl windows_core::RuntimeName for SmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRules";
 }
+unsafe impl Send for SmsFilterRules {}
+unsafe impl Sync for SmsFilterRules {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -2870,6 +2882,8 @@ unsafe impl windows_core::Interface for SmsMessageReceivedTriggerDetails {
 impl windows_core::RuntimeName for SmsMessageReceivedTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
 }
+unsafe impl Send for SmsMessageReceivedTriggerDetails {}
+unsafe impl Sync for SmsMessageReceivedTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageRegistration(windows_core::IUnknown);
@@ -2985,6 +2999,10 @@ unsafe impl windows_core::Interface for SmsReceivedEventDetails {
 impl windows_core::RuntimeName for SmsReceivedEventDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsReceivedEventDetails";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SmsReceivedEventDetails {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SmsReceivedEventDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsSendMessageResult(windows_core::IUnknown);
@@ -3051,6 +3069,8 @@ unsafe impl windows_core::Interface for SmsSendMessageResult {
 impl windows_core::RuntimeName for SmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.SmsSendMessageResult";
 }
+unsafe impl Send for SmsSendMessageResult {}
+unsafe impl Sync for SmsSendMessageResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsStatusMessage(windows_core::IUnknown);
@@ -3152,6 +3172,8 @@ unsafe impl windows_core::Interface for SmsStatusMessage {
 impl windows_core::RuntimeName for SmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsStatusMessage";
 }
+unsafe impl Send for SmsStatusMessage {}
+unsafe impl Sync for SmsStatusMessage {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3312,6 +3334,10 @@ unsafe impl windows_core::Interface for SmsTextMessage {
 impl windows_core::RuntimeName for SmsTextMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for SmsTextMessage {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for SmsTextMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsTextMessage2(windows_core::IUnknown);
@@ -3465,6 +3491,8 @@ unsafe impl windows_core::Interface for SmsTextMessage2 {
 impl windows_core::RuntimeName for SmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage2";
 }
+unsafe impl Send for SmsTextMessage2 {}
+unsafe impl Sync for SmsTextMessage2 {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsVoicemailMessage(windows_core::IUnknown);
@@ -3545,6 +3573,8 @@ unsafe impl windows_core::Interface for SmsVoicemailMessage {
 impl windows_core::RuntimeName for SmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsVoicemailMessage";
 }
+unsafe impl Send for SmsVoicemailMessage {}
+unsafe impl Sync for SmsVoicemailMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsWapMessage(windows_core::IUnknown);
@@ -3648,6 +3678,8 @@ unsafe impl windows_core::Interface for SmsWapMessage {
 impl windows_core::RuntimeName for SmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsWapMessage";
 }
+unsafe impl Send for SmsWapMessage {}
+unsafe impl Sync for SmsWapMessage {}
 windows_core::imp::define_interface!(SmsDeviceStatusChangedEventHandler, SmsDeviceStatusChangedEventHandler_Vtbl, 0x982b1162_3dd7_4618_af89_0c272d5d06d8);
 impl windows_core::RuntimeType for SmsDeviceStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

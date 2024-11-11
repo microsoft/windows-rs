@@ -131,6 +131,8 @@ unsafe impl windows_core::Interface for GameServicePropertyCollection {
 impl windows_core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
+unsafe impl Send for GameServicePropertyCollection {}
+unsafe impl Sync for GameServicePropertyCollection {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GameServiceGameOutcome(pub i32);

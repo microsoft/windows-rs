@@ -1013,6 +1013,8 @@ unsafe impl windows_core::Interface for Appointment {
 impl windows_core::RuntimeName for Appointment {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.Appointment";
 }
+unsafe impl Send for Appointment {}
+unsafe impl Sync for Appointment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendar(windows_core::IUnknown);
@@ -1389,6 +1391,8 @@ unsafe impl windows_core::Interface for AppointmentCalendar {
 impl windows_core::RuntimeName for AppointmentCalendar {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendar";
 }
+unsafe impl Send for AppointmentCalendar {}
+unsafe impl Sync for AppointmentCalendar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManager(windows_core::IUnknown);
@@ -1459,6 +1463,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarSyncManager {
 impl windows_core::RuntimeName for AppointmentCalendarSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager";
 }
+unsafe impl Send for AppointmentCalendarSyncManager {}
+unsafe impl Sync for AppointmentCalendarSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentConflictResult(windows_core::IUnknown);
@@ -1489,6 +1495,8 @@ unsafe impl windows_core::Interface for AppointmentConflictResult {
 impl windows_core::RuntimeName for AppointmentConflictResult {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentConflictResult";
 }
+unsafe impl Send for AppointmentConflictResult {}
+unsafe impl Sync for AppointmentConflictResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentException(windows_core::IUnknown);
@@ -1527,6 +1535,8 @@ unsafe impl windows_core::Interface for AppointmentException {
 impl windows_core::RuntimeName for AppointmentException {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentException";
 }
+unsafe impl Send for AppointmentException {}
+unsafe impl Sync for AppointmentException {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentInvitee(windows_core::IUnknown);
@@ -1595,6 +1605,8 @@ unsafe impl windows_core::Interface for AppointmentInvitee {
 impl windows_core::RuntimeName for AppointmentInvitee {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentInvitee";
 }
+unsafe impl Send for AppointmentInvitee {}
+unsafe impl Sync for AppointmentInvitee {}
 pub struct AppointmentManager;
 impl AppointmentManager {
     pub fn ShowAddAppointmentAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
@@ -1862,6 +1874,8 @@ unsafe impl windows_core::Interface for AppointmentManagerForUser {
 impl windows_core::RuntimeName for AppointmentManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentManagerForUser";
 }
+unsafe impl Send for AppointmentManagerForUser {}
+unsafe impl Sync for AppointmentManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentOrganizer(windows_core::IUnknown);
@@ -1908,6 +1922,8 @@ unsafe impl windows_core::Interface for AppointmentOrganizer {
 impl windows_core::RuntimeName for AppointmentOrganizer {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentOrganizer";
 }
+unsafe impl Send for AppointmentOrganizer {}
+unsafe impl Sync for AppointmentOrganizer {}
 pub struct AppointmentProperties;
 impl AppointmentProperties {
     pub fn Subject() -> windows_core::Result<windows_core::HSTRING> {
@@ -2221,6 +2237,8 @@ unsafe impl windows_core::Interface for AppointmentRecurrence {
 impl windows_core::RuntimeName for AppointmentRecurrence {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentRecurrence";
 }
+unsafe impl Send for AppointmentRecurrence {}
+unsafe impl Sync for AppointmentRecurrence {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStore(windows_core::IUnknown);
@@ -2444,6 +2462,8 @@ unsafe impl windows_core::Interface for AppointmentStore {
 impl windows_core::RuntimeName for AppointmentStore {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStore";
 }
+unsafe impl Send for AppointmentStore {}
+unsafe impl Sync for AppointmentStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChange(windows_core::IUnknown);
@@ -2481,6 +2501,8 @@ unsafe impl windows_core::Interface for AppointmentStoreChange {
 impl windows_core::RuntimeName for AppointmentStoreChange {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChange";
 }
+unsafe impl Send for AppointmentStoreChange {}
+unsafe impl Sync for AppointmentStoreChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangeReader(windows_core::IUnknown);
@@ -2516,6 +2538,8 @@ unsafe impl windows_core::Interface for AppointmentStoreChangeReader {
 impl windows_core::RuntimeName for AppointmentStoreChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader";
 }
+unsafe impl Send for AppointmentStoreChangeReader {}
+unsafe impl Sync for AppointmentStoreChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangeTracker(windows_core::IUnknown);
@@ -2554,6 +2578,8 @@ unsafe impl windows_core::Interface for AppointmentStoreChangeTracker {
 impl windows_core::RuntimeName for AppointmentStoreChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker";
 }
+unsafe impl Send for AppointmentStoreChangeTracker {}
+unsafe impl Sync for AppointmentStoreChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangedDeferral(windows_core::IUnknown);
@@ -2574,6 +2600,8 @@ unsafe impl windows_core::Interface for AppointmentStoreChangedDeferral {
 impl windows_core::RuntimeName for AppointmentStoreChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral";
 }
+unsafe impl Send for AppointmentStoreChangedDeferral {}
+unsafe impl Sync for AppointmentStoreChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangedEventArgs(windows_core::IUnknown);
@@ -2597,6 +2625,8 @@ unsafe impl windows_core::Interface for AppointmentStoreChangedEventArgs {
 impl windows_core::RuntimeName for AppointmentStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs";
 }
+unsafe impl Send for AppointmentStoreChangedEventArgs {}
+unsafe impl Sync for AppointmentStoreChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreNotificationTriggerDetails(windows_core::IUnknown);
@@ -2612,6 +2642,8 @@ unsafe impl windows_core::Interface for AppointmentStoreNotificationTriggerDetai
 impl windows_core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails";
 }
+unsafe impl Send for AppointmentStoreNotificationTriggerDetails {}
+unsafe impl Sync for AppointmentStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindAppointmentsOptions(windows_core::IUnknown);
@@ -2673,6 +2705,8 @@ unsafe impl windows_core::Interface for FindAppointmentsOptions {
 impl windows_core::RuntimeName for FindAppointmentsOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.FindAppointmentsOptions";
 }
+unsafe impl Send for FindAppointmentsOptions {}
+unsafe impl Sync for FindAppointmentsOptions {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppointmentBusyStatus(pub i32);

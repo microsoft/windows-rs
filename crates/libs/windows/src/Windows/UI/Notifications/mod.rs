@@ -1014,6 +1014,8 @@ unsafe impl windows_core::Interface for AdaptiveNotificationText {
 impl windows_core::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
 }
+unsafe impl Send for AdaptiveNotificationText {}
+unsafe impl Sync for AdaptiveNotificationText {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BadgeNotification(windows_core::IUnknown);
@@ -1066,6 +1068,8 @@ unsafe impl windows_core::Interface for BadgeNotification {
 impl windows_core::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
 }
+unsafe impl Send for BadgeNotification {}
+unsafe impl Sync for BadgeNotification {}
 pub struct BadgeUpdateManager;
 impl BadgeUpdateManager {
     pub fn CreateBadgeUpdaterForApplication() -> windows_core::Result<BadgeUpdater> {
@@ -1160,6 +1164,8 @@ unsafe impl windows_core::Interface for BadgeUpdateManagerForUser {
 impl windows_core::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
 }
+unsafe impl Send for BadgeUpdateManagerForUser {}
+unsafe impl Sync for BadgeUpdateManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BadgeUpdater(windows_core::IUnknown);
@@ -1205,6 +1211,8 @@ unsafe impl windows_core::Interface for BadgeUpdater {
 impl windows_core::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
 }
+unsafe impl Send for BadgeUpdater {}
+unsafe impl Sync for BadgeUpdater {}
 pub struct KnownAdaptiveNotificationHints;
 impl KnownAdaptiveNotificationHints {
     pub fn Style() -> windows_core::Result<windows_core::HSTRING> {
@@ -1442,6 +1450,8 @@ unsafe impl windows_core::Interface for Notification {
 impl windows_core::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
 }
+unsafe impl Send for Notification {}
+unsafe impl Sync for Notification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationBinding(windows_core::IUnknown);
@@ -1496,6 +1506,8 @@ unsafe impl windows_core::Interface for NotificationBinding {
 impl windows_core::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
 }
+unsafe impl Send for NotificationBinding {}
+unsafe impl Sync for NotificationBinding {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationData(windows_core::IUnknown);
@@ -1562,6 +1574,8 @@ unsafe impl windows_core::Interface for NotificationData {
 impl windows_core::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
 }
+unsafe impl Send for NotificationData {}
+unsafe impl Sync for NotificationData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NotificationVisual(windows_core::IUnknown);
@@ -1604,6 +1618,8 @@ unsafe impl windows_core::Interface for NotificationVisual {
 impl windows_core::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
 }
+unsafe impl Send for NotificationVisual {}
+unsafe impl Sync for NotificationVisual {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledTileNotification(windows_core::IUnknown);
@@ -1685,6 +1701,8 @@ unsafe impl windows_core::Interface for ScheduledTileNotification {
 impl windows_core::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
 }
+unsafe impl Send for ScheduledTileNotification {}
+unsafe impl Sync for ScheduledTileNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledToastNotification(windows_core::IUnknown);
@@ -1834,6 +1852,8 @@ unsafe impl windows_core::Interface for ScheduledToastNotification {
 impl windows_core::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
 }
+unsafe impl Send for ScheduledToastNotification {}
+unsafe impl Sync for ScheduledToastNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScheduledToastNotificationShowingEventArgs(windows_core::IUnknown);
@@ -1875,6 +1895,8 @@ unsafe impl windows_core::Interface for ScheduledToastNotificationShowingEventAr
 impl windows_core::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
 }
+unsafe impl Send for ScheduledToastNotificationShowingEventArgs {}
+unsafe impl Sync for ScheduledToastNotificationShowingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShownTileNotification(windows_core::IUnknown);
@@ -1898,6 +1920,8 @@ unsafe impl windows_core::Interface for ShownTileNotification {
 impl windows_core::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
 }
+unsafe impl Send for ShownTileNotification {}
+unsafe impl Sync for ShownTileNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileFlyoutNotification(windows_core::IUnknown);
@@ -1950,6 +1974,8 @@ unsafe impl windows_core::Interface for TileFlyoutNotification {
 impl windows_core::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
 }
+unsafe impl Send for TileFlyoutNotification {}
+unsafe impl Sync for TileFlyoutNotification {}
 pub struct TileFlyoutUpdateManager;
 impl TileFlyoutUpdateManager {
     pub fn CreateTileFlyoutUpdaterForApplication() -> windows_core::Result<TileFlyoutUpdater> {
@@ -2100,6 +2126,8 @@ unsafe impl windows_core::Interface for TileNotification {
 impl windows_core::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
 }
+unsafe impl Send for TileNotification {}
+unsafe impl Sync for TileNotification {}
 pub struct TileUpdateManager;
 impl TileUpdateManager {
     pub fn CreateTileUpdaterForApplication() -> windows_core::Result<TileUpdater> {
@@ -2194,6 +2222,8 @@ unsafe impl windows_core::Interface for TileUpdateManagerForUser {
 impl windows_core::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
 }
+unsafe impl Send for TileUpdateManagerForUser {}
+unsafe impl Sync for TileUpdateManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileUpdater(windows_core::IUnknown);
@@ -2300,6 +2330,8 @@ unsafe impl windows_core::Interface for TileUpdater {
 impl windows_core::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
 }
+unsafe impl Send for TileUpdater {}
+unsafe impl Sync for TileUpdater {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastActivatedEventArgs(windows_core::IUnknown);
@@ -2403,6 +2435,8 @@ unsafe impl windows_core::Interface for ToastCollection {
 impl windows_core::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
 }
+unsafe impl Send for ToastCollection {}
+unsafe impl Sync for ToastCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastCollectionManager(windows_core::IUnknown);
@@ -2473,6 +2507,8 @@ unsafe impl windows_core::Interface for ToastCollectionManager {
 impl windows_core::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
 }
+unsafe impl Send for ToastCollectionManager {}
+unsafe impl Sync for ToastCollectionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastDismissedEventArgs(windows_core::IUnknown);
@@ -2496,6 +2532,8 @@ unsafe impl windows_core::Interface for ToastDismissedEventArgs {
 impl windows_core::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
 }
+unsafe impl Send for ToastDismissedEventArgs {}
+unsafe impl Sync for ToastDismissedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastFailedEventArgs(windows_core::IUnknown);
@@ -2519,6 +2557,8 @@ unsafe impl windows_core::Interface for ToastFailedEventArgs {
 impl windows_core::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
 }
+unsafe impl Send for ToastFailedEventArgs {}
+unsafe impl Sync for ToastFailedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotification(windows_core::IUnknown);
@@ -2704,6 +2744,8 @@ unsafe impl windows_core::Interface for ToastNotification {
 impl windows_core::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
 }
+unsafe impl Send for ToastNotification {}
+unsafe impl Sync for ToastNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActionTriggerDetail(windows_core::IUnknown);
@@ -2985,6 +3027,8 @@ unsafe impl windows_core::Interface for ToastNotificationManagerForUser {
 impl windows_core::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
 }
+unsafe impl Send for ToastNotificationManagerForUser {}
+unsafe impl Sync for ToastNotificationManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotifier(windows_core::IUnknown);
@@ -3078,6 +3122,8 @@ unsafe impl windows_core::Interface for ToastNotifier {
 impl windows_core::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
 }
+unsafe impl Send for ToastNotifier {}
+unsafe impl Sync for ToastNotifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotification(windows_core::IUnknown);
@@ -3123,6 +3169,8 @@ unsafe impl windows_core::Interface for UserNotification {
 impl windows_core::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
 }
+unsafe impl Send for UserNotification {}
+unsafe impl Sync for UserNotification {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotificationChangedEventArgs(windows_core::IUnknown);
@@ -3153,6 +3201,8 @@ unsafe impl windows_core::Interface for UserNotificationChangedEventArgs {
 impl windows_core::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";
 }
+unsafe impl Send for UserNotificationChangedEventArgs {}
+unsafe impl Sync for UserNotificationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AdaptiveNotificationContentKind(pub i32);

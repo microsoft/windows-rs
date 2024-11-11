@@ -1746,6 +1746,8 @@ impl IRestrictedErrorInfo_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IRestrictedErrorInfo {}
+unsafe impl Send for IRestrictedErrorInfo {}
+unsafe impl Sync for IRestrictedErrorInfo {}
 windows_core::imp::define_interface!(IShareWindowCommandEventArgsInterop, IShareWindowCommandEventArgsInterop_Vtbl, 0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
 windows_core::imp::interface_hierarchy!(IShareWindowCommandEventArgsInterop, windows_core::IUnknown);
 impl IShareWindowCommandEventArgsInterop {

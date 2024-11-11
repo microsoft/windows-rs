@@ -195,6 +195,8 @@ unsafe impl windows_core::Interface for GpioChangeCounter {
 impl windows_core::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
 }
+unsafe impl Send for GpioChangeCounter {}
+unsafe impl Sync for GpioChangeCounter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioChangeReader(windows_core::IUnknown);
@@ -325,6 +327,8 @@ unsafe impl windows_core::Interface for GpioChangeReader {
 impl windows_core::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
 }
+unsafe impl Send for GpioChangeReader {}
+unsafe impl Sync for GpioChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioController(windows_core::IUnknown);
@@ -399,6 +403,8 @@ unsafe impl windows_core::Interface for GpioController {
 impl windows_core::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
 }
+unsafe impl Send for GpioController {}
+unsafe impl Sync for GpioController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPin(windows_core::IUnknown);
@@ -488,6 +494,8 @@ unsafe impl windows_core::Interface for GpioPin {
 impl windows_core::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
 }
+unsafe impl Send for GpioPin {}
+unsafe impl Sync for GpioPin {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPinValueChangedEventArgs(windows_core::IUnknown);
@@ -511,6 +519,8 @@ unsafe impl windows_core::Interface for GpioPinValueChangedEventArgs {
 impl windows_core::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";
 }
+unsafe impl Send for GpioPinValueChangedEventArgs {}
+unsafe impl Sync for GpioPinValueChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GpioChangePolarity(pub i32);

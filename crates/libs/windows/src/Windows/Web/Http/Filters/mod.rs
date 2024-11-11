@@ -417,6 +417,8 @@ unsafe impl windows_core::Interface for HttpBaseProtocolFilter {
 impl windows_core::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
 }
+unsafe impl Send for HttpBaseProtocolFilter {}
+unsafe impl Sync for HttpBaseProtocolFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCacheControl(windows_core::IUnknown);
@@ -455,6 +457,8 @@ unsafe impl windows_core::Interface for HttpCacheControl {
 impl windows_core::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
 }
+unsafe impl Send for HttpCacheControl {}
+unsafe impl Sync for HttpCacheControl {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
@@ -521,6 +525,8 @@ unsafe impl windows_core::Interface for HttpServerCustomValidationRequestedEvent
 impl windows_core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";
 }
+unsafe impl Send for HttpServerCustomValidationRequestedEventArgs {}
+unsafe impl Sync for HttpServerCustomValidationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HttpCacheReadBehavior(pub i32);

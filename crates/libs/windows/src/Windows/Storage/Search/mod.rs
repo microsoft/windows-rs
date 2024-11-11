@@ -1131,6 +1131,8 @@ unsafe impl windows_core::Interface for ContentIndexer {
 impl windows_core::RuntimeName for ContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
 }
+unsafe impl Send for ContentIndexer {}
+unsafe impl Sync for ContentIndexer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentIndexerQuery(windows_core::IUnknown);
@@ -1193,6 +1195,8 @@ unsafe impl windows_core::Interface for ContentIndexerQuery {
 impl windows_core::RuntimeName for ContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
 }
+unsafe impl Send for ContentIndexerQuery {}
+unsafe impl Sync for ContentIndexerQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexableContent(windows_core::IUnknown);
@@ -1263,6 +1267,8 @@ unsafe impl windows_core::Interface for IndexableContent {
 impl windows_core::RuntimeName for IndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IndexableContent";
 }
+unsafe impl Send for IndexableContent {}
+unsafe impl Sync for IndexableContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QueryOptions(windows_core::IUnknown);
@@ -1423,6 +1429,8 @@ unsafe impl windows_core::Interface for QueryOptions {
 impl windows_core::RuntimeName for QueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.QueryOptions";
 }
+unsafe impl Send for QueryOptions {}
+unsafe impl Sync for QueryOptions {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1935,6 +1943,8 @@ unsafe impl windows_core::Interface for ValueAndLanguage {
 impl windows_core::RuntimeName for ValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.ValueAndLanguage";
 }
+unsafe impl Send for ValueAndLanguage {}
+unsafe impl Sync for ValueAndLanguage {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CommonFileQuery(pub i32);

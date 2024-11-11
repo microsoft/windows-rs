@@ -196,6 +196,8 @@ unsafe impl windows_core::Interface for GameSaveBlobGetResult {
 impl windows_core::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
+unsafe impl Send for GameSaveBlobGetResult {}
+unsafe impl Sync for GameSaveBlobGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfo(windows_core::IUnknown);
@@ -226,6 +228,8 @@ unsafe impl windows_core::Interface for GameSaveBlobInfo {
 impl windows_core::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
+unsafe impl Send for GameSaveBlobInfo {}
+unsafe impl Sync for GameSaveBlobInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoGetResult(windows_core::IUnknown);
@@ -257,6 +261,8 @@ unsafe impl windows_core::Interface for GameSaveBlobInfoGetResult {
 impl windows_core::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
+unsafe impl Send for GameSaveBlobInfoGetResult {}
+unsafe impl Sync for GameSaveBlobInfoGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoQuery(windows_core::IUnknown);
@@ -294,6 +300,8 @@ unsafe impl windows_core::Interface for GameSaveBlobInfoQuery {
 impl windows_core::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
+unsafe impl Send for GameSaveBlobInfoQuery {}
+unsafe impl Sync for GameSaveBlobInfoQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainer(windows_core::IUnknown);
@@ -377,6 +385,8 @@ unsafe impl windows_core::Interface for GameSaveContainer {
 impl windows_core::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
+unsafe impl Send for GameSaveContainer {}
+unsafe impl Sync for GameSaveContainer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfo(windows_core::IUnknown);
@@ -428,6 +438,8 @@ unsafe impl windows_core::Interface for GameSaveContainerInfo {
 impl windows_core::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
+unsafe impl Send for GameSaveContainerInfo {}
+unsafe impl Sync for GameSaveContainerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoGetResult(windows_core::IUnknown);
@@ -459,6 +471,8 @@ unsafe impl windows_core::Interface for GameSaveContainerInfoGetResult {
 impl windows_core::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
+unsafe impl Send for GameSaveContainerInfoGetResult {}
+unsafe impl Sync for GameSaveContainerInfoGetResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoQuery(windows_core::IUnknown);
@@ -496,6 +510,8 @@ unsafe impl windows_core::Interface for GameSaveContainerInfoQuery {
 impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
+unsafe impl Send for GameSaveContainerInfoQuery {}
+unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveOperationResult(windows_core::IUnknown);
@@ -519,6 +535,8 @@ unsafe impl windows_core::Interface for GameSaveOperationResult {
 impl windows_core::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
+unsafe impl Send for GameSaveOperationResult {}
+unsafe impl Sync for GameSaveOperationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProvider(windows_core::IUnknown);
@@ -610,6 +628,8 @@ unsafe impl windows_core::Interface for GameSaveProvider {
 impl windows_core::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
+unsafe impl Send for GameSaveProvider {}
+unsafe impl Sync for GameSaveProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProviderGetResult(windows_core::IUnknown);
@@ -640,6 +660,8 @@ unsafe impl windows_core::Interface for GameSaveProviderGetResult {
 impl windows_core::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
 }
+unsafe impl Send for GameSaveProviderGetResult {}
+unsafe impl Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GameSaveErrorStatus(pub i32);

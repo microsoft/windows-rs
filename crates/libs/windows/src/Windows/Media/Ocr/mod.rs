@@ -151,6 +151,8 @@ unsafe impl windows_core::Interface for OcrEngine {
 impl windows_core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
 }
+unsafe impl Send for OcrEngine {}
+unsafe impl Sync for OcrEngine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrLine(windows_core::IUnknown);
@@ -182,6 +184,8 @@ unsafe impl windows_core::Interface for OcrLine {
 impl windows_core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
 }
+unsafe impl Send for OcrLine {}
+unsafe impl Sync for OcrLine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrResult(windows_core::IUnknown);
@@ -220,6 +224,8 @@ unsafe impl windows_core::Interface for OcrResult {
 impl windows_core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
 }
+unsafe impl Send for OcrResult {}
+unsafe impl Sync for OcrResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrWord(windows_core::IUnknown);
@@ -250,3 +256,5 @@ unsafe impl windows_core::Interface for OcrWord {
 impl windows_core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";
 }
+unsafe impl Send for OcrWord {}
+unsafe impl Sync for OcrWord {}

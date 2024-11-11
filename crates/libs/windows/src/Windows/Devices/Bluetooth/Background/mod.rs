@@ -193,6 +193,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger
 impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails";
 }
+unsafe impl Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
+unsafe impl Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(windows_core::IUnknown);
@@ -231,6 +233,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTriggerDe
 impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails";
 }
+unsafe impl Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
+unsafe impl Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicNotificationTriggerDetails(windows_core::IUnknown);
@@ -285,6 +289,8 @@ unsafe impl windows_core::Interface for GattCharacteristicNotificationTriggerDet
 impl windows_core::RuntimeName for GattCharacteristicNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails";
 }
+unsafe impl Send for GattCharacteristicNotificationTriggerDetails {}
+unsafe impl Sync for GattCharacteristicNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderConnection(windows_core::IUnknown);
@@ -331,6 +337,8 @@ unsafe impl windows_core::Interface for GattServiceProviderConnection {
 impl windows_core::RuntimeName for GattServiceProviderConnection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderConnection";
 }
+unsafe impl Send for GattServiceProviderConnection {}
+unsafe impl Sync for GattServiceProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTriggerDetails(windows_core::IUnknown);
@@ -354,6 +362,8 @@ unsafe impl windows_core::Interface for GattServiceProviderTriggerDetails {
 impl windows_core::RuntimeName for GattServiceProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails";
 }
+unsafe impl Send for GattServiceProviderTriggerDetails {}
+unsafe impl Sync for GattServiceProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommConnectionTriggerDetails(windows_core::IUnknown);
@@ -392,6 +402,8 @@ unsafe impl windows_core::Interface for RfcommConnectionTriggerDetails {
 impl windows_core::RuntimeName for RfcommConnectionTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails";
 }
+unsafe impl Send for RfcommConnectionTriggerDetails {}
+unsafe impl Sync for RfcommConnectionTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommInboundConnectionInformation(windows_core::IUnknown);
@@ -451,6 +463,8 @@ unsafe impl windows_core::Interface for RfcommInboundConnectionInformation {
 impl windows_core::RuntimeName for RfcommInboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation";
 }
+unsafe impl Send for RfcommInboundConnectionInformation {}
+unsafe impl Sync for RfcommInboundConnectionInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommOutboundConnectionInformation(windows_core::IUnknown);
@@ -483,6 +497,8 @@ unsafe impl windows_core::Interface for RfcommOutboundConnectionInformation {
 impl windows_core::RuntimeName for RfcommOutboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation";
 }
+unsafe impl Send for RfcommOutboundConnectionInformation {}
+unsafe impl Sync for RfcommOutboundConnectionInformation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BluetoothEventTriggeringMode(pub i32);

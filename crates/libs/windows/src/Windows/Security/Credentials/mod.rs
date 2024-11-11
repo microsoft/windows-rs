@@ -350,6 +350,8 @@ unsafe impl windows_core::Interface for KeyCredential {
 impl windows_core::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
 }
+unsafe impl Send for KeyCredential {}
+unsafe impl Sync for KeyCredential {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialAttestationResult(windows_core::IUnknown);
@@ -389,6 +391,8 @@ unsafe impl windows_core::Interface for KeyCredentialAttestationResult {
 impl windows_core::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
 }
+unsafe impl Send for KeyCredentialAttestationResult {}
+unsafe impl Sync for KeyCredentialAttestationResult {}
 pub struct KeyCredentialManager;
 impl KeyCredentialManager {
     pub fn IsSupportedAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -460,6 +464,8 @@ unsafe impl windows_core::Interface for KeyCredentialOperationResult {
 impl windows_core::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
 }
+unsafe impl Send for KeyCredentialOperationResult {}
+unsafe impl Sync for KeyCredentialOperationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialRetrievalResult(windows_core::IUnknown);
@@ -490,6 +496,8 @@ unsafe impl windows_core::Interface for KeyCredentialRetrievalResult {
 impl windows_core::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
 }
+unsafe impl Send for KeyCredentialRetrievalResult {}
+unsafe impl Sync for KeyCredentialRetrievalResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordCredential(windows_core::IUnknown);
@@ -568,6 +576,8 @@ unsafe impl windows_core::Interface for PasswordCredential {
 impl windows_core::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
 }
+unsafe impl Send for PasswordCredential {}
+unsafe impl Sync for PasswordCredential {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -669,6 +679,10 @@ unsafe impl windows_core::Interface for PasswordCredentialPropertyStore {
 impl windows_core::RuntimeName for PasswordCredentialPropertyStore {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredentialPropertyStore";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for PasswordCredentialPropertyStore {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for PasswordCredentialPropertyStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordVault(windows_core::IUnknown);
@@ -737,6 +751,8 @@ unsafe impl windows_core::Interface for PasswordVault {
 impl windows_core::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
 }
+unsafe impl Send for PasswordVault {}
+unsafe impl Sync for PasswordVault {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccount(windows_core::IUnknown);
@@ -825,6 +841,8 @@ unsafe impl windows_core::Interface for WebAccount {
 impl windows_core::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
 }
+unsafe impl Send for WebAccount {}
+unsafe impl Sync for WebAccount {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProvider(windows_core::IUnknown);
@@ -904,6 +922,8 @@ unsafe impl windows_core::Interface for WebAccountProvider {
 impl windows_core::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";
 }
+unsafe impl Send for WebAccountProvider {}
+unsafe impl Sync for WebAccountProvider {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct KeyCredentialAttestationStatus(pub i32);

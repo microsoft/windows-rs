@@ -273,6 +273,8 @@ unsafe impl windows_core::Interface for AutomationRemoteOperationResult {
 impl windows_core::RuntimeName for AutomationRemoteOperationResult {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
 }
+unsafe impl Send for AutomationRemoteOperationResult {}
+unsafe impl Sync for AutomationRemoteOperationResult {}
 pub struct CoreAutomationRegistrar;
 impl CoreAutomationRegistrar {
     pub fn RegisterAnnotationType(guid: windows_core::GUID) -> windows_core::Result<AutomationAnnotationTypeRegistration> {
@@ -354,6 +356,8 @@ unsafe impl windows_core::Interface for CoreAutomationRemoteOperation {
 impl windows_core::RuntimeName for CoreAutomationRemoteOperation {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
 }
+unsafe impl Send for CoreAutomationRemoteOperation {}
+unsafe impl Sync for CoreAutomationRemoteOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreAutomationRemoteOperationContext(windows_core::IUnknown);
@@ -391,6 +395,8 @@ unsafe impl windows_core::Interface for CoreAutomationRemoteOperationContext {
 impl windows_core::RuntimeName for CoreAutomationRemoteOperationContext {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
 }
+unsafe impl Send for CoreAutomationRemoteOperationContext {}
+unsafe impl Sync for CoreAutomationRemoteOperationContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteAutomationClientSession(windows_core::IUnknown);
@@ -476,6 +482,8 @@ unsafe impl windows_core::Interface for RemoteAutomationClientSession {
 impl windows_core::RuntimeName for RemoteAutomationClientSession {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationClientSession";
 }
+unsafe impl Send for RemoteAutomationClientSession {}
+unsafe impl Sync for RemoteAutomationClientSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteAutomationConnectionRequestedEventArgs(windows_core::IUnknown);
@@ -506,6 +514,8 @@ unsafe impl windows_core::Interface for RemoteAutomationConnectionRequestedEvent
 impl windows_core::RuntimeName for RemoteAutomationConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs";
 }
+unsafe impl Send for RemoteAutomationConnectionRequestedEventArgs {}
+unsafe impl Sync for RemoteAutomationConnectionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteAutomationDisconnectedEventArgs(windows_core::IUnknown);
@@ -529,6 +539,8 @@ unsafe impl windows_core::Interface for RemoteAutomationDisconnectedEventArgs {
 impl windows_core::RuntimeName for RemoteAutomationDisconnectedEventArgs {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationDisconnectedEventArgs";
 }
+unsafe impl Send for RemoteAutomationDisconnectedEventArgs {}
+unsafe impl Sync for RemoteAutomationDisconnectedEventArgs {}
 pub struct RemoteAutomationServer;
 impl RemoteAutomationServer {
     pub fn ReportSession(sessionid: windows_core::GUID) -> windows_core::Result<()> {
@@ -572,6 +584,8 @@ unsafe impl windows_core::Interface for RemoteAutomationWindow {
 impl windows_core::RuntimeName for RemoteAutomationWindow {
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.RemoteAutomationWindow";
 }
+unsafe impl Send for RemoteAutomationWindow {}
+unsafe impl Sync for RemoteAutomationWindow {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AutomationRemoteOperationStatus(pub i32);

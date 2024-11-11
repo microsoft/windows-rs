@@ -315,6 +315,8 @@ unsafe impl windows_core::Interface for LowLevelDevicesAggregateProvider {
 impl windows_core::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
 }
+unsafe impl Send for LowLevelDevicesAggregateProvider {}
+unsafe impl Sync for LowLevelDevicesAggregateProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesController(windows_core::IUnknown);
@@ -347,3 +349,5 @@ unsafe impl windows_core::Interface for LowLevelDevicesController {
 impl windows_core::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";
 }
+unsafe impl Send for LowLevelDevicesController {}
+unsafe impl Sync for LowLevelDevicesController {}

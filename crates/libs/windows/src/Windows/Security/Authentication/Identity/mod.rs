@@ -85,6 +85,8 @@ unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo 
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
+unsafe impl Send for EnterpriseKeyCredentialRegistrationInfo {}
+unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
@@ -119,3 +121,5 @@ unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManag
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
+unsafe impl Send for EnterpriseKeyCredentialRegistrationManager {}
+unsafe impl Sync for EnterpriseKeyCredentialRegistrationManager {}

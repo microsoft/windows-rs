@@ -328,6 +328,10 @@ unsafe impl windows_core::Interface for FileExtensionVector {
 impl windows_core::RuntimeName for FileExtensionVector {
     const NAME: &'static str = "Windows.Storage.Pickers.FileExtensionVector";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for FileExtensionVector {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for FileExtensionVector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPicker(windows_core::IUnknown);
@@ -476,6 +480,8 @@ unsafe impl windows_core::Interface for FileOpenPicker {
 impl windows_core::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
 }
+unsafe impl Send for FileOpenPicker {}
+unsafe impl Sync for FileOpenPicker {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -555,6 +561,10 @@ unsafe impl windows_core::Interface for FilePickerFileTypesOrderedMap {
 impl windows_core::RuntimeName for FilePickerFileTypesOrderedMap {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerFileTypesOrderedMap";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for FilePickerFileTypesOrderedMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for FilePickerFileTypesOrderedMap {}
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -618,6 +628,10 @@ unsafe impl windows_core::Interface for FilePickerSelectedFilesArray {
 impl windows_core::RuntimeName for FilePickerSelectedFilesArray {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerSelectedFilesArray";
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+unsafe impl Send for FilePickerSelectedFilesArray {}
+#[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
+unsafe impl Sync for FilePickerSelectedFilesArray {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePicker(windows_core::IUnknown);
@@ -773,6 +787,8 @@ unsafe impl windows_core::Interface for FileSavePicker {
 impl windows_core::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
 }
+unsafe impl Send for FileSavePicker {}
+unsafe impl Sync for FileSavePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderPicker(windows_core::IUnknown);
@@ -890,6 +906,8 @@ unsafe impl windows_core::Interface for FolderPicker {
 impl windows_core::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";
 }
+unsafe impl Send for FolderPicker {}
+unsafe impl Sync for FolderPicker {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PickerLocationId(pub i32);

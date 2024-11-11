@@ -1176,6 +1176,8 @@ unsafe impl windows_core::Interface for AppActivationResult {
 impl windows_core::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
 }
+unsafe impl Send for AppActivationResult {}
+unsafe impl Sync for AppActivationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfo(windows_core::IUnknown);
@@ -1270,6 +1272,8 @@ unsafe impl windows_core::Interface for AppDiagnosticInfo {
 impl windows_core::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
 }
+unsafe impl Send for AppDiagnosticInfo {}
+unsafe impl Sync for AppDiagnosticInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcher(windows_core::IUnknown);
@@ -1357,6 +1361,8 @@ unsafe impl windows_core::Interface for AppDiagnosticInfoWatcher {
 impl windows_core::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
 }
+unsafe impl Send for AppDiagnosticInfoWatcher {}
+unsafe impl Sync for AppDiagnosticInfoWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcherEventArgs(windows_core::IUnknown);
@@ -1380,6 +1386,8 @@ unsafe impl windows_core::Interface for AppDiagnosticInfoWatcherEventArgs {
 impl windows_core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
 }
+unsafe impl Send for AppDiagnosticInfoWatcherEventArgs {}
+unsafe impl Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExecutionStateChangeResult(windows_core::IUnknown);
@@ -1403,6 +1411,8 @@ unsafe impl windows_core::Interface for AppExecutionStateChangeResult {
 impl windows_core::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
 }
+unsafe impl Send for AppExecutionStateChangeResult {}
+unsafe impl Sync for AppExecutionStateChangeResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryReport(windows_core::IUnknown);
@@ -1454,6 +1464,8 @@ unsafe impl windows_core::Interface for AppMemoryReport {
 impl windows_core::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
 }
+unsafe impl Send for AppMemoryReport {}
+unsafe impl Sync for AppMemoryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryUsageLimitChangingEventArgs(windows_core::IUnknown);
@@ -1484,6 +1496,8 @@ unsafe impl windows_core::Interface for AppMemoryUsageLimitChangingEventArgs {
 impl windows_core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
 }
+unsafe impl Send for AppMemoryUsageLimitChangingEventArgs {}
+unsafe impl Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupBackgroundTaskReport(windows_core::IUnknown);
@@ -1528,6 +1542,8 @@ unsafe impl windows_core::Interface for AppResourceGroupBackgroundTaskReport {
 impl windows_core::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
 }
+unsafe impl Send for AppResourceGroupBackgroundTaskReport {}
+unsafe impl Sync for AppResourceGroupBackgroundTaskReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfo(windows_core::IUnknown);
@@ -1609,6 +1625,8 @@ unsafe impl windows_core::Interface for AppResourceGroupInfo {
 impl windows_core::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
 }
+unsafe impl Send for AppResourceGroupInfo {}
+unsafe impl Sync for AppResourceGroupInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcher(windows_core::IUnknown);
@@ -1710,6 +1728,8 @@ unsafe impl windows_core::Interface for AppResourceGroupInfoWatcher {
 impl windows_core::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
 }
+unsafe impl Send for AppResourceGroupInfoWatcher {}
+unsafe impl Sync for AppResourceGroupInfoWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherEventArgs(windows_core::IUnknown);
@@ -1741,6 +1761,8 @@ unsafe impl windows_core::Interface for AppResourceGroupInfoWatcherEventArgs {
 impl windows_core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
 }
+unsafe impl Send for AppResourceGroupInfoWatcherEventArgs {}
+unsafe impl Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(windows_core::IUnknown);
@@ -1772,6 +1794,8 @@ unsafe impl windows_core::Interface for AppResourceGroupInfoWatcherExecutionStat
 impl windows_core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
 }
+unsafe impl Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+unsafe impl Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupMemoryReport(windows_core::IUnknown);
@@ -1816,6 +1840,8 @@ unsafe impl windows_core::Interface for AppResourceGroupMemoryReport {
 impl windows_core::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
 }
+unsafe impl Send for AppResourceGroupMemoryReport {}
+unsafe impl Sync for AppResourceGroupMemoryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupStateReport(windows_core::IUnknown);
@@ -1846,6 +1872,8 @@ unsafe impl windows_core::Interface for AppResourceGroupStateReport {
 impl windows_core::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
 }
+unsafe impl Send for AppResourceGroupStateReport {}
+unsafe impl Sync for AppResourceGroupStateReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerHost(windows_core::IUnknown);
@@ -1901,6 +1929,8 @@ unsafe impl windows_core::Interface for AppUriHandlerHost {
 impl windows_core::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
 }
+unsafe impl Send for AppUriHandlerHost {}
+unsafe impl Sync for AppUriHandlerHost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistration(windows_core::IUnknown);
@@ -1973,6 +2003,8 @@ unsafe impl windows_core::Interface for AppUriHandlerRegistration {
 impl windows_core::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
 }
+unsafe impl Send for AppUriHandlerRegistration {}
+unsafe impl Sync for AppUriHandlerRegistration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistrationManager(windows_core::IUnknown);
@@ -2048,6 +2080,8 @@ unsafe impl windows_core::Interface for AppUriHandlerRegistrationManager {
 impl windows_core::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
 }
+unsafe impl Send for AppUriHandlerRegistrationManager {}
+unsafe impl Sync for AppUriHandlerRegistrationManager {}
 pub struct DateTimeSettings;
 impl DateTimeSettings {
     pub fn SetSystemDateTime(utcdatetime: super::Foundation::DateTime) -> windows_core::Result<()> {
@@ -2149,6 +2183,8 @@ unsafe impl windows_core::Interface for DispatcherQueue {
 impl windows_core::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
 }
+unsafe impl Send for DispatcherQueue {}
+unsafe impl Sync for DispatcherQueue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueController(windows_core::IUnknown);
@@ -2189,6 +2225,8 @@ unsafe impl windows_core::Interface for DispatcherQueueController {
 impl windows_core::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
 }
+unsafe impl Send for DispatcherQueueController {}
+unsafe impl Sync for DispatcherQueueController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueShutdownStartingEventArgs(windows_core::IUnknown);
@@ -2212,6 +2250,8 @@ unsafe impl windows_core::Interface for DispatcherQueueShutdownStartingEventArgs
 impl windows_core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
 }
+unsafe impl Send for DispatcherQueueShutdownStartingEventArgs {}
+unsafe impl Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueTimer(windows_core::IUnknown);
@@ -2279,6 +2319,8 @@ unsafe impl windows_core::Interface for DispatcherQueueTimer {
 impl windows_core::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
 }
+unsafe impl Send for DispatcherQueueTimer {}
+unsafe impl Sync for DispatcherQueueTimer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderLauncherOptions(windows_core::IUnknown);
@@ -2324,6 +2366,8 @@ unsafe impl windows_core::Interface for FolderLauncherOptions {
 impl windows_core::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
 }
+unsafe impl Send for FolderLauncherOptions {}
+unsafe impl Sync for FolderLauncherOptions {}
 pub struct KnownUserProperties;
 impl KnownUserProperties {
     pub fn DisplayName() -> windows_core::Result<windows_core::HSTRING> {
@@ -2429,6 +2473,8 @@ unsafe impl windows_core::Interface for LaunchUriResult {
 impl windows_core::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
 }
+unsafe impl Send for LaunchUriResult {}
+unsafe impl Sync for LaunchUriResult {}
 pub struct Launcher;
 impl Launcher {
     #[cfg(feature = "Storage_Streams")]
@@ -2891,6 +2937,8 @@ unsafe impl windows_core::Interface for LauncherOptions {
 impl windows_core::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
 }
+unsafe impl Send for LauncherOptions {}
+unsafe impl Sync for LauncherOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LauncherUIOptions(windows_core::IUnknown);
@@ -2948,6 +2996,8 @@ unsafe impl windows_core::Interface for LauncherUIOptions {
 impl windows_core::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
 }
+unsafe impl Send for LauncherUIOptions {}
+unsafe impl Sync for LauncherUIOptions {}
 pub struct MemoryManager;
 impl MemoryManager {
     pub fn AppMemoryUsage() -> windows_core::Result<u64> {
@@ -3155,6 +3205,8 @@ unsafe impl windows_core::Interface for ProcessLauncherOptions {
 impl windows_core::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
 }
+unsafe impl Send for ProcessLauncherOptions {}
+unsafe impl Sync for ProcessLauncherOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessLauncherResult(windows_core::IUnknown);
@@ -3178,6 +3230,8 @@ unsafe impl windows_core::Interface for ProcessLauncherResult {
 impl windows_core::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
 }
+unsafe impl Send for ProcessLauncherResult {}
+unsafe impl Sync for ProcessLauncherResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryReport(windows_core::IUnknown);
@@ -3208,6 +3262,8 @@ unsafe impl windows_core::Interface for ProcessMemoryReport {
 impl windows_core::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
 }
+unsafe impl Send for ProcessMemoryReport {}
+unsafe impl Sync for ProcessMemoryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsOperation(windows_core::IUnknown);
@@ -3232,6 +3288,8 @@ unsafe impl windows_core::Interface for ProtocolForResultsOperation {
 impl windows_core::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
 }
+unsafe impl Send for ProtocolForResultsOperation {}
+unsafe impl Sync for ProtocolForResultsOperation {}
 pub struct RemoteLauncher;
 impl RemoteLauncher {
     #[cfg(feature = "System_RemoteSystems")]
@@ -3323,6 +3381,8 @@ unsafe impl windows_core::Interface for RemoteLauncherOptions {
 impl windows_core::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
 }
+unsafe impl Send for RemoteLauncherOptions {}
+unsafe impl Sync for RemoteLauncherOptions {}
 pub struct ShutdownManager;
 impl ShutdownManager {
     pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -3514,6 +3574,8 @@ unsafe impl windows_core::Interface for User {
 impl windows_core::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
 }
+unsafe impl Send for User {}
+unsafe impl Sync for User {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangeDeferral(windows_core::IUnknown);
@@ -3534,6 +3596,8 @@ unsafe impl windows_core::Interface for UserAuthenticationStatusChangeDeferral {
 impl windows_core::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
 }
+unsafe impl Send for UserAuthenticationStatusChangeDeferral {}
+unsafe impl Sync for UserAuthenticationStatusChangeDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangingEventArgs(windows_core::IUnknown);
@@ -3578,6 +3642,8 @@ unsafe impl windows_core::Interface for UserAuthenticationStatusChangingEventArg
 impl windows_core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
 }
+unsafe impl Send for UserAuthenticationStatusChangingEventArgs {}
+unsafe impl Sync for UserAuthenticationStatusChangingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserChangedEventArgs(windows_core::IUnknown);
@@ -3609,6 +3675,8 @@ unsafe impl windows_core::Interface for UserChangedEventArgs {
 impl windows_core::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
 }
+unsafe impl Send for UserChangedEventArgs {}
+unsafe impl Sync for UserChangedEventArgs {}
 pub struct UserDeviceAssociation;
 impl UserDeviceAssociation {
     pub fn FindUserFromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<User> {
@@ -3674,6 +3742,8 @@ unsafe impl windows_core::Interface for UserDeviceAssociationChangedEventArgs {
 impl windows_core::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
 }
+unsafe impl Send for UserDeviceAssociationChangedEventArgs {}
+unsafe impl Sync for UserDeviceAssociationChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserPicker(windows_core::IUnknown);
@@ -3739,6 +3809,8 @@ unsafe impl windows_core::Interface for UserPicker {
 impl windows_core::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
 }
+unsafe impl Send for UserPicker {}
+unsafe impl Sync for UserPicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserWatcher(windows_core::IUnknown);
@@ -3868,6 +3940,8 @@ unsafe impl windows_core::Interface for UserWatcher {
 impl windows_core::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";
 }
+unsafe impl Send for UserWatcher {}
+unsafe impl Sync for UserWatcher {}
 windows_core::imp::define_interface!(DispatcherQueueHandler, DispatcherQueueHandler_Vtbl, 0xdfa2dc9c_1a2d_4917_98f2_939af1d6e0c8);
 impl windows_core::RuntimeType for DispatcherQueueHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

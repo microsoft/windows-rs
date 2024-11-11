@@ -250,6 +250,10 @@ unsafe impl windows_core::Interface for SpeechSynthesisStream {
 impl windows_core::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
 }
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+unsafe impl Send for SpeechSynthesisStream {}
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+unsafe impl Sync for SpeechSynthesisStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizer(windows_core::IUnknown);
@@ -345,6 +349,8 @@ unsafe impl windows_core::Interface for SpeechSynthesizer {
 impl windows_core::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
 }
+unsafe impl Send for SpeechSynthesizer {}
+unsafe impl Sync for SpeechSynthesizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizerOptions(windows_core::IUnknown);
@@ -438,6 +444,8 @@ unsafe impl windows_core::Interface for SpeechSynthesizerOptions {
 impl windows_core::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
 }
+unsafe impl Send for SpeechSynthesizerOptions {}
+unsafe impl Sync for SpeechSynthesizerOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceInformation(windows_core::IUnknown);
@@ -489,6 +497,8 @@ unsafe impl windows_core::Interface for VoiceInformation {
 impl windows_core::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";
 }
+unsafe impl Send for VoiceInformation {}
+unsafe impl Sync for VoiceInformation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SpeechAppendedSilence(pub i32);

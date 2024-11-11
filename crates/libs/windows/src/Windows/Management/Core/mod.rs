@@ -45,3 +45,5 @@ unsafe impl windows_core::Interface for ApplicationDataManager {
 impl windows_core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
+unsafe impl Send for ApplicationDataManager {}
+unsafe impl Sync for ApplicationDataManager {}

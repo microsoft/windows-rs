@@ -208,6 +208,8 @@ unsafe impl windows_core::Interface for GazeDevicePreview {
 impl windows_core::RuntimeName for GazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDevicePreview";
 }
+unsafe impl Send for GazeDevicePreview {}
+unsafe impl Sync for GazeDevicePreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(windows_core::IUnknown);
@@ -231,6 +233,8 @@ unsafe impl windows_core::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
 impl windows_core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs";
 }
+unsafe impl Send for GazeDeviceWatcherAddedPreviewEventArgs {}
+unsafe impl Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherPreview(windows_core::IUnknown);
@@ -311,6 +315,8 @@ unsafe impl windows_core::Interface for GazeDeviceWatcherPreview {
 impl windows_core::RuntimeName for GazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherPreview";
 }
+unsafe impl Send for GazeDeviceWatcherPreview {}
+unsafe impl Sync for GazeDeviceWatcherPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(windows_core::IUnknown);
@@ -334,6 +340,8 @@ unsafe impl windows_core::Interface for GazeDeviceWatcherRemovedPreviewEventArgs
 impl windows_core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs";
 }
+unsafe impl Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
+unsafe impl Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(windows_core::IUnknown);
@@ -357,6 +365,8 @@ unsafe impl windows_core::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs
 impl windows_core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs";
 }
+unsafe impl Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
+unsafe impl Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeEnteredPreviewEventArgs(windows_core::IUnknown);
@@ -391,6 +401,8 @@ unsafe impl windows_core::Interface for GazeEnteredPreviewEventArgs {
 impl windows_core::RuntimeName for GazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs";
 }
+unsafe impl Send for GazeEnteredPreviewEventArgs {}
+unsafe impl Sync for GazeEnteredPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeExitedPreviewEventArgs(windows_core::IUnknown);
@@ -425,6 +437,8 @@ unsafe impl windows_core::Interface for GazeExitedPreviewEventArgs {
 impl windows_core::RuntimeName for GazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs";
 }
+unsafe impl Send for GazeExitedPreviewEventArgs {}
+unsafe impl Sync for GazeExitedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeInputSourcePreview(windows_core::IUnknown);
@@ -499,6 +513,8 @@ unsafe impl windows_core::Interface for GazeInputSourcePreview {
 impl windows_core::RuntimeName for GazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeInputSourcePreview";
 }
+unsafe impl Send for GazeInputSourcePreview {}
+unsafe impl Sync for GazeInputSourcePreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazeMovedPreviewEventArgs(windows_core::IUnknown);
@@ -541,6 +557,8 @@ unsafe impl windows_core::Interface for GazeMovedPreviewEventArgs {
 impl windows_core::RuntimeName for GazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs";
 }
+unsafe impl Send for GazeMovedPreviewEventArgs {}
+unsafe impl Sync for GazeMovedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GazePointPreview(windows_core::IUnknown);
@@ -593,6 +611,8 @@ unsafe impl windows_core::Interface for GazePointPreview {
 impl windows_core::RuntimeName for GazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazePointPreview";
 }
+unsafe impl Send for GazePointPreview {}
+unsafe impl Sync for GazePointPreview {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);

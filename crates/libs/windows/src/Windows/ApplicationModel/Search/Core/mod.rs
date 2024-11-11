@@ -77,6 +77,8 @@ unsafe impl windows_core::Interface for RequestingFocusOnKeyboardInputEventArgs 
 impl windows_core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
 }
+unsafe impl Send for RequestingFocusOnKeyboardInputEventArgs {}
+unsafe impl Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestion(windows_core::IUnknown);
@@ -295,6 +297,8 @@ unsafe impl windows_core::Interface for SearchSuggestionsRequestedEventArgs {
 impl windows_core::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";
 }
+unsafe impl Send for SearchSuggestionsRequestedEventArgs {}
+unsafe impl Sync for SearchSuggestionsRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SearchSuggestionKind(pub i32);

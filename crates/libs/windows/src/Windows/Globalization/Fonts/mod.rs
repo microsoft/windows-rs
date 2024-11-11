@@ -102,6 +102,8 @@ unsafe impl windows_core::Interface for LanguageFont {
 impl windows_core::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
 }
+unsafe impl Send for LanguageFont {}
+unsafe impl Sync for LanguageFont {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanguageFontGroup(windows_core::IUnknown);
@@ -205,3 +207,5 @@ unsafe impl windows_core::Interface for LanguageFontGroup {
 impl windows_core::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";
 }
+unsafe impl Send for LanguageFontGroup {}
+unsafe impl Sync for LanguageFontGroup {}

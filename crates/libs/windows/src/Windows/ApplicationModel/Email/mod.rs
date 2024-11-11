@@ -1075,6 +1075,8 @@ unsafe impl windows_core::Interface for EmailAttachment {
 impl windows_core::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
 }
+unsafe impl Send for EmailAttachment {}
+unsafe impl Sync for EmailAttachment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversation(windows_core::IUnknown);
@@ -1198,6 +1200,8 @@ unsafe impl windows_core::Interface for EmailConversation {
 impl windows_core::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
 }
+unsafe impl Send for EmailConversation {}
+unsafe impl Sync for EmailConversation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationBatch(windows_core::IUnknown);
@@ -1229,6 +1233,8 @@ unsafe impl windows_core::Interface for EmailConversationBatch {
 impl windows_core::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
 }
+unsafe impl Send for EmailConversationBatch {}
+unsafe impl Sync for EmailConversationBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationReader(windows_core::IUnknown);
@@ -1252,6 +1258,8 @@ unsafe impl windows_core::Interface for EmailConversationReader {
 impl windows_core::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
 }
+unsafe impl Send for EmailConversationReader {}
+unsafe impl Sync for EmailConversationReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailFolder(windows_core::IUnknown);
@@ -1447,6 +1455,8 @@ unsafe impl windows_core::Interface for EmailFolder {
 impl windows_core::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
 }
+unsafe impl Send for EmailFolder {}
+unsafe impl Sync for EmailFolder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmInfo(windows_core::IUnknown);
@@ -1618,6 +1628,8 @@ unsafe impl windows_core::Interface for EmailIrmInfo {
 impl windows_core::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
 }
+unsafe impl Send for EmailIrmInfo {}
+unsafe impl Sync for EmailIrmInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmTemplate(windows_core::IUnknown);
@@ -1684,6 +1696,8 @@ unsafe impl windows_core::Interface for EmailIrmTemplate {
 impl windows_core::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
 }
+unsafe impl Send for EmailIrmTemplate {}
+unsafe impl Sync for EmailIrmTemplate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailItemCounts(windows_core::IUnknown);
@@ -1728,6 +1742,8 @@ unsafe impl windows_core::Interface for EmailItemCounts {
 impl windows_core::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
 }
+unsafe impl Send for EmailItemCounts {}
+unsafe impl Sync for EmailItemCounts {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailbox(windows_core::IUnknown);
@@ -2190,6 +2206,8 @@ unsafe impl windows_core::Interface for EmailMailbox {
 impl windows_core::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
 }
+unsafe impl Send for EmailMailbox {}
+unsafe impl Sync for EmailMailbox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAction(windows_core::IUnknown);
@@ -2220,6 +2238,8 @@ unsafe impl windows_core::Interface for EmailMailboxAction {
 impl windows_core::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
 }
+unsafe impl Send for EmailMailboxAction {}
+unsafe impl Sync for EmailMailboxAction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReply(windows_core::IUnknown);
@@ -2258,6 +2278,8 @@ unsafe impl windows_core::Interface for EmailMailboxAutoReply {
 impl windows_core::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
 }
+unsafe impl Send for EmailMailboxAutoReply {}
+unsafe impl Sync for EmailMailboxAutoReply {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReplySettings(windows_core::IUnknown);
@@ -2352,6 +2374,8 @@ unsafe impl windows_core::Interface for EmailMailboxAutoReplySettings {
 impl windows_core::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
 }
+unsafe impl Send for EmailMailboxAutoReplySettings {}
+unsafe impl Sync for EmailMailboxAutoReplySettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCapabilities(windows_core::IUnknown);
@@ -2522,6 +2546,8 @@ unsafe impl windows_core::Interface for EmailMailboxCapabilities {
 impl windows_core::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
 }
+unsafe impl Send for EmailMailboxCapabilities {}
+unsafe impl Sync for EmailMailboxCapabilities {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChange(windows_core::IUnknown);
@@ -2567,6 +2593,8 @@ unsafe impl windows_core::Interface for EmailMailboxChange {
 impl windows_core::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
 }
+unsafe impl Send for EmailMailboxChange {}
+unsafe impl Sync for EmailMailboxChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeReader(windows_core::IUnknown);
@@ -2602,6 +2630,8 @@ unsafe impl windows_core::Interface for EmailMailboxChangeReader {
 impl windows_core::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
 }
+unsafe impl Send for EmailMailboxChangeReader {}
+unsafe impl Sync for EmailMailboxChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeTracker(windows_core::IUnknown);
@@ -2640,6 +2670,8 @@ unsafe impl windows_core::Interface for EmailMailboxChangeTracker {
 impl windows_core::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
 }
+unsafe impl Send for EmailMailboxChangeTracker {}
+unsafe impl Sync for EmailMailboxChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedDeferral(windows_core::IUnknown);
@@ -2660,6 +2692,8 @@ unsafe impl windows_core::Interface for EmailMailboxChangedDeferral {
 impl windows_core::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
 }
+unsafe impl Send for EmailMailboxChangedDeferral {}
+unsafe impl Sync for EmailMailboxChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedEventArgs(windows_core::IUnknown);
@@ -2683,6 +2717,8 @@ unsafe impl windows_core::Interface for EmailMailboxChangedEventArgs {
 impl windows_core::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
 }
+unsafe impl Send for EmailMailboxChangedEventArgs {}
+unsafe impl Sync for EmailMailboxChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderResult(windows_core::IUnknown);
@@ -2713,6 +2749,8 @@ unsafe impl windows_core::Interface for EmailMailboxCreateFolderResult {
 impl windows_core::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
 }
+unsafe impl Send for EmailMailboxCreateFolderResult {}
+unsafe impl Sync for EmailMailboxCreateFolderResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxPolicies(windows_core::IUnknown);
@@ -2801,6 +2839,8 @@ unsafe impl windows_core::Interface for EmailMailboxPolicies {
 impl windows_core::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
 }
+unsafe impl Send for EmailMailboxPolicies {}
+unsafe impl Sync for EmailMailboxPolicies {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManager(windows_core::IUnknown);
@@ -2871,6 +2911,8 @@ unsafe impl windows_core::Interface for EmailMailboxSyncManager {
 impl windows_core::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
 }
+unsafe impl Send for EmailMailboxSyncManager {}
+unsafe impl Sync for EmailMailboxSyncManager {}
 pub struct EmailManager;
 impl EmailManager {
     pub fn ShowComposeNewEmailAsync<P0>(message: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
@@ -2955,6 +2997,8 @@ unsafe impl windows_core::Interface for EmailManagerForUser {
 impl windows_core::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
 }
+unsafe impl Send for EmailManagerForUser {}
+unsafe impl Sync for EmailManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMeetingInfo(windows_core::IUnknown);
@@ -3145,6 +3189,8 @@ unsafe impl windows_core::Interface for EmailMeetingInfo {
 impl windows_core::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
 }
+unsafe impl Send for EmailMeetingInfo {}
+unsafe impl Sync for EmailMeetingInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessage(windows_core::IUnknown);
@@ -3552,6 +3598,8 @@ unsafe impl windows_core::Interface for EmailMessage {
 impl windows_core::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
 }
+unsafe impl Send for EmailMessage {}
+unsafe impl Sync for EmailMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageBatch(windows_core::IUnknown);
@@ -3583,6 +3631,8 @@ unsafe impl windows_core::Interface for EmailMessageBatch {
 impl windows_core::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
 }
+unsafe impl Send for EmailMessageBatch {}
+unsafe impl Sync for EmailMessageBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageReader(windows_core::IUnknown);
@@ -3606,6 +3656,8 @@ unsafe impl windows_core::Interface for EmailMessageReader {
 impl windows_core::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
 }
+unsafe impl Send for EmailMessageReader {}
+unsafe impl Sync for EmailMessageReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryOptions(windows_core::IUnknown);
@@ -3693,6 +3745,8 @@ unsafe impl windows_core::Interface for EmailQueryOptions {
 impl windows_core::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
 }
+unsafe impl Send for EmailQueryOptions {}
+unsafe impl Sync for EmailQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryTextSearch(windows_core::IUnknown);
@@ -3742,6 +3796,8 @@ unsafe impl windows_core::Interface for EmailQueryTextSearch {
 impl windows_core::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
 }
+unsafe impl Send for EmailQueryTextSearch {}
+unsafe impl Sync for EmailQueryTextSearch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipient(windows_core::IUnknown);
@@ -3803,6 +3859,8 @@ unsafe impl windows_core::Interface for EmailRecipient {
 impl windows_core::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
 }
+unsafe impl Send for EmailRecipient {}
+unsafe impl Sync for EmailRecipient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipientResolutionResult(windows_core::IUnknown);
@@ -3853,6 +3911,8 @@ unsafe impl windows_core::Interface for EmailRecipientResolutionResult {
 impl windows_core::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
 }
+unsafe impl Send for EmailRecipientResolutionResult {}
+unsafe impl Sync for EmailRecipientResolutionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStore(windows_core::IUnknown);
@@ -3953,6 +4013,8 @@ unsafe impl windows_core::Interface for EmailStore {
 impl windows_core::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
 }
+unsafe impl Send for EmailStore {}
+unsafe impl Sync for EmailStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
@@ -3968,6 +4030,8 @@ unsafe impl windows_core::Interface for EmailStoreNotificationTriggerDetails {
 impl windows_core::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";
 }
+unsafe impl Send for EmailStoreNotificationTriggerDetails {}
+unsafe impl Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct EmailAttachmentDownloadState(pub i32);

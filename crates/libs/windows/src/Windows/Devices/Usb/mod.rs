@@ -456,6 +456,8 @@ unsafe impl windows_core::Interface for UsbBulkInEndpointDescriptor {
 impl windows_core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
 }
+unsafe impl Send for UsbBulkInEndpointDescriptor {}
+unsafe impl Sync for UsbBulkInEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkInPipe(windows_core::IUnknown);
@@ -516,6 +518,8 @@ unsafe impl windows_core::Interface for UsbBulkInPipe {
 impl windows_core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
 }
+unsafe impl Send for UsbBulkInPipe {}
+unsafe impl Sync for UsbBulkInPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutEndpointDescriptor(windows_core::IUnknown);
@@ -553,6 +557,8 @@ unsafe impl windows_core::Interface for UsbBulkOutEndpointDescriptor {
 impl windows_core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
 }
+unsafe impl Send for UsbBulkOutEndpointDescriptor {}
+unsafe impl Sync for UsbBulkOutEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutPipe(windows_core::IUnknown);
@@ -602,6 +608,8 @@ unsafe impl windows_core::Interface for UsbBulkOutPipe {
 impl windows_core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
 }
+unsafe impl Send for UsbBulkOutPipe {}
+unsafe impl Sync for UsbBulkOutPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfiguration(windows_core::IUnknown);
@@ -641,6 +649,8 @@ unsafe impl windows_core::Interface for UsbConfiguration {
 impl windows_core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
 }
+unsafe impl Send for UsbConfiguration {}
+unsafe impl Sync for UsbConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfigurationDescriptor(windows_core::IUnknown);
@@ -707,6 +717,8 @@ unsafe impl windows_core::Interface for UsbConfigurationDescriptor {
 impl windows_core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
 }
+unsafe impl Send for UsbConfigurationDescriptor {}
+unsafe impl Sync for UsbConfigurationDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbControlRequestType(windows_core::IUnknown);
@@ -774,6 +786,8 @@ unsafe impl windows_core::Interface for UsbControlRequestType {
 impl windows_core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
 }
+unsafe impl Send for UsbControlRequestType {}
+unsafe impl Sync for UsbControlRequestType {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDescriptor(windows_core::IUnknown);
@@ -812,6 +826,8 @@ unsafe impl windows_core::Interface for UsbDescriptor {
 impl windows_core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
 }
+unsafe impl Send for UsbDescriptor {}
+unsafe impl Sync for UsbDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDevice(windows_core::IUnknown);
@@ -936,6 +952,8 @@ unsafe impl windows_core::Interface for UsbDevice {
 impl windows_core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
+unsafe impl Send for UsbDevice {}
+unsafe impl Sync for UsbDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClass(windows_core::IUnknown);
@@ -998,6 +1016,8 @@ unsafe impl windows_core::Interface for UsbDeviceClass {
 impl windows_core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
 }
+unsafe impl Send for UsbDeviceClass {}
+unsafe impl Sync for UsbDeviceClass {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClasses(windows_core::IUnknown);
@@ -1072,6 +1092,8 @@ unsafe impl windows_core::Interface for UsbDeviceClasses {
 impl windows_core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
 }
+unsafe impl Send for UsbDeviceClasses {}
+unsafe impl Sync for UsbDeviceClasses {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceDescriptor(windows_core::IUnknown);
@@ -1130,6 +1152,8 @@ unsafe impl windows_core::Interface for UsbDeviceDescriptor {
 impl windows_core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
 }
+unsafe impl Send for UsbDeviceDescriptor {}
+unsafe impl Sync for UsbDeviceDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbEndpointDescriptor(windows_core::IUnknown);
@@ -1217,6 +1241,8 @@ unsafe impl windows_core::Interface for UsbEndpointDescriptor {
 impl windows_core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
 }
+unsafe impl Send for UsbEndpointDescriptor {}
+unsafe impl Sync for UsbEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterface(windows_core::IUnknown);
@@ -1288,6 +1314,8 @@ unsafe impl windows_core::Interface for UsbInterface {
 impl windows_core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
 }
+unsafe impl Send for UsbInterface {}
+unsafe impl Sync for UsbInterface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceDescriptor(windows_core::IUnknown);
@@ -1361,6 +1389,8 @@ unsafe impl windows_core::Interface for UsbInterfaceDescriptor {
 impl windows_core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
 }
+unsafe impl Send for UsbInterfaceDescriptor {}
+unsafe impl Sync for UsbInterfaceDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceSetting(windows_core::IUnknown);
@@ -1438,6 +1468,8 @@ unsafe impl windows_core::Interface for UsbInterfaceSetting {
 impl windows_core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
 }
+unsafe impl Send for UsbInterfaceSetting {}
+unsafe impl Sync for UsbInterfaceSetting {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEndpointDescriptor(windows_core::IUnknown);
@@ -1482,6 +1514,8 @@ unsafe impl windows_core::Interface for UsbInterruptInEndpointDescriptor {
 impl windows_core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
 }
+unsafe impl Send for UsbInterruptInEndpointDescriptor {}
+unsafe impl Sync for UsbInterruptInEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEventArgs(windows_core::IUnknown);
@@ -1506,6 +1540,8 @@ unsafe impl windows_core::Interface for UsbInterruptInEventArgs {
 impl windows_core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
 }
+unsafe impl Send for UsbInterruptInEventArgs {}
+unsafe impl Sync for UsbInterruptInEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInPipe(windows_core::IUnknown);
@@ -1550,6 +1586,8 @@ unsafe impl windows_core::Interface for UsbInterruptInPipe {
 impl windows_core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
 }
+unsafe impl Send for UsbInterruptInPipe {}
+unsafe impl Sync for UsbInterruptInPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutEndpointDescriptor(windows_core::IUnknown);
@@ -1594,6 +1632,8 @@ unsafe impl windows_core::Interface for UsbInterruptOutEndpointDescriptor {
 impl windows_core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
 }
+unsafe impl Send for UsbInterruptOutEndpointDescriptor {}
+unsafe impl Sync for UsbInterruptOutEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutPipe(windows_core::IUnknown);
@@ -1643,6 +1683,8 @@ unsafe impl windows_core::Interface for UsbInterruptOutPipe {
 impl windows_core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
 }
+unsafe impl Send for UsbInterruptOutPipe {}
+unsafe impl Sync for UsbInterruptOutPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbSetupPacket(windows_core::IUnknown);
@@ -1738,6 +1780,8 @@ unsafe impl windows_core::Interface for UsbSetupPacket {
 impl windows_core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";
 }
+unsafe impl Send for UsbSetupPacket {}
+unsafe impl Sync for UsbSetupPacket {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UsbControlRecipient(pub i32);

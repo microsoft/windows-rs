@@ -134,6 +134,10 @@ impl windows_core::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
 }
 #[cfg(feature = "Storage_Streams")]
+unsafe impl Send for Compressor {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for Compressor {}
+#[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Decompressor(windows_core::IUnknown);
@@ -192,6 +196,10 @@ unsafe impl windows_core::Interface for Decompressor {
 impl windows_core::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
 }
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Send for Decompressor {}
+#[cfg(feature = "Storage_Streams")]
+unsafe impl Sync for Decompressor {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CompressAlgorithm(pub i32);

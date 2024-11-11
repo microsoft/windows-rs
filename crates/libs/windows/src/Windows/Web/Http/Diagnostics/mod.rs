@@ -181,6 +181,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticProvider {
 impl windows_core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
 }
+unsafe impl Send for HttpDiagnosticProvider {}
+unsafe impl Sync for HttpDiagnosticProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(windows_core::IUnknown);
@@ -247,6 +249,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseCom
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
 }
+unsafe impl Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
+unsafe impl Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(windows_core::IUnknown);
@@ -326,6 +330,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseTim
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
 }
+unsafe impl Send for HttpDiagnosticProviderRequestResponseTimestamps {}
+unsafe impl Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(windows_core::IUnknown);
@@ -392,6 +398,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestSentEventAr
 impl windows_core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
 }
+unsafe impl Send for HttpDiagnosticProviderRequestSentEventArgs {}
+unsafe impl Sync for HttpDiagnosticProviderRequestSentEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(windows_core::IUnknown);
@@ -429,6 +437,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticProviderResponseReceivedEv
 impl windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
 }
+unsafe impl Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
+unsafe impl Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticSourceLocation(windows_core::IUnknown);
@@ -466,6 +476,8 @@ unsafe impl windows_core::Interface for HttpDiagnosticSourceLocation {
 impl windows_core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
 }
+unsafe impl Send for HttpDiagnosticSourceLocation {}
+unsafe impl Sync for HttpDiagnosticSourceLocation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);

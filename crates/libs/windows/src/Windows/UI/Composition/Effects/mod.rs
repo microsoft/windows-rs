@@ -143,6 +143,10 @@ unsafe impl windows_core::Interface for SceneLightingEffect {
 impl windows_core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";
 }
+#[cfg(feature = "Graphics_Effects")]
+unsafe impl Send for SceneLightingEffect {}
+#[cfg(feature = "Graphics_Effects")]
+unsafe impl Sync for SceneLightingEffect {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);

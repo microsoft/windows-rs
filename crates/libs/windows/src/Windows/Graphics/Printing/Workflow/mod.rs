@@ -608,6 +608,8 @@ unsafe impl windows_core::Interface for PrintWorkflowBackgroundSession {
 impl windows_core::RuntimeName for PrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
 }
+unsafe impl Send for PrintWorkflowBackgroundSession {}
+unsafe impl Sync for PrintWorkflowBackgroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown);
@@ -650,6 +652,8 @@ unsafe impl windows_core::Interface for PrintWorkflowBackgroundSetupRequestedEve
 impl windows_core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
 }
+unsafe impl Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowConfiguration(windows_core::IUnknown);
@@ -691,6 +695,8 @@ unsafe impl windows_core::Interface for PrintWorkflowConfiguration {
 impl windows_core::RuntimeName for PrintWorkflowConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
 }
+unsafe impl Send for PrintWorkflowConfiguration {}
+unsafe impl Sync for PrintWorkflowConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
@@ -746,6 +752,8 @@ unsafe impl windows_core::Interface for PrintWorkflowForegroundSession {
 impl windows_core::RuntimeName for PrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
 }
+unsafe impl Send for PrintWorkflowForegroundSession {}
+unsafe impl Sync for PrintWorkflowForegroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown);
@@ -784,6 +792,8 @@ unsafe impl windows_core::Interface for PrintWorkflowForegroundSetupRequestedEve
 impl windows_core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
 }
+unsafe impl Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -847,6 +857,10 @@ unsafe impl windows_core::Interface for PrintWorkflowJobActivatedEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for PrintWorkflowJobActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for PrintWorkflowJobActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobBackgroundSession(windows_core::IUnknown);
@@ -916,6 +930,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobBackgroundSession {
 impl windows_core::RuntimeName for PrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession";
 }
+unsafe impl Send for PrintWorkflowJobBackgroundSession {}
+unsafe impl Sync for PrintWorkflowJobBackgroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobIssueDetectedEventArgs(windows_core::IUnknown);
@@ -985,6 +1001,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobIssueDetectedEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowJobIssueDetectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobIssueDetectedEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobIssueDetectedEventArgs {}
+unsafe impl Sync for PrintWorkflowJobIssueDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobNotificationEventArgs(windows_core::IUnknown);
@@ -1022,6 +1040,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobNotificationEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobNotificationEventArgs {}
+unsafe impl Sync for PrintWorkflowJobNotificationEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobStartingEventArgs(windows_core::IUnknown);
@@ -1086,6 +1106,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobStartingEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobStartingEventArgs {}
+unsafe impl Sync for PrintWorkflowJobStartingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobTriggerDetails(windows_core::IUnknown);
@@ -1109,6 +1131,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobTriggerDetails {
 impl windows_core::RuntimeName for PrintWorkflowJobTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails";
 }
+unsafe impl Send for PrintWorkflowJobTriggerDetails {}
+unsafe impl Sync for PrintWorkflowJobTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobUISession(windows_core::IUnknown);
@@ -1178,6 +1202,8 @@ unsafe impl windows_core::Interface for PrintWorkflowJobUISession {
 impl windows_core::RuntimeName for PrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession";
 }
+unsafe impl Send for PrintWorkflowJobUISession {}
+unsafe impl Sync for PrintWorkflowJobUISession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
@@ -1208,6 +1234,8 @@ unsafe impl windows_core::Interface for PrintWorkflowObjectModelSourceFileConten
 impl windows_core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
 }
+unsafe impl Send for PrintWorkflowObjectModelSourceFileContent {}
+unsafe impl Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelTargetPackage(windows_core::IUnknown);
@@ -1223,6 +1251,8 @@ unsafe impl windows_core::Interface for PrintWorkflowObjectModelTargetPackage {
 impl windows_core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
 }
+unsafe impl Send for PrintWorkflowObjectModelTargetPackage {}
+unsafe impl Sync for PrintWorkflowObjectModelTargetPackage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
@@ -1265,6 +1295,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPdlConverter {
 impl windows_core::RuntimeName for PrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter";
 }
+unsafe impl Send for PrintWorkflowPdlConverter {}
+unsafe impl Sync for PrintWorkflowPdlConverter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(windows_core::IUnknown);
@@ -1309,6 +1341,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPdlDataAvailableEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowPdlDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(windows_core::IUnknown);
@@ -1420,6 +1454,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPdlModificationRequestedEve
 impl windows_core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs";
 }
+unsafe impl Send for PrintWorkflowPdlModificationRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlSourceContent(windows_core::IUnknown);
@@ -1459,6 +1495,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPdlSourceContent {
 impl windows_core::RuntimeName for PrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent";
 }
+unsafe impl Send for PrintWorkflowPdlSourceContent {}
+unsafe impl Sync for PrintWorkflowPdlSourceContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlTargetStream(windows_core::IUnknown);
@@ -1487,6 +1525,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPdlTargetStream {
 impl windows_core::RuntimeName for PrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream";
 }
+unsafe impl Send for PrintWorkflowPdlTargetStream {}
+unsafe impl Sync for PrintWorkflowPdlTargetStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPrinterJob(windows_core::IUnknown);
@@ -1588,6 +1628,8 @@ unsafe impl windows_core::Interface for PrintWorkflowPrinterJob {
 impl windows_core::RuntimeName for PrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob";
 }
+unsafe impl Send for PrintWorkflowPrinterJob {}
+unsafe impl Sync for PrintWorkflowPrinterJob {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
@@ -1626,6 +1668,8 @@ unsafe impl windows_core::Interface for PrintWorkflowSourceContent {
 impl windows_core::RuntimeName for PrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
 }
+unsafe impl Send for PrintWorkflowSourceContent {}
+unsafe impl Sync for PrintWorkflowSourceContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSpoolStreamContent(windows_core::IUnknown);
@@ -1650,6 +1694,8 @@ unsafe impl windows_core::Interface for PrintWorkflowSpoolStreamContent {
 impl windows_core::RuntimeName for PrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
 }
+unsafe impl Send for PrintWorkflowSpoolStreamContent {}
+unsafe impl Sync for PrintWorkflowSpoolStreamContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowStreamTarget(windows_core::IUnknown);
@@ -1674,6 +1720,8 @@ unsafe impl windows_core::Interface for PrintWorkflowStreamTarget {
 impl windows_core::RuntimeName for PrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
 }
+unsafe impl Send for PrintWorkflowStreamTarget {}
+unsafe impl Sync for PrintWorkflowStreamTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedEventArgs(windows_core::IUnknown);
@@ -1715,6 +1763,8 @@ unsafe impl windows_core::Interface for PrintWorkflowSubmittedEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
 }
+unsafe impl Send for PrintWorkflowSubmittedEventArgs {}
+unsafe impl Sync for PrintWorkflowSubmittedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedOperation(windows_core::IUnknown);
@@ -1749,6 +1799,8 @@ unsafe impl windows_core::Interface for PrintWorkflowSubmittedOperation {
 impl windows_core::RuntimeName for PrintWorkflowSubmittedOperation {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
 }
+unsafe impl Send for PrintWorkflowSubmittedOperation {}
+unsafe impl Sync for PrintWorkflowSubmittedOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTarget(windows_core::IUnknown);
@@ -1779,6 +1831,8 @@ unsafe impl windows_core::Interface for PrintWorkflowTarget {
 impl windows_core::RuntimeName for PrintWorkflowTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
 }
+unsafe impl Send for PrintWorkflowTarget {}
+unsafe impl Sync for PrintWorkflowTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTriggerDetails(windows_core::IUnknown);
@@ -1802,6 +1856,8 @@ unsafe impl windows_core::Interface for PrintWorkflowTriggerDetails {
 impl windows_core::RuntimeName for PrintWorkflowTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
 }
+unsafe impl Send for PrintWorkflowTriggerDetails {}
+unsafe impl Sync for PrintWorkflowTriggerDetails {}
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1865,6 +1921,10 @@ unsafe impl windows_core::Interface for PrintWorkflowUIActivatedEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for PrintWorkflowUIActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Sync for PrintWorkflowUIActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUILauncher(windows_core::IUnknown);
@@ -1895,6 +1955,8 @@ unsafe impl windows_core::Interface for PrintWorkflowUILauncher {
 impl windows_core::RuntimeName for PrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher";
 }
+unsafe impl Send for PrintWorkflowUILauncher {}
+unsafe impl Sync for PrintWorkflowUILauncher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterDataAvailableEventArgs(windows_core::IUnknown);
@@ -1959,6 +2021,8 @@ unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterDataAvailable
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterDataAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterSession(windows_core::IUnknown);
@@ -2008,6 +2072,8 @@ unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterSession {
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterSession";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterSession {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterTriggerDetails(windows_core::IUnknown);
@@ -2031,6 +2097,8 @@ unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterTriggerDetail
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterTriggerDetails";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterTriggerDetails {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterUIEventArgs(windows_core::IUnknown);
@@ -2084,6 +2152,8 @@ unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterUIEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterUIEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterUIEventArgs";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterUIEventArgs {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterUIEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(windows_core::IUnknown);
@@ -2114,6 +2184,8 @@ unsafe impl windows_core::Interface for PrintWorkflowXpsDataAvailableEventArgs {
 impl windows_core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowXpsDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowXpsDataAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PdlConversionHostBasedProcessingOperations(pub u32);

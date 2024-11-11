@@ -596,6 +596,8 @@ unsafe impl windows_core::Interface for ActivationSignalDetectionConfiguration {
 impl windows_core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
 }
+unsafe impl Send for ActivationSignalDetectionConfiguration {}
+unsafe impl Sync for ActivationSignalDetectionConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(windows_core::IUnknown);
@@ -626,6 +628,8 @@ unsafe impl windows_core::Interface for ActivationSignalDetectionConfigurationCr
 impl windows_core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
 }
+unsafe impl Send for ActivationSignalDetectionConfigurationCreationResult {}
+unsafe impl Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetector(windows_core::IUnknown);
@@ -806,6 +810,8 @@ unsafe impl windows_core::Interface for ActivationSignalDetector {
 impl windows_core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
 }
+unsafe impl Send for ActivationSignalDetector {}
+unsafe impl Sync for ActivationSignalDetector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentDetectorManager(windows_core::IUnknown);
@@ -878,6 +884,8 @@ unsafe impl windows_core::Interface for ConversationalAgentDetectorManager {
 impl windows_core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
 }
+unsafe impl Send for ConversationalAgentDetectorManager {}
+unsafe impl Sync for ConversationalAgentDetectorManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSession(windows_core::IUnknown);
@@ -1204,6 +1212,8 @@ unsafe impl windows_core::Interface for ConversationalAgentSession {
 impl windows_core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
 }
+unsafe impl Send for ConversationalAgentSession {}
+unsafe impl Sync for ConversationalAgentSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown);
@@ -1219,6 +1229,8 @@ unsafe impl windows_core::Interface for ConversationalAgentSessionInterruptedEve
 impl windows_core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
 }
+unsafe impl Send for ConversationalAgentSessionInterruptedEventArgs {}
+unsafe impl Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignal(windows_core::IUnknown);
@@ -1318,6 +1330,8 @@ unsafe impl windows_core::Interface for ConversationalAgentSignal {
 impl windows_core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
 }
+unsafe impl Send for ConversationalAgentSignal {}
+unsafe impl Sync for ConversationalAgentSignal {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
@@ -1333,6 +1347,8 @@ unsafe impl windows_core::Interface for ConversationalAgentSignalDetectedEventAr
 impl windows_core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
 }
+unsafe impl Send for ConversationalAgentSignalDetectedEventArgs {}
+unsafe impl Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(windows_core::IUnknown);
@@ -1356,6 +1372,8 @@ unsafe impl windows_core::Interface for ConversationalAgentSystemStateChangedEve
 impl windows_core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
 }
+unsafe impl Send for ConversationalAgentSystemStateChangedEventArgs {}
+unsafe impl Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -1379,6 +1397,8 @@ unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityChange
 impl windows_core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
 }
+unsafe impl Send for DetectionConfigurationAvailabilityChangedEventArgs {}
+unsafe impl Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityInfo(windows_core::IUnknown);
@@ -1431,6 +1451,8 @@ unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityInfo {
 impl windows_core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";
 }
+unsafe impl Send for DetectionConfigurationAvailabilityInfo {}
+unsafe impl Sync for DetectionConfigurationAvailabilityInfo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);

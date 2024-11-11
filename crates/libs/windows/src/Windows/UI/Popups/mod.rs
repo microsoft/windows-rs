@@ -431,6 +431,8 @@ unsafe impl windows_core::Interface for UICommand {
 impl windows_core::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
 }
+unsafe impl Send for UICommand {}
+unsafe impl Sync for UICommand {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommandSeparator(windows_core::IUnknown);
@@ -494,6 +496,8 @@ unsafe impl windows_core::Interface for UICommandSeparator {
 impl windows_core::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";
 }
+unsafe impl Send for UICommandSeparator {}
+unsafe impl Sync for UICommandSeparator {}
 windows_core::imp::define_interface!(UICommandInvokedHandler, UICommandInvokedHandler_Vtbl, 0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
 impl windows_core::RuntimeType for UICommandInvokedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -833,6 +833,8 @@ unsafe impl windows_core::Interface for ChatCapabilities {
 impl windows_core::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
 }
+unsafe impl Send for ChatCapabilities {}
+unsafe impl Sync for ChatCapabilities {}
 pub struct ChatCapabilitiesManager;
 impl ChatCapabilitiesManager {
     pub fn GetCachedCapabilitiesAsync(address: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<ChatCapabilities>> {
@@ -1021,6 +1023,8 @@ unsafe impl windows_core::Interface for ChatConversation {
 impl windows_core::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
 }
+unsafe impl Send for ChatConversation {}
+unsafe impl Sync for ChatConversation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationReader(windows_core::IUnknown);
@@ -1053,6 +1057,8 @@ unsafe impl windows_core::Interface for ChatConversationReader {
 impl windows_core::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
 }
+unsafe impl Send for ChatConversationReader {}
+unsafe impl Sync for ChatConversationReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationThreadingInfo(windows_core::IUnknown);
@@ -1128,6 +1134,8 @@ unsafe impl windows_core::Interface for ChatConversationThreadingInfo {
 impl windows_core::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
 }
+unsafe impl Send for ChatConversationThreadingInfo {}
+unsafe impl Sync for ChatConversationThreadingInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessage(windows_core::IUnknown);
@@ -1442,6 +1450,8 @@ unsafe impl windows_core::Interface for ChatMessage {
 impl windows_core::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
 }
+unsafe impl Send for ChatMessage {}
+unsafe impl Sync for ChatMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageAttachment(windows_core::IUnknown);
@@ -1559,6 +1569,8 @@ unsafe impl windows_core::Interface for ChatMessageAttachment {
 impl windows_core::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
 }
+unsafe impl Send for ChatMessageAttachment {}
+unsafe impl Sync for ChatMessageAttachment {}
 pub struct ChatMessageBlocking;
 impl ChatMessageBlocking {
     pub fn MarkMessageAsBlockedAsync(localchatmessageid: &windows_core::HSTRING, blocked: bool) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -1605,6 +1617,8 @@ unsafe impl windows_core::Interface for ChatMessageChange {
 impl windows_core::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
 }
+unsafe impl Send for ChatMessageChange {}
+unsafe impl Sync for ChatMessageChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeReader(windows_core::IUnknown);
@@ -1640,6 +1654,8 @@ unsafe impl windows_core::Interface for ChatMessageChangeReader {
 impl windows_core::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
 }
+unsafe impl Send for ChatMessageChangeReader {}
+unsafe impl Sync for ChatMessageChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeTracker(windows_core::IUnknown);
@@ -1671,6 +1687,8 @@ unsafe impl windows_core::Interface for ChatMessageChangeTracker {
 impl windows_core::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
 }
+unsafe impl Send for ChatMessageChangeTracker {}
+unsafe impl Sync for ChatMessageChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedDeferral(windows_core::IUnknown);
@@ -1691,6 +1709,8 @@ unsafe impl windows_core::Interface for ChatMessageChangedDeferral {
 impl windows_core::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
 }
+unsafe impl Send for ChatMessageChangedDeferral {}
+unsafe impl Sync for ChatMessageChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedEventArgs(windows_core::IUnknown);
@@ -1714,6 +1734,8 @@ unsafe impl windows_core::Interface for ChatMessageChangedEventArgs {
 impl windows_core::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
 }
+unsafe impl Send for ChatMessageChangedEventArgs {}
+unsafe impl Sync for ChatMessageChangedEventArgs {}
 pub struct ChatMessageManager;
 impl ChatMessageManager {
     pub fn RegisterTransportAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -1826,6 +1848,8 @@ unsafe impl windows_core::Interface for ChatMessageNotificationTriggerDetails {
 impl windows_core::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
 }
+unsafe impl Send for ChatMessageNotificationTriggerDetails {}
+unsafe impl Sync for ChatMessageNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageReader(windows_core::IUnknown);
@@ -1858,6 +1882,8 @@ unsafe impl windows_core::Interface for ChatMessageReader {
 impl windows_core::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
 }
+unsafe impl Send for ChatMessageReader {}
+unsafe impl Sync for ChatMessageReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStore(windows_core::IUnknown);
@@ -2119,6 +2145,8 @@ unsafe impl windows_core::Interface for ChatMessageStore {
 impl windows_core::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
 }
+unsafe impl Send for ChatMessageStore {}
+unsafe impl Sync for ChatMessageStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStoreChangedEventArgs(windows_core::IUnknown);
@@ -2149,6 +2177,8 @@ unsafe impl windows_core::Interface for ChatMessageStoreChangedEventArgs {
 impl windows_core::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
 }
+unsafe impl Send for ChatMessageStoreChangedEventArgs {}
+unsafe impl Sync for ChatMessageStoreChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransport(windows_core::IUnknown);
@@ -2214,6 +2244,8 @@ unsafe impl windows_core::Interface for ChatMessageTransport {
 impl windows_core::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
 }
+unsafe impl Send for ChatMessageTransport {}
+unsafe impl Sync for ChatMessageTransport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransportConfiguration(windows_core::IUnknown);
@@ -2267,6 +2299,8 @@ unsafe impl windows_core::Interface for ChatMessageTransportConfiguration {
 impl windows_core::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
 }
+unsafe impl Send for ChatMessageTransportConfiguration {}
+unsafe impl Sync for ChatMessageTransportConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageValidationResult(windows_core::IUnknown);
@@ -2311,6 +2345,8 @@ unsafe impl windows_core::Interface for ChatMessageValidationResult {
 impl windows_core::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
 }
+unsafe impl Send for ChatMessageValidationResult {}
+unsafe impl Sync for ChatMessageValidationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatQueryOptions(windows_core::IUnknown);
@@ -2345,6 +2381,8 @@ unsafe impl windows_core::Interface for ChatQueryOptions {
 impl windows_core::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
 }
+unsafe impl Send for ChatQueryOptions {}
+unsafe impl Sync for ChatQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatRecipientDeliveryInfo(windows_core::IUnknown);
@@ -2442,6 +2480,8 @@ unsafe impl windows_core::Interface for ChatRecipientDeliveryInfo {
 impl windows_core::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
 }
+unsafe impl Send for ChatRecipientDeliveryInfo {}
+unsafe impl Sync for ChatRecipientDeliveryInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSearchReader(windows_core::IUnknown);
@@ -2474,6 +2514,8 @@ unsafe impl windows_core::Interface for ChatSearchReader {
 impl windows_core::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
 }
+unsafe impl Send for ChatSearchReader {}
+unsafe impl Sync for ChatSearchReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncConfiguration(windows_core::IUnknown);
@@ -2512,6 +2554,8 @@ unsafe impl windows_core::Interface for ChatSyncConfiguration {
 impl windows_core::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
 }
+unsafe impl Send for ChatSyncConfiguration {}
+unsafe impl Sync for ChatSyncConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncManager(windows_core::IUnknown);
@@ -2578,6 +2622,8 @@ unsafe impl windows_core::Interface for ChatSyncManager {
 impl windows_core::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
 }
+unsafe impl Send for ChatSyncManager {}
+unsafe impl Sync for ChatSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessage(windows_core::IUnknown);
@@ -2650,6 +2696,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessage {
 impl windows_core::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
 }
+unsafe impl Send for RcsEndUserMessage {}
+unsafe impl Sync for RcsEndUserMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAction(windows_core::IUnknown);
@@ -2673,6 +2721,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessageAction {
 impl windows_core::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
 }
+unsafe impl Send for RcsEndUserMessageAction {}
+unsafe impl Sync for RcsEndUserMessageAction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableEventArgs(windows_core::IUnknown);
@@ -2703,6 +2753,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessageAvailableEventArgs {
 impl windows_core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
 }
+unsafe impl Send for RcsEndUserMessageAvailableEventArgs {}
+unsafe impl Sync for RcsEndUserMessageAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(windows_core::IUnknown);
@@ -2733,6 +2785,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTriggerDetails
 impl windows_core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
 }
+unsafe impl Send for RcsEndUserMessageAvailableTriggerDetails {}
+unsafe impl Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageManager(windows_core::IUnknown);
@@ -2763,6 +2817,8 @@ unsafe impl windows_core::Interface for RcsEndUserMessageManager {
 impl windows_core::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
 }
+unsafe impl Send for RcsEndUserMessageManager {}
+unsafe impl Sync for RcsEndUserMessageManager {}
 pub struct RcsManager;
 impl RcsManager {
     pub fn GetEndUserMessageManager() -> windows_core::Result<RcsEndUserMessageManager> {
@@ -2840,6 +2896,8 @@ unsafe impl windows_core::Interface for RcsServiceKindSupportedChangedEventArgs 
 impl windows_core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
 }
+unsafe impl Send for RcsServiceKindSupportedChangedEventArgs {}
+unsafe impl Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransport(windows_core::IUnknown);
@@ -2920,6 +2978,8 @@ unsafe impl windows_core::Interface for RcsTransport {
 impl windows_core::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
 }
+unsafe impl Send for RcsTransport {}
+unsafe impl Sync for RcsTransport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransportConfiguration(windows_core::IUnknown);
@@ -2978,6 +3038,8 @@ unsafe impl windows_core::Interface for RcsTransportConfiguration {
 impl windows_core::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
 }
+unsafe impl Send for RcsTransportConfiguration {}
+unsafe impl Sync for RcsTransportConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteParticipantComposingChangedEventArgs(windows_core::IUnknown);
@@ -3015,6 +3077,8 @@ unsafe impl windows_core::Interface for RemoteParticipantComposingChangedEventAr
 impl windows_core::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";
 }
+unsafe impl Send for RemoteParticipantComposingChangedEventArgs {}
+unsafe impl Sync for RemoteParticipantComposingChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ChatConversationThreadingKind(pub i32);

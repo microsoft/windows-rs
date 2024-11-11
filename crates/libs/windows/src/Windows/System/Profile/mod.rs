@@ -318,6 +318,8 @@ unsafe impl windows_core::Interface for AnalyticsVersionInfo {
 impl windows_core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
 }
+unsafe impl Send for AnalyticsVersionInfo {}
+unsafe impl Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
     #[cfg(feature = "Foundation_Collections")]
@@ -414,6 +416,8 @@ unsafe impl windows_core::Interface for HardwareToken {
 impl windows_core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
 }
+unsafe impl Send for HardwareToken {}
+unsafe impl Sync for HardwareToken {}
 pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> windows_core::Result<windows_core::HSTRING> {
@@ -739,6 +743,8 @@ unsafe impl windows_core::Interface for SystemIdentificationInfo {
 impl windows_core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
 }
+unsafe impl Send for SystemIdentificationInfo {}
+unsafe impl Sync for SystemIdentificationInfo {}
 pub struct SystemSetupInfo;
 impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> windows_core::Result<SystemOutOfBoxExperienceState> {
@@ -797,6 +803,8 @@ unsafe impl windows_core::Interface for UnsupportedAppRequirement {
 impl windows_core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";
 }
+unsafe impl Send for UnsupportedAppRequirement {}
+unsafe impl Sync for UnsupportedAppRequirement {}
 pub struct WindowsIntegrityPolicy;
 impl WindowsIntegrityPolicy {
     pub fn IsEnabled() -> windows_core::Result<bool> {

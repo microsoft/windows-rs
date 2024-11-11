@@ -476,6 +476,8 @@ unsafe impl windows_core::Interface for UserActivity {
 impl windows_core::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
 }
+unsafe impl Send for UserActivity {}
+unsafe impl Sync for UserActivity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityAttribution(windows_core::IUnknown);
@@ -548,6 +550,8 @@ unsafe impl windows_core::Interface for UserActivityAttribution {
 impl windows_core::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
 }
+unsafe impl Send for UserActivityAttribution {}
+unsafe impl Sync for UserActivityAttribution {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityChannel(windows_core::IUnknown);
@@ -642,6 +646,8 @@ unsafe impl windows_core::Interface for UserActivityChannel {
 impl windows_core::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
 }
+unsafe impl Send for UserActivityChannel {}
+unsafe impl Sync for UserActivityChannel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityContentInfo(windows_core::IUnknown);
@@ -676,6 +682,8 @@ unsafe impl windows_core::Interface for UserActivityContentInfo {
 impl windows_core::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
 }
+unsafe impl Send for UserActivityContentInfo {}
+unsafe impl Sync for UserActivityContentInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityRequest(windows_core::IUnknown);
@@ -699,6 +707,8 @@ unsafe impl windows_core::Interface for UserActivityRequest {
 impl windows_core::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
 }
+unsafe impl Send for UserActivityRequest {}
+unsafe impl Sync for UserActivityRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityRequestManager(windows_core::IUnknown);
@@ -769,6 +779,8 @@ unsafe impl windows_core::Interface for UserActivityRequestedEventArgs {
 impl windows_core::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
 }
+unsafe impl Send for UserActivityRequestedEventArgs {}
+unsafe impl Sync for UserActivityRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivitySession(windows_core::IUnknown);
@@ -797,6 +809,8 @@ unsafe impl windows_core::Interface for UserActivitySession {
 impl windows_core::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
 }
+unsafe impl Send for UserActivitySession {}
+unsafe impl Sync for UserActivitySession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivitySessionHistoryItem(windows_core::IUnknown);
@@ -834,6 +848,8 @@ unsafe impl windows_core::Interface for UserActivitySessionHistoryItem {
 impl windows_core::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
 }
+unsafe impl Send for UserActivitySessionHistoryItem {}
+unsafe impl Sync for UserActivitySessionHistoryItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityVisualElements(windows_core::IUnknown);
@@ -926,6 +942,8 @@ unsafe impl windows_core::Interface for UserActivityVisualElements {
 impl windows_core::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";
 }
+unsafe impl Send for UserActivityVisualElements {}
+unsafe impl Sync for UserActivityVisualElements {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserActivityState(pub i32);

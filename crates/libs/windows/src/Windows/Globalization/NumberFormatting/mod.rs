@@ -1227,6 +1227,8 @@ unsafe impl windows_core::Interface for CurrencyFormatter {
 impl windows_core::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
 }
+unsafe impl Send for CurrencyFormatter {}
+unsafe impl Sync for CurrencyFormatter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DecimalFormatter(windows_core::IUnknown);
@@ -1448,6 +1450,8 @@ unsafe impl windows_core::Interface for DecimalFormatter {
 impl windows_core::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
 }
+unsafe impl Send for DecimalFormatter {}
+unsafe impl Sync for DecimalFormatter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IncrementNumberRounder(windows_core::IUnknown);
@@ -1536,6 +1540,8 @@ unsafe impl windows_core::Interface for IncrementNumberRounder {
 impl windows_core::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
 }
+unsafe impl Send for IncrementNumberRounder {}
+unsafe impl Sync for IncrementNumberRounder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NumeralSystemTranslator(windows_core::IUnknown);
@@ -1606,6 +1612,8 @@ unsafe impl windows_core::Interface for NumeralSystemTranslator {
 impl windows_core::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
 }
+unsafe impl Send for NumeralSystemTranslator {}
+unsafe impl Sync for NumeralSystemTranslator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PercentFormatter(windows_core::IUnknown);
@@ -1827,6 +1835,8 @@ unsafe impl windows_core::Interface for PercentFormatter {
 impl windows_core::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
 }
+unsafe impl Send for PercentFormatter {}
+unsafe impl Sync for PercentFormatter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PermilleFormatter(windows_core::IUnknown);
@@ -2048,6 +2058,8 @@ unsafe impl windows_core::Interface for PermilleFormatter {
 impl windows_core::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
 }
+unsafe impl Send for PermilleFormatter {}
+unsafe impl Sync for PermilleFormatter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignificantDigitsNumberRounder(windows_core::IUnknown);
@@ -2136,6 +2148,8 @@ unsafe impl windows_core::Interface for SignificantDigitsNumberRounder {
 impl windows_core::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
 }
+unsafe impl Send for SignificantDigitsNumberRounder {}
+unsafe impl Sync for SignificantDigitsNumberRounder {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CurrencyFormatterMode(pub i32);

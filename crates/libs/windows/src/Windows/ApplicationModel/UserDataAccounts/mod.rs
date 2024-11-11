@@ -371,6 +371,8 @@ unsafe impl windows_core::Interface for UserDataAccount {
 impl windows_core::RuntimeName for UserDataAccount {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccount";
 }
+unsafe impl Send for UserDataAccount {}
+unsafe impl Sync for UserDataAccount {}
 pub struct UserDataAccountManager;
 impl UserDataAccountManager {
     pub fn RequestStoreAsync(storeaccesstype: UserDataAccountStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataAccountStore>> {
@@ -450,6 +452,8 @@ unsafe impl windows_core::Interface for UserDataAccountManagerForUser {
 impl windows_core::RuntimeName for UserDataAccountManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser";
 }
+unsafe impl Send for UserDataAccountManagerForUser {}
+unsafe impl Sync for UserDataAccountManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStore(windows_core::IUnknown);
@@ -516,6 +520,8 @@ unsafe impl windows_core::Interface for UserDataAccountStore {
 impl windows_core::RuntimeName for UserDataAccountStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore";
 }
+unsafe impl Send for UserDataAccountStore {}
+unsafe impl Sync for UserDataAccountStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStoreChangedEventArgs(windows_core::IUnknown);
@@ -539,6 +545,8 @@ unsafe impl windows_core::Interface for UserDataAccountStoreChangedEventArgs {
 impl windows_core::RuntimeName for UserDataAccountStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs";
 }
+unsafe impl Send for UserDataAccountStoreChangedEventArgs {}
+unsafe impl Sync for UserDataAccountStoreChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct UserDataAccountContentKinds(pub u32);

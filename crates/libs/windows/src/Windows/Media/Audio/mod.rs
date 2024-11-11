@@ -1749,6 +1749,8 @@ unsafe impl windows_core::Interface for AudioDeviceInputNode {
 impl windows_core::RuntimeName for AudioDeviceInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceInputNode";
 }
+unsafe impl Send for AudioDeviceInputNode {}
+unsafe impl Sync for AudioDeviceInputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceOutputNode(windows_core::IUnknown);
@@ -1858,6 +1860,8 @@ unsafe impl windows_core::Interface for AudioDeviceOutputNode {
 impl windows_core::RuntimeName for AudioDeviceOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceOutputNode";
 }
+unsafe impl Send for AudioDeviceOutputNode {}
+unsafe impl Sync for AudioDeviceOutputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffectsPackConfiguration(windows_core::IUnknown);
@@ -1925,6 +1929,8 @@ unsafe impl windows_core::Interface for AudioEffectsPackConfiguration {
 impl windows_core::RuntimeName for AudioEffectsPackConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.AudioEffectsPackConfiguration";
 }
+unsafe impl Send for AudioEffectsPackConfiguration {}
+unsafe impl Sync for AudioEffectsPackConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileInputNode(windows_core::IUnknown);
@@ -2141,6 +2147,8 @@ unsafe impl windows_core::Interface for AudioFileInputNode {
 impl windows_core::RuntimeName for AudioFileInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileInputNode";
 }
+unsafe impl Send for AudioFileInputNode {}
+unsafe impl Sync for AudioFileInputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileOutputNode(windows_core::IUnknown);
@@ -2252,6 +2260,8 @@ unsafe impl windows_core::Interface for AudioFileOutputNode {
 impl windows_core::RuntimeName for AudioFileOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileOutputNode";
 }
+unsafe impl Send for AudioFileOutputNode {}
+unsafe impl Sync for AudioFileOutputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameCompletedEventArgs(windows_core::IUnknown);
@@ -2275,6 +2285,8 @@ unsafe impl windows_core::Interface for AudioFrameCompletedEventArgs {
 impl windows_core::RuntimeName for AudioFrameCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameCompletedEventArgs";
 }
+unsafe impl Send for AudioFrameCompletedEventArgs {}
+unsafe impl Sync for AudioFrameCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameInputNode(windows_core::IUnknown);
@@ -2455,6 +2467,8 @@ unsafe impl windows_core::Interface for AudioFrameInputNode {
 impl windows_core::RuntimeName for AudioFrameInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameInputNode";
 }
+unsafe impl Send for AudioFrameInputNode {}
+unsafe impl Sync for AudioFrameInputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameOutputNode(windows_core::IUnknown);
@@ -2549,6 +2563,8 @@ unsafe impl windows_core::Interface for AudioFrameOutputNode {
 impl windows_core::RuntimeName for AudioFrameOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameOutputNode";
 }
+unsafe impl Send for AudioFrameOutputNode {}
+unsafe impl Sync for AudioFrameOutputNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraph(windows_core::IUnknown);
@@ -2886,6 +2902,8 @@ unsafe impl windows_core::Interface for AudioGraph {
 impl windows_core::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
 }
+unsafe impl Send for AudioGraph {}
+unsafe impl Sync for AudioGraph {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphBatchUpdater(windows_core::IUnknown);
@@ -2907,6 +2925,8 @@ unsafe impl windows_core::Interface for AudioGraphBatchUpdater {
 impl windows_core::RuntimeName for AudioGraphBatchUpdater {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphBatchUpdater";
 }
+unsafe impl Send for AudioGraphBatchUpdater {}
+unsafe impl Sync for AudioGraphBatchUpdater {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphConnection(windows_core::IUnknown);
@@ -2941,6 +2961,8 @@ unsafe impl windows_core::Interface for AudioGraphConnection {
 impl windows_core::RuntimeName for AudioGraphConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphConnection";
 }
+unsafe impl Send for AudioGraphConnection {}
+unsafe impl Sync for AudioGraphConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphSettings(windows_core::IUnknown);
@@ -3057,6 +3079,8 @@ unsafe impl windows_core::Interface for AudioGraphSettings {
 impl windows_core::RuntimeName for AudioGraphSettings {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphSettings";
 }
+unsafe impl Send for AudioGraphSettings {}
+unsafe impl Sync for AudioGraphSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(windows_core::IUnknown);
@@ -3080,6 +3104,8 @@ unsafe impl windows_core::Interface for AudioGraphUnrecoverableErrorOccurredEven
 impl windows_core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
 }
+unsafe impl Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
+unsafe impl Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitter(windows_core::IUnknown);
@@ -3221,6 +3247,8 @@ unsafe impl windows_core::Interface for AudioNodeEmitter {
 impl windows_core::RuntimeName for AudioNodeEmitter {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitter";
 }
+unsafe impl Send for AudioNodeEmitter {}
+unsafe impl Sync for AudioNodeEmitter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterConeProperties(windows_core::IUnknown);
@@ -3258,6 +3286,8 @@ unsafe impl windows_core::Interface for AudioNodeEmitterConeProperties {
 impl windows_core::RuntimeName for AudioNodeEmitterConeProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterConeProperties";
 }
+unsafe impl Send for AudioNodeEmitterConeProperties {}
+unsafe impl Sync for AudioNodeEmitterConeProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterDecayModel(windows_core::IUnknown);
@@ -3318,6 +3348,8 @@ unsafe impl windows_core::Interface for AudioNodeEmitterDecayModel {
 impl windows_core::RuntimeName for AudioNodeEmitterDecayModel {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterDecayModel";
 }
+unsafe impl Send for AudioNodeEmitterDecayModel {}
+unsafe impl Sync for AudioNodeEmitterDecayModel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(windows_core::IUnknown);
@@ -3348,6 +3380,8 @@ unsafe impl windows_core::Interface for AudioNodeEmitterNaturalDecayModelPropert
 impl windows_core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
 }
+unsafe impl Send for AudioNodeEmitterNaturalDecayModelProperties {}
+unsafe impl Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterShape(windows_core::IUnknown);
@@ -3394,6 +3428,8 @@ unsafe impl windows_core::Interface for AudioNodeEmitterShape {
 impl windows_core::RuntimeName for AudioNodeEmitterShape {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterShape";
 }
+unsafe impl Send for AudioNodeEmitterShape {}
+unsafe impl Sync for AudioNodeEmitterShape {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeListener(windows_core::IUnknown);
@@ -3467,6 +3503,8 @@ unsafe impl windows_core::Interface for AudioNodeListener {
 impl windows_core::RuntimeName for AudioNodeListener {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeListener";
 }
+unsafe impl Send for AudioNodeListener {}
+unsafe impl Sync for AudioNodeListener {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnection(windows_core::IUnknown);
@@ -3557,6 +3595,8 @@ unsafe impl windows_core::Interface for AudioPlaybackConnection {
 impl windows_core::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
 }
+unsafe impl Send for AudioPlaybackConnection {}
+unsafe impl Sync for AudioPlaybackConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnectionOpenResult(windows_core::IUnknown);
@@ -3587,6 +3627,8 @@ unsafe impl windows_core::Interface for AudioPlaybackConnectionOpenResult {
 impl windows_core::RuntimeName for AudioPlaybackConnectionOpenResult {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
 }
+unsafe impl Send for AudioPlaybackConnectionOpenResult {}
+unsafe impl Sync for AudioPlaybackConnectionOpenResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioStateMonitor(windows_core::IUnknown);
@@ -3682,6 +3724,8 @@ unsafe impl windows_core::Interface for AudioStateMonitor {
 impl windows_core::RuntimeName for AudioStateMonitor {
     const NAME: &'static str = "Windows.Media.Audio.AudioStateMonitor";
 }
+unsafe impl Send for AudioStateMonitor {}
+unsafe impl Sync for AudioStateMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioSubmixNode(windows_core::IUnknown);
@@ -3805,6 +3849,8 @@ unsafe impl windows_core::Interface for AudioSubmixNode {
 impl windows_core::RuntimeName for AudioSubmixNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioSubmixNode";
 }
+unsafe impl Send for AudioSubmixNode {}
+unsafe impl Sync for AudioSubmixNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceInputNodeResult(windows_core::IUnknown);
@@ -3842,6 +3888,8 @@ unsafe impl windows_core::Interface for CreateAudioDeviceInputNodeResult {
 impl windows_core::RuntimeName for CreateAudioDeviceInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
 }
+unsafe impl Send for CreateAudioDeviceInputNodeResult {}
+unsafe impl Sync for CreateAudioDeviceInputNodeResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceOutputNodeResult(windows_core::IUnknown);
@@ -3879,6 +3927,8 @@ unsafe impl windows_core::Interface for CreateAudioDeviceOutputNodeResult {
 impl windows_core::RuntimeName for CreateAudioDeviceOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
 }
+unsafe impl Send for CreateAudioDeviceOutputNodeResult {}
+unsafe impl Sync for CreateAudioDeviceOutputNodeResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileInputNodeResult(windows_core::IUnknown);
@@ -3916,6 +3966,8 @@ unsafe impl windows_core::Interface for CreateAudioFileInputNodeResult {
 impl windows_core::RuntimeName for CreateAudioFileInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileInputNodeResult";
 }
+unsafe impl Send for CreateAudioFileInputNodeResult {}
+unsafe impl Sync for CreateAudioFileInputNodeResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileOutputNodeResult(windows_core::IUnknown);
@@ -3953,6 +4005,8 @@ unsafe impl windows_core::Interface for CreateAudioFileOutputNodeResult {
 impl windows_core::RuntimeName for CreateAudioFileOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileOutputNodeResult";
 }
+unsafe impl Send for CreateAudioFileOutputNodeResult {}
+unsafe impl Sync for CreateAudioFileOutputNodeResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioGraphResult(windows_core::IUnknown);
@@ -3990,6 +4044,8 @@ unsafe impl windows_core::Interface for CreateAudioGraphResult {
 impl windows_core::RuntimeName for CreateAudioGraphResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioGraphResult";
 }
+unsafe impl Send for CreateAudioGraphResult {}
+unsafe impl Sync for CreateAudioGraphResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateMediaSourceAudioInputNodeResult(windows_core::IUnknown);
@@ -4027,6 +4083,8 @@ unsafe impl windows_core::Interface for CreateMediaSourceAudioInputNodeResult {
 impl windows_core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
 }
+unsafe impl Send for CreateMediaSourceAudioInputNodeResult {}
+unsafe impl Sync for CreateMediaSourceAudioInputNodeResult {}
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4112,6 +4170,10 @@ unsafe impl windows_core::Interface for EchoEffectDefinition {
 impl windows_core::RuntimeName for EchoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EchoEffectDefinition";
 }
+#[cfg(feature = "Media_Effects")]
+unsafe impl Send for EchoEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+unsafe impl Sync for EchoEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EqualizerBand(windows_core::IUnknown);
@@ -4161,6 +4223,8 @@ unsafe impl windows_core::Interface for EqualizerBand {
 impl windows_core::RuntimeName for EqualizerBand {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerBand";
 }
+unsafe impl Send for EqualizerBand {}
+unsafe impl Sync for EqualizerBand {}
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4221,6 +4285,10 @@ unsafe impl windows_core::Interface for EqualizerEffectDefinition {
 impl windows_core::RuntimeName for EqualizerEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerEffectDefinition";
 }
+#[cfg(feature = "Media_Effects")]
+unsafe impl Send for EqualizerEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+unsafe impl Sync for EqualizerEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameInputNodeQuantumStartedEventArgs(windows_core::IUnknown);
@@ -4244,6 +4312,8 @@ unsafe impl windows_core::Interface for FrameInputNodeQuantumStartedEventArgs {
 impl windows_core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
 }
+unsafe impl Send for FrameInputNodeQuantumStartedEventArgs {}
+unsafe impl Sync for FrameInputNodeQuantumStartedEventArgs {}
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4318,6 +4388,10 @@ unsafe impl windows_core::Interface for LimiterEffectDefinition {
 impl windows_core::RuntimeName for LimiterEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.LimiterEffectDefinition";
 }
+#[cfg(feature = "Media_Effects")]
+unsafe impl Send for LimiterEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+unsafe impl Sync for LimiterEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaSourceAudioInputNode(windows_core::IUnknown);
@@ -4534,6 +4608,8 @@ unsafe impl windows_core::Interface for MediaSourceAudioInputNode {
 impl windows_core::RuntimeName for MediaSourceAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.MediaSourceAudioInputNode";
 }
+unsafe impl Send for MediaSourceAudioInputNode {}
+unsafe impl Sync for MediaSourceAudioInputNode {}
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -4839,6 +4915,10 @@ unsafe impl windows_core::Interface for ReverbEffectDefinition {
 impl windows_core::RuntimeName for ReverbEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.ReverbEffectDefinition";
 }
+#[cfg(feature = "Media_Effects")]
+unsafe impl Send for ReverbEffectDefinition {}
+#[cfg(feature = "Media_Effects")]
+unsafe impl Sync for ReverbEffectDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SetDefaultSpatialAudioFormatResult(windows_core::IUnknown);
@@ -4862,6 +4942,8 @@ unsafe impl windows_core::Interface for SetDefaultSpatialAudioFormatResult {
 impl windows_core::RuntimeName for SetDefaultSpatialAudioFormatResult {
     const NAME: &'static str = "Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
 }
+unsafe impl Send for SetDefaultSpatialAudioFormatResult {}
+unsafe impl Sync for SetDefaultSpatialAudioFormatResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioDeviceConfiguration(windows_core::IUnknown);
@@ -4944,6 +5026,8 @@ unsafe impl windows_core::Interface for SpatialAudioDeviceConfiguration {
 impl windows_core::RuntimeName for SpatialAudioDeviceConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioDeviceConfiguration";
 }
+unsafe impl Send for SpatialAudioDeviceConfiguration {}
+unsafe impl Sync for SpatialAudioDeviceConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioFormatConfiguration(windows_core::IUnknown);
@@ -4995,6 +5079,8 @@ unsafe impl windows_core::Interface for SpatialAudioFormatConfiguration {
 impl windows_core::RuntimeName for SpatialAudioFormatConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatConfiguration";
 }
+unsafe impl Send for SpatialAudioFormatConfiguration {}
+unsafe impl Sync for SpatialAudioFormatConfiguration {}
 pub struct SpatialAudioFormatSubtype;
 impl SpatialAudioFormatSubtype {
     pub fn WindowsSonic() -> windows_core::Result<windows_core::HSTRING> {

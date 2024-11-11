@@ -2513,6 +2513,10 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecodeCommandList {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecodeCommandList {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList1_Vtbl, 0xd52f011b_b56e_453c_a05a_a7f311c8f472);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2562,6 +2566,10 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecodeCommandList1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecodeCommandList1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList2, ID3D12VideoDecodeCommandList2_Vtbl, 0x6e120880_c114_4153_8036_d247051e1729);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2648,6 +2656,10 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecodeCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecodeCommandList2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList3, ID3D12VideoDecodeCommandList3_Vtbl, 0x2aee8c37_9562_42da_8abf_61efeb2e4513);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2694,6 +2706,10 @@ impl ID3D12VideoDecodeCommandList3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecodeCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecodeCommandList3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoder, ID3D12VideoDecoder_Vtbl, 0xc59b6bdc_7720_4074_a136_17a156037470);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2739,6 +2755,10 @@ impl ID3D12VideoDecoder_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoDecoder {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoder1, ID3D12VideoDecoder1_Vtbl, 0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoDecoder1 {
@@ -2783,6 +2803,10 @@ impl ID3D12VideoDecoder1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoder1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoderHeap, ID3D12VideoDecoderHeap_Vtbl, 0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2831,6 +2855,10 @@ impl ID3D12VideoDecoderHeap_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecoderHeap {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecoderHeap {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecoderHeap {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoDecoderHeap1, ID3D12VideoDecoderHeap1_Vtbl, 0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2876,6 +2904,10 @@ impl ID3D12VideoDecoderHeap1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDecoderHeap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDecoderHeap1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDecoderHeap1 {}
 windows_core::imp::define_interface!(ID3D12VideoDevice, ID3D12VideoDevice_Vtbl, 0x1f052807_0b46_4acc_8a89_364f793718a4);
 windows_core::imp::interface_hierarchy!(ID3D12VideoDevice, windows_core::IUnknown);
 impl ID3D12VideoDevice {
@@ -2960,6 +2992,10 @@ impl ID3D12VideoDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for ID3D12VideoDevice {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Send for ID3D12VideoDevice {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+unsafe impl Sync for ID3D12VideoDevice {}
 windows_core::imp::define_interface!(ID3D12VideoDevice1, ID3D12VideoDevice1_Vtbl, 0x981611ad_a144_4c83_9890_f30e26d658ab);
 impl core::ops::Deref for ID3D12VideoDevice1 {
     type Target = ID3D12VideoDevice;
@@ -3028,6 +3064,10 @@ impl ID3D12VideoDevice1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDevice1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDevice1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDevice1 {}
 windows_core::imp::define_interface!(ID3D12VideoDevice2, ID3D12VideoDevice2_Vtbl, 0xf019ac49_f838_4a95_9b17_579437c8f513);
 impl core::ops::Deref for ID3D12VideoDevice2 {
     type Target = ID3D12VideoDevice1;
@@ -3151,6 +3191,10 @@ impl ID3D12VideoDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDevice2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDevice2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDevice2 {}
 windows_core::imp::define_interface!(ID3D12VideoDevice3, ID3D12VideoDevice3_Vtbl, 0x4243adb4_3a32_4666_973c_0ccc5625dc44);
 impl core::ops::Deref for ID3D12VideoDevice3 {
     type Target = ID3D12VideoDevice2;
@@ -3213,6 +3257,10 @@ impl ID3D12VideoDevice3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoDevice3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoDevice3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoDevice3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList_Vtbl, 0x8455293a_0cbd_4831_9b39_fbdbab724723);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3478,6 +3526,10 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList1_Vtbl, 0x94971eca_2bdb_4769_88cf_3675ea757ebc);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoEncodeCommandList1 {
@@ -3547,6 +3599,10 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList2, ID3D12VideoEncodeCommandList2_Vtbl, 0x895491e2_e701_46a9_9a1f_8d3480ed867a);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoEncodeCommandList2 {
@@ -3613,6 +3669,10 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoEncodeCommandList2 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoEncodeCommandList2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList3, ID3D12VideoEncodeCommandList3_Vtbl, 0x7f027b22_1515_4e85_aa0d_026486580576);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3659,6 +3719,10 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoEncodeCommandList3 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoEncodeCommandList3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncoder, ID3D12VideoEncoder_Vtbl, 0x2e0d212d_8df9_44a6_a770_bb289b182737);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3768,6 +3832,10 @@ impl ID3D12VideoEncoder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoEncoder {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoEncoder {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoEncoder {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoEncoderHeap, ID3D12VideoEncoderHeap_Vtbl, 0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3874,6 +3942,10 @@ impl ID3D12VideoEncoderHeap_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoEncoderHeap {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoExtensionCommand, ID3D12VideoExtensionCommand_Vtbl, 0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoExtensionCommand {
@@ -3933,6 +4005,10 @@ impl ID3D12VideoExtensionCommand_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoExtensionCommand {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoMotionEstimator, ID3D12VideoMotionEstimator_Vtbl, 0x33fdae0e_098b_428f_87bb_34b695de08f8);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3997,6 +4073,10 @@ impl ID3D12VideoMotionEstimator_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoMotionEstimator {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoMotionEstimator {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoMotionEstimator {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoMotionVectorHeap, ID3D12VideoMotionVectorHeap_Vtbl, 0x5be17987_743a_4061_834b_23d22daea505);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4061,6 +4141,10 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoMotionVectorHeap {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoMotionVectorHeap {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoMotionVectorHeap {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList_Vtbl, 0xaeb2543a_167f_4682_acc8_d159ed4a6209);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4295,6 +4379,10 @@ impl ID3D12VideoProcessCommandList_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoProcessCommandList {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList1_Vtbl, 0x542c5c4d_7596_434f_8c93_4efa6766f267);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoProcessCommandList1 {
@@ -4343,6 +4431,10 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoProcessCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList2, ID3D12VideoProcessCommandList2_Vtbl, 0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4430,6 +4522,10 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoProcessCommandList2 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessCommandList3, ID3D12VideoProcessCommandList3_Vtbl, 0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl core::ops::Deref for ID3D12VideoProcessCommandList3 {
@@ -4475,6 +4571,10 @@ impl ID3D12VideoProcessCommandList3_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl windows_core::RuntimeName for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList3 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessor, ID3D12VideoProcessor_Vtbl, 0x304fdb32_bede_410a_8545_943ac6a46138);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4560,6 +4660,10 @@ impl ID3D12VideoProcessor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoProcessor {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoProcessor {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoProcessor {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 windows_core::imp::define_interface!(ID3D12VideoProcessor1, ID3D12VideoProcessor1_Vtbl, 0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4605,6 +4709,10 @@ impl ID3D12VideoProcessor1_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl windows_core::RuntimeName for ID3D12VideoProcessor1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Send for ID3D12VideoProcessor1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl Sync for ID3D12VideoProcessor1 {}
 windows_core::imp::define_interface!(IDXVAHD_Device, IDXVAHD_Device_Vtbl, 0x95f12dfd_d77e_49be_815f_57d579634d6d);
 windows_core::imp::interface_hierarchy!(IDXVAHD_Device, windows_core::IUnknown);
 impl IDXVAHD_Device {

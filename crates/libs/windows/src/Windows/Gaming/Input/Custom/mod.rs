@@ -545,6 +545,8 @@ unsafe impl windows_core::Interface for GipFirmwareUpdateResult {
 impl windows_core::RuntimeName for GipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult";
 }
+unsafe impl Send for GipFirmwareUpdateResult {}
+unsafe impl Sync for GipFirmwareUpdateResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GipGameControllerProvider(windows_core::IUnknown);
@@ -616,6 +618,8 @@ unsafe impl windows_core::Interface for GipGameControllerProvider {
 impl windows_core::RuntimeName for GipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipGameControllerProvider";
 }
+unsafe impl Send for GipGameControllerProvider {}
+unsafe impl Sync for GipGameControllerProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidGameControllerProvider(windows_core::IUnknown);
@@ -694,6 +698,8 @@ unsafe impl windows_core::Interface for HidGameControllerProvider {
 impl windows_core::RuntimeName for HidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.HidGameControllerProvider";
 }
+unsafe impl Send for HidGameControllerProvider {}
+unsafe impl Sync for HidGameControllerProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XusbGameControllerProvider(windows_core::IUnknown);
@@ -750,6 +756,8 @@ unsafe impl windows_core::Interface for XusbGameControllerProvider {
 impl windows_core::RuntimeName for XusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";
 }
+unsafe impl Send for XusbGameControllerProvider {}
+unsafe impl Sync for XusbGameControllerProvider {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GipFirmwareUpdateStatus(pub i32);

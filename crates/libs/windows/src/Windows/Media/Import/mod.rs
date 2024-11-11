@@ -425,6 +425,8 @@ unsafe impl windows_core::Interface for PhotoImportDeleteImportedItemsFromSource
 impl windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
 }
+unsafe impl Send for PhotoImportDeleteImportedItemsFromSourceResult {}
+unsafe impl Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
@@ -668,6 +670,8 @@ unsafe impl windows_core::Interface for PhotoImportFindItemsResult {
 impl windows_core::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
 }
+unsafe impl Send for PhotoImportFindItemsResult {}
+unsafe impl Sync for PhotoImportFindItemsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
@@ -783,6 +787,8 @@ unsafe impl windows_core::Interface for PhotoImportImportItemsResult {
 impl windows_core::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
 }
+unsafe impl Send for PhotoImportImportItemsResult {}
+unsafe impl Sync for PhotoImportImportItemsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItem(windows_core::IUnknown);
@@ -899,6 +905,8 @@ unsafe impl windows_core::Interface for PhotoImportItem {
 impl windows_core::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
 }
+unsafe impl Send for PhotoImportItem {}
+unsafe impl Sync for PhotoImportItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
@@ -922,6 +930,8 @@ unsafe impl windows_core::Interface for PhotoImportItemImportedEventArgs {
 impl windows_core::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
 }
+unsafe impl Send for PhotoImportItemImportedEventArgs {}
+unsafe impl Sync for PhotoImportItemImportedEventArgs {}
 pub struct PhotoImportManager;
 impl PhotoImportManager {
     pub fn IsSupportedAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
@@ -1003,6 +1013,8 @@ unsafe impl windows_core::Interface for PhotoImportOperation {
 impl windows_core::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
 }
+unsafe impl Send for PhotoImportOperation {}
+unsafe impl Sync for PhotoImportOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
@@ -1026,6 +1038,8 @@ unsafe impl windows_core::Interface for PhotoImportSelectionChangedEventArgs {
 impl windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
 }
+unsafe impl Send for PhotoImportSelectionChangedEventArgs {}
+unsafe impl Sync for PhotoImportSelectionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSession(windows_core::IUnknown);
@@ -1139,6 +1153,8 @@ unsafe impl windows_core::Interface for PhotoImportSession {
 impl windows_core::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
 }
+unsafe impl Send for PhotoImportSession {}
+unsafe impl Sync for PhotoImportSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSidecar(windows_core::IUnknown);
@@ -1176,6 +1192,8 @@ unsafe impl windows_core::Interface for PhotoImportSidecar {
 impl windows_core::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
 }
+unsafe impl Send for PhotoImportSidecar {}
+unsafe impl Sync for PhotoImportSidecar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSource(windows_core::IUnknown);
@@ -1333,6 +1351,8 @@ unsafe impl windows_core::Interface for PhotoImportSource {
 impl windows_core::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
 }
+unsafe impl Send for PhotoImportSource {}
+unsafe impl Sync for PhotoImportSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
@@ -1402,6 +1422,8 @@ unsafe impl windows_core::Interface for PhotoImportStorageMedium {
 impl windows_core::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
 }
+unsafe impl Send for PhotoImportStorageMedium {}
+unsafe impl Sync for PhotoImportStorageMedium {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
@@ -1454,6 +1476,8 @@ unsafe impl windows_core::Interface for PhotoImportVideoSegment {
 impl windows_core::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";
 }
+unsafe impl Send for PhotoImportVideoSegment {}
+unsafe impl Sync for PhotoImportVideoSegment {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PhotoImportAccessMode(pub i32);

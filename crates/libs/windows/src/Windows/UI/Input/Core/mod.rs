@@ -88,3 +88,5 @@ unsafe impl windows_core::Interface for RadialControllerIndependentInputSource {
 impl windows_core::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";
 }
+unsafe impl Send for RadialControllerIndependentInputSource {}
+unsafe impl Sync for RadialControllerIndependentInputSource {}

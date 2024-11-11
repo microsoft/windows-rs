@@ -110,6 +110,8 @@ unsafe impl windows_core::Interface for AddAppointmentOperation {
 impl windows_core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
 }
+unsafe impl Send for AddAppointmentOperation {}
+unsafe impl Sync for AddAppointmentOperation {}
 pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> windows_core::Result<windows_core::HSTRING> {
@@ -207,6 +209,8 @@ unsafe impl windows_core::Interface for RemoveAppointmentOperation {
 impl windows_core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
 }
+unsafe impl Send for RemoveAppointmentOperation {}
+unsafe impl Sync for RemoveAppointmentOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReplaceAppointmentOperation(windows_core::IUnknown);
@@ -267,3 +271,5 @@ unsafe impl windows_core::Interface for ReplaceAppointmentOperation {
 impl windows_core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";
 }
+unsafe impl Send for ReplaceAppointmentOperation {}
+unsafe impl Sync for ReplaceAppointmentOperation {}

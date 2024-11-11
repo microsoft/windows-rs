@@ -719,6 +719,8 @@ unsafe impl windows_core::Interface for CallAnswerEventArgs {
 impl windows_core::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
 }
+unsafe impl Send for CallAnswerEventArgs {}
+unsafe impl Sync for CallAnswerEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallRejectEventArgs(windows_core::IUnknown);
@@ -742,6 +744,8 @@ unsafe impl windows_core::Interface for CallRejectEventArgs {
 impl windows_core::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
 }
+unsafe impl Send for CallRejectEventArgs {}
+unsafe impl Sync for CallRejectEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CallStateChangeEventArgs(windows_core::IUnknown);
@@ -765,6 +769,8 @@ unsafe impl windows_core::Interface for CallStateChangeEventArgs {
 impl windows_core::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
 }
+unsafe impl Send for CallStateChangeEventArgs {}
+unsafe impl Sync for CallStateChangeEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndCallDeferral(windows_core::IUnknown);
@@ -785,6 +791,8 @@ unsafe impl windows_core::Interface for LockScreenCallEndCallDeferral {
 impl windows_core::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
 }
+unsafe impl Send for LockScreenCallEndCallDeferral {}
+unsafe impl Sync for LockScreenCallEndCallDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallEndRequestedEventArgs(windows_core::IUnknown);
@@ -815,6 +823,8 @@ unsafe impl windows_core::Interface for LockScreenCallEndRequestedEventArgs {
 impl windows_core::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
 }
+unsafe impl Send for LockScreenCallEndRequestedEventArgs {}
+unsafe impl Sync for LockScreenCallEndRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallUI(windows_core::IUnknown);
@@ -874,6 +884,8 @@ unsafe impl windows_core::Interface for LockScreenCallUI {
 impl windows_core::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
 }
+unsafe impl Send for LockScreenCallUI {}
+unsafe impl Sync for LockScreenCallUI {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MuteChangeEventArgs(windows_core::IUnknown);
@@ -897,6 +909,8 @@ unsafe impl windows_core::Interface for MuteChangeEventArgs {
 impl windows_core::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
 }
+unsafe impl Send for MuteChangeEventArgs {}
+unsafe impl Sync for MuteChangeEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCall(windows_core::IUnknown);
@@ -1133,6 +1147,8 @@ unsafe impl windows_core::Interface for PhoneCall {
 impl windows_core::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
 }
+unsafe impl Send for PhoneCall {}
+unsafe impl Sync for PhoneCall {}
 pub struct PhoneCallBlocking;
 impl PhoneCallBlocking {
     pub fn BlockUnknownNumbers() -> windows_core::Result<bool> {
@@ -1390,6 +1406,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryEntry {
 impl windows_core::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
 }
+unsafe impl Send for PhoneCallHistoryEntry {}
+unsafe impl Sync for PhoneCallHistoryEntry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryAddress(windows_core::IUnknown);
@@ -1467,6 +1485,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryEntryAddress {
 impl windows_core::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
 }
+unsafe impl Send for PhoneCallHistoryEntryAddress {}
+unsafe impl Sync for PhoneCallHistoryEntryAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryQueryOptions(windows_core::IUnknown);
@@ -1509,6 +1529,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
 impl windows_core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
 }
+unsafe impl Send for PhoneCallHistoryEntryQueryOptions {}
+unsafe impl Sync for PhoneCallHistoryEntryQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryEntryReader(windows_core::IUnknown);
@@ -1533,6 +1555,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryEntryReader {
 impl windows_core::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
 }
+unsafe impl Send for PhoneCallHistoryEntryReader {}
+unsafe impl Sync for PhoneCallHistoryEntryReader {}
 pub struct PhoneCallHistoryManager;
 impl PhoneCallHistoryManager {
     pub fn RequestStoreAsync(accesstype: PhoneCallHistoryStoreAccessType) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallHistoryStore>> {
@@ -1594,6 +1618,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryManagerForUser {
 impl windows_core::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
 }
+unsafe impl Send for PhoneCallHistoryManagerForUser {}
+unsafe impl Sync for PhoneCallHistoryManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallHistoryStore(windows_core::IUnknown);
@@ -1722,6 +1748,8 @@ unsafe impl windows_core::Interface for PhoneCallHistoryStore {
 impl windows_core::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
 }
+unsafe impl Send for PhoneCallHistoryStore {}
+unsafe impl Sync for PhoneCallHistoryStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallInfo(windows_core::IUnknown);
@@ -1780,6 +1808,8 @@ unsafe impl windows_core::Interface for PhoneCallInfo {
 impl windows_core::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
 }
+unsafe impl Send for PhoneCallInfo {}
+unsafe impl Sync for PhoneCallInfo {}
 pub struct PhoneCallManager;
 impl PhoneCallManager {
     pub fn ShowPhoneCallUI(phonenumber: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1867,6 +1897,8 @@ unsafe impl windows_core::Interface for PhoneCallStore {
 impl windows_core::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
 }
+unsafe impl Send for PhoneCallStore {}
+unsafe impl Sync for PhoneCallStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallVideoCapabilities(windows_core::IUnknown);
@@ -1890,6 +1922,8 @@ unsafe impl windows_core::Interface for PhoneCallVideoCapabilities {
 impl windows_core::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
 }
+unsafe impl Send for PhoneCallVideoCapabilities {}
+unsafe impl Sync for PhoneCallVideoCapabilities {}
 pub struct PhoneCallVideoCapabilitiesManager;
 impl PhoneCallVideoCapabilitiesManager {
     pub fn GetCapabilitiesAsync(phonenumber: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PhoneCallVideoCapabilities>> {
@@ -1937,6 +1971,8 @@ unsafe impl windows_core::Interface for PhoneCallsResult {
 impl windows_core::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
 }
+unsafe impl Send for PhoneCallsResult {}
+unsafe impl Sync for PhoneCallsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneDialOptions(windows_core::IUnknown);
@@ -2036,6 +2072,8 @@ unsafe impl windows_core::Interface for PhoneDialOptions {
 impl windows_core::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
 }
+unsafe impl Send for PhoneDialOptions {}
+unsafe impl Sync for PhoneDialOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLine(windows_core::IUnknown);
@@ -2218,6 +2256,8 @@ unsafe impl windows_core::Interface for PhoneLine {
 impl windows_core::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
 }
+unsafe impl Send for PhoneLine {}
+unsafe impl Sync for PhoneLine {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineCellularDetails(windows_core::IUnknown);
@@ -2269,6 +2309,8 @@ unsafe impl windows_core::Interface for PhoneLineCellularDetails {
 impl windows_core::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
 }
+unsafe impl Send for PhoneLineCellularDetails {}
+unsafe impl Sync for PhoneLineCellularDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineConfiguration(windows_core::IUnknown);
@@ -2300,6 +2342,8 @@ unsafe impl windows_core::Interface for PhoneLineConfiguration {
 impl windows_core::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
 }
+unsafe impl Send for PhoneLineConfiguration {}
+unsafe impl Sync for PhoneLineConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineDialResult(windows_core::IUnknown);
@@ -2330,6 +2374,8 @@ unsafe impl windows_core::Interface for PhoneLineDialResult {
 impl windows_core::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
 }
+unsafe impl Send for PhoneLineDialResult {}
+unsafe impl Sync for PhoneLineDialResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineTransportDevice(windows_core::IUnknown);
@@ -2477,6 +2523,8 @@ unsafe impl windows_core::Interface for PhoneLineTransportDevice {
 impl windows_core::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
 }
+unsafe impl Send for PhoneLineTransportDevice {}
+unsafe impl Sync for PhoneLineTransportDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcher(windows_core::IUnknown);
@@ -2578,6 +2626,8 @@ unsafe impl windows_core::Interface for PhoneLineWatcher {
 impl windows_core::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
 }
+unsafe impl Send for PhoneLineWatcher {}
+unsafe impl Sync for PhoneLineWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineWatcherEventArgs(windows_core::IUnknown);
@@ -2601,6 +2651,8 @@ unsafe impl windows_core::Interface for PhoneLineWatcherEventArgs {
 impl windows_core::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
 }
+unsafe impl Send for PhoneLineWatcherEventArgs {}
+unsafe impl Sync for PhoneLineWatcherEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneVoicemail(windows_core::IUnknown);
@@ -2645,6 +2697,8 @@ unsafe impl windows_core::Interface for PhoneVoicemail {
 impl windows_core::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
 }
+unsafe impl Send for PhoneVoicemail {}
+unsafe impl Sync for PhoneVoicemail {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipCallCoordinator(windows_core::IUnknown);
@@ -2779,6 +2833,8 @@ unsafe impl windows_core::Interface for VoipCallCoordinator {
 impl windows_core::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
 }
+unsafe impl Send for VoipCallCoordinator {}
+unsafe impl Sync for VoipCallCoordinator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoipPhoneCall(windows_core::IUnknown);
@@ -2922,6 +2978,8 @@ unsafe impl windows_core::Interface for VoipPhoneCall {
 impl windows_core::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";
 }
+unsafe impl Send for VoipPhoneCall {}
+unsafe impl Sync for VoipPhoneCall {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CellularDtmfMode(pub i32);

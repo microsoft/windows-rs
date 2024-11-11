@@ -173,6 +173,8 @@ unsafe impl windows_core::Interface for Geofence {
 impl windows_core::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
 }
+unsafe impl Send for Geofence {}
+unsafe impl Sync for Geofence {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceMonitor(windows_core::IUnknown);
@@ -257,6 +259,8 @@ unsafe impl windows_core::Interface for GeofenceMonitor {
 impl windows_core::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
 }
+unsafe impl Send for GeofenceMonitor {}
+unsafe impl Sync for GeofenceMonitor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceStateChangeReport(windows_core::IUnknown);
@@ -301,6 +305,8 @@ unsafe impl windows_core::Interface for GeofenceStateChangeReport {
 impl windows_core::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
 }
+unsafe impl Send for GeofenceStateChangeReport {}
+unsafe impl Sync for GeofenceStateChangeReport {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GeofenceMonitorStatus(pub i32);

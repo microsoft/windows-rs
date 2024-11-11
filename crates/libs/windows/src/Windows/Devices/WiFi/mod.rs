@@ -319,6 +319,8 @@ unsafe impl windows_core::Interface for WiFiAdapter {
 impl windows_core::RuntimeName for WiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAdapter";
 }
+unsafe impl Send for WiFiAdapter {}
+unsafe impl Sync for WiFiAdapter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
@@ -413,6 +415,8 @@ unsafe impl windows_core::Interface for WiFiAvailableNetwork {
 impl windows_core::RuntimeName for WiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAvailableNetwork";
 }
+unsafe impl Send for WiFiAvailableNetwork {}
+unsafe impl Sync for WiFiAvailableNetwork {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiConnectionResult(windows_core::IUnknown);
@@ -436,6 +440,8 @@ unsafe impl windows_core::Interface for WiFiConnectionResult {
 impl windows_core::RuntimeName for WiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiConnectionResult";
 }
+unsafe impl Send for WiFiConnectionResult {}
+unsafe impl Sync for WiFiConnectionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiNetworkReport(windows_core::IUnknown);
@@ -467,6 +473,8 @@ unsafe impl windows_core::Interface for WiFiNetworkReport {
 impl windows_core::RuntimeName for WiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiNetworkReport";
 }
+unsafe impl Send for WiFiNetworkReport {}
+unsafe impl Sync for WiFiNetworkReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTriggerDetails(windows_core::IUnknown);
@@ -508,6 +516,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTriggerDetails
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails";
 }
+unsafe impl Send for WiFiOnDemandHotspotConnectTriggerDetails {}
+unsafe impl Sync for WiFiOnDemandHotspotConnectTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectionResult(windows_core::IUnknown);
@@ -531,6 +541,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectionResult {
 impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult";
 }
+unsafe impl Send for WiFiOnDemandHotspotConnectionResult {}
+unsafe impl Sync for WiFiOnDemandHotspotConnectionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetwork(windows_core::IUnknown);
@@ -578,6 +590,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetwork {
 impl windows_core::RuntimeName for WiFiOnDemandHotspotNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork";
 }
+unsafe impl Send for WiFiOnDemandHotspotNetwork {}
+unsafe impl Sync for WiFiOnDemandHotspotNetwork {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetworkProperties(windows_core::IUnknown);
@@ -682,6 +696,8 @@ unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetworkProperties {
 impl windows_core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties";
 }
+unsafe impl Send for WiFiOnDemandHotspotNetworkProperties {}
+unsafe impl Sync for WiFiOnDemandHotspotNetworkProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiWpsConfigurationResult(windows_core::IUnknown);
@@ -713,6 +729,8 @@ unsafe impl windows_core::Interface for WiFiWpsConfigurationResult {
 impl windows_core::RuntimeName for WiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiWpsConfigurationResult";
 }
+unsafe impl Send for WiFiWpsConfigurationResult {}
+unsafe impl Sync for WiFiWpsConfigurationResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WiFiAccessStatus(pub i32);

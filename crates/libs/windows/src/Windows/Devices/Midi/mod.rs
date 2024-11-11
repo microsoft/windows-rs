@@ -500,6 +500,8 @@ unsafe impl windows_core::Interface for MidiActiveSensingMessage {
 impl windows_core::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
 }
+unsafe impl Send for MidiActiveSensingMessage {}
+unsafe impl Sync for MidiActiveSensingMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiChannelPressureMessage(windows_core::IUnknown);
@@ -563,6 +565,8 @@ unsafe impl windows_core::Interface for MidiChannelPressureMessage {
 impl windows_core::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
 }
+unsafe impl Send for MidiChannelPressureMessage {}
+unsafe impl Sync for MidiChannelPressureMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiContinueMessage(windows_core::IUnknown);
@@ -609,6 +613,8 @@ unsafe impl windows_core::Interface for MidiContinueMessage {
 impl windows_core::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
 }
+unsafe impl Send for MidiContinueMessage {}
+unsafe impl Sync for MidiContinueMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiControlChangeMessage(windows_core::IUnknown);
@@ -679,6 +685,8 @@ unsafe impl windows_core::Interface for MidiControlChangeMessage {
 impl windows_core::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
 }
+unsafe impl Send for MidiControlChangeMessage {}
+unsafe impl Sync for MidiControlChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiInPort(windows_core::IUnknown);
@@ -737,6 +745,8 @@ unsafe impl windows_core::Interface for MidiInPort {
 impl windows_core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
 }
+unsafe impl Send for MidiInPort {}
+unsafe impl Sync for MidiInPort {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiMessageReceivedEventArgs(windows_core::IUnknown);
@@ -760,6 +770,8 @@ unsafe impl windows_core::Interface for MidiMessageReceivedEventArgs {
 impl windows_core::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
 }
+unsafe impl Send for MidiMessageReceivedEventArgs {}
+unsafe impl Sync for MidiMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOffMessage(windows_core::IUnknown);
@@ -830,6 +842,8 @@ unsafe impl windows_core::Interface for MidiNoteOffMessage {
 impl windows_core::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
 }
+unsafe impl Send for MidiNoteOffMessage {}
+unsafe impl Sync for MidiNoteOffMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOnMessage(windows_core::IUnknown);
@@ -900,6 +914,8 @@ unsafe impl windows_core::Interface for MidiNoteOnMessage {
 impl windows_core::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
 }
+unsafe impl Send for MidiNoteOnMessage {}
+unsafe impl Sync for MidiNoteOnMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiOutPort(windows_core::IUnknown);
@@ -959,6 +975,8 @@ unsafe impl windows_core::Interface for MidiOutPort {
 impl windows_core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
 }
+unsafe impl Send for MidiOutPort {}
+unsafe impl Sync for MidiOutPort {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPitchBendChangeMessage(windows_core::IUnknown);
@@ -1022,6 +1040,8 @@ unsafe impl windows_core::Interface for MidiPitchBendChangeMessage {
 impl windows_core::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
 }
+unsafe impl Send for MidiPitchBendChangeMessage {}
+unsafe impl Sync for MidiPitchBendChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPolyphonicKeyPressureMessage(windows_core::IUnknown);
@@ -1092,6 +1112,8 @@ unsafe impl windows_core::Interface for MidiPolyphonicKeyPressureMessage {
 impl windows_core::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
 }
+unsafe impl Send for MidiPolyphonicKeyPressureMessage {}
+unsafe impl Sync for MidiPolyphonicKeyPressureMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiProgramChangeMessage(windows_core::IUnknown);
@@ -1155,6 +1177,8 @@ unsafe impl windows_core::Interface for MidiProgramChangeMessage {
 impl windows_core::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
 }
+unsafe impl Send for MidiProgramChangeMessage {}
+unsafe impl Sync for MidiProgramChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongPositionPointerMessage(windows_core::IUnknown);
@@ -1211,6 +1235,8 @@ unsafe impl windows_core::Interface for MidiSongPositionPointerMessage {
 impl windows_core::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
 }
+unsafe impl Send for MidiSongPositionPointerMessage {}
+unsafe impl Sync for MidiSongPositionPointerMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongSelectMessage(windows_core::IUnknown);
@@ -1267,6 +1293,8 @@ unsafe impl windows_core::Interface for MidiSongSelectMessage {
 impl windows_core::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
 }
+unsafe impl Send for MidiSongSelectMessage {}
+unsafe impl Sync for MidiSongSelectMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStartMessage(windows_core::IUnknown);
@@ -1313,6 +1341,8 @@ unsafe impl windows_core::Interface for MidiStartMessage {
 impl windows_core::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
 }
+unsafe impl Send for MidiStartMessage {}
+unsafe impl Sync for MidiStartMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStopMessage(windows_core::IUnknown);
@@ -1359,6 +1389,8 @@ unsafe impl windows_core::Interface for MidiStopMessage {
 impl windows_core::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
 }
+unsafe impl Send for MidiStopMessage {}
+unsafe impl Sync for MidiStopMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSynthesizer(windows_core::IUnknown);
@@ -1451,6 +1483,8 @@ unsafe impl windows_core::Interface for MidiSynthesizer {
 impl windows_core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
 }
+unsafe impl Send for MidiSynthesizer {}
+unsafe impl Sync for MidiSynthesizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
@@ -1504,6 +1538,8 @@ unsafe impl windows_core::Interface for MidiSystemExclusiveMessage {
 impl windows_core::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
 }
+unsafe impl Send for MidiSystemExclusiveMessage {}
+unsafe impl Sync for MidiSystemExclusiveMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemResetMessage(windows_core::IUnknown);
@@ -1550,6 +1586,8 @@ unsafe impl windows_core::Interface for MidiSystemResetMessage {
 impl windows_core::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
 }
+unsafe impl Send for MidiSystemResetMessage {}
+unsafe impl Sync for MidiSystemResetMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimeCodeMessage(windows_core::IUnknown);
@@ -1613,6 +1651,8 @@ unsafe impl windows_core::Interface for MidiTimeCodeMessage {
 impl windows_core::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
 }
+unsafe impl Send for MidiTimeCodeMessage {}
+unsafe impl Sync for MidiTimeCodeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimingClockMessage(windows_core::IUnknown);
@@ -1659,6 +1699,8 @@ unsafe impl windows_core::Interface for MidiTimingClockMessage {
 impl windows_core::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
 }
+unsafe impl Send for MidiTimingClockMessage {}
+unsafe impl Sync for MidiTimingClockMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTuneRequestMessage(windows_core::IUnknown);
@@ -1705,6 +1747,8 @@ unsafe impl windows_core::Interface for MidiTuneRequestMessage {
 impl windows_core::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";
 }
+unsafe impl Send for MidiTuneRequestMessage {}
+unsafe impl Sync for MidiTuneRequestMessage {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MidiMessageType(pub i32);

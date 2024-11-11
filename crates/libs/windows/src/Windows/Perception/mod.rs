@@ -78,6 +78,8 @@ unsafe impl windows_core::Interface for PerceptionTimestamp {
 impl windows_core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
+unsafe impl Send for PerceptionTimestamp {}
+unsafe impl Sync for PerceptionTimestamp {}
 pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> windows_core::Result<PerceptionTimestamp> {

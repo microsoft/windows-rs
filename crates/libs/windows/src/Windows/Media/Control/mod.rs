@@ -187,6 +187,8 @@ unsafe impl windows_core::Interface for CurrentSessionChangedEventArgs {
 impl windows_core::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
 }
+unsafe impl Send for CurrentSessionChangedEventArgs {}
+unsafe impl Sync for CurrentSessionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSession(windows_core::IUnknown);
@@ -378,6 +380,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSession {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(windows_core::IUnknown);
@@ -447,6 +451,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSessionManager {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(windows_core::IUnknown);
@@ -535,6 +541,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(windows_core::IUnknown);
@@ -656,6 +664,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(windows_core::IUnknown);
@@ -714,6 +724,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(windows_core::IUnknown);
@@ -772,6 +784,8 @@ unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessio
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
+unsafe impl Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
+unsafe impl Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPropertiesChangedEventArgs(windows_core::IUnknown);
@@ -787,6 +801,8 @@ unsafe impl windows_core::Interface for MediaPropertiesChangedEventArgs {
 impl windows_core::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
 }
+unsafe impl Send for MediaPropertiesChangedEventArgs {}
+unsafe impl Sync for MediaPropertiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackInfoChangedEventArgs(windows_core::IUnknown);
@@ -802,6 +818,8 @@ unsafe impl windows_core::Interface for PlaybackInfoChangedEventArgs {
 impl windows_core::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
 }
+unsafe impl Send for PlaybackInfoChangedEventArgs {}
+unsafe impl Sync for PlaybackInfoChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SessionsChangedEventArgs(windows_core::IUnknown);
@@ -817,6 +835,8 @@ unsafe impl windows_core::Interface for SessionsChangedEventArgs {
 impl windows_core::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
 }
+unsafe impl Send for SessionsChangedEventArgs {}
+unsafe impl Sync for SessionsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimelinePropertiesChangedEventArgs(windows_core::IUnknown);
@@ -832,6 +852,8 @@ unsafe impl windows_core::Interface for TimelinePropertiesChangedEventArgs {
 impl windows_core::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";
 }
+unsafe impl Send for TimelinePropertiesChangedEventArgs {}
+unsafe impl Sync for TimelinePropertiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);

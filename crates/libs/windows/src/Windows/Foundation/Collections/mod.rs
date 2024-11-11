@@ -1636,6 +1636,8 @@ unsafe impl windows_core::Interface for PropertySet {
 impl windows_core::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
 }
+unsafe impl Send for PropertySet {}
+unsafe impl Sync for PropertySet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StringMap(windows_core::IUnknown);
@@ -1724,6 +1726,8 @@ unsafe impl windows_core::Interface for StringMap {
 impl windows_core::RuntimeName for StringMap {
     const NAME: &'static str = "Windows.Foundation.Collections.StringMap";
 }
+unsafe impl Send for StringMap {}
+unsafe impl Sync for StringMap {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ValueSet(windows_core::IUnknown);
@@ -1815,6 +1819,8 @@ unsafe impl windows_core::Interface for ValueSet {
 impl windows_core::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";
 }
+unsafe impl Send for ValueSet {}
+unsafe impl Sync for ValueSet {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapChangedEventHandler<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)

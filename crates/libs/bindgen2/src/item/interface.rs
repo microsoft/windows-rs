@@ -224,6 +224,15 @@ impl Interface {
                     }
                 });
             }
+
+            if self.def.is_agile() {
+                result.combine(quote! {
+                    #cfg
+                    unsafe impl<#constraints> Send for #name {}
+                    #cfg
+                    unsafe impl<#constraints> Sync for #name {}
+                });
+            }
         }
 
         {

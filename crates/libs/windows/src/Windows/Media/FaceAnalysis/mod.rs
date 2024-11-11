@@ -130,6 +130,8 @@ unsafe impl windows_core::Interface for DetectedFace {
 impl windows_core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
+unsafe impl Send for DetectedFace {}
+unsafe impl Sync for DetectedFace {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceDetector(windows_core::IUnknown);
@@ -224,6 +226,8 @@ unsafe impl windows_core::Interface for FaceDetector {
 impl windows_core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
+unsafe impl Send for FaceDetector {}
+unsafe impl Sync for FaceDetector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceTracker(windows_core::IUnknown);
@@ -307,3 +311,5 @@ unsafe impl windows_core::Interface for FaceTracker {
 impl windows_core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
+unsafe impl Send for FaceTracker {}
+unsafe impl Sync for FaceTracker {}

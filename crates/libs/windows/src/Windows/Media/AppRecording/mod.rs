@@ -175,6 +175,8 @@ unsafe impl windows_core::Interface for AppRecordingManager {
 impl windows_core::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
 }
+unsafe impl Send for AppRecordingManager {}
+unsafe impl Sync for AppRecordingManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingResult(windows_core::IUnknown);
@@ -219,6 +221,8 @@ unsafe impl windows_core::Interface for AppRecordingResult {
 impl windows_core::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
 }
+unsafe impl Send for AppRecordingResult {}
+unsafe impl Sync for AppRecordingResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingSaveScreenshotResult(windows_core::IUnknown);
@@ -257,6 +261,8 @@ unsafe impl windows_core::Interface for AppRecordingSaveScreenshotResult {
 impl windows_core::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
 }
+unsafe impl Send for AppRecordingSaveScreenshotResult {}
+unsafe impl Sync for AppRecordingSaveScreenshotResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingSavedScreenshotInfo(windows_core::IUnknown);
@@ -288,6 +294,8 @@ unsafe impl windows_core::Interface for AppRecordingSavedScreenshotInfo {
 impl windows_core::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
 }
+unsafe impl Send for AppRecordingSavedScreenshotInfo {}
+unsafe impl Sync for AppRecordingSavedScreenshotInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingStatus(windows_core::IUnknown);
@@ -332,6 +340,8 @@ unsafe impl windows_core::Interface for AppRecordingStatus {
 impl windows_core::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
 }
+unsafe impl Send for AppRecordingStatus {}
+unsafe impl Sync for AppRecordingStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingStatusDetails(windows_core::IUnknown);
@@ -411,6 +421,8 @@ unsafe impl windows_core::Interface for AppRecordingStatusDetails {
 impl windows_core::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";
 }
+unsafe impl Send for AppRecordingStatusDetails {}
+unsafe impl Sync for AppRecordingStatusDetails {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);

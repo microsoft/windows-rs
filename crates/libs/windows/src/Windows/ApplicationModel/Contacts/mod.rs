@@ -1655,6 +1655,8 @@ unsafe impl windows_core::Interface for AggregateContactManager {
 impl windows_core::RuntimeName for AggregateContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.AggregateContactManager";
 }
+unsafe impl Send for AggregateContactManager {}
+unsafe impl Sync for AggregateContactManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Contact(windows_core::IUnknown);
@@ -2053,6 +2055,8 @@ unsafe impl windows_core::Interface for Contact {
 impl windows_core::RuntimeName for Contact {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Contact";
 }
+unsafe impl Send for Contact {}
+unsafe impl Sync for Contact {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAddress(windows_core::IUnknown);
@@ -2153,6 +2157,8 @@ unsafe impl windows_core::Interface for ContactAddress {
 impl windows_core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAddress";
 }
+unsafe impl Send for ContactAddress {}
+unsafe impl Sync for ContactAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotation(windows_core::IUnknown);
@@ -2249,6 +2255,8 @@ unsafe impl windows_core::Interface for ContactAnnotation {
 impl windows_core::RuntimeName for ContactAnnotation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotation";
 }
+unsafe impl Send for ContactAnnotation {}
+unsafe impl Sync for ContactAnnotation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotationList(windows_core::IUnknown);
@@ -2336,6 +2344,8 @@ unsafe impl windows_core::Interface for ContactAnnotationList {
 impl windows_core::RuntimeName for ContactAnnotationList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationList";
 }
+unsafe impl Send for ContactAnnotationList {}
+unsafe impl Sync for ContactAnnotationList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactAnnotationStore(windows_core::IUnknown);
@@ -2426,6 +2436,8 @@ unsafe impl windows_core::Interface for ContactAnnotationStore {
 impl windows_core::RuntimeName for ContactAnnotationStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationStore";
 }
+unsafe impl Send for ContactAnnotationStore {}
+unsafe impl Sync for ContactAnnotationStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactBatch(windows_core::IUnknown);
@@ -2457,6 +2469,8 @@ unsafe impl windows_core::Interface for ContactBatch {
 impl windows_core::RuntimeName for ContactBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactBatch";
 }
+unsafe impl Send for ContactBatch {}
+unsafe impl Sync for ContactBatch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCardDelayedDataLoader(windows_core::IUnknown);
@@ -2485,6 +2499,8 @@ unsafe impl windows_core::Interface for ContactCardDelayedDataLoader {
 impl windows_core::RuntimeName for ContactCardDelayedDataLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader";
 }
+unsafe impl Send for ContactCardDelayedDataLoader {}
+unsafe impl Sync for ContactCardDelayedDataLoader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCardOptions(windows_core::IUnknown);
@@ -2538,6 +2554,8 @@ unsafe impl windows_core::Interface for ContactCardOptions {
 impl windows_core::RuntimeName for ContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardOptions";
 }
+unsafe impl Send for ContactCardOptions {}
+unsafe impl Sync for ContactCardOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChange(windows_core::IUnknown);
@@ -2568,6 +2586,8 @@ unsafe impl windows_core::Interface for ContactChange {
 impl windows_core::RuntimeName for ContactChange {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChange";
 }
+unsafe impl Send for ContactChange {}
+unsafe impl Sync for ContactChange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeReader(windows_core::IUnknown);
@@ -2603,6 +2623,8 @@ unsafe impl windows_core::Interface for ContactChangeReader {
 impl windows_core::RuntimeName for ContactChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeReader";
 }
+unsafe impl Send for ContactChangeReader {}
+unsafe impl Sync for ContactChangeReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangeTracker(windows_core::IUnknown);
@@ -2641,6 +2663,8 @@ unsafe impl windows_core::Interface for ContactChangeTracker {
 impl windows_core::RuntimeName for ContactChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeTracker";
 }
+unsafe impl Send for ContactChangeTracker {}
+unsafe impl Sync for ContactChangeTracker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangedDeferral(windows_core::IUnknown);
@@ -2661,6 +2685,8 @@ unsafe impl windows_core::Interface for ContactChangedDeferral {
 impl windows_core::RuntimeName for ContactChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedDeferral";
 }
+unsafe impl Send for ContactChangedDeferral {}
+unsafe impl Sync for ContactChangedDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactChangedEventArgs(windows_core::IUnknown);
@@ -2684,6 +2710,8 @@ unsafe impl windows_core::Interface for ContactChangedEventArgs {
 impl windows_core::RuntimeName for ContactChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedEventArgs";
 }
+unsafe impl Send for ContactChangedEventArgs {}
+unsafe impl Sync for ContactChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactConnectedServiceAccount(windows_core::IUnknown);
@@ -2729,6 +2757,8 @@ unsafe impl windows_core::Interface for ContactConnectedServiceAccount {
 impl windows_core::RuntimeName for ContactConnectedServiceAccount {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount";
 }
+unsafe impl Send for ContactConnectedServiceAccount {}
+unsafe impl Sync for ContactConnectedServiceAccount {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDate(windows_core::IUnknown);
@@ -2816,6 +2846,8 @@ unsafe impl windows_core::Interface for ContactDate {
 impl windows_core::RuntimeName for ContactDate {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactDate";
 }
+unsafe impl Send for ContactDate {}
+unsafe impl Sync for ContactDate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactEmail(windows_core::IUnknown);
@@ -2872,6 +2904,8 @@ unsafe impl windows_core::Interface for ContactEmail {
 impl windows_core::RuntimeName for ContactEmail {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactEmail";
 }
+unsafe impl Send for ContactEmail {}
+unsafe impl Sync for ContactEmail {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactField(windows_core::IUnknown);
@@ -2939,6 +2973,8 @@ unsafe impl windows_core::Interface for ContactField {
 impl windows_core::RuntimeName for ContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactField";
 }
+unsafe impl Send for ContactField {}
+unsafe impl Sync for ContactField {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactFieldFactory(windows_core::IUnknown);
@@ -3029,6 +3065,8 @@ unsafe impl windows_core::Interface for ContactFieldFactory {
 impl windows_core::RuntimeName for ContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactFieldFactory";
 }
+unsafe impl Send for ContactFieldFactory {}
+unsafe impl Sync for ContactFieldFactory {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactGroup(windows_core::IUnknown);
@@ -3044,6 +3082,8 @@ unsafe impl windows_core::Interface for ContactGroup {
 impl windows_core::RuntimeName for ContactGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactGroup";
 }
+unsafe impl Send for ContactGroup {}
+unsafe impl Sync for ContactGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactInformation(windows_core::IUnknown);
@@ -3221,6 +3261,8 @@ unsafe impl windows_core::Interface for ContactInstantMessageField {
 impl windows_core::RuntimeName for ContactInstantMessageField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInstantMessageField";
 }
+unsafe impl Send for ContactInstantMessageField {}
+unsafe impl Sync for ContactInstantMessageField {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactJobInfo(windows_core::IUnknown);
@@ -3332,6 +3374,8 @@ unsafe impl windows_core::Interface for ContactJobInfo {
 impl windows_core::RuntimeName for ContactJobInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactJobInfo";
 }
+unsafe impl Send for ContactJobInfo {}
+unsafe impl Sync for ContactJobInfo {}
 pub struct ContactLaunchActionVerbs;
 impl ContactLaunchActionVerbs {
     pub fn Call() -> windows_core::Result<windows_core::HSTRING> {
@@ -3592,6 +3636,8 @@ unsafe impl windows_core::Interface for ContactList {
 impl windows_core::RuntimeName for ContactList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactList";
 }
+unsafe impl Send for ContactList {}
+unsafe impl Sync for ContactList {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListLimitedWriteOperations(windows_core::IUnknown);
@@ -3625,6 +3671,8 @@ unsafe impl windows_core::Interface for ContactListLimitedWriteOperations {
 impl windows_core::RuntimeName for ContactListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations";
 }
+unsafe impl Send for ContactListLimitedWriteOperations {}
+unsafe impl Sync for ContactListLimitedWriteOperations {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncConstraints(windows_core::IUnknown);
@@ -4030,6 +4078,8 @@ unsafe impl windows_core::Interface for ContactListSyncConstraints {
 impl windows_core::RuntimeName for ContactListSyncConstraints {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncConstraints";
 }
+unsafe impl Send for ContactListSyncConstraints {}
+unsafe impl Sync for ContactListSyncConstraints {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManager(windows_core::IUnknown);
@@ -4100,6 +4150,8 @@ unsafe impl windows_core::Interface for ContactListSyncManager {
 impl windows_core::RuntimeName for ContactListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncManager";
 }
+unsafe impl Send for ContactListSyncManager {}
+unsafe impl Sync for ContactListSyncManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactLocationField(windows_core::IUnknown);
@@ -4209,6 +4261,8 @@ unsafe impl windows_core::Interface for ContactLocationField {
 impl windows_core::RuntimeName for ContactLocationField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLocationField";
 }
+unsafe impl Send for ContactLocationField {}
+unsafe impl Sync for ContactLocationField {}
 pub struct ContactManager;
 impl ContactManager {
     pub fn ShowContactCard<P0>(contact: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<()>
@@ -4488,6 +4542,8 @@ unsafe impl windows_core::Interface for ContactManagerForUser {
 impl windows_core::RuntimeName for ContactManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManagerForUser";
 }
+unsafe impl Send for ContactManagerForUser {}
+unsafe impl Sync for ContactManagerForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMatchReason(windows_core::IUnknown);
@@ -4526,6 +4582,8 @@ unsafe impl windows_core::Interface for ContactMatchReason {
 impl windows_core::RuntimeName for ContactMatchReason {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactMatchReason";
 }
+unsafe impl Send for ContactMatchReason {}
+unsafe impl Sync for ContactMatchReason {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanel(windows_core::IUnknown);
@@ -4590,6 +4648,8 @@ unsafe impl windows_core::Interface for ContactPanel {
 impl windows_core::RuntimeName for ContactPanel {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanel";
 }
+unsafe impl Send for ContactPanel {}
+unsafe impl Sync for ContactPanel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelClosingEventArgs(windows_core::IUnknown);
@@ -4613,6 +4673,8 @@ unsafe impl windows_core::Interface for ContactPanelClosingEventArgs {
 impl windows_core::RuntimeName for ContactPanelClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs";
 }
+unsafe impl Send for ContactPanelClosingEventArgs {}
+unsafe impl Sync for ContactPanelClosingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(windows_core::IUnknown);
@@ -4640,6 +4702,8 @@ unsafe impl windows_core::Interface for ContactPanelLaunchFullAppRequestedEventA
 impl windows_core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs";
 }
+unsafe impl Send for ContactPanelLaunchFullAppRequestedEventArgs {}
+unsafe impl Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPhone(windows_core::IUnknown);
@@ -4696,6 +4760,8 @@ unsafe impl windows_core::Interface for ContactPhone {
 impl windows_core::RuntimeName for ContactPhone {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPhone";
 }
+unsafe impl Send for ContactPhone {}
+unsafe impl Sync for ContactPhone {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPicker(windows_core::IUnknown);
@@ -4910,6 +4976,8 @@ unsafe impl windows_core::Interface for ContactQueryOptions {
 impl windows_core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryOptions";
 }
+unsafe impl Send for ContactQueryOptions {}
+unsafe impl Sync for ContactQueryOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactQueryTextSearch(windows_core::IUnknown);
@@ -4959,6 +5027,8 @@ unsafe impl windows_core::Interface for ContactQueryTextSearch {
 impl windows_core::RuntimeName for ContactQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryTextSearch";
 }
+unsafe impl Send for ContactQueryTextSearch {}
+unsafe impl Sync for ContactQueryTextSearch {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactReader(windows_core::IUnknown);
@@ -4993,6 +5063,8 @@ unsafe impl windows_core::Interface for ContactReader {
 impl windows_core::RuntimeName for ContactReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactReader";
 }
+unsafe impl Send for ContactReader {}
+unsafe impl Sync for ContactReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactSignificantOther(windows_core::IUnknown);
@@ -5049,6 +5121,8 @@ unsafe impl windows_core::Interface for ContactSignificantOther {
 impl windows_core::RuntimeName for ContactSignificantOther {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactSignificantOther";
 }
+unsafe impl Send for ContactSignificantOther {}
+unsafe impl Sync for ContactSignificantOther {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStore(windows_core::IUnknown);
@@ -5176,6 +5250,8 @@ unsafe impl windows_core::Interface for ContactStore {
 impl windows_core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStore";
 }
+unsafe impl Send for ContactStore {}
+unsafe impl Sync for ContactStore {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStoreNotificationTriggerDetails(windows_core::IUnknown);
@@ -5191,6 +5267,8 @@ unsafe impl windows_core::Interface for ContactStoreNotificationTriggerDetails {
 impl windows_core::RuntimeName for ContactStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails";
 }
+unsafe impl Send for ContactStoreNotificationTriggerDetails {}
+unsafe impl Sync for ContactStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactWebsite(windows_core::IUnknown);
@@ -5250,6 +5328,8 @@ unsafe impl windows_core::Interface for ContactWebsite {
 impl windows_core::RuntimeName for ContactWebsite {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactWebsite";
 }
+unsafe impl Send for ContactWebsite {}
+unsafe impl Sync for ContactWebsite {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullContactCardOptions(windows_core::IUnknown);
@@ -5286,6 +5366,8 @@ unsafe impl windows_core::Interface for FullContactCardOptions {
 impl windows_core::RuntimeName for FullContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.FullContactCardOptions";
 }
+unsafe impl Send for FullContactCardOptions {}
+unsafe impl Sync for FullContactCardOptions {}
 #[cfg(feature = "deprecated")]
 pub struct KnownContactField;
 #[cfg(feature = "deprecated")]
@@ -5365,6 +5447,8 @@ unsafe impl windows_core::Interface for PinnedContactIdsQueryResult {
 impl windows_core::RuntimeName for PinnedContactIdsQueryResult {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
 }
+unsafe impl Send for PinnedContactIdsQueryResult {}
+unsafe impl Sync for PinnedContactIdsQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinnedContactManager(windows_core::IUnknown);
@@ -5477,6 +5561,8 @@ unsafe impl windows_core::Interface for PinnedContactManager {
 impl windows_core::RuntimeName for PinnedContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";
 }
+unsafe impl Send for PinnedContactManager {}
+unsafe impl Sync for PinnedContactManager {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ContactAddressKind(pub i32);

@@ -63,3 +63,5 @@ unsafe impl windows_core::Interface for InstalledClassicAppInfo {
 impl windows_core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
 }
+unsafe impl Send for InstalledClassicAppInfo {}
+unsafe impl Sync for InstalledClassicAppInfo {}

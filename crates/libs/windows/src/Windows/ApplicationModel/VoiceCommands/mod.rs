@@ -223,6 +223,8 @@ unsafe impl windows_core::Interface for VoiceCommand {
 impl windows_core::RuntimeName for VoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommand";
 }
+unsafe impl Send for VoiceCommand {}
+unsafe impl Sync for VoiceCommand {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandCompletedEventArgs(windows_core::IUnknown);
@@ -246,6 +248,8 @@ unsafe impl windows_core::Interface for VoiceCommandCompletedEventArgs {
 impl windows_core::RuntimeName for VoiceCommandCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs";
 }
+unsafe impl Send for VoiceCommandCompletedEventArgs {}
+unsafe impl Sync for VoiceCommandCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandConfirmationResult(windows_core::IUnknown);
@@ -269,6 +273,8 @@ unsafe impl windows_core::Interface for VoiceCommandConfirmationResult {
 impl windows_core::RuntimeName for VoiceCommandConfirmationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult";
 }
+unsafe impl Send for VoiceCommandConfirmationResult {}
+unsafe impl Sync for VoiceCommandConfirmationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandContentTile(windows_core::IUnknown);
@@ -388,6 +394,8 @@ unsafe impl windows_core::Interface for VoiceCommandContentTile {
 impl windows_core::RuntimeName for VoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile";
 }
+unsafe impl Send for VoiceCommandContentTile {}
+unsafe impl Sync for VoiceCommandContentTile {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandDefinition(windows_core::IUnknown);
@@ -429,6 +437,8 @@ unsafe impl windows_core::Interface for VoiceCommandDefinition {
 impl windows_core::RuntimeName for VoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition";
 }
+unsafe impl Send for VoiceCommandDefinition {}
+unsafe impl Sync for VoiceCommandDefinition {}
 pub struct VoiceCommandDefinitionManager;
 impl VoiceCommandDefinitionManager {
     #[cfg(feature = "Storage_Streams")]
@@ -479,6 +489,8 @@ unsafe impl windows_core::Interface for VoiceCommandDisambiguationResult {
 impl windows_core::RuntimeName for VoiceCommandDisambiguationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult";
 }
+unsafe impl Send for VoiceCommandDisambiguationResult {}
+unsafe impl Sync for VoiceCommandDisambiguationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandResponse(windows_core::IUnknown);
@@ -594,6 +606,8 @@ unsafe impl windows_core::Interface for VoiceCommandResponse {
 impl windows_core::RuntimeName for VoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse";
 }
+unsafe impl Send for VoiceCommandResponse {}
+unsafe impl Sync for VoiceCommandResponse {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandServiceConnection(windows_core::IUnknown);
@@ -713,6 +727,8 @@ unsafe impl windows_core::Interface for VoiceCommandServiceConnection {
 impl windows_core::RuntimeName for VoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection";
 }
+unsafe impl Send for VoiceCommandServiceConnection {}
+unsafe impl Sync for VoiceCommandServiceConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandUserMessage(windows_core::IUnknown);
@@ -758,6 +774,8 @@ unsafe impl windows_core::Interface for VoiceCommandUserMessage {
 impl windows_core::RuntimeName for VoiceCommandUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage";
 }
+unsafe impl Send for VoiceCommandUserMessage {}
+unsafe impl Sync for VoiceCommandUserMessage {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct VoiceCommandCompletionReason(pub i32);

@@ -306,6 +306,8 @@ unsafe impl windows_core::Interface for FindAllAccountsResult {
 impl windows_core::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
 }
+unsafe impl Send for FindAllAccountsResult {}
+unsafe impl Sync for FindAllAccountsResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountEventArgs(windows_core::IUnknown);
@@ -330,6 +332,8 @@ unsafe impl windows_core::Interface for WebAccountEventArgs {
 impl windows_core::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
 }
+unsafe impl Send for WebAccountEventArgs {}
+unsafe impl Sync for WebAccountEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountMonitor(windows_core::IUnknown);
@@ -402,6 +406,8 @@ unsafe impl windows_core::Interface for WebAccountMonitor {
 impl windows_core::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
 }
+unsafe impl Send for WebAccountMonitor {}
+unsafe impl Sync for WebAccountMonitor {}
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
     pub fn GetTokenSilentlyAsync<P0>(request: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
@@ -600,6 +606,8 @@ unsafe impl windows_core::Interface for WebProviderError {
 impl windows_core::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
 }
+unsafe impl Send for WebProviderError {}
+unsafe impl Sync for WebProviderError {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequest(windows_core::IUnknown);
@@ -716,6 +724,8 @@ unsafe impl windows_core::Interface for WebTokenRequest {
 impl windows_core::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
 }
+unsafe impl Send for WebTokenRequest {}
+unsafe impl Sync for WebTokenRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequestResult(windows_core::IUnknown);
@@ -761,6 +771,8 @@ unsafe impl windows_core::Interface for WebTokenRequestResult {
 impl windows_core::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
 }
+unsafe impl Send for WebTokenRequestResult {}
+unsafe impl Sync for WebTokenRequestResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenResponse(windows_core::IUnknown);
@@ -845,6 +857,8 @@ unsafe impl windows_core::Interface for WebTokenResponse {
 impl windows_core::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";
 }
+unsafe impl Send for WebTokenResponse {}
+unsafe impl Sync for WebTokenResponse {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct FindAllWebAccountsStatus(pub i32);

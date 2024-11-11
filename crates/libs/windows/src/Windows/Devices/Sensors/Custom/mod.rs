@@ -161,6 +161,8 @@ unsafe impl windows_core::Interface for CustomSensor {
 impl windows_core::RuntimeName for CustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensor";
 }
+unsafe impl Send for CustomSensor {}
+unsafe impl Sync for CustomSensor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSensorReading(windows_core::IUnknown);
@@ -199,6 +201,8 @@ unsafe impl windows_core::Interface for CustomSensorReading {
 impl windows_core::RuntimeName for CustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReading";
 }
+unsafe impl Send for CustomSensorReading {}
+unsafe impl Sync for CustomSensorReading {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSensorReadingChangedEventArgs(windows_core::IUnknown);
@@ -222,3 +226,5 @@ unsafe impl windows_core::Interface for CustomSensorReadingChangedEventArgs {
 impl windows_core::RuntimeName for CustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs";
 }
+unsafe impl Send for CustomSensorReadingChangedEventArgs {}
+unsafe impl Sync for CustomSensorReadingChangedEventArgs {}

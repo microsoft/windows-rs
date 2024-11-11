@@ -500,6 +500,8 @@ unsafe impl windows_core::Interface for SceneObject {
 impl windows_core::RuntimeName for SceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
 }
+unsafe impl Send for SceneObject {}
+unsafe impl Sync for SceneObject {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneBoundingBox(windows_core::IUnknown);
@@ -665,6 +667,8 @@ unsafe impl windows_core::Interface for SceneBoundingBox {
 impl windows_core::RuntimeName for SceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneBoundingBox";
 }
+unsafe impl Send for SceneBoundingBox {}
+unsafe impl Sync for SceneBoundingBox {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneComponent(windows_core::IUnknown);
@@ -797,6 +801,8 @@ unsafe impl windows_core::Interface for SceneComponent {
 impl windows_core::RuntimeName for SceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponent";
 }
+unsafe impl Send for SceneComponent {}
+unsafe impl Sync for SceneComponent {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1013,6 +1019,10 @@ unsafe impl windows_core::Interface for SceneComponentCollection {
 impl windows_core::RuntimeName for SceneComponentCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponentCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for SceneComponentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for SceneComponentCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMaterial(windows_core::IUnknown);
@@ -1138,6 +1148,8 @@ unsafe impl windows_core::Interface for SceneMaterial {
 impl windows_core::RuntimeName for SceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterial";
 }
+unsafe impl Send for SceneMaterial {}
+unsafe impl Sync for SceneMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMaterialInput(windows_core::IUnknown);
@@ -1263,6 +1275,8 @@ unsafe impl windows_core::Interface for SceneMaterialInput {
 impl windows_core::RuntimeName for SceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterialInput";
 }
+unsafe impl Send for SceneMaterialInput {}
+unsafe impl Sync for SceneMaterialInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMesh(windows_core::IUnknown);
@@ -1429,6 +1443,8 @@ unsafe impl windows_core::Interface for SceneMesh {
 impl windows_core::RuntimeName for SceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMesh";
 }
+unsafe impl Send for SceneMesh {}
+unsafe impl Sync for SceneMesh {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1611,6 +1627,10 @@ unsafe impl windows_core::Interface for SceneMeshMaterialAttributeMap {
 impl windows_core::RuntimeName for SceneMeshMaterialAttributeMap {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for SceneMeshMaterialAttributeMap {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for SceneMeshMaterialAttributeMap {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneRendererComponent(windows_core::IUnknown);
@@ -1743,6 +1763,8 @@ unsafe impl windows_core::Interface for SceneRendererComponent {
 impl windows_core::RuntimeName for SceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
 }
+unsafe impl Send for SceneRendererComponent {}
+unsafe impl Sync for SceneRendererComponent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMeshRendererComponent(windows_core::IUnknown);
@@ -1924,6 +1946,8 @@ unsafe impl windows_core::Interface for SceneMeshRendererComponent {
 impl windows_core::RuntimeName for SceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
 }
+unsafe impl Send for SceneMeshRendererComponent {}
+unsafe impl Sync for SceneMeshRendererComponent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScenePbrMaterial(windows_core::IUnknown);
@@ -2159,6 +2183,8 @@ unsafe impl windows_core::Interface for ScenePbrMaterial {
 impl windows_core::RuntimeName for ScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
 }
+unsafe impl Send for ScenePbrMaterial {}
+unsafe impl Sync for ScenePbrMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMetallicRoughnessMaterial(windows_core::IUnknown);
@@ -2470,6 +2496,8 @@ unsafe impl windows_core::Interface for SceneMetallicRoughnessMaterial {
 impl windows_core::RuntimeName for SceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
 }
+unsafe impl Send for SceneMetallicRoughnessMaterial {}
+unsafe impl Sync for SceneMetallicRoughnessMaterial {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneModelTransform(windows_core::IUnknown);
@@ -2669,6 +2697,8 @@ unsafe impl windows_core::Interface for SceneModelTransform {
 impl windows_core::RuntimeName for SceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneModelTransform";
 }
+unsafe impl Send for SceneModelTransform {}
+unsafe impl Sync for SceneModelTransform {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneNode(windows_core::IUnknown);
@@ -2844,6 +2874,8 @@ unsafe impl windows_core::Interface for SceneNode {
 impl windows_core::RuntimeName for SceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNode";
 }
+unsafe impl Send for SceneNode {}
+unsafe impl Sync for SceneNode {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3060,6 +3092,10 @@ unsafe impl windows_core::Interface for SceneNodeCollection {
 impl windows_core::RuntimeName for SceneNodeCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNodeCollection";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for SceneNodeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for SceneNodeCollection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneSurfaceMaterialInput(windows_core::IUnknown);
@@ -3245,6 +3281,8 @@ unsafe impl windows_core::Interface for SceneSurfaceMaterialInput {
 impl windows_core::RuntimeName for SceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
 }
+unsafe impl Send for SceneSurfaceMaterialInput {}
+unsafe impl Sync for SceneSurfaceMaterialInput {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneVisual(windows_core::IUnknown);
@@ -3669,6 +3707,8 @@ unsafe impl windows_core::Interface for SceneVisual {
 impl windows_core::RuntimeName for SceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneVisual";
 }
+unsafe impl Send for SceneVisual {}
+unsafe impl Sync for SceneVisual {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SceneAlphaMode(pub i32);

@@ -1226,6 +1226,8 @@ unsafe impl windows_core::Interface for ImageFeatureDescriptor {
 impl windows_core::RuntimeName for ImageFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureDescriptor";
 }
+unsafe impl Send for ImageFeatureDescriptor {}
+unsafe impl Sync for ImageFeatureDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageFeatureValue(windows_core::IUnknown);
@@ -1272,6 +1274,8 @@ unsafe impl windows_core::Interface for ImageFeatureValue {
 impl windows_core::RuntimeName for ImageFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureValue";
 }
+unsafe impl Send for ImageFeatureValue {}
+unsafe impl Sync for ImageFeatureValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModel(windows_core::IUnknown);
@@ -1434,6 +1438,8 @@ unsafe impl windows_core::Interface for LearningModel {
 impl windows_core::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
 }
+unsafe impl Send for LearningModel {}
+unsafe impl Sync for LearningModel {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1524,6 +1530,10 @@ unsafe impl windows_core::Interface for LearningModelBinding {
 impl windows_core::RuntimeName for LearningModelBinding {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelBinding";
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for LearningModelBinding {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for LearningModelBinding {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelDevice(windows_core::IUnknown);
@@ -1580,6 +1590,8 @@ unsafe impl windows_core::Interface for LearningModelDevice {
 impl windows_core::RuntimeName for LearningModelDevice {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelDevice";
 }
+unsafe impl Send for LearningModelDevice {}
+unsafe impl Sync for LearningModelDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelEvaluationResult(windows_core::IUnknown);
@@ -1625,6 +1637,8 @@ unsafe impl windows_core::Interface for LearningModelEvaluationResult {
 impl windows_core::RuntimeName for LearningModelEvaluationResult {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelEvaluationResult";
 }
+unsafe impl Send for LearningModelEvaluationResult {}
+unsafe impl Sync for LearningModelEvaluationResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelSession(windows_core::IUnknown);
@@ -1750,6 +1764,8 @@ unsafe impl windows_core::Interface for LearningModelSession {
 impl windows_core::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
 }
+unsafe impl Send for LearningModelSession {}
+unsafe impl Sync for LearningModelSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelSessionOptions(windows_core::IUnknown);
@@ -1799,6 +1815,8 @@ unsafe impl windows_core::Interface for LearningModelSessionOptions {
 impl windows_core::RuntimeName for LearningModelSessionOptions {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSessionOptions";
 }
+unsafe impl Send for LearningModelSessionOptions {}
+unsafe impl Sync for LearningModelSessionOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapFeatureDescriptor(windows_core::IUnknown);
@@ -1858,6 +1876,8 @@ unsafe impl windows_core::Interface for MapFeatureDescriptor {
 impl windows_core::RuntimeName for MapFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.MapFeatureDescriptor";
 }
+unsafe impl Send for MapFeatureDescriptor {}
+unsafe impl Sync for MapFeatureDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SequenceFeatureDescriptor(windows_core::IUnknown);
@@ -1910,6 +1930,8 @@ unsafe impl windows_core::Interface for SequenceFeatureDescriptor {
 impl windows_core::RuntimeName for SequenceFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.SequenceFeatureDescriptor";
 }
+unsafe impl Send for SequenceFeatureDescriptor {}
+unsafe impl Sync for SequenceFeatureDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorBoolean(windows_core::IUnknown);
@@ -2029,6 +2051,8 @@ unsafe impl windows_core::Interface for TensorBoolean {
 impl windows_core::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
 }
+unsafe impl Send for TensorBoolean {}
+unsafe impl Sync for TensorBoolean {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorDouble(windows_core::IUnknown);
@@ -2148,6 +2172,8 @@ unsafe impl windows_core::Interface for TensorDouble {
 impl windows_core::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
 }
+unsafe impl Send for TensorDouble {}
+unsafe impl Sync for TensorDouble {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFeatureDescriptor(windows_core::IUnknown);
@@ -2208,6 +2234,8 @@ unsafe impl windows_core::Interface for TensorFeatureDescriptor {
 impl windows_core::RuntimeName for TensorFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFeatureDescriptor";
 }
+unsafe impl Send for TensorFeatureDescriptor {}
+unsafe impl Sync for TensorFeatureDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFloat(windows_core::IUnknown);
@@ -2327,6 +2355,8 @@ unsafe impl windows_core::Interface for TensorFloat {
 impl windows_core::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
 }
+unsafe impl Send for TensorFloat {}
+unsafe impl Sync for TensorFloat {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFloat16Bit(windows_core::IUnknown);
@@ -2446,6 +2476,8 @@ unsafe impl windows_core::Interface for TensorFloat16Bit {
 impl windows_core::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
 }
+unsafe impl Send for TensorFloat16Bit {}
+unsafe impl Sync for TensorFloat16Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt16Bit(windows_core::IUnknown);
@@ -2565,6 +2597,8 @@ unsafe impl windows_core::Interface for TensorInt16Bit {
 impl windows_core::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
 }
+unsafe impl Send for TensorInt16Bit {}
+unsafe impl Sync for TensorInt16Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt32Bit(windows_core::IUnknown);
@@ -2684,6 +2718,8 @@ unsafe impl windows_core::Interface for TensorInt32Bit {
 impl windows_core::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
 }
+unsafe impl Send for TensorInt32Bit {}
+unsafe impl Sync for TensorInt32Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt64Bit(windows_core::IUnknown);
@@ -2803,6 +2839,8 @@ unsafe impl windows_core::Interface for TensorInt64Bit {
 impl windows_core::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
 }
+unsafe impl Send for TensorInt64Bit {}
+unsafe impl Sync for TensorInt64Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt8Bit(windows_core::IUnknown);
@@ -2922,6 +2960,8 @@ unsafe impl windows_core::Interface for TensorInt8Bit {
 impl windows_core::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
 }
+unsafe impl Send for TensorInt8Bit {}
+unsafe impl Sync for TensorInt8Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorString(windows_core::IUnknown);
@@ -3031,6 +3071,8 @@ unsafe impl windows_core::Interface for TensorString {
 impl windows_core::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
 }
+unsafe impl Send for TensorString {}
+unsafe impl Sync for TensorString {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt16Bit(windows_core::IUnknown);
@@ -3150,6 +3192,8 @@ unsafe impl windows_core::Interface for TensorUInt16Bit {
 impl windows_core::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
 }
+unsafe impl Send for TensorUInt16Bit {}
+unsafe impl Sync for TensorUInt16Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt32Bit(windows_core::IUnknown);
@@ -3269,6 +3313,8 @@ unsafe impl windows_core::Interface for TensorUInt32Bit {
 impl windows_core::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
 }
+unsafe impl Send for TensorUInt32Bit {}
+unsafe impl Sync for TensorUInt32Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt64Bit(windows_core::IUnknown);
@@ -3388,6 +3434,8 @@ unsafe impl windows_core::Interface for TensorUInt64Bit {
 impl windows_core::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
 }
+unsafe impl Send for TensorUInt64Bit {}
+unsafe impl Sync for TensorUInt64Bit {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt8Bit(windows_core::IUnknown);
@@ -3507,6 +3555,8 @@ unsafe impl windows_core::Interface for TensorUInt8Bit {
 impl windows_core::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";
 }
+unsafe impl Send for TensorUInt8Bit {}
+unsafe impl Sync for TensorUInt8Bit {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct LearningModelDeviceKind(pub i32);

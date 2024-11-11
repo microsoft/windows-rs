@@ -1100,6 +1100,8 @@ unsafe impl windows_core::Interface for SyndicationAttribute {
 impl windows_core::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
 }
+unsafe impl Send for SyndicationAttribute {}
+unsafe impl Sync for SyndicationAttribute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationCategory(windows_core::IUnknown);
@@ -1255,6 +1257,8 @@ unsafe impl windows_core::Interface for SyndicationCategory {
 impl windows_core::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
 }
+unsafe impl Send for SyndicationCategory {}
+unsafe impl Sync for SyndicationCategory {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationClient(windows_core::IUnknown);
@@ -1372,6 +1376,8 @@ unsafe impl windows_core::Interface for SyndicationClient {
 impl windows_core::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
 }
+unsafe impl Send for SyndicationClient {}
+unsafe impl Sync for SyndicationClient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationContent(windows_core::IUnknown);
@@ -1549,6 +1555,8 @@ unsafe impl windows_core::Interface for SyndicationContent {
 impl windows_core::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
 }
+unsafe impl Send for SyndicationContent {}
+unsafe impl Sync for SyndicationContent {}
 pub struct SyndicationError;
 impl SyndicationError {
     pub fn GetStatus(hresult: i32) -> windows_core::Result<SyndicationErrorStatus> {
@@ -1877,6 +1885,8 @@ unsafe impl windows_core::Interface for SyndicationFeed {
 impl windows_core::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
 }
+unsafe impl Send for SyndicationFeed {}
+unsafe impl Sync for SyndicationFeed {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationGenerator(windows_core::IUnknown);
@@ -2029,6 +2039,8 @@ unsafe impl windows_core::Interface for SyndicationGenerator {
 impl windows_core::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
 }
+unsafe impl Send for SyndicationGenerator {}
+unsafe impl Sync for SyndicationGenerator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationItem(windows_core::IUnknown);
@@ -2338,6 +2350,8 @@ unsafe impl windows_core::Interface for SyndicationItem {
 impl windows_core::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
 }
+unsafe impl Send for SyndicationItem {}
+unsafe impl Sync for SyndicationItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationLink(windows_core::IUnknown);
@@ -2535,6 +2549,8 @@ unsafe impl windows_core::Interface for SyndicationLink {
 impl windows_core::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
 }
+unsafe impl Send for SyndicationLink {}
+unsafe impl Sync for SyndicationLink {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationNode(windows_core::IUnknown);
@@ -2651,6 +2667,8 @@ unsafe impl windows_core::Interface for SyndicationNode {
 impl windows_core::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
 }
+unsafe impl Send for SyndicationNode {}
+unsafe impl Sync for SyndicationNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationPerson(windows_core::IUnknown);
@@ -2812,6 +2830,8 @@ unsafe impl windows_core::Interface for SyndicationPerson {
 impl windows_core::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
 }
+unsafe impl Send for SyndicationPerson {}
+unsafe impl Sync for SyndicationPerson {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationText(windows_core::IUnknown);
@@ -2972,6 +2992,8 @@ unsafe impl windows_core::Interface for SyndicationText {
 impl windows_core::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";
 }
+unsafe impl Send for SyndicationText {}
+unsafe impl Sync for SyndicationText {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct SyndicationErrorStatus(pub i32);

@@ -1094,6 +1094,8 @@ unsafe impl windows_core::Interface for AppDisplayInfo {
 impl windows_core::RuntimeName for AppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppDisplayInfo";
 }
+unsafe impl Send for AppDisplayInfo {}
+unsafe impl Sync for AppDisplayInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInfo(windows_core::IUnknown);
@@ -1185,6 +1187,8 @@ unsafe impl windows_core::Interface for AppInfo {
 impl windows_core::RuntimeName for AppInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInfo";
 }
+unsafe impl Send for AppInfo {}
+unsafe impl Sync for AppInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerInfo(windows_core::IUnknown);
@@ -1317,6 +1321,8 @@ unsafe impl windows_core::Interface for AppInstallerInfo {
 impl windows_core::RuntimeName for AppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstallerInfo";
 }
+unsafe impl Send for AppInstallerInfo {}
+unsafe impl Sync for AppInstallerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstance(windows_core::IUnknown);
@@ -1384,6 +1390,8 @@ unsafe impl windows_core::Interface for AppInstance {
 impl windows_core::RuntimeName for AppInstance {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstance";
 }
+unsafe impl Send for AppInstance {}
+unsafe impl Sync for AppInstance {}
 pub struct CameraApplicationManager;
 impl CameraApplicationManager {
     pub fn ShowInstalledApplicationsUI() -> windows_core::Result<()> {
@@ -1447,6 +1455,8 @@ unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.EnteredBackgroundEventArgs";
 }
+unsafe impl Send for EnteredBackgroundEventArgs {}
+unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindRelatedPackagesOptions(windows_core::IUnknown);
@@ -1528,6 +1538,8 @@ unsafe impl windows_core::Interface for FindRelatedPackagesOptions {
 impl windows_core::RuntimeName for FindRelatedPackagesOptions {
     const NAME: &'static str = "Windows.ApplicationModel.FindRelatedPackagesOptions";
 }
+unsafe impl Send for FindRelatedPackagesOptions {}
+unsafe impl Sync for FindRelatedPackagesOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullTrustProcessLaunchResult(windows_core::IUnknown);
@@ -1558,6 +1570,8 @@ unsafe impl windows_core::Interface for FullTrustProcessLaunchResult {
 impl windows_core::RuntimeName for FullTrustProcessLaunchResult {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLaunchResult";
 }
+unsafe impl Send for FullTrustProcessLaunchResult {}
+unsafe impl Sync for FullTrustProcessLaunchResult {}
 pub struct FullTrustProcessLauncher;
 impl FullTrustProcessLauncher {
     pub fn LaunchFullTrustProcessForCurrentAppAsync() -> windows_core::Result<super::Foundation::IAsyncAction> {
@@ -1632,6 +1646,8 @@ unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LeavingBackgroundEventArgs";
 }
+unsafe impl Send for LeavingBackgroundEventArgs {}
+unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimitedAccessFeatureRequestResult(windows_core::IUnknown);
@@ -1669,6 +1685,8 @@ unsafe impl windows_core::Interface for LimitedAccessFeatureRequestResult {
 impl windows_core::RuntimeName for LimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
 }
+unsafe impl Send for LimitedAccessFeatureRequestResult {}
+unsafe impl Sync for LimitedAccessFeatureRequestResult {}
 pub struct LimitedAccessFeatures;
 impl LimitedAccessFeatures {
     pub fn TryUnlockFeature(featureid: &windows_core::HSTRING, token: &windows_core::HSTRING, attestation: &windows_core::HSTRING) -> windows_core::Result<LimitedAccessFeatureRequestResult> {
@@ -2032,6 +2050,8 @@ unsafe impl windows_core::Interface for Package {
 impl windows_core::RuntimeName for Package {
     const NAME: &'static str = "Windows.ApplicationModel.Package";
 }
+unsafe impl Send for Package {}
+unsafe impl Sync for Package {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalog(windows_core::IUnknown);
@@ -2265,6 +2285,8 @@ unsafe impl windows_core::Interface for PackageCatalogAddResourcePackageResult {
 impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
 }
+unsafe impl Send for PackageCatalogAddResourcePackageResult {}
+unsafe impl Sync for PackageCatalogAddResourcePackageResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(windows_core::IUnknown);
@@ -2327,6 +2349,8 @@ unsafe impl windows_core::Interface for PackageCatalogRemoveResourcePackagesResu
 impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
 }
+unsafe impl Send for PackageCatalogRemoveResourcePackagesResult {}
+unsafe impl Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroup(windows_core::IUnknown);
@@ -2381,6 +2405,8 @@ unsafe impl windows_core::Interface for PackageContentGroup {
 impl windows_core::RuntimeName for PackageContentGroup {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroup";
 }
+unsafe impl Send for PackageContentGroup {}
+unsafe impl Sync for PackageContentGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroupStagingEventArgs(windows_core::IUnknown);
@@ -2446,6 +2472,8 @@ unsafe impl windows_core::Interface for PackageContentGroupStagingEventArgs {
 impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
 }
+unsafe impl Send for PackageContentGroupStagingEventArgs {}
+unsafe impl Sync for PackageContentGroupStagingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageId(windows_core::IUnknown);
@@ -2533,6 +2561,8 @@ unsafe impl windows_core::Interface for PackageId {
 impl windows_core::RuntimeName for PackageId {
     const NAME: &'static str = "Windows.ApplicationModel.PackageId";
 }
+unsafe impl Send for PackageId {}
+unsafe impl Sync for PackageId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageInstallingEventArgs(windows_core::IUnknown);
@@ -2584,6 +2614,8 @@ unsafe impl windows_core::Interface for PackageInstallingEventArgs {
 impl windows_core::RuntimeName for PackageInstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageInstallingEventArgs";
 }
+unsafe impl Send for PackageInstallingEventArgs {}
+unsafe impl Sync for PackageInstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStagingEventArgs(windows_core::IUnknown);
@@ -2635,6 +2667,8 @@ unsafe impl windows_core::Interface for PackageStagingEventArgs {
 impl windows_core::RuntimeName for PackageStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStagingEventArgs";
 }
+unsafe impl Send for PackageStagingEventArgs {}
+unsafe impl Sync for PackageStagingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatus(windows_core::IUnknown);
@@ -2742,6 +2776,8 @@ unsafe impl windows_core::Interface for PackageStatus {
 impl windows_core::RuntimeName for PackageStatus {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatus";
 }
+unsafe impl Send for PackageStatus {}
+unsafe impl Sync for PackageStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatusChangedEventArgs(windows_core::IUnknown);
@@ -2765,6 +2801,8 @@ unsafe impl windows_core::Interface for PackageStatusChangedEventArgs {
 impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatusChangedEventArgs";
 }
+unsafe impl Send for PackageStatusChangedEventArgs {}
+unsafe impl Sync for PackageStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUninstallingEventArgs(windows_core::IUnknown);
@@ -2816,6 +2854,8 @@ unsafe impl windows_core::Interface for PackageUninstallingEventArgs {
 impl windows_core::RuntimeName for PackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUninstallingEventArgs";
 }
+unsafe impl Send for PackageUninstallingEventArgs {}
+unsafe impl Sync for PackageUninstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdateAvailabilityResult(windows_core::IUnknown);
@@ -2846,6 +2886,8 @@ unsafe impl windows_core::Interface for PackageUpdateAvailabilityResult {
 impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdateAvailabilityResult";
 }
+unsafe impl Send for PackageUpdateAvailabilityResult {}
+unsafe impl Sync for PackageUpdateAvailabilityResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdatingEventArgs(windows_core::IUnknown);
@@ -2904,6 +2946,8 @@ unsafe impl windows_core::Interface for PackageUpdatingEventArgs {
 impl windows_core::RuntimeName for PackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdatingEventArgs";
 }
+unsafe impl Send for PackageUpdatingEventArgs {}
+unsafe impl Sync for PackageUpdatingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTask(windows_core::IUnknown);
@@ -2962,6 +3006,8 @@ unsafe impl windows_core::Interface for StartupTask {
 impl windows_core::RuntimeName for StartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.StartupTask";
 }
+unsafe impl Send for StartupTask {}
+unsafe impl Sync for StartupTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
@@ -2983,6 +3029,8 @@ unsafe impl windows_core::Interface for SuspendingDeferral {
 impl windows_core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingDeferral";
 }
+unsafe impl Send for SuspendingDeferral {}
+unsafe impl Sync for SuspendingDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
@@ -3007,6 +3055,8 @@ unsafe impl windows_core::Interface for SuspendingEventArgs {
 impl windows_core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingEventArgs";
 }
+unsafe impl Send for SuspendingEventArgs {}
+unsafe impl Sync for SuspendingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
@@ -3038,6 +3088,8 @@ unsafe impl windows_core::Interface for SuspendingOperation {
 impl windows_core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingOperation";
 }
+unsafe impl Send for SuspendingOperation {}
+unsafe impl Sync for SuspendingOperation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AddResourcePackageOptions(pub u32);

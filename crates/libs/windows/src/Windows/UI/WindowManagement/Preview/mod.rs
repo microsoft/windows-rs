@@ -41,3 +41,5 @@ unsafe impl windows_core::Interface for WindowManagementPreview {
 impl windows_core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";
 }
+unsafe impl Send for WindowManagementPreview {}
+unsafe impl Sync for WindowManagementPreview {}

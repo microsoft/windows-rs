@@ -393,6 +393,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisement {
 impl windows_core::RuntimeName for BluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
 }
+unsafe impl Send for BluetoothLEAdvertisement {}
+unsafe impl Sync for BluetoothLEAdvertisement {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementBytePattern(windows_core::IUnknown);
@@ -468,6 +470,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementBytePattern {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
 }
+unsafe impl Send for BluetoothLEAdvertisementBytePattern {}
+unsafe impl Sync for BluetoothLEAdvertisementBytePattern {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementDataSection(windows_core::IUnknown);
@@ -532,6 +536,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementDataSection {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
 }
+unsafe impl Send for BluetoothLEAdvertisementDataSection {}
+unsafe impl Sync for BluetoothLEAdvertisementDataSection {}
 pub struct BluetoothLEAdvertisementDataTypes;
 impl BluetoothLEAdvertisementDataTypes {
     pub fn Flags() -> windows_core::Result<u8> {
@@ -719,6 +725,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementFilter {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
 }
+unsafe impl Send for BluetoothLEAdvertisementFilter {}
+unsafe impl Sync for BluetoothLEAdvertisementFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisher(windows_core::IUnknown);
@@ -838,6 +846,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisher {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
 }
+unsafe impl Send for BluetoothLEAdvertisementPublisher {}
+unsafe impl Sync for BluetoothLEAdvertisementPublisher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(windows_core::IUnknown);
@@ -875,6 +885,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherStatusC
 impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
 }
+unsafe impl Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
+unsafe impl Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(windows_core::IUnknown);
@@ -975,6 +987,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementReceivedEventArg
 impl windows_core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
 }
+unsafe impl Send for BluetoothLEAdvertisementReceivedEventArgs {}
+unsafe impl Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcher(windows_core::IUnknown);
@@ -1132,6 +1146,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcher {
 impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
 }
+unsafe impl Send for BluetoothLEAdvertisementWatcher {}
+unsafe impl Sync for BluetoothLEAdvertisementWatcher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(windows_core::IUnknown);
@@ -1155,6 +1171,8 @@ unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherStoppedEv
 impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
 }
+unsafe impl Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
+unsafe impl Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEManufacturerData(windows_core::IUnknown);
@@ -1219,6 +1237,8 @@ unsafe impl windows_core::Interface for BluetoothLEManufacturerData {
 impl windows_core::RuntimeName for BluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";
 }
+unsafe impl Send for BluetoothLEManufacturerData {}
+unsafe impl Sync for BluetoothLEManufacturerData {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);

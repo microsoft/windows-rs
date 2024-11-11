@@ -85,6 +85,8 @@ unsafe impl windows_core::Interface for SpatialGraphInteropFrameOfReferencePrevi
 impl windows_core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
 }
+unsafe impl Send for SpatialGraphInteropFrameOfReferencePreview {}
+unsafe impl Sync for SpatialGraphInteropFrameOfReferencePreview {}
 pub struct SpatialGraphInteropPreview;
 impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNode(nodeid: windows_core::GUID) -> windows_core::Result<super::SpatialCoordinateSystem> {

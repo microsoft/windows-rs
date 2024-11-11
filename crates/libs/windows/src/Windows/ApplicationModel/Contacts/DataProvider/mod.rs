@@ -198,6 +198,8 @@ unsafe impl windows_core::Interface for ContactDataProviderConnection {
 impl windows_core::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
+unsafe impl Send for ContactDataProviderConnection {}
+unsafe impl Sync for ContactDataProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactDataProviderTriggerDetails(windows_core::IUnknown);
@@ -221,6 +223,8 @@ unsafe impl windows_core::Interface for ContactDataProviderTriggerDetails {
 impl windows_core::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
+unsafe impl Send for ContactDataProviderTriggerDetails {}
+unsafe impl Sync for ContactDataProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequest(windows_core::IUnknown);
@@ -268,6 +272,8 @@ unsafe impl windows_core::Interface for ContactListCreateOrUpdateContactRequest 
 impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
+unsafe impl Send for ContactListCreateOrUpdateContactRequest {}
+unsafe impl Sync for ContactListCreateOrUpdateContactRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(windows_core::IUnknown);
@@ -298,6 +304,8 @@ unsafe impl windows_core::Interface for ContactListCreateOrUpdateContactRequestE
 impl windows_core::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
+unsafe impl Send for ContactListCreateOrUpdateContactRequestEventArgs {}
+unsafe impl Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequest(windows_core::IUnknown);
@@ -342,6 +350,8 @@ unsafe impl windows_core::Interface for ContactListDeleteContactRequest {
 impl windows_core::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
+unsafe impl Send for ContactListDeleteContactRequest {}
+unsafe impl Sync for ContactListDeleteContactRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListDeleteContactRequestEventArgs(windows_core::IUnknown);
@@ -372,6 +382,8 @@ unsafe impl windows_core::Interface for ContactListDeleteContactRequestEventArgs
 impl windows_core::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
+unsafe impl Send for ContactListDeleteContactRequestEventArgs {}
+unsafe impl Sync for ContactListDeleteContactRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequest(windows_core::IUnknown);
@@ -440,6 +452,8 @@ unsafe impl windows_core::Interface for ContactListServerSearchReadBatchRequest 
 impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
+unsafe impl Send for ContactListServerSearchReadBatchRequest {}
+unsafe impl Sync for ContactListServerSearchReadBatchRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
@@ -470,6 +484,8 @@ unsafe impl windows_core::Interface for ContactListServerSearchReadBatchRequestE
 impl windows_core::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
+unsafe impl Send for ContactListServerSearchReadBatchRequestEventArgs {}
+unsafe impl Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequest(windows_core::IUnknown);
@@ -507,6 +523,8 @@ unsafe impl windows_core::Interface for ContactListSyncManagerSyncRequest {
 impl windows_core::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
+unsafe impl Send for ContactListSyncManagerSyncRequest {}
+unsafe impl Sync for ContactListSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
@@ -537,3 +555,5 @@ unsafe impl windows_core::Interface for ContactListSyncManagerSyncRequestEventAr
 impl windows_core::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
 }
+unsafe impl Send for ContactListSyncManagerSyncRequestEventArgs {}
+unsafe impl Sync for ContactListSyncManagerSyncRequestEventArgs {}

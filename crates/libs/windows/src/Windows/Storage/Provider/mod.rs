@@ -1151,6 +1151,8 @@ unsafe impl windows_core::Interface for StorageProviderFileTypeInfo {
 impl windows_core::RuntimeName for StorageProviderFileTypeInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderFileTypeInfo";
 }
+unsafe impl Send for StorageProviderFileTypeInfo {}
+unsafe impl Sync for StorageProviderFileTypeInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderGetContentInfoForPathResult(windows_core::IUnknown);
@@ -1207,6 +1209,8 @@ unsafe impl windows_core::Interface for StorageProviderGetContentInfoForPathResu
 impl windows_core::RuntimeName for StorageProviderGetContentInfoForPathResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetContentInfoForPathResult";
 }
+unsafe impl Send for StorageProviderGetContentInfoForPathResult {}
+unsafe impl Sync for StorageProviderGetContentInfoForPathResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderGetPathForContentUriResult(windows_core::IUnknown);
@@ -1252,6 +1256,8 @@ unsafe impl windows_core::Interface for StorageProviderGetPathForContentUriResul
 impl windows_core::RuntimeName for StorageProviderGetPathForContentUriResult {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderGetPathForContentUriResult";
 }
+unsafe impl Send for StorageProviderGetPathForContentUriResult {}
+unsafe impl Sync for StorageProviderGetPathForContentUriResult {}
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
     #[cfg(feature = "Foundation_Collections")]
@@ -1329,6 +1335,8 @@ unsafe impl windows_core::Interface for StorageProviderItemProperty {
 impl windows_core::RuntimeName for StorageProviderItemProperty {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperty";
 }
+unsafe impl Send for StorageProviderItemProperty {}
+unsafe impl Sync for StorageProviderItemProperty {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderItemPropertyDefinition(windows_core::IUnknown);
@@ -1374,6 +1382,8 @@ unsafe impl windows_core::Interface for StorageProviderItemPropertyDefinition {
 impl windows_core::RuntimeName for StorageProviderItemPropertyDefinition {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemPropertyDefinition";
 }
+unsafe impl Send for StorageProviderItemPropertyDefinition {}
+unsafe impl Sync for StorageProviderItemPropertyDefinition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderEntry(windows_core::IUnknown);
@@ -1419,6 +1429,8 @@ unsafe impl windows_core::Interface for StorageProviderKnownFolderEntry {
 impl windows_core::RuntimeName for StorageProviderKnownFolderEntry {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderEntry";
 }
+unsafe impl Send for StorageProviderKnownFolderEntry {}
+unsafe impl Sync for StorageProviderKnownFolderEntry {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderSyncInfo(windows_core::IUnknown);
@@ -1475,6 +1487,8 @@ unsafe impl windows_core::Interface for StorageProviderKnownFolderSyncInfo {
 impl windows_core::RuntimeName for StorageProviderKnownFolderSyncInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderSyncInfo";
 }
+unsafe impl Send for StorageProviderKnownFolderSyncInfo {}
+unsafe impl Sync for StorageProviderKnownFolderSyncInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderSyncRequestArgs(windows_core::IUnknown);
@@ -1507,6 +1521,8 @@ unsafe impl windows_core::Interface for StorageProviderKnownFolderSyncRequestArg
 impl windows_core::RuntimeName for StorageProviderKnownFolderSyncRequestArgs {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderKnownFolderSyncRequestArgs";
 }
+unsafe impl Send for StorageProviderKnownFolderSyncRequestArgs {}
+unsafe impl Sync for StorageProviderKnownFolderSyncRequestArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderMoreInfoUI(windows_core::IUnknown);
@@ -1555,6 +1571,8 @@ unsafe impl windows_core::Interface for StorageProviderMoreInfoUI {
 impl windows_core::RuntimeName for StorageProviderMoreInfoUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderMoreInfoUI";
 }
+unsafe impl Send for StorageProviderMoreInfoUI {}
+unsafe impl Sync for StorageProviderMoreInfoUI {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderQuotaUI(windows_core::IUnknown);
@@ -1627,6 +1645,8 @@ unsafe impl windows_core::Interface for StorageProviderQuotaUI {
 impl windows_core::RuntimeName for StorageProviderQuotaUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderQuotaUI";
 }
+unsafe impl Send for StorageProviderQuotaUI {}
+unsafe impl Sync for StorageProviderQuotaUI {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderStatusUI(windows_core::IUnknown);
@@ -1758,6 +1778,8 @@ unsafe impl windows_core::Interface for StorageProviderStatusUI {
 impl windows_core::RuntimeName for StorageProviderStatusUI {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderStatusUI";
 }
+unsafe impl Send for StorageProviderStatusUI {}
+unsafe impl Sync for StorageProviderStatusUI {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderSyncRootInfo(windows_core::IUnknown);
@@ -1984,6 +2006,8 @@ unsafe impl windows_core::Interface for StorageProviderSyncRootInfo {
 impl windows_core::RuntimeName for StorageProviderSyncRootInfo {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootInfo";
 }
+unsafe impl Send for StorageProviderSyncRootInfo {}
+unsafe impl Sync for StorageProviderSyncRootInfo {}
 pub struct StorageProviderSyncRootManager;
 impl StorageProviderSyncRootManager {
     pub fn Register<P0>(syncrootinformation: P0) -> windows_core::Result<()>

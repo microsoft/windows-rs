@@ -146,6 +146,8 @@ unsafe impl windows_core::Interface for HdmiDisplayInformation {
 impl windows_core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
+unsafe impl Send for HdmiDisplayInformation {}
+unsafe impl Sync for HdmiDisplayInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayMode(windows_core::IUnknown);
@@ -249,6 +251,8 @@ unsafe impl windows_core::Interface for HdmiDisplayMode {
 impl windows_core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
+unsafe impl Send for HdmiDisplayMode {}
+unsafe impl Sync for HdmiDisplayMode {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct HdmiDisplayColorSpace(pub i32);

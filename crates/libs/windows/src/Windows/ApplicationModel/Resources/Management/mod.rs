@@ -137,6 +137,8 @@ unsafe impl windows_core::Interface for IndexedResourceCandidate {
 impl windows_core::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
+unsafe impl Send for IndexedResourceCandidate {}
+unsafe impl Sync for IndexedResourceCandidate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceQualifier(windows_core::IUnknown);
@@ -167,6 +169,8 @@ unsafe impl windows_core::Interface for IndexedResourceQualifier {
 impl windows_core::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
+unsafe impl Send for IndexedResourceQualifier {}
+unsafe impl Sync for IndexedResourceQualifier {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -240,6 +244,10 @@ unsafe impl windows_core::Interface for ResourceIndexer {
 impl windows_core::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for ResourceIndexer {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for ResourceIndexer {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct IndexedResourceType(pub i32);

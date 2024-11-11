@@ -1395,6 +1395,8 @@ unsafe impl windows_core::Interface for Calendar {
 impl windows_core::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
 }
+unsafe impl Send for Calendar {}
+unsafe impl Sync for Calendar {}
 pub struct CalendarIdentifiers;
 impl CalendarIdentifiers {
     pub fn Gregorian() -> windows_core::Result<windows_core::HSTRING> {
@@ -1565,6 +1567,8 @@ unsafe impl windows_core::Interface for CurrencyAmount {
 impl windows_core::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
 }
+unsafe impl Send for CurrencyAmount {}
+unsafe impl Sync for CurrencyAmount {}
 pub struct CurrencyIdentifiers;
 impl CurrencyIdentifiers {
     pub fn AED() -> windows_core::Result<windows_core::HSTRING> {
@@ -2648,6 +2652,8 @@ unsafe impl windows_core::Interface for GeographicRegion {
 impl windows_core::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
 }
+unsafe impl Send for GeographicRegion {}
+unsafe impl Sync for GeographicRegion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JapanesePhoneme(windows_core::IUnknown);
@@ -2825,6 +2831,8 @@ unsafe impl windows_core::Interface for Language {
 impl windows_core::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";
 }
+unsafe impl Send for Language {}
+unsafe impl Sync for Language {}
 pub struct NumeralSystemIdentifiers;
 impl NumeralSystemIdentifiers {
     pub fn Arab() -> windows_core::Result<windows_core::HSTRING> {

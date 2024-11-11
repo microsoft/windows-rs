@@ -234,6 +234,8 @@ unsafe impl windows_core::Interface for AnimationDescription {
 impl windows_core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
+unsafe impl Send for AnimationDescription {}
+unsafe impl Sync for AnimationDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OpacityAnimation(windows_core::IUnknown);
@@ -300,6 +302,8 @@ unsafe impl windows_core::Interface for OpacityAnimation {
 impl windows_core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
+unsafe impl Send for OpacityAnimation {}
+unsafe impl Sync for OpacityAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertyAnimation(windows_core::IUnknown);
@@ -352,6 +356,8 @@ unsafe impl windows_core::Interface for PropertyAnimation {
 impl windows_core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
+unsafe impl Send for PropertyAnimation {}
+unsafe impl Sync for PropertyAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScaleAnimation(windows_core::IUnknown);
@@ -439,6 +445,8 @@ unsafe impl windows_core::Interface for ScaleAnimation {
 impl windows_core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
+unsafe impl Send for ScaleAnimation {}
+unsafe impl Sync for ScaleAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TranslationAnimation(windows_core::IUnknown);
@@ -491,6 +499,8 @@ unsafe impl windows_core::Interface for TranslationAnimation {
 impl windows_core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
+unsafe impl Send for TranslationAnimation {}
+unsafe impl Sync for TranslationAnimation {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct AnimationEffect(pub i32);

@@ -433,6 +433,8 @@ unsafe impl windows_core::Interface for AudioMediaFrame {
 impl windows_core::RuntimeName for AudioMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
 }
+unsafe impl Send for AudioMediaFrame {}
+unsafe impl Sync for AudioMediaFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BufferMediaFrame(windows_core::IUnknown);
@@ -464,6 +466,8 @@ unsafe impl windows_core::Interface for BufferMediaFrame {
 impl windows_core::RuntimeName for BufferMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
 }
+unsafe impl Send for BufferMediaFrame {}
+unsafe impl Sync for BufferMediaFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrame(windows_core::IUnknown);
@@ -527,6 +531,8 @@ unsafe impl windows_core::Interface for DepthMediaFrame {
 impl windows_core::RuntimeName for DepthMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
 }
+unsafe impl Send for DepthMediaFrame {}
+unsafe impl Sync for DepthMediaFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrameFormat(windows_core::IUnknown);
@@ -557,6 +563,8 @@ unsafe impl windows_core::Interface for DepthMediaFrameFormat {
 impl windows_core::RuntimeName for DepthMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
 }
+unsafe impl Send for DepthMediaFrameFormat {}
+unsafe impl Sync for DepthMediaFrameFormat {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InfraredMediaFrame(windows_core::IUnknown);
@@ -594,6 +602,8 @@ unsafe impl windows_core::Interface for InfraredMediaFrame {
 impl windows_core::RuntimeName for InfraredMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.InfraredMediaFrame";
 }
+unsafe impl Send for InfraredMediaFrame {}
+unsafe impl Sync for InfraredMediaFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameArrivedEventArgs(windows_core::IUnknown);
@@ -609,6 +619,8 @@ unsafe impl windows_core::Interface for MediaFrameArrivedEventArgs {
 impl windows_core::RuntimeName for MediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs";
 }
+unsafe impl Send for MediaFrameArrivedEventArgs {}
+unsafe impl Sync for MediaFrameArrivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameFormat(windows_core::IUnknown);
@@ -670,6 +682,8 @@ unsafe impl windows_core::Interface for MediaFrameFormat {
 impl windows_core::RuntimeName for MediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameFormat";
 }
+unsafe impl Send for MediaFrameFormat {}
+unsafe impl Sync for MediaFrameFormat {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReader(windows_core::IUnknown);
@@ -737,6 +751,8 @@ unsafe impl windows_core::Interface for MediaFrameReader {
 impl windows_core::RuntimeName for MediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReader";
 }
+unsafe impl Send for MediaFrameReader {}
+unsafe impl Sync for MediaFrameReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReference(windows_core::IUnknown);
@@ -823,6 +839,8 @@ unsafe impl windows_core::Interface for MediaFrameReference {
 impl windows_core::RuntimeName for MediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReference";
 }
+unsafe impl Send for MediaFrameReference {}
+unsafe impl Sync for MediaFrameReference {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSource(windows_core::IUnknown);
@@ -903,6 +921,8 @@ unsafe impl windows_core::Interface for MediaFrameSource {
 impl windows_core::RuntimeName for MediaFrameSource {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSource";
 }
+unsafe impl Send for MediaFrameSource {}
+unsafe impl Sync for MediaFrameSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceController(windows_core::IUnknown);
@@ -969,6 +989,8 @@ unsafe impl windows_core::Interface for MediaFrameSourceController {
 impl windows_core::RuntimeName for MediaFrameSourceController {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceController";
 }
+unsafe impl Send for MediaFrameSourceController {}
+unsafe impl Sync for MediaFrameSourceController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGetPropertyResult(windows_core::IUnknown);
@@ -999,6 +1021,8 @@ unsafe impl windows_core::Interface for MediaFrameSourceGetPropertyResult {
 impl windows_core::RuntimeName for MediaFrameSourceGetPropertyResult {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult";
 }
+unsafe impl Send for MediaFrameSourceGetPropertyResult {}
+unsafe impl Sync for MediaFrameSourceGetPropertyResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGroup(windows_core::IUnknown);
@@ -1060,6 +1084,8 @@ unsafe impl windows_core::Interface for MediaFrameSourceGroup {
 impl windows_core::RuntimeName for MediaFrameSourceGroup {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGroup";
 }
+unsafe impl Send for MediaFrameSourceGroup {}
+unsafe impl Sync for MediaFrameSourceGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceInfo(windows_core::IUnknown);
@@ -1161,6 +1187,8 @@ unsafe impl windows_core::Interface for MediaFrameSourceInfo {
 impl windows_core::RuntimeName for MediaFrameSourceInfo {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceInfo";
 }
+unsafe impl Send for MediaFrameSourceInfo {}
+unsafe impl Sync for MediaFrameSourceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(windows_core::IUnknown);
@@ -1176,6 +1204,8 @@ unsafe impl windows_core::Interface for MultiSourceMediaFrameArrivedEventArgs {
 impl windows_core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs";
 }
+unsafe impl Send for MultiSourceMediaFrameArrivedEventArgs {}
+unsafe impl Sync for MultiSourceMediaFrameArrivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReader(windows_core::IUnknown);
@@ -1243,6 +1273,8 @@ unsafe impl windows_core::Interface for MultiSourceMediaFrameReader {
 impl windows_core::RuntimeName for MultiSourceMediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader";
 }
+unsafe impl Send for MultiSourceMediaFrameReader {}
+unsafe impl Sync for MultiSourceMediaFrameReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReference(windows_core::IUnknown);
@@ -1271,6 +1303,8 @@ unsafe impl windows_core::Interface for MultiSourceMediaFrameReference {
 impl windows_core::RuntimeName for MultiSourceMediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference";
 }
+unsafe impl Send for MultiSourceMediaFrameReference {}
+unsafe impl Sync for MultiSourceMediaFrameReference {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrame(windows_core::IUnknown);
@@ -1346,6 +1380,8 @@ unsafe impl windows_core::Interface for VideoMediaFrame {
 impl windows_core::RuntimeName for VideoMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrame";
 }
+unsafe impl Send for VideoMediaFrame {}
+unsafe impl Sync for VideoMediaFrame {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrameFormat(windows_core::IUnknown);
@@ -1390,6 +1426,8 @@ unsafe impl windows_core::Interface for VideoMediaFrameFormat {
 impl windows_core::RuntimeName for VideoMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrameFormat";
 }
+unsafe impl Send for VideoMediaFrameFormat {}
+unsafe impl Sync for VideoMediaFrameFormat {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);

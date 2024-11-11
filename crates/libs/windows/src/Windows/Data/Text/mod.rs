@@ -295,6 +295,8 @@ unsafe impl windows_core::Interface for AlternateWordForm {
 impl windows_core::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
 }
+unsafe impl Send for AlternateWordForm {}
+unsafe impl Sync for AlternateWordForm {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SelectableWordSegment(windows_core::IUnknown);
@@ -325,6 +327,8 @@ unsafe impl windows_core::Interface for SelectableWordSegment {
 impl windows_core::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
 }
+unsafe impl Send for SelectableWordSegment {}
+unsafe impl Sync for SelectableWordSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SelectableWordsSegmenter(windows_core::IUnknown);
@@ -381,6 +385,8 @@ unsafe impl windows_core::Interface for SelectableWordsSegmenter {
 impl windows_core::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
 }
+unsafe impl Send for SelectableWordsSegmenter {}
+unsafe impl Sync for SelectableWordsSegmenter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SemanticTextQuery(windows_core::IUnknown);
@@ -429,6 +435,8 @@ unsafe impl windows_core::Interface for SemanticTextQuery {
 impl windows_core::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
 }
+unsafe impl Send for SemanticTextQuery {}
+unsafe impl Sync for SemanticTextQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextConversionGenerator(windows_core::IUnknown);
@@ -485,6 +493,8 @@ unsafe impl windows_core::Interface for TextConversionGenerator {
 impl windows_core::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
 }
+unsafe impl Send for TextConversionGenerator {}
+unsafe impl Sync for TextConversionGenerator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextPhoneme(windows_core::IUnknown);
@@ -515,6 +525,8 @@ unsafe impl windows_core::Interface for TextPhoneme {
 impl windows_core::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
 }
+unsafe impl Send for TextPhoneme {}
+unsafe impl Sync for TextPhoneme {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextPredictionGenerator(windows_core::IUnknown);
@@ -606,6 +618,8 @@ unsafe impl windows_core::Interface for TextPredictionGenerator {
 impl windows_core::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
 }
+unsafe impl Send for TextPredictionGenerator {}
+unsafe impl Sync for TextPredictionGenerator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextReverseConversionGenerator(windows_core::IUnknown);
@@ -661,6 +675,8 @@ unsafe impl windows_core::Interface for TextReverseConversionGenerator {
 impl windows_core::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
 }
+unsafe impl Send for TextReverseConversionGenerator {}
+unsafe impl Sync for TextReverseConversionGenerator {}
 pub struct UnicodeCharacters;
 impl UnicodeCharacters {
     pub fn GetCodepointFromSurrogatePair(highsurrogate: u32, lowsurrogate: u32) -> windows_core::Result<u32> {
@@ -808,6 +824,8 @@ unsafe impl windows_core::Interface for WordSegment {
 impl windows_core::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
 }
+unsafe impl Send for WordSegment {}
+unsafe impl Sync for WordSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WordsSegmenter(windows_core::IUnknown);
@@ -864,6 +882,8 @@ unsafe impl windows_core::Interface for WordsSegmenter {
 impl windows_core::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";
 }
+unsafe impl Send for WordsSegmenter {}
+unsafe impl Sync for WordsSegmenter {}
 windows_core::imp::define_interface!(SelectableWordSegmentsTokenizingHandler, SelectableWordSegmentsTokenizingHandler_Vtbl, 0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
 impl windows_core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

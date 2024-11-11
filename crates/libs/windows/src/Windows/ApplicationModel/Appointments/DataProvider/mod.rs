@@ -258,6 +258,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarCancelMeetingRequest 
 impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
 }
+unsafe impl Send for AppointmentCalendarCancelMeetingRequest {}
+unsafe impl Sync for AppointmentCalendarCancelMeetingRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(windows_core::IUnknown);
@@ -288,6 +290,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarCancelMeetingRequestE
 impl windows_core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(windows_core::IUnknown);
@@ -350,6 +354,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarCreateOrUpdateAppoint
 impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
 }
+unsafe impl Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
+unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(windows_core::IUnknown);
@@ -380,6 +386,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarCreateOrUpdateAppoint
 impl windows_core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarForwardMeetingRequest(windows_core::IUnknown);
@@ -460,6 +468,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarForwardMeetingRequest
 impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
 }
+unsafe impl Send for AppointmentCalendarForwardMeetingRequest {}
+unsafe impl Sync for AppointmentCalendarForwardMeetingRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(windows_core::IUnknown);
@@ -490,6 +500,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarForwardMeetingRequest
 impl windows_core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(windows_core::IUnknown);
@@ -569,6 +581,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarProposeNewTimeForMeet
 impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
 }
+unsafe impl Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
+unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(windows_core::IUnknown);
@@ -599,6 +613,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarProposeNewTimeForMeet
 impl windows_core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequest(windows_core::IUnknown);
@@ -636,6 +652,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarSyncManagerSyncReques
 impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
 }
+unsafe impl Send for AppointmentCalendarSyncManagerSyncRequest {}
+unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
@@ -666,6 +684,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarSyncManagerSyncReques
 impl windows_core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(windows_core::IUnknown);
@@ -745,6 +765,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarUpdateMeetingResponse
 impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
 }
+unsafe impl Send for AppointmentCalendarUpdateMeetingResponseRequest {}
+unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(windows_core::IUnknown);
@@ -775,6 +797,8 @@ unsafe impl windows_core::Interface for AppointmentCalendarUpdateMeetingResponse
 impl windows_core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
 }
+unsafe impl Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
+unsafe impl Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentDataProviderConnection(windows_core::IUnknown);
@@ -879,6 +903,8 @@ unsafe impl windows_core::Interface for AppointmentDataProviderConnection {
 impl windows_core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
 }
+unsafe impl Send for AppointmentDataProviderConnection {}
+unsafe impl Sync for AppointmentDataProviderConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentDataProviderTriggerDetails(windows_core::IUnknown);
@@ -902,3 +928,5 @@ unsafe impl windows_core::Interface for AppointmentDataProviderTriggerDetails {
 impl windows_core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
 }
+unsafe impl Send for AppointmentDataProviderTriggerDetails {}
+unsafe impl Sync for AppointmentDataProviderTriggerDetails {}

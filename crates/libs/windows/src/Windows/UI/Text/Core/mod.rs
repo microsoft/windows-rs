@@ -296,6 +296,8 @@ unsafe impl windows_core::Interface for CoreTextCompositionCompletedEventArgs {
 impl windows_core::RuntimeName for CoreTextCompositionCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs";
 }
+unsafe impl Send for CoreTextCompositionCompletedEventArgs {}
+unsafe impl Sync for CoreTextCompositionCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionSegment(windows_core::IUnknown);
@@ -326,6 +328,8 @@ unsafe impl windows_core::Interface for CoreTextCompositionSegment {
 impl windows_core::RuntimeName for CoreTextCompositionSegment {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionSegment";
 }
+unsafe impl Send for CoreTextCompositionSegment {}
+unsafe impl Sync for CoreTextCompositionSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextCompositionStartedEventArgs(windows_core::IUnknown);
@@ -356,6 +360,8 @@ unsafe impl windows_core::Interface for CoreTextCompositionStartedEventArgs {
 impl windows_core::RuntimeName for CoreTextCompositionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs";
 }
+unsafe impl Send for CoreTextCompositionStartedEventArgs {}
+unsafe impl Sync for CoreTextCompositionStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextEditContext(windows_core::IUnknown);
@@ -576,6 +582,8 @@ unsafe impl windows_core::Interface for CoreTextEditContext {
 impl windows_core::RuntimeName for CoreTextEditContext {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextEditContext";
 }
+unsafe impl Send for CoreTextEditContext {}
+unsafe impl Sync for CoreTextEditContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextFormatUpdatingEventArgs(windows_core::IUnknown);
@@ -662,6 +670,8 @@ unsafe impl windows_core::Interface for CoreTextFormatUpdatingEventArgs {
 impl windows_core::RuntimeName for CoreTextFormatUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextFormatUpdatingEventArgs {}
+unsafe impl Sync for CoreTextFormatUpdatingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutBounds(windows_core::IUnknown);
@@ -700,6 +710,8 @@ unsafe impl windows_core::Interface for CoreTextLayoutBounds {
 impl windows_core::RuntimeName for CoreTextLayoutBounds {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutBounds";
 }
+unsafe impl Send for CoreTextLayoutBounds {}
+unsafe impl Sync for CoreTextLayoutBounds {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequest(windows_core::IUnknown);
@@ -751,6 +763,8 @@ unsafe impl windows_core::Interface for CoreTextLayoutRequest {
 impl windows_core::RuntimeName for CoreTextLayoutRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequest";
 }
+unsafe impl Send for CoreTextLayoutRequest {}
+unsafe impl Sync for CoreTextLayoutRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextLayoutRequestedEventArgs(windows_core::IUnknown);
@@ -774,6 +788,8 @@ unsafe impl windows_core::Interface for CoreTextLayoutRequestedEventArgs {
 impl windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs";
 }
+unsafe impl Send for CoreTextLayoutRequestedEventArgs {}
+unsafe impl Sync for CoreTextLayoutRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequest(windows_core::IUnknown);
@@ -815,6 +831,8 @@ unsafe impl windows_core::Interface for CoreTextSelectionRequest {
 impl windows_core::RuntimeName for CoreTextSelectionRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequest";
 }
+unsafe impl Send for CoreTextSelectionRequest {}
+unsafe impl Sync for CoreTextSelectionRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionRequestedEventArgs(windows_core::IUnknown);
@@ -838,6 +856,8 @@ unsafe impl windows_core::Interface for CoreTextSelectionRequestedEventArgs {
 impl windows_core::RuntimeName for CoreTextSelectionRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs";
 }
+unsafe impl Send for CoreTextSelectionRequestedEventArgs {}
+unsafe impl Sync for CoreTextSelectionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextSelectionUpdatingEventArgs(windows_core::IUnknown);
@@ -886,6 +906,8 @@ unsafe impl windows_core::Interface for CoreTextSelectionUpdatingEventArgs {
 impl windows_core::RuntimeName for CoreTextSelectionUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextSelectionUpdatingEventArgs {}
+unsafe impl Sync for CoreTextSelectionUpdatingEventArgs {}
 pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
     pub fn HiddenCharacter() -> windows_core::Result<u16> {
@@ -957,6 +979,8 @@ unsafe impl windows_core::Interface for CoreTextServicesManager {
 impl windows_core::RuntimeName for CoreTextServicesManager {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesManager";
 }
+unsafe impl Send for CoreTextServicesManager {}
+unsafe impl Sync for CoreTextServicesManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequest(windows_core::IUnknown);
@@ -1005,6 +1029,8 @@ unsafe impl windows_core::Interface for CoreTextTextRequest {
 impl windows_core::RuntimeName for CoreTextTextRequest {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequest";
 }
+unsafe impl Send for CoreTextTextRequest {}
+unsafe impl Sync for CoreTextTextRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextRequestedEventArgs(windows_core::IUnknown);
@@ -1028,6 +1054,8 @@ unsafe impl windows_core::Interface for CoreTextTextRequestedEventArgs {
 impl windows_core::RuntimeName for CoreTextTextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs";
 }
+unsafe impl Send for CoreTextTextRequestedEventArgs {}
+unsafe impl Sync for CoreTextTextRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreTextTextUpdatingEventArgs(windows_core::IUnknown);
@@ -1098,6 +1126,8 @@ unsafe impl windows_core::Interface for CoreTextTextUpdatingEventArgs {
 impl windows_core::RuntimeName for CoreTextTextUpdatingEventArgs {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs";
 }
+unsafe impl Send for CoreTextTextUpdatingEventArgs {}
+unsafe impl Sync for CoreTextTextUpdatingEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CoreTextFormatUpdatingReason(pub i32);

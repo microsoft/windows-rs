@@ -43,6 +43,8 @@ impl ID3DBlob_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DBlob {}
+unsafe impl Send for ID3DBlob {}
+unsafe impl Sync for ID3DBlob {}
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
@@ -91,6 +93,8 @@ impl ID3DDestructionNotifier_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
+unsafe impl Send for ID3DDestructionNotifier {}
+unsafe impl Sync for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
     pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
@@ -141,6 +145,8 @@ impl ID3DInclude {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+unsafe impl Send for ID3DInclude {}
+unsafe impl Sync for ID3DInclude {}
 pub const D3D10_1_SRV_DIMENSION_BUFFER: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(1i32);
 pub const D3D10_1_SRV_DIMENSION_TEXTURE1D: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(2i32);
 pub const D3D10_1_SRV_DIMENSION_TEXTURE1DARRAY: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(3i32);

@@ -829,6 +829,8 @@ unsafe impl windows_core::Interface for FileInformationFactory {
 impl windows_core::RuntimeName for FileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformationFactory";
 }
+unsafe impl Send for FileInformationFactory {}
+unsafe impl Sync for FileInformationFactory {}
 #[cfg(feature = "Storage_Search")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]

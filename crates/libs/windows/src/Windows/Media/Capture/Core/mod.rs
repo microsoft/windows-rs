@@ -82,6 +82,8 @@ unsafe impl windows_core::Interface for VariablePhotoCapturedEventArgs {
 impl windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
 }
+unsafe impl Send for VariablePhotoCapturedEventArgs {}
+unsafe impl Sync for VariablePhotoCapturedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);

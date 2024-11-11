@@ -132,6 +132,8 @@ unsafe impl windows_core::Interface for PhoneCallBlockedTriggerDetails {
 impl windows_core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 }
+unsafe impl Send for PhoneCallBlockedTriggerDetails {}
+unsafe impl Sync for PhoneCallBlockedTriggerDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -170,6 +172,10 @@ unsafe impl windows_core::Interface for PhoneCallOriginDataRequestTriggerDetails
 impl windows_core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PhoneCallOriginDataRequestTriggerDetails {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -240,6 +246,10 @@ unsafe impl windows_core::Interface for PhoneIncomingCallDismissedTriggerDetails
 impl windows_core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for PhoneIncomingCallDismissedTriggerDetails {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(windows_core::IUnknown);
@@ -270,6 +280,8 @@ unsafe impl windows_core::Interface for PhoneIncomingCallNotificationTriggerDeta
 impl windows_core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
 }
+unsafe impl Send for PhoneIncomingCallNotificationTriggerDetails {}
+unsafe impl Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneLineChangedTriggerDetails(windows_core::IUnknown);
@@ -307,6 +319,8 @@ unsafe impl windows_core::Interface for PhoneLineChangedTriggerDetails {
 impl windows_core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 }
+unsafe impl Send for PhoneLineChangedTriggerDetails {}
+unsafe impl Sync for PhoneLineChangedTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(windows_core::IUnknown);
@@ -344,6 +358,8 @@ unsafe impl windows_core::Interface for PhoneNewVoicemailMessageTriggerDetails {
 impl windows_core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 }
+unsafe impl Send for PhoneNewVoicemailMessageTriggerDetails {}
+unsafe impl Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct PhoneCallBlockedReason(pub i32);

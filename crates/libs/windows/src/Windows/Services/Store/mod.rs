@@ -690,6 +690,8 @@ unsafe impl windows_core::Interface for StoreAcquireLicenseResult {
 impl windows_core::RuntimeName for StoreAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreAcquireLicenseResult";
 }
+unsafe impl Send for StoreAcquireLicenseResult {}
+unsafe impl Sync for StoreAcquireLicenseResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAppLicense(windows_core::IUnknown);
@@ -777,6 +779,8 @@ unsafe impl windows_core::Interface for StoreAppLicense {
 impl windows_core::RuntimeName for StoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreAppLicense";
 }
+unsafe impl Send for StoreAppLicense {}
+unsafe impl Sync for StoreAppLicense {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAvailability(windows_core::IUnknown);
@@ -838,6 +842,8 @@ unsafe impl windows_core::Interface for StoreAvailability {
 impl windows_core::RuntimeName for StoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.StoreAvailability";
 }
+unsafe impl Send for StoreAvailability {}
+unsafe impl Sync for StoreAvailability {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCanAcquireLicenseResult(windows_core::IUnknown);
@@ -875,6 +881,8 @@ unsafe impl windows_core::Interface for StoreCanAcquireLicenseResult {
 impl windows_core::RuntimeName for StoreCanAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreCanAcquireLicenseResult";
 }
+unsafe impl Send for StoreCanAcquireLicenseResult {}
+unsafe impl Sync for StoreCanAcquireLicenseResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCollectionData(windows_core::IUnknown);
@@ -947,6 +955,8 @@ unsafe impl windows_core::Interface for StoreCollectionData {
 impl windows_core::RuntimeName for StoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.StoreCollectionData";
 }
+unsafe impl Send for StoreCollectionData {}
+unsafe impl Sync for StoreCollectionData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreConsumableResult(windows_core::IUnknown);
@@ -991,6 +1001,8 @@ unsafe impl windows_core::Interface for StoreConsumableResult {
 impl windows_core::RuntimeName for StoreConsumableResult {
     const NAME: &'static str = "Windows.Services.Store.StoreConsumableResult";
 }
+unsafe impl Send for StoreConsumableResult {}
+unsafe impl Sync for StoreConsumableResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreContext(windows_core::IUnknown);
@@ -1413,6 +1425,8 @@ unsafe impl windows_core::Interface for StoreContext {
 impl windows_core::RuntimeName for StoreContext {
     const NAME: &'static str = "Windows.Services.Store.StoreContext";
 }
+unsafe impl Send for StoreContext {}
+unsafe impl Sync for StoreContext {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreImage(windows_core::IUnknown);
@@ -1464,6 +1478,8 @@ unsafe impl windows_core::Interface for StoreImage {
 impl windows_core::RuntimeName for StoreImage {
     const NAME: &'static str = "Windows.Services.Store.StoreImage";
 }
+unsafe impl Send for StoreImage {}
+unsafe impl Sync for StoreImage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreLicense(windows_core::IUnknown);
@@ -1515,6 +1531,8 @@ unsafe impl windows_core::Interface for StoreLicense {
 impl windows_core::RuntimeName for StoreLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreLicense";
 }
+unsafe impl Send for StoreLicense {}
+unsafe impl Sync for StoreLicense {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageInstallOptions(windows_core::IUnknown);
@@ -1549,6 +1567,8 @@ unsafe impl windows_core::Interface for StorePackageInstallOptions {
 impl windows_core::RuntimeName for StorePackageInstallOptions {
     const NAME: &'static str = "Windows.Services.Store.StorePackageInstallOptions";
 }
+unsafe impl Send for StorePackageInstallOptions {}
+unsafe impl Sync for StorePackageInstallOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageLicense(windows_core::IUnknown);
@@ -1603,6 +1623,8 @@ unsafe impl windows_core::Interface for StorePackageLicense {
 impl windows_core::RuntimeName for StorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.StorePackageLicense";
 }
+unsafe impl Send for StorePackageLicense {}
+unsafe impl Sync for StorePackageLicense {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdate(windows_core::IUnknown);
@@ -1634,6 +1656,8 @@ unsafe impl windows_core::Interface for StorePackageUpdate {
 impl windows_core::RuntimeName for StorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdate";
 }
+unsafe impl Send for StorePackageUpdate {}
+unsafe impl Sync for StorePackageUpdate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdateResult(windows_core::IUnknown);
@@ -1673,6 +1697,8 @@ unsafe impl windows_core::Interface for StorePackageUpdateResult {
 impl windows_core::RuntimeName for StorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdateResult";
 }
+unsafe impl Send for StorePackageUpdateResult {}
+unsafe impl Sync for StorePackageUpdateResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePrice(windows_core::IUnknown);
@@ -1752,6 +1778,8 @@ unsafe impl windows_core::Interface for StorePrice {
 impl windows_core::RuntimeName for StorePrice {
     const NAME: &'static str = "Windows.Services.Store.StorePrice";
 }
+unsafe impl Send for StorePrice {}
+unsafe impl Sync for StorePrice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProduct(windows_core::IUnknown);
@@ -1901,6 +1929,8 @@ unsafe impl windows_core::Interface for StoreProduct {
 impl windows_core::RuntimeName for StoreProduct {
     const NAME: &'static str = "Windows.Services.Store.StoreProduct";
 }
+unsafe impl Send for StoreProduct {}
+unsafe impl Sync for StoreProduct {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductOptions(windows_core::IUnknown);
@@ -1932,6 +1962,8 @@ unsafe impl windows_core::Interface for StoreProductOptions {
 impl windows_core::RuntimeName for StoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.StoreProductOptions";
 }
+unsafe impl Send for StoreProductOptions {}
+unsafe impl Sync for StoreProductOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductPagedQueryResult(windows_core::IUnknown);
@@ -1977,6 +2009,8 @@ unsafe impl windows_core::Interface for StoreProductPagedQueryResult {
 impl windows_core::RuntimeName for StoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductPagedQueryResult";
 }
+unsafe impl Send for StoreProductPagedQueryResult {}
+unsafe impl Sync for StoreProductPagedQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductQueryResult(windows_core::IUnknown);
@@ -2008,6 +2042,8 @@ unsafe impl windows_core::Interface for StoreProductQueryResult {
 impl windows_core::RuntimeName for StoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductQueryResult";
 }
+unsafe impl Send for StoreProductQueryResult {}
+unsafe impl Sync for StoreProductQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductResult(windows_core::IUnknown);
@@ -2038,6 +2074,8 @@ unsafe impl windows_core::Interface for StoreProductResult {
 impl windows_core::RuntimeName for StoreProductResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductResult";
 }
+unsafe impl Send for StoreProductResult {}
+unsafe impl Sync for StoreProductResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseProperties(windows_core::IUnknown);
@@ -2093,6 +2131,8 @@ unsafe impl windows_core::Interface for StorePurchaseProperties {
 impl windows_core::RuntimeName for StorePurchaseProperties {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseProperties";
 }
+unsafe impl Send for StorePurchaseProperties {}
+unsafe impl Sync for StorePurchaseProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseResult(windows_core::IUnknown);
@@ -2123,6 +2163,8 @@ unsafe impl windows_core::Interface for StorePurchaseResult {
 impl windows_core::RuntimeName for StorePurchaseResult {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseResult";
 }
+unsafe impl Send for StorePurchaseResult {}
+unsafe impl Sync for StorePurchaseResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItem(windows_core::IUnknown);
@@ -2216,6 +2258,8 @@ unsafe impl windows_core::Interface for StoreQueueItem {
 impl windows_core::RuntimeName for StoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItem";
 }
+unsafe impl Send for StoreQueueItem {}
+unsafe impl Sync for StoreQueueItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemCompletedEventArgs(windows_core::IUnknown);
@@ -2239,6 +2283,8 @@ unsafe impl windows_core::Interface for StoreQueueItemCompletedEventArgs {
 impl windows_core::RuntimeName for StoreQueueItemCompletedEventArgs {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemCompletedEventArgs";
 }
+unsafe impl Send for StoreQueueItemCompletedEventArgs {}
+unsafe impl Sync for StoreQueueItemCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemStatus(windows_core::IUnknown);
@@ -2283,6 +2329,8 @@ unsafe impl windows_core::Interface for StoreQueueItemStatus {
 impl windows_core::RuntimeName for StoreQueueItemStatus {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemStatus";
 }
+unsafe impl Send for StoreQueueItemStatus {}
+unsafe impl Sync for StoreQueueItemStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreRateAndReviewResult(windows_core::IUnknown);
@@ -2327,6 +2375,8 @@ unsafe impl windows_core::Interface for StoreRateAndReviewResult {
 impl windows_core::RuntimeName for StoreRateAndReviewResult {
     const NAME: &'static str = "Windows.Services.Store.StoreRateAndReviewResult";
 }
+unsafe impl Send for StoreRateAndReviewResult {}
+unsafe impl Sync for StoreRateAndReviewResult {}
 pub struct StoreRequestHelper;
 impl StoreRequestHelper {
     pub fn SendRequestAsync<P0>(context: P0, requestkind: u32, parametersasjson: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>
@@ -2384,6 +2434,8 @@ unsafe impl windows_core::Interface for StoreSendRequestResult {
 impl windows_core::RuntimeName for StoreSendRequestResult {
     const NAME: &'static str = "Windows.Services.Store.StoreSendRequestResult";
 }
+unsafe impl Send for StoreSendRequestResult {}
+unsafe impl Sync for StoreSendRequestResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSku(windows_core::IUnknown);
@@ -2540,6 +2592,8 @@ unsafe impl windows_core::Interface for StoreSku {
 impl windows_core::RuntimeName for StoreSku {
     const NAME: &'static str = "Windows.Services.Store.StoreSku";
 }
+unsafe impl Send for StoreSku {}
+unsafe impl Sync for StoreSku {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSubscriptionInfo(windows_core::IUnknown);
@@ -2591,6 +2645,8 @@ unsafe impl windows_core::Interface for StoreSubscriptionInfo {
 impl windows_core::RuntimeName for StoreSubscriptionInfo {
     const NAME: &'static str = "Windows.Services.Store.StoreSubscriptionInfo";
 }
+unsafe impl Send for StoreSubscriptionInfo {}
+unsafe impl Sync for StoreSubscriptionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreUninstallStorePackageResult(windows_core::IUnknown);
@@ -2621,6 +2677,8 @@ unsafe impl windows_core::Interface for StoreUninstallStorePackageResult {
 impl windows_core::RuntimeName for StoreUninstallStorePackageResult {
     const NAME: &'static str = "Windows.Services.Store.StoreUninstallStorePackageResult";
 }
+unsafe impl Send for StoreUninstallStorePackageResult {}
+unsafe impl Sync for StoreUninstallStorePackageResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreVideo(windows_core::IUnknown);
@@ -2679,6 +2737,8 @@ unsafe impl windows_core::Interface for StoreVideo {
 impl windows_core::RuntimeName for StoreVideo {
     const NAME: &'static str = "Windows.Services.Store.StoreVideo";
 }
+unsafe impl Send for StoreVideo {}
+unsafe impl Sync for StoreVideo {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct StoreCanLicenseStatus(pub i32);

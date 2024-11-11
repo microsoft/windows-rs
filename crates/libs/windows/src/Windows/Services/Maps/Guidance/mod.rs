@@ -317,6 +317,8 @@ unsafe impl windows_core::Interface for GuidanceAudioNotificationRequestedEventA
 impl windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
 }
+unsafe impl Send for GuidanceAudioNotificationRequestedEventArgs {}
+unsafe impl Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceLaneInfo(windows_core::IUnknown);
@@ -347,6 +349,8 @@ unsafe impl windows_core::Interface for GuidanceLaneInfo {
 impl windows_core::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
 }
+unsafe impl Send for GuidanceLaneInfo {}
+unsafe impl Sync for GuidanceLaneInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceManeuver(windows_core::IUnknown);
@@ -448,6 +452,8 @@ unsafe impl windows_core::Interface for GuidanceManeuver {
 impl windows_core::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
+unsafe impl Send for GuidanceManeuver {}
+unsafe impl Sync for GuidanceManeuver {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceMapMatchedCoordinate(windows_core::IUnknown);
@@ -500,6 +506,8 @@ unsafe impl windows_core::Interface for GuidanceMapMatchedCoordinate {
 impl windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
+unsafe impl Send for GuidanceMapMatchedCoordinate {}
+unsafe impl Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceNavigator(windows_core::IUnknown);
@@ -735,6 +743,8 @@ unsafe impl windows_core::Interface for GuidanceNavigator {
 impl windows_core::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
+unsafe impl Send for GuidanceNavigator {}
+unsafe impl Sync for GuidanceNavigator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceReroutedEventArgs(windows_core::IUnknown);
@@ -758,6 +768,8 @@ unsafe impl windows_core::Interface for GuidanceReroutedEventArgs {
 impl windows_core::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
+unsafe impl Send for GuidanceReroutedEventArgs {}
+unsafe impl Sync for GuidanceReroutedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSegment(windows_core::IUnknown);
@@ -845,6 +857,8 @@ unsafe impl windows_core::Interface for GuidanceRoadSegment {
 impl windows_core::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
+unsafe impl Send for GuidanceRoadSegment {}
+unsafe impl Sync for GuidanceRoadSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSignpost(windows_core::IUnknown);
@@ -899,6 +913,8 @@ unsafe impl windows_core::Interface for GuidanceRoadSignpost {
 impl windows_core::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
+unsafe impl Send for GuidanceRoadSignpost {}
+unsafe impl Sync for GuidanceRoadSignpost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoute(windows_core::IUnknown);
@@ -990,6 +1006,8 @@ unsafe impl windows_core::Interface for GuidanceRoute {
 impl windows_core::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
+unsafe impl Send for GuidanceRoute {}
+unsafe impl Sync for GuidanceRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceTelemetryCollector(windows_core::IUnknown);
@@ -1053,6 +1071,8 @@ unsafe impl windows_core::Interface for GuidanceTelemetryCollector {
 impl windows_core::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
+unsafe impl Send for GuidanceTelemetryCollector {}
+unsafe impl Sync for GuidanceTelemetryCollector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceUpdatedEventArgs(windows_core::IUnknown);
@@ -1168,6 +1188,8 @@ unsafe impl windows_core::Interface for GuidanceUpdatedEventArgs {
 impl windows_core::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
 }
+unsafe impl Send for GuidanceUpdatedEventArgs {}
+unsafe impl Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);

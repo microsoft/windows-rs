@@ -615,6 +615,10 @@ impl windows_core::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for WalletBarcode {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletBarcode {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletItem(windows_core::IUnknown);
@@ -1028,6 +1032,10 @@ impl windows_core::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItem {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItem {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletItemCustomProperty(windows_core::IUnknown);
@@ -1125,6 +1133,10 @@ unsafe impl windows_core::Interface for WalletItemCustomProperty {
 impl windows_core::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemCustomProperty {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemCustomProperty {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1237,6 +1249,10 @@ impl windows_core::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for WalletItemStore {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletItemStore {}
+#[cfg(feature = "deprecated")]
 pub struct WalletManager;
 #[cfg(feature = "deprecated")]
 impl WalletManager {
@@ -1311,6 +1327,10 @@ unsafe impl windows_core::Interface for WalletRelevantLocation {
 impl windows_core::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletRelevantLocation {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletRelevantLocation {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1422,6 +1442,10 @@ impl windows_core::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for WalletTransaction {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletTransaction {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletVerb(windows_core::IUnknown);
@@ -1467,6 +1491,10 @@ unsafe impl windows_core::Interface for WalletVerb {
 impl windows_core::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for WalletVerb {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for WalletVerb {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct WalletActionKind(pub i32);

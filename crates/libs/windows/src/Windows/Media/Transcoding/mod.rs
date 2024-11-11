@@ -203,6 +203,8 @@ unsafe impl windows_core::Interface for MediaTranscoder {
 impl windows_core::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
 }
+unsafe impl Send for MediaTranscoder {}
+unsafe impl Sync for MediaTranscoder {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
@@ -240,6 +242,8 @@ unsafe impl windows_core::Interface for PrepareTranscodeResult {
 impl windows_core::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";
 }
+unsafe impl Send for PrepareTranscodeResult {}
+unsafe impl Sync for PrepareTranscodeResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);

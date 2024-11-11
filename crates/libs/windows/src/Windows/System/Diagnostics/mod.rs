@@ -270,6 +270,8 @@ unsafe impl windows_core::Interface for DiagnosticActionResult {
 impl windows_core::RuntimeName for DiagnosticActionResult {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
 }
+unsafe impl Send for DiagnosticActionResult {}
+unsafe impl Sync for DiagnosticActionResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticInvoker(windows_core::IUnknown);
@@ -329,6 +331,8 @@ unsafe impl windows_core::Interface for DiagnosticInvoker {
 impl windows_core::RuntimeName for DiagnosticInvoker {
     const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
 }
+unsafe impl Send for DiagnosticInvoker {}
+unsafe impl Sync for DiagnosticInvoker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsage(windows_core::IUnknown);
@@ -352,6 +356,8 @@ unsafe impl windows_core::Interface for ProcessCpuUsage {
 impl windows_core::RuntimeName for ProcessCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsage";
 }
+unsafe impl Send for ProcessCpuUsage {}
+unsafe impl Sync for ProcessCpuUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsageReport(windows_core::IUnknown);
@@ -382,6 +388,8 @@ unsafe impl windows_core::Interface for ProcessCpuUsageReport {
 impl windows_core::RuntimeName for ProcessCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessCpuUsageReport";
 }
+unsafe impl Send for ProcessCpuUsageReport {}
+unsafe impl Sync for ProcessCpuUsageReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiagnosticInfo(windows_core::IUnknown);
@@ -489,6 +497,8 @@ unsafe impl windows_core::Interface for ProcessDiagnosticInfo {
 impl windows_core::RuntimeName for ProcessDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiagnosticInfo";
 }
+unsafe impl Send for ProcessDiagnosticInfo {}
+unsafe impl Sync for ProcessDiagnosticInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsage(windows_core::IUnknown);
@@ -512,6 +522,8 @@ unsafe impl windows_core::Interface for ProcessDiskUsage {
 impl windows_core::RuntimeName for ProcessDiskUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsage";
 }
+unsafe impl Send for ProcessDiskUsage {}
+unsafe impl Sync for ProcessDiskUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsageReport(windows_core::IUnknown);
@@ -570,6 +582,8 @@ unsafe impl windows_core::Interface for ProcessDiskUsageReport {
 impl windows_core::RuntimeName for ProcessDiskUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessDiskUsageReport";
 }
+unsafe impl Send for ProcessDiskUsageReport {}
+unsafe impl Sync for ProcessDiskUsageReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsage(windows_core::IUnknown);
@@ -593,6 +607,8 @@ unsafe impl windows_core::Interface for ProcessMemoryUsage {
 impl windows_core::RuntimeName for ProcessMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsage";
 }
+unsafe impl Send for ProcessMemoryUsage {}
+unsafe impl Sync for ProcessMemoryUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsageReport(windows_core::IUnknown);
@@ -693,6 +709,8 @@ unsafe impl windows_core::Interface for ProcessMemoryUsageReport {
 impl windows_core::RuntimeName for ProcessMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.ProcessMemoryUsageReport";
 }
+unsafe impl Send for ProcessMemoryUsageReport {}
+unsafe impl Sync for ProcessMemoryUsageReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsage(windows_core::IUnknown);
@@ -716,6 +734,8 @@ unsafe impl windows_core::Interface for SystemCpuUsage {
 impl windows_core::RuntimeName for SystemCpuUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsage";
 }
+unsafe impl Send for SystemCpuUsage {}
+unsafe impl Sync for SystemCpuUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsageReport(windows_core::IUnknown);
@@ -753,6 +773,8 @@ unsafe impl windows_core::Interface for SystemCpuUsageReport {
 impl windows_core::RuntimeName for SystemCpuUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemCpuUsageReport";
 }
+unsafe impl Send for SystemCpuUsageReport {}
+unsafe impl Sync for SystemCpuUsageReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemDiagnosticInfo(windows_core::IUnknown);
@@ -809,6 +831,8 @@ unsafe impl windows_core::Interface for SystemDiagnosticInfo {
 impl windows_core::RuntimeName for SystemDiagnosticInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemDiagnosticInfo";
 }
+unsafe impl Send for SystemDiagnosticInfo {}
+unsafe impl Sync for SystemDiagnosticInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsage(windows_core::IUnknown);
@@ -832,6 +856,8 @@ unsafe impl windows_core::Interface for SystemMemoryUsage {
 impl windows_core::RuntimeName for SystemMemoryUsage {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsage";
 }
+unsafe impl Send for SystemMemoryUsage {}
+unsafe impl Sync for SystemMemoryUsage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsageReport(windows_core::IUnknown);
@@ -869,6 +895,8 @@ unsafe impl windows_core::Interface for SystemMemoryUsageReport {
 impl windows_core::RuntimeName for SystemMemoryUsageReport {
     const NAME: &'static str = "Windows.System.Diagnostics.SystemMemoryUsageReport";
 }
+unsafe impl Send for SystemMemoryUsageReport {}
+unsafe impl Sync for SystemMemoryUsageReport {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct DiagnosticActionState(pub i32);

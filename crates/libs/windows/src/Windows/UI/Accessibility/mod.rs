@@ -49,6 +49,8 @@ unsafe impl windows_core::Interface for ScreenReaderPositionChangedEventArgs {
 impl windows_core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
 }
+unsafe impl Send for ScreenReaderPositionChangedEventArgs {}
+unsafe impl Sync for ScreenReaderPositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderService(windows_core::IUnknown);
@@ -93,3 +95,5 @@ unsafe impl windows_core::Interface for ScreenReaderService {
 impl windows_core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";
 }
+unsafe impl Send for ScreenReaderService {}
+unsafe impl Sync for ScreenReaderService {}

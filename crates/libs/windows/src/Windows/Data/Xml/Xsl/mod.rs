@@ -86,3 +86,5 @@ unsafe impl windows_core::Interface for XsltProcessor {
 impl windows_core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
+unsafe impl Send for XsltProcessor {}
+unsafe impl Sync for XsltProcessor {}

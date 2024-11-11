@@ -154,6 +154,8 @@ unsafe impl windows_core::Interface for OfflineMapPackage {
 impl windows_core::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
 }
+unsafe impl Send for OfflineMapPackage {}
+unsafe impl Sync for OfflineMapPackage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OfflineMapPackageQueryResult(windows_core::IUnknown);
@@ -185,6 +187,8 @@ unsafe impl windows_core::Interface for OfflineMapPackageQueryResult {
 impl windows_core::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
 }
+unsafe impl Send for OfflineMapPackageQueryResult {}
+unsafe impl Sync for OfflineMapPackageQueryResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OfflineMapPackageStartDownloadResult(windows_core::IUnknown);
@@ -208,6 +212,8 @@ unsafe impl windows_core::Interface for OfflineMapPackageStartDownloadResult {
 impl windows_core::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";
 }
+unsafe impl Send for OfflineMapPackageStartDownloadResult {}
+unsafe impl Sync for OfflineMapPackageStartDownloadResult {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct OfflineMapPackageQueryStatus(pub i32);

@@ -191,6 +191,8 @@ unsafe impl windows_core::Interface for OnlineIdAuthenticator {
 impl windows_core::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
 }
+unsafe impl Send for OnlineIdAuthenticator {}
+unsafe impl Sync for OnlineIdAuthenticator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdServiceTicket(windows_core::IUnknown);
@@ -228,6 +230,8 @@ unsafe impl windows_core::Interface for OnlineIdServiceTicket {
 impl windows_core::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
 }
+unsafe impl Send for OnlineIdServiceTicket {}
+unsafe impl Sync for OnlineIdServiceTicket {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdServiceTicketRequest(windows_core::IUnknown);
@@ -274,6 +278,8 @@ unsafe impl windows_core::Interface for OnlineIdServiceTicketRequest {
 impl windows_core::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
 }
+unsafe impl Send for OnlineIdServiceTicketRequest {}
+unsafe impl Sync for OnlineIdServiceTicketRequest {}
 pub struct OnlineIdSystemAuthenticator;
 impl OnlineIdSystemAuthenticator {
     pub fn Default() -> windows_core::Result<OnlineIdSystemAuthenticatorForUser> {
@@ -345,6 +351,8 @@ unsafe impl windows_core::Interface for OnlineIdSystemAuthenticatorForUser {
 impl windows_core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
 }
+unsafe impl Send for OnlineIdSystemAuthenticatorForUser {}
+unsafe impl Sync for OnlineIdSystemAuthenticatorForUser {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdSystemIdentity(windows_core::IUnknown);
@@ -375,6 +383,8 @@ unsafe impl windows_core::Interface for OnlineIdSystemIdentity {
 impl windows_core::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
 }
+unsafe impl Send for OnlineIdSystemIdentity {}
+unsafe impl Sync for OnlineIdSystemIdentity {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdSystemTicketResult(windows_core::IUnknown);
@@ -412,6 +422,8 @@ unsafe impl windows_core::Interface for OnlineIdSystemTicketResult {
 impl windows_core::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
 }
+unsafe impl Send for OnlineIdSystemTicketResult {}
+unsafe impl Sync for OnlineIdSystemTicketResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignOutUserOperation(windows_core::IUnknown);
@@ -476,6 +488,8 @@ unsafe impl windows_core::Interface for SignOutUserOperation {
 impl windows_core::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
+unsafe impl Send for SignOutUserOperation {}
+unsafe impl Sync for SignOutUserOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationOperation(windows_core::IUnknown);
@@ -543,6 +557,8 @@ unsafe impl windows_core::Interface for UserAuthenticationOperation {
 impl windows_core::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
+unsafe impl Send for UserAuthenticationOperation {}
+unsafe impl Sync for UserAuthenticationOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserIdentity(windows_core::IUnknown);
@@ -616,6 +632,8 @@ unsafe impl windows_core::Interface for UserIdentity {
 impl windows_core::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";
 }
+unsafe impl Send for UserIdentity {}
+unsafe impl Sync for UserIdentity {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct CredentialPromptType(pub i32);

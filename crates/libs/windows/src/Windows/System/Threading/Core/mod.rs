@@ -94,6 +94,8 @@ unsafe impl windows_core::Interface for PreallocatedWorkItem {
 impl windows_core::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
 }
+unsafe impl Send for PreallocatedWorkItem {}
+unsafe impl Sync for PreallocatedWorkItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignalNotifier(windows_core::IUnknown);
@@ -158,6 +160,8 @@ unsafe impl windows_core::Interface for SignalNotifier {
 impl windows_core::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";
 }
+unsafe impl Send for SignalNotifier {}
+unsafe impl Sync for SignalNotifier {}
 windows_core::imp::define_interface!(SignalHandler, SignalHandler_Vtbl, 0x923c402e_4721_440e_9dda_55b6f2e07710);
 impl windows_core::RuntimeType for SignalHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

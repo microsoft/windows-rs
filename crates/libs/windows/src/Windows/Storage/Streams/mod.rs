@@ -1851,6 +1851,8 @@ unsafe impl windows_core::Interface for Buffer {
 impl windows_core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
+unsafe impl Send for Buffer {}
+unsafe impl Sync for Buffer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataReader(windows_core::IUnknown);
@@ -2068,6 +2070,8 @@ unsafe impl windows_core::Interface for DataReader {
 impl windows_core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
+unsafe impl Send for DataReader {}
+unsafe impl Sync for DataReader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataReaderLoadOperation(windows_core::IUnknown);
@@ -2135,6 +2139,8 @@ unsafe impl windows_core::Interface for DataReaderLoadOperation {
 impl windows_core::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
 }
+unsafe impl Send for DataReaderLoadOperation {}
+unsafe impl Sync for DataReaderLoadOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataWriter(windows_core::IUnknown);
@@ -2317,6 +2323,8 @@ unsafe impl windows_core::Interface for DataWriter {
 impl windows_core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
+unsafe impl Send for DataWriter {}
+unsafe impl Sync for DataWriter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataWriterStoreOperation(windows_core::IUnknown);
@@ -2384,6 +2392,8 @@ unsafe impl windows_core::Interface for DataWriterStoreOperation {
 impl windows_core::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
 }
+unsafe impl Send for DataWriterStoreOperation {}
+unsafe impl Sync for DataWriterStoreOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInputStream(windows_core::IUnknown);
@@ -2415,6 +2425,8 @@ unsafe impl windows_core::Interface for FileInputStream {
 impl windows_core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
 }
+unsafe impl Send for FileInputStream {}
+unsafe impl Sync for FileInputStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOutputStream(windows_core::IUnknown);
@@ -2453,6 +2465,8 @@ unsafe impl windows_core::Interface for FileOutputStream {
 impl windows_core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
 }
+unsafe impl Send for FileOutputStream {}
+unsafe impl Sync for FileOutputStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileRandomAccessStream(windows_core::IUnknown);
@@ -2626,6 +2640,8 @@ unsafe impl windows_core::Interface for FileRandomAccessStream {
 impl windows_core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
+unsafe impl Send for FileRandomAccessStream {}
+unsafe impl Sync for FileRandomAccessStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
@@ -2738,6 +2754,8 @@ unsafe impl windows_core::Interface for InMemoryRandomAccessStream {
 impl windows_core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
 }
+unsafe impl Send for InMemoryRandomAccessStream {}
+unsafe impl Sync for InMemoryRandomAccessStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputStreamOverStream(windows_core::IUnknown);
@@ -2769,6 +2787,8 @@ unsafe impl windows_core::Interface for InputStreamOverStream {
 impl windows_core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
 }
+unsafe impl Send for InputStreamOverStream {}
+unsafe impl Sync for InputStreamOverStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OutputStreamOverStream(windows_core::IUnknown);
@@ -2807,6 +2827,8 @@ unsafe impl windows_core::Interface for OutputStreamOverStream {
 impl windows_core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
 }
+unsafe impl Send for OutputStreamOverStream {}
+unsafe impl Sync for OutputStreamOverStream {}
 pub struct RandomAccessStream;
 impl RandomAccessStream {
     pub fn CopyAsync<P0, P1>(source: P0, destination: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
@@ -2952,6 +2974,8 @@ unsafe impl windows_core::Interface for RandomAccessStreamOverStream {
 impl windows_core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
+unsafe impl Send for RandomAccessStreamOverStream {}
+unsafe impl Sync for RandomAccessStreamOverStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RandomAccessStreamReference(windows_core::IUnknown);
@@ -3007,6 +3031,8 @@ unsafe impl windows_core::Interface for RandomAccessStreamReference {
 impl windows_core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
 }
+unsafe impl Send for RandomAccessStreamReference {}
+unsafe impl Sync for RandomAccessStreamReference {}
 #[repr(transparent)]
 #[derive(Copy, Clone, Debug, Default, PartialEq)]
 pub struct ByteOrder(pub i32);

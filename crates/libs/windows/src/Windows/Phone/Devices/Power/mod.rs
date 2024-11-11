@@ -73,3 +73,5 @@ unsafe impl windows_core::Interface for Battery {
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
+unsafe impl Send for Battery {}
+unsafe impl Sync for Battery {}

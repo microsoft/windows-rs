@@ -71,3 +71,5 @@ unsafe impl windows_core::Interface for CompositorController {
 impl windows_core::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
 }
+unsafe impl Send for CompositorController {}
+unsafe impl Sync for CompositorController {}
