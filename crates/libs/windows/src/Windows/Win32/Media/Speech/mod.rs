@@ -16488,7 +16488,6 @@ impl windows_core::TypeKind for SPPHRASEELEMENT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub Anonymous: SPPHRASEPROPERTY_0,
@@ -16500,6 +16499,12 @@ pub struct SPPHRASEPROPERTY {
     pub pFirstChild: *const SPPHRASEPROPERTY,
     pub SREngineConfidence: f32,
     pub Confidence: i8,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for SPPHRASEPROPERTY {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for SPPHRASEPROPERTY {
@@ -16648,12 +16653,17 @@ impl windows_core::TypeKind for SPPHRASE_50 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct SPPROPERTYINFO {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
     pub pszValue: windows_core::PCWSTR,
     pub vValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for SPPROPERTYINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for SPPROPERTYINFO {
@@ -17102,12 +17112,17 @@ impl Default for SPTRANSITIONID {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct SPTRANSITIONPROPERTY {
     pub pszName: windows_core::PCWSTR,
     pub ulId: u32,
     pub pszValue: windows_core::PCWSTR,
     pub vValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for SPTRANSITIONPROPERTY {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for SPTRANSITIONPROPERTY {

@@ -18798,11 +18798,16 @@ impl windows_core::TypeKind for UiaCacheRequest {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::super::System::Variant::VARIANT,
     pub extraInfo: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for UiaChangeInfo {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for UiaChangeInfo {
@@ -18906,13 +18911,18 @@ impl windows_core::TypeKind for UiaPoint {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: UIA_EVENT_ID,
     pub PropertyId: i32,
     pub OldValue: super::super::System::Variant::VARIANT,
     pub NewValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for UiaPropertyChangedEventArgs {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for UiaPropertyChangedEventArgs {
@@ -18926,12 +18936,17 @@ impl windows_core::TypeKind for UiaPropertyChangedEventArgs {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
     pub PropertyId: UIA_PROPERTY_ID,
     pub Value: super::super::System::Variant::VARIANT,
     pub Flags: PropertyConditionFlags,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for UiaPropertyCondition {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for UiaPropertyCondition {

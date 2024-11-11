@@ -19359,12 +19359,17 @@ impl windows_core::TypeKind for LINETRANSLATEOUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
     pub Anonymous: MSP_EVENT_INFO_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO {
@@ -19378,7 +19383,6 @@ impl windows_core::TypeKind for MSP_EVENT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
     pub MSP_CALL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
@@ -19388,6 +19392,12 @@ pub union MSP_EVENT_INFO_0 {
     pub MSP_ASR_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
     pub MSP_TTS_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_6>,
     pub MSP_TONE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0 {

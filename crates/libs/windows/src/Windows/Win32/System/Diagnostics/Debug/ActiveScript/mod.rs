@@ -9907,11 +9907,15 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
     pub relationshipInfo: PROFILER_RELATIONSHIP_INFO,
     pub Anonymous: PROFILER_HEAP_OBJECT_RELATIONSHIP_0,
+}
+impl Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     fn default() -> Self {
@@ -9922,7 +9926,6 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
     pub stringValue: windows_core::PCWSTR,
@@ -9930,6 +9933,11 @@ pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub objectId: usize,
     pub externalObjectAddress: *mut core::ffi::c_void,
     pub subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
+}
+impl Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     fn default() -> Self {
@@ -9940,10 +9948,14 @@ impl windows_core::TypeKind for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
     pub elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
+}
+impl Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     fn default() -> Self {

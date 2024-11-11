@@ -1387,10 +1387,15 @@ impl windows_core::TypeKind for HH_FTS_QUERY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for HH_GLOBAL_PROPERTY {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for HH_GLOBAL_PROPERTY {

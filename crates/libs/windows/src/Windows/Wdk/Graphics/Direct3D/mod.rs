@@ -5735,7 +5735,6 @@ impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
@@ -5743,6 +5742,12 @@ pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous4: D3DHAL_CONTEXTCREATEDATA_3,
     pub dwhContext: usize,
     pub ddrval: windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_CONTEXTCREATEDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA {
@@ -5773,10 +5778,15 @@ impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_CONTEXTCREATEDATA_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_1 {
@@ -5790,10 +5800,15 @@ impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_CONTEXTCREATEDATA_2 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_2 {
@@ -7300,12 +7315,17 @@ impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
     pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
     pub ddrval: windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_SETRENDERTARGETDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA {
@@ -7319,10 +7339,15 @@ impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_SETRENDERTARGETDATA_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA_0 {
@@ -7336,10 +7361,15 @@ impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
     pub lpDDSZ: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl Clone for D3DHAL_SETRENDERTARGETDATA_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA_1 {

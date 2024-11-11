@@ -1155,10 +1155,15 @@ impl windows_core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone)]
 pub struct APO_NOTIFICATION {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_0,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl Clone for APO_NOTIFICATION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APO_NOTIFICATION {
@@ -1172,7 +1177,6 @@ impl windows_core::TypeKind for APO_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[derive(Clone)]
 pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
     pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
@@ -1180,6 +1184,12 @@ pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange2: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2>,
     pub deviceOrientation: DEVICE_ORIENTATION_TYPE,
     pub audioMicrophoneBoostChange: core::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_NOTIFICATION>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl Clone for APO_NOTIFICATION_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Default for APO_NOTIFICATION_0 {
@@ -1192,10 +1202,14 @@ impl windows_core::TypeKind for APO_NOTIFICATION_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
+}
+impl Clone for APO_NOTIFICATION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
@@ -1206,12 +1220,16 @@ impl windows_core::TypeKind for APO_NOTIFICATION_DESCRIPTOR {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
     pub audioEndpointVolume: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR>,
     pub audioEndpointPropertyChange: core::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
     pub audioSystemEffectsPropertyChange: core::mem::ManuallyDrop<AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR>,
     pub audioMicrophoneBoost: core::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_APO_NOTIFICATION_DESCRIPTOR>,
+}
+impl Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {

@@ -16272,13 +16272,18 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCA
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub DepthBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub StencilBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub DepthEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
     pub StencilEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
@@ -16292,10 +16297,15 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Type: D3D12_RENDER_PASS_ENDING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -16309,10 +16319,15 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone)]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
     pub PreserveLocal: D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
@@ -16379,11 +16394,16 @@ impl windows_core::TypeKind for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOU
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone)]
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub BeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub EndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
@@ -16502,11 +16522,15 @@ impl windows_core::TypeKind for D3D12_RESOURCE_ALLOCATION_INFO1 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct D3D12_RESOURCE_BARRIER {
     pub Type: D3D12_RESOURCE_BARRIER_TYPE,
     pub Flags: D3D12_RESOURCE_BARRIER_FLAGS,
     pub Anonymous: D3D12_RESOURCE_BARRIER_0,
+}
+impl Clone for D3D12_RESOURCE_BARRIER {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for D3D12_RESOURCE_BARRIER {
     fn default() -> Self {
@@ -16517,11 +16541,15 @@ impl windows_core::TypeKind for D3D12_RESOURCE_BARRIER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union D3D12_RESOURCE_BARRIER_0 {
     pub Transition: core::mem::ManuallyDrop<D3D12_RESOURCE_TRANSITION_BARRIER>,
     pub Aliasing: core::mem::ManuallyDrop<D3D12_RESOURCE_ALIASING_BARRIER>,
     pub UAV: core::mem::ManuallyDrop<D3D12_RESOURCE_UAV_BARRIER>,
+}
+impl Clone for D3D12_RESOURCE_BARRIER_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for D3D12_RESOURCE_BARRIER_0 {
     fn default() -> Self {
@@ -17957,11 +17985,16 @@ impl windows_core::TypeKind for D3D12_TEXTURE_BARRIER {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[derive(Clone)]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl Clone for D3D12_TEXTURE_COPY_LOCATION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl Default for D3D12_TEXTURE_COPY_LOCATION {

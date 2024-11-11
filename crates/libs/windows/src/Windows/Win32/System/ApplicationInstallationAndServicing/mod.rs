@@ -10236,10 +10236,14 @@ impl windows_core::TypeKind for PM_BWTASKID {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct PM_ENUM_FILTER {
     pub FilterType: i32,
     pub FilterParameter: PM_ENUM_FILTER_0,
+}
+impl Clone for PM_ENUM_FILTER {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PM_ENUM_FILTER {
     fn default() -> Self {
@@ -10250,7 +10254,6 @@ impl windows_core::TypeKind for PM_ENUM_FILTER {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,
@@ -10269,6 +10272,11 @@ pub union PM_ENUM_FILTER_0 {
     pub ContentType: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub AppSupportedFileExtPID: windows_core::GUID,
     pub ShareTargetFileType: core::mem::ManuallyDrop<windows_core::BSTR>,
+}
+impl Clone for PM_ENUM_FILTER_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for PM_ENUM_FILTER_0 {
     fn default() -> Self {

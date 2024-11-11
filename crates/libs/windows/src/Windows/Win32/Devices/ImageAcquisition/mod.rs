@@ -4583,12 +4583,16 @@ impl windows_core::TypeKind for VAL {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
     pub vt: i32,
     pub Old: WIAS_CHANGED_VALUE_INFO_0,
     pub Current: WIAS_CHANGED_VALUE_INFO_1,
+}
+impl Clone for WIAS_CHANGED_VALUE_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for WIAS_CHANGED_VALUE_INFO {
     fn default() -> Self {
@@ -4599,12 +4603,16 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
     pub fltVal: f32,
     pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub guidVal: windows_core::GUID,
+}
+impl Clone for WIAS_CHANGED_VALUE_INFO_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for WIAS_CHANGED_VALUE_INFO_1 {
     fn default() -> Self {
@@ -4615,12 +4623,16 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
     pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub guidVal: windows_core::GUID,
+}
+impl Clone for WIAS_CHANGED_VALUE_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for WIAS_CHANGED_VALUE_INFO_0 {
     fn default() -> Self {
@@ -4922,11 +4934,16 @@ impl windows_core::TypeKind for WIA_PROPERTY_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
     pub vt: super::super::System::Variant::VARENUM,
     pub ValidVal: WIA_PROPERTY_INFO_0,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for WIA_PROPERTY_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO {
@@ -4940,7 +4957,6 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_0,
     pub RangeFloat: WIA_PROPERTY_INFO_0_1,
@@ -4950,6 +4966,12 @@ pub union WIA_PROPERTY_INFO_0 {
     pub ListBStr: core::mem::ManuallyDrop<WIA_PROPERTY_INFO_0_5>,
     pub Flag: WIA_PROPERTY_INFO_0_6,
     pub None: WIA_PROPERTY_INFO_0_7,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for WIA_PROPERTY_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0 {

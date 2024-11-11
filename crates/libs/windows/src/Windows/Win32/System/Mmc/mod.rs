@@ -6967,11 +6967,16 @@ impl windows_core::TypeKind for MMC_RESTORE_VIEW {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct MMC_SNAPIN_PROPERTY {
     pub pszPropName: windows_core::PCWSTR,
     pub varValue: super::Variant::VARIANT,
     pub eAction: MMC_PROPERTY_ACTION,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for MMC_SNAPIN_PROPERTY {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for MMC_SNAPIN_PROPERTY {
@@ -7187,12 +7192,16 @@ impl windows_core::TypeKind for RESULTFINDINFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct RESULT_VIEW_TYPE_INFO {
     pub pstrPersistableViewDescription: windows_core::PWSTR,
     pub eViewType: MMC_VIEW_TYPE,
     pub dwMiscOptions: u32,
     pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
+}
+impl Clone for RESULT_VIEW_TYPE_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for RESULT_VIEW_TYPE_INFO {
     fn default() -> Self {
@@ -7203,11 +7212,15 @@ impl windows_core::TypeKind for RESULT_VIEW_TYPE_INFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union RESULT_VIEW_TYPE_INFO_0 {
     pub dwListOptions: u32,
     pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
     pub Anonymous2: core::mem::ManuallyDrop<RESULT_VIEW_TYPE_INFO_0_1>,
+}
+impl Clone for RESULT_VIEW_TYPE_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for RESULT_VIEW_TYPE_INFO_0 {
     fn default() -> Self {

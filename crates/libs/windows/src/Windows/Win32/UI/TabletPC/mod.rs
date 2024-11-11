@@ -14744,12 +14744,17 @@ impl Default for HRECOWORDLIST {
 pub const HandwrittenTextInsertion: windows_core::GUID = windows_core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
-#[derive(Clone)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub Cursor: core::mem::ManuallyDrop<Option<IInkCursor>>,
     pub Strokes: core::mem::ManuallyDrop<Option<IInkStrokes>>,
     pub Gestures: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+impl Clone for IEC_GESTUREINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl Default for IEC_GESTUREINFO {

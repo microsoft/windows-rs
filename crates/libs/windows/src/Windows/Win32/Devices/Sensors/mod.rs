@@ -1693,11 +1693,16 @@ impl windows_core::TypeKind for QUATERNION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Clone)]
 pub struct SENSOR_COLLECTION_LIST {
     pub AllocatedSizeInBytes: u32,
     pub Count: u32,
     pub List: [SENSOR_VALUE_PAIR; 1],
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl Clone for SENSOR_COLLECTION_LIST {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for SENSOR_COLLECTION_LIST {
@@ -1729,10 +1734,15 @@ impl windows_core::TypeKind for SENSOR_PROPERTY_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[derive(Clone)]
 pub struct SENSOR_VALUE_PAIR {
     pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
     pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl Clone for SENSOR_VALUE_PAIR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl Default for SENSOR_VALUE_PAIR {

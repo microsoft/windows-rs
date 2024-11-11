@@ -13490,13 +13490,17 @@ impl windows_core::TypeKind for TF_LBBALLOONINFO {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
     pub dwFrameLen: u32,
     pub dwFlags: u32,
     pub Anonymous: TF_LMLATTELEMENT_0,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,
+}
+impl Clone for TF_LMLATTELEMENT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for TF_LMLATTELEMENT {
     fn default() -> Self {
@@ -13553,10 +13557,15 @@ impl windows_core::TypeKind for TF_PRESERVEDKEY {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TF_PROPERTYVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TF_PROPERTYVAL {
@@ -13598,11 +13607,16 @@ impl windows_core::TypeKind for TF_SELECTIONSTYLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_core::GUID,
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for TS_ATTRVAL {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for TS_ATTRVAL {

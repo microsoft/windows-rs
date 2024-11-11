@@ -1573,11 +1573,16 @@ impl windows_core::TypeKind for MLOperatorSetId {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone)]
 pub struct WINML_BINDING_DESC {
     pub Name: windows_core::PCWSTR,
     pub BindType: WINML_BINDING_TYPE,
     pub Anonymous: WINML_BINDING_DESC_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for WINML_BINDING_DESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for WINML_BINDING_DESC {
@@ -1591,13 +1596,18 @@ impl windows_core::TypeKind for WINML_BINDING_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[derive(Clone)]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
     pub Map: WINML_MAP_BINDING_DESC,
     pub Image: WINML_IMAGE_BINDING_DESC,
     pub Resource: core::mem::ManuallyDrop<WINML_RESOURCE_BINDING_DESC>,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl Clone for WINML_BINDING_DESC_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl Default for WINML_BINDING_DESC_0 {

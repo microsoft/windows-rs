@@ -19625,7 +19625,6 @@ impl windows_core::TypeKind for DBCOLUMNACCESS {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19637,6 +19636,13 @@ pub struct DBCOLUMNDESC {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -19653,7 +19659,6 @@ impl windows_core::TypeKind for DBCOLUMNDESC {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19665,6 +19670,13 @@ pub struct DBCOLUMNDESC {
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -19681,7 +19693,6 @@ impl windows_core::TypeKind for DBCOLUMNDESC {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-#[derive(Clone)]
 pub struct DBCOLUMNINFO {
     pub pwszName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19692,6 +19703,13 @@ pub struct DBCOLUMNINFO {
     pub bPrecision: u8,
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -19708,7 +19726,6 @@ impl windows_core::TypeKind for DBCOLUMNINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-#[derive(Clone)]
 pub struct DBCOLUMNINFO {
     pub pwszName: windows_core::PWSTR,
     pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
@@ -19719,6 +19736,13 @@ pub struct DBCOLUMNINFO {
     pub bPrecision: u8,
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -20210,13 +20234,19 @@ impl windows_core::TypeKind for DBPARAMS {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20233,13 +20263,19 @@ impl windows_core::TypeKind for DBPROP {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20292,13 +20328,19 @@ impl windows_core::TypeKind for DBPROPIDSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBPROPINFO {
     pub pwszDescription: windows_core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
     pub vValues: super::Variant::VARIANT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20315,13 +20357,19 @@ impl windows_core::TypeKind for DBPROPINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DBPROPINFO {
     pub pwszDescription: windows_core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: super::Variant::VARENUM,
     pub vValues: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20612,10 +20660,15 @@ impl windows_core::TypeKind for DB_VARNUMERIC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct DCINFO {
     pub eInfoType: u32,
     pub vData: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DCINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for DCINFO {
@@ -20726,10 +20779,15 @@ impl windows_core::TypeKind for INCREMENTAL_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct ITEMPROP {
     pub variantValue: super::Variant::VARIANT,
     pub pwszName: windows_core::PWSTR,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for ITEMPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for ITEMPROP {
@@ -20761,11 +20819,16 @@ impl windows_core::TypeKind for ITEM_INFO {
 pub const Interval: windows_core::GUID = windows_core::GUID::from_u128(0xd957171f_4bf9_4de2_bcd5_c70a7ca55836);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
     pub vDiagInfo: super::Variant::VARIANT,
     pub sDiagField: i16,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for KAGGETDIAG {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for KAGGETDIAG {
@@ -20944,11 +21007,16 @@ impl windows_core::TypeKind for ODBC_VS_ARGS_1 {
 pub const PDPO: windows_core::GUID = windows_core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
     pub prval: super::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for PROPERTYRESTRICTION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for PROPERTYRESTRICTION {
@@ -21000,11 +21068,16 @@ impl windows_core::TypeKind for RANGECATEGORIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct RESTRICTION {
     pub rt: u32,
     pub weight: u32,
     pub res: RESTRICTION_0,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for RESTRICTION {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for RESTRICTION {
@@ -21018,7 +21091,6 @@ impl windows_core::TypeKind for RESTRICTION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
     pub orRestriction: NODERESTRICTION,
@@ -21028,6 +21100,12 @@ pub union RESTRICTION_0 {
     pub cr: CONTENTRESTRICTION,
     pub nlr: NATLANGUAGERESTRICTION,
     pub pr: core::mem::ManuallyDrop<PROPERTYRESTRICTION>,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for RESTRICTION_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for RESTRICTION_0 {
@@ -21106,10 +21184,15 @@ impl windows_core::TypeKind for RMTPACK {
 pub const RootBinder: windows_core::GUID = windows_core::GUID::from_u128(0xff151822_b0bf_11d1_a80d_000000000000);
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Clone for SEARCH_COLUMN_PROPERTIES {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for SEARCH_COLUMN_PROPERTIES {
@@ -21428,12 +21511,17 @@ impl windows_core::TypeKind for SSERRORINFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct SSVARIANT {
     pub vt: u16,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub Anonymous: SSVARIANT_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for SSVARIANT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT {
@@ -21447,7 +21535,6 @@ impl windows_core::TypeKind for SSVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
     pub sShortIntVal: i16,
@@ -21465,6 +21552,12 @@ pub union SSVARIANT_0 {
     pub tsDateTimeVal: DBTIMESTAMP,
     pub UnknownType: SSVARIANT_0_3,
     pub BLOBType: core::mem::ManuallyDrop<SSVARIANT_0_4>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for SSVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0 {

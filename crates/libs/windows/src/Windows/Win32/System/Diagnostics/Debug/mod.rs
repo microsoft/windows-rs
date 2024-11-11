@@ -6596,7 +6596,6 @@ impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: windows_core::PWSTR,
@@ -6610,6 +6609,12 @@ pub struct ExtendedDebugPropertyInfo {
     pub varValue: super::super::Variant::VARIANT,
     pub plbValue: core::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
     pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for ExtendedDebugPropertyInfo {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for ExtendedDebugPropertyInfo {

@@ -5325,10 +5325,15 @@ impl windows_core::TypeKind for NDR_SCONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for NDR_USER_MARSHAL_INFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for NDR_USER_MARSHAL_INFO {
@@ -5342,9 +5347,14 @@ impl windows_core::TypeKind for NDR_USER_MARSHAL_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for NDR_USER_MARSHAL_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for NDR_USER_MARSHAL_INFO_0 {

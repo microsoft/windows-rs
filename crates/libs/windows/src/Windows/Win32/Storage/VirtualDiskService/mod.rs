@@ -7017,10 +7017,14 @@ impl windows_core::TypeKind for VDS_ADVANCEDDISK_PROP_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct VDS_ASYNC_OUTPUT {
     pub r#type: VDS_ASYNC_OUTPUT_TYPE,
     pub Anonymous: VDS_ASYNC_OUTPUT_0,
+}
+impl Clone for VDS_ASYNC_OUTPUT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for VDS_ASYNC_OUTPUT {
     fn default() -> Self {
@@ -7031,7 +7035,6 @@ impl windows_core::TypeKind for VDS_ASYNC_OUTPUT {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union VDS_ASYNC_OUTPUT_0 {
     pub cp: VDS_ASYNC_OUTPUT_0_0,
     pub cv: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
@@ -7041,6 +7044,11 @@ pub union VDS_ASYNC_OUTPUT_0 {
     pub ct: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_5>,
     pub cpg: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_6>,
     pub cvd: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_7>,
+}
+impl Clone for VDS_ASYNC_OUTPUT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for VDS_ASYNC_OUTPUT_0 {
     fn default() -> Self {

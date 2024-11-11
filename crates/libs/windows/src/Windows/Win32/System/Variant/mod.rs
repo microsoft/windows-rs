@@ -782,7 +782,6 @@ impl core::ops::Not for VAR_CHANGE_FLAGS {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone)]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
 }
@@ -798,10 +797,15 @@ impl windows_core::TypeKind for VARIANT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone)]
 pub union VARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0>,
     pub decVal: super::super::Foundation::DECIMAL,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0 {
@@ -815,13 +819,18 @@ impl windows_core::TypeKind for VARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone)]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: VARIANT_0_0_0,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0 {
@@ -835,7 +844,6 @@ impl windows_core::TypeKind for VARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[derive(Clone)]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -883,6 +891,12 @@ pub union VARIANT_0_0_0 {
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
     pub Anonymous: core::mem::ManuallyDrop<VARIANT_0_0_0_0>,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl Clone for VARIANT_0_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0_0 {

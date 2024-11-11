@@ -2884,7 +2884,6 @@ impl windows_core::TypeKind for PROPSPEC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
 }
@@ -2900,10 +2899,15 @@ impl windows_core::TypeKind for PROPVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub union PROPVARIANT_0 {
     pub Anonymous: core::mem::ManuallyDrop<PROPVARIANT_0_0>,
     pub decVal: super::super::super::Foundation::DECIMAL,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0 {
@@ -2917,13 +2921,18 @@ impl windows_core::TypeKind for PROPVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub struct PROPVARIANT_0_0 {
     pub vt: super::super::Variant::VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: PROPVARIANT_0_0_0,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0_0 {
@@ -2937,7 +2946,6 @@ impl windows_core::TypeKind for PROPVARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone)]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: i8,
     pub bVal: u8,
@@ -3012,6 +3020,12 @@ pub union PROPVARIANT_0_0_0 {
     pub ppdispVal: *mut Option<super::IDispatch>,
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Clone for PROPVARIANT_0_0_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for PROPVARIANT_0_0_0 {

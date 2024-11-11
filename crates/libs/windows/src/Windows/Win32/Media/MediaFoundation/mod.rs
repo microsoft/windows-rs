@@ -42920,13 +42920,18 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
     pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
     pub pInputFrame: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
     pub InputFrameSubresource: u32,
     pub CurrentFrameBitstreamMetadataSize: u32,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
@@ -43693,13 +43698,18 @@ impl windows_core::TypeKind for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[derive(Clone)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
     pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
     pub EncoderInputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
     pub EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
     pub HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
@@ -44694,7 +44704,6 @@ impl windows_core::TypeKind for DXVA2_VideoProcessorCaps {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone)]
 pub struct DXVA2_VideoSample {
     pub Start: i64,
     pub End: i64,
@@ -44705,6 +44714,12 @@ pub struct DXVA2_VideoSample {
     pub Pal: [DXVA2_AYUVSample8; 16],
     pub PlanarAlpha: DXVA2_Fixed32,
     pub SampleData: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl Clone for DXVA2_VideoSample {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DXVA2_VideoSample {
@@ -46840,11 +46855,16 @@ impl windows_core::TypeKind for MFVIDEOFORMAT {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub struct MFVideoAlphaBitmap {
     pub GetBitmapFromDC: super::super::Foundation::BOOL,
     pub bitmap: MFVideoAlphaBitmap_0,
     pub params: MFVideoAlphaBitmapParams,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl Clone for MFVideoAlphaBitmap {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl Default for MFVideoAlphaBitmap {
@@ -46858,10 +46878,15 @@ impl windows_core::TypeKind for MFVideoAlphaBitmap {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone)]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
     pub pDDS: core::mem::ManuallyDrop<Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl Clone for MFVideoAlphaBitmap_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl Default for MFVideoAlphaBitmap_0 {

@@ -16589,7 +16589,6 @@ pub const NameTranslate: windows_core::GUID = windows_core::GUID::from_u128(0x27
 pub const NetAddress: windows_core::GUID = windows_core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone)]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
     pub dwFlags: u32,
@@ -16598,6 +16597,12 @@ pub struct OPENQUERYWINDOW {
     pub clsidDefaultForm: windows_core::GUID,
     pub pPersistQuery: core::mem::ManuallyDrop<Option<IPersistQuery>>,
     pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OPENQUERYWINDOW {
@@ -16611,10 +16616,15 @@ impl windows_core::TypeKind for OPENQUERYWINDOW {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[derive(Clone)]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut core::ffi::c_void,
     pub ppbFormParameters: core::mem::ManuallyDrop<Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl Clone for OPENQUERYWINDOW_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for OPENQUERYWINDOW_0 {

@@ -109,16 +109,40 @@ impl CppStruct {
         };
 
         let mut derive = quote! {};
+        let mut manual_clone = None;
 
         if writer.config.sys || is_copyable {
             derive.combine(quote! { Copy, Clone, });
-        } else {
-            derive.combine(quote! { Clone, });
+        } else 
+            if !matches!(
+                TypeName(self.def.namespace(), self.def.name()),
+                TypeName::VARIANT | TypeName::PROPVARIANT) {
+                if has_explicit_layout {
+                    manual_clone =             Some(quote! {
+                        #cfg
+                        impl Clone for #name {
+                            fn clone(&self) -> Self {
+                                unsafe { core::mem::transmute_copy(self) }
+                            }
+                        }
+                    });
+                } else {
+                    derive.combine(quote! { Clone, });
+                }
+                
         }
 
         if !writer.config.sys && !has_explicit_layout && !has_packing {
             derive.combine(quote! { Debug, PartialEq, });
         }
+
+        let derive = if derive.is_empty() {
+            derive
+        } else {
+            quote! {
+                #[derive(#derive)]
+            }
+        };
 
         // TODO: add any user-defined derive names
 
@@ -200,10 +224,11 @@ impl CppStruct {
         let mut tokens = quote! {
             #repr
             #cfg
-            #[derive(#derive)]
+            #derive
             pub #struct_or_union #name
             #fields
             #constants
+            #manual_clone
             #default
             #type_kind
         };

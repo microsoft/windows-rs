@@ -10578,7 +10578,6 @@ impl windows_core::TypeKind for AUTHENTICATEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone)]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -10596,6 +10595,12 @@ pub struct BINDINFO {
     pub dwReserved: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for BINDINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for BINDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10607,11 +10612,16 @@ impl windows_core::TypeKind for BINDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
     pub lptcomp: core::mem::ManuallyDrop<Option<ITypeComp>>,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for BINDPTR {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for BINDPTR {
@@ -10880,10 +10890,15 @@ impl windows_core::TypeKind for CUSTDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct CUSTDATAITEM {
     pub guid: windows_core::GUID,
     pub varValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for CUSTDATAITEM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for CUSTDATAITEM {
@@ -11105,11 +11120,16 @@ impl windows_core::TypeKind for FLAGGED_WORD_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for FLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for FLAG_STGMEDIUM {
@@ -11464,11 +11484,16 @@ impl windows_core::TypeKind for STATSTG {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone)]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for STGMEDIUM {
@@ -11482,7 +11507,6 @@ impl windows_core::TypeKind for STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[derive(Clone)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut core::ffi::c_void,
@@ -11491,6 +11515,12 @@ pub union STGMEDIUM_0 {
     pub lpszFileName: windows_core::PWSTR,
     pub pstm: core::mem::ManuallyDrop<Option<IStream>>,
     pub pstg: core::mem::ManuallyDrop<Option<StructuredStorage::IStorage>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl Clone for STGMEDIUM_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl Default for STGMEDIUM_0 {
@@ -11733,11 +11763,16 @@ impl windows_core::TypeKind for uCLSSPEC_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Clone for userFLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl Default for userFLAG_STGMEDIUM {
@@ -11751,10 +11786,15 @@ impl windows_core::TypeKind for userFLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[derive(Clone)]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl Clone for userSTGMEDIUM {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl Default for userSTGMEDIUM {

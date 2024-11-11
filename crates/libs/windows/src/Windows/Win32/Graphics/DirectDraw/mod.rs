@@ -5264,7 +5264,6 @@ impl windows_core::TypeKind for DDBLTBATCH {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct DDBLTFX {
     pub dwSize: u32,
     pub dwDDFX: u32,
@@ -5290,6 +5289,11 @@ pub struct DDBLTFX {
     pub ddckDestColorkey: DDCOLORKEY,
     pub ddckSrcColorkey: DDCOLORKEY,
 }
+impl Clone for DDBLTFX {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
 impl Default for DDBLTFX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5299,10 +5303,14 @@ impl windows_core::TypeKind for DDBLTFX {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
     pub lpDDSZBufferDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDBLTFX_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDBLTFX_0 {
     fn default() -> Self {
@@ -5313,10 +5321,14 @@ impl windows_core::TypeKind for DDBLTFX_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
     pub lpDDSZBufferSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDBLTFX_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDBLTFX_1 {
     fn default() -> Self {
@@ -5327,10 +5339,14 @@ impl windows_core::TypeKind for DDBLTFX_1 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDBLTFX_2 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDBLTFX_2 {
     fn default() -> Self {
@@ -5341,10 +5357,14 @@ impl windows_core::TypeKind for DDBLTFX_2 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDBLTFX_3 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDBLTFX_3 {
     fn default() -> Self {
@@ -5355,12 +5375,16 @@ impl windows_core::TypeKind for DDBLTFX_3 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
     pub dwFillPixel: u32,
     pub lpDDSPattern: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDBLTFX_4 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDBLTFX_4 {
     fn default() -> Self {
@@ -6147,7 +6171,6 @@ impl windows_core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone)]
 pub struct DDHAL_BLTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDDestSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -6164,6 +6187,12 @@ pub struct DDHAL_BLTDATA {
     pub rOrigSrc: super::super::Foundation::RECTL,
     pub dwRectCnt: u32,
     pub prDestRects: *mut super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Clone for DDHAL_BLTDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_BLTDATA {
@@ -7552,7 +7581,6 @@ impl windows_core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone)]
 pub struct DDHAL_UPDATEOVERLAYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDDestSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -7563,6 +7591,12 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
     pub overlayFX: DDOVERLAYFX,
     pub ddRVal: windows_core::HRESULT,
     pub UpdateOverlay: LPDDHALSURFCB_UPDATEOVERLAY,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Clone for DDHAL_UPDATEOVERLAYDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DDHAL_UPDATEOVERLAYDATA {
@@ -7946,7 +7980,6 @@ impl windows_core::TypeKind for DDOSCAPS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct DDOVERLAYFX {
     pub dwSize: u32,
     pub dwAlphaEdgeBlendBitDepth: u32,
@@ -7961,6 +7994,11 @@ pub struct DDOVERLAYFX {
     pub dwDDFX: u32,
     pub dwFlags: u32,
 }
+impl Clone for DDOVERLAYFX {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
 impl Default for DDOVERLAYFX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7970,10 +8008,14 @@ impl windows_core::TypeKind for DDOVERLAYFX {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDOVERLAYFX_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDOVERLAYFX_0 {
     fn default() -> Self {
@@ -7984,10 +8026,14 @@ impl windows_core::TypeKind for DDOVERLAYFX_0 {
     type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
+}
+impl Clone for DDOVERLAYFX_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DDOVERLAYFX_1 {
     fn default() -> Self {
@@ -9411,7 +9457,6 @@ impl windows_core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -9430,6 +9475,11 @@ pub struct DD_BLTDATA {
     pub prDestRects: *mut super::super::Foundation::RECT,
     pub dwAFlags: u32,
     pub ddargbScaleFactors: DDARGB,
+}
+impl Clone for DD_BLTDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DD_BLTDATA {
     fn default() -> Self {
@@ -10972,7 +11022,6 @@ impl windows_core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone)]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -10983,6 +11032,11 @@ pub struct DD_UPDATEOVERLAYDATA {
     pub overlayFX: DDOVERLAYFX,
     pub ddRVal: windows_core::HRESULT,
     pub UpdateOverlay: *mut core::ffi::c_void,
+}
+impl Clone for DD_UPDATEOVERLAYDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 impl Default for DD_UPDATEOVERLAYDATA {
     fn default() -> Self {

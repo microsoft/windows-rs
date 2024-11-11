@@ -14768,10 +14768,15 @@ impl windows_core::TypeKind for PARAMDESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct PARAMDESCEX {
     pub cBytes: u32,
     pub varDefaultValue: super::Variant::VARIANT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+impl Clone for PARAMDESCEX {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl Default for PARAMDESCEX {
@@ -15157,7 +15162,6 @@ impl windows_core::TypeKind for _wireSAFEARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -15166,6 +15170,12 @@ pub struct _wireVARIANT {
     pub wReserved2: u16,
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for _wireVARIANT {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for _wireVARIANT {
@@ -15179,7 +15189,6 @@ impl windows_core::TypeKind for _wireVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -15225,6 +15234,12 @@ pub union _wireVARIANT_0 {
     pub pullVal: *mut u64,
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for _wireVARIANT_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for _wireVARIANT_0 {
