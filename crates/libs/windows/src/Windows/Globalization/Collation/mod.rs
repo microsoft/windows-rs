@@ -81,6 +81,19 @@ impl CharacterGroupings {
         static SHARED: windows_core::imp::FactoryCache<CharacterGroupings, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    pub fn Lookup(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Create(language: &windows_core::HSTRING) -> windows_core::Result<CharacterGroupings> {
+        Self::ICharacterGroupingsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CharacterGrouping>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CharacterGrouping>>(self)?;
@@ -119,19 +132,6 @@ impl CharacterGroupings {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
-    }
-    pub fn Lookup(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Create(language: &windows_core::HSTRING) -> windows_core::Result<CharacterGroupings> {
-        Self::ICharacterGroupingsFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(language), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
     }
     fn ICharacterGroupingsFactory<R, F: FnOnce(&ICharacterGroupingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CharacterGroupings, ICharacterGroupingsFactory> = windows_core::imp::FactoryCache::new();

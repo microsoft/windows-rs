@@ -174,6 +174,10 @@ pub struct PwmPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn Controller(&self) -> windows_core::Result<PwmController> {
         let this = self;
         unsafe {
@@ -217,10 +221,6 @@ impl PwmPin {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
 impl windows_core::RuntimeType for PwmPin {

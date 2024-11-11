@@ -1730,6 +1730,31 @@ impl MediaPlaybackAudioTrackList {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn SelectedIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectedIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveSelectedIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetSelectedIndex)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SelectedIndex(&self) -> windows_core::Result<i32> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<super::Core::AudioTrack> {
         let this = self;
         unsafe {
@@ -1759,31 +1784,6 @@ impl MediaPlaybackAudioTrackList {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SelectedIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, windows_core::IInspectable>>,
-    {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectedIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveSelectedIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectedIndex)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SelectedIndex(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -3542,6 +3542,31 @@ impl MediaPlaybackTimedMetadataTrackList {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn PresentationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>>,
+    {
+        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PresentationModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemovePresentationModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemovePresentationModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetPresentationMode(&self, index: u32) -> windows_core::Result<TimedMetadataTrackPresentationMode> {
+        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPresentationMode)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPresentationMode(&self, index: u32, value: TimedMetadataTrackPresentationMode) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetPresentationMode)(windows_core::Interface::as_raw(this), index, value).ok() }
+    }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<super::Core::TimedMetadataTrack> {
         let this = self;
         unsafe {
@@ -3572,31 +3597,6 @@ impl MediaPlaybackTimedMetadataTrackList {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
-    }
-    pub fn PresentationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>>,
-    {
-        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PresentationModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemovePresentationModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemovePresentationModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn GetPresentationMode(&self, index: u32) -> windows_core::Result<TimedMetadataTrackPresentationMode> {
-        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPresentationMode)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPresentationMode(&self, index: u32, value: TimedMetadataTrackPresentationMode) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPresentationMode)(windows_core::Interface::as_raw(this), index, value).ok() }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3634,6 +3634,31 @@ impl MediaPlaybackVideoTrackList {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn SelectedIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectedIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveSelectedIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetSelectedIndex)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn SelectedIndex(&self) -> windows_core::Result<i32> {
+        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<super::Core::VideoTrack> {
         let this = self;
         unsafe {
@@ -3663,31 +3688,6 @@ impl MediaPlaybackVideoTrackList {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SelectedIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, windows_core::IInspectable>>,
-    {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectedIndexChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveSelectedIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetSelectedIndex(&self, value: i32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSelectedIndex)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn SelectedIndex(&self) -> windows_core::Result<i32> {
-        let this = &windows_core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SelectedIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

@@ -691,6 +691,10 @@ pub struct MidiInPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiInPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiInPort, super::super::Foundation::IClosable);
 impl MidiInPort {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
@@ -723,10 +727,6 @@ impl MidiInPort {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiInPort, IMidiInPortStatics> = windows_core::imp::FactoryCache::new();
@@ -920,6 +920,10 @@ pub struct MidiOutPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable, IMidiOutPort);
 windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable);
 impl MidiOutPort {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMidiMessage>,
@@ -953,10 +957,6 @@ impl MidiOutPort {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiOutPort, IMidiOutPortStatics> = windows_core::imp::FactoryCache::new();
@@ -1391,8 +1391,12 @@ unsafe impl Sync for MidiStopMessage {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MidiSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(MidiSynthesizer, IMidiOutPort, super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(MidiSynthesizer, super::super::Foundation::IClosable, IMidiOutPort);
 impl MidiSynthesizer {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMidiMessage>,
@@ -1459,10 +1463,6 @@ impl MidiSynthesizer {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = windows_core::imp::FactoryCache::new();

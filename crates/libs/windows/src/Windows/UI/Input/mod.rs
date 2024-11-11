@@ -1728,7 +1728,7 @@ impl windows_core::RuntimeName for HoldingEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputActivationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListener, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InputActivationListener, super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(InputActivationListener, super::super::Foundation::IClosable, AttachableInputObject);
 impl InputActivationListener {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3357,7 +3357,7 @@ impl windows_core::RuntimeName for RightTappedEventArgs {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemButtonEventController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemButtonEventController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SystemButtonEventController, super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(SystemButtonEventController, super::super::Foundation::IClosable, AttachableInputObject);
 impl SystemButtonEventController {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;

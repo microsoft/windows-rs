@@ -35,7 +35,7 @@ impl Eq for Interface {}
 
 impl Ord for Interface {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.def.cmp(&other.def)
+        self.def.name().cmp(other.def.name())
     }
 }
 

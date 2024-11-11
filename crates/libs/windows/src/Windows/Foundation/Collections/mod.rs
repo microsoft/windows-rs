@@ -278,6 +278,201 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static;
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IMap<K, V> {}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IMap<K, V> {}
+unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::Interface for IMap<K, V> {
+    type Vtable = IMap_Vtbl<K, V>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMap<K, V> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
+    const QUERY: bool = true;
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap<K, V> {
+    pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
+    where
+        P0: windows_core::Param<K>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn HasKey<P0>(&self, key: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<K>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetView(&self) -> windows_core::Result<IMapView<K, V>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<K>,
+        P1: windows_core::Param<V>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.param().abi(), value.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Remove<P0>(&self, key: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<K>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.param().abi()).ok() }
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
+        let this = &windows_core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IMap_Vtbl<K, V>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
+    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, windows_core::AbiType<V>, *mut bool) -> windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    K: core::marker::PhantomData<K>,
+    V: core::marker::PhantomData<V>,
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMap<K, V> {
+    const NAME: &'static str = "Windows.Foundation.Collections.IMap";
+}
+pub trait IMap_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>>
+where
+    K: windows_core::RuntimeType + 'static,
+    V: windows_core::RuntimeType + 'static,
+{
+    fn Lookup(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<V>;
+    fn Size(&self) -> windows_core::Result<u32>;
+    fn HasKey(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<bool>;
+    fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
+    fn Insert(&self, key: &<K as windows_core::Type<K>>::Default, value: &<V as windows_core::Type<V>>::Default) -> windows_core::Result<bool>;
+    fn Remove(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<()>;
+    fn Clear(&self) -> windows_core::Result<()>;
+}
+impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap_Vtbl<K, V> {
+    pub const fn new<Identity: IMap_Impl<K, V>, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMap_Impl::Lookup(this, core::mem::transmute(&key)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Size<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMap_Impl::Size(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMap_Impl::HasKey(this, core::mem::transmute(&key)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetView<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMap_Impl::GetView(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Insert<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, value: windows_core::AbiType<V>, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMap_Impl::Insert(this, core::mem::transmute(&key), core::mem::transmute(&value)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Remove<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMap_Impl::Remove(this, core::mem::transmute(&key)).into()
+        }
+        unsafe extern "system" fn Clear<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMap_Impl::Clear(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMap<K, V>, OFFSET>(),
+            Lookup: Lookup::<K, V, Identity, OFFSET>,
+            Size: Size::<K, V, Identity, OFFSET>,
+            HasKey: HasKey::<K, V, Identity, OFFSET>,
+            GetView: GetView::<K, V, Identity, OFFSET>,
+            Insert: Insert::<K, V, Identity, OFFSET>,
+            Remove: Remove::<K, V, Identity, OFFSET>,
+            Clear: Clear::<K, V, Identity, OFFSET>,
+            K: core::marker::PhantomData::<K>,
+            V: core::marker::PhantomData::<V>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMap<K, V> as windows_core::Interface>::IID
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IMapChangedEventArgs<K>(windows_core::IUnknown, core::marker::PhantomData<K>)
 where
     K: windows_core::RuntimeType + 'static;
@@ -494,201 +689,6 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMapView<K, V> as windows_core::Interface>::IID
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IMap<K, V>(windows_core::IUnknown, core::marker::PhantomData<K>, core::marker::PhantomData<V>)
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static;
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IMap<K, V> {}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IMap<K, V> {}
-unsafe impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::Interface for IMap<K, V> {
-    type Vtable = IMap_Vtbl<K, V>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IMap<K, V> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(K::SIGNATURE).push_slice(b";").push_other(V::SIGNATURE).push_slice(b")");
-}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
-    const QUERY: bool = true;
-}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap<K, V> {
-    pub fn Lookup<P0>(&self, key: P0) -> windows_core::Result<V>
-    where
-        P0: windows_core::Param<K>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn HasKey<P0>(&self, key: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<K>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), key.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetView(&self) -> windows_core::Result<IMapView<K, V>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Insert<P0, P1>(&self, key: P0, value: P1) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<K>,
-        P1: windows_core::Param<V>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), key.param().abi(), value.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Remove<P0>(&self, key: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<K>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), key.param().abi()).ok() }
-    }
-    pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn First(&self) -> windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
-        let this = &windows_core::Interface::cast::<IIterable<IKeyValuePair<K, V>>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[repr(C)]
-pub struct IMap_Vtbl<K, V>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Lookup: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut windows_core::AbiType<V>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub HasKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, *mut bool) -> windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>, windows_core::AbiType<V>, *mut bool) -> windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<K>) -> windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    K: core::marker::PhantomData<K>,
-    V: core::marker::PhantomData<V>,
-}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IMap<K, V> {
-    const NAME: &'static str = "Windows.Foundation.Collections.IMap";
-}
-pub trait IMap_Impl<K, V>: IIterable_Impl<IKeyValuePair<K, V>>
-where
-    K: windows_core::RuntimeType + 'static,
-    V: windows_core::RuntimeType + 'static,
-{
-    fn Lookup(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<V>;
-    fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<bool>;
-    fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
-    fn Insert(&self, key: &<K as windows_core::Type<K>>::Default, value: &<V as windows_core::Type<V>>::Default) -> windows_core::Result<bool>;
-    fn Remove(&self, key: &<K as windows_core::Type<K>>::Default) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-}
-impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static> IMap_Vtbl<K, V> {
-    pub const fn new<Identity: IMap_Impl<K, V>, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Lookup<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut windows_core::AbiType<V>) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMap_Impl::Lookup(this, core::mem::transmute(&key)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Size<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMap_Impl::Size(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn HasKey<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMap_Impl::HasKey(this, core::mem::transmute(&key)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetView<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMap_Impl::GetView(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Insert<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>, value: windows_core::AbiType<V>, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IMap_Impl::Insert(this, core::mem::transmute(&key), core::mem::transmute(&value)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Remove<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void, key: windows_core::AbiType<K>) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMap_Impl::Remove(this, core::mem::transmute(&key)).into()
-        }
-        unsafe extern "system" fn Clear<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static, Identity: IMap_Impl<K, V>, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IMap_Impl::Clear(this).into()
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMap<K, V>, OFFSET>(),
-            Lookup: Lookup::<K, V, Identity, OFFSET>,
-            Size: Size::<K, V, Identity, OFFSET>,
-            HasKey: HasKey::<K, V, Identity, OFFSET>,
-            GetView: GetView::<K, V, Identity, OFFSET>,
-            Insert: Insert::<K, V, Identity, OFFSET>,
-            Remove: Remove::<K, V, Identity, OFFSET>,
-            Clear: Clear::<K, V, Identity, OFFSET>,
-            K: core::marker::PhantomData::<K>,
-            V: core::marker::PhantomData::<V>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMap<K, V> as windows_core::Interface>::IID
     }
 }
 #[repr(transparent)]
@@ -1098,209 +1098,6 @@ impl IPropertySet_Vtbl {
         iid == &<IPropertySet as windows_core::Interface>::IID
     }
 }
-windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
-impl windows_core::RuntimeType for IVectorChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-windows_core::imp::interface_hierarchy!(IVectorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-impl IVectorChangedEventArgs {
-    pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CollectionChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Index(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-}
-#[repr(C)]
-pub struct IVectorChangedEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
-    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-}
-impl windows_core::RuntimeName for IVectorChangedEventArgs {
-    const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
-}
-pub trait IVectorChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
-    fn CollectionChange(&self) -> windows_core::Result<CollectionChange>;
-    fn Index(&self) -> windows_core::Result<u32>;
-}
-impl IVectorChangedEventArgs_Vtbl {
-    pub const fn new<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CollectionChange<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut CollectionChange) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorChangedEventArgs_Impl::CollectionChange(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Index<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorChangedEventArgs_Impl::Index(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorChangedEventArgs, OFFSET>(),
-            CollectionChange: CollectionChange::<Identity, OFFSET>,
-            Index: Index::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVectorChangedEventArgs as windows_core::Interface>::IID
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IVectorView<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IVectorView<T> {}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVectorView<T> {
-    type Vtable = IVectorView_Vtbl<T>;
-    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVectorView<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>> for IVectorView<T> {
-    const QUERY: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<T>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn GetMany(&self, startindex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
-        }
-    }
-    pub fn First(&self) -> windows_core::Result<IIterator<T>> {
-        let this = &windows_core::Interface::cast::<IIterable<T>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-#[repr(C)]
-pub struct IVectorView_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {
-    const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
-}
-pub trait IVectorView_Impl<T>: IIterable_Impl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    fn GetAt(&self, index: u32) -> windows_core::Result<T>;
-    fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(&self, value: &<T as windows_core::Type<T>>::Default, index: &mut u32) -> windows_core::Result<bool>;
-    fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
-}
-impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
-    pub const fn new<Identity: IVectorView_Impl<T>, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAt<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, result__: *mut windows_core::AbiType<T>) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::GetAt(this, index) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    core::mem::forget(ok__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Size<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::Size(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetMany<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut T, result__: *mut u32) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IVectorView_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorView<T>, OFFSET>(),
-            GetAt: GetAt::<T, Identity, OFFSET>,
-            Size: Size::<T, Identity, OFFSET>,
-            IndexOf: IndexOf::<T, Identity, OFFSET>,
-            GetMany: GetMany::<T, Identity, OFFSET>,
-            T: core::marker::PhantomData::<T>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVectorView<T> as windows_core::Interface>::IID
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -1543,6 +1340,209 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVector<T> as windows_core::Interface>::IID
+    }
+}
+windows_core::imp::define_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
+impl windows_core::RuntimeType for IVectorChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IVectorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl IVectorChangedEventArgs {
+    pub fn CollectionChange(&self) -> windows_core::Result<CollectionChange> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CollectionChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Index(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Index)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IVectorChangedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CollectionChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CollectionChange) -> windows_core::HRESULT,
+    pub Index: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+impl windows_core::RuntimeName for IVectorChangedEventArgs {
+    const NAME: &'static str = "Windows.Foundation.Collections.IVectorChangedEventArgs";
+}
+pub trait IVectorChangedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn CollectionChange(&self) -> windows_core::Result<CollectionChange>;
+    fn Index(&self) -> windows_core::Result<u32>;
+}
+impl IVectorChangedEventArgs_Vtbl {
+    pub const fn new<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CollectionChange<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut CollectionChange) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorChangedEventArgs_Impl::CollectionChange(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Index<Identity: IVectorChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorChangedEventArgs_Impl::Index(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorChangedEventArgs, OFFSET>(),
+            CollectionChange: CollectionChange::<Identity, OFFSET>,
+            Index: Index::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVectorChangedEventArgs as windows_core::Interface>::IID
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IVectorView<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
+where
+    T: windows_core::RuntimeType + 'static;
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown> for IVectorView<T> {}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable> for IVectorView<T> {}
+unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVectorView<T> {
+    type Vtable = IVectorView_Vtbl<T>;
+    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVectorView<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>> for IVectorView<T> {
+    const QUERY: bool = true;
+}
+impl<T: windows_core::RuntimeType + 'static> IVectorView<T> {
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<T>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn GetMany(&self, startindex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
+        }
+    }
+    pub fn First(&self) -> windows_core::Result<IIterator<T>> {
+        let this = &windows_core::Interface::cast::<IIterable<T>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+pub struct IVectorView_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::AbiType<T>) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub IndexOf: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::AbiType<T>, *mut u32, *mut bool) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut T, *mut u32) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVectorView<T> {
+    const NAME: &'static str = "Windows.Foundation.Collections.IVectorView";
+}
+pub trait IVectorView_Impl<T>: IIterable_Impl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    fn GetAt(&self, index: u32) -> windows_core::Result<T>;
+    fn Size(&self) -> windows_core::Result<u32>;
+    fn IndexOf(&self, value: &<T as windows_core::Type<T>>::Default, index: &mut u32) -> windows_core::Result<bool>;
+    fn GetMany(&self, startIndex: u32, items: &mut [<T as windows_core::Type<T>>::Default]) -> windows_core::Result<u32>;
+}
+impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
+    pub const fn new<Identity: IVectorView_Impl<T>, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetAt<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, result__: *mut windows_core::AbiType<T>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorView_Impl::GetAt(this, index) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Size<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorView_Impl::Size(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn IndexOf<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorView_Impl::IndexOf(this, core::mem::transmute(&value), core::mem::transmute_copy(&index)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetMany<T: windows_core::RuntimeType + 'static, Identity: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut T, result__: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVectorView_Impl::GetMany(this, startindex, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&items), items_array_size as usize)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVectorView<T>, OFFSET>(),
+            GetAt: GetAt::<T, Identity, OFFSET>,
+            Size: Size::<T, Identity, OFFSET>,
+            IndexOf: IndexOf::<T, Identity, OFFSET>,
+            GetMany: GetMany::<T, Identity, OFFSET>,
+            T: core::marker::PhantomData::<T>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVectorView<T> as windows_core::Interface>::IID
     }
 }
 #[repr(transparent)]

@@ -744,37 +744,6 @@ windows_core::imp::interface_hierarchy!(ResourceMap, windows_core::IUnknown, win
 windows_core::imp::required_hierarchy ! ( ResourceMap , super::super::super::Foundation::Collections:: IIterable < super::super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , NamedResource > > , super::super::super::Foundation::Collections:: IMapView < windows_core::HSTRING , NamedResource > );
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceMap {
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetValue(&self, resource: &windows_core::HSTRING) -> windows_core::Result<ResourceCandidate> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetValueForContext<P1>(&self, resource: &windows_core::HSTRING, context: P1) -> windows_core::Result<ResourceCandidate>
-    where
-        P1: windows_core::Param<ResourceContext>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSubtree)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(reference), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>(self)?;
@@ -807,6 +776,37 @@ impl ResourceMap {
     pub fn Split(&self, first: &mut Option<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, NamedResource>>, second: &mut Option<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, NamedResource>>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
+    }
+    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetValue(&self, resource: &windows_core::HSTRING) -> windows_core::Result<ResourceCandidate> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetValueForContext<P1>(&self, resource: &windows_core::HSTRING, context: P1) -> windows_core::Result<ResourceCandidate>
+    where
+        P1: windows_core::Param<ResourceContext>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSubtree)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(reference), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
 }
 #[cfg(feature = "Foundation_Collections")]

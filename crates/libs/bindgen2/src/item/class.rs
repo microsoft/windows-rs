@@ -134,12 +134,14 @@ impl Class {
             };            
 
             let required_hierarchy = {
-                let interfaces: Vec<_> = self
+                let mut interfaces: Vec<_> = self
                     .required_interfaces
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .map(|ty| ty.write_name(writer))
                     .collect();
+
+                    interfaces.extend(self.bases().iter().map(|ty| ty.write_name(writer)));
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -198,6 +200,12 @@ impl Class {
                 #runtime_name
             }
         }
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
+        let namespace = writer.write_namespace(self.def.namespace());
+        quote! { #namespace #name }
     }
 
     // TODO: this can't use required_interfaces because the default might be `Type::Object`?

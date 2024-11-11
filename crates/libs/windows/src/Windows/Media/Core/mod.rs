@@ -5327,6 +5327,14 @@ pub struct SceneAnalysisEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneAnalysisEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneAnalysisEffect, super::IMediaExtension);
 impl SceneAnalysisEffect {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
+    {
+        let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
+    }
     pub fn HighDynamicRangeAnalyzer(&self) -> windows_core::Result<HighDynamicRangeControl> {
         let this = self;
         unsafe {
@@ -5358,14 +5366,6 @@ impl SceneAnalysisEffect {
     pub fn RemoveSceneAnalyzed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSceneAnalyzed)(windows_core::Interface::as_raw(this), cookie).ok() }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
-    {
-        let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for SceneAnalysisEffect {
@@ -5437,28 +5437,6 @@ impl SceneAnalysisEffectFrame {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    #[cfg(feature = "Media_Capture")]
-    pub fn FrameControlValues(&self) -> windows_core::Result<super::Capture::CapturedFrameControlValues> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameControlValues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HighDynamicRange(&self) -> windows_core::Result<HighDynamicRangeOutput> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HighDynamicRange)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn AnalysisRecommendation(&self) -> windows_core::Result<SceneAnalysisRecommendation> {
-        let this = &windows_core::Interface::cast::<ISceneAnalysisEffectFrame2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AnalysisRecommendation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
     }
     pub fn Type(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
@@ -5533,6 +5511,28 @@ impl SceneAnalysisEffectFrame {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Media_Capture")]
+    pub fn FrameControlValues(&self) -> windows_core::Result<super::Capture::CapturedFrameControlValues> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FrameControlValues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn HighDynamicRange(&self) -> windows_core::Result<HighDynamicRangeOutput> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HighDynamicRange)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AnalysisRecommendation(&self) -> windows_core::Result<SceneAnalysisRecommendation> {
+        let this = &windows_core::Interface::cast::<ISceneAnalysisEffectFrame2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AnalysisRecommendation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -6854,6 +6854,14 @@ pub struct VideoStabilizationEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoStabilizationEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoStabilizationEffect, super::IMediaExtension);
 impl VideoStabilizationEffect {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
+    {
+        let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
+    }
     pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
@@ -6890,14 +6898,6 @@ impl VideoStabilizationEffect {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRecommendedStreamConfiguration)(windows_core::Interface::as_raw(this), controller.param().abi(), desiredproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
-    {
-        let this = &windows_core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProperties)(windows_core::Interface::as_raw(this), configuration.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for VideoStabilizationEffect {

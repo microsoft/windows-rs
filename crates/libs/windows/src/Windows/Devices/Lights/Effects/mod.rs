@@ -730,6 +730,14 @@ impl LampArrayEffectPlaylist {
         static SHARED: windows_core::imp::FactoryCache<LampArrayEffectPlaylist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn Append<P0>(&self, effect: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ILampArrayEffect>,
@@ -803,14 +811,6 @@ impl LampArrayEffectPlaylist {
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<LampArrayEffectPlaylist>>,
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (windows_core::Interface::vtable(this).PauseAll)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<ILampArrayEffect> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;

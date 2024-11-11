@@ -1082,6 +1082,7 @@ unsafe impl Sync for AppWindowTitleBarOcclusion {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CompactOverlayPresentationConfiguration, AppWindowPresentationConfiguration);
 impl CompactOverlayPresentationConfiguration {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1114,6 +1115,7 @@ unsafe impl Sync for CompactOverlayPresentationConfiguration {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DefaultPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DefaultPresentationConfiguration, AppWindowPresentationConfiguration);
 impl DefaultPresentationConfiguration {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1213,6 +1215,7 @@ unsafe impl Sync for DisplayRegion {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FullScreenPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(FullScreenPresentationConfiguration, AppWindowPresentationConfiguration);
 impl FullScreenPresentationConfiguration {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

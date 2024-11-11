@@ -636,22 +636,6 @@ windows_core::imp::interface_hierarchy!(Workspace, windows_core::IUnknown, windo
 windows_core::imp::required_hierarchy!(Workspace, super::Syndication::ISyndicationNode);
 #[cfg(feature = "Web_Syndication")]
 impl Workspace {
-    #[cfg(feature = "Web_Syndication")]
-    pub fn Title(&self) -> windows_core::Result<super::Syndication::ISyndicationText> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Collections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ResourceCollection>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Collections)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
     pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
@@ -732,6 +716,22 @@ impl Workspace {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Web_Syndication")]
+    pub fn Title(&self) -> windows_core::Result<super::Syndication::ISyndicationText> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Collections(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ResourceCollection>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Collections)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

@@ -123,10 +123,6 @@ pub struct CastingConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnection, super::super::Foundation::IClosable);
 impl CastingConnection {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn State(&self) -> windows_core::Result<CastingConnectionState> {
         let this = self;
         unsafe {
@@ -199,6 +195,10 @@ impl CastingConnection {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisconnectAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
 impl windows_core::RuntimeType for CastingConnection {

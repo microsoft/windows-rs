@@ -931,34 +931,6 @@ impl StorageItemThumbnail {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn OriginalWidth(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OriginalWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn OriginalHeight(&self) -> windows_core::Result<u32> {
-        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OriginalHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ReturnedSmallerCachedSize(&self) -> windows_core::Result<bool> {
-        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReturnedSmallerCachedSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Type(&self) -> windows_core::Result<ThumbnailType> {
-        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
     pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::Streams::IContentTypeProvider>(self)?;
         unsafe {
@@ -1050,6 +1022,34 @@ impl StorageItemThumbnail {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanWrite)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn OriginalWidth(&self) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OriginalWidth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn OriginalHeight(&self) -> windows_core::Result<u32> {
+        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OriginalHeight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ReturnedSmallerCachedSize(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReturnedSmallerCachedSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Type(&self) -> windows_core::Result<ThumbnailType> {
+        let this = &windows_core::Interface::cast::<IThumbnailProperties>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

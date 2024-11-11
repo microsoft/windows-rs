@@ -3016,18 +3016,18 @@ pub struct IVisualUnorderedCollection_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionObject, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionObject, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionObject, IAnimationObject, super::super::Foundation::IClosable);
 impl CompositionObject {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = self;
@@ -3161,18 +3161,18 @@ unsafe impl Sync for CompositionObject {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLight, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionLight, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionLight, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionLight {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
@@ -3315,12 +3315,8 @@ unsafe impl Sync for CompositionLight {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AmbientLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AmbientLight, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AmbientLight, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(AmbientLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
 impl AmbientLight {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn Color(&self) -> windows_core::Result<super::Color> {
         let this = self;
         unsafe {
@@ -3349,6 +3345,10 @@ impl AmbientLight {
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
@@ -3491,12 +3491,8 @@ unsafe impl Sync for AmbientLight {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AnimationController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AnimationController, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(AnimationController, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl AnimationController {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PlaybackRate(&self) -> windows_core::Result<f32> {
         let this = self;
         unsafe {
@@ -3556,6 +3552,10 @@ impl AnimationController {
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -3675,12 +3675,8 @@ unsafe impl Sync for AnimationController {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AnimationPropertyInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnimationPropertyInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(AnimationPropertyInfo, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(AnimationPropertyInfo, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl AnimationPropertyInfo {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -3712,6 +3708,10 @@ impl AnimationPropertyInfo {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetResolvedCompositionObjectProperty)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -3827,18 +3827,18 @@ unsafe impl Sync for AnimationPropertyInfo {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCubicBezierEasingFunction<P0>(owner: P0, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<CubicBezierEasingFunction>
@@ -4058,12 +4058,8 @@ unsafe impl Sync for CompositionEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BackEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BackEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(BackEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl BackEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -4084,6 +4080,10 @@ impl BackEasingFunction {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Amplitude)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -4199,18 +4199,18 @@ unsafe impl Sync for BackEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(CompositionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionObject);
 impl CompositionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = self;
@@ -4409,18 +4409,18 @@ unsafe impl Sync for CompositionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
 impl KeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -4714,12 +4714,8 @@ unsafe impl Sync for KeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BooleanKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BooleanKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BooleanKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(BooleanKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl BooleanKeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -4730,6 +4726,10 @@ impl BooleanKeyFrameAnimation {
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: bool) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrame)(windows_core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -5023,12 +5023,8 @@ unsafe impl Sync for BooleanKeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BounceEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BounceEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(BounceEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl BounceEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -5056,6 +5052,10 @@ impl BounceEasingFunction {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bounciness)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -5171,18 +5171,18 @@ unsafe impl Sync for BounceEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
 impl NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -5414,18 +5414,18 @@ unsafe impl Sync for NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(ScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl ScalarNaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -5696,12 +5696,8 @@ unsafe impl Sync for ScalarNaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BounceScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BounceScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(BounceScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, ScalarNaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl BounceScalarNaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -5730,6 +5726,10 @@ impl BounceScalarNaturalMotionAnimation {
     pub fn SetRestitution(&self, value: f32) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRestitution)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -6000,18 +6000,18 @@ unsafe impl Sync for BounceScalarNaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Vector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(Vector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl Vector2NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -6288,12 +6288,8 @@ unsafe impl Sync for Vector2NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BounceVector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BounceVector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(BounceVector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector2NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl BounceVector2NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -6322,6 +6318,10 @@ impl BounceVector2NaturalMotionAnimation {
     pub fn SetRestitution(&self, value: f32) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRestitution)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -6598,18 +6598,18 @@ unsafe impl Sync for BounceVector2NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Vector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(Vector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl Vector3NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -6886,12 +6886,8 @@ unsafe impl Sync for Vector3NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BounceVector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BounceVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BounceVector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(BounceVector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector3NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl BounceVector3NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -6920,6 +6916,10 @@ impl BounceVector3NaturalMotionAnimation {
     pub fn SetRestitution(&self, value: f32) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRestitution)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -7196,12 +7196,8 @@ unsafe impl Sync for BounceVector3NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CircleEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CircleEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CircleEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CircleEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl CircleEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
@@ -7215,6 +7211,10 @@ impl CircleEasingFunction {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Mode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -7330,18 +7330,18 @@ unsafe impl Sync for CircleEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ColorKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ColorKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ColorKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(ColorKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl ColorKeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn InterpolationColorSpace(&self) -> windows_core::Result<CompositionColorSpace> {
         let this = self;
@@ -7660,27 +7660,19 @@ pub struct CompositionAnimationGroup(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionAnimationGroup, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionAnimationGroup, super::super::Foundation::Collections::IIterable<CompositionAnimation>, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(CompositionAnimationGroup, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, super::super::Foundation::Collections::IIterable<CompositionAnimation>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionAnimationGroup {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Count(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -7804,6 +7796,14 @@ impl CompositionAnimationGroup {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionAnimationGroup {
@@ -7826,18 +7826,18 @@ unsafe impl Sync for CompositionAnimationGroup {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -7953,18 +7953,18 @@ unsafe impl Sync for CompositionBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionBackdropBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBackdropBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionBackdropBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionBackdropBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionBackdropBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -8080,18 +8080,18 @@ unsafe impl Sync for CompositionBackdropBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionBatchCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionBatchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionBatchCompletedEventArgs {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -8263,18 +8263,18 @@ unsafe impl Sync for CompositionCapabilities {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionClip, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionClip, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionClip, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionClip {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -8477,18 +8477,18 @@ unsafe impl Sync for CompositionClip {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionColorBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionColorBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionColorBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionColorBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionColorBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Color(&self) -> windows_core::Result<super::Color> {
         let this = self;
@@ -8615,18 +8615,18 @@ unsafe impl Sync for CompositionColorBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionColorGradientStop(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStop, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionColorGradientStop, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionColorGradientStop, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionColorGradientStop {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Color(&self) -> windows_core::Result<super::Color> {
         let this = self;
@@ -8876,18 +8876,18 @@ unsafe impl Sync for CompositionColorGradientStopCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionCommitBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionCommitBatch, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionCommitBatch, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionCommitBatch, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionCommitBatch {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn IsActive(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -9031,18 +9031,18 @@ unsafe impl Sync for CompositionCommitBatch {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionShape, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionShape, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionShape, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionShape {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -9232,18 +9232,18 @@ unsafe impl Sync for CompositionShape {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionContainerShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionContainerShape, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionContainerShape, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionContainerShape, IAnimationObject, super::super::Foundation::IClosable, CompositionShape, CompositionObject);
 impl CompositionContainerShape {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shapes(&self) -> windows_core::Result<CompositionShapeCollection> {
@@ -9441,18 +9441,18 @@ unsafe impl Sync for CompositionContainerShape {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionDrawingSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionDrawingSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
+windows_core::imp::required_hierarchy!(CompositionDrawingSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
 impl CompositionDrawingSurface {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn AlphaMode(&self) -> windows_core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
@@ -9624,18 +9624,18 @@ unsafe impl Sync for CompositionDrawingSurface {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEffectBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEffectBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionEffectBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionEffectBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionEffectBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn GetSourceParameter(&self, name: &windows_core::HSTRING) -> windows_core::Result<CompositionBrush> {
         let this = self;
@@ -9765,18 +9765,18 @@ unsafe impl Sync for CompositionEffectBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEffectFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEffectFactory, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionEffectFactory, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionEffectFactory, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionEffectFactory {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn CreateBrush(&self) -> windows_core::Result<CompositionEffectBrush> {
         let this = self;
@@ -9958,18 +9958,18 @@ unsafe impl Sync for CompositionEffectSourceParameter {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TrimEnd(&self) -> windows_core::Result<f32> {
         let this = self;
@@ -10118,18 +10118,18 @@ unsafe impl Sync for CompositionGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEllipseGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionEllipseGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionEllipseGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionEllipseGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
 impl CompositionEllipseGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Center(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -10304,18 +10304,18 @@ unsafe impl Sync for CompositionEllipseGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionGeometricClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGeometricClip, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionGeometricClip, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionGeometricClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
 impl CompositionGeometricClip {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -10546,18 +10546,18 @@ unsafe impl Sync for CompositionGeometricClip {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionGradientBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -10801,18 +10801,18 @@ unsafe impl Sync for CompositionGradientBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionGraphicsDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionGraphicsDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionGraphicsDevice, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionGraphicsDevice, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionGraphicsDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateDrawingSurface(&self, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> windows_core::Result<CompositionDrawingSurface> {
@@ -10989,18 +10989,18 @@ unsafe impl Sync for CompositionGraphicsDevice {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionLineGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLineGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionLineGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionLineGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
 impl CompositionLineGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TrimEnd(&self) -> windows_core::Result<f32> {
         let this = &windows_core::Interface::cast::<ICompositionGeometry>(self)?;
@@ -11175,18 +11175,18 @@ unsafe impl Sync for CompositionLineGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionLinearGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionLinearGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionLinearGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionLinearGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionGradientBrush, CompositionBrush, CompositionObject);
 impl CompositionLinearGradientBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -11456,18 +11456,18 @@ unsafe impl Sync for CompositionLinearGradientBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionMaskBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionMaskBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionMaskBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionMaskBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionMaskBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Mask(&self) -> windows_core::Result<CompositionBrush> {
         let this = self;
@@ -11611,18 +11611,18 @@ unsafe impl Sync for CompositionMaskBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionMipmapSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionMipmapSurface, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionMipmapSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
+windows_core::imp::required_hierarchy!(CompositionMipmapSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
 impl CompositionMipmapSurface {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn LevelCount(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -11776,18 +11776,18 @@ unsafe impl Sync for CompositionMipmapSurface {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionNineGridBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionNineGridBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionNineGridBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionNineGridBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionNineGridBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn BottomInset(&self) -> windows_core::Result<f32> {
         let this = self;
@@ -12073,18 +12073,18 @@ unsafe impl Sync for CompositionPath {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionPathGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionPathGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionPathGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionPathGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
 impl CompositionPathGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TrimEnd(&self) -> windows_core::Result<f32> {
         let this = &windows_core::Interface::cast::<ICompositionGeometry>(self)?;
@@ -12249,18 +12249,18 @@ unsafe impl Sync for CompositionPathGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadow, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionProjectedShadow, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionProjectedShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionProjectedShadow {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -12439,18 +12439,18 @@ unsafe impl Sync for CompositionProjectedShadow {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadowCaster(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCaster, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowCaster, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowCaster, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionProjectedShadowCaster {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -12597,27 +12597,19 @@ pub struct CompositionProjectedShadowCasterCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCasterCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowCasterCollection, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowCasterCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionProjectedShadowCasterCollection {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -12770,6 +12762,14 @@ impl CompositionProjectedShadowCasterCollection {
             (windows_core::Interface::vtable(this).MaxRespectedCasters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     fn ICompositionProjectedShadowCasterCollectionStatics<R, F: FnOnce(&ICompositionProjectedShadowCasterCollectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -12796,18 +12796,18 @@ unsafe impl Sync for CompositionProjectedShadowCasterCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionProjectedShadowReceiver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiver, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiver, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiver, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionProjectedShadowReceiver {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -12940,27 +12940,19 @@ pub struct CompositionProjectedShadowReceiverUnorderedCollection(windows_core::I
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionProjectedShadowReceiverUnorderedCollection {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -13084,6 +13076,14 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
@@ -13106,18 +13106,18 @@ unsafe impl Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionPropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionPropertySet, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionPropertySet, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionPropertySet, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionPropertySet {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -13344,18 +13344,18 @@ unsafe impl Sync for CompositionPropertySet {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionRadialGradientBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRadialGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionRadialGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionRadialGradientBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionGradientBrush, CompositionBrush, CompositionObject);
 impl CompositionRadialGradientBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -13638,18 +13638,18 @@ unsafe impl Sync for CompositionRadialGradientBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionRectangleGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionRectangleGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionRectangleGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
 impl CompositionRectangleGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TrimEnd(&self) -> windows_core::Result<f32> {
         let this = &windows_core::Interface::cast::<ICompositionGeometry>(self)?;
@@ -13824,18 +13824,18 @@ unsafe impl Sync for CompositionRectangleGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionRoundedRectangleGeometry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionRoundedRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionRoundedRectangleGeometry, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionRoundedRectangleGeometry, IAnimationObject, super::super::Foundation::IClosable, CompositionGeometry, CompositionObject);
 impl CompositionRoundedRectangleGeometry {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn TrimEnd(&self) -> windows_core::Result<f32> {
         let this = &windows_core::Interface::cast::<ICompositionGeometry>(self)?;
@@ -14023,18 +14023,18 @@ unsafe impl Sync for CompositionRoundedRectangleGeometry {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionScopedBatch(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionScopedBatch, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionScopedBatch, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionScopedBatch, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionScopedBatch {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -14190,18 +14190,18 @@ unsafe impl Sync for CompositionScopedBatch {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionShadow, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionShadow, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionShadow {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -14320,103 +14320,19 @@ pub struct CompositionShapeCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<CompositionShape>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionShapeCollection, super::super::Foundation::Collections::IIterable<CompositionShape>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionShapeCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<CompositionShape>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionShapeCollection {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<CompositionShape> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CompositionShape>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<CompositionShape>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<CompositionShape>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
-    }
-    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<CompositionShape>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
-    }
-    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
-    }
-    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<CompositionShape>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<CompositionShape>]) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ReplaceAll(&self, items: &[Option<CompositionShape>]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -14515,6 +14431,90 @@ impl CompositionShapeCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<CompositionShape> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<CompositionShape>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<CompositionShape>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<CompositionShape>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+    }
+    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<CompositionShape>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
+    }
+    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
+    }
+    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<CompositionShape>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<CompositionShape>]) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ReplaceAll(&self, items: &[Option<CompositionShape>]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionShapeCollection {
@@ -14537,18 +14537,18 @@ unsafe impl Sync for CompositionShapeCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionSpriteShape(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionSpriteShape, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionSpriteShape, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionSpriteShape, IAnimationObject, super::super::Foundation::IClosable, CompositionShape, CompositionObject);
 impl CompositionSpriteShape {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -14879,91 +14879,19 @@ pub struct CompositionStrokeDashArray(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IVector<f32>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, super::super::Foundation::Collections::IIterable<f32>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionStrokeDashArray, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<f32>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl CompositionStrokeDashArray {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<f32>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn Size(&self) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn IndexOf(&self, value: f32, index: &mut u32) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value, index, &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetAt(&self, index: u32, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value).ok() }
-    }
-    pub fn InsertAt(&self, index: u32, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value).ok() }
-    }
-    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
-    }
-    pub fn Append(&self, value: f32) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Clear(&self) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn GetMany(&self, startindex: u32, items: &mut [f32]) -> windows_core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), items.as_mut_ptr(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn ReplaceAll(&self, items: &[f32]) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr()).ok() }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15062,6 +14990,78 @@ impl CompositionStrokeDashArray {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<f32>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetView(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IndexOf(&self, value: f32, index: &mut u32) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value, index, &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAt(&self, index: u32, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value).ok() }
+    }
+    pub fn InsertAt(&self, index: u32, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value).ok() }
+    }
+    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
+    }
+    pub fn Append(&self, value: f32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn GetMany(&self, startindex: u32, items: &mut [f32]) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), items.as_mut_ptr(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ReplaceAll(&self, items: &[f32]) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), items.as_ptr()).ok() }
+    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for CompositionStrokeDashArray {
@@ -15084,18 +15084,18 @@ unsafe impl Sync for CompositionStrokeDashArray {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionSurfaceBrush(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionSurfaceBrush, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionSurfaceBrush, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionSurfaceBrush, IAnimationObject, super::super::Foundation::IClosable, CompositionBrush, CompositionObject);
 impl CompositionSurfaceBrush {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15367,18 +15367,18 @@ unsafe impl Sync for CompositionSurfaceBrush {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTarget, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionTarget, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionTarget, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionTarget {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15508,18 +15508,18 @@ unsafe impl Sync for CompositionTarget {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionTexture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTexture, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionTexture, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
+windows_core::imp::required_hierarchy!(CompositionTexture, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
 impl CompositionTexture {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15674,18 +15674,18 @@ unsafe impl Sync for CompositionTexture {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionTransform(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionTransform, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionTransform, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionTransform, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionTransform {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15801,18 +15801,18 @@ unsafe impl Sync for CompositionTransform {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionViewBox(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionViewBox, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionViewBox, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CompositionViewBox, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl CompositionViewBox {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -15987,18 +15987,18 @@ unsafe impl Sync for CompositionViewBox {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionVirtualDrawingSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionVirtualDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionVirtualDrawingSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
+windows_core::imp::required_hierarchy!(CompositionVirtualDrawingSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionDrawingSurface, CompositionObject);
 impl CompositionVirtualDrawingSurface {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn AlphaMode(&self) -> windows_core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
@@ -16175,18 +16175,18 @@ unsafe impl Sync for CompositionVirtualDrawingSurface {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionVisualSurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositionVisualSurface, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CompositionVisualSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
+windows_core::imp::required_hierarchy!(CompositionVisualSurface, IAnimationObject, super::super::Foundation::IClosable, ICompositionSurface, CompositionObject);
 impl CompositionVisualSurface {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -16979,18 +16979,18 @@ unsafe impl Sync for Compositor {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Visual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(Visual, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl Visual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -17370,18 +17370,18 @@ unsafe impl Sync for Visual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContainerVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContainerVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ContainerVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(ContainerVisual, IAnimationObject, super::super::Foundation::IClosable, Visual, CompositionObject);
 impl ContainerVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -17769,18 +17769,18 @@ unsafe impl Sync for ContainerVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CubicBezierEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CubicBezierEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(CubicBezierEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(CubicBezierEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl CubicBezierEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -17912,18 +17912,18 @@ unsafe impl Sync for CubicBezierEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DelegatedInkTrailVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DelegatedInkTrailVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DelegatedInkTrailVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(DelegatedInkTrailVisual, IAnimationObject, super::super::Foundation::IClosable, Visual, CompositionObject);
 impl DelegatedInkTrailVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -18348,18 +18348,18 @@ unsafe impl Sync for DelegatedInkTrailVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DistantLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DistantLight, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DistantLight, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(DistantLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
 impl DistantLight {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
@@ -18551,18 +18551,18 @@ unsafe impl Sync for DistantLight {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DropShadow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DropShadow, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DropShadow, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(DropShadow, IAnimationObject, super::super::Foundation::IClosable, CompositionShadow, CompositionObject);
 impl DropShadow {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -18749,18 +18749,18 @@ unsafe impl Sync for DropShadow {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ElasticEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ElasticEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ElasticEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(ElasticEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl ElasticEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -18897,18 +18897,18 @@ unsafe impl Sync for ElasticEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExponentialEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExponentialEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ExponentialEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(ExponentialEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl ExponentialEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -19038,18 +19038,18 @@ unsafe impl Sync for ExponentialEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExpressionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExpressionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ExpressionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(ExpressionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, CompositionAnimation, CompositionObject);
 impl ExpressionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -19262,9 +19262,115 @@ pub struct ImplicitAnimationCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ImplicitAnimationCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ImplicitAnimationCollection , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , ICompositionAnimationBase > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , ICompositionAnimationBase > , super::super::Foundation:: IClosable , IAnimationObject );
+windows_core::imp::required_hierarchy ! ( ImplicitAnimationCollection , IAnimationObject , super::super::Foundation:: IClosable , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::HSTRING , ICompositionAnimationBase > > , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , ICompositionAnimationBase > , CompositionObject );
 #[cfg(feature = "Foundation_Collections")]
 impl ImplicitAnimationCollection {
+    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<AnimationPropertyInfo>,
+    {
+        let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> windows_core::Result<super::Core::CoreDispatcher> {
+        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Properties(&self) -> windows_core::Result<CompositionPropertySet> {
+        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<CompositionAnimation>,
+    {
+        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ImplicitAnimationCollection>,
+    {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICompositionAnimationBase>,
+    {
+        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
+        let this = &windows_core::Interface::cast::<ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<AnimationController> {
+        let this = &windows_core::Interface::cast::<ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<CompositionAnimation>,
+        P2: windows_core::Param<AnimationController>,
+    {
+        let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, ICompositionAnimationBase>>>(self)?;
@@ -19320,16 +19426,44 @@ impl ImplicitAnimationCollection {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IMap<windows_core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for ImplicitAnimationCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl windows_core::Interface for ImplicitAnimationCollection {
+    type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for ImplicitAnimationCollection {
+    const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for ImplicitAnimationCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for ImplicitAnimationCollection {}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InitialValueExpressionCollection(windows_core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::interface_hierarchy ! ( InitialValueExpressionCollection , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
+#[cfg(feature = "Foundation_Collections")]
+windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, CompositionObject);
+#[cfg(feature = "Foundation_Collections")]
+impl InitialValueExpressionCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -19426,34 +19560,6 @@ impl ImplicitAnimationCollection {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for ImplicitAnimationCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl windows_core::Interface for ImplicitAnimationCollection {
-    type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeName for ImplicitAnimationCollection {
-    const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Send for ImplicitAnimationCollection {}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Sync for ImplicitAnimationCollection {}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct InitialValueExpressionCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy ! ( InitialValueExpressionCollection , windows_core::IUnknown , windows_core::IInspectable , super::super::Foundation::Collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
-#[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, super::super::Foundation::IClosable, IAnimationObject);
-#[cfg(feature = "Foundation_Collections")]
-impl InitialValueExpressionCollection {
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
@@ -19506,112 +19612,6 @@ impl InitialValueExpressionCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
-    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<AnimationPropertyInfo>,
-    {
-        let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
-        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> windows_core::Result<super::Core::CoreDispatcher> {
-        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dispatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Properties(&self) -> windows_core::Result<CompositionPropertySet> {
-        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<CompositionAnimation>,
-    {
-        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Comment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetComment(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ImplicitAnimations(&self) -> windows_core::Result<ImplicitAnimationCollection> {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ImplicitAnimationCollection>,
-    {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetImplicitAnimations)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn StopAnimationGroup<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICompositionAnimationBase>,
-    {
-        let this = &windows_core::Interface::cast::<ICompositionObject2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StopAnimationGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
-        let this = &windows_core::Interface::cast::<ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &windows_core::HSTRING) -> windows_core::Result<AnimationController> {
-        let this = &windows_core::Interface::cast::<ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<CompositionAnimation>,
-        P2: windows_core::Param<AnimationController>,
-    {
-        let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl windows_core::RuntimeType for InitialValueExpressionCollection {
@@ -19634,18 +19634,18 @@ unsafe impl Sync for InitialValueExpressionCollection {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InsetClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InsetClip, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(InsetClip, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(InsetClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
 impl InsetClip {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -19892,18 +19892,18 @@ unsafe impl Sync for InsetClip {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LayerVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LayerVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LayerVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(LayerVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
 impl LayerVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -20319,18 +20319,18 @@ unsafe impl Sync for LayerVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LinearEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(LinearEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(LinearEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl LinearEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -20446,18 +20446,18 @@ unsafe impl Sync for LinearEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PathKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PathKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PathKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(PathKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl PathKeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -20768,18 +20768,18 @@ unsafe impl Sync for PathKeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PointLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointLight, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PointLight, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(PointLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
 impl PointLight {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
@@ -21026,18 +21026,18 @@ unsafe impl Sync for PointLight {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PowerEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PowerEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(PowerEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl PowerEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -21167,18 +21167,18 @@ unsafe impl Sync for PowerEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QuaternionKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QuaternionKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(QuaternionKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(QuaternionKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl QuaternionKeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -21485,18 +21485,18 @@ unsafe impl Sync for QuaternionKeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RectangleClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RectangleClip, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RectangleClip, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(RectangleClip, IAnimationObject, super::super::Foundation::IClosable, CompositionClip, CompositionObject);
 impl RectangleClip {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> windows_core::Result<super::super::Foundation::Numerics::Vector2> {
@@ -21795,18 +21795,18 @@ unsafe impl Sync for RectangleClip {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RedirectVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RedirectVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RedirectVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(RedirectVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
 impl RedirectVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -22208,18 +22208,18 @@ unsafe impl Sync for RedirectVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RenderingDeviceReplacedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RenderingDeviceReplacedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RenderingDeviceReplacedEventArgs, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(RenderingDeviceReplacedEventArgs, IAnimationObject, super::super::Foundation::IClosable, CompositionObject);
 impl RenderingDeviceReplacedEventArgs {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -22342,18 +22342,18 @@ unsafe impl Sync for RenderingDeviceReplacedEventArgs {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScalarKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ScalarKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(ScalarKeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl ScalarKeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -22658,18 +22658,18 @@ unsafe impl Sync for ScalarKeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ShapeVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShapeVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ShapeVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(ShapeVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
 impl ShapeVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -23079,18 +23079,18 @@ unsafe impl Sync for ShapeVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SineEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SineEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SineEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(SineEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl SineEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -23213,18 +23213,18 @@ unsafe impl Sync for SineEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpotLight(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpotLight, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpotLight, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(SpotLight, IAnimationObject, super::super::Foundation::IClosable, CompositionLight, CompositionObject);
 impl SpotLight {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> windows_core::Result<VisualUnorderedCollection> {
@@ -23550,18 +23550,18 @@ unsafe impl Sync for SpotLight {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpringScalarNaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpringScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(SpringScalarNaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, ScalarNaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl SpringScalarNaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -23854,18 +23854,18 @@ unsafe impl Sync for SpringScalarNaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpringVector2NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpringVector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(SpringVector2NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector2NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl SpringVector2NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -24164,18 +24164,18 @@ unsafe impl Sync for SpringVector2NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpringVector3NaturalMotionAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpringVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpringVector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(SpringVector3NaturalMotionAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, Vector3NaturalMotionAnimation, NaturalMotionAnimation, CompositionAnimation, CompositionObject);
 impl SpringVector3NaturalMotionAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -24474,18 +24474,18 @@ unsafe impl Sync for SpringVector3NaturalMotionAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpriteVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpriteVisual, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SpriteVisual, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(SpriteVisual, IAnimationObject, super::super::Foundation::IClosable, ContainerVisual, Visual, CompositionObject);
 impl SpriteVisual {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -24901,18 +24901,18 @@ unsafe impl Sync for SpriteVisual {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StepEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StepEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(StepEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(StepEasingFunction, IAnimationObject, super::super::Foundation::IClosable, CompositionEasingFunction, CompositionObject);
 impl StepEasingFunction {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -25083,18 +25083,18 @@ unsafe impl Sync for StepEasingFunction {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector2KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector2KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Vector2KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(Vector2KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl Vector2KeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -25401,18 +25401,18 @@ unsafe impl Sync for Vector2KeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector3KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Vector3KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(Vector3KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl Vector3KeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -25719,18 +25719,18 @@ unsafe impl Sync for Vector3KeyFrameAnimation {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector4KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Vector4KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Vector4KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
+windows_core::imp::required_hierarchy!(Vector4KeyFrameAnimation, IAnimationObject, super::super::Foundation::IClosable, ICompositionAnimationBase, KeyFrameAnimation, CompositionAnimation, CompositionObject);
 impl Vector4KeyFrameAnimation {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn ClearAllParameters(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -26040,27 +26040,19 @@ pub struct VisualCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(VisualCollection, super::super::Foundation::Collections::IIterable<Visual>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(VisualCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<Visual>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl VisualCollection {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -26158,6 +26150,14 @@ impl VisualCollection {
     {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub fn Count(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -26232,27 +26232,19 @@ pub struct VisualUnorderedCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(VisualUnorderedCollection, super::super::Foundation::Collections::IIterable<Visual>, super::super::Foundation::IClosable, IAnimationObject);
+windows_core::imp::required_hierarchy!(VisualUnorderedCollection, IAnimationObject, super::super::Foundation::IClosable, super::super::Foundation::Collections::IIterable<Visual>, CompositionObject);
 #[cfg(feature = "Foundation_Collections")]
 impl VisualUnorderedCollection {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
         P1: windows_core::Param<AnimationPropertyInfo>,
     {
         let this = &windows_core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<Compositor> {
         let this = &windows_core::Interface::cast::<ICompositionObject>(self)?;
@@ -26350,6 +26342,14 @@ impl VisualUnorderedCollection {
     {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> windows_core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
     }
     pub fn Count(&self) -> windows_core::Result<i32> {
         let this = self;

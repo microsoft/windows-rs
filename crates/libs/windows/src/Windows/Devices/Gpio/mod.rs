@@ -127,6 +127,10 @@ pub struct GpioChangeCounter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeCounter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeCounter, super::super::Foundation::IClosable);
 impl GpioChangeCounter {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn SetPolarity(&self, value: GpioChangePolarity) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPolarity)(windows_core::Interface::as_raw(this), value).ok() }
@@ -176,10 +180,6 @@ impl GpioChangeCounter {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), pin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     fn IGpioChangeCounterFactory<R, F: FnOnce(&IGpioChangeCounterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeCounter, IGpioChangeCounterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -203,6 +203,10 @@ pub struct GpioChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeReader, super::super::Foundation::IClosable);
 impl GpioChangeReader {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn Capacity(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
@@ -308,10 +312,6 @@ impl GpioChangeReader {
             (windows_core::Interface::vtable(this).CreateWithCapacity)(windows_core::Interface::as_raw(this), pin.param().abi(), mincapacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     fn IGpioChangeReaderFactory<R, F: FnOnce(&IGpioChangeReaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GpioChangeReader, IGpioChangeReaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -411,6 +411,10 @@ pub struct GpioPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GpioPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioPin, super::super::Foundation::IClosable);
 impl GpioPin {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
@@ -478,10 +482,6 @@ impl GpioPin {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
 impl windows_core::RuntimeType for GpioPin {
