@@ -42,7 +42,9 @@ impl Delegate {
             let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
 
             quote! {
+                #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                #cfg
                 impl windows_core::RuntimeType for #name {
                     // tODO: this needs to be different for generic interfaces
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -66,10 +68,12 @@ impl Delegate {
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
+                #cfg
                 unsafe impl<#constraints> windows_core::Interface for #name {
                     type Vtable = #vtbl_name<#generic_names>;
                     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
                 }
+                #cfg
                 impl<#constraints> windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
                 }
@@ -86,6 +90,7 @@ impl Delegate {
 
         quote! {
             #definition
+            #cfg
             impl<#constraints> #name {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = #boxed {
@@ -99,18 +104,21 @@ impl Delegate {
                 }
                 #invoke
             }
+            #cfg
             #[repr(C)]
             pub struct #vtbl_name<#generic_names> where #constraints {
                 base__: windows_core::IUnknown_Vtbl,
                 Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_core::HRESULT,
                 #named_phantoms
             }
+            #cfg
             #[repr(C)]
             struct #boxed<#generic_names #fn_constraint> where #constraints {
                 vtable: *const #vtbl_name<#generic_names>,
                 invoke: F,
                 count: windows_core::imp::RefCount,
             }
+            #cfg
             impl<#constraints #fn_constraint> #boxed<#generic_names F> {
                 const VTABLE: #vtbl_name<#generic_names> = #vtbl_name::<#generic_names>{
                     base__: windows_core::IUnknown_Vtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
