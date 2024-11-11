@@ -19538,7 +19538,6 @@ impl windows_core::TypeKind for DBBINDING {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct DBBINDING {
     pub iOrdinal: usize,
     pub obValue: usize,
@@ -19955,7 +19954,6 @@ impl windows_core::TypeKind for DBIMPLICITSESSION {
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
@@ -20172,7 +20170,6 @@ impl windows_core::TypeKind for DBPARAMINFO {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone)]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
@@ -21152,7 +21149,6 @@ impl windows_core::TypeKind for RMTPACK {
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
     pub cbData: u32,

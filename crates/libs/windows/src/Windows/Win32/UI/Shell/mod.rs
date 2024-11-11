@@ -53131,7 +53131,6 @@ impl windows_core::TypeKind for SFV_SETITEMPOS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Clone)]
 pub struct SHARDAPPIDINFO {
     pub psi: core::mem::ManuallyDrop<Option<IShellItem>>,
     pub pszAppID: windows_core::PCWSTR,
@@ -53162,7 +53161,6 @@ impl windows_core::TypeKind for SHARDAPPIDINFOIDLIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
-#[derive(Clone)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: core::mem::ManuallyDrop<Option<IShellLinkA>>,
     pub pszAppID: windows_core::PCWSTR,

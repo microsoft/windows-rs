@@ -126,7 +126,7 @@ impl CppStruct {
                             }
                         }
                     });
-                } else {
+                } else if !has_packing {
                     derive.combine(quote! { Clone, });
                 }
                 

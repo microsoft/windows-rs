@@ -22,7 +22,9 @@ mod type_name;
 mod value;
 mod winmd;
 mod writer;
+mod derive;
 
+//use derive::*;
 use dependencies::*;
 use filter::*;
 use guid::*;

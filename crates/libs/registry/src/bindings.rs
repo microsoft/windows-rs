@@ -57,5 +57,5 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
-pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
+pub type PCWSTR = *const u16;
