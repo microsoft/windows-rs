@@ -1,5 +1,7 @@
 #[test]
 fn test() {
+    // TODO: replace with some panic tests
+
     let e = windows_bindgen::bindgen(["--etc", "file_not_found.txt"]).unwrap_err();
 
     assert_eq!(
