@@ -343,6 +343,16 @@ impl CppInterface {
             });
 
             result.combine( if self.has_unknown_base() {
+                let matches = self.base_interfaces.iter().filter_map(|ty|{
+                    match ty {
+                        Type::Item(Item::CppInterface(item)) => {
+                            let name = item.write_name(writer);
+                            Some(quote! { || iid == &<#name as windows_core::Interface>::IID })
+                        }
+                        _ => None,
+                    }
+                });
+
                 quote! {
                     #cfg
                     pub trait #impl_name: #impl_base {
@@ -358,7 +368,7 @@ impl CppInterface {
                             }
                         }
                         pub fn matches(iid: &windows_core::GUID) -> bool {
-                            iid == &<#name as windows_core::Interface>::IID
+                            iid == &<#name as windows_core::Interface>::IID #(#matches)*
                         }
                     }
                     #cfg

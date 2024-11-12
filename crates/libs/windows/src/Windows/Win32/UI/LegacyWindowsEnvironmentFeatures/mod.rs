@@ -310,7 +310,7 @@ impl IEmptyVolumeCache2_Vtbl {
         Self { base__: IEmptyVolumeCache_Vtbl::new::<Identity, OFFSET>(), InitializeEx: InitializeEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEmptyVolumeCache2 as windows_core::Interface>::IID
+        iid == &<IEmptyVolumeCache2 as windows_core::Interface>::IID || iid == &<IEmptyVolumeCache as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Registry")]

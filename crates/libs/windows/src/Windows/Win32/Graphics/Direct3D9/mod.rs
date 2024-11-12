@@ -308,7 +308,7 @@ impl IDirect3D9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3D9Ex as windows_core::Interface>::IID
+        iid == &<IDirect3D9Ex as windows_core::Interface>::IID || iid == &<IDirect3D9 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -396,7 +396,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DBaseTexture9 {}
@@ -480,7 +480,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DCubeTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DCubeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DCubeTexture9 {}
@@ -2083,7 +2083,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID
+        iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID || iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
@@ -2141,7 +2141,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DIndexBuffer9 as windows_core::Interface>::IID
+        iid == &<IDirect3DIndexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DIndexBuffer9 {}
@@ -2533,7 +2533,7 @@ impl IDirect3DSurface9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DSurface9 as windows_core::Interface>::IID
+        iid == &<IDirect3DSurface9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2711,7 +2711,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID
+        iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID || iid == &<IDirect3DSwapChain9 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2796,7 +2796,7 @@ impl IDirect3DTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DTexture9 {}
@@ -2853,7 +2853,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DVertexBuffer9 as windows_core::Interface>::IID
+        iid == &<IDirect3DVertexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DVertexBuffer9 {}
@@ -3141,7 +3141,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirect3DVolumeTexture9 as windows_core::Interface>::IID
+        iid == &<IDirect3DVolumeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirect3DVolumeTexture9 {}

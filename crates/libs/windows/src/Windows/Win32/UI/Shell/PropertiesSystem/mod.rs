@@ -752,7 +752,7 @@ impl IDelayedPropertyStoreFactory_Vtbl {
         Self { base__: IPropertyStoreFactory_Vtbl::new::<Identity, OFFSET>(), GetDelayedPropertyStore: GetDelayedPropertyStore::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDelayedPropertyStoreFactory as windows_core::Interface>::IID
+        iid == &<IDelayedPropertyStoreFactory as windows_core::Interface>::IID || iid == &<IPropertyStoreFactory as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDelayedPropertyStoreFactory {}
@@ -1069,7 +1069,7 @@ impl IPersistSerializedPropStorage2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistSerializedPropStorage2 as windows_core::Interface>::IID
+        iid == &<IPersistSerializedPropStorage2 as windows_core::Interface>::IID || iid == &<IPersistSerializedPropStorage as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistSerializedPropStorage2 {}
@@ -1116,7 +1116,7 @@ impl IPropertyChange_Vtbl {
         Self { base__: IObjectWithPropertyKey_Vtbl::new::<Identity, OFFSET>(), ApplyToPropVariant: ApplyToPropVariant::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyChange as windows_core::Interface>::IID
+        iid == &<IPropertyChange as windows_core::Interface>::IID || iid == &<IObjectWithPropertyKey as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -1641,7 +1641,7 @@ impl IPropertyDescription2_Vtbl {
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, OFFSET>(), GetImageReferenceForValue: GetImageReferenceForValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescription2 as windows_core::Interface>::IID
+        iid == &<IPropertyDescription2 as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -1699,7 +1699,7 @@ impl IPropertyDescriptionAliasInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionAliasInfo as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionAliasInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -1789,7 +1789,7 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         Self { base__: IPropertyDescription_Vtbl::new::<Identity, OFFSET>(), GetRelatedProperty: GetRelatedProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionRelatedPropertyInfo as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionRelatedPropertyInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -1887,7 +1887,7 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyDescriptionSearchInfo as windows_core::Interface>::IID
+        iid == &<IPropertyDescriptionSearchInfo as windows_core::Interface>::IID || iid == &<IPropertyDescription as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -2052,7 +2052,7 @@ impl IPropertyEnumType2_Vtbl {
         Self { base__: IPropertyEnumType_Vtbl::new::<Identity, OFFSET>(), GetImageReference: GetImageReference::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyEnumType2 as windows_core::Interface>::IID
+        iid == &<IPropertyEnumType2 as windows_core::Interface>::IID || iid == &<IPropertyEnumType as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -2323,7 +2323,7 @@ impl IPropertyStoreCache_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropertyStoreCache as windows_core::Interface>::IID
+        iid == &<IPropertyStoreCache as windows_core::Interface>::IID || iid == &<IPropertyStore as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]

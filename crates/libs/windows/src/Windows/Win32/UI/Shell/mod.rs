@@ -5694,7 +5694,7 @@ impl CIE4ConnectionPoint_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<CIE4ConnectionPoint as windows_core::Interface>::IID
+        iid == &<CIE4ConnectionPoint as windows_core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPoint as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
@@ -5763,7 +5763,7 @@ impl DFConstraint_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Value: Value::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DFConstraint as windows_core::Interface>::IID
+        iid == &<DFConstraint as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5792,7 +5792,7 @@ impl DShellFolderViewEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID
+        iid == &<DShellFolderViewEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5821,7 +5821,7 @@ impl DShellNameSpaceEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DShellNameSpaceEvents as windows_core::Interface>::IID
+        iid == &<DShellNameSpaceEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5850,7 +5850,7 @@ impl DShellWindowsEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DShellWindowsEvents as windows_core::Interface>::IID
+        iid == &<DShellWindowsEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5879,7 +5879,7 @@ impl DWebBrowserEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DWebBrowserEvents as windows_core::Interface>::IID
+        iid == &<DWebBrowserEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5908,7 +5908,7 @@ impl DWebBrowserEvents2_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DWebBrowserEvents2 as windows_core::Interface>::IID
+        iid == &<DWebBrowserEvents2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6108,7 +6108,7 @@ impl Folder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder as windows_core::Interface>::IID
+        iid == &<Folder as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6214,7 +6214,7 @@ impl Folder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder2 as windows_core::Interface>::IID
+        iid == &<Folder2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6279,7 +6279,7 @@ impl Folder3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Folder3 as windows_core::Interface>::IID
+        iid == &<Folder3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<Folder as windows_core::Interface>::IID || iid == &<Folder2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6586,7 +6586,7 @@ impl FolderItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem as windows_core::Interface>::IID
+        iid == &<FolderItem as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6656,7 +6656,7 @@ impl FolderItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItem2 as windows_core::Interface>::IID
+        iid == &<FolderItem2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<FolderItem as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6752,7 +6752,7 @@ impl FolderItemVerb_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerb as windows_core::Interface>::IID
+        iid == &<FolderItemVerb as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6876,7 +6876,7 @@ impl FolderItemVerbs_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItemVerbs as windows_core::Interface>::IID
+        iid == &<FolderItemVerbs as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7000,7 +7000,7 @@ impl FolderItems_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems as windows_core::Interface>::IID
+        iid == &<FolderItems as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7046,7 +7046,7 @@ impl FolderItems2_Vtbl {
         Self { base__: FolderItems_Vtbl::new::<Identity, OFFSET>(), InvokeVerbEx: InvokeVerbEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems2 as windows_core::Interface>::IID
+        iid == &<FolderItems2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7104,7 +7104,7 @@ impl FolderItems3_Vtbl {
         Self { base__: FolderItems2_Vtbl::new::<Identity, OFFSET>(), Filter: Filter::<Identity, OFFSET>, Verbs: Verbs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<FolderItems3 as windows_core::Interface>::IID
+        iid == &<FolderItems3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<FolderItems as windows_core::Interface>::IID || iid == &<FolderItems2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7186,7 +7186,7 @@ impl IACList2_Vtbl {
         Self { base__: IACList_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IACList2 as windows_core::Interface>::IID
+        iid == &<IACList2 as windows_core::Interface>::IID || iid == &<IACList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IACList2 {}
@@ -8252,7 +8252,7 @@ impl IApplicationDesignModeSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IApplicationDesignModeSettings2 as windows_core::Interface>::IID
+        iid == &<IApplicationDesignModeSettings2 as windows_core::Interface>::IID || iid == &<IApplicationDesignModeSettings as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -8796,7 +8796,7 @@ impl IAutoComplete2_Vtbl {
         Self { base__: IAutoComplete_Vtbl::new::<Identity, OFFSET>(), SetOptions: SetOptions::<Identity, OFFSET>, GetOptions: GetOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAutoComplete2 as windows_core::Interface>::IID
+        iid == &<IAutoComplete2 as windows_core::Interface>::IID || iid == &<IAutoComplete as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAutoComplete2 {}
@@ -10515,7 +10515,7 @@ impl IBrowserService2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService2 as windows_core::Interface>::IID
+        iid == &<IBrowserService2 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -10582,7 +10582,7 @@ impl IBrowserService3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService3 as windows_core::Interface>::IID
+        iid == &<IBrowserService3 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID || iid == &<IBrowserService2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -10645,7 +10645,7 @@ impl IBrowserService4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBrowserService4 as windows_core::Interface>::IID
+        iid == &<IBrowserService4 as windows_core::Interface>::IID || iid == &<IBrowserService as windows_core::Interface>::IID || iid == &<IBrowserService2 as windows_core::Interface>::IID || iid == &<IBrowserService3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -11256,7 +11256,7 @@ impl ICommDlgBrowser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommDlgBrowser2 as windows_core::Interface>::IID
+        iid == &<ICommDlgBrowser2 as windows_core::Interface>::IID || iid == &<ICommDlgBrowser as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -11330,7 +11330,7 @@ impl ICommDlgBrowser3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommDlgBrowser3 as windows_core::Interface>::IID
+        iid == &<ICommDlgBrowser3 as windows_core::Interface>::IID || iid == &<ICommDlgBrowser as windows_core::Interface>::IID || iid == &<ICommDlgBrowser2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -11411,7 +11411,7 @@ impl IConnectableCredentialProviderCredential_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConnectableCredentialProviderCredential as windows_core::Interface>::IID
+        iid == &<IConnectableCredentialProviderCredential as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11545,7 +11545,7 @@ impl IContextMenu2_Vtbl {
         Self { base__: IContextMenu_Vtbl::new::<Identity, OFFSET>(), HandleMenuMsg: HandleMenuMsg::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IContextMenu2 as windows_core::Interface>::IID
+        iid == &<IContextMenu2 as windows_core::Interface>::IID || iid == &<IContextMenu as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -11586,7 +11586,7 @@ impl IContextMenu3_Vtbl {
         Self { base__: IContextMenu2_Vtbl::new::<Identity, OFFSET>(), HandleMenuMsg2: HandleMenuMsg2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IContextMenu3 as windows_core::Interface>::IID
+        iid == &<IContextMenu3 as windows_core::Interface>::IID || iid == &<IContextMenu as windows_core::Interface>::IID || iid == &<IContextMenu2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -12276,7 +12276,7 @@ impl ICredentialProviderCredential2_Vtbl {
         Self { base__: ICredentialProviderCredential_Vtbl::new::<Identity, OFFSET>(), GetUserSid: GetUserSid::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICredentialProviderCredential2 as windows_core::Interface>::IID
+        iid == &<ICredentialProviderCredential2 as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12506,7 +12506,7 @@ impl ICredentialProviderCredentialEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICredentialProviderCredentialEvents2 as windows_core::Interface>::IID
+        iid == &<ICredentialProviderCredentialEvents2 as windows_core::Interface>::IID || iid == &<ICredentialProviderCredentialEvents as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12848,7 +12848,7 @@ impl ICurrentItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICurrentItem as windows_core::Interface>::IID
+        iid == &<ICurrentItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -13498,7 +13498,7 @@ impl IDelegateItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDelegateItem as windows_core::Interface>::IID
+        iid == &<IDelegateItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -13540,7 +13540,7 @@ impl IDeskBand_Vtbl {
         Self { base__: IDockingWindow_Vtbl::new::<Identity, OFFSET>(), GetBandInfo: GetBandInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBand as windows_core::Interface>::IID
+        iid == &<IDeskBand as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID || iid == &<IDockingWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -13622,7 +13622,7 @@ impl IDeskBand2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBand2 as windows_core::Interface>::IID
+        iid == &<IDeskBand2 as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID || iid == &<IDockingWindow as windows_core::Interface>::IID || iid == &<IDeskBand as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -13732,7 +13732,7 @@ impl IDeskBar_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBar as windows_core::Interface>::IID
+        iid == &<IDeskBar as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -13817,7 +13817,7 @@ impl IDeskBarClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDeskBarClient as windows_core::Interface>::IID
+        iid == &<IDeskBarClient as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -14174,7 +14174,7 @@ impl IDisplayItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDisplayItem as windows_core::Interface>::IID
+        iid == &<IDisplayItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -14281,7 +14281,7 @@ impl IDockingWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindow as windows_core::Interface>::IID
+        iid == &<IDockingWindow as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -14356,7 +14356,7 @@ impl IDockingWindowFrame_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindowFrame as windows_core::Interface>::IID
+        iid == &<IDockingWindowFrame as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -14437,7 +14437,7 @@ impl IDockingWindowSite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDockingWindowSite as windows_core::Interface>::IID
+        iid == &<IDockingWindowSite as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -14533,7 +14533,7 @@ impl IDragSourceHelper2_Vtbl {
         Self { base__: IDragSourceHelper_Vtbl::new::<Identity, OFFSET>(), SetFlags: SetFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDragSourceHelper2 as windows_core::Interface>::IID
+        iid == &<IDragSourceHelper2 as windows_core::Interface>::IID || iid == &<IDragSourceHelper as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -14739,7 +14739,7 @@ impl IEnumACString_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumACString as windows_core::Interface>::IID
+        iid == &<IEnumACString as windows_core::Interface>::IID || iid == &<super::super::System::Com::IEnumString as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16885,7 +16885,7 @@ impl IExtractImage2_Vtbl {
         Self { base__: IExtractImage_Vtbl::new::<Identity, OFFSET>(), GetDateStamp: GetDateStamp::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IExtractImage2 as windows_core::Interface>::IID
+        iid == &<IExtractImage2 as windows_core::Interface>::IID || iid == &<IExtractImage as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -17228,7 +17228,7 @@ impl IFileDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileDialog as windows_core::Interface>::IID
+        iid == &<IFileDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -17284,7 +17284,7 @@ impl IFileDialog2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileDialog2 as windows_core::Interface>::IID
+        iid == &<IFileDialog2 as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID || iid == &<IFileDialog as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -18010,7 +18010,7 @@ impl IFileOpenDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileOpenDialog as windows_core::Interface>::IID
+        iid == &<IFileOpenDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID || iid == &<IFileDialog as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -18352,7 +18352,7 @@ impl IFileOperation2_Vtbl {
         Self { base__: IFileOperation_Vtbl::new::<Identity, OFFSET>(), SetOperationFlags2: SetOperationFlags2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileOperation2 as windows_core::Interface>::IID
+        iid == &<IFileOperation2 as windows_core::Interface>::IID || iid == &<IFileOperation as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -18700,7 +18700,7 @@ impl IFileSaveDialog_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSaveDialog as windows_core::Interface>::IID
+        iid == &<IFileSaveDialog as windows_core::Interface>::IID || iid == &<IModalWindow as windows_core::Interface>::IID || iid == &<IFileDialog as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -18821,7 +18821,7 @@ impl IFileSearchBand_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSearchBand as windows_core::Interface>::IID
+        iid == &<IFileSearchBand as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -19020,7 +19020,7 @@ impl IFileSystemBindData2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSystemBindData2 as windows_core::Interface>::IID
+        iid == &<IFileSystemBindData2 as windows_core::Interface>::IID || iid == &<IFileSystemBindData as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -19815,7 +19815,7 @@ impl IFolderView2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderView2 as windows_core::Interface>::IID
+        iid == &<IFolderView2 as windows_core::Interface>::IID || iid == &<IFolderView as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -19899,7 +19899,7 @@ impl IFolderViewOC_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), SetFolderView: SetFolderView::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFolderViewOC as windows_core::Interface>::IID
+        iid == &<IFolderViewOC as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20351,7 +20351,7 @@ impl IHWEventHandler2_Vtbl {
         Self { base__: IHWEventHandler_Vtbl::new::<Identity, OFFSET>(), HandleEventWithHWND: HandleEventWithHWND::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHWEventHandler2 as windows_core::Interface>::IID
+        iid == &<IHWEventHandler2 as windows_core::Interface>::IID || iid == &<IHWEventHandler as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20515,7 +20515,7 @@ impl IHandlerInfo2_Vtbl {
         Self { base__: IHandlerInfo_Vtbl::new::<Identity, OFFSET>(), GetApplicationId: GetApplicationId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHandlerInfo2 as windows_core::Interface>::IID
+        iid == &<IHandlerInfo2 as windows_core::Interface>::IID || iid == &<IHandlerInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IHandlerInfo2 {}
@@ -21426,7 +21426,7 @@ impl IIdentityName_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IIdentityName as windows_core::Interface>::IID
+        iid == &<IIdentityName as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -21822,7 +21822,7 @@ impl IInputObject2_Vtbl {
         Self { base__: IInputObject_Vtbl::new::<Identity, OFFSET>(), TranslateAcceleratorGlobal: TranslateAcceleratorGlobal::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInputObject2 as windows_core::Interface>::IID
+        iid == &<IInputObject2 as windows_core::Interface>::IID || iid == &<IInputObject as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -22745,7 +22745,7 @@ impl IMenuPopup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMenuPopup as windows_core::Interface>::IID
+        iid == &<IMenuPopup as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID || iid == &<IDeskBar as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -23247,7 +23247,7 @@ impl INameSpaceTreeControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INameSpaceTreeControl2 as windows_core::Interface>::IID
+        iid == &<INameSpaceTreeControl2 as windows_core::Interface>::IID || iid == &<INameSpaceTreeControl as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for INameSpaceTreeControl2 {}
@@ -23992,7 +23992,7 @@ impl INamespaceWalkCB2_Vtbl {
         Self { base__: INamespaceWalkCB_Vtbl::new::<Identity, OFFSET>(), WalkComplete: WalkComplete::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INamespaceWalkCB2 as windows_core::Interface>::IID
+        iid == &<INamespaceWalkCB2 as windows_core::Interface>::IID || iid == &<INamespaceWalkCB as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -24348,7 +24348,7 @@ impl INewWDEvents_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), PassportAuthenticate: PassportAuthenticate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INewWDEvents as windows_core::Interface>::IID
+        iid == &<INewWDEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -25261,7 +25261,7 @@ impl IPackageDebugSettings2_Vtbl {
         Self { base__: IPackageDebugSettings_Vtbl::new::<Identity, OFFSET>(), EnumerateApps: EnumerateApps::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPackageDebugSettings2 as windows_core::Interface>::IID
+        iid == &<IPackageDebugSettings2 as windows_core::Interface>::IID || iid == &<IPackageDebugSettings as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPackageDebugSettings2 {}
@@ -25436,7 +25436,7 @@ impl IPersistFolder_Vtbl {
         Self { base__: super::super::System::Com::IPersist_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder as windows_core::Interface>::IID
+        iid == &<IPersistFolder as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -25489,7 +25489,7 @@ impl IPersistFolder2_Vtbl {
         Self { base__: IPersistFolder_Vtbl::new::<Identity, OFFSET>(), GetCurFolder: GetCurFolder::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder2 as windows_core::Interface>::IID
+        iid == &<IPersistFolder2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<IPersistFolder as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -25555,7 +25555,7 @@ impl IPersistFolder3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFolder3 as windows_core::Interface>::IID
+        iid == &<IPersistFolder3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<IPersistFolder as windows_core::Interface>::IID || iid == &<IPersistFolder2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -25625,7 +25625,7 @@ impl IPersistIDList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistIDList as windows_core::Interface>::IID
+        iid == &<IPersistIDList as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -25881,7 +25881,7 @@ impl IPreviewItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPreviewItem as windows_core::Interface>::IID
+        iid == &<IPreviewItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -26281,7 +26281,7 @@ impl IPublishedApp_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPublishedApp as windows_core::Interface>::IID
+        iid == &<IPublishedApp as windows_core::Interface>::IID || iid == &<IShellApp as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPublishedApp {}
@@ -26318,7 +26318,7 @@ impl IPublishedApp2_Vtbl {
         Self { base__: IPublishedApp_Vtbl::new::<Identity, OFFSET>(), Install2: Install2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPublishedApp2 as windows_core::Interface>::IID
+        iid == &<IPublishedApp2 as windows_core::Interface>::IID || iid == &<IShellApp as windows_core::Interface>::IID || iid == &<IPublishedApp as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPublishedApp2 {}
@@ -26379,7 +26379,7 @@ impl IPublishingWizard_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPublishingWizard as windows_core::Interface>::IID
+        iid == &<IPublishingWizard as windows_core::Interface>::IID || iid == &<IWizardExtension as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
@@ -26631,7 +26631,7 @@ impl IQueryContinueWithStatus_Vtbl {
         Self { base__: IQueryContinue_Vtbl::new::<Identity, OFFSET>(), SetStatusMessage: SetStatusMessage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQueryContinueWithStatus as windows_core::Interface>::IID
+        iid == &<IQueryContinueWithStatus as windows_core::Interface>::IID || iid == &<IQueryContinue as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IQueryContinueWithStatus {}
@@ -27275,7 +27275,7 @@ impl IScriptErrorList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScriptErrorList as windows_core::Interface>::IID
+        iid == &<IScriptErrorList as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28117,7 +28117,7 @@ impl IShellBrowser_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellBrowser as windows_core::Interface>::IID
+        iid == &<IShellBrowser as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -28516,7 +28516,7 @@ impl IShellDispatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch as windows_core::Interface>::IID
+        iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28718,7 +28718,7 @@ impl IShellDispatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch2 as windows_core::Interface>::IID
+        iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28764,7 +28764,7 @@ impl IShellDispatch3_Vtbl {
         Self { base__: IShellDispatch2_Vtbl::new::<Identity, OFFSET>(), AddToRecent: AddToRecent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch3 as windows_core::Interface>::IID
+        iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28857,7 +28857,7 @@ impl IShellDispatch4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch4 as windows_core::Interface>::IID
+        iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28899,7 +28899,7 @@ impl IShellDispatch5_Vtbl {
         Self { base__: IShellDispatch4_Vtbl::new::<Identity, OFFSET>(), WindowSwitcher: WindowSwitcher::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch5 as windows_core::Interface>::IID
+        iid == &<IShellDispatch5 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28941,7 +28941,7 @@ impl IShellDispatch6_Vtbl {
         Self { base__: IShellDispatch5_Vtbl::new::<Identity, OFFSET>(), SearchCommand: SearchCommand::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellDispatch6 as windows_core::Interface>::IID
+        iid == &<IShellDispatch6 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch as windows_core::Interface>::IID || iid == &<IShellDispatch2 as windows_core::Interface>::IID || iid == &<IShellDispatch3 as windows_core::Interface>::IID || iid == &<IShellDispatch4 as windows_core::Interface>::IID || iid == &<IShellDispatch5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -29166,7 +29166,7 @@ impl IShellFavoritesNameSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFavoritesNameSpace as windows_core::Interface>::IID
+        iid == &<IShellFavoritesNameSpace as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -29501,7 +29501,7 @@ impl IShellFolder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolder2 as windows_core::Interface>::IID
+        iid == &<IShellFolder2 as windows_core::Interface>::IID || iid == &<IShellFolder as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -30250,7 +30250,7 @@ impl IShellFolderViewDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -30322,7 +30322,7 @@ impl IShellFolderViewDual2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -30475,7 +30475,7 @@ impl IShellFolderViewDual3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID
+        iid == &<IShellFolderViewDual3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellFolderViewDual as windows_core::Interface>::IID || iid == &<IShellFolderViewDual2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -31615,7 +31615,7 @@ impl IShellItem2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellItem2 as windows_core::Interface>::IID
+        iid == &<IShellItem2 as windows_core::Interface>::IID || iid == &<IShellItem as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -32872,7 +32872,7 @@ impl IShellLinkDual_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual as windows_core::Interface>::IID
+        iid == &<IShellLinkDual as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -32921,7 +32921,7 @@ impl IShellLinkDual2_Vtbl {
         Self { base__: IShellLinkDual_Vtbl::new::<Identity, OFFSET>(), Target: Target::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellLinkDual2 as windows_core::Interface>::IID
+        iid == &<IShellLinkDual2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellLinkDual as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -33708,7 +33708,7 @@ impl IShellNameSpace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellNameSpace as windows_core::Interface>::IID
+        iid == &<IShellNameSpace as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellFavoritesNameSpace as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34105,7 +34105,7 @@ impl IShellUIHelper_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper as windows_core::Interface>::IID
+        iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34366,7 +34366,7 @@ impl IShellUIHelper2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper2 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34565,7 +34565,7 @@ impl IShellUIHelper3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper3 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34857,7 +34857,7 @@ impl IShellUIHelper4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper4 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -34976,7 +34976,7 @@ impl IShellUIHelper5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper5 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35190,7 +35190,7 @@ impl IShellUIHelper6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper6 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35352,7 +35352,7 @@ impl IShellUIHelper7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper7 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper7 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35485,7 +35485,7 @@ impl IShellUIHelper8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper8 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper8 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<IShellUIHelper7 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35534,7 +35534,7 @@ impl IShellUIHelper9_Vtbl {
         Self { base__: IShellUIHelper8_Vtbl::new::<Identity, OFFSET>(), GetOSSku: GetOSSku::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellUIHelper9 as windows_core::Interface>::IID
+        iid == &<IShellUIHelper9 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IShellUIHelper as windows_core::Interface>::IID || iid == &<IShellUIHelper2 as windows_core::Interface>::IID || iid == &<IShellUIHelper3 as windows_core::Interface>::IID || iid == &<IShellUIHelper4 as windows_core::Interface>::IID || iid == &<IShellUIHelper5 as windows_core::Interface>::IID || iid == &<IShellUIHelper6 as windows_core::Interface>::IID || iid == &<IShellUIHelper7 as windows_core::Interface>::IID || iid == &<IShellUIHelper8 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -35719,7 +35719,7 @@ impl IShellView_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView as windows_core::Interface>::IID
+        iid == &<IShellView as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -35802,7 +35802,7 @@ impl IShellView2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView2 as windows_core::Interface>::IID
+        iid == &<IShellView2 as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID || iid == &<IShellView as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -35855,7 +35855,7 @@ impl IShellView3_Vtbl {
         Self { base__: IShellView2_Vtbl::new::<Identity, OFFSET>(), CreateViewWindow3: CreateViewWindow3::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellView3 as windows_core::Interface>::IID
+        iid == &<IShellView3 as windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as windows_core::Interface>::IID || iid == &<IShellView as windows_core::Interface>::IID || iid == &<IShellView2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -36070,7 +36070,7 @@ impl IShellWindows_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IShellWindows as windows_core::Interface>::IID
+        iid == &<IShellWindows as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -36530,7 +36530,7 @@ impl IStreamAsync_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStreamAsync as windows_core::Interface>::IID
+        iid == &<IStreamAsync as windows_core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as windows_core::Interface>::IID || iid == &<super::super::System::Com::IStream as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
@@ -37679,7 +37679,7 @@ impl ISyncMgrEventLinkUIOperation_Vtbl {
         Self { base__: ISyncMgrUIOperation_Vtbl::new::<Identity, OFFSET>(), Init: Init::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncMgrEventLinkUIOperation as windows_core::Interface>::IID
+        iid == &<ISyncMgrEventLinkUIOperation as windows_core::Interface>::IID || iid == &<ISyncMgrUIOperation as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncMgrEventLinkUIOperation {}
@@ -38287,7 +38287,7 @@ impl ISyncMgrScheduleWizardUIOperation_Vtbl {
         Self { base__: ISyncMgrUIOperation_Vtbl::new::<Identity, OFFSET>(), InitWizard: InitWizard::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncMgrScheduleWizardUIOperation as windows_core::Interface>::IID
+        iid == &<ISyncMgrScheduleWizardUIOperation as windows_core::Interface>::IID || iid == &<ISyncMgrUIOperation as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncMgrScheduleWizardUIOperation {}
@@ -39302,7 +39302,7 @@ impl ITaskbarList2_Vtbl {
         Self { base__: ITaskbarList_Vtbl::new::<Identity, OFFSET>(), MarkFullscreenWindow: MarkFullscreenWindow::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList2 as windows_core::Interface>::IID
+        iid == &<ITaskbarList2 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITaskbarList2 {}
@@ -39510,7 +39510,7 @@ impl ITaskbarList3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList3 as windows_core::Interface>::IID
+        iid == &<ITaskbarList3 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID || iid == &<ITaskbarList2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -39550,7 +39550,7 @@ impl ITaskbarList4_Vtbl {
         Self { base__: ITaskbarList3_Vtbl::new::<Identity, OFFSET>(), SetTabProperties: SetTabProperties::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITaskbarList4 as windows_core::Interface>::IID
+        iid == &<ITaskbarList4 as windows_core::Interface>::IID || iid == &<ITaskbarList as windows_core::Interface>::IID || iid == &<ITaskbarList2 as windows_core::Interface>::IID || iid == &<ITaskbarList3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -39885,7 +39885,7 @@ impl ITrackShellMenu_Vtbl {
         Self { base__: IShellMenu_Vtbl::new::<Identity, OFFSET>(), SetObscured: SetObscured::<Identity, OFFSET>, Popup: Popup::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITrackShellMenu as windows_core::Interface>::IID
+        iid == &<ITrackShellMenu as windows_core::Interface>::IID || iid == &<IShellMenu as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -40130,7 +40130,7 @@ impl ITransferMediumItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransferMediumItem as windows_core::Interface>::IID
+        iid == &<ITransferMediumItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -41029,7 +41029,7 @@ impl IURLSearchHook2_Vtbl {
         Self { base__: IURLSearchHook_Vtbl::new::<Identity, OFFSET>(), TranslateWithSearchContext: TranslateWithSearchContext::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IURLSearchHook2 as windows_core::Interface>::IID
+        iid == &<IURLSearchHook2 as windows_core::Interface>::IID || iid == &<IURLSearchHook as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IURLSearchHook2 {}
@@ -41220,7 +41220,7 @@ impl IUseToBrowseItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUseToBrowseItem as windows_core::Interface>::IID
+        iid == &<IUseToBrowseItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -41512,7 +41512,7 @@ impl IViewStateIdentityItem_Vtbl {
         Self { base__: IRelatedItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IViewStateIdentityItem as windows_core::Interface>::IID
+        iid == &<IViewStateIdentityItem as windows_core::Interface>::IID || iid == &<IRelatedItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -42113,7 +42113,7 @@ impl IWebBrowser_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebBrowser as windows_core::Interface>::IID
+        iid == &<IWebBrowser as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -42442,7 +42442,7 @@ impl IWebBrowser2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebBrowser2 as windows_core::Interface>::IID
+        iid == &<IWebBrowser2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWebBrowser as windows_core::Interface>::IID || iid == &<IWebBrowserApp as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -42774,7 +42774,7 @@ impl IWebBrowserApp_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebBrowserApp as windows_core::Interface>::IID
+        iid == &<IWebBrowserApp as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWebBrowser as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -42830,7 +42830,7 @@ impl IWebWizardExtension_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardExtension as windows_core::Interface>::IID
+        iid == &<IWebWizardExtension as windows_core::Interface>::IID || iid == &<IWizardExtension as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Controls")]
@@ -42982,7 +42982,7 @@ impl IWebWizardHost_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost as windows_core::Interface>::IID
+        iid == &<IWebWizardHost as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -43031,7 +43031,7 @@ impl IWebWizardHost2_Vtbl {
         Self { base__: IWebWizardHost_Vtbl::new::<Identity, OFFSET>(), SignString: SignString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWebWizardHost2 as windows_core::Interface>::IID
+        iid == &<IWebWizardHost2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWebWizardHost as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

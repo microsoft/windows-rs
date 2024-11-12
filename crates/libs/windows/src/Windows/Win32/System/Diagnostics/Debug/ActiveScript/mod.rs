@@ -898,7 +898,7 @@ impl IActiveScriptError64_Vtbl {
         Self { base__: IActiveScriptError_Vtbl::new::<Identity, OFFSET>(), GetSourcePosition64: GetSourcePosition64::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptError64 as windows_core::Interface>::IID
+        iid == &<IActiveScriptError64 as windows_core::Interface>::IID || iid == &<IActiveScriptError as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -962,7 +962,7 @@ impl IActiveScriptErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptErrorDebug as windows_core::Interface>::IID
+        iid == &<IActiveScriptErrorDebug as windows_core::Interface>::IID || iid == &<IActiveScriptError as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1230,7 +1230,7 @@ impl IActiveScriptParseProcedure2_32_Vtbl {
         Self { base__: IActiveScriptParseProcedure32_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_32 as windows_core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure2_32 as windows_core::Interface>::IID || iid == &<IActiveScriptParseProcedure32 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1255,7 +1255,7 @@ impl IActiveScriptParseProcedure2_64_Vtbl {
         Self { base__: IActiveScriptParseProcedure64_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptParseProcedure2_64 as windows_core::Interface>::IID
+        iid == &<IActiveScriptParseProcedure2_64 as windows_core::Interface>::IID || iid == &<IActiveScriptParseProcedure64 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1596,7 +1596,7 @@ impl IActiveScriptProfilerCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback2 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerCallback2 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerCallback2 {}
@@ -1630,7 +1630,7 @@ impl IActiveScriptProfilerCallback3_Vtbl {
         Self { base__: IActiveScriptProfilerCallback2_Vtbl::new::<Identity, OFFSET>(), SetWebWorkerId: SetWebWorkerId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerCallback3 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerCallback3 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerCallback2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerCallback3 {}
@@ -1728,7 +1728,7 @@ impl IActiveScriptProfilerControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl2 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl2 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerControl2 {}
@@ -1769,7 +1769,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
         Self { base__: IActiveScriptProfilerControl2_Vtbl::new::<Identity, OFFSET>(), EnumHeap: EnumHeap::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl3 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl3 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerControl3 {}
@@ -1803,7 +1803,7 @@ impl IActiveScriptProfilerControl4_Vtbl {
         Self { base__: IActiveScriptProfilerControl3_Vtbl::new::<Identity, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl4 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl4 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerControl4 {}
@@ -1844,7 +1844,7 @@ impl IActiveScriptProfilerControl5_Vtbl {
         Self { base__: IActiveScriptProfilerControl4_Vtbl::new::<Identity, OFFSET>(), EnumHeap2: EnumHeap2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptProfilerControl5 as windows_core::Interface>::IID
+        iid == &<IActiveScriptProfilerControl5 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl2 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl3 as windows_core::Interface>::IID || iid == &<IActiveScriptProfilerControl4 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IActiveScriptProfilerControl5 {}
@@ -2691,7 +2691,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveScriptWinRTErrorDebug as windows_core::Interface>::IID
+        iid == &<IActiveScriptWinRTErrorDebug as windows_core::Interface>::IID || iid == &<IActiveScriptError as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2949,7 +2949,7 @@ impl IDebugApplication11032_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplication11032 as windows_core::Interface>::IID
+        iid == &<IDebugApplication11032 as windows_core::Interface>::IID || iid == &<IRemoteDebugApplication110 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplication11032 {}
@@ -3019,7 +3019,7 @@ impl IDebugApplication11064_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplication11064 as windows_core::Interface>::IID
+        iid == &<IDebugApplication11064 as windows_core::Interface>::IID || iid == &<IRemoteDebugApplication110 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplication11064 {}
@@ -3313,7 +3313,7 @@ impl IDebugApplication32_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplication32 as windows_core::Interface>::IID
+        iid == &<IDebugApplication32 as windows_core::Interface>::IID || iid == &<IRemoteDebugApplication as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplication32 {}
@@ -3607,7 +3607,7 @@ impl IDebugApplication64_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplication64 as windows_core::Interface>::IID
+        iid == &<IDebugApplication64 as windows_core::Interface>::IID || iid == &<IRemoteDebugApplication as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplication64 {}
@@ -3714,7 +3714,7 @@ impl IDebugApplicationNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationNode as windows_core::Interface>::IID
+        iid == &<IDebugApplicationNode as windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as windows_core::Interface>::IID || iid == &<IDebugDocumentProvider as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplicationNode {}
@@ -3931,7 +3931,7 @@ impl IDebugApplicationThread_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread as windows_core::Interface>::IID
+        iid == &<IDebugApplicationThread as windows_core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplicationThread {}
@@ -4138,7 +4138,7 @@ impl IDebugApplicationThread64_Vtbl {
         Self { base__: IDebugApplicationThread_Vtbl::new::<Identity, OFFSET>(), SynchronousCallIntoThread64: SynchronousCallIntoThread64::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugApplicationThread64 as windows_core::Interface>::IID
+        iid == &<IDebugApplicationThread64 as windows_core::Interface>::IID || iid == &<IRemoteDebugApplicationThread as windows_core::Interface>::IID || iid == &<IDebugApplicationThread as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugApplicationThread64 {}
@@ -4406,7 +4406,7 @@ impl IDebugDocument_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugDocument as windows_core::Interface>::IID
+        iid == &<IDebugDocument as windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugDocument {}
@@ -5160,7 +5160,7 @@ impl IDebugDocumentProvider_Vtbl {
         Self { base__: IDebugDocumentInfo_Vtbl::new::<Identity, OFFSET>(), GetDocument: GetDocument::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentProvider as windows_core::Interface>::IID
+        iid == &<IDebugDocumentProvider as windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugDocumentProvider {}
@@ -5281,7 +5281,7 @@ impl IDebugDocumentText_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentText as windows_core::Interface>::IID
+        iid == &<IDebugDocumentText as windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as windows_core::Interface>::IID || iid == &<IDebugDocument as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugDocumentText {}
@@ -5338,7 +5338,7 @@ impl IDebugDocumentTextAuthor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugDocumentTextAuthor as windows_core::Interface>::IID
+        iid == &<IDebugDocumentTextAuthor as windows_core::Interface>::IID || iid == &<IDebugDocumentInfo as windows_core::Interface>::IID || iid == &<IDebugDocument as windows_core::Interface>::IID || iid == &<IDebugDocumentText as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugDocumentTextAuthor {}
@@ -6024,7 +6024,7 @@ impl IDebugStackFrame110_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrame110 as windows_core::Interface>::IID
+        iid == &<IDebugStackFrame110 as windows_core::Interface>::IID || iid == &<IDebugStackFrame as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugStackFrame110 {}
@@ -6100,7 +6100,7 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, OFFSET>(), EnumStackFramesEx32: EnumStackFramesEx32::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx32 as windows_core::Interface>::IID
+        iid == &<IDebugStackFrameSnifferEx32 as windows_core::Interface>::IID || iid == &<IDebugStackFrameSniffer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugStackFrameSnifferEx32 {}
@@ -6141,7 +6141,7 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
         Self { base__: IDebugStackFrameSniffer_Vtbl::new::<Identity, OFFSET>(), EnumStackFramesEx64: EnumStackFramesEx64::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugStackFrameSnifferEx64 as windows_core::Interface>::IID
+        iid == &<IDebugStackFrameSnifferEx64 as windows_core::Interface>::IID || iid == &<IDebugStackFrameSniffer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugStackFrameSnifferEx64 {}
@@ -6568,7 +6568,7 @@ impl IEnumDebugStackFrames64_Vtbl {
         Self { base__: IEnumDebugStackFrames_Vtbl::new::<Identity, OFFSET>(), Next64: Next64::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnumDebugStackFrames64 as windows_core::Interface>::IID
+        iid == &<IEnumDebugStackFrames64 as windows_core::Interface>::IID || iid == &<IEnumDebugStackFrames as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IEnumDebugStackFrames64 {}
@@ -8560,7 +8560,7 @@ impl IScriptEntry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScriptEntry as windows_core::Interface>::IID
+        iid == &<IScriptEntry as windows_core::Interface>::IID || iid == &<IScriptNode as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8945,7 +8945,7 @@ impl IScriptScriptlet_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScriptScriptlet as windows_core::Interface>::IID
+        iid == &<IScriptScriptlet as windows_core::Interface>::IID || iid == &<IScriptNode as windows_core::Interface>::IID || iid == &<IScriptEntry as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

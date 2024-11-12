@@ -637,7 +637,7 @@ impl IWinHttpRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWinHttpRequest as windows_core::Interface>::IID
+        iid == &<IWinHttpRequest as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

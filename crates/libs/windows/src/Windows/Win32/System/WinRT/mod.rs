@@ -1523,7 +1523,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILanguageExceptionErrorInfo2 as windows_core::Interface>::IID
+        iid == &<ILanguageExceptionErrorInfo2 as windows_core::Interface>::IID || iid == &<ILanguageExceptionErrorInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ILanguageExceptionErrorInfo2 {}

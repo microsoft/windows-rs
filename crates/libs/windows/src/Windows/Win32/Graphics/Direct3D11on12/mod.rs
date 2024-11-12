@@ -129,7 +129,7 @@ impl ID3D11On12Device1_Vtbl {
         Self { base__: ID3D11On12Device_Vtbl::new::<Identity, OFFSET>(), GetD3D12Device: GetD3D12Device::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11On12Device1 as windows_core::Interface>::IID
+        iid == &<ID3D11On12Device1 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
@@ -200,7 +200,7 @@ impl ID3D11On12Device2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D11On12Device2 as windows_core::Interface>::IID
+        iid == &<ID3D11On12Device2 as windows_core::Interface>::IID || iid == &<ID3D11On12Device as windows_core::Interface>::IID || iid == &<ID3D11On12Device1 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]

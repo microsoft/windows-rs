@@ -139,7 +139,7 @@ impl IVssAdminEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssAdminEx as windows_core::Interface>::IID
+        iid == &<IVssAdminEx as windows_core::Interface>::IID || iid == &<IVssAdmin as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVssAdminEx {}
@@ -775,7 +775,7 @@ impl IVssComponentEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx as windows_core::Interface>::IID
+        iid == &<IVssComponentEx as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVssComponentEx {}
@@ -821,7 +821,7 @@ impl IVssComponentEx2_Vtbl {
         Self { base__: IVssComponentEx_Vtbl::new::<Identity, OFFSET>(), SetFailure: SetFailure::<Identity, OFFSET>, GetFailure: GetFailure::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx2 as windows_core::Interface>::IID
+        iid == &<IVssComponentEx2 as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID || iid == &<IVssComponentEx as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVssComponentEx2 {}
@@ -1355,7 +1355,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt2 {}
@@ -1432,7 +1432,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as windows_core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt3 {}
@@ -1956,7 +1956,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssHardwareSnapshotProviderEx as windows_core::Interface>::IID
+        iid == &<IVssHardwareSnapshotProviderEx as windows_core::Interface>::IID || iid == &<IVssHardwareSnapshotProvider as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]

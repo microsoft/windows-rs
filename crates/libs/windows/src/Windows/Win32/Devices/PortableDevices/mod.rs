@@ -986,7 +986,7 @@ impl IPortableDeviceContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID
+        iid == &<IPortableDeviceContent2 as windows_core::Interface>::IID || iid == &<IPortableDeviceContent as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1048,7 +1048,7 @@ impl IPortableDeviceDataStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID
+        iid == &<IPortableDeviceDataStream as windows_core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as windows_core::Interface>::IID || iid == &<super::super::System::Com::IStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3450,7 +3450,7 @@ impl IPortableDeviceWebControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID
+        iid == &<IPortableDeviceWebControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

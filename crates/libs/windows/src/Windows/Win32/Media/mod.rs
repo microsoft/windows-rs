@@ -165,7 +165,7 @@ impl IReferenceClock2_Vtbl {
         Self { base__: IReferenceClock_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IReferenceClock2 as windows_core::Interface>::IID
+        iid == &<IReferenceClock2 as windows_core::Interface>::IID || iid == &<IReferenceClock as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IReferenceClock2 {}

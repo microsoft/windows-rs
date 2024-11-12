@@ -81,7 +81,7 @@ impl ID3D12CommandAllocator_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12CommandAllocator as windows_core::Interface>::IID
+        iid == &<ID3D12CommandAllocator as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandAllocator {}
@@ -117,7 +117,7 @@ impl ID3D12CommandList_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, OFFSET>(), GetType: GetType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12CommandList as windows_core::Interface>::IID
+        iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandList {}
@@ -291,7 +291,7 @@ impl ID3D12CommandQueue_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12CommandQueue as windows_core::Interface>::IID
+        iid == &<ID3D12CommandQueue as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandQueue {}
@@ -315,7 +315,7 @@ impl ID3D12CommandSignature_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12CommandSignature as windows_core::Interface>::IID
+        iid == &<ID3D12CommandSignature as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12CommandSignature {}
@@ -499,7 +499,7 @@ impl ID3D12Debug3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Debug3 as windows_core::Interface>::IID
+        iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug3 {}
@@ -535,7 +535,7 @@ impl ID3D12Debug4_Vtbl {
         Self { base__: ID3D12Debug3_Vtbl::new::<Identity, OFFSET>(), DisableDebugLayer: DisableDebugLayer::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Debug4 as windows_core::Interface>::IID
+        iid == &<ID3D12Debug4 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug4 {}
@@ -574,7 +574,7 @@ impl ID3D12Debug5_Vtbl {
         Self { base__: ID3D12Debug4_Vtbl::new::<Identity, OFFSET>(), SetEnableAutoName: SetEnableAutoName::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Debug5 as windows_core::Interface>::IID
+        iid == &<ID3D12Debug5 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug4 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug5 {}
@@ -613,7 +613,7 @@ impl ID3D12Debug6_Vtbl {
         Self { base__: ID3D12Debug5_Vtbl::new::<Identity, OFFSET>(), SetForceLegacyBarrierValidation: SetForceLegacyBarrierValidation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Debug6 as windows_core::Interface>::IID
+        iid == &<ID3D12Debug6 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug4 as windows_core::Interface>::IID || iid == &<ID3D12Debug5 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Debug6 {}
@@ -774,7 +774,7 @@ impl ID3D12DebugCommandList2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DebugCommandList2 as windows_core::Interface>::IID
+        iid == &<ID3D12DebugCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList2 {}
@@ -829,7 +829,7 @@ impl ID3D12DebugCommandList3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DebugCommandList3 as windows_core::Interface>::IID
+        iid == &<ID3D12DebugCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandList3 {}
@@ -917,7 +917,7 @@ impl ID3D12DebugCommandQueue1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DebugCommandQueue1 as windows_core::Interface>::IID
+        iid == &<ID3D12DebugCommandQueue1 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandQueue as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugCommandQueue1 {}
@@ -1072,7 +1072,7 @@ impl ID3D12DebugDevice2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DebugDevice2 as windows_core::Interface>::IID
+        iid == &<ID3D12DebugDevice2 as windows_core::Interface>::IID || iid == &<ID3D12DebugDevice as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DebugDevice2 {}
@@ -1137,7 +1137,7 @@ impl ID3D12DescriptorHeap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DescriptorHeap as windows_core::Interface>::IID
+        iid == &<ID3D12DescriptorHeap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DescriptorHeap {}
@@ -1695,7 +1695,7 @@ impl ID3D12Device_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device as windows_core::Interface>::IID
+        iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1766,7 +1766,7 @@ impl ID3D12Device1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device1 as windows_core::Interface>::IID
+        iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1867,7 +1867,7 @@ impl ID3D12Device10_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device10 as windows_core::Interface>::IID
+        iid == &<ID3D12Device10 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Device9 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1908,7 +1908,7 @@ impl ID3D12Device11_Vtbl {
         Self { base__: ID3D12Device10_Vtbl::new::<Identity, OFFSET>(), CreateSampler2: CreateSampler2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device11 as windows_core::Interface>::IID
+        iid == &<ID3D12Device11 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Device9 as windows_core::Interface>::IID || iid == &<ID3D12Device10 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1956,6 +1956,19 @@ impl ID3D12Device12_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12Device12 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12Device as windows_core::Interface>::IID
+            || iid == &<ID3D12Device1 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device2 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device3 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device4 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device5 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device6 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device7 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device8 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device9 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device10 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device11 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2001,6 +2014,20 @@ impl ID3D12Device13_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12Device13 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12Device as windows_core::Interface>::IID
+            || iid == &<ID3D12Device1 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device2 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device3 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device4 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device5 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device6 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device7 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device8 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device9 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device10 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device11 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device12 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2050,6 +2077,21 @@ impl ID3D12Device14_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12Device14 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12Device as windows_core::Interface>::IID
+            || iid == &<ID3D12Device1 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device2 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device3 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device4 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device5 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device6 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device7 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device8 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device9 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device10 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device11 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device12 as windows_core::Interface>::IID
+            || iid == &<ID3D12Device13 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2094,7 +2136,7 @@ impl ID3D12Device2_Vtbl {
         Self { base__: ID3D12Device1_Vtbl::new::<Identity, OFFSET>(), CreatePipelineState: CreatePipelineState::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device2 as windows_core::Interface>::IID
+        iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2170,7 +2212,7 @@ impl ID3D12Device3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device3 as windows_core::Interface>::IID
+        iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2298,7 +2340,7 @@ impl ID3D12Device4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device4 as windows_core::Interface>::IID
+        iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2429,7 +2471,7 @@ impl ID3D12Device5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device5 as windows_core::Interface>::IID
+        iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2473,7 +2515,7 @@ impl ID3D12Device6_Vtbl {
         Self { base__: ID3D12Device5_Vtbl::new::<Identity, OFFSET>(), SetBackgroundProcessingMode: SetBackgroundProcessingMode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device6 as windows_core::Interface>::IID
+        iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2536,7 +2578,7 @@ impl ID3D12Device7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device7 as windows_core::Interface>::IID
+        iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2650,7 +2692,7 @@ impl ID3D12Device8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device8 as windows_core::Interface>::IID
+        iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2721,7 +2763,7 @@ impl ID3D12Device9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Device9 as windows_core::Interface>::IID
+        iid == &<ID3D12Device9 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -2763,7 +2805,7 @@ impl ID3D12DeviceChild_Vtbl {
         Self { base__: ID3D12Object_Vtbl::new::<Identity, OFFSET>(), GetDevice: GetDevice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceChild {}
@@ -2887,7 +2929,7 @@ impl ID3D12DeviceConfiguration1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceConfiguration1 as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceConfiguration1 as windows_core::Interface>::IID || iid == &<ID3D12DeviceConfiguration as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3120,7 +3162,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceRemovedExtendedData1 as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceRemovedExtendedData1 as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedData as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedData1 {}
@@ -3169,7 +3211,7 @@ impl ID3D12DeviceRemovedExtendedData2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceRemovedExtendedData2 as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceRemovedExtendedData2 as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedData as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedData1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedData2 {}
@@ -3261,7 +3303,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceRemovedExtendedDataSettings1 as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceRemovedExtendedDataSettings1 as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedDataSettings as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings1 {}
@@ -3303,7 +3345,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12DeviceRemovedExtendedDataSettings2 as windows_core::Interface>::IID
+        iid == &<ID3D12DeviceRemovedExtendedDataSettings2 as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedDataSettings as windows_core::Interface>::IID || iid == &<ID3D12DeviceRemovedExtendedDataSettings1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings2 {}
@@ -3365,7 +3407,7 @@ impl ID3D12Fence_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Fence as windows_core::Interface>::IID
+        iid == &<ID3D12Fence as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Fence {}
@@ -3401,7 +3443,7 @@ impl ID3D12Fence1_Vtbl {
         Self { base__: ID3D12Fence_Vtbl::new::<Identity, OFFSET>(), GetCreationFlags: GetCreationFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Fence1 as windows_core::Interface>::IID
+        iid == &<ID3D12Fence1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Fence as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Fence1 {}
@@ -4326,7 +4368,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4436,7 +4478,7 @@ impl ID3D12GraphicsCommandList1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4491,6 +4533,19 @@ impl ID3D12GraphicsCommandList10_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12GraphicsCommandList10 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
+            || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList8 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList9 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4531,7 +4586,7 @@ impl ID3D12GraphicsCommandList2_Vtbl {
         Self { base__: ID3D12GraphicsCommandList1_Vtbl::new::<Identity, OFFSET>(), WriteBufferImmediate: WriteBufferImmediate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4575,7 +4630,7 @@ impl ID3D12GraphicsCommandList3_Vtbl {
         Self { base__: ID3D12GraphicsCommandList2_Vtbl::new::<Identity, OFFSET>(), SetProtectedResourceSession: SetProtectedResourceSession::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4716,7 +4771,7 @@ impl ID3D12GraphicsCommandList4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4773,7 +4828,7 @@ impl ID3D12GraphicsCommandList5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4814,7 +4869,7 @@ impl ID3D12GraphicsCommandList6_Vtbl {
         Self { base__: ID3D12GraphicsCommandList5_Vtbl::new::<Identity, OFFSET>(), DispatchMesh: DispatchMesh::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4855,7 +4910,7 @@ impl ID3D12GraphicsCommandList7_Vtbl {
         Self { base__: ID3D12GraphicsCommandList6_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID
+        iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4897,6 +4952,17 @@ impl ID3D12GraphicsCommandList8_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12GraphicsCommandList8 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
+            || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4951,6 +5017,18 @@ impl ID3D12GraphicsCommandList9_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D12GraphicsCommandList9 as windows_core::Interface>::IID
+            || iid == &<ID3D12Object as windows_core::Interface>::IID
+            || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
+            || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID
+            || iid == &<ID3D12GraphicsCommandList8 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -4991,7 +5069,7 @@ impl ID3D12Heap_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Heap as windows_core::Interface>::IID
+        iid == &<ID3D12Heap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Heap {}
@@ -5030,7 +5108,7 @@ impl ID3D12Heap1_Vtbl {
         Self { base__: ID3D12Heap_Vtbl::new::<Identity, OFFSET>(), GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Heap1 as windows_core::Interface>::IID
+        iid == &<ID3D12Heap1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Heap as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Heap1 {}
@@ -5470,7 +5548,7 @@ impl ID3D12InfoQueue1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12InfoQueue1 as windows_core::Interface>::IID
+        iid == &<ID3D12InfoQueue1 as windows_core::Interface>::IID || iid == &<ID3D12InfoQueue as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12InfoQueue1 {}
@@ -5589,7 +5667,7 @@ impl ID3D12LifetimeTracker_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, OFFSET>(), DestroyOwnedObject: DestroyOwnedObject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12LifetimeTracker as windows_core::Interface>::IID
+        iid == &<ID3D12LifetimeTracker as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12LifetimeTracker {}
@@ -5655,7 +5733,7 @@ impl ID3D12MetaCommand_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetRequiredParameterResourceSize: GetRequiredParameterResourceSize::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12MetaCommand as windows_core::Interface>::IID
+        iid == &<ID3D12MetaCommand as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12MetaCommand {}
@@ -5748,7 +5826,7 @@ impl ID3D12Pageable_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Pageable as windows_core::Interface>::IID
+        iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12Pageable {}
@@ -5847,7 +5925,7 @@ impl ID3D12PipelineLibrary_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12PipelineLibrary as windows_core::Interface>::IID
+        iid == &<ID3D12PipelineLibrary as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5893,7 +5971,7 @@ impl ID3D12PipelineLibrary1_Vtbl {
         Self { base__: ID3D12PipelineLibrary_Vtbl::new::<Identity, OFFSET>(), LoadPipeline: LoadPipeline::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12PipelineLibrary1 as windows_core::Interface>::IID
+        iid == &<ID3D12PipelineLibrary1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12PipelineLibrary as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5945,7 +6023,7 @@ impl ID3D12PipelineState_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetCachedBlob: GetCachedBlob::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12PipelineState as windows_core::Interface>::IID
+        iid == &<ID3D12PipelineState as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -5986,7 +6064,7 @@ impl ID3D12ProtectedResourceSession_Vtbl {
         Self { base__: ID3D12ProtectedSession_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12ProtectedResourceSession as windows_core::Interface>::IID
+        iid == &<ID3D12ProtectedResourceSession as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12ProtectedSession as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedResourceSession {}
@@ -6024,7 +6102,7 @@ impl ID3D12ProtectedResourceSession1_Vtbl {
         Self { base__: ID3D12ProtectedResourceSession_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12ProtectedResourceSession1 as windows_core::Interface>::IID
+        iid == &<ID3D12ProtectedResourceSession1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12ProtectedSession as windows_core::Interface>::IID || iid == &<ID3D12ProtectedResourceSession as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedResourceSession1 {}
@@ -6076,7 +6154,7 @@ impl ID3D12ProtectedSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12ProtectedSession as windows_core::Interface>::IID
+        iid == &<ID3D12ProtectedSession as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12ProtectedSession {}
@@ -6100,7 +6178,7 @@ impl ID3D12QueryHeap_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12QueryHeap as windows_core::Interface>::IID
+        iid == &<ID3D12QueryHeap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12QueryHeap {}
@@ -6207,7 +6285,7 @@ impl ID3D12Resource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Resource as windows_core::Interface>::IID
+        iid == &<ID3D12Resource as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6251,7 +6329,7 @@ impl ID3D12Resource1_Vtbl {
         Self { base__: ID3D12Resource_Vtbl::new::<Identity, OFFSET>(), GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Resource1 as windows_core::Interface>::IID
+        iid == &<ID3D12Resource1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Resource as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6298,7 +6376,7 @@ impl ID3D12Resource2_Vtbl {
         Self { base__: ID3D12Resource1_Vtbl::new::<Identity, OFFSET>(), GetDesc1: GetDesc1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12Resource2 as windows_core::Interface>::IID
+        iid == &<ID3D12Resource2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Resource as windows_core::Interface>::IID || iid == &<ID3D12Resource1 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6325,7 +6403,7 @@ impl ID3D12RootSignature_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12RootSignature as windows_core::Interface>::IID
+        iid == &<ID3D12RootSignature as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12RootSignature {}
@@ -6442,7 +6520,7 @@ impl ID3D12SDKConfiguration1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12SDKConfiguration1 as windows_core::Interface>::IID
+        iid == &<ID3D12SDKConfiguration1 as windows_core::Interface>::IID || iid == &<ID3D12SDKConfiguration as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12SDKConfiguration1 {}
@@ -6513,7 +6591,7 @@ impl ID3D12ShaderCacheSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12ShaderCacheSession as windows_core::Interface>::IID
+        iid == &<ID3D12ShaderCacheSession as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12ShaderCacheSession {}
@@ -7189,7 +7267,7 @@ impl ID3D12StateObject_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12StateObject as windows_core::Interface>::IID
+        iid == &<ID3D12StateObject as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12StateObject {}
@@ -7299,7 +7377,7 @@ impl ID3D12StateObjectProperties1_Vtbl {
         Self { base__: ID3D12StateObjectProperties_Vtbl::new::<Identity, OFFSET>(), GetProgramIdentifier: GetProgramIdentifier::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ID3D12StateObjectProperties1 as windows_core::Interface>::IID
+        iid == &<ID3D12StateObjectProperties1 as windows_core::Interface>::IID || iid == &<ID3D12StateObjectProperties as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ID3D12StateObjectProperties1 {}

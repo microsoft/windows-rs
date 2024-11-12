@@ -282,7 +282,7 @@ impl IKsAllocatorEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IKsAllocatorEx as windows_core::Interface>::IID
+        iid == &<IKsAllocatorEx as windows_core::Interface>::IID || iid == &<IKsAllocator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IKsAllocatorEx {}
@@ -1293,7 +1293,7 @@ impl IKsPinEx_Vtbl {
         Self { base__: IKsPin_Vtbl::new::<Identity, OFFSET>(), KsNotifyError: KsNotifyError::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IKsPinEx as windows_core::Interface>::IID
+        iid == &<IKsPinEx as windows_core::Interface>::IID || iid == &<IKsPin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
@@ -1567,7 +1567,7 @@ impl IKsQualityForwarder_Vtbl {
         Self { base__: IKsObject_Vtbl::new::<Identity, OFFSET>(), KsFlushClient: KsFlushClient::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IKsQualityForwarder as windows_core::Interface>::IID
+        iid == &<IKsQualityForwarder as windows_core::Interface>::IID || iid == &<IKsObject as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IKsQualityForwarder {}

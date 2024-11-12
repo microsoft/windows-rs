@@ -3430,7 +3430,7 @@ impl IMsmDependencies_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmDependencies as windows_core::Interface>::IID
+        iid == &<IMsmDependencies as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3495,7 +3495,7 @@ impl IMsmDependency_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmDependency as windows_core::Interface>::IID
+        iid == &<IMsmDependency as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3614,7 +3614,7 @@ impl IMsmError_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmError as windows_core::Interface>::IID
+        iid == &<IMsmError as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3693,7 +3693,7 @@ impl IMsmErrors_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmErrors as windows_core::Interface>::IID
+        iid == &<IMsmErrors as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3742,7 +3742,7 @@ impl IMsmGetFiles_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), ModuleFiles: ModuleFiles::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmGetFiles as windows_core::Interface>::IID
+        iid == &<IMsmGetFiles as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3924,7 +3924,7 @@ impl IMsmMerge_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmMerge as windows_core::Interface>::IID
+        iid == &<IMsmMerge as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3996,7 +3996,7 @@ impl IMsmStrings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsmStrings as windows_core::Interface>::IID
+        iid == &<IMsmStrings as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

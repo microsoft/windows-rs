@@ -247,7 +247,7 @@ impl IIsolatedProcessLauncher2_Vtbl {
         Self { base__: IIsolatedProcessLauncher_Vtbl::new::<Identity, OFFSET>(), LaunchProcess2: LaunchProcess2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IIsolatedProcessLauncher2 as windows_core::Interface>::IID
+        iid == &<IIsolatedProcessLauncher2 as windows_core::Interface>::IID || iid == &<IIsolatedProcessLauncher as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IIsolatedProcessLauncher2 {}

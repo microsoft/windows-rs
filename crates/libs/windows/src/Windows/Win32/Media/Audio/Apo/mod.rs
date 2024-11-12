@@ -501,7 +501,7 @@ impl IAudioProcessingObjectNotifications2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioProcessingObjectNotifications2 as windows_core::Interface>::IID
+        iid == &<IAudioProcessingObjectNotifications2 as windows_core::Interface>::IID || iid == &<IAudioProcessingObjectNotifications as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -696,7 +696,7 @@ impl IAudioSystemEffects2_Vtbl {
         Self { base__: IAudioSystemEffects_Vtbl::new::<Identity, OFFSET>(), GetEffectsList: GetEffectsList::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffects2 as windows_core::Interface>::IID
+        iid == &<IAudioSystemEffects2 as windows_core::Interface>::IID || iid == &<IAudioSystemEffects as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioSystemEffects2 {}
@@ -746,7 +746,7 @@ impl IAudioSystemEffects3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSystemEffects3 as windows_core::Interface>::IID
+        iid == &<IAudioSystemEffects3 as windows_core::Interface>::IID || iid == &<IAudioSystemEffects as windows_core::Interface>::IID || iid == &<IAudioSystemEffects2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioSystemEffects3 {}

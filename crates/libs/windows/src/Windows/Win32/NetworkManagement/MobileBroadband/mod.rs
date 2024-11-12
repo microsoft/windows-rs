@@ -22,7 +22,7 @@ impl IDummyMBNUCMExt_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDummyMBNUCMExt as windows_core::Interface>::IID
+        iid == &<IDummyMBNUCMExt as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

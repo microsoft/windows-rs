@@ -122,7 +122,7 @@ impl IWICImagingFactory2_Vtbl {
         Self { base__: super::IWICImagingFactory_Vtbl::new::<Identity, OFFSET>(), CreateImageEncoder: CreateImageEncoder::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWICImagingFactory2 as windows_core::Interface>::IID
+        iid == &<IWICImagingFactory2 as windows_core::Interface>::IID || iid == &<super::IWICImagingFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]

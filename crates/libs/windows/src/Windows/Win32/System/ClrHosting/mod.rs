@@ -982,7 +982,7 @@ impl ICLRGCManager2_Vtbl {
         Self { base__: ICLRGCManager_Vtbl::new::<Identity, OFFSET>(), SetGCStartupLimitsEx: SetGCStartupLimitsEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICLRGCManager2 as windows_core::Interface>::IID
+        iid == &<ICLRGCManager2 as windows_core::Interface>::IID || iid == &<ICLRGCManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICLRGCManager2 {}
@@ -2619,7 +2619,7 @@ impl ICLRTask2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICLRTask2 as windows_core::Interface>::IID
+        iid == &<ICLRTask2 as windows_core::Interface>::IID || iid == &<ICLRTask as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICLRTask2 {}
@@ -3540,7 +3540,7 @@ impl IGCHost2_Vtbl {
         Self { base__: IGCHost_Vtbl::new::<Identity, OFFSET>(), SetGCStartupLimitsEx: SetGCStartupLimitsEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IGCHost2 as windows_core::Interface>::IID
+        iid == &<IGCHost2 as windows_core::Interface>::IID || iid == &<IGCHost as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IGCHost2 {}

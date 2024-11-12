@@ -440,7 +440,7 @@ impl IABContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IABContainer as windows_core::Interface>::IID
+        iid == &<IABContainer as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID || iid == &<IMAPIContainer as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -681,7 +681,7 @@ impl IAddrBook_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAddrBook as windows_core::Interface>::IID
+        iid == &<IAddrBook as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -706,7 +706,7 @@ impl IAttach_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAttach as windows_core::Interface>::IID
+        iid == &<IAttach as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -797,7 +797,7 @@ impl IDistList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDistList as windows_core::Interface>::IID
+        iid == &<IDistList as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID || iid == &<IMAPIContainer as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -934,7 +934,7 @@ impl IMAPIContainer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMAPIContainer as windows_core::Interface>::IID
+        iid == &<IMAPIContainer as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1171,7 +1171,7 @@ impl IMAPIFolder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMAPIFolder as windows_core::Interface>::IID
+        iid == &<IMAPIFolder as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID || iid == &<IMAPIContainer as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1460,7 +1460,7 @@ impl IMAPIStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMAPIStatus as windows_core::Interface>::IID
+        iid == &<IMAPIStatus as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1758,7 +1758,7 @@ impl IMailUser_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMailUser as windows_core::Interface>::IID
+        iid == &<IMailUser as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1896,7 +1896,7 @@ impl IMessage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMessage as windows_core::Interface>::IID
+        iid == &<IMessage as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2094,7 +2094,7 @@ impl IMsgStore_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMsgStore as windows_core::Interface>::IID
+        iid == &<IMsgStore as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2119,7 +2119,7 @@ impl IProfSect_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProfSect as windows_core::Interface>::IID
+        iid == &<IProfSect as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2189,7 +2189,7 @@ impl IPropData_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPropData as windows_core::Interface>::IID
+        iid == &<IPropData as windows_core::Interface>::IID || iid == &<IMAPIProp as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

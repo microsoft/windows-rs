@@ -2674,7 +2674,7 @@ impl RTWQASYNCRESULT_Vtbl {
         Self { base__: IRtwqAsyncResult_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<RTWQASYNCRESULT as windows_core::Interface>::IID
+        iid == &<RTWQASYNCRESULT as windows_core::Interface>::IID || iid == &<IRtwqAsyncResult as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for RTWQASYNCRESULT {}

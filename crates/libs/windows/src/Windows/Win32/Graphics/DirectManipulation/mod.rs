@@ -138,7 +138,7 @@ impl IDirectManipulationCompositor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationCompositor2 as windows_core::Interface>::IID
+        iid == &<IDirectManipulationCompositor2 as windows_core::Interface>::IID || iid == &<IDirectManipulationCompositor as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirectManipulationCompositor2 {}
@@ -615,7 +615,7 @@ impl IDirectManipulationManager2_Vtbl {
         Self { base__: IDirectManipulationManager_Vtbl::new::<Identity, OFFSET>(), CreateBehavior: CreateBehavior::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID
+        iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -656,7 +656,7 @@ impl IDirectManipulationManager3_Vtbl {
         Self { base__: IDirectManipulationManager2_Vtbl::new::<Identity, OFFSET>(), GetService: GetService::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationManager3 as windows_core::Interface>::IID
+        iid == &<IDirectManipulationManager3 as windows_core::Interface>::IID || iid == &<IDirectManipulationManager as windows_core::Interface>::IID || iid == &<IDirectManipulationManager2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1273,7 +1273,7 @@ impl IDirectManipulationViewport2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectManipulationViewport2 as windows_core::Interface>::IID
+        iid == &<IDirectManipulationViewport2 as windows_core::Interface>::IID || iid == &<IDirectManipulationViewport as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDirectManipulationViewport2 {}

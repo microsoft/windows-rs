@@ -281,7 +281,7 @@ impl IMILBitmapEffectConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID
+        iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMILBitmapEffectConnector {}
@@ -831,7 +831,7 @@ impl IMILBitmapEffectInputConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectInputConnector as windows_core::Interface>::IID
+        iid == &<IMILBitmapEffectInputConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMILBitmapEffectInputConnector {}
@@ -962,7 +962,7 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMILBitmapEffectOutputConnector as windows_core::Interface>::IID
+        iid == &<IMILBitmapEffectOutputConnector as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnectorInfo as windows_core::Interface>::IID || iid == &<IMILBitmapEffectConnector as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMILBitmapEffectOutputConnector {}

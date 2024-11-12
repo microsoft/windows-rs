@@ -43,7 +43,7 @@ impl IAccessibleWinSAT_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAccessibleWinSAT as windows_core::Interface>::IID
+        iid == &<IAccessibleWinSAT as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<super::super::UI::Accessibility::IAccessible as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
@@ -189,7 +189,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideWinSATAssessmentInfo as windows_core::Interface>::IID
+        iid == &<IProvideWinSATAssessmentInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -313,7 +313,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IProvideWinSATResultsInfo as windows_core::Interface>::IID
+        iid == &<IProvideWinSATResultsInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -408,7 +408,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_AllXML: get_AllXML::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQueryAllWinSATAssessments as windows_core::Interface>::IID
+        iid == &<IQueryAllWinSATAssessments as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -512,7 +512,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_XML: get_XML::<Identity, OFFSET>, Info: Info::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQueryRecentWinSATAssessment as windows_core::Interface>::IID
+        iid == &<IQueryRecentWinSATAssessment as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

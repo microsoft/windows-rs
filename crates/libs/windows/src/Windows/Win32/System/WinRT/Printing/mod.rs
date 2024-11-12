@@ -474,7 +474,7 @@ impl IPrintWorkflowXpsReceiver2_Vtbl {
         Self { base__: IPrintWorkflowXpsReceiver_Vtbl::new::<Identity, OFFSET>(), Failed: Failed::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPrintWorkflowXpsReceiver2 as windows_core::Interface>::IID
+        iid == &<IPrintWorkflowXpsReceiver2 as windows_core::Interface>::IID || iid == &<IPrintWorkflowXpsReceiver as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]

@@ -1007,7 +1007,7 @@ impl IActiveIME2_Vtbl {
         Self { base__: IActiveIME_Vtbl::new::<Identity, OFFSET>(), Sleep: Sleep::<Identity, OFFSET>, Unsleep: Unsleep::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IActiveIME2 as windows_core::Interface>::IID
+        iid == &<IActiveIME2 as windows_core::Interface>::IID || iid == &<IActiveIME as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -4006,7 +4006,7 @@ impl IFEClassFactory_Vtbl {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFEClassFactory as windows_core::Interface>::IID
+        iid == &<IFEClassFactory as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IClassFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

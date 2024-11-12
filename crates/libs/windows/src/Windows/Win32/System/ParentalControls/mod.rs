@@ -35,7 +35,7 @@ impl IWPCGamesSettings_Vtbl {
         Self { base__: IWPCSettings_Vtbl::new::<Identity, OFFSET>(), IsBlocked: IsBlocked::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWPCGamesSettings as windows_core::Interface>::IID
+        iid == &<IWPCGamesSettings as windows_core::Interface>::IID || iid == &<IWPCSettings as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWPCGamesSettings {}
@@ -308,7 +308,7 @@ impl IWPCWebSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWPCWebSettings as windows_core::Interface>::IID
+        iid == &<IWPCWebSettings as windows_core::Interface>::IID || iid == &<IWPCSettings as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWPCWebSettings {}
@@ -352,7 +352,7 @@ impl IWindowsParentalControls_Vtbl {
         Self { base__: IWindowsParentalControlsCore_Vtbl::new::<Identity, OFFSET>(), GetGamesSettings: GetGamesSettings::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsParentalControls as windows_core::Interface>::IID
+        iid == &<IWindowsParentalControls as windows_core::Interface>::IID || iid == &<IWindowsParentalControlsCore as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWindowsParentalControls {}

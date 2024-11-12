@@ -775,7 +775,7 @@ impl IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMarshal2 as windows_core::Interface>::IID
+        iid == &<IMarshal2 as windows_core::Interface>::IID || iid == &<IMarshal as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMarshal2 {}
@@ -816,7 +816,7 @@ impl IMarshalingStream_Vtbl {
         Self { base__: super::IStream_Vtbl::new::<Identity, OFFSET>(), GetMarshalingContextAttribute: GetMarshalingContextAttribute::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMarshalingStream as windows_core::Interface>::IID
+        iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMarshalingStream {}

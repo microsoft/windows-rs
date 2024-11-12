@@ -368,7 +368,7 @@ impl INSSBuffer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer2 as windows_core::Interface>::IID
+        iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for INSSBuffer2 {}
@@ -411,7 +411,7 @@ impl INSSBuffer3_Vtbl {
         Self { base__: INSSBuffer2_Vtbl::new::<Identity, OFFSET>(), SetProperty: SetProperty::<Identity, OFFSET>, GetProperty: GetProperty::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer3 as windows_core::Interface>::IID
+        iid == &<INSSBuffer3 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for INSSBuffer3 {}
@@ -465,7 +465,7 @@ impl INSSBuffer4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INSSBuffer4 as windows_core::Interface>::IID
+        iid == &<INSSBuffer4 as windows_core::Interface>::IID || iid == &<INSSBuffer as windows_core::Interface>::IID || iid == &<INSSBuffer2 as windows_core::Interface>::IID || iid == &<INSSBuffer3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for INSSBuffer4 {}
@@ -587,7 +587,7 @@ impl IWMAddressAccess2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMAddressAccess2 as windows_core::Interface>::IID
+        iid == &<IWMAddressAccess2 as windows_core::Interface>::IID || iid == &<IWMAddressAccess as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMAddressAccess2 {}
@@ -830,7 +830,7 @@ impl IWMBandwidthSharing_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMBandwidthSharing as windows_core::Interface>::IID
+        iid == &<IWMBandwidthSharing as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMBandwidthSharing {}
@@ -919,7 +919,7 @@ impl IWMClientConnections2_Vtbl {
         Self { base__: IWMClientConnections_Vtbl::new::<Identity, OFFSET>(), GetClientInfo: GetClientInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMClientConnections2 as windows_core::Interface>::IID
+        iid == &<IWMClientConnections2 as windows_core::Interface>::IID || iid == &<IWMClientConnections as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMClientConnections2 {}
@@ -1038,7 +1038,7 @@ impl IWMCodecInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo2 as windows_core::Interface>::IID
+        iid == &<IWMCodecInfo2 as windows_core::Interface>::IID || iid == &<IWMCodecInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMCodecInfo2 {}
@@ -1117,7 +1117,7 @@ impl IWMCodecInfo3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo3 as windows_core::Interface>::IID
+        iid == &<IWMCodecInfo3 as windows_core::Interface>::IID || iid == &<IWMCodecInfo as windows_core::Interface>::IID || iid == &<IWMCodecInfo2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMCodecInfo3 {}
@@ -1398,7 +1398,7 @@ impl IWMDRMReader2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader2 as windows_core::Interface>::IID
+        iid == &<IWMDRMReader2 as windows_core::Interface>::IID || iid == &<IWMDRMReader as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMDRMReader2 {}
@@ -1432,7 +1432,7 @@ impl IWMDRMReader3_Vtbl {
         Self { base__: IWMDRMReader2_Vtbl::new::<Identity, OFFSET>(), GetInclusionList: GetInclusionList::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader3 as windows_core::Interface>::IID
+        iid == &<IWMDRMReader3 as windows_core::Interface>::IID || iid == &<IWMDRMReader as windows_core::Interface>::IID || iid == &<IWMDRMReader2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMDRMReader3 {}
@@ -1618,7 +1618,7 @@ impl IWMDRMTranscryptor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMTranscryptor2 as windows_core::Interface>::IID
+        iid == &<IWMDRMTranscryptor2 as windows_core::Interface>::IID || iid == &<IWMDRMTranscryptor as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMDRMTranscryptor2 {}
@@ -1719,7 +1719,7 @@ impl IWMDRMWriter2_Vtbl {
         Self { base__: IWMDRMWriter_Vtbl::new::<Identity, OFFSET>(), SetWMDRMNetEncryption: SetWMDRMNetEncryption::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter2 as windows_core::Interface>::IID
+        iid == &<IWMDRMWriter2 as windows_core::Interface>::IID || iid == &<IWMDRMWriter as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMDRMWriter2 {}
@@ -1753,7 +1753,7 @@ impl IWMDRMWriter3_Vtbl {
         Self { base__: IWMDRMWriter2_Vtbl::new::<Identity, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter3 as windows_core::Interface>::IID
+        iid == &<IWMDRMWriter3 as windows_core::Interface>::IID || iid == &<IWMDRMWriter as windows_core::Interface>::IID || iid == &<IWMDRMWriter2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMDRMWriter3 {}
@@ -2133,7 +2133,7 @@ impl IWMHeaderInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID
+        iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID || iid == &<IWMHeaderInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMHeaderInfo2 {}
@@ -2247,7 +2247,7 @@ impl IWMHeaderInfo3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo3 as windows_core::Interface>::IID
+        iid == &<IWMHeaderInfo3 as windows_core::Interface>::IID || iid == &<IWMHeaderInfo as windows_core::Interface>::IID || iid == &<IWMHeaderInfo2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMHeaderInfo3 {}
@@ -2405,7 +2405,7 @@ impl IWMIndexer2_Vtbl {
         Self { base__: IWMIndexer_Vtbl::new::<Identity, OFFSET>(), Configure: Configure::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMIndexer2 as windows_core::Interface>::IID
+        iid == &<IWMIndexer2 as windows_core::Interface>::IID || iid == &<IWMIndexer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMIndexer2 {}
@@ -2452,7 +2452,7 @@ impl IWMInputMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMInputMediaProps as windows_core::Interface>::IID
+        iid == &<IWMInputMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMInputMediaProps {}
@@ -2798,7 +2798,7 @@ impl IWMMetadataEditor2_Vtbl {
         Self { base__: IWMMetadataEditor_Vtbl::new::<Identity, OFFSET>(), OpenEx: OpenEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMetadataEditor2 as windows_core::Interface>::IID
+        iid == &<IWMMetadataEditor2 as windows_core::Interface>::IID || iid == &<IWMMetadataEditor as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMMetadataEditor2 {}
@@ -2848,7 +2848,7 @@ impl IWMMutualExclusion_Vtbl {
         Self { base__: IWMStreamList_Vtbl::new::<Identity, OFFSET>(), GetType: GetType::<Identity, OFFSET>, SetType: SetType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion as windows_core::Interface>::IID
+        iid == &<IWMMutualExclusion as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMMutualExclusion {}
@@ -2988,7 +2988,7 @@ impl IWMMutualExclusion2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion2 as windows_core::Interface>::IID
+        iid == &<IWMMutualExclusion2 as windows_core::Interface>::IID || iid == &<IWMStreamList as windows_core::Interface>::IID || iid == &<IWMMutualExclusion as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMMutualExclusion2 {}
@@ -3035,7 +3035,7 @@ impl IWMOutputMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMOutputMediaProps as windows_core::Interface>::IID
+        iid == &<IWMOutputMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMOutputMediaProps {}
@@ -3137,7 +3137,7 @@ impl IWMPacketSize2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMPacketSize2 as windows_core::Interface>::IID
+        iid == &<IWMPacketSize2 as windows_core::Interface>::IID || iid == &<IWMPacketSize as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMPacketSize2 {}
@@ -3519,7 +3519,7 @@ impl IWMProfile2_Vtbl {
         Self { base__: IWMProfile_Vtbl::new::<Identity, OFFSET>(), GetProfileID: GetProfileID::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfile2 as windows_core::Interface>::IID
+        iid == &<IWMProfile2 as windows_core::Interface>::IID || iid == &<IWMProfile as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMProfile2 {}
@@ -3724,7 +3724,7 @@ impl IWMProfile3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfile3 as windows_core::Interface>::IID
+        iid == &<IWMProfile3 as windows_core::Interface>::IID || iid == &<IWMProfile as windows_core::Interface>::IID || iid == &<IWMProfile2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMProfile3 {}
@@ -3894,7 +3894,7 @@ impl IWMProfileManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMProfileManager2 as windows_core::Interface>::IID
+        iid == &<IWMProfileManager2 as windows_core::Interface>::IID || iid == &<IWMProfileManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMProfileManager2 {}
@@ -4785,7 +4785,7 @@ impl IWMReaderAdvanced2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4835,7 +4835,7 @@ impl IWMReaderAdvanced3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4988,7 +4988,7 @@ impl IWMReaderAdvanced4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5028,7 +5028,7 @@ impl IWMReaderAdvanced5_Vtbl {
         Self { base__: IWMReaderAdvanced4_Vtbl::new::<Identity, OFFSET>(), SetPlayerHook: SetPlayerHook::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5065,7 +5065,7 @@ impl IWMReaderAdvanced6_Vtbl {
         Self { base__: IWMReaderAdvanced5_Vtbl::new::<Identity, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced6 as windows_core::Interface>::IID
+        iid == &<IWMReaderAdvanced6 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as windows_core::Interface>::IID || iid == &<IWMReaderAdvanced5 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5144,7 +5144,7 @@ impl IWMReaderCallback_Vtbl {
         Self { base__: IWMStatusCallback_Vtbl::new::<Identity, OFFSET>(), OnSample: OnSample::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderCallback as windows_core::Interface>::IID
+        iid == &<IWMReaderCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMReaderCallback {}
@@ -5932,7 +5932,7 @@ impl IWMReaderNetworkConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMReaderNetworkConfig2 as windows_core::Interface>::IID
+        iid == &<IWMReaderNetworkConfig2 as windows_core::Interface>::IID || iid == &<IWMReaderNetworkConfig as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMReaderNetworkConfig2 {}
@@ -6820,7 +6820,7 @@ impl IWMSInternalAdminNetSource3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMSInternalAdminNetSource3 as windows_core::Interface>::IID
+        iid == &<IWMSInternalAdminNetSource3 as windows_core::Interface>::IID || iid == &<IWMSInternalAdminNetSource2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMSInternalAdminNetSource3 {}
@@ -6970,7 +6970,7 @@ impl IWMSecureChannel_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMSecureChannel as windows_core::Interface>::IID
+        iid == &<IWMSecureChannel as windows_core::Interface>::IID || iid == &<IWMAuthorizer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMSecureChannel {}
@@ -7264,7 +7264,7 @@ impl IWMStreamConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig2 as windows_core::Interface>::IID
+        iid == &<IWMStreamConfig2 as windows_core::Interface>::IID || iid == &<IWMStreamConfig as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMStreamConfig2 {}
@@ -7314,7 +7314,7 @@ impl IWMStreamConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig3 as windows_core::Interface>::IID
+        iid == &<IWMStreamConfig3 as windows_core::Interface>::IID || iid == &<IWMStreamConfig as windows_core::Interface>::IID || iid == &<IWMStreamConfig2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMStreamConfig3 {}
@@ -7848,7 +7848,7 @@ impl IWMSyncReader2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMSyncReader2 as windows_core::Interface>::IID
+        iid == &<IWMSyncReader2 as windows_core::Interface>::IID || iid == &<IWMSyncReader as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7930,7 +7930,7 @@ impl IWMVideoMediaProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMVideoMediaProps as windows_core::Interface>::IID
+        iid == &<IWMVideoMediaProps as windows_core::Interface>::IID || iid == &<IWMMediaProps as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMVideoMediaProps {}
@@ -8407,7 +8407,7 @@ impl IWMWriterAdvanced2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID
+        iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterAdvanced2 {}
@@ -8454,7 +8454,7 @@ impl IWMWriterAdvanced3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced3 as windows_core::Interface>::IID
+        iid == &<IWMWriterAdvanced3 as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced as windows_core::Interface>::IID || iid == &<IWMWriterAdvanced2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterAdvanced3 {}
@@ -8491,7 +8491,7 @@ impl IWMWriterFileSink_Vtbl {
         Self { base__: IWMWriterSink_Vtbl::new::<Identity, OFFSET>(), Open: Open::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterFileSink {}
@@ -8616,7 +8616,7 @@ impl IWMWriterFileSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterFileSink2 {}
@@ -8754,7 +8754,7 @@ impl IWMWriterFileSink3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink3 as windows_core::Interface>::IID
+        iid == &<IWMWriterFileSink3 as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink as windows_core::Interface>::IID || iid == &<IWMWriterFileSink2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterFileSink3 {}
@@ -8875,7 +8875,7 @@ impl IWMWriterNetworkSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterNetworkSink as windows_core::Interface>::IID
+        iid == &<IWMWriterNetworkSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterNetworkSink {}
@@ -9083,7 +9083,7 @@ impl IWMWriterPostViewCallback_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterPostViewCallback as windows_core::Interface>::IID
+        iid == &<IWMWriterPostViewCallback as windows_core::Interface>::IID || iid == &<IWMStatusCallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterPostViewCallback {}
@@ -9226,7 +9226,7 @@ impl IWMWriterPushSink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWMWriterPushSink as windows_core::Interface>::IID
+        iid == &<IWMWriterPushSink as windows_core::Interface>::IID || iid == &<IWMWriterSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWMWriterPushSink {}

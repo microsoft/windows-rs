@@ -127,7 +127,7 @@ impl IDxcBlobEncoding_Vtbl {
         Self { base__: IDxcBlob_Vtbl::new::<Identity, OFFSET>(), GetEncoding: GetEncoding::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobEncoding as windows_core::Interface>::IID
+        iid == &<IDxcBlobEncoding as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcBlobEncoding {}
@@ -174,7 +174,7 @@ impl IDxcBlobUtf16_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobUtf16 as windows_core::Interface>::IID
+        iid == &<IDxcBlobUtf16 as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID || iid == &<IDxcBlobEncoding as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcBlobUtf16 {}
@@ -221,7 +221,7 @@ impl IDxcBlobUtf8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcBlobUtf8 as windows_core::Interface>::IID
+        iid == &<IDxcBlobUtf8 as windows_core::Interface>::IID || iid == &<IDxcBlob as windows_core::Interface>::IID || iid == &<IDxcBlobEncoding as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcBlobUtf8 {}
@@ -379,7 +379,7 @@ impl IDxcCompiler2_Vtbl {
         Self { base__: IDxcCompiler_Vtbl::new::<Identity, OFFSET>(), CompileWithDebug: CompileWithDebug::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcCompiler2 as windows_core::Interface>::IID
+        iid == &<IDxcCompiler2 as windows_core::Interface>::IID || iid == &<IDxcCompiler as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcCompiler2 {}
@@ -1766,7 +1766,7 @@ impl IDxcResult_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcResult as windows_core::Interface>::IID
+        iid == &<IDxcResult as windows_core::Interface>::IID || iid == &<IDxcOperationResult as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcResult {}
@@ -2106,7 +2106,7 @@ impl IDxcValidator2_Vtbl {
         Self { base__: IDxcValidator_Vtbl::new::<Identity, OFFSET>(), ValidateWithDebug: ValidateWithDebug::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcValidator2 as windows_core::Interface>::IID
+        iid == &<IDxcValidator2 as windows_core::Interface>::IID || iid == &<IDxcValidator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcValidator2 {}
@@ -2188,7 +2188,7 @@ impl IDxcVersionInfo2_Vtbl {
         Self { base__: IDxcVersionInfo_Vtbl::new::<Identity, OFFSET>(), GetCommitInfo: GetCommitInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDxcVersionInfo2 as windows_core::Interface>::IID
+        iid == &<IDxcVersionInfo2 as windows_core::Interface>::IID || iid == &<IDxcVersionInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDxcVersionInfo2 {}

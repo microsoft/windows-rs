@@ -59,7 +59,7 @@ impl DebugBaseEventCallbacks_Vtbl {
         Self { base__: IDebugEventCallbacks_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DebugBaseEventCallbacks as windows_core::Interface>::IID
+        iid == &<DebugBaseEventCallbacks as windows_core::Interface>::IID || iid == &<IDebugEventCallbacks as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for DebugBaseEventCallbacks {}
@@ -81,7 +81,7 @@ impl DebugBaseEventCallbacksWide_Vtbl {
         Self { base__: IDebugEventCallbacksWide_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DebugBaseEventCallbacksWide as windows_core::Interface>::IID
+        iid == &<DebugBaseEventCallbacksWide as windows_core::Interface>::IID || iid == &<IDebugEventCallbacksWide as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for DebugBaseEventCallbacksWide {}
@@ -659,7 +659,7 @@ impl IDataModelManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataModelManager2 as windows_core::Interface>::IID
+        iid == &<IDataModelManager2 as windows_core::Interface>::IID || iid == &<IDataModelManager as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1110,7 +1110,7 @@ impl IDataModelScriptDebug2_Vtbl {
         Self { base__: IDataModelScriptDebug_Vtbl::new::<Identity, OFFSET>(), SetBreakpointAtFunction: SetBreakpointAtFunction::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataModelScriptDebug2 as windows_core::Interface>::IID
+        iid == &<IDataModelScriptDebug2 as windows_core::Interface>::IID || iid == &<IDataModelScriptDebug as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDataModelScriptDebug2 {}
@@ -28107,7 +28107,7 @@ impl IDebugHostBaseClass_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, OFFSET>(), GetOffset: GetOffset::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostBaseClass as windows_core::Interface>::IID
+        iid == &<IDebugHostBaseClass as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostBaseClass {}
@@ -28154,7 +28154,7 @@ impl IDebugHostConstant_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, OFFSET>(), GetValue: GetValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostConstant as windows_core::Interface>::IID
+        iid == &<IDebugHostConstant as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28277,7 +28277,7 @@ impl IDebugHostData_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostData as windows_core::Interface>::IID
+        iid == &<IDebugHostData as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28398,7 +28398,7 @@ impl IDebugHostEvaluator2_Vtbl {
         Self { base__: IDebugHostEvaluator_Vtbl::new::<Identity, OFFSET>(), AssignTo: AssignTo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostEvaluator2 as windows_core::Interface>::IID
+        iid == &<IDebugHostEvaluator2 as windows_core::Interface>::IID || iid == &<IDebugHostEvaluator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostEvaluator2 {}
@@ -28547,7 +28547,7 @@ impl IDebugHostField_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostField as windows_core::Interface>::IID
+        iid == &<IDebugHostField as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -28685,7 +28685,7 @@ impl IDebugHostMemory2_Vtbl {
         Self { base__: IDebugHostMemory_Vtbl::new::<Identity, OFFSET>(), LinearizeLocation: LinearizeLocation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostMemory2 as windows_core::Interface>::IID
+        iid == &<IDebugHostMemory2 as windows_core::Interface>::IID || iid == &<IDebugHostMemory as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostMemory2 {}
@@ -28813,7 +28813,7 @@ impl IDebugHostModule_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostModule as windows_core::Interface>::IID
+        iid == &<IDebugHostModule as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostModule {}
@@ -28847,7 +28847,7 @@ impl IDebugHostModule2_Vtbl {
         Self { base__: IDebugHostModule_Vtbl::new::<Identity, OFFSET>(), FindContainingSymbolByRVA: FindContainingSymbolByRVA::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostModule2 as windows_core::Interface>::IID
+        iid == &<IDebugHostModule2 as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID || iid == &<IDebugHostModule as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostModule2 {}
@@ -28946,7 +28946,7 @@ impl IDebugHostPublic_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostPublic as windows_core::Interface>::IID
+        iid == &<IDebugHostPublic as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostPublic {}
@@ -29206,7 +29206,7 @@ impl IDebugHostSymbol2_Vtbl {
         Self { base__: IDebugHostSymbol_Vtbl::new::<Identity, OFFSET>(), GetLanguage: GetLanguage::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostSymbol2 as windows_core::Interface>::IID
+        iid == &<IDebugHostSymbol2 as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostSymbol2 {}
@@ -29741,7 +29741,7 @@ impl IDebugHostType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostType as windows_core::Interface>::IID
+        iid == &<IDebugHostType as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostType {}
@@ -29853,7 +29853,7 @@ impl IDebugHostType2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDebugHostType2 as windows_core::Interface>::IID
+        iid == &<IDebugHostType2 as windows_core::Interface>::IID || iid == &<IDebugHostSymbol as windows_core::Interface>::IID || iid == &<IDebugHostType as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDebugHostType2 {}
@@ -40783,7 +40783,7 @@ impl IModelKeyReference2_Vtbl {
         Self { base__: IModelKeyReference_Vtbl::new::<Identity, OFFSET>(), OverrideContextObject: OverrideContextObject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IModelKeyReference2 as windows_core::Interface>::IID
+        iid == &<IModelKeyReference2 as windows_core::Interface>::IID || iid == &<IModelKeyReference as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IModelKeyReference2 {}

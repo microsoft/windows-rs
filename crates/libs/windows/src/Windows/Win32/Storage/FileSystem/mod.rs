@@ -3652,7 +3652,7 @@ impl IDiskQuotaControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaControl as windows_core::Interface>::IID
+        iid == &<IDiskQuotaControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com"))]

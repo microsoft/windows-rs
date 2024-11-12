@@ -202,7 +202,7 @@ impl IRdcFileWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRdcFileWriter as windows_core::Interface>::IID
+        iid == &<IRdcFileWriter as windows_core::Interface>::IID || iid == &<IRdcFileReader as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRdcFileWriter {}

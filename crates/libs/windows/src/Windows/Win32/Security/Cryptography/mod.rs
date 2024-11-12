@@ -3644,7 +3644,7 @@ impl ICertSrvSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetup as windows_core::Interface>::IID
+        iid == &<ICertSrvSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3852,7 +3852,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetupKeyInformation as windows_core::Interface>::IID
+        iid == &<ICertSrvSetupKeyInformation as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3955,7 +3955,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertSrvSetupKeyInformationCollection as windows_core::Interface>::IID
+        iid == &<ICertSrvSetupKeyInformationCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4076,7 +4076,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateEnrollmentPolicyServerSetup as windows_core::Interface>::IID
+        iid == &<ICertificateEnrollmentPolicyServerSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4207,7 +4207,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICertificateEnrollmentServerSetup as windows_core::Interface>::IID
+        iid == &<ICertificateEnrollmentServerSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4426,7 +4426,7 @@ impl IMSCEPSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMSCEPSetup as windows_core::Interface>::IID
+        iid == &<IMSCEPSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

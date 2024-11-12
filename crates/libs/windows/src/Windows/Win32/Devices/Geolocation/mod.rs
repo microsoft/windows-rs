@@ -142,7 +142,7 @@ impl ICivicAddressReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICivicAddressReport as windows_core::Interface>::IID
+        iid == &<ICivicAddressReport as windows_core::Interface>::IID || iid == &<ILocationReport as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -191,7 +191,7 @@ impl ICivicAddressReportFactory_Vtbl {
         Self { base__: ILocationReportFactory_Vtbl::new::<Identity, OFFSET>(), CivicAddressReport: CivicAddressReport::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICivicAddressReportFactory as windows_core::Interface>::IID
+        iid == &<ICivicAddressReportFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ILocationReportFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -413,7 +413,7 @@ impl IDispCivicAddressReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDispCivicAddressReport as windows_core::Interface>::IID
+        iid == &<IDispCivicAddressReport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -550,7 +550,7 @@ impl IDispLatLongReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDispLatLongReport as windows_core::Interface>::IID
+        iid == &<IDispLatLongReport as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -665,7 +665,7 @@ impl ILatLongReport_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILatLongReport as windows_core::Interface>::IID
+        iid == &<ILatLongReport as windows_core::Interface>::IID || iid == &<ILocationReport as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -714,7 +714,7 @@ impl ILatLongReportFactory_Vtbl {
         Self { base__: ILocationReportFactory_Vtbl::new::<Identity, OFFSET>(), LatLongReport: LatLongReport::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILatLongReportFactory as windows_core::Interface>::IID
+        iid == &<ILatLongReportFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ILocationReportFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1167,7 +1167,7 @@ impl ILocationReportFactory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILocationReportFactory as windows_core::Interface>::IID
+        iid == &<ILocationReportFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1196,7 +1196,7 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ICivicAddressReportFactoryEvents as windows_core::Interface>::IID
+        iid == &<_ICivicAddressReportFactoryEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1225,7 +1225,7 @@ impl _ILatLongReportFactoryEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ILatLongReportFactoryEvents as windows_core::Interface>::IID
+        iid == &<_ILatLongReportFactoryEvents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

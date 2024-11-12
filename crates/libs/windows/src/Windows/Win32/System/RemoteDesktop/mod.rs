@@ -962,7 +962,7 @@ impl IADsTSUserEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IADsTSUserEx as windows_core::Interface>::IID
+        iid == &<IADsTSUserEx as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1529,7 +1529,7 @@ impl IRemoteDesktopClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClient as windows_core::Interface>::IID
+        iid == &<IRemoteDesktopClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1611,7 +1611,7 @@ impl IRemoteDesktopClientActions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientActions as windows_core::Interface>::IID
+        iid == &<IRemoteDesktopClientActions as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1708,7 +1708,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientSettings as windows_core::Interface>::IID
+        iid == &<IRemoteDesktopClientSettings as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1830,7 +1830,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRemoteDesktopClientTouchPointer as windows_core::Interface>::IID
+        iid == &<IRemoteDesktopClientTouchPointer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2506,7 +2506,7 @@ impl ITsSbClientConnectionPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbClientConnectionPropertySet as windows_core::Interface>::IID
+        iid == &<ITsSbClientConnectionPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID || iid == &<ITsSbPropertySet as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2631,7 +2631,7 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbEnvironmentPropertySet as windows_core::Interface>::IID
+        iid == &<ITsSbEnvironmentPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID || iid == &<ITsSbPropertySet as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2943,7 +2943,7 @@ impl ITsSbLoadBalancing_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), GetMostSuitableTarget: GetMostSuitableTarget::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbLoadBalancing as windows_core::Interface>::IID
+        iid == &<ITsSbLoadBalancing as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2982,7 +2982,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnGetMostSuitableTarget: OnGetMostSuitableTarget::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbLoadBalancingNotifySink as windows_core::Interface>::IID
+        iid == &<ITsSbLoadBalancingNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITsSbLoadBalancingNotifySink {}
@@ -3022,7 +3022,7 @@ impl ITsSbOrchestration_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), PrepareTargetForConnect: PrepareTargetForConnect::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbOrchestration as windows_core::Interface>::IID
+        iid == &<ITsSbOrchestration as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3060,7 +3060,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnReadyToConnect: OnReadyToConnect::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbOrchestrationNotifySink as windows_core::Interface>::IID
+        iid == &<ITsSbOrchestrationNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITsSbOrchestrationNotifySink {}
@@ -3100,7 +3100,7 @@ impl ITsSbPlacement_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>(), QueryEnvironmentForTarget: QueryEnvironmentForTarget::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbPlacement as windows_core::Interface>::IID
+        iid == &<ITsSbPlacement as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3138,7 +3138,7 @@ impl ITsSbPlacementNotifySink_Vtbl {
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, OFFSET>(), OnQueryEnvironmentCompleted: OnQueryEnvironmentCompleted::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbPlacementNotifySink as windows_core::Interface>::IID
+        iid == &<ITsSbPlacementNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITsSbPlacementNotifySink {}
@@ -3238,7 +3238,7 @@ impl ITsSbPluginNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbPluginNotifySink as windows_core::Interface>::IID
+        iid == &<ITsSbPluginNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITsSbPluginNotifySink {}
@@ -3266,7 +3266,7 @@ impl ITsSbPluginPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbPluginPropertySet as windows_core::Interface>::IID
+        iid == &<ITsSbPluginPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID || iid == &<ITsSbPropertySet as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3295,7 +3295,7 @@ impl ITsSbPropertySet_Vtbl {
         Self { base__: super::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbPropertySet as windows_core::Interface>::IID
+        iid == &<ITsSbPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3603,7 +3603,7 @@ impl ITsSbProvisioning_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbProvisioning as windows_core::Interface>::IID
+        iid == &<ITsSbProvisioning as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3820,7 +3820,7 @@ impl ITsSbResourcePlugin_Vtbl {
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbResourcePlugin as windows_core::Interface>::IID
+        iid == &<ITsSbResourcePlugin as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -4858,7 +4858,7 @@ impl ITsSbTargetPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbTargetPropertySet as windows_core::Interface>::IID
+        iid == &<ITsSbTargetPropertySet as windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID || iid == &<ITsSbPropertySet as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5092,7 +5092,7 @@ impl ITsSbTaskPlugin_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbTaskPlugin as windows_core::Interface>::IID
+        iid == &<ITsSbTaskPlugin as windows_core::Interface>::IID || iid == &<ITsSbPlugin as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -5166,7 +5166,7 @@ impl ITsSbTaskPluginNotifySink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITsSbTaskPluginNotifySink as windows_core::Interface>::IID
+        iid == &<ITsSbTaskPluginNotifySink as windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7880,7 +7880,7 @@ impl IWorkspace2_Vtbl {
         Self { base__: IWorkspace_Vtbl::new::<Identity, OFFSET>(), StartRemoteApplicationEx: StartRemoteApplicationEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspace2 as windows_core::Interface>::IID
+        iid == &<IWorkspace2 as windows_core::Interface>::IID || iid == &<IWorkspace as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7937,7 +7937,7 @@ impl IWorkspace3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspace3 as windows_core::Interface>::IID
+        iid == &<IWorkspace3 as windows_core::Interface>::IID || iid == &<IWorkspace as windows_core::Interface>::IID || iid == &<IWorkspace2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8104,7 +8104,7 @@ impl IWorkspaceRegistration2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspaceRegistration2 as windows_core::Interface>::IID
+        iid == &<IWorkspaceRegistration2 as windows_core::Interface>::IID || iid == &<IWorkspaceRegistration as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWorkspaceRegistration2 {}
@@ -8279,7 +8279,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspaceResTypeRegistry as windows_core::Interface>::IID
+        iid == &<IWorkspaceResTypeRegistry as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8401,7 +8401,7 @@ impl IWorkspaceScriptable_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable as windows_core::Interface>::IID
+        iid == &<IWorkspaceScriptable as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8456,7 +8456,7 @@ impl IWorkspaceScriptable2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable2 as windows_core::Interface>::IID
+        iid == &<IWorkspaceScriptable2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8512,7 +8512,7 @@ impl IWorkspaceScriptable3_Vtbl {
         Self { base__: IWorkspaceScriptable2_Vtbl::new::<Identity, OFFSET>(), StartWorkspaceEx2: StartWorkspaceEx2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWorkspaceScriptable3 as windows_core::Interface>::IID
+        iid == &<IWorkspaceScriptable3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as windows_core::Interface>::IID || iid == &<IWorkspaceScriptable2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8707,7 +8707,7 @@ impl ItsPubPlugin2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ItsPubPlugin2 as windows_core::Interface>::IID
+        iid == &<ItsPubPlugin2 as windows_core::Interface>::IID || iid == &<ItsPubPlugin as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ItsPubPlugin2 {}
@@ -8735,7 +8735,7 @@ impl _ITSWkspEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_ITSWkspEvents as windows_core::Interface>::IID
+        iid == &<_ITSWkspEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

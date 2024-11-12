@@ -22,7 +22,7 @@ impl AppEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<AppEvents as windows_core::Interface>::IID
+        iid == &<AppEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -185,7 +185,7 @@ impl Column_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Column as windows_core::Interface>::IID
+        iid == &<Column as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -271,7 +271,7 @@ impl Columns_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Columns as windows_core::Interface>::IID
+        iid == &<Columns as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -361,7 +361,7 @@ impl ContextMenu_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ContextMenu as windows_core::Interface>::IID
+        iid == &<ContextMenu as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -636,7 +636,7 @@ impl Document_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Document as windows_core::Interface>::IID
+        iid == &<Document as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -782,7 +782,7 @@ impl Extension_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Extension as windows_core::Interface>::IID
+        iid == &<Extension as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -868,7 +868,7 @@ impl Extensions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Extensions as windows_core::Interface>::IID
+        iid == &<Extensions as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1041,7 +1041,7 @@ impl Frame_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Frame as windows_core::Interface>::IID
+        iid == &<Frame as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1312,7 +1312,7 @@ impl IComponent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponent2 as windows_core::Interface>::IID
+        iid == &<IComponent2 as windows_core::Interface>::IID || iid == &<IComponent as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1492,7 +1492,7 @@ impl IComponentData2_Vtbl {
         Self { base__: IComponentData_Vtbl::new::<Identity, OFFSET>(), QueryDispatch: QueryDispatch::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IComponentData2 as windows_core::Interface>::IID
+        iid == &<IComponentData2 as windows_core::Interface>::IID || iid == &<IComponentData as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1752,7 +1752,7 @@ impl IConsole2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConsole2 as windows_core::Interface>::IID
+        iid == &<IConsole2 as windows_core::Interface>::IID || iid == &<IConsole as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1789,7 +1789,7 @@ impl IConsole3_Vtbl {
         Self { base__: IConsole2_Vtbl::new::<Identity, OFFSET>(), RenameScopeItem: RenameScopeItem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConsole3 as windows_core::Interface>::IID
+        iid == &<IConsole3 as windows_core::Interface>::IID || iid == &<IConsole as windows_core::Interface>::IID || iid == &<IConsole2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1924,7 +1924,7 @@ impl IConsoleNameSpace2_Vtbl {
         Self { base__: IConsoleNameSpace_Vtbl::new::<Identity, OFFSET>(), Expand: Expand::<Identity, OFFSET>, AddExtension: AddExtension::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConsoleNameSpace2 as windows_core::Interface>::IID
+        iid == &<IConsoleNameSpace2 as windows_core::Interface>::IID || iid == &<IConsoleNameSpace as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IConsoleNameSpace2 {}
@@ -2231,7 +2231,7 @@ impl IContextMenuProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IContextMenuProvider as windows_core::Interface>::IID
+        iid == &<IContextMenuProvider as windows_core::Interface>::IID || iid == &<IContextMenuCallback as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2607,7 +2607,7 @@ impl IExtendPropertySheet2_Vtbl {
         Self { base__: IExtendPropertySheet_Vtbl::new::<Identity, OFFSET>(), GetWatermarks: GetWatermarks::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IExtendPropertySheet2 as windows_core::Interface>::IID
+        iid == &<IExtendPropertySheet2 as windows_core::Interface>::IID || iid == &<IExtendPropertySheet as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2951,7 +2951,7 @@ impl IHeaderCtrl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHeaderCtrl2 as windows_core::Interface>::IID
+        iid == &<IHeaderCtrl2 as windows_core::Interface>::IID || iid == &<IHeaderCtrl as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IHeaderCtrl2 {}
@@ -3640,7 +3640,7 @@ impl IResultData2_Vtbl {
         Self { base__: IResultData_Vtbl::new::<Identity, OFFSET>(), RenameResultItem: RenameResultItem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResultData2 as windows_core::Interface>::IID
+        iid == &<IResultData2 as windows_core::Interface>::IID || iid == &<IResultData as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IResultData2 {}
@@ -3953,7 +3953,7 @@ impl ISnapinHelp2_Vtbl {
         Self { base__: ISnapinHelp_Vtbl::new::<Identity, OFFSET>(), GetLinkedTopics: GetLinkedTopics::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISnapinHelp2 as windows_core::Interface>::IID
+        iid == &<ISnapinHelp2 as windows_core::Interface>::IID || iid == &<ISnapinHelp as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISnapinHelp2 {}
@@ -4443,7 +4443,7 @@ impl MenuItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<MenuItem as windows_core::Interface>::IID
+        iid == &<MenuItem as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4563,7 +4563,7 @@ impl Node_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Node as windows_core::Interface>::IID
+        iid == &<Node as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4649,7 +4649,7 @@ impl Nodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Nodes as windows_core::Interface>::IID
+        iid == &<Nodes as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4745,7 +4745,7 @@ impl Properties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Properties as windows_core::Interface>::IID
+        iid == &<Properties as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4832,7 +4832,7 @@ impl Property_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Property as windows_core::Interface>::IID
+        iid == &<Property as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4957,7 +4957,7 @@ impl ScopeNamespace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ScopeNamespace as windows_core::Interface>::IID
+        iid == &<ScopeNamespace as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5107,7 +5107,7 @@ impl SnapIn_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<SnapIn as windows_core::Interface>::IID
+        iid == &<SnapIn as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5227,7 +5227,7 @@ impl SnapIns_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<SnapIns as windows_core::Interface>::IID
+        iid == &<SnapIns as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5854,7 +5854,7 @@ impl View_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<View as windows_core::Interface>::IID
+        iid == &<View as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5953,7 +5953,7 @@ impl Views_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<Views as windows_core::Interface>::IID
+        iid == &<Views as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6146,7 +6146,7 @@ impl _AppEvents_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_AppEvents as windows_core::Interface>::IID
+        iid == &<_AppEvents as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6346,7 +6346,7 @@ impl _Application_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_Application as windows_core::Interface>::IID
+        iid == &<_Application as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6404,7 +6404,7 @@ impl _EventConnector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<_EventConnector as windows_core::Interface>::IID
+        iid == &<_EventConnector as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

@@ -165,7 +165,7 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManager2 as windows_core::Interface>::IID
+        iid == &<ITpmVirtualSmartCardManager2 as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManager2 {}
@@ -250,7 +250,7 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITpmVirtualSmartCardManager3 as windows_core::Interface>::IID
+        iid == &<ITpmVirtualSmartCardManager3 as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager as windows_core::Interface>::IID || iid == &<ITpmVirtualSmartCardManager2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITpmVirtualSmartCardManager3 {}

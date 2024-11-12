@@ -850,7 +850,7 @@ impl IMetaDataDispenserEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMetaDataDispenserEx as windows_core::Interface>::IID
+        iid == &<IMetaDataDispenserEx as windows_core::Interface>::IID || iid == &<IMetaDataDispenser as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1572,7 +1572,7 @@ impl IMetaDataEmit2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMetaDataEmit2 as windows_core::Interface>::IID
+        iid == &<IMetaDataEmit2 as windows_core::Interface>::IID || iid == &<IMetaDataEmit as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2536,7 +2536,7 @@ impl IMetaDataImport2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMetaDataImport2 as windows_core::Interface>::IID
+        iid == &<IMetaDataImport2 as windows_core::Interface>::IID || iid == &<IMetaDataImport as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMetaDataImport2 {}
@@ -2822,7 +2822,7 @@ impl IMetaDataTables2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMetaDataTables2 as windows_core::Interface>::IID
+        iid == &<IMetaDataTables2 as windows_core::Interface>::IID || iid == &<IMetaDataTables as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMetaDataTables2 {}

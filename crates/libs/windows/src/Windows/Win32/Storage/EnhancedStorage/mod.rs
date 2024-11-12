@@ -157,7 +157,7 @@ impl IEnhancedStorageACT2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT2 as windows_core::Interface>::IID
+        iid == &<IEnhancedStorageACT2 as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT2 {}
@@ -228,7 +228,7 @@ impl IEnhancedStorageACT3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IEnhancedStorageACT3 as windows_core::Interface>::IID
+        iid == &<IEnhancedStorageACT3 as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as windows_core::Interface>::IID || iid == &<IEnhancedStorageACT2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IEnhancedStorageACT3 {}

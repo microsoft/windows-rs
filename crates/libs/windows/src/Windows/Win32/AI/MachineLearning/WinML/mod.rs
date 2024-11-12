@@ -365,7 +365,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLOperatorKernelCreationContext as windows_core::Interface>::IID
+        iid == &<IMLOperatorKernelCreationContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMLOperatorKernelCreationContext {}
@@ -573,7 +573,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLOperatorShapeInferenceContext as windows_core::Interface>::IID
+        iid == &<IMLOperatorShapeInferenceContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMLOperatorShapeInferenceContext {}
@@ -876,7 +876,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLOperatorTypeInferenceContext as windows_core::Interface>::IID
+        iid == &<IMLOperatorTypeInferenceContext as windows_core::Interface>::IID || iid == &<IMLOperatorAttributes as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMLOperatorTypeInferenceContext {}

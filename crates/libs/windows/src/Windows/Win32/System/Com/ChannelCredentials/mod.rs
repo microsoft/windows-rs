@@ -134,7 +134,7 @@ impl IChannelCredentials_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IChannelCredentials as windows_core::Interface>::IID
+        iid == &<IChannelCredentials as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

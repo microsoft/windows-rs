@@ -1718,7 +1718,7 @@ impl IAccessible_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAccessible as windows_core::Interface>::IID
+        iid == &<IAccessible as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3742,7 +3742,7 @@ impl IRawElementProviderSimple2_Vtbl {
         Self { base__: IRawElementProviderSimple_Vtbl::new::<Identity, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID
+        iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3790,7 +3790,7 @@ impl IRawElementProviderSimple3_Vtbl {
         Self { base__: IRawElementProviderSimple2_Vtbl::new::<Identity, OFFSET>(), GetMetadataValue: GetMetadataValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple3 as windows_core::Interface>::IID
+        iid == &<IRawElementProviderSimple3 as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple as windows_core::Interface>::IID || iid == &<IRawElementProviderSimple2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4364,7 +4364,7 @@ impl ISelectionProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISelectionProvider2 as windows_core::Interface>::IID
+        iid == &<ISelectionProvider2 as windows_core::Interface>::IID || iid == &<ISelectionProvider as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4934,7 +4934,7 @@ impl ITextEditProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextEditProvider as windows_core::Interface>::IID
+        iid == &<ITextEditProvider as windows_core::Interface>::IID || iid == &<ITextProvider as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5138,7 +5138,7 @@ impl ITextProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextProvider2 as windows_core::Interface>::IID
+        iid == &<ITextProvider2 as windows_core::Interface>::IID || iid == &<ITextProvider as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5498,7 +5498,7 @@ impl ITextRangeProvider2_Vtbl {
         Self { base__: ITextRangeProvider_Vtbl::new::<Identity, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextRangeProvider2 as windows_core::Interface>::IID
+        iid == &<ITextRangeProvider2 as windows_core::Interface>::IID || iid == &<ITextRangeProvider as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5760,7 +5760,7 @@ impl ITransformProvider2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransformProvider2 as windows_core::Interface>::IID
+        iid == &<ITransformProvider2 as windows_core::Interface>::IID || iid == &<ITransformProvider as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITransformProvider2 {}
@@ -6901,7 +6901,7 @@ impl IUIAutomation2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomation2 as windows_core::Interface>::IID
+        iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6960,7 +6960,7 @@ impl IUIAutomation3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomation3 as windows_core::Interface>::IID
+        iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7019,7 +7019,7 @@ impl IUIAutomation4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomation4 as windows_core::Interface>::IID
+        iid == &<IUIAutomation4 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7078,7 +7078,7 @@ impl IUIAutomation5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomation5 as windows_core::Interface>::IID
+        iid == &<IUIAutomation5 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7236,7 +7236,7 @@ impl IUIAutomation6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomation6 as windows_core::Interface>::IID
+        iid == &<IUIAutomation6 as windows_core::Interface>::IID || iid == &<IUIAutomation as windows_core::Interface>::IID || iid == &<IUIAutomation2 as windows_core::Interface>::IID || iid == &<IUIAutomation3 as windows_core::Interface>::IID || iid == &<IUIAutomation4 as windows_core::Interface>::IID || iid == &<IUIAutomation5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7349,7 +7349,7 @@ impl IUIAutomationAndCondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationAndCondition as windows_core::Interface>::IID
+        iid == &<IUIAutomationAndCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7582,7 +7582,7 @@ impl IUIAutomationBoolCondition_Vtbl {
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, OFFSET>(), BooleanValue: BooleanValue::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationBoolCondition as windows_core::Interface>::IID
+        iid == &<IUIAutomationBoolCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationBoolCondition {}
@@ -9725,7 +9725,7 @@ impl IUIAutomationElement2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement2 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9799,7 +9799,7 @@ impl IUIAutomationElement3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement3 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10007,7 +10007,7 @@ impl IUIAutomationElement4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement4 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10105,7 +10105,7 @@ impl IUIAutomationElement5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement5 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10169,7 +10169,7 @@ impl IUIAutomationElement6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement6 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10306,7 +10306,7 @@ impl IUIAutomationElement7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement7 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement7 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10370,7 +10370,7 @@ impl IUIAutomationElement8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement8 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement8 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement7 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10434,7 +10434,7 @@ impl IUIAutomationElement9_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement9 as windows_core::Interface>::IID
+        iid == &<IUIAutomationElement9 as windows_core::Interface>::IID || iid == &<IUIAutomationElement as windows_core::Interface>::IID || iid == &<IUIAutomationElement2 as windows_core::Interface>::IID || iid == &<IUIAutomationElement3 as windows_core::Interface>::IID || iid == &<IUIAutomationElement4 as windows_core::Interface>::IID || iid == &<IUIAutomationElement5 as windows_core::Interface>::IID || iid == &<IUIAutomationElement6 as windows_core::Interface>::IID || iid == &<IUIAutomationElement7 as windows_core::Interface>::IID || iid == &<IUIAutomationElement8 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11698,7 +11698,7 @@ impl IUIAutomationNotCondition_Vtbl {
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, OFFSET>(), GetChild: GetChild::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationNotCondition as windows_core::Interface>::IID
+        iid == &<IUIAutomationNotCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationNotCondition {}
@@ -11841,7 +11841,7 @@ impl IUIAutomationOrCondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationOrCondition as windows_core::Interface>::IID
+        iid == &<IUIAutomationOrCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12062,7 +12062,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationPropertyCondition as windows_core::Interface>::IID
+        iid == &<IUIAutomationPropertyCondition as windows_core::Interface>::IID || iid == &<IUIAutomationCondition as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -13475,7 +13475,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSelectionPattern2 as windows_core::Interface>::IID
+        iid == &<IUIAutomationSelectionPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationSelectionPattern as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationSelectionPattern2 {}
@@ -14330,7 +14330,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextEditPattern as windows_core::Interface>::IID
+        iid == &<IUIAutomationTextEditPattern as windows_core::Interface>::IID || iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationTextEditPattern {}
@@ -14561,7 +14561,7 @@ impl IUIAutomationTextPattern2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextPattern2 as windows_core::Interface>::IID
+        iid == &<IUIAutomationTextPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextPattern as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationTextPattern2 {}
@@ -14916,7 +14916,7 @@ impl IUIAutomationTextRange2_Vtbl {
         Self { base__: IUIAutomationTextRange_Vtbl::new::<Identity, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID
+        iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15007,7 +15007,7 @@ impl IUIAutomationTextRange3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRange3 as windows_core::Interface>::IID
+        iid == &<IUIAutomationTextRange3 as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange as windows_core::Interface>::IID || iid == &<IUIAutomationTextRange2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15460,7 +15460,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTransformPattern2 as windows_core::Interface>::IID
+        iid == &<IUIAutomationTransformPattern2 as windows_core::Interface>::IID || iid == &<IUIAutomationTransformPattern as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IUIAutomationTransformPattern2 {}

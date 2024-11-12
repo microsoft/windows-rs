@@ -173,7 +173,7 @@ impl IBITSExtensionSetup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBITSExtensionSetup as windows_core::Interface>::IID
+        iid == &<IBITSExtensionSetup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -222,7 +222,7 @@ impl IBITSExtensionSetupFactory_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), GetObject: GetObject::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBITSExtensionSetupFactory as windows_core::Interface>::IID
+        iid == &<IBITSExtensionSetupFactory as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -385,7 +385,7 @@ impl IBackgroundCopyCallback2_Vtbl {
         Self { base__: IBackgroundCopyCallback_Vtbl::new::<Identity, OFFSET>(), FileTransferred: FileTransferred::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyCallback2 {}
@@ -423,7 +423,7 @@ impl IBackgroundCopyCallback3_Vtbl {
         Self { base__: IBackgroundCopyCallback2_Vtbl::new::<Identity, OFFSET>(), FileRangesTransferred: FileRangesTransferred::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyCallback3 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyCallback3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback as windows_core::Interface>::IID || iid == &<IBackgroundCopyCallback2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyCallback3 {}
@@ -637,7 +637,7 @@ impl IBackgroundCopyFile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile2 {}
@@ -728,7 +728,7 @@ impl IBackgroundCopyFile3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile3 {}
@@ -762,7 +762,7 @@ impl IBackgroundCopyFile4_Vtbl {
         Self { base__: IBackgroundCopyFile3_Vtbl::new::<Identity, OFFSET>(), GetPeerDownloadStats: GetPeerDownloadStats::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile4 {}
@@ -816,7 +816,7 @@ impl IBackgroundCopyFile5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile5 {}
@@ -873,7 +873,7 @@ impl IBackgroundCopyFile6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyFile6 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyFile5 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyFile6 {}
@@ -1820,7 +1820,7 @@ impl IBackgroundCopyJob2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob2 {}
@@ -1902,7 +1902,7 @@ impl IBackgroundCopyJob3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob3 {}
@@ -2017,7 +2017,7 @@ impl IBackgroundCopyJob4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob4 {}
@@ -2071,7 +2071,7 @@ impl IBackgroundCopyJob5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJob5 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJob5 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJob4 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJob5 {}
@@ -2253,7 +2253,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions2 {}
@@ -2303,7 +2303,7 @@ impl IBackgroundCopyJobHttpOptions3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBackgroundCopyJobHttpOptions3 as windows_core::Interface>::IID
+        iid == &<IBackgroundCopyJobHttpOptions3 as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions as windows_core::Interface>::IID || iid == &<IBackgroundCopyJobHttpOptions2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBackgroundCopyJobHttpOptions3 {}

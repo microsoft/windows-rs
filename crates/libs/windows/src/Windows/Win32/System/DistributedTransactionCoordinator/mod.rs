@@ -1241,7 +1241,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDtcNetworkAccessConfig2 {}
@@ -1298,7 +1298,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDtcNetworkAccessConfig3 as windows_core::Interface>::IID
+        iid == &<IDtcNetworkAccessConfig3 as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig as windows_core::Interface>::IID || iid == &<IDtcNetworkAccessConfig2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDtcNetworkAccessConfig3 {}
@@ -1882,7 +1882,7 @@ impl IResourceManager2_Vtbl {
         Self { base__: IResourceManager_Vtbl::new::<Identity, OFFSET>(), Enlist2: Enlist2::<Identity, OFFSET>, Reenlist2: Reenlist2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManager2 as windows_core::Interface>::IID
+        iid == &<IResourceManager2 as windows_core::Interface>::IID || iid == &<IResourceManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IResourceManager2 {}
@@ -1959,7 +1959,7 @@ impl IResourceManagerFactory2_Vtbl {
         Self { base__: IResourceManagerFactory_Vtbl::new::<Identity, OFFSET>(), CreateEx: CreateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManagerFactory2 as windows_core::Interface>::IID
+        iid == &<IResourceManagerFactory2 as windows_core::Interface>::IID || iid == &<IResourceManagerFactory as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IResourceManagerFactory2 {}
@@ -2000,7 +2000,7 @@ impl IResourceManagerRejoinable_Vtbl {
         Self { base__: IResourceManager2_Vtbl::new::<Identity, OFFSET>(), Rejoin: Rejoin::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IResourceManagerRejoinable as windows_core::Interface>::IID
+        iid == &<IResourceManagerRejoinable as windows_core::Interface>::IID || iid == &<IResourceManager as windows_core::Interface>::IID || iid == &<IResourceManager2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IResourceManagerRejoinable {}
@@ -2326,7 +2326,7 @@ impl ITransaction2_Vtbl {
         Self { base__: ITransactionCloner_Vtbl::new::<Identity, OFFSET>(), GetTransactionInfo2: GetTransactionInfo2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransaction2 as windows_core::Interface>::IID
+        iid == &<ITransaction2 as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID || iid == &<ITransactionCloner as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITransaction2 {}
@@ -2367,7 +2367,7 @@ impl ITransactionCloner_Vtbl {
         Self { base__: ITransaction_Vtbl::new::<Identity, OFFSET>(), CloneWithCommitDisabled: CloneWithCommitDisabled::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionCloner as windows_core::Interface>::IID
+        iid == &<ITransactionCloner as windows_core::Interface>::IID || iid == &<ITransaction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITransactionCloner {}
@@ -3478,7 +3478,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         Self { base__: ITransactionOutcomeEvents_Vtbl::new::<Identity, OFFSET>(), VoteRequest: VoteRequest::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionVoterNotifyAsync2 as windows_core::Interface>::IID
+        iid == &<ITransactionVoterNotifyAsync2 as windows_core::Interface>::IID || iid == &<ITransactionOutcomeEvents as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITransactionVoterNotifyAsync2 {}

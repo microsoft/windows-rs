@@ -307,7 +307,7 @@ impl IChangeUnitListFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IChangeUnitListFilterInfo as windows_core::Interface>::IID
+        iid == &<IChangeUnitListFilterInfo as windows_core::Interface>::IID || iid == &<ISyncFilterInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IChangeUnitListFilterInfo {}
@@ -453,7 +453,7 @@ impl ICombinedFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICombinedFilterInfo as windows_core::Interface>::IID
+        iid == &<ICombinedFilterInfo as windows_core::Interface>::IID || iid == &<ISyncFilterInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICombinedFilterInfo {}
@@ -823,7 +823,7 @@ impl ICustomFilterInfo_Vtbl {
         Self { base__: ISyncFilterInfo_Vtbl::new::<Identity, OFFSET>(), GetSyncFilter: GetSyncFilter::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICustomFilterInfo as windows_core::Interface>::IID
+        iid == &<ICustomFilterInfo as windows_core::Interface>::IID || iid == &<ISyncFilterInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICustomFilterInfo {}
@@ -1568,7 +1568,7 @@ impl IFeedClockVector_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFeedClockVector as windows_core::Interface>::IID
+        iid == &<IFeedClockVector as windows_core::Interface>::IID || iid == &<IClockVector as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IFeedClockVector {}
@@ -1615,7 +1615,7 @@ impl IFeedClockVectorElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFeedClockVectorElement as windows_core::Interface>::IID
+        iid == &<IFeedClockVectorElement as windows_core::Interface>::IID || iid == &<IClockVectorElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IFeedClockVectorElement {}
@@ -1873,7 +1873,7 @@ impl IForgottenKnowledge_Vtbl {
         Self { base__: ISyncKnowledge_Vtbl::new::<Identity, OFFSET>(), ForgetToVersion: ForgetToVersion::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IForgottenKnowledge as windows_core::Interface>::IID
+        iid == &<IForgottenKnowledge as windows_core::Interface>::IID || iid == &<ISyncKnowledge as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IForgottenKnowledge {}
@@ -1992,7 +1992,7 @@ impl IKnowledgeSyncProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IKnowledgeSyncProvider as windows_core::Interface>::IID
+        iid == &<IKnowledgeSyncProvider as windows_core::Interface>::IID || iid == &<ISyncProvider as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IKnowledgeSyncProvider {}
@@ -2671,7 +2671,7 @@ impl ISyncCallback2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncCallback2 as windows_core::Interface>::IID
+        iid == &<ISyncCallback2 as windows_core::Interface>::IID || iid == &<ISyncCallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncCallback2 {}
@@ -2884,7 +2884,7 @@ impl ISyncChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatch as windows_core::Interface>::IID
+        iid == &<ISyncChangeBatch as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatch {}
@@ -2948,7 +2948,7 @@ impl ISyncChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatch2 as windows_core::Interface>::IID
+        iid == &<ISyncChangeBatch2 as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID || iid == &<ISyncChangeBatch as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatch2 {}
@@ -3256,7 +3256,7 @@ impl ISyncChangeBatchBase2_Vtbl {
         Self { base__: ISyncChangeBatchBase_Vtbl::new::<Identity, OFFSET>(), SerializeWithOptions: SerializeWithOptions::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchBase2 as windows_core::Interface>::IID
+        iid == &<ISyncChangeBatchBase2 as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchBase2 {}
@@ -3502,7 +3502,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncChangeBatchWithPrerequisite as windows_core::Interface>::IID
+        iid == &<ISyncChangeBatchWithPrerequisite as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncChangeBatchWithPrerequisite {}
@@ -4096,7 +4096,7 @@ impl ISyncFilterInfo2_Vtbl {
         Self { base__: ISyncFilterInfo_Vtbl::new::<Identity, OFFSET>(), GetFlags: GetFlags::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncFilterInfo2 as windows_core::Interface>::IID
+        iid == &<ISyncFilterInfo2 as windows_core::Interface>::IID || iid == &<ISyncFilterInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncFilterInfo2 {}
@@ -4215,7 +4215,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch as windows_core::Interface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncFullEnumerationChangeBatch {}
@@ -4259,7 +4259,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncFullEnumerationChangeBatch2 as windows_core::Interface>::IID
+        iid == &<ISyncFullEnumerationChangeBatch2 as windows_core::Interface>::IID || iid == &<ISyncChangeBatchBase as windows_core::Interface>::IID || iid == &<ISyncFullEnumerationChangeBatch as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncFullEnumerationChangeBatch2 {}
@@ -4794,7 +4794,7 @@ impl ISyncKnowledge2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncKnowledge2 as windows_core::Interface>::IID
+        iid == &<ISyncKnowledge2 as windows_core::Interface>::IID || iid == &<ISyncKnowledge as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncKnowledge2 {}
@@ -5007,7 +5007,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncProviderConfigUIInfo as windows_core::Interface>::IID
+        iid == &<ISyncProviderConfigUIInfo as windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -5059,7 +5059,7 @@ impl ISyncProviderInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncProviderInfo as windows_core::Interface>::IID
+        iid == &<ISyncProviderInfo as windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -5578,7 +5578,7 @@ impl ISyncSessionState2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISyncSessionState2 as windows_core::Interface>::IID
+        iid == &<ISyncSessionState2 as windows_core::Interface>::IID || iid == &<ISyncSessionState as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISyncSessionState2 {}

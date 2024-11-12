@@ -1387,7 +1387,7 @@ impl IAudioBass_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioBass as windows_core::Interface>::IID
+        iid == &<IAudioBass as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioBass {}
@@ -1736,7 +1736,7 @@ impl IAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioClient2 as windows_core::Interface>::IID
+        iid == &<IAudioClient2 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioClient2 {}
@@ -1793,7 +1793,7 @@ impl IAudioClient3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioClient3 as windows_core::Interface>::IID
+        iid == &<IAudioClient3 as windows_core::Interface>::IID || iid == &<IAudioClient as windows_core::Interface>::IID || iid == &<IAudioClient2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioClient3 {}
@@ -2212,7 +2212,7 @@ impl IAudioMidrange_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioMidrange as windows_core::Interface>::IID
+        iid == &<IAudioMidrange as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioMidrange {}
@@ -2662,7 +2662,7 @@ impl IAudioSessionControl2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSessionControl2 as windows_core::Interface>::IID
+        iid == &<IAudioSessionControl2 as windows_core::Interface>::IID || iid == &<IAudioSessionControl as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioSessionControl2 {}
@@ -2969,7 +2969,7 @@ impl IAudioSessionManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioSessionManager2 as windows_core::Interface>::IID
+        iid == &<IAudioSessionManager2 as windows_core::Interface>::IID || iid == &<IAudioSessionManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioSessionManager2 {}
@@ -3333,7 +3333,7 @@ impl IAudioTreble_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioTreble as windows_core::Interface>::IID
+        iid == &<IAudioTreble as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioTreble {}
@@ -3433,7 +3433,7 @@ impl IAudioVolumeLevel_Vtbl {
         Self { base__: IPerChannelDbLevel_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioVolumeLevel as windows_core::Interface>::IID
+        iid == &<IAudioVolumeLevel as windows_core::Interface>::IID || iid == &<IPerChannelDbLevel as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioVolumeLevel {}
@@ -5099,7 +5099,7 @@ impl ISpatialAudioClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID
+        iid == &<ISpatialAudioClient2 as windows_core::Interface>::IID || iid == &<ISpatialAudioClient as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -5595,7 +5595,7 @@ impl ISpatialAudioObject_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObject as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObject as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObject {}
@@ -5757,7 +5757,7 @@ impl ISpatialAudioObjectForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForHrtf as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectForHrtf as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectForHrtf {}
@@ -5791,7 +5791,7 @@ impl ISpatialAudioObjectForMetadataCommands_Vtbl {
         Self { base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, OFFSET>(), WriteNextMetadataCommand: WriteNextMetadataCommand::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataCommands as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataCommands {}
@@ -5832,7 +5832,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
         Self { base__: ISpatialAudioObjectBase_Vtbl::new::<Identity, OFFSET>(), GetSpatialAudioMetadataItems: GetSpatialAudioMetadataItems::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectForMetadataItems as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectForMetadataItems {}
@@ -5876,7 +5876,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStream as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStream as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStream {}
@@ -6022,7 +6022,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForHrtf as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForHrtf as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForHrtf {}
@@ -6083,7 +6083,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID
+        iid == &<ISpatialAudioObjectRenderStreamForMetadata as windows_core::Interface>::IID || iid == &<ISpatialAudioObjectRenderStreamBase as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISpatialAudioObjectRenderStreamForMetadata {}

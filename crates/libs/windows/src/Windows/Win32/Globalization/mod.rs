@@ -7646,7 +7646,7 @@ impl IMLangFontLink_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink as windows_core::Interface>::IID
+        iid == &<IMLangFontLink as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7782,7 +7782,7 @@ impl IMLangFontLink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangFontLink2 as windows_core::Interface>::IID
+        iid == &<IMLangFontLink2 as windows_core::Interface>::IID || iid == &<IMLangCodePages as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8028,7 +8028,7 @@ impl IMLangStringAStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangStringAStr as windows_core::Interface>::IID
+        iid == &<IMLangStringAStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMLangStringAStr {}
@@ -8286,7 +8286,7 @@ impl IMLangStringWStr_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMLangStringWStr as windows_core::Interface>::IID
+        iid == &<IMLangStringWStr as windows_core::Interface>::IID || iid == &<IMLangString as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMLangStringWStr {}
@@ -8954,7 +8954,7 @@ impl IMultiLanguage3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMultiLanguage3 as windows_core::Interface>::IID
+        iid == &<IMultiLanguage3 as windows_core::Interface>::IID || iid == &<IMultiLanguage2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9655,7 +9655,7 @@ impl ISpellChecker2_Vtbl {
         Self { base__: ISpellChecker_Vtbl::new::<Identity, OFFSET>(), Remove: Remove::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISpellChecker2 as windows_core::Interface>::IID
+        iid == &<ISpellChecker2 as windows_core::Interface>::IID || iid == &<ISpellChecker as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

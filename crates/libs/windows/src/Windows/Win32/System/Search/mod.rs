@@ -1800,7 +1800,7 @@ impl DataSourceObject_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<DataSourceObject as windows_core::Interface>::IID
+        iid == &<DataSourceObject as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2260,7 +2260,7 @@ impl IColumnsInfo2_Vtbl {
         Self { base__: IColumnsInfo_Vtbl::new::<Identity, OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IColumnsInfo2 as windows_core::Interface>::IID
+        iid == &<IColumnsInfo2 as windows_core::Interface>::IID || iid == &<IColumnsInfo as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -2746,7 +2746,7 @@ impl ICommandText_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICommandText as windows_core::Interface>::IID
+        iid == &<ICommandText as windows_core::Interface>::IID || iid == &<ICommand as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICommandText {}
@@ -2996,7 +2996,7 @@ impl ICondition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICondition as windows_core::Interface>::IID
+        iid == &<ICondition as windows_core::Interface>::IID || iid == &<super::Com::IPersist as windows_core::Interface>::IID || iid == &<super::Com::IPersistStream as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -3062,7 +3062,7 @@ impl ICondition2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICondition2 as windows_core::Interface>::IID
+        iid == &<ICondition2 as windows_core::Interface>::IID || iid == &<super::Com::IPersist as windows_core::Interface>::IID || iid == &<super::Com::IPersistStream as windows_core::Interface>::IID || iid == &<ICondition as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -3389,7 +3389,7 @@ impl IConditionFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConditionFactory2 as windows_core::Interface>::IID
+        iid == &<IConditionFactory2 as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -3690,7 +3690,7 @@ impl IDBBinderProperties_Vtbl {
         Self { base__: IDBProperties_Vtbl::new::<Identity, OFFSET>(), Reset: Reset::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDBBinderProperties as windows_core::Interface>::IID
+        iid == &<IDBBinderProperties as windows_core::Interface>::IID || iid == &<IDBProperties as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4515,7 +4515,7 @@ impl IDataSourceLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDataSourceLocator as windows_core::Interface>::IID
+        iid == &<IDataSourceLocator as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5532,7 +5532,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID
+        iid == &<ILoadFilterWithPrivateComActivation as windows_core::Interface>::IID || iid == &<ILoadFilter as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -6513,7 +6513,7 @@ impl IQuerySolution_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IQuerySolution as windows_core::Interface>::IID
+        iid == &<IQuerySolution as windows_core::Interface>::IID || iid == &<IConditionFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
@@ -7014,7 +7014,7 @@ impl IRowSchemaChange_Vtbl {
         Self { base__: IRowChange_Vtbl::new::<Identity, OFFSET>(), DeleteColumns: DeleteColumns::<Identity, OFFSET>, AddColumns: AddColumns::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowSchemaChange as windows_core::Interface>::IID
+        iid == &<IRowSchemaChange as windows_core::Interface>::IID || iid == &<IRowChange as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -7432,7 +7432,7 @@ impl IRowsetCurrentIndex_Vtbl {
         Self { base__: IRowsetIndex_Vtbl::new::<Identity, OFFSET>(), GetIndex: GetIndex::<Identity, OFFSET>, SetIndex: SetIndex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID
+        iid == &<IRowsetCurrentIndex as windows_core::Interface>::IID || iid == &<IRowsetIndex as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7547,7 +7547,7 @@ impl IRowsetExactScroll_Vtbl {
         Self { base__: IRowsetScroll_Vtbl::new::<Identity, OFFSET>(), GetExactPosition: GetExactPosition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetExactScroll as windows_core::Interface>::IID
+        iid == &<IRowsetExactScroll as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID || iid == &<IRowsetLocate as windows_core::Interface>::IID || iid == &<IRowsetScroll as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRowsetExactScroll {}
@@ -7887,7 +7887,7 @@ impl IRowsetLocate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetLocate as windows_core::Interface>::IID
+        iid == &<IRowsetLocate as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRowsetLocate {}
@@ -8256,7 +8256,7 @@ impl IRowsetScroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetScroll as windows_core::Interface>::IID
+        iid == &<IRowsetScroll as windows_core::Interface>::IID || iid == &<IRowset as windows_core::Interface>::IID || iid == &<IRowsetLocate as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRowsetScroll {}
@@ -8343,7 +8343,7 @@ impl IRowsetUpdate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetUpdate as windows_core::Interface>::IID
+        iid == &<IRowsetUpdate as windows_core::Interface>::IID || iid == &<IRowsetChange as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRowsetUpdate {}
@@ -8566,7 +8566,7 @@ impl IRowsetWatchRegion_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRowsetWatchRegion as windows_core::Interface>::IID
+        iid == &<IRowsetWatchRegion as windows_core::Interface>::IID || iid == &<IRowsetWatchAll as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRowsetWatchRegion {}
@@ -9053,7 +9053,7 @@ impl IScopedOperations_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IScopedOperations as windows_core::Interface>::IID
+        iid == &<IScopedOperations as windows_core::Interface>::IID || iid == &<IBindResource as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -9511,7 +9511,7 @@ impl ISearchCatalogManager2_Vtbl {
         Self { base__: ISearchCatalogManager_Vtbl::new::<Identity, OFFSET>(), PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchCatalogManager2 as windows_core::Interface>::IID
+        iid == &<ISearchCatalogManager2 as windows_core::Interface>::IID || iid == &<ISearchCatalogManager as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -9811,7 +9811,7 @@ impl ISearchCrawlScopeManager2_Vtbl {
         Self { base__: ISearchCrawlScopeManager_Vtbl::new::<Identity, OFFSET>(), GetVersion: GetVersion::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchCrawlScopeManager2 as windows_core::Interface>::IID
+        iid == &<ISearchCrawlScopeManager2 as windows_core::Interface>::IID || iid == &<ISearchCrawlScopeManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISearchCrawlScopeManager2 {}
@@ -10275,7 +10275,7 @@ impl ISearchManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchManager2 as windows_core::Interface>::IID
+        iid == &<ISearchManager2 as windows_core::Interface>::IID || iid == &<ISearchManager as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -10508,7 +10508,7 @@ impl ISearchProtocol2_Vtbl {
         Self { base__: ISearchProtocol_Vtbl::new::<Identity, OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISearchProtocol2 as windows_core::Interface>::IID
+        iid == &<ISearchProtocol2 as windows_core::Interface>::IID || iid == &<ISearchProtocol as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12115,7 +12115,7 @@ impl ISubscriptionMgr2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISubscriptionMgr2 as windows_core::Interface>::IID
+        iid == &<ISubscriptionMgr2 as windows_core::Interface>::IID || iid == &<ISubscriptionMgr as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISubscriptionMgr2 {}
@@ -12166,7 +12166,7 @@ impl ITableCreation_Vtbl {
         Self { base__: ITableDefinition_Vtbl::new::<Identity, OFFSET>(), GetTableDefinition: GetTableDefinition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableCreation as windows_core::Interface>::IID
+        iid == &<ITableCreation as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12336,7 +12336,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID
+        iid == &<ITableDefinitionWithConstraints as windows_core::Interface>::IID || iid == &<ITableDefinition as windows_core::Interface>::IID || iid == &<ITableCreation as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12565,7 +12565,7 @@ impl ITransactionLocal_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITransactionLocal as windows_core::Interface>::IID
+        iid == &<ITransactionLocal as windows_core::Interface>::IID || iid == &<super::DistributedTransactionCoordinator::ITransaction as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -13181,7 +13181,7 @@ impl IUrlAccessor2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUrlAccessor2 as windows_core::Interface>::IID
+        iid == &<IUrlAccessor2 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -13225,7 +13225,7 @@ impl IUrlAccessor3_Vtbl {
         Self { base__: IUrlAccessor2_Vtbl::new::<Identity, OFFSET>(), GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUrlAccessor3 as windows_core::Interface>::IID
+        iid == &<IUrlAccessor3 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID || iid == &<IUrlAccessor2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -13293,7 +13293,7 @@ impl IUrlAccessor4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IUrlAccessor4 as windows_core::Interface>::IID
+        iid == &<IUrlAccessor4 as windows_core::Interface>::IID || iid == &<IUrlAccessor as windows_core::Interface>::IID || iid == &<IUrlAccessor2 as windows_core::Interface>::IID || iid == &<IUrlAccessor3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]

@@ -2407,7 +2407,7 @@ impl IImageList2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IImageList2 as windows_core::Interface>::IID
+        iid == &<IImageList2 as windows_core::Interface>::IID || iid == &<IImageList as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]

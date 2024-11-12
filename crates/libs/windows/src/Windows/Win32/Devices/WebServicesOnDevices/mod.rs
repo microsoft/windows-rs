@@ -1098,7 +1098,7 @@ impl IWSDHttpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDHttpAddress as windows_core::Interface>::IID
+        iid == &<IWSDHttpAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID || iid == &<IWSDTransportAddress as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDHttpAddress {}
@@ -1310,7 +1310,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDHttpMessageParameters as windows_core::Interface>::IID
+        iid == &<IWSDHttpMessageParameters as windows_core::Interface>::IID || iid == &<IWSDMessageParameters as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDHttpMessageParameters {}
@@ -1353,7 +1353,7 @@ impl IWSDInboundAttachment_Vtbl {
         Self { base__: IWSDAttachment_Vtbl::new::<Identity, OFFSET>(), Read: Read::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDInboundAttachment as windows_core::Interface>::IID
+        iid == &<IWSDInboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDInboundAttachment {}
@@ -1550,7 +1550,7 @@ impl IWSDOutboundAttachment_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDOutboundAttachment as windows_core::Interface>::IID
+        iid == &<IWSDOutboundAttachment as windows_core::Interface>::IID || iid == &<IWSDAttachment as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDOutboundAttachment {}
@@ -1852,7 +1852,7 @@ impl IWSDServiceProxy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxy as windows_core::Interface>::IID
+        iid == &<IWSDServiceProxy as windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDServiceProxy {}
@@ -2059,7 +2059,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDServiceProxyEventing as windows_core::Interface>::IID
+        iid == &<IWSDServiceProxyEventing as windows_core::Interface>::IID || iid == &<IWSDMetadataExchange as windows_core::Interface>::IID || iid == &<IWSDServiceProxy as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDServiceProxyEventing {}
@@ -2248,7 +2248,7 @@ impl IWSDTransportAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDTransportAddress as windows_core::Interface>::IID
+        iid == &<IWSDTransportAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDTransportAddress {}
@@ -2409,7 +2409,7 @@ impl IWSDUdpAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDUdpAddress as windows_core::Interface>::IID
+        iid == &<IWSDUdpAddress as windows_core::Interface>::IID || iid == &<IWSDAddress as windows_core::Interface>::IID || iid == &<IWSDTransportAddress as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -2457,7 +2457,7 @@ impl IWSDUdpMessageParameters_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSDUdpMessageParameters as windows_core::Interface>::IID
+        iid == &<IWSDUdpMessageParameters as windows_core::Interface>::IID || iid == &<IWSDMessageParameters as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWSDUdpMessageParameters {}

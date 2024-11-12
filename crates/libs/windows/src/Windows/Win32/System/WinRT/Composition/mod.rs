@@ -164,7 +164,7 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         Self { base__: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, OFFSET>(), CopySurface: CopySurface::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop2 as windows_core::Interface>::IID
+        iid == &<ICompositionDrawingSurfaceInterop2 as windows_core::Interface>::IID || iid == &<ICompositionDrawingSurfaceInterop as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}

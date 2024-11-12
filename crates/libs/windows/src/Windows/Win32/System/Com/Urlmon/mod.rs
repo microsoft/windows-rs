@@ -802,7 +802,7 @@ impl ICodeInstall_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICodeInstall as windows_core::Interface>::IID
+        iid == &<ICodeInstall as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ICodeInstall {}
@@ -1048,7 +1048,7 @@ impl IHttpNegotiate2_Vtbl {
         Self { base__: IHttpNegotiate_Vtbl::new::<Identity, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate2 as windows_core::Interface>::IID
+        iid == &<IHttpNegotiate2 as windows_core::Interface>::IID || iid == &<IHttpNegotiate as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IHttpNegotiate2 {}
@@ -1082,7 +1082,7 @@ impl IHttpNegotiate3_Vtbl {
         Self { base__: IHttpNegotiate2_Vtbl::new::<Identity, OFFSET>(), GetSerializedClientCertContext: GetSerializedClientCertContext::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate3 as windows_core::Interface>::IID
+        iid == &<IHttpNegotiate3 as windows_core::Interface>::IID || iid == &<IHttpNegotiate as windows_core::Interface>::IID || iid == &<IHttpNegotiate2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IHttpNegotiate3 {}
@@ -1116,7 +1116,7 @@ impl IHttpSecurity_Vtbl {
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IHttpSecurity as windows_core::Interface>::IID
+        iid == &<IHttpSecurity as windows_core::Interface>::IID || iid == &<IWindowForBindingUI as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IHttpSecurity {}
@@ -1220,7 +1220,7 @@ impl IInternetBindInfoEx_Vtbl {
         Self { base__: IInternetBindInfo_Vtbl::new::<Identity, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfoEx as windows_core::Interface>::IID
+        iid == &<IInternetBindInfoEx as windows_core::Interface>::IID || iid == &<IInternetBindInfo as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1394,7 +1394,7 @@ impl IInternetProtocol_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetProtocol as windows_core::Interface>::IID
+        iid == &<IInternetProtocol as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetProtocol {}
@@ -1434,7 +1434,7 @@ impl IInternetProtocolEx_Vtbl {
         Self { base__: IInternetProtocol_Vtbl::new::<Identity, OFFSET>(), StartEx: StartEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolEx as windows_core::Interface>::IID
+        iid == &<IInternetProtocolEx as windows_core::Interface>::IID || iid == &<IInternetProtocolRoot as windows_core::Interface>::IID || iid == &<IInternetProtocol as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetProtocolEx {}
@@ -1881,7 +1881,7 @@ impl IInternetSecurityManagerEx_Vtbl {
         Self { base__: IInternetSecurityManager_Vtbl::new::<Identity, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID
+        iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetSecurityManagerEx {}
@@ -1960,7 +1960,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx2 as windows_core::Interface>::IID
+        iid == &<IInternetSecurityManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetSecurityManager as windows_core::Interface>::IID || iid == &<IInternetSecurityManagerEx as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetSecurityManagerEx2 {}
@@ -2364,7 +2364,7 @@ impl IInternetZoneManagerEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID
+        iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetZoneManagerEx {}
@@ -2438,7 +2438,7 @@ impl IInternetZoneManagerEx2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx2 as windows_core::Interface>::IID
+        iid == &<IInternetZoneManagerEx2 as windows_core::Interface>::IID || iid == &<IInternetZoneManager as windows_core::Interface>::IID || iid == &<IInternetZoneManagerEx as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IInternetZoneManagerEx2 {}
@@ -2811,7 +2811,7 @@ impl IWinInetCacheHints2_Vtbl {
         Self { base__: IWinInetCacheHints_Vtbl::new::<Identity, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints2 as windows_core::Interface>::IID
+        iid == &<IWinInetCacheHints2 as windows_core::Interface>::IID || iid == &<IWinInetCacheHints as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWinInetCacheHints2 {}
@@ -2886,7 +2886,7 @@ impl IWinInetHttpInfo_Vtbl {
         Self { base__: IWinInetInfo_Vtbl::new::<Identity, OFFSET>(), QueryInfo: QueryInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpInfo as windows_core::Interface>::IID
+        iid == &<IWinInetHttpInfo as windows_core::Interface>::IID || iid == &<IWinInetInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IWinInetHttpInfo {}
@@ -3167,7 +3167,7 @@ impl IZoneIdentifier2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier2 as windows_core::Interface>::IID
+        iid == &<IZoneIdentifier2 as windows_core::Interface>::IID || iid == &<IZoneIdentifier as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IZoneIdentifier2 {}

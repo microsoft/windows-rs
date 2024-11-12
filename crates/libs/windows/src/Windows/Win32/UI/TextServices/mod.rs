@@ -2969,7 +2969,7 @@ impl ITextStoreACPSinkEx_Vtbl {
         Self { base__: ITextStoreACPSink_Vtbl::new::<Identity, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextStoreACPSinkEx as windows_core::Interface>::IID
+        iid == &<ITextStoreACPSinkEx as windows_core::Interface>::IID || iid == &<ITextStoreACPSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITextStoreACPSinkEx {}
@@ -3583,7 +3583,7 @@ impl ITextStoreSinkAnchorEx_Vtbl {
         Self { base__: ITextStoreAnchorSink_Vtbl::new::<Identity, OFFSET>(), OnDisconnect: OnDisconnect::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITextStoreSinkAnchorEx as windows_core::Interface>::IID
+        iid == &<ITextStoreSinkAnchorEx as windows_core::Interface>::IID || iid == &<ITextStoreAnchorSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITextStoreSinkAnchorEx {}
@@ -3845,7 +3845,7 @@ impl ITfCandidateListUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID
+        iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfCandidateListUIElement {}
@@ -3902,7 +3902,7 @@ impl ITfCandidateListUIElementBehavior_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfCandidateListUIElementBehavior as windows_core::Interface>::IID
+        iid == &<ITfCandidateListUIElementBehavior as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID || iid == &<ITfCandidateListUIElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfCandidateListUIElementBehavior {}
@@ -5270,7 +5270,7 @@ impl ITfContextOwnerCompositionServices_Vtbl {
         Self { base__: ITfContextComposition_Vtbl::new::<Identity, OFFSET>(), TerminateComposition: TerminateComposition::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfContextOwnerCompositionServices as windows_core::Interface>::IID
+        iid == &<ITfContextOwnerCompositionServices as windows_core::Interface>::IID || iid == &<ITfContextComposition as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfContextOwnerCompositionServices {}
@@ -6133,7 +6133,7 @@ impl ITfFnAdviseText_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnAdviseText as windows_core::Interface>::IID
+        iid == &<ITfFnAdviseText as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnAdviseText {}
@@ -6198,7 +6198,7 @@ impl ITfFnConfigure_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), Show: Show::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnConfigure as windows_core::Interface>::IID
+        iid == &<ITfFnConfigure as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnConfigure {}
@@ -6235,7 +6235,7 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), Show: Show::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnConfigureRegisterEudc as windows_core::Interface>::IID
+        iid == &<ITfFnConfigureRegisterEudc as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnConfigureRegisterEudc {}
@@ -6272,7 +6272,7 @@ impl ITfFnConfigureRegisterWord_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), Show: Show::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnConfigureRegisterWord as windows_core::Interface>::IID
+        iid == &<ITfFnConfigureRegisterWord as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnConfigureRegisterWord {}
@@ -6309,7 +6309,7 @@ impl ITfFnCustomSpeechCommand_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), SetSpeechCommandProvider: SetSpeechCommandProvider::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnCustomSpeechCommand as windows_core::Interface>::IID
+        iid == &<ITfFnCustomSpeechCommand as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnCustomSpeechCommand {}
@@ -6353,7 +6353,7 @@ impl ITfFnGetLinguisticAlternates_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), GetAlternates: GetAlternates::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnGetLinguisticAlternates as windows_core::Interface>::IID
+        iid == &<ITfFnGetLinguisticAlternates as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnGetLinguisticAlternates {}
@@ -6387,7 +6387,7 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), GetLayout: GetLayout::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnGetPreferredTouchKeyboardLayout as windows_core::Interface>::IID
+        iid == &<ITfFnGetPreferredTouchKeyboardLayout as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnGetPreferredTouchKeyboardLayout {}
@@ -6428,7 +6428,7 @@ impl ITfFnGetSAPIObject_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), Get: Get::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnGetSAPIObject as windows_core::Interface>::IID
+        iid == &<ITfFnGetSAPIObject as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnGetSAPIObject {}
@@ -6465,7 +6465,7 @@ impl ITfFnLMInternal_Vtbl {
         Self { base__: ITfFnLMProcessor_Vtbl::new::<Identity, OFFSET>(), ProcessLattice: ProcessLattice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnLMInternal as windows_core::Interface>::IID
+        iid == &<ITfFnLMInternal as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID || iid == &<ITfFnLMProcessor as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnLMInternal {}
@@ -6605,7 +6605,7 @@ impl ITfFnLMProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnLMProcessor as windows_core::Interface>::IID
+        iid == &<ITfFnLMProcessor as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnLMProcessor {}
@@ -6659,7 +6659,7 @@ impl ITfFnLangProfileUtil_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnLangProfileUtil as windows_core::Interface>::IID
+        iid == &<ITfFnLangProfileUtil as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnLangProfileUtil {}
@@ -6708,7 +6708,7 @@ impl ITfFnPlayBack_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), QueryRange: QueryRange::<Identity, OFFSET>, Play: Play::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnPlayBack as windows_core::Interface>::IID
+        iid == &<ITfFnPlayBack as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnPlayBack {}
@@ -6758,7 +6758,7 @@ impl ITfFnPropertyUIStatus_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), GetStatus: GetStatus::<Identity, OFFSET>, SetStatus: SetStatus::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnPropertyUIStatus as windows_core::Interface>::IID
+        iid == &<ITfFnPropertyUIStatus as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnPropertyUIStatus {}
@@ -6831,7 +6831,7 @@ impl ITfFnReconversion_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnReconversion as windows_core::Interface>::IID
+        iid == &<ITfFnReconversion as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnReconversion {}
@@ -6885,7 +6885,7 @@ impl ITfFnSearchCandidateProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnSearchCandidateProvider as windows_core::Interface>::IID
+        iid == &<ITfFnSearchCandidateProvider as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnSearchCandidateProvider {}
@@ -6922,7 +6922,7 @@ impl ITfFnShowHelp_Vtbl {
         Self { base__: ITfFunction_Vtbl::new::<Identity, OFFSET>(), Show: Show::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfFnShowHelp as windows_core::Interface>::IID
+        iid == &<ITfFnShowHelp as windows_core::Interface>::IID || iid == &<ITfFunction as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfFnShowHelp {}
@@ -7548,7 +7548,7 @@ impl ITfInputProcessorProfilesEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID
+        iid == &<ITfInputProcessorProfilesEx as windows_core::Interface>::IID || iid == &<ITfInputProcessorProfiles as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Input_KeyboardAndMouse"))]
@@ -7688,7 +7688,7 @@ impl ITfInputScope2_Vtbl {
         Self { base__: ITfInputScope_Vtbl::new::<Identity, OFFSET>(), EnumWordList: EnumWordList::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfInputScope2 as windows_core::Interface>::IID
+        iid == &<ITfInputScope2 as windows_core::Interface>::IID || iid == &<ITfInputScope as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8587,7 +8587,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBalloon as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfLangBarItemBalloon {}
@@ -8657,7 +8657,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBitmap as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8768,7 +8768,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemBitmapButton as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemBitmapButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8869,7 +8869,7 @@ impl ITfLangBarItemButton_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfLangBarItemButton as windows_core::Interface>::IID
+        iid == &<ITfLangBarItemButton as windows_core::Interface>::IID || iid == &<ITfLangBarItem as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -9740,7 +9740,7 @@ impl ITfProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfProperty as windows_core::Interface>::IID
+        iid == &<ITfProperty as windows_core::Interface>::IID || iid == &<ITfReadOnlyProperty as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -10383,7 +10383,7 @@ impl ITfRangeACP_Vtbl {
         Self { base__: ITfRange_Vtbl::new::<Identity, OFFSET>(), GetExtent: GetExtent::<Identity, OFFSET>, SetExtent: SetExtent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfRangeACP as windows_core::Interface>::IID
+        iid == &<ITfRangeACP as windows_core::Interface>::IID || iid == &<ITfRange as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10639,7 +10639,7 @@ impl ITfReadingInformationUIElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfReadingInformationUIElement as windows_core::Interface>::IID
+        iid == &<ITfReadingInformationUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfReadingInformationUIElement {}
@@ -11251,7 +11251,7 @@ impl ITfTextInputProcessorEx_Vtbl {
         Self { base__: ITfTextInputProcessor_Vtbl::new::<Identity, OFFSET>(), ActivateEx: ActivateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfTextInputProcessorEx as windows_core::Interface>::IID
+        iid == &<ITfTextInputProcessorEx as windows_core::Interface>::IID || iid == &<ITfTextInputProcessor as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfTextInputProcessorEx {}
@@ -11893,7 +11893,7 @@ impl ITfThreadMgrEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfThreadMgrEx as windows_core::Interface>::IID
+        iid == &<ITfThreadMgrEx as windows_core::Interface>::IID || iid == &<ITfThreadMgr as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfThreadMgrEx {}
@@ -11934,7 +11934,7 @@ impl ITfToolTipUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, OFFSET>(), GetString: GetString::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfToolTipUIElement as windows_core::Interface>::IID
+        iid == &<ITfToolTipUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfToolTipUIElement {}
@@ -12015,7 +12015,7 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
         Self { base__: ITfUIElement_Vtbl::new::<Identity, OFFSET>(), GetDocumentMgr: GetDocumentMgr::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITfTransitoryExtensionUIElement as windows_core::Interface>::IID
+        iid == &<ITfTransitoryExtensionUIElement as windows_core::Interface>::IID || iid == &<ITfUIElement as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ITfTransitoryExtensionUIElement {}

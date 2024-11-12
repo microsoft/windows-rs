@@ -70,7 +70,7 @@ impl IWSCDefaultProduct_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSCDefaultProduct as windows_core::Interface>::IID
+        iid == &<IWSCDefaultProduct as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -149,7 +149,7 @@ impl IWSCProductList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWSCProductList as windows_core::Interface>::IID
+        iid == &<IWSCProductList as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -303,7 +303,7 @@ impl IWscProduct_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWscProduct as windows_core::Interface>::IID
+        iid == &<IWscProduct as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -440,7 +440,7 @@ impl IWscProduct2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWscProduct2 as windows_core::Interface>::IID
+        iid == &<IWscProduct2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWscProduct as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -489,7 +489,7 @@ impl IWscProduct3_Vtbl {
         Self { base__: IWscProduct2_Vtbl::new::<Identity, OFFSET>(), AntivirusDaysUntilExpired: AntivirusDaysUntilExpired::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWscProduct3 as windows_core::Interface>::IID
+        iid == &<IWscProduct3 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWscProduct as windows_core::Interface>::IID || iid == &<IWscProduct2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

@@ -33,7 +33,7 @@ impl ISideShowBulkCapabilities_Vtbl {
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISideShowBulkCapabilities as windows_core::Interface>::IID
+        iid == &<ISideShowBulkCapabilities as windows_core::Interface>::IID || iid == &<ISideShowCapabilities as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]

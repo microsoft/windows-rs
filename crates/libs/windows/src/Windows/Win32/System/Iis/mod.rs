@@ -869,7 +869,7 @@ impl IMSAdminBase2W_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMSAdminBase2W as windows_core::Interface>::IID
+        iid == &<IMSAdminBase2W as windows_core::Interface>::IID || iid == &<IMSAdminBaseW as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMSAdminBase2W {}
@@ -906,7 +906,7 @@ impl IMSAdminBase3W_Vtbl {
         Self { base__: IMSAdminBase2W_Vtbl::new::<Identity, OFFSET>(), GetChildPaths: GetChildPaths::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMSAdminBase3W as windows_core::Interface>::IID
+        iid == &<IMSAdminBase3W as windows_core::Interface>::IID || iid == &<IMSAdminBaseW as windows_core::Interface>::IID || iid == &<IMSAdminBase2W as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMSAdminBase3W {}

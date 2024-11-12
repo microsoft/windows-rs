@@ -2030,7 +2030,7 @@ impl INetCfgClassSetup2_Vtbl {
         Self { base__: INetCfgClassSetup_Vtbl::new::<Identity, OFFSET>(), UpdateNonEnumeratedComponent: UpdateNonEnumeratedComponent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<INetCfgClassSetup2 as windows_core::Interface>::IID
+        iid == &<INetCfgClassSetup2 as windows_core::Interface>::IID || iid == &<INetCfgClassSetup as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for INetCfgClassSetup2 {}

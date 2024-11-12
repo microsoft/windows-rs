@@ -476,7 +476,7 @@ impl IOfflineFilesCache2_Vtbl {
         Self { base__: IOfflineFilesCache_Vtbl::new::<Identity, OFFSET>(), RenameItemEx: RenameItemEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesCache2 as windows_core::Interface>::IID
+        iid == &<IOfflineFilesCache2 as windows_core::Interface>::IID || iid == &<IOfflineFilesCache as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesCache2 {}
@@ -692,7 +692,7 @@ impl IOfflineFilesDirectoryItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesDirectoryItem as windows_core::Interface>::IID
+        iid == &<IOfflineFilesDirectoryItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesDirectoryItem {}
@@ -1255,7 +1255,7 @@ impl IOfflineFilesEvents2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID
+        iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesEvents2 {}
@@ -1324,7 +1324,7 @@ impl IOfflineFilesEvents3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents3 as windows_core::Interface>::IID
+        iid == &<IOfflineFilesEvents3 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesEvents3 {}
@@ -1371,7 +1371,7 @@ impl IOfflineFilesEvents4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesEvents4 as windows_core::Interface>::IID
+        iid == &<IOfflineFilesEvents4 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents2 as windows_core::Interface>::IID || iid == &<IOfflineFilesEvents3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesEvents4 {}
@@ -1479,7 +1479,7 @@ impl IOfflineFilesFileItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, OFFSET>(), IsSparse: IsSparse::<Identity, OFFSET>, IsEncrypted: IsEncrypted::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesFileItem as windows_core::Interface>::IID
+        iid == &<IOfflineFilesFileItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesFileItem {}
@@ -1909,7 +1909,7 @@ impl IOfflineFilesPinInfo2_Vtbl {
         Self { base__: IOfflineFilesPinInfo_Vtbl::new::<Identity, OFFSET>(), IsPartlyPinned: IsPartlyPinned::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesPinInfo2 as windows_core::Interface>::IID
+        iid == &<IOfflineFilesPinInfo2 as windows_core::Interface>::IID || iid == &<IOfflineFilesPinInfo as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesPinInfo2 {}
@@ -1996,7 +1996,7 @@ impl IOfflineFilesServerItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesServerItem as windows_core::Interface>::IID
+        iid == &<IOfflineFilesServerItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesServerItem {}
@@ -2248,7 +2248,7 @@ impl IOfflineFilesShareItem_Vtbl {
         Self { base__: IOfflineFilesItem_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesShareItem as windows_core::Interface>::IID
+        iid == &<IOfflineFilesShareItem as windows_core::Interface>::IID || iid == &<IOfflineFilesItem as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesShareItem {}
@@ -2315,7 +2315,7 @@ impl IOfflineFilesSimpleProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSimpleProgress as windows_core::Interface>::IID
+        iid == &<IOfflineFilesSimpleProgress as windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesSimpleProgress {}
@@ -2539,7 +2539,7 @@ impl IOfflineFilesSyncErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncErrorInfo as windows_core::Interface>::IID
+        iid == &<IOfflineFilesSyncErrorInfo as windows_core::Interface>::IID || iid == &<IOfflineFilesErrorInfo as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2673,7 +2673,7 @@ impl IOfflineFilesSyncProgress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOfflineFilesSyncProgress as windows_core::Interface>::IID
+        iid == &<IOfflineFilesSyncProgress as windows_core::Interface>::IID || iid == &<IOfflineFilesProgress as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IOfflineFilesSyncProgress {}

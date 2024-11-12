@@ -866,7 +866,7 @@ impl IAMChannelInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMChannelInfo as windows_core::Interface>::IID
+        iid == &<IAMChannelInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1028,7 +1028,7 @@ impl IAMCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMCollection as windows_core::Interface>::IID
+        iid == &<IAMCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2181,7 +2181,7 @@ impl IAMExtendedErrorInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMExtendedErrorInfo as windows_core::Interface>::IID
+        iid == &<IAMExtendedErrorInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2286,7 +2286,7 @@ impl IAMExtendedSeeking_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMExtendedSeeking as windows_core::Interface>::IID
+        iid == &<IAMExtendedSeeking as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2825,7 +2825,7 @@ impl IAMMediaContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMediaContent as windows_core::Interface>::IID
+        iid == &<IAMMediaContent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2890,7 +2890,7 @@ impl IAMMediaContent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMediaContent2 as windows_core::Interface>::IID
+        iid == &<IAMMediaContent2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2986,7 +2986,7 @@ impl IAMMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMediaStream as windows_core::Interface>::IID
+        iid == &<IAMMediaStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3217,7 +3217,7 @@ impl IAMMediaTypeSample_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMediaTypeSample as windows_core::Interface>::IID
+        iid == &<IAMMediaTypeSample as windows_core::Interface>::IID || iid == &<IStreamSample as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -3322,7 +3322,7 @@ impl IAMMediaTypeStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMediaTypeStream as windows_core::Interface>::IID
+        iid == &<IAMMediaTypeStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -3464,7 +3464,7 @@ impl IAMMultiMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMMultiMediaStream as windows_core::Interface>::IID
+        iid == &<IAMMultiMediaStream as windows_core::Interface>::IID || iid == &<IMultiMediaStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3740,7 +3740,7 @@ impl IAMNetShowConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMNetShowConfig as windows_core::Interface>::IID
+        iid == &<IAMNetShowConfig as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3865,7 +3865,7 @@ impl IAMNetShowExProps_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMNetShowExProps as windows_core::Interface>::IID
+        iid == &<IAMNetShowExProps as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3923,7 +3923,7 @@ impl IAMNetShowPreroll_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMNetShowPreroll as windows_core::Interface>::IID
+        iid == &<IAMNetShowPreroll as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4028,7 +4028,7 @@ impl IAMNetworkStatus_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMNetworkStatus as windows_core::Interface>::IID
+        iid == &<IAMNetworkStatus as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4743,7 +4743,7 @@ impl IAMPushSource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMPushSource as windows_core::Interface>::IID
+        iid == &<IAMPushSource as windows_core::Interface>::IID || iid == &<IAMLatency as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAMPushSource {}
@@ -4907,7 +4907,7 @@ impl IAMStats_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMStats as windows_core::Interface>::IID
+        iid == &<IAMStats as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5450,7 +5450,7 @@ impl IAMTVTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAMTVTuner as windows_core::Interface>::IID
+        iid == &<IAMTVTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAMTVTuner {}
@@ -7188,7 +7188,7 @@ impl IAudioData_Vtbl {
         Self { base__: IMemoryData_Vtbl::new::<Identity, OFFSET>(), GetFormat: GetFormat::<Identity, OFFSET>, SetFormat: SetFormat::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioData as windows_core::Interface>::IID
+        iid == &<IAudioData as windows_core::Interface>::IID || iid == &<IMemoryData as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7266,7 +7266,7 @@ impl IAudioMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioMediaStream as windows_core::Interface>::IID
+        iid == &<IAudioMediaStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7308,7 +7308,7 @@ impl IAudioStreamSample_Vtbl {
         Self { base__: IStreamSample_Vtbl::new::<Identity, OFFSET>(), GetAudioData: GetAudioData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAudioStreamSample as windows_core::Interface>::IID
+        iid == &<IAudioStreamSample as windows_core::Interface>::IID || iid == &<IStreamSample as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAudioStreamSample {}
@@ -7441,7 +7441,7 @@ impl IBDA_AutoDemodulateEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_AutoDemodulateEx as windows_core::Interface>::IID
+        iid == &<IBDA_AutoDemodulateEx as windows_core::Interface>::IID || iid == &<IBDA_AutoDemodulate as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBDA_AutoDemodulateEx {}
@@ -7984,7 +7984,7 @@ impl IBDA_DiagnosticProperties_Vtbl {
         Self { base__: super::super::System::Com::StructuredStorage::IPropertyBag_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID
+        iid == &<IBDA_DiagnosticProperties as windows_core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8253,7 +8253,7 @@ impl IBDA_DigitalDemodulator2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator2 {}
@@ -8320,7 +8320,7 @@ impl IBDA_DigitalDemodulator3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID
+        iid == &<IBDA_DigitalDemodulator3 as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator as windows_core::Interface>::IID || iid == &<IBDA_DigitalDemodulator2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBDA_DigitalDemodulator3 {}
@@ -10426,7 +10426,7 @@ impl IBPCSatelliteTuner_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBPCSatelliteTuner as windows_core::Interface>::IID
+        iid == &<IBPCSatelliteTuner as windows_core::Interface>::IID || iid == &<IAMTuner as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBPCSatelliteTuner {}
@@ -10538,7 +10538,7 @@ impl IBaseFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBaseFilter as windows_core::Interface>::IID
+        iid == &<IBaseFilter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<IMediaFilter as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10746,7 +10746,7 @@ impl IBasicAudio_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBasicAudio as windows_core::Interface>::IID
+        iid == &<IBasicAudio as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11192,7 +11192,7 @@ impl IBasicVideo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBasicVideo as windows_core::Interface>::IID
+        iid == &<IBasicVideo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11234,7 +11234,7 @@ impl IBasicVideo2_Vtbl {
         Self { base__: IBasicVideo_Vtbl::new::<Identity, OFFSET>(), GetPreferredAspectRatio: GetPreferredAspectRatio::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBasicVideo2 as windows_core::Interface>::IID
+        iid == &<IBasicVideo2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IBasicVideo as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -11297,7 +11297,7 @@ impl IBroadcastEventEx_Vtbl {
         Self { base__: IBroadcastEvent_Vtbl::new::<Identity, OFFSET>(), FireEx: FireEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBroadcastEventEx as windows_core::Interface>::IID
+        iid == &<IBroadcastEventEx as windows_core::Interface>::IID || iid == &<IBroadcastEvent as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IBroadcastEventEx {}
@@ -12467,7 +12467,7 @@ impl IConfigAsfWriter2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IConfigAsfWriter2 as windows_core::Interface>::IID
+        iid == &<IConfigAsfWriter2 as windows_core::Interface>::IID || iid == &<IConfigAsfWriter as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
@@ -13334,7 +13334,7 @@ impl IDirectDrawMediaStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectDrawMediaStream as windows_core::Interface>::IID
+        iid == &<IDirectDrawMediaStream as windows_core::Interface>::IID || iid == &<IMediaStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -13384,7 +13384,7 @@ impl IDirectDrawStreamSample_Vtbl {
         Self { base__: IStreamSample_Vtbl::new::<Identity, OFFSET>(), GetSurface: GetSurface::<Identity, OFFSET>, SetRect: SetRect::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectDrawStreamSample as windows_core::Interface>::IID
+        iid == &<IDirectDrawStreamSample as windows_core::Interface>::IID || iid == &<IStreamSample as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -16572,7 +16572,7 @@ impl IFileSinkFilter2_Vtbl {
         Self { base__: IFileSinkFilter_Vtbl::new::<Identity, OFFSET>(), SetMode: SetMode::<Identity, OFFSET>, GetMode: GetMode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFileSinkFilter2 as windows_core::Interface>::IID
+        iid == &<IFileSinkFilter2 as windows_core::Interface>::IID || iid == &<IFileSinkFilter as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -16959,7 +16959,7 @@ impl IFilterGraph2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterGraph2 as windows_core::Interface>::IID
+        iid == &<IFilterGraph2 as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID || iid == &<IGraphBuilder as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
@@ -17005,7 +17005,7 @@ impl IFilterGraph3_Vtbl {
         Self { base__: IFilterGraph2_Vtbl::new::<Identity, OFFSET>(), SetSyncSourceEx: SetSyncSourceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterGraph3 as windows_core::Interface>::IID
+        iid == &<IFilterGraph3 as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID || iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph2 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
@@ -17169,7 +17169,7 @@ impl IFilterInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterInfo as windows_core::Interface>::IID
+        iid == &<IFilterInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17470,7 +17470,7 @@ impl IFilterMapper3_Vtbl {
         Self { base__: IFilterMapper2_Vtbl::new::<Identity, OFFSET>(), GetICreateDevEnum: GetICreateDevEnum::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFilterMapper3 as windows_core::Interface>::IID
+        iid == &<IFilterMapper3 as windows_core::Interface>::IID || iid == &<IFilterMapper2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17883,7 +17883,7 @@ impl IFullScreenVideoEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IFullScreenVideoEx as windows_core::Interface>::IID
+        iid == &<IFullScreenVideoEx as windows_core::Interface>::IID || iid == &<IFullScreenVideo as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -18051,7 +18051,7 @@ impl IGraphBuilder_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IGraphBuilder as windows_core::Interface>::IID
+        iid == &<IGraphBuilder as windows_core::Interface>::IID || iid == &<IFilterGraph as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
@@ -18630,7 +18630,7 @@ impl IMediaControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaControl as windows_core::Interface>::IID
+        iid == &<IMediaControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18739,7 +18739,7 @@ impl IMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaEvent as windows_core::Interface>::IID
+        iid == &<IMediaEvent as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18811,7 +18811,7 @@ impl IMediaEventEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaEventEx as windows_core::Interface>::IID
+        iid == &<IMediaEventEx as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IMediaEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18951,7 +18951,7 @@ impl IMediaFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaFilter as windows_core::Interface>::IID
+        iid == &<IMediaFilter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19332,7 +19332,7 @@ impl IMediaPosition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaPosition as windows_core::Interface>::IID
+        iid == &<IMediaPosition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -19381,7 +19381,7 @@ impl IMediaPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaPropertyBag as windows_core::Interface>::IID
+        iid == &<IMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::super::System::Com::StructuredStorage::IPropertyBag as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -19646,7 +19646,7 @@ impl IMediaSample2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaSample2 as windows_core::Interface>::IID
+        iid == &<IMediaSample2 as windows_core::Interface>::IID || iid == &<IMediaSample as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -20191,7 +20191,7 @@ impl IMediaStreamFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaStreamFilter as windows_core::Interface>::IID
+        iid == &<IMediaStreamFilter as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<IMediaFilter as windows_core::Interface>::IID || iid == &<IBaseFilter as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20260,7 +20260,7 @@ impl IMediaTypeInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMediaTypeInfo as windows_core::Interface>::IID
+        iid == &<IMediaTypeInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -20412,7 +20412,7 @@ impl IMemAllocatorCallbackTemp_Vtbl {
         Self { base__: IMemAllocator_Vtbl::new::<Identity, OFFSET>(), SetNotify: SetNotify::<Identity, OFFSET>, GetFreeCount: GetFreeCount::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID
+        iid == &<IMemAllocatorCallbackTemp as windows_core::Interface>::IID || iid == &<IMemAllocator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMemAllocatorCallbackTemp {}
@@ -20973,7 +20973,7 @@ impl IMixerPinConfig2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMixerPinConfig2 as windows_core::Interface>::IID
+        iid == &<IMixerPinConfig2 as windows_core::Interface>::IID || iid == &<IMixerPinConfig as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -21673,7 +21673,7 @@ impl IOverlayNotify2_Vtbl {
         Self { base__: IOverlayNotify_Vtbl::new::<Identity, OFFSET>(), OnDisplayChange: OnDisplayChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IOverlayNotify2 as windows_core::Interface>::IID
+        iid == &<IOverlayNotify2 as windows_core::Interface>::IID || iid == &<IOverlayNotify as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -21755,7 +21755,7 @@ impl IPersistMediaPropertyBag_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistMediaPropertyBag as windows_core::Interface>::IID
+        iid == &<IPersistMediaPropertyBag as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -22316,7 +22316,7 @@ impl IPinInfo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPinInfo as windows_core::Interface>::IID
+        iid == &<IPinInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -22606,7 +22606,7 @@ impl IRegFilterInfo_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Filter: Filter::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRegFilterInfo as windows_core::Interface>::IID
+        iid == &<IRegFilterInfo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -24081,7 +24081,7 @@ impl IVMRImagePresenterExclModeConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVMRImagePresenterExclModeConfig as windows_core::Interface>::IID
+        iid == &<IVMRImagePresenterExclModeConfig as windows_core::Interface>::IID || iid == &<IVMRImagePresenterConfig as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -25082,7 +25082,7 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
         Self { base__: IVMRSurfaceAllocator9_Vtbl::new::<Identity, OFFSET>(), GetSurfaceEx: GetSurfaceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVMRSurfaceAllocatorEx9 as windows_core::Interface>::IID
+        iid == &<IVMRSurfaceAllocatorEx9 as windows_core::Interface>::IID || iid == &<IVMRSurfaceAllocator9 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -26088,7 +26088,7 @@ impl IVPConfig_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVPConfig as windows_core::Interface>::IID
+        iid == &<IVPConfig as windows_core::Interface>::IID || iid == &<IVPBaseConfig as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -26184,7 +26184,7 @@ impl IVPNotify_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVPNotify as windows_core::Interface>::IID
+        iid == &<IVPNotify as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVPNotify {}
@@ -26234,7 +26234,7 @@ impl IVPNotify2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVPNotify2 as windows_core::Interface>::IID
+        iid == &<IVPNotify2 as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID || iid == &<IVPNotify as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVPNotify2 {}
@@ -26258,7 +26258,7 @@ impl IVPVBIConfig_Vtbl {
         Self { base__: IVPBaseConfig_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVPVBIConfig as windows_core::Interface>::IID
+        iid == &<IVPVBIConfig as windows_core::Interface>::IID || iid == &<IVPBaseConfig as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -26281,7 +26281,7 @@ impl IVPVBINotify_Vtbl {
         Self { base__: IVPBaseNotify_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVPVBINotify as windows_core::Interface>::IID
+        iid == &<IVPVBINotify as windows_core::Interface>::IID || iid == &<IVPBaseNotify as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IVPVBINotify {}
@@ -26305,7 +26305,7 @@ impl IVideoEncoder_Vtbl {
         Self { base__: IEncoderAPI_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVideoEncoder as windows_core::Interface>::IID
+        iid == &<IVideoEncoder as windows_core::Interface>::IID || iid == &<IEncoderAPI as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -27314,7 +27314,7 @@ impl IVideoWindow_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVideoWindow as windows_core::Interface>::IID
+        iid == &<IVideoWindow as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]

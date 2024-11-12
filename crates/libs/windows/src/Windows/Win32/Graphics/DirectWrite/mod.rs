@@ -218,7 +218,7 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID
+        iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -266,7 +266,7 @@ impl IDWriteBitmapRenderTarget2_Vtbl {
         Self { base__: IDWriteBitmapRenderTarget1_Vtbl::new::<Identity, OFFSET>(), GetBitmapData: GetBitmapData::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteBitmapRenderTarget2 as windows_core::Interface>::IID
+        iid == &<IDWriteBitmapRenderTarget2 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -337,7 +337,7 @@ impl IDWriteBitmapRenderTarget3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteBitmapRenderTarget3 as windows_core::Interface>::IID
+        iid == &<IDWriteBitmapRenderTarget3 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -440,7 +440,7 @@ impl IDWriteColorGlyphRunEnumerator1_Vtbl {
         Self { base__: IDWriteColorGlyphRunEnumerator_Vtbl::new::<Identity, OFFSET>(), GetCurrentRun: GetCurrentRun::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteColorGlyphRunEnumerator1 as windows_core::Interface>::IID
+        iid == &<IDWriteColorGlyphRunEnumerator1 as windows_core::Interface>::IID || iid == &<IDWriteColorGlyphRunEnumerator as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteColorGlyphRunEnumerator1 {}
@@ -901,7 +901,7 @@ impl IDWriteFactory1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory1 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1020,7 +1020,7 @@ impl IDWriteFactory2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory2 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1213,7 +1213,7 @@ impl IDWriteFactory3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory3 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1310,7 +1310,7 @@ impl IDWriteFactory4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory4 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1426,7 +1426,7 @@ impl IDWriteFactory5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory5 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1599,7 +1599,7 @@ impl IDWriteFactory6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory6 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory6 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1673,7 +1673,7 @@ impl IDWriteFactory7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory7 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory7 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory6 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1725,7 +1725,7 @@ impl IDWriteFactory8_Vtbl {
         Self { base__: IDWriteFactory7_Vtbl::new::<Identity, OFFSET>(), TranslateColorGlyphRun: TranslateColorGlyphRun::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFactory8 as windows_core::Interface>::IID
+        iid == &<IDWriteFactory8 as windows_core::Interface>::IID || iid == &<IDWriteFactory as windows_core::Interface>::IID || iid == &<IDWriteFactory1 as windows_core::Interface>::IID || iid == &<IDWriteFactory2 as windows_core::Interface>::IID || iid == &<IDWriteFactory3 as windows_core::Interface>::IID || iid == &<IDWriteFactory4 as windows_core::Interface>::IID || iid == &<IDWriteFactory5 as windows_core::Interface>::IID || iid == &<IDWriteFactory6 as windows_core::Interface>::IID || iid == &<IDWriteFactory7 as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
@@ -1960,7 +1960,7 @@ impl IDWriteFont1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFont1 as windows_core::Interface>::IID
+        iid == &<IDWriteFont1 as windows_core::Interface>::IID || iid == &<IDWriteFont as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFont1 {}
@@ -1996,7 +1996,7 @@ impl IDWriteFont2_Vtbl {
         Self { base__: IDWriteFont1_Vtbl::new::<Identity, OFFSET>(), IsColorFont: IsColorFont::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFont2 as windows_core::Interface>::IID
+        iid == &<IDWriteFont2 as windows_core::Interface>::IID || iid == &<IDWriteFont as windows_core::Interface>::IID || iid == &<IDWriteFont1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFont2 {}
@@ -2092,7 +2092,7 @@ impl IDWriteFont3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFont3 as windows_core::Interface>::IID
+        iid == &<IDWriteFont3 as windows_core::Interface>::IID || iid == &<IDWriteFont as windows_core::Interface>::IID || iid == &<IDWriteFont1 as windows_core::Interface>::IID || iid == &<IDWriteFont2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFont3 {}
@@ -2238,7 +2238,7 @@ impl IDWriteFontCollection1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontCollection1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontCollection1 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection1 {}
@@ -2331,7 +2331,7 @@ impl IDWriteFontCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontCollection2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontCollection2 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection as windows_core::Interface>::IID || iid == &<IDWriteFontCollection1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection2 {}
@@ -2367,7 +2367,7 @@ impl IDWriteFontCollection3_Vtbl {
         Self { base__: IDWriteFontCollection2_Vtbl::new::<Identity, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontCollection3 as windows_core::Interface>::IID
+        iid == &<IDWriteFontCollection3 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection as windows_core::Interface>::IID || iid == &<IDWriteFontCollection1 as windows_core::Interface>::IID || iid == &<IDWriteFontCollection2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontCollection3 {}
@@ -2939,7 +2939,7 @@ impl IDWriteFontFace1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3027,7 +3027,7 @@ impl IDWriteFontFace2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3248,7 +3248,7 @@ impl IDWriteFontFace3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace3 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3333,7 +3333,7 @@ impl IDWriteFontFace4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace4 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3427,7 +3427,7 @@ impl IDWriteFontFace5_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace5 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace5 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3495,7 +3495,7 @@ impl IDWriteFontFace6_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace6 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace6 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3556,7 +3556,7 @@ impl IDWriteFontFace7_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFace7 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFace7 as windows_core::Interface>::IID || iid == &<IDWriteFontFace as windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as windows_core::Interface>::IID || iid == &<IDWriteFontFace6 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3819,7 +3819,7 @@ impl IDWriteFontFaceReference1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFaceReference1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFaceReference1 as windows_core::Interface>::IID || iid == &<IDWriteFontFaceReference as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFaceReference1 {}
@@ -3895,7 +3895,7 @@ impl IDWriteFontFallback1_Vtbl {
         Self { base__: IDWriteFontFallback_Vtbl::new::<Identity, OFFSET>(), MapCharacters: MapCharacters::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFallback1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFallback1 as windows_core::Interface>::IID || iid == &<IDWriteFontFallback as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFallback1 {}
@@ -4043,7 +4043,7 @@ impl IDWriteFontFamily_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFamily as windows_core::Interface>::IID
+        iid == &<IDWriteFontFamily as windows_core::Interface>::IID || iid == &<IDWriteFontList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily {}
@@ -4116,7 +4116,7 @@ impl IDWriteFontFamily1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFamily1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFamily1 as windows_core::Interface>::IID || iid == &<IDWriteFontList as windows_core::Interface>::IID || iid == &<IDWriteFontFamily as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily1 {}
@@ -4179,7 +4179,7 @@ impl IDWriteFontFamily2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontFamily2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontFamily2 as windows_core::Interface>::IID || iid == &<IDWriteFontList as windows_core::Interface>::IID || iid == &<IDWriteFontFamily as windows_core::Interface>::IID || iid == &<IDWriteFontFamily1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontFamily2 {}
@@ -4550,7 +4550,7 @@ impl IDWriteFontList1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontList1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontList1 as windows_core::Interface>::IID || iid == &<IDWriteFontList as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList1 {}
@@ -4593,7 +4593,7 @@ impl IDWriteFontList2_Vtbl {
         Self { base__: IDWriteFontList1_Vtbl::new::<Identity, OFFSET>(), GetFontSet: GetFontSet::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontList2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontList2 as windows_core::Interface>::IID || iid == &<IDWriteFontList as windows_core::Interface>::IID || iid == &<IDWriteFontList1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontList2 {}
@@ -5168,7 +5168,7 @@ impl IDWriteFontSet1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSet1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSet1 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet1 {}
@@ -5204,7 +5204,7 @@ impl IDWriteFontSet2_Vtbl {
         Self { base__: IDWriteFontSet1_Vtbl::new::<Identity, OFFSET>(), GetExpirationEvent: GetExpirationEvent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSet2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSet2 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet2 {}
@@ -5263,7 +5263,7 @@ impl IDWriteFontSet3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSet3 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSet3 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID || iid == &<IDWriteFontSet2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet3 {}
@@ -5322,7 +5322,7 @@ impl IDWriteFontSet4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSet4 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSet4 as windows_core::Interface>::IID || iid == &<IDWriteFontSet as windows_core::Interface>::IID || iid == &<IDWriteFontSet1 as windows_core::Interface>::IID || iid == &<IDWriteFontSet2 as windows_core::Interface>::IID || iid == &<IDWriteFontSet3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSet4 {}
@@ -5440,7 +5440,7 @@ impl IDWriteFontSetBuilder1_Vtbl {
         Self { base__: IDWriteFontSetBuilder_Vtbl::new::<Identity, OFFSET>(), AddFontFile: AddFontFile::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSetBuilder1 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSetBuilder1 as windows_core::Interface>::IID || iid == &<IDWriteFontSetBuilder as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder1 {}
@@ -5495,7 +5495,7 @@ impl IDWriteFontSetBuilder2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteFontSetBuilder2 as windows_core::Interface>::IID
+        iid == &<IDWriteFontSetBuilder2 as windows_core::Interface>::IID || iid == &<IDWriteFontSetBuilder as windows_core::Interface>::IID || iid == &<IDWriteFontSetBuilder1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteFontSetBuilder2 {}
@@ -5739,7 +5739,7 @@ impl IDWriteGdiInterop1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteGdiInterop1 as windows_core::Interface>::IID
+        iid == &<IDWriteGdiInterop1 as windows_core::Interface>::IID || iid == &<IDWriteGdiInterop as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
@@ -5865,7 +5865,7 @@ impl IDWriteInMemoryFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteInMemoryFontFileLoader as windows_core::Interface>::IID
+        iid == &<IDWriteInMemoryFontFileLoader as windows_core::Interface>::IID || iid == &<IDWriteFontFileLoader as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteInMemoryFontFileLoader {}
@@ -6021,7 +6021,7 @@ impl IDWriteLocalFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteLocalFontFileLoader as windows_core::Interface>::IID
+        iid == &<IDWriteLocalFontFileLoader as windows_core::Interface>::IID || iid == &<IDWriteFontFileLoader as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteLocalFontFileLoader {}
@@ -6425,7 +6425,7 @@ impl IDWriteRemoteFontFileLoader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteRemoteFontFileLoader as windows_core::Interface>::IID
+        iid == &<IDWriteRemoteFontFileLoader as windows_core::Interface>::IID || iid == &<IDWriteFontFileLoader as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileLoader {}
@@ -6508,7 +6508,7 @@ impl IDWriteRemoteFontFileStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteRemoteFontFileStream as windows_core::Interface>::IID
+        iid == &<IDWriteRemoteFontFileStream as windows_core::Interface>::IID || iid == &<IDWriteFontFileStream as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteRemoteFontFileStream {}
@@ -6617,7 +6617,7 @@ impl IDWriteRenderingParams1_Vtbl {
         Self { base__: IDWriteRenderingParams_Vtbl::new::<Identity, OFFSET>(), GetGrayscaleEnhancedContrast: GetGrayscaleEnhancedContrast::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams1 as windows_core::Interface>::IID
+        iid == &<IDWriteRenderingParams1 as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams1 {}
@@ -6653,7 +6653,7 @@ impl IDWriteRenderingParams2_Vtbl {
         Self { base__: IDWriteRenderingParams1_Vtbl::new::<Identity, OFFSET>(), GetGridFitMode: GetGridFitMode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams2 as windows_core::Interface>::IID
+        iid == &<IDWriteRenderingParams2 as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams2 {}
@@ -6689,7 +6689,7 @@ impl IDWriteRenderingParams3_Vtbl {
         Self { base__: IDWriteRenderingParams2_Vtbl::new::<Identity, OFFSET>(), GetRenderingMode1: GetRenderingMode1::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteRenderingParams3 as windows_core::Interface>::IID
+        iid == &<IDWriteRenderingParams3 as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams1 as windows_core::Interface>::IID || iid == &<IDWriteRenderingParams2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteRenderingParams3 {}
@@ -6882,7 +6882,7 @@ impl IDWriteTextAnalysisSink1_Vtbl {
         Self { base__: IDWriteTextAnalysisSink_Vtbl::new::<Identity, OFFSET>(), SetGlyphOrientation: SetGlyphOrientation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSink1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSink1 as windows_core::Interface>::IID || iid == &<IDWriteTextAnalysisSink as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSink1 {}
@@ -6991,7 +6991,7 @@ impl IDWriteTextAnalysisSource1_Vtbl {
         Self { base__: IDWriteTextAnalysisSource_Vtbl::new::<Identity, OFFSET>(), GetVerticalGlyphOrientation: GetVerticalGlyphOrientation::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextAnalysisSource1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextAnalysisSource1 as windows_core::Interface>::IID || iid == &<IDWriteTextAnalysisSource as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalysisSource1 {}
@@ -7480,7 +7480,7 @@ impl IDWriteTextAnalyzer1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextAnalyzer1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextAnalyzer1 as windows_core::Interface>::IID || iid == &<IDWriteTextAnalyzer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer1 {}
@@ -7557,7 +7557,7 @@ impl IDWriteTextAnalyzer2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextAnalyzer2 as windows_core::Interface>::IID
+        iid == &<IDWriteTextAnalyzer2 as windows_core::Interface>::IID || iid == &<IDWriteTextAnalyzer as windows_core::Interface>::IID || iid == &<IDWriteTextAnalyzer1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextAnalyzer2 {}
@@ -7962,7 +7962,7 @@ impl IDWriteTextFormat1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextFormat1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextFormat1 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat1 {}
@@ -8011,7 +8011,7 @@ impl IDWriteTextFormat2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextFormat2 as windows_core::Interface>::IID
+        iid == &<IDWriteTextFormat2 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextFormat1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat2 {}
@@ -8090,7 +8090,7 @@ impl IDWriteTextFormat3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextFormat3 as windows_core::Interface>::IID
+        iid == &<IDWriteTextFormat3 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextFormat1 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextFormat3 {}
@@ -8553,7 +8553,7 @@ impl IDWriteTextLayout_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextLayout as windows_core::Interface>::IID
+        iid == &<IDWriteTextLayout as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout {}
@@ -8625,7 +8625,7 @@ impl IDWriteTextLayout1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextLayout1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextLayout1 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextLayout as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout1 {}
@@ -8757,7 +8757,7 @@ impl IDWriteTextLayout2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextLayout2 as windows_core::Interface>::IID
+        iid == &<IDWriteTextLayout2 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextLayout as windows_core::Interface>::IID || iid == &<IDWriteTextLayout1 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout2 {}
@@ -8826,7 +8826,7 @@ impl IDWriteTextLayout3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextLayout3 as windows_core::Interface>::IID
+        iid == &<IDWriteTextLayout3 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextLayout as windows_core::Interface>::IID || iid == &<IDWriteTextLayout1 as windows_core::Interface>::IID || iid == &<IDWriteTextLayout2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout3 {}
@@ -8905,7 +8905,7 @@ impl IDWriteTextLayout4_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextLayout4 as windows_core::Interface>::IID
+        iid == &<IDWriteTextLayout4 as windows_core::Interface>::IID || iid == &<IDWriteTextFormat as windows_core::Interface>::IID || iid == &<IDWriteTextLayout as windows_core::Interface>::IID || iid == &<IDWriteTextLayout1 as windows_core::Interface>::IID || iid == &<IDWriteTextLayout2 as windows_core::Interface>::IID || iid == &<IDWriteTextLayout3 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextLayout4 {}
@@ -8989,7 +8989,7 @@ impl IDWriteTextRenderer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextRenderer as windows_core::Interface>::IID
+        iid == &<IDWriteTextRenderer as windows_core::Interface>::IID || iid == &<IDWritePixelSnapping as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer {}
@@ -9073,7 +9073,7 @@ impl IDWriteTextRenderer1_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDWriteTextRenderer1 as windows_core::Interface>::IID
+        iid == &<IDWriteTextRenderer1 as windows_core::Interface>::IID || iid == &<IDWritePixelSnapping as windows_core::Interface>::IID || iid == &<IDWriteTextRenderer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IDWriteTextRenderer1 {}

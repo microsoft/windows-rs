@@ -89,7 +89,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsMediaLibrarySharingDevice as windows_core::Interface>::IID
+        iid == &<IWindowsMediaLibrarySharingDevice as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -175,7 +175,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsMediaLibrarySharingDeviceProperties as windows_core::Interface>::IID
+        iid == &<IWindowsMediaLibrarySharingDeviceProperties as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -244,7 +244,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Value: Value::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsMediaLibrarySharingDeviceProperty as windows_core::Interface>::IID
+        iid == &<IWindowsMediaLibrarySharingDeviceProperty as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -330,7 +330,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsMediaLibrarySharingDevices as windows_core::Interface>::IID
+        iid == &<IWindowsMediaLibrarySharingDevices as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -639,7 +639,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWindowsMediaLibrarySharingServices as windows_core::Interface>::IID
+        iid == &<IWindowsMediaLibrarySharingServices as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

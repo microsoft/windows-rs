@@ -4781,7 +4781,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
         Self { base__: IAppxManifestPackageDependency_Vtbl::new::<Identity, OFFSET>(), GetMaxMajorVersionTested: GetMaxMajorVersionTested::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID
+        iid == &<IAppxManifestPackageDependency2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageDependency as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAppxManifestPackageDependency2 {}
@@ -5017,7 +5017,7 @@ impl IAppxManifestPackageId2_Vtbl {
         Self { base__: IAppxManifestPackageId_Vtbl::new::<Identity, OFFSET>(), GetArchitecture2: GetArchitecture2::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID
+        iid == &<IAppxManifestPackageId2 as windows_core::Interface>::IID || iid == &<IAppxManifestPackageId as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAppxManifestPackageId2 {}
@@ -5449,7 +5449,7 @@ impl IAppxManifestReader2_Vtbl {
         Self { base__: IAppxManifestReader_Vtbl::new::<Identity, OFFSET>(), GetQualifiedResources: GetQualifiedResources::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader2 as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5513,7 +5513,7 @@ impl IAppxManifestReader3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader3 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5557,7 +5557,7 @@ impl IAppxManifestReader4_Vtbl {
         Self { base__: IAppxManifestReader3_Vtbl::new::<Identity, OFFSET>(), GetOptionalPackageInfo: GetOptionalPackageInfo::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAppxManifestReader4 as windows_core::Interface>::IID
+        iid == &<IAppxManifestReader4 as windows_core::Interface>::IID || iid == &<IAppxManifestReader as windows_core::Interface>::IID || iid == &<IAppxManifestReader2 as windows_core::Interface>::IID || iid == &<IAppxManifestReader3 as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]

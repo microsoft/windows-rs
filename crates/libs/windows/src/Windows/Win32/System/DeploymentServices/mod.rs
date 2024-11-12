@@ -781,7 +781,7 @@ impl IWdsTransportCacheable_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
+        iid == &<IWdsTransportCacheable as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1013,7 +1013,7 @@ impl IWdsTransportClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportClient as windows_core::Interface>::IID
+        iid == &<IWdsTransportClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1099,7 +1099,7 @@ impl IWdsTransportCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportCollection as windows_core::Interface>::IID
+        iid == &<IWdsTransportCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1248,7 +1248,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportConfigurationManager as windows_core::Interface>::IID
+        iid == &<IWdsTransportConfigurationManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1297,7 +1297,7 @@ impl IWdsTransportConfigurationManager2_Vtbl {
         Self { base__: IWdsTransportConfigurationManager_Vtbl::new::<Identity, OFFSET>(), MulticastSessionPolicy: MulticastSessionPolicy::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportConfigurationManager2 as windows_core::Interface>::IID
+        iid == &<IWdsTransportConfigurationManager2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportConfigurationManager as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1410,7 +1410,7 @@ impl IWdsTransportContent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportContent as windows_core::Interface>::IID
+        iid == &<IWdsTransportContent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1513,7 +1513,7 @@ impl IWdsTransportContentProvider_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportContentProvider as windows_core::Interface>::IID
+        iid == &<IWdsTransportContentProvider as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1605,7 +1605,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportDiagnosticsPolicy as windows_core::Interface>::IID
+        iid == &<IWdsTransportDiagnosticsPolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1654,7 +1654,7 @@ impl IWdsTransportManager_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), GetWdsTransportServer: GetWdsTransportServer::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportManager as windows_core::Interface>::IID
+        iid == &<IWdsTransportManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1800,7 +1800,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportMulticastSessionPolicy as windows_core::Interface>::IID
+        iid == &<IWdsTransportMulticastSessionPolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2139,7 +2139,7 @@ impl IWdsTransportNamespace_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespace as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2168,7 +2168,7 @@ impl IWdsTransportNamespaceAutoCast_Vtbl {
         Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespaceAutoCast as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespaceAutoCast as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2257,7 +2257,7 @@ impl IWdsTransportNamespaceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespaceManager as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespaceManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2299,7 +2299,7 @@ impl IWdsTransportNamespaceScheduledCast_Vtbl {
         Self { base__: IWdsTransportNamespace_Vtbl::new::<Identity, OFFSET>(), StartTransmission: StartTransmission::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2388,7 +2388,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespaceScheduledCastAutoStart as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespaceScheduledCastAutoStart as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2417,7 +2417,7 @@ impl IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
         Self { base__: IWdsTransportNamespaceScheduledCast_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportNamespaceScheduledCastManualStart as windows_core::Interface>::IID
+        iid == &<IWdsTransportNamespaceScheduledCastManualStart as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportNamespace as windows_core::Interface>::IID || iid == &<IWdsTransportNamespaceScheduledCast as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2530,7 +2530,7 @@ impl IWdsTransportServer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportServer as windows_core::Interface>::IID
+        iid == &<IWdsTransportServer as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2579,7 +2579,7 @@ impl IWdsTransportServer2_Vtbl {
         Self { base__: IWdsTransportServer_Vtbl::new::<Identity, OFFSET>(), TftpManager: TftpManager::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportServer2 as windows_core::Interface>::IID
+        iid == &<IWdsTransportServer2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportServer as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2776,7 +2776,7 @@ impl IWdsTransportServicePolicy_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportServicePolicy as windows_core::Interface>::IID
+        iid == &<IWdsTransportServicePolicy as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2895,7 +2895,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportServicePolicy2 as windows_core::Interface>::IID
+        iid == &<IWdsTransportServicePolicy2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportCacheable as windows_core::Interface>::IID || iid == &<IWdsTransportServicePolicy as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3059,7 +3059,7 @@ impl IWdsTransportSession_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportSession as windows_core::Interface>::IID
+        iid == &<IWdsTransportSession as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3165,7 +3165,7 @@ impl IWdsTransportSetupManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportSetupManager as windows_core::Interface>::IID
+        iid == &<IWdsTransportSetupManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3234,7 +3234,7 @@ impl IWdsTransportSetupManager2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportSetupManager2 as windows_core::Interface>::IID
+        iid == &<IWdsTransportSetupManager2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IWdsTransportSetupManager as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3388,7 +3388,7 @@ impl IWdsTransportTftpClient_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportTftpClient as windows_core::Interface>::IID
+        iid == &<IWdsTransportTftpClient as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3437,7 +3437,7 @@ impl IWdsTransportTftpManager_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), RetrieveTftpClients: RetrieveTftpClients::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IWdsTransportTftpManager as windows_core::Interface>::IID
+        iid == &<IWdsTransportTftpManager as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

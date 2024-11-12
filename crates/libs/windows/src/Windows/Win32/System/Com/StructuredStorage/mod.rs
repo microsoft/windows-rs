@@ -1568,7 +1568,7 @@ impl IPersistStorage_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStorage as windows_core::Interface>::IID
+        iid == &<IPersistStorage as windows_core::Interface>::IID || iid == &<super::IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistStorage {}

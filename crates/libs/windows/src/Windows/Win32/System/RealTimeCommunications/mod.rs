@@ -144,7 +144,7 @@ impl IRTCBuddy_Vtbl {
         Self { base__: IRTCPresenceContact_Vtbl::new::<Identity, OFFSET>(), Status: Status::<Identity, OFFSET>, Notes: Notes::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCBuddy as windows_core::Interface>::IID
+        iid == &<IRTCBuddy as windows_core::Interface>::IID || iid == &<IRTCPresenceContact as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRTCBuddy {}
@@ -310,7 +310,7 @@ impl IRTCBuddy2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCBuddy2 as windows_core::Interface>::IID
+        iid == &<IRTCBuddy2 as windows_core::Interface>::IID || iid == &<IRTCPresenceContact as windows_core::Interface>::IID || iid == &<IRTCBuddy as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -359,7 +359,7 @@ impl IRTCBuddyEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Buddy: Buddy::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCBuddyEvent as windows_core::Interface>::IID
+        iid == &<IRTCBuddyEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -445,7 +445,7 @@ impl IRTCBuddyEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCBuddyEvent2 as windows_core::Interface>::IID
+        iid == &<IRTCBuddyEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRTCBuddyEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -707,7 +707,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCBuddyGroupEvent as windows_core::Interface>::IID
+        iid == &<IRTCBuddyGroupEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1530,7 +1530,7 @@ impl IRTCClient2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCClient2 as windows_core::Interface>::IID
+        iid == &<IRTCClient2 as windows_core::Interface>::IID || iid == &<IRTCClient as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1595,7 +1595,7 @@ impl IRTCClientEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), EventType: EventType::<Identity, OFFSET>, Client: Client::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCClientEvent as windows_core::Interface>::IID
+        iid == &<IRTCClientEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2221,7 +2221,7 @@ impl IRTCClientPresence2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCClientPresence2 as windows_core::Interface>::IID
+        iid == &<IRTCClientPresence2 as windows_core::Interface>::IID || iid == &<IRTCClientPresence as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2393,7 +2393,7 @@ impl IRTCClientProvisioning2_Vtbl {
         Self { base__: IRTCClientProvisioning_Vtbl::new::<Identity, OFFSET>(), EnableProfileEx: EnableProfileEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCClientProvisioning2 as windows_core::Interface>::IID
+        iid == &<IRTCClientProvisioning2 as windows_core::Interface>::IID || iid == &<IRTCClientProvisioning as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2483,7 +2483,7 @@ impl IRTCCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCCollection as windows_core::Interface>::IID
+        iid == &<IRTCCollection as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2512,7 +2512,7 @@ impl IRTCDispatchEventNotification_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCDispatchEventNotification as windows_core::Interface>::IID
+        iid == &<IRTCDispatchEventNotification as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3129,7 +3129,7 @@ impl IRTCInfoEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCInfoEvent as windows_core::Interface>::IID
+        iid == &<IRTCInfoEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3232,7 +3232,7 @@ impl IRTCIntensityEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCIntensityEvent as windows_core::Interface>::IID
+        iid == &<IRTCIntensityEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3318,7 +3318,7 @@ impl IRTCMediaEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCMediaEvent as windows_core::Interface>::IID
+        iid == &<IRTCMediaEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3458,7 +3458,7 @@ impl IRTCMediaRequestEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCMediaRequestEvent as windows_core::Interface>::IID
+        iid == &<IRTCMediaRequestEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3595,7 +3595,7 @@ impl IRTCMessagingEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCMessagingEvent as windows_core::Interface>::IID
+        iid == &<IRTCMessagingEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -3787,7 +3787,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCParticipantStateChangeEvent as windows_core::Interface>::IID
+        iid == &<IRTCParticipantStateChangeEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4049,7 +4049,7 @@ impl IRTCPresenceDataEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCPresenceDataEvent as windows_core::Interface>::IID
+        iid == &<IRTCPresenceDataEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4234,7 +4234,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCPresencePropertyEvent as windows_core::Interface>::IID
+        iid == &<IRTCPresencePropertyEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4313,7 +4313,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCPresenceStatusEvent as windows_core::Interface>::IID
+        iid == &<IRTCPresenceStatusEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4715,7 +4715,7 @@ impl IRTCProfile2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCProfile2 as windows_core::Interface>::IID
+        iid == &<IRTCProfile2 as windows_core::Interface>::IID || iid == &<IRTCProfile as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRTCProfile2 {}
@@ -4800,7 +4800,7 @@ impl IRTCProfileEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCProfileEvent as windows_core::Interface>::IID
+        iid == &<IRTCProfileEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4849,7 +4849,7 @@ impl IRTCProfileEvent2_Vtbl {
         Self { base__: IRTCProfileEvent_Vtbl::new::<Identity, OFFSET>(), EventType: EventType::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCProfileEvent2 as windows_core::Interface>::IID
+        iid == &<IRTCProfileEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRTCProfileEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4948,7 +4948,7 @@ impl IRTCReInviteEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCReInviteEvent as windows_core::Interface>::IID
+        iid == &<IRTCReInviteEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5051,7 +5051,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCRegistrationStateChangeEvent as windows_core::Interface>::IID
+        iid == &<IRTCRegistrationStateChangeEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5154,7 +5154,7 @@ impl IRTCRoamingEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCRoamingEvent as windows_core::Interface>::IID
+        iid == &<IRTCRoamingEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5562,7 +5562,7 @@ impl IRTCSession2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSession2 as windows_core::Interface>::IID
+        iid == &<IRTCSession2 as windows_core::Interface>::IID || iid == &<IRTCSession as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5825,7 +5825,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionOperationCompleteEvent as windows_core::Interface>::IID
+        iid == &<IRTCSessionOperationCompleteEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5887,7 +5887,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionOperationCompleteEvent2 as windows_core::Interface>::IID
+        iid == &<IRTCSessionOperationCompleteEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRTCSessionOperationCompleteEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6021,7 +6021,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionReferStatusEvent as windows_core::Interface>::IID
+        iid == &<IRTCSessionReferStatusEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6154,7 +6154,7 @@ impl IRTCSessionReferredEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionReferredEvent as windows_core::Interface>::IID
+        iid == &<IRTCSessionReferredEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6257,7 +6257,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionStateChangeEvent as windows_core::Interface>::IID
+        iid == &<IRTCSessionStateChangeEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6353,7 +6353,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCSessionStateChangeEvent2 as windows_core::Interface>::IID
+        iid == &<IRTCSessionStateChangeEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRTCSessionStateChangeEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6713,7 +6713,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCUserSearchResultsEvent as windows_core::Interface>::IID
+        iid == &<IRTCUserSearchResultsEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6764,7 +6764,7 @@ impl IRTCWatcher_Vtbl {
         Self { base__: IRTCPresenceContact_Vtbl::new::<Identity, OFFSET>(), State: State::<Identity, OFFSET>, SetState: SetState::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCWatcher as windows_core::Interface>::IID
+        iid == &<IRTCWatcher as windows_core::Interface>::IID || iid == &<IRTCPresenceContact as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRTCWatcher {}
@@ -6821,7 +6821,7 @@ impl IRTCWatcher2_Vtbl {
         Self { base__: IRTCWatcher_Vtbl::new::<Identity, OFFSET>(), Profile: Profile::<Identity, OFFSET>, Scope: Scope::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCWatcher2 as windows_core::Interface>::IID
+        iid == &<IRTCWatcher2 as windows_core::Interface>::IID || iid == &<IRTCPresenceContact as windows_core::Interface>::IID || iid == &<IRTCWatcher as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRTCWatcher2 {}
@@ -6869,7 +6869,7 @@ impl IRTCWatcherEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Watcher: Watcher::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCWatcherEvent as windows_core::Interface>::IID
+        iid == &<IRTCWatcherEvent as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6934,7 +6934,7 @@ impl IRTCWatcherEvent2_Vtbl {
         Self { base__: IRTCWatcherEvent_Vtbl::new::<Identity, OFFSET>(), EventType: EventType::<Identity, OFFSET>, StatusCode: StatusCode::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRTCWatcherEvent2 as windows_core::Interface>::IID
+        iid == &<IRTCWatcherEvent2 as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<IRTCWatcherEvent as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

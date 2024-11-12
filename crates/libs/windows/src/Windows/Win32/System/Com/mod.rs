@@ -979,7 +979,7 @@ impl AsyncIAdviseSink2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<AsyncIAdviseSink2 as windows_core::Interface>::IID
+        iid == &<AsyncIAdviseSink2 as windows_core::Interface>::IID || iid == &<AsyncIAdviseSink as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1525,7 +1525,7 @@ impl IAdviseSink2_Vtbl {
         Self { base__: IAdviseSink_Vtbl::new::<Identity, OFFSET>(), OnLinkSrcChange: OnLinkSrcChange::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAdviseSink2 as windows_core::Interface>::IID
+        iid == &<IAdviseSink2 as windows_core::Interface>::IID || iid == &<IAdviseSink as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1660,7 +1660,7 @@ impl IAsyncRpcChannelBuffer_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAsyncRpcChannelBuffer as windows_core::Interface>::IID
+        iid == &<IAsyncRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAsyncRpcChannelBuffer {}
@@ -1722,7 +1722,7 @@ impl IAuthenticateEx_Vtbl {
         Self { base__: IAuthenticate_Vtbl::new::<Identity, OFFSET>(), AuthenticateEx: AuthenticateEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IAuthenticateEx as windows_core::Interface>::IID
+        iid == &<IAuthenticateEx as windows_core::Interface>::IID || iid == &<IAuthenticate as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IAuthenticateEx {}
@@ -2116,7 +2116,7 @@ impl IBindStatusCallbackEx_Vtbl {
         Self { base__: IBindStatusCallback_Vtbl::new::<Identity, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IBindStatusCallbackEx as windows_core::Interface>::IID
+        iid == &<IBindStatusCallbackEx as windows_core::Interface>::IID || iid == &<IBindStatusCallback as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
@@ -5141,7 +5141,7 @@ impl IMoniker_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMoniker as windows_core::Interface>::IID
+        iid == &<IMoniker as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID || iid == &<IPersistStream as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IMoniker {}
@@ -5419,7 +5419,7 @@ impl IPersistFile_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistFile as windows_core::Interface>::IID
+        iid == &<IPersistFile as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistFile {}
@@ -5506,7 +5506,7 @@ impl IPersistMemory_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistMemory as windows_core::Interface>::IID
+        iid == &<IPersistMemory as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistMemory {}
@@ -5587,7 +5587,7 @@ impl IPersistStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStream as windows_core::Interface>::IID
+        iid == &<IPersistStream as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistStream {}
@@ -5678,7 +5678,7 @@ impl IPersistStreamInit_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPersistStreamInit as windows_core::Interface>::IID
+        iid == &<IPersistStreamInit as windows_core::Interface>::IID || iid == &<IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistStreamInit {}
@@ -6061,7 +6061,7 @@ impl IRpcChannelBuffer2_Vtbl {
         Self { base__: IRpcChannelBuffer_Vtbl::new::<Identity, OFFSET>(), GetProtocolVersion: GetProtocolVersion::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID
+        iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRpcChannelBuffer2 {}
@@ -6168,7 +6168,7 @@ impl IRpcChannelBuffer3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IRpcChannelBuffer3 as windows_core::Interface>::IID
+        iid == &<IRpcChannelBuffer3 as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer as windows_core::Interface>::IID || iid == &<IRpcChannelBuffer2 as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IRpcChannelBuffer3 {}
@@ -6950,7 +6950,7 @@ impl IStream_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IStream as windows_core::Interface>::IID
+        iid == &<IStream as windows_core::Interface>::IID || iid == &<ISequentialStream as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IStream {}
@@ -7252,7 +7252,7 @@ impl ISynchronizeEvent_Vtbl {
         Self { base__: ISynchronizeHandle_Vtbl::new::<Identity, OFFSET>(), SetEventHandle: SetEventHandle::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISynchronizeEvent as windows_core::Interface>::IID
+        iid == &<ISynchronizeEvent as windows_core::Interface>::IID || iid == &<ISynchronizeHandle as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISynchronizeEvent {}
@@ -7321,7 +7321,7 @@ impl ISynchronizeMutex_Vtbl {
         Self { base__: ISynchronize_Vtbl::new::<Identity, OFFSET>(), ReleaseMutex: ReleaseMutex::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISynchronizeMutex as windows_core::Interface>::IID
+        iid == &<ISynchronizeMutex as windows_core::Interface>::IID || iid == &<ISynchronize as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for ISynchronizeMutex {}
@@ -8026,7 +8026,7 @@ impl ITypeInfo2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeInfo2 as windows_core::Interface>::IID
+        iid == &<ITypeInfo2 as windows_core::Interface>::IID || iid == &<ITypeInfo as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8274,7 +8274,7 @@ impl ITypeLib2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITypeLib2 as windows_core::Interface>::IID
+        iid == &<ITypeLib2 as windows_core::Interface>::IID || iid == &<ITypeLib as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]

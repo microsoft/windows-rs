@@ -63,7 +63,7 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IPrintDocumentPackageStatusEvent as windows_core::Interface>::IID
+        iid == &<IPrintDocumentPackageStatusEvent as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
     }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -304,7 +304,7 @@ impl IXpsPrintJobStream_Vtbl {
         Self { base__: super::super::super::System::Com::ISequentialStream_Vtbl::new::<Identity, OFFSET>(), Close: Close::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXpsPrintJobStream as windows_core::Interface>::IID
+        iid == &<IXpsPrintJobStream as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::ISequentialStream as windows_core::Interface>::IID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
