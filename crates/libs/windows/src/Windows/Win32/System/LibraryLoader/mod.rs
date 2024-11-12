@@ -203,7 +203,7 @@ where
     FindResourceW(hmodule.param().abi(), lpname.param().abi(), lptype.param().abi())
 }
 #[inline]
-pub unsafe fn FreeLibraryAndExitThread<P0>(hlibmodule: P0, dwexitcode: u32)
+pub unsafe fn FreeLibraryAndExitThread<P0>(hlibmodule: P0, dwexitcode: u32) -> !
 where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {

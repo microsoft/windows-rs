@@ -235,7 +235,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) #where_clause {
+                    pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
                         #link
                         #name(#args)
                     }

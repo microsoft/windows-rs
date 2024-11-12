@@ -238,7 +238,7 @@ where
     FatalAppExitW(core::mem::transmute(uaction), lpmessagetext.param().abi())
 }
 #[inline]
-pub unsafe fn FatalExit(exitcode: i32) {
+pub unsafe fn FatalExit(exitcode: i32) -> ! {
     windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
     FatalExit(core::mem::transmute(exitcode))
 }

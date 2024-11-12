@@ -769,12 +769,12 @@ pub unsafe fn ExecuteUmsThread(umsthread: *mut core::ffi::c_void) -> windows_cor
     ExecuteUmsThread(core::mem::transmute(umsthread)).ok()
 }
 #[inline]
-pub unsafe fn ExitProcess(uexitcode: u32) {
+pub unsafe fn ExitProcess(uexitcode: u32) -> ! {
     windows_targets::link!("kernel32.dll" "system" fn ExitProcess(uexitcode : u32) -> !);
     ExitProcess(core::mem::transmute(uexitcode))
 }
 #[inline]
-pub unsafe fn ExitThread(dwexitcode: u32) {
+pub unsafe fn ExitThread(dwexitcode: u32) -> ! {
     windows_targets::link!("kernel32.dll" "system" fn ExitThread(dwexitcode : u32) -> !);
     ExitThread(core::mem::transmute(dwexitcode))
 }
