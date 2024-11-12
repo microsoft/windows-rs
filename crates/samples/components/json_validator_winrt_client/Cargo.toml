@@ -13,7 +13,7 @@ features = [
     "Win32_Foundation",
 ]
 
-[build-dependencies.windows-bindgen]
+[build-dependencies.windows-bindgen2]
 workspace = true
 
 # The build needs the output (.dll) of the component. This causes a warning about lack of linkage target.
