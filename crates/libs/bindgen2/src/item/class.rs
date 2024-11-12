@@ -121,7 +121,7 @@ impl Class {
                 return quote! {
                     #cfg
                     pub type #name = #default_interface;
-                }
+                };
             }
 
             let is_exclusive = default_interface.is_exclusive();
@@ -131,7 +131,7 @@ impl Class {
                 quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable); }
             } else {
                 quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable, #default_interface); }
-            };            
+            };
 
             let required_hierarchy = {
                 let mut interfaces: Vec<_> = self
@@ -141,7 +141,7 @@ impl Class {
                     .map(|ty| ty.write_name(writer))
                     .collect();
 
-                    interfaces.extend(self.bases().iter().map(|ty| ty.write_name(writer)));
+                interfaces.extend(self.bases().iter().map(|ty| ty.write_name(writer)));
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -162,34 +162,38 @@ impl Class {
                 }
             });
 
-            let into_iterator = 
-                self.required_interfaces.iter().find(|interface| TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable).map(|interface| {
-                        let item = interface.generics[0].write(writer);
-                        let namespace = writer.write_namespace("Windows.Foundation.Collections");
-        
-                        quote! {
-                            #cfg
-                            impl IntoIterator for #name {
-                                type Item = #item;
-                                type IntoIter = #namespace IIterator<Self::Item>;
-                            
-                                fn into_iter(self) -> Self::IntoIter {
-                                    IntoIterator::into_iter(&self)
-                                }
+            let into_iterator = self
+                .required_interfaces
+                .iter()
+                .find(|interface| {
+                    TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
+                })
+                .map(|interface| {
+                    let item = interface.generics[0].write(writer);
+                    let namespace = writer.write_namespace("Windows.Foundation.Collections");
+
+                    quote! {
+                        #cfg
+                        impl IntoIterator for #name {
+                            type Item = #item;
+                            type IntoIter = #namespace IIterator<Self::Item>;
+
+                            fn into_iter(self) -> Self::IntoIter {
+                                IntoIterator::into_iter(&self)
                             }
-                            #cfg
-                            impl IntoIterator for &#name {
-                                type Item = #item;
-                                type IntoIter = #namespace IIterator<Self::Item>;
-                            
-                                fn into_iter(self) -> Self::IntoIter {
-                                    self.First().unwrap()
-                                }
-                            }
-                            
                         }
-                    });
-                
+                        #cfg
+                        impl IntoIterator for &#name {
+                            type Item = #item;
+                            type IntoIter = #namespace IIterator<Self::Item>;
+
+                            fn into_iter(self) -> Self::IntoIter {
+                                self.First().unwrap()
+                            }
+                        }
+
+                    }
+                });
 
             quote! {
                 #cfg

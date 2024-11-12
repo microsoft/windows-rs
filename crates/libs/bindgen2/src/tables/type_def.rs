@@ -98,7 +98,7 @@ impl TypeDef {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
                     if let Some((_, Value::I32(2))) = attribute.args().first() {
-                            return true;
+                        return true;
                     }
                 }
                 _ => {}

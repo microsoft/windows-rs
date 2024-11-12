@@ -235,17 +235,22 @@ impl Interface {
                 });
             }
 
-            if let Some(into_iterator) = 
-            self.required_interfaces.iter().find(|interface| TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable).map(|interface| {
+            if let Some(into_iterator) = self
+                .required_interfaces
+                .iter()
+                .find(|interface| {
+                    TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
+                })
+                .map(|interface| {
                     let item = interface.generics[0].write(writer);
                     let namespace = writer.write_namespace("Windows.Foundation.Collections");
-    
+
                     quote! {
                         #cfg
                         impl<#constraints> IntoIterator for #name {
                             type Item = #item;
                             type IntoIter = #namespace IIterator<Self::Item>;
-                        
+
                             fn into_iter(self) -> Self::IntoIter {
                                 IntoIterator::into_iter(&self)
                             }
@@ -254,16 +259,17 @@ impl Interface {
                         impl<#constraints> IntoIterator for &#name {
                             type Item = #item;
                             type IntoIter = #namespace IIterator<Self::Item>;
-                        
+
                             fn into_iter(self) -> Self::IntoIter {
                                 self.First().unwrap()
                             }
                         }
-                        
+
                     }
-                }) {
+                })
+            {
                 result.combine(into_iterator);
-                }
+            }
         }
 
         {

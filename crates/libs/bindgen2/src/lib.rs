@@ -154,7 +154,7 @@ where
     let config = Box::leak(Box::new(Config {
         tree,
         flat,
-      //  minimal,
+        //  minimal,
         no_allow,
         no_comment,
         no_deps,

@@ -171,6 +171,7 @@ impl File {
         let mut unused_property = Table::default();
         let mut unused_property_map = Table::default();
         let mut unused_standalone_sig = Table::default();
+        let mut unused_module = Table::default();
 
         for i in 0..64 {
             if (valid_bits >> i & 1) == 0 {
@@ -181,7 +182,7 @@ impl File {
             view += 4;
 
             match i {
-                0x00 => result.tables[Module::TABLE].len = len,
+                0x00 => unused_module.len = len,
                 0x01 => result.tables[TypeRef::TABLE].len = len,
                 0x02 => result.tables[TypeDef::TABLE].len = len,
                 0x04 => result.tables[Field::TABLE].len = len,
@@ -266,7 +267,7 @@ impl File {
             unused_empty.len,
         ]);
         let resolution_scope = coded_index_size(&[
-            tables[Module::TABLE].len,
+            unused_module.len,
             tables[ModuleRef::TABLE].len,
             unused_assembly_ref.len,
             tables[TypeRef::TABLE].len,
@@ -282,7 +283,7 @@ impl File {
             tables[Param::TABLE].len,
             tables[InterfaceImpl::TABLE].len,
             tables[MemberRef::TABLE].len,
-            tables[Module::TABLE].len,
+            unused_module.len,
             unused_property.len,
             unused_event.len,
             unused_standalone_sig.len,
@@ -424,7 +425,7 @@ impl File {
             0,
         );
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
-        result.tables[Module::TABLE].set_columns(
+        unused_module.set_columns(
             2,
             string_index_size,
             guid_index_size,
@@ -470,7 +471,7 @@ impl File {
         );
         result.tables[TypeSpec::TABLE].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
-        result.tables[Module::TABLE].set_data(&mut view);
+        unused_module.set_data(&mut view);
         result.tables[TypeRef::TABLE].set_data(&mut view);
         result.tables[TypeDef::TABLE].set_data(&mut view);
         result.tables[Field::TABLE].set_data(&mut view);

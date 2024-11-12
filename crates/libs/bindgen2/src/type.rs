@@ -342,7 +342,13 @@ impl Type {
             Self::Array(ty) => ty.write(writer),
             Self::ArrayRef(ty) => ty.write(writer),
             Self::ConstRef(ty) => ty.write(writer),
-            Self::PrimitiveOrEnum(ty, item) => if writer.config.sys { ty.write(writer) } else { item.write_name(writer) },
+            Self::PrimitiveOrEnum(ty, item) => {
+                if writer.config.sys {
+                    ty.write(writer)
+                } else {
+                    item.write_name(writer)
+                }
+            }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
