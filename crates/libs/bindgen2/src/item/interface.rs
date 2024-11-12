@@ -484,6 +484,12 @@ impl Interface {
         for ty in &self.generics {
             ty.dependencies(dependencies);
         }
+
+        // TODO: have "Foundation" dependencies as required?
+        // match TypeName(self.def.namespace(), self.def.name()) {
+        //     TypeName::IIterable => _ = dependencies.insert(TypeName::IIterator.namespace(), TypeName::IIterator.name()),
+        //     _ => {}
+        // }
     }
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?

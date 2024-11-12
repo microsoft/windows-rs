@@ -68,6 +68,8 @@ impl IAsyncAction {
         }
     }
 }
+unsafe impl Send for IAsyncAction {}
+unsafe impl Sync for IAsyncAction {}
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,

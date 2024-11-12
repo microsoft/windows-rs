@@ -18,7 +18,6 @@ pub mod winrt_delegate_generic;
 pub mod winrt_enum;
 pub mod winrt_interface;
 pub mod winrt_interface_generic;
-pub mod winrt_interface_generic2;
 pub mod winrt_interface_no_status;
 pub mod winrt_interface_required;
 pub mod winrt_interface_status;

@@ -1003,7 +1003,7 @@ impl IPropertyValue_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
     T: windows_core::RuntimeType + 'static;
@@ -1417,7 +1417,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     }
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);

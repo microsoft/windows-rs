@@ -162,7 +162,6 @@ impl Class {
                 }
             });
 
-            // tODO: same for interfaces?
             let into_iterator = 
                 self.required_interfaces.iter().find(|interface| TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable).map(|interface| {
                         let item = interface.generics[0].write(writer);

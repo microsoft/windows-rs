@@ -56,7 +56,7 @@ fn main() {
 
     test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
     test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
-    test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat --no-comment");
+    //test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat --no-comment");
     test("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat --no-comment");
 
     test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");

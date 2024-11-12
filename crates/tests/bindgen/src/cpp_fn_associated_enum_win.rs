@@ -18,7 +18,7 @@ pub unsafe fn CoInitializeEx(
     )
 }
 #[repr(transparent)]
-#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COINIT(pub i32);
 impl windows_core::TypeKind for COINIT {
     type TypeKind = windows_core::CopyType;

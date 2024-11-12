@@ -86,7 +86,7 @@ pub struct IDeferralFactory_Vtbl {
     Create: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Deferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     Deferral,
@@ -128,3 +128,5 @@ unsafe impl windows_core::Interface for Deferral {
 impl windows_core::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
 }
+unsafe impl Send for Deferral {}
+unsafe impl Sync for Deferral {}

@@ -155,6 +155,7 @@ impl IPersistFile_Vtbl {
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IPersistFile as windows_core::Interface>::IID
+            || iid == &<IPersist as windows_core::Interface>::IID
     }
 }
 impl windows_core::RuntimeName for IPersistFile {}

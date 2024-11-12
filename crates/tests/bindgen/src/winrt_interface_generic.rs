@@ -133,7 +133,7 @@ impl IAsyncInfo_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IAsyncOperation<TResult>(windows_core::IUnknown, core::marker::PhantomData<TResult>)
 where
     TResult: windows_core::RuntimeType + 'static;
@@ -215,6 +215,8 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
         }
     }
 }
+unsafe impl<TResult: windows_core::RuntimeType + 'static> Send for IAsyncOperation<TResult> {}
+unsafe impl<TResult: windows_core::RuntimeType + 'static> Sync for IAsyncOperation<TResult> {}
 #[repr(C)]
 pub struct IAsyncOperation_Vtbl<TResult>
 where
