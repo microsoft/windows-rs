@@ -4,8 +4,6 @@
     clippy::enum_variant_names,
     clippy::upper_case_acronyms
 )]
-// TODO: remove this once bindgen2 is up and running
-#![allow(dead_code)]
 
 mod dependencies;
 mod derive;

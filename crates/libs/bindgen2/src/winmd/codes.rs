@@ -20,6 +20,7 @@ macro_rules! code {
             }
         }
         impl $name {
+            #[allow(dead_code)]
             pub fn encode(&self) -> usize {
                 match self {
                     $(Self::$table(row) => (row.index() + 1) << $size | $code,)*

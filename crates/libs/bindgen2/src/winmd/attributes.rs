@@ -3,6 +3,7 @@ macro_rules! flags {
         #[derive(Default, Copy, Clone, PartialEq, Eq, Debug, Ord, PartialOrd)]
         pub struct $name(pub $size);
         impl $name {
+            #[allow(dead_code)]
             pub fn contains(&self, contains: Self) -> bool {
                 *self & contains == contains
             }
@@ -45,23 +46,12 @@ impl FieldAttributes {
 
 flags!(MethodAttributes, u16);
 impl MethodAttributes {
-    pub const Abstract: Self = Self(0x400);
-    pub const HideBySig: Self = Self(0x80);
-    pub const NewSlot: Self = Self(0x100);
-    pub const Public: Self = Self(0x6);
     pub const SpecialName: Self = Self(0x800);
-    pub const Virtual: Self = Self(0x40);
-}
-
-flags!(MethodImplAttributes, u16);
-impl MethodImplAttributes {
-    pub const PreserveSig: Self = Self(0x80);
 }
 
 // These are not really ECMA-335 attributes but instead the flags found in the method signature.
 flags!(MethodCallAttributes, u8);
 impl MethodCallAttributes {
-    pub const HASTHIS: Self = Self(0x20);
     pub const VARARG: Self = Self(0x05);
 }
 
@@ -77,24 +67,10 @@ impl PInvokeAttributes {
     pub const SupportsLastError: Self = Self(0x40);
     pub const CallConvPlatformapi: Self = Self(0x100);
     pub const CallConvCdecl: Self = Self(0x200);
-    pub const CallConvStdcall: Self = Self(0x300);
-    pub const CallConvThiscall: Self = Self(0x400);
-    pub const CallConvFastcall: Self = Self(0x500);
 }
 
 flags!(TypeAttributes, u32);
 impl TypeAttributes {
-    pub const Public: Self = Self(0x1);
     pub const ExplicitLayout: Self = Self(0x10);
-    pub const Abstract: Self = Self(0x80);
-    pub const Sealed: Self = Self(0x100);
     pub const WindowsRuntime: Self = Self(0x4000);
-    pub const Interface: Self = Self(0x20);
-    pub const SequentialLayout: Self = Self(0x8);
-    pub const Import: Self = Self(0x1000);
-}
-
-flags!(AssemblyFlags, u32);
-impl AssemblyFlags {
-    pub const WindowsRuntime: Self = Self(0x200);
 }

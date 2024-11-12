@@ -180,16 +180,17 @@ impl Reader {
             .cloned()
     }
 
+    // TODO: how do we filter by name only?
     /// Gets all items with the given name regardless of namespace.
-    pub fn with_name(&self, name: &str) -> Vec<Item> {
-        // This doesn't return an iterator as that would require `name` to be a static reference.
-        self.values()
-            .flatten()
-            .filter_map(|(key, value)| (*key == name).then_some(value))
-            .flatten()
-            .cloned()
-            .collect()
-    }
+    // pub fn with_name(&self, name: &str) -> Vec<Item> {
+    //     // This doesn't return an iterator as that would require `name` to be a static reference.
+    //     self.values()
+    //         .flatten()
+    //         .filter_map(|(key, value)| (*key == name).then_some(value))
+    //         .flatten()
+    //         .cloned()
+    //         .collect()
+    // }
 
     /// Gets all items from the given namespace.
     pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
