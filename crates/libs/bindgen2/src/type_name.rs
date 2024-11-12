@@ -5,7 +5,6 @@ impl TypeName<'_> {
     pub const Object: Self = Self("System", "Object");
     pub const GUID: Self = Self("System", "Guid");
     pub const Type: Self = Self("System", "Type");
-    pub const Attribute: Self = Self("System", "Attribute");
     pub const IsConst: Self = Self("System.Runtime.CompilerServices", "IsConst");
 
     pub const HResult: Self = Self("Windows.Foundation", "HResult");
@@ -20,9 +19,9 @@ impl TypeName<'_> {
     pub const Matrix4x4: Self = Self("Windows.Foundation.Numerics", "Matrix4x4");
 
     pub const IIterable: Self = Self("Windows.Foundation.Collections", "IIterable");
-    pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
-    pub const IVectorView: Self = Self("Windows.Foundation.Collections", "IVectorView");
-    pub const IVector: Self = Self("Windows.Foundation.Collections", "IVector");
+    // pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
+    // pub const IVectorView: Self = Self("Windows.Foundation.Collections", "IVectorView");
+    // pub const IVector: Self = Self("Windows.Foundation.Collections", "IVector");
 
     pub const PWSTR: Self = Self("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self("Windows.Win32.Foundation", "PSTR");

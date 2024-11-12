@@ -7,10 +7,6 @@ impl std::fmt::Debug for Attribute {
 }
 
 impl Attribute {
-    pub fn parent(&self) -> HasAttribute {
-        self.decode(0)
-    }
-
     pub fn ty(&self) -> AttributeType {
         self.decode(1)
     }
@@ -50,7 +46,7 @@ impl Attribute {
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::Item(item) => {
                     let underlying_type = item.underlying_type();
-                    Value::EnumDef(item, Box::new(values.read_integer(underlying_type)))
+                    values.read_integer(underlying_type)
                 }
                 rest => panic!("windows-bindgen: {rest:?}"),
             };
@@ -80,7 +76,7 @@ impl Attribute {
                         .expect("Type not found");
                     name = values.read_str();
                     let underlying_type = def.underlying_type();
-                    Value::EnumDef(def, Box::new(values.read_integer(underlying_type)))
+                    values.read_integer(underlying_type)
                 }
                 rest => panic!("windows-bindgen: {rest:?}"),
             };

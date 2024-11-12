@@ -100,15 +100,6 @@ impl Item {
         }
     }
 
-    pub fn generics(&self) -> &[Type] {
-        match self {
-            Self::Class(item) => &item.generics,
-            Self::Interface(item) => &item.generics,
-            Self::Delegate(item) => &item.generics,
-            _ => &[],
-        }
-    }
-
     pub fn set_generics(&mut self, generics: Vec<Type>) {
         match self {
             Self::Class(item) => item.generics = generics,

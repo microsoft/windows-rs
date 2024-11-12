@@ -50,7 +50,7 @@ struct Config {
     pub tree: NameTree, // TODO: can we get rid of NameTree and just use it to create the ItemTree?
     pub output: String,
     pub flat: bool,
-    pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
+    // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     // and possibly types who's dependencies are filtered out?
     // and unscoped enum variants?
     pub no_allow: bool,
@@ -81,7 +81,7 @@ where
     let mut exclude = Vec::new();
 
     let mut flat = false;
-    let mut minimal = false;
+    // let mut minimal = false;
     let mut no_allow = false;
     let mut no_comment = false;
     let mut no_deps = false;
@@ -103,7 +103,7 @@ where
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--flat" => flat = true,
-                "--minimal" => minimal = true,
+                // "--minimal" => minimal = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
                 "--no-deps" => no_deps = true,
@@ -156,7 +156,7 @@ where
     let config = Box::leak(Box::new(Config {
         tree,
         flat,
-        minimal,
+      //  minimal,
         no_allow,
         no_comment,
         no_deps,

@@ -7,10 +7,6 @@ impl std::fmt::Debug for MethodDef {
 }
 
 impl MethodDef {
-    pub fn impl_flags(&self) -> MethodImplAttributes {
-        MethodImplAttributes(self.usize(1) as u16)
-    }
-
     pub fn flags(&self) -> MethodAttributes {
         MethodAttributes(self.usize(2) as u16)
     }

@@ -48,13 +48,6 @@ impl TypeDef {
         self.file().equal_range(0, self.index() + 1)
     }
 
-    pub fn enclosing_type(&self) -> Option<TypeDef> {
-        self.file()
-            .equal_range::<NestedClass>(0, self.index() + 1)
-            .next()
-            .map(|row| TypeDef(row.row(1)))
-    }
-
     pub fn class_layout(&self) -> Option<ClassLayout> {
         self.file().equal_range(2, self.index() + 1).next()
     }
@@ -104,10 +97,8 @@ impl TypeDef {
             match attribute.name() {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
-                        if let Value::I32(2) = **value {
+                    if let Some((_, Value::I32(2))) = attribute.args().first() {
                             return true;
-                        }
                     }
                 }
                 _ => {}

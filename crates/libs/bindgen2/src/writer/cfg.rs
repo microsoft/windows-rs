@@ -15,8 +15,7 @@ impl Writer {
         for attribute in row.attributes() {
             match attribute.name() {
                 "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::EnumDef(_, value))) = attribute.args().first() {
-                        if let Value::I32(value) = **value {
+                    if let Some((_, Value::I32(value))) = attribute.args().first() {
                             if value & 1 == 1 {
                                 arches.insert("x86");
                             }
@@ -27,7 +26,6 @@ impl Writer {
                             if value & 4 == 4 {
                                 arches.insert("aarch64");
                             }
-                        }
                     }
                 }
                 "DeprecatedAttribute" => {

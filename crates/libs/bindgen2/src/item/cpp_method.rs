@@ -2,7 +2,6 @@ use super::*;
 
 #[derive(Clone, Debug)]
 pub struct CppMethod {
-    pub namespace: &'static str, // for namespace resolution of some attributes
     pub def: MethodDef,
     pub signature: Signature,
     pub dependencies: Dependencies,
@@ -232,7 +231,6 @@ impl CppMethod {
 
         Self {
             def,
-            namespace,
             signature,
             dependencies,
             param_hints,
