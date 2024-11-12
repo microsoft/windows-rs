@@ -71,8 +71,8 @@ windows_targets::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : HKEY, lp
 windows_targets::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : windows_sys::core::PCWSTR, lpnewkeyname : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegReplaceKeyA(hkey : HKEY, lpsubkey : windows_sys::core::PCSTR, lpnewfile : windows_sys::core::PCSTR, lpoldfile : windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" fn RegReplaceKeyW(hkey : HKEY, lpsubkey : windows_sys::core::PCWSTR, lpnewfile : windows_sys::core::PCWSTR, lpoldfile : windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : windows_sys::core::PCWSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Security")]
 windows_targets::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : HKEY, lpfile : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Security")]

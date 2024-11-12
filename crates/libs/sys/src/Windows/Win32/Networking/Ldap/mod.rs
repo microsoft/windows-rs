@@ -1,5 +1,5 @@
 windows_targets::link!("wldap32.dll" "cdecl" fn LdapGetLastError() -> u32);
-windows_targets::link!("wldap32.dll" "cdecl" fn LdapMapErrorToWin32(ldaperror : LDAP_RETCODE) -> super::super::Foundation:: WIN32_ERROR);
+windows_targets::link!("wldap32.dll" "cdecl" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation:: WIN32_ERROR);
 windows_targets::link!("wldap32.dll" "cdecl" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
 windows_targets::link!("wldap32.dll" "cdecl" fn LdapUnicodeToUTF8(lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
 windows_targets::link!("wldap32.dll" "cdecl" fn ber_alloc_t(options : i32) -> *mut BerElement);

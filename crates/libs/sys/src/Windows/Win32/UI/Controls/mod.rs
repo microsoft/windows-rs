@@ -114,7 +114,7 @@ windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 :
 windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, pos : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : WSB_PROP, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : u32, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -141,36 +141,36 @@ windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pfval : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pcolor : *mut super::super::Foundation:: COLORREF) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut super::super::Foundation:: BOOL) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::super::Foundation:: COLORREF) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : windows_sys::core::PCWSTR, pszpropertyname : windows_sys::core::PCWSTR, pszvaluebuff : windows_sys::core::PWSTR, cchmaxvalchars : i32) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pszthemefilename : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pintlist : *mut INTLIST) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, pival : *mut i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : THEME_PROPERTY_SYMBOL_ID, ppoint : *mut super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::super::Foundation:: POINT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HINSTANCE) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_sys::core::PWSTR, cchmaxbuffchars : i32) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : HTHEME, iboolid : THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation:: BOOL);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysBool(htheme : HTHEME, iboolid : i32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi:: HBRUSH);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : i32) -> super::super::Graphics::Gdi:: HBRUSH);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : THEME_PROPERTY_SYMBOL_ID, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::HRESULT);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : THEME_PROPERTY_SYMBOL_ID, pivalue : *mut i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : i32, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : i32, pivalue : *mut i32) -> windows_sys::core::HRESULT);
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : HTHEME, isizeid : i32) -> i32);
-windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : THEME_PROPERTY_SYMBOL_ID, pszstringbuff : windows_sys::core::PWSTR, cchmaxstringchars : i32) -> windows_sys::core::HRESULT);
+windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : i32, pszstringbuff : windows_sys::core::PWSTR, cchmaxstringchars : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_sys::core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7280,4 +7280,4 @@ pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::super::F
 pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
 pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
 pub type PFNTVCOMPARE = Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
-pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: TASKDIALOG_NOTIFICATIONS, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;
+pub type PFTASKDIALOGCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> windows_sys::core::HRESULT>;
