@@ -51,12 +51,10 @@ impl CppFn {
                     // TODO: maybe write_abi should just call write_default when sys is enabled
                     ty.underlying_type().write_abi(writer)
                 }
+            } else if writer.config.sys {
+                ty.write_default(writer)
             } else {
-                if writer.config.sys {
-                    ty.write_default(writer)
-                } else {
-                    ty.write_abi(writer)
-                }
+                ty.write_abi(writer)
             };
             quote! { #name: #ty }
         });

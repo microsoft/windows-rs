@@ -181,7 +181,7 @@ impl Reader {
     }
 
     // TODO: how do we filter by name only?
-    /// Gets all items with the given name regardless of namespace.
+    // Gets all items with the given name regardless of namespace.
     // pub fn with_name(&self, name: &str) -> Vec<Item> {
     //     // This doesn't return an iterator as that would require `name` to be a static reference.
     //     self.values()
