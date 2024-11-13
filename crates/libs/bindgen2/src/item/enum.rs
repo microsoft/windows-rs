@@ -11,7 +11,7 @@ impl Enum {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer)
+        self.type_name().write(writer, &[])
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {

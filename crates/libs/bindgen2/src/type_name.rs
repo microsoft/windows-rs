@@ -58,10 +58,16 @@ impl TypeName<'_> {
         self.1
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write(&self, writer: &Writer, generics: &[Type]) -> TokenStream {
         let name = to_ident(self.name());
         let namespace = writer.write_namespace(*self);
-        quote! { #namespace #name }
+
+        if generics.is_empty() {
+            quote! { #namespace #name }
+        } else {
+            let generics = generics.iter().map(|ty| ty.write(writer));
+            quote! { #namespace #name < #(#generics),* > }
+        }
     }
 }
 

@@ -241,7 +241,7 @@ impl Class {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer)
+        self.type_name().write(writer, &[])
     }
 
     // TODO: this can't use required_interfaces because the default might be `Type::Object`?

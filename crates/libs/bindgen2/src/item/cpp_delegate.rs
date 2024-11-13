@@ -23,7 +23,7 @@ impl CppDelegate {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer)
+        self.type_name().write(writer, &[])
     }
 
     pub fn method(&self) -> MethodDef {

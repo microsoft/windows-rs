@@ -24,7 +24,7 @@ impl CppFn {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        self.type_name().write(writer)
+        self.type_name().write(writer, &[])
     }
 
     pub fn write_link(&self, writer: &Writer, underlying_types: bool) -> TokenStream {

@@ -205,15 +205,7 @@ impl Delegate {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.type_name());
-
-        if self.generics.is_empty() {
-            quote! { #namespace #name }
-        } else {
-            let generics = self.generics.iter().map(|ty| ty.write(writer));
-            quote! { #namespace #name < #(#generics,)* > }
-        }
+        self.type_name().write(writer, &self.generics)
     }
 
     // pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
