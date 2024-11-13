@@ -2,7 +2,8 @@
 #![allow(
     non_upper_case_globals,
     clippy::enum_variant_names,
-    clippy::upper_case_acronyms
+    clippy::upper_case_acronyms,
+    dead_code, // TODO: remove this
 )]
 
 mod dependencies;
@@ -21,7 +22,9 @@ mod type_name;
 mod value;
 mod winmd;
 mod writer;
+mod references;
 
+use references::*;
 use dependencies::*;
 use derive::*;
 use filter::*;
@@ -46,6 +49,7 @@ use method_names::*;
 
 struct Config {
     pub tree: NameTree, // TODO: can we get rid of NameTree and just use it to create the ItemTree?
+    pub references: References,
     pub output: String,
     pub flat: bool,
     // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
@@ -65,6 +69,8 @@ struct Config {
     pub implement: bool,
 }
 
+
+
 /// The Windows code generator.
 #[track_caller]
 pub fn bindgen<I, S>(args: I)
@@ -77,12 +83,13 @@ where
     let mut input = Vec::new();
     let mut include = Vec::new();
     let mut exclude = Vec::new();
+    let mut references = Vec::new();
 
     let mut flat = false;
     // let mut minimal = false;
     let mut no_allow = false;
     let mut no_comment = false;
-    let mut no_deps = false;
+    let mut no_deps = false; // TODO: can we drop this in favor of --reference ?
     let mut package = false;
     let mut implement = false;
     let mut rustfmt = String::new();
@@ -100,8 +107,8 @@ where
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
+                "--reference" => kind = ArgKind::Reference,
                 "--flat" => flat = true,
-                // "--minimal" => minimal = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
                 "--no-deps" => no_deps = true,
@@ -124,6 +131,9 @@ where
                 } else {
                     include.push(arg.as_str());
                 }
+            }
+            ArgKind::Reference => {
+                references.push(ReferenceStage::parse(arg));                
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
@@ -151,10 +161,13 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let tree = NameTree::new(reader, &filter);
 
+    let references = References::new(reader, references);
+
     let config = Box::leak(Box::new(Config {
         tree,
         flat,
         //  minimal,
+        references,
         no_allow,
         no_comment,
         no_deps,
@@ -175,7 +188,7 @@ where
     // dbg!(&tree);
 
     // TODO: this is where we need to populate the tree with methods based on whether or not they're included!!
-    let items = ItemTree::new(reader, &config.tree);
+    let items = ItemTree::new(reader, &config);
 
     // dbg!(&items);
 
@@ -193,6 +206,7 @@ enum ArgKind {
     Output,
     Filter,
     Rustfmt,
+    Reference,
 }
 
 fn expand_args<I, S>(args: I) -> Vec<String>

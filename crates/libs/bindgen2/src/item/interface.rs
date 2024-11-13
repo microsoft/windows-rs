@@ -46,13 +46,13 @@ impl PartialOrd for Interface {
 }
 
 impl Interface {
-    pub fn expand(&mut self, filter: &NameTree) {
+    pub fn expand(&mut self, config: &Config) {
         self.methods = self
             .def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                if method.dependencies.included(filter) {
+                if method.dependencies.included(config) {
                     MethodOrName::Method(method)
                 } else {
                     MethodOrName::Name(method.def.name())
@@ -63,7 +63,7 @@ impl Interface {
         self.required_interfaces = self.required_interfaces();
         self.required_interfaces.sort();
         for interface in self.required_interfaces.iter_mut() {
-            interface.expand(filter);
+            interface.expand(config);
         }
     }
 

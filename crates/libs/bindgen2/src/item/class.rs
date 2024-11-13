@@ -8,7 +8,7 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn expand(&mut self, filter: &NameTree) {
+    pub fn expand(&mut self, config: &Config) {
         // TODO: load interfaces, methods, bases?
         //  for interface in self.required_interfaces() {
         //     set.interfaces.insert(interface.expand(filter));
@@ -19,7 +19,7 @@ impl Class {
         self.required_interfaces = self.required_interfaces();
         self.required_interfaces.sort();
         for interface in self.required_interfaces.iter_mut() {
-            interface.expand(filter);
+            interface.expand(config);
         }
     }
 

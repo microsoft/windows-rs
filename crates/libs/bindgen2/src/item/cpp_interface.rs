@@ -35,7 +35,7 @@ impl PartialOrd for CppInterface {
 }
 
 impl CppInterface {
-    pub fn expand(&mut self, filter: &NameTree) {
+    pub fn expand(&mut self, config: &Config) {
         let namespace = self.def.namespace();
 
         self.methods = self
@@ -43,7 +43,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
-                if method.dependencies.included(filter) {
+                if method.dependencies.included(config) {
                     CppMethodOrName::Method(method)
                 } else {
                     CppMethodOrName::Name(method.def.name())
@@ -55,7 +55,7 @@ impl CppInterface {
 
         for interface in self.base_interfaces.iter_mut() {
             if let Type::Item(Item::CppInterface(item)) = interface {
-                item.expand(filter);
+                item.expand(config);
             }
         }
     }

@@ -37,11 +37,23 @@ impl Dependencies {
         self.set.iter().map(|(namespace, _)| namespace).copied()
     }
 
-    pub fn included(&self, filter: &NameTree) -> bool {
+    pub fn included(&self, config: &Config) -> bool {
         self.set.iter().all(|(namespace, name)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
-            namespace.is_empty() || filter.includes_type_name(namespace, name)
+            if namespace.is_empty() {
+                return true;
+            } 
+            
+            if config.tree.includes_type_name(namespace, name) {
+                return true;
+            }
+
+            // TODO: maybe have Reference type that includes map for crate association and a Filter for quick type inclusion detection here
+            //if config.reference.values().find(|namespace|namespace)
+
+
+            false
         })
     }
 
