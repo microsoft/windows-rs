@@ -10,7 +10,6 @@ pub mod deps;
 pub mod deps2;
 pub mod deps3;
 pub mod iota;
-pub mod reference;
 pub mod udt_return_interface;
 pub mod winrt_class_with_handler;
 pub mod winrt_class_without_handler;

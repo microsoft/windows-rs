@@ -8,6 +8,10 @@ pub struct Class {
 }
 
 impl Class {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
     pub fn expand(&mut self, config: &Config) {
         // TODO: load interfaces, methods, bases?
         //  for interface in self.required_interfaces() {
@@ -170,7 +174,7 @@ impl Class {
                 })
                 .map(|interface| {
                     let item = interface.generics[0].write(writer);
-                    let namespace = writer.write_namespace("Windows.Foundation.Collections");
+                    let namespace = writer.write_namespace(TypeName::IIterator);
 
                     quote! {
                         #cfg
@@ -237,9 +241,7 @@ impl Class {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.namespace());
-        quote! { #namespace #name }
+        self.type_name().write(writer)
     }
 
     // TODO: this can't use required_interfaces because the default might be `Type::Object`?

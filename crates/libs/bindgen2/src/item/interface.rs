@@ -46,6 +46,10 @@ impl PartialOrd for Interface {
 }
 
 impl Interface {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
     pub fn expand(&mut self, config: &Config) {
         self.methods = self
             .def
@@ -243,7 +247,8 @@ impl Interface {
                 })
                 .map(|interface| {
                     let item = interface.generics[0].write(writer);
-                    let namespace = writer.write_namespace("Windows.Foundation.Collections");
+                    // TODO: just use typename.write?
+                    let namespace = writer.write_namespace(TypeName::IIterator);
 
                     quote! {
                         #cfg
@@ -438,7 +443,7 @@ impl Interface {
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.namespace());
+        let namespace = writer.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {
             quote! { #namespace #name }
@@ -461,7 +466,7 @@ impl Interface {
 
     pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.namespace());
+        let namespace = writer.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {
             quote! { #namespace #name }

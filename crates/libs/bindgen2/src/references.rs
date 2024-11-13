@@ -75,9 +75,20 @@ pub struct Reference {
 pub struct References(Vec<Reference>);
 
 impl References {
-    pub fn new(_reader: &Reader, _stage: Vec<ReferenceStage>) -> Self {
-        Self(vec![])
+    pub fn new(reader: &'static Reader, stage: Vec<ReferenceStage>) -> Self {
+        Self(stage.into_iter().map(|stage| {
+            let filter = Filter::new(reader, &[&stage.path], &[]);
+            let tree = NameTree::new(reader, &filter);
+
+            Reference {
+                name: stage.name,
+                style: stage.style,
+                tree,
+            }
+        }).collect())
     }
 
-
+    pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
+        self.0.iter().any(|reference|reference.tree.includes_type_name(namespace, name))
+    }
 }

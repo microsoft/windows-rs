@@ -35,6 +35,10 @@ impl PartialOrd for CppInterface {
 }
 
 impl CppInterface {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
     pub fn expand(&mut self, config: &Config) {
         let namespace = self.def.namespace();
 
@@ -426,20 +430,22 @@ impl CppInterface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.namespace());
-        quote! { #namespace #name }
+        if writer.config.sys  {
+            quote! { *mut core::ffi::c_void }
+        } else {
+            self.type_name().write(writer)
+        }
     }
 
     fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.namespace());
+        let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
     pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
-        let namespace = writer.write_namespace(self.def.namespace());
+        let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 

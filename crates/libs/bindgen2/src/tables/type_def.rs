@@ -11,6 +11,10 @@ impl TypeDef {
         TypeAttributes(self.usize(0) as u32)
     }
 
+    pub fn type_name(&self) -> TypeName<'static> {
+        TypeName(self.namespace(), self.name())
+    }
+
     pub fn name(&self) -> &'static str {
         trim_tick(self.str(1))
     }

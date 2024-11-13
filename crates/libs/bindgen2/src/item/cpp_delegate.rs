@@ -18,6 +18,14 @@ impl PartialOrd for CppDelegate {
 }
 
 impl CppDelegate {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
     pub fn method(&self) -> MethodDef {
         self.def
             .methods()

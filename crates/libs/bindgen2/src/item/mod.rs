@@ -89,14 +89,17 @@ impl Item {
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         match self {
-            Self::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
+            Self::CppInterface(item) => item.write_name(writer),
+            Self::Struct(item) => item.write_name(writer),
+            Self::Enum(item) => item.write_name(writer),
             Self::Interface(item) => item.write_name(writer),
+            Self::CppStruct(item) => item.write_name(writer),
+            Self::CppEnum(item) => item.write_name(writer),
+            Self::CppFn(item) => item.write_name(writer),
+            Self::CppConst(item) => item.write_name(writer),
+            Self::CppDelegate(item) => item.write_name(writer),
             Self::Delegate(item) => item.write_name(writer),
-            _ => {
-                let name = to_ident(self.name());
-                let namespace = writer.write_namespace(self.namespace());
-                quote! { #namespace #name }
-            }
+            Self::Class(item) => item.write_name(writer),
         }
     }
 
@@ -125,6 +128,7 @@ impl Item {
         }
     }
 
+    // TODO: remove
     pub fn name(&self) -> &str {
         match self {
             Self::Class(item) => item.def.name(),
@@ -138,6 +142,22 @@ impl Item {
             Self::CppStruct(item) => item.name(),
             Self::CppConst(item) => item.field.name(),
             Self::CppFn(item) => item.method.name(),
+        }
+    }
+
+    pub fn type_name(&self) -> TypeName<'_> {
+        match self {
+            Self::Class(item) => item.type_name(),
+            Self::Delegate(item) => item.type_name(),
+            Self::Enum(item) => item.type_name(),
+            Self::Interface(item) => item.type_name(),
+            Self::Struct(item) => item.type_name(),
+            Self::CppDelegate(item) => item.type_name(),
+            Self::CppEnum(item) => item.type_name(),
+            Self::CppInterface(item) => item.type_name(),
+            Self::CppStruct(item) => item.type_name(),
+            Self::CppConst(item) => item.type_name(),
+            Self::CppFn(item) => item.type_name(),
         }
     }
 

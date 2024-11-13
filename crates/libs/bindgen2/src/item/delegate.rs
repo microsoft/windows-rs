@@ -8,6 +8,10 @@ pub struct Delegate {
 }
 
 impl Delegate {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         //let vtbl_name = self.write_vtbl_name(writer);
@@ -202,7 +206,7 @@ impl Delegate {
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.namespace());
+        let namespace = writer.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {
             quote! { #namespace #name }

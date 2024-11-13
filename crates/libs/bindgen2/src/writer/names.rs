@@ -48,18 +48,18 @@ impl Writer {
         }
     }
 
-    pub fn write_namespace(&self, namespace: &str) -> TokenStream {
-        if self.config.flat || namespace.is_empty() || namespace == self.namespace {
+    pub fn write_namespace(&self, type_name: TypeName<'_>) -> TokenStream {
+        if self.config.flat || type_name.namespace().is_empty() || type_name.namespace() == self.namespace {
             return quote! {};
         }
 
         // TODO: here we need to check self.config.references
-        if !self.config.tree.includes_namespace(namespace) {
-            todo!("deal with external references `{namespace}`");
+        if !self.config.tree.includes_namespace(type_name.namespace()) {
+             todo!("deal with external references `{}`", type_name.namespace());
         }
 
         let mut relative = self.namespace.split('.').peekable();
-        let mut namespace = namespace.split('.').peekable();
+        let mut namespace = type_name.namespace().split('.').peekable();
 
         while relative.peek() == namespace.peek() {
             if relative.next().is_none() {

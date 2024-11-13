@@ -19,6 +19,14 @@ impl PartialOrd for CppFn {
 }
 
 impl CppFn {
+    pub fn type_name(&self) -> TypeName<'_> {
+        TypeName(self.def.namespace(), self.method.name())
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
     pub fn write_link(&self, writer: &Writer, underlying_types: bool) -> TokenStream {
         let name = self.method.name();
         let library = self.method.module_name().to_lowercase();

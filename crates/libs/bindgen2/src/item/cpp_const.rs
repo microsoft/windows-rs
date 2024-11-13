@@ -19,6 +19,14 @@ impl PartialOrd for CppConst {
 }
 
 impl CppConst {
+    pub fn type_name(&self) -> TypeName<'_> {
+        TypeName(self.def.namespace(), self.field.name())
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.field.name());
 

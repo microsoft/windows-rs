@@ -18,6 +18,14 @@ impl PartialOrd for CppEnum {
 }
 
 impl CppEnum {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 

@@ -6,6 +6,14 @@ pub struct Struct {
 }
 
 impl Struct {
+    pub fn type_name(&self) -> TypeName<'_> {
+        self.def.type_name()
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
 

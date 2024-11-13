@@ -49,6 +49,10 @@ impl Dependencies {
                 return true;
             }
 
+            if config.references.includes_type_name(namespace, name) {
+                return true;
+            }
+
             // TODO: maybe have Reference type that includes map for crate association and a Filter for quick type inclusion detection here
             //if config.reference.values().find(|namespace|namespace)
 

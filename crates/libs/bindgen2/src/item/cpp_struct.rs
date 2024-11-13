@@ -21,6 +21,15 @@ impl PartialOrd for CppStruct {
 }
 
 impl CppStruct {
+    pub fn type_name(&self) -> TypeName<'_> {
+        TypeName(self.def.namespace(), self.name())
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        self.type_name().write(writer)
+    }
+
+    // TODO: Get rid of this?
     pub fn name(&self) -> &str {
         if self.name.is_empty() {
             self.def.name()
