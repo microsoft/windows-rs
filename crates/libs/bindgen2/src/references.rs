@@ -1,14 +1,14 @@
 use super::*;
 
-// --reference name=windows,style=skip_root,path=Windows
-// --reference name=windows-sys,style=skip_root,path=Windows
+// --reference name=windows,style=skip-root,path=Windows
+// --reference name=windows-sys,style=skip-root,path=Windows
 
 // --reference windows-numerics:flat:Windows.Foundation.Numerics
 // --reference dia,full
 
 fn invalid_reference() -> ! {
     panic!(
-        "invalid `-reference` must be `name=<crate>,style=<full/flat/skip_root>,path=<type name>"
+        "invalid `-reference` must be `name=<crate>,style=<full/flat/skip-root>,path=<type name>"
     );
 }
 
@@ -61,7 +61,7 @@ impl ReferenceStyle {
         match arg {
             "full" => Self::Full,
             "flat" => Self::Flat,
-            "skip_root" => Self::SkipRoot,
+            "skip-root" => Self::SkipRoot,
             _ => invalid_reference(),
         }
     }

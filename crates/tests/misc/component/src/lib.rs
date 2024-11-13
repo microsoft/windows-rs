@@ -1,11 +1,12 @@
 mod bindings;
+use bindings::test_component as test_bindings;
 use std::sync::*;
 use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
-#[implement(bindings::Class)]
+#[implement(test_bindings::Class)]
 struct Class(RwLock<i32>);
 
-impl bindings::IClass_Impl for Class_Impl {
+impl test_bindings::IClass_Impl for Class_Impl {
     fn Property(&self) -> Result<i32> {
         let reader = self.0.read().unwrap();
         Ok(*reader)
@@ -15,8 +16,8 @@ impl bindings::IClass_Impl for Class_Impl {
         *writer = value;
         Ok(())
     }
-    fn Flags(&self) -> Result<bindings::Flags> {
-        Ok(bindings::Flags::Ok)
+    fn Flags(&self) -> Result<test_bindings::Flags> {
+        Ok(test_bindings::Flags::Ok)
     }
     fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut Array<i32>) -> Result<Array<i32>> {
         assert_eq!(a.len(), b.len());
@@ -40,9 +41,9 @@ impl bindings::IClass_Impl for Class_Impl {
     fn Input(
         &self,
         a: Option<&IInspectable>,
-        b: Option<&bindings::Class>,
+        b: Option<&test_bindings::Class>,
         c: Option<&IStringable>,
-        d: Option<&bindings::Callback>,
+        d: Option<&test_bindings::Callback>,
     ) -> Result<()> {
         let a = a.ok_or_else(|| Error::from(E_INVALIDARG))?;
         let b = b.ok_or_else(|| Error::from(E_INVALIDARG))?;
