@@ -49,7 +49,11 @@ impl Dependencies {
                 return true;
             }
 
-            if config.references.includes_type_name(namespace, name).is_some() {
+            if config
+                .references
+                .includes_type_name(namespace, name)
+                .is_some()
+            {
                 return true;
             }
 

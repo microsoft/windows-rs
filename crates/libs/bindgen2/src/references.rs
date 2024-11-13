@@ -49,7 +49,7 @@ impl ReferenceStage {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum ReferenceStyle {
     Full,
     Flat,

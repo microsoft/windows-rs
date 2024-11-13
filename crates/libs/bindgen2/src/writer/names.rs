@@ -51,45 +51,70 @@ impl Writer {
     pub fn write_namespace(&self, type_name: TypeName<'_>) -> TokenStream {
         let mut tokens = TokenStream::new();
 
-        if !self
-            .config
-            .tree
-            .includes_type_name(type_name.namespace(), type_name.name()) {
-            if let Some(_reference) = self
+        if type_name.namespace().is_empty() {
+            return tokens;
+        }
+
+        if let Some(reference) = {
+            if self
                 .config
-                .references
-                .includes_type_name(type_name.namespace(), type_name.name()) {        
-            todo!("deal with external references `{type_name}`");
-                }
-        }
+                .tree
+                .includes_type_name(type_name.namespace(), type_name.name())
+            {
+                None
+            } else {
+                self.config
+                    .references
+                    .includes_type_name(type_name.namespace(), type_name.name())
+            }
+        } {
+            tokens.push_str(&reference.name);
+            tokens.push_str("::");
 
-        if self.config.flat
-            || type_name.namespace().is_empty()
-            || type_name.namespace() == self.namespace
-        {
-            return quote! {};
-        }
+            if reference.style == ReferenceStyle::Flat { return tokens; }
 
-        let mut relative = self.namespace.split('.').peekable();
-        let mut namespace = type_name.namespace().split('.').peekable();
+            let mut namespace = type_name.namespace().split('.').peekable();
 
-        while relative.peek() == namespace.peek() {
-            if relative.next().is_none() {
-                break;
+            if reference.style == ReferenceStyle::SkipRoot {
+                namespace.next();
+            }
+    
+            for namespace in namespace {
+                tokens.push_str(namespace);
+                tokens.push_str("::");
+            }
+    
+            tokens
+        } else {
+            if self.config.flat
+                || type_name.namespace() == self.namespace
+            {
+                return tokens;
             }
 
-            namespace.next();
+            let mut relative = self.namespace.split('.').peekable();
+            let mut namespace = type_name.namespace().split('.').peekable();
+    
+            while relative.peek() == namespace.peek() {
+                if relative.next().is_none() {
+                    break;
+                }
+    
+                namespace.next();
+            }
+    
+            for _ in 0..relative.count() {
+                tokens.push_str("super::");
+            }
+    
+            for namespace in namespace {
+                tokens.push_str(namespace);
+                tokens.push_str("::");
+            }
+    
+            tokens
         }
 
-        for _ in 0..relative.count() {
-            tokens.push_str("super::");
-        }
 
-        for namespace in namespace {
-            tokens.push_str(namespace);
-            tokens.push_str("::");
-        }
-
-        tokens
     }
 }

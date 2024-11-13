@@ -14,6 +14,12 @@ workspace = true
 [dependencies.windows-targets]
 workspace = true
 
+[dependencies.windows]
+workspace = true
+features = [
+    "Foundation",
+]
+
 [dependencies.windows-sys]
 workspace = true
 
