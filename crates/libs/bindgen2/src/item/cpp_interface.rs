@@ -430,7 +430,7 @@ impl CppInterface {
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        if writer.config.sys  {
+        if writer.config.sys {
             quote! { *mut core::ffi::c_void }
         } else {
             self.type_name().write(writer, &[])

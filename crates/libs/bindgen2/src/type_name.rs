@@ -21,7 +21,7 @@ impl TypeName<'_> {
     pub const Matrix4x4: Self = Self("Windows.Foundation.Numerics", "Matrix4x4");
 
     pub const IIterable: Self = Self("Windows.Foundation.Collections", "IIterable");
-     pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
+    pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
     // pub const IVectorView: Self = Self("Windows.Foundation.Collections", "IVectorView");
     // pub const IVector: Self = Self("Windows.Foundation.Collections", "IVector");
 

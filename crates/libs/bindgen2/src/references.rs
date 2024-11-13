@@ -7,7 +7,9 @@ use super::*;
 // --reference dia,full
 
 fn invalid_reference() -> ! {
-    panic!("invalid `-reference` must be `name=<crate>,style=<full/flat/skip_root>,path=<type name>");
+    panic!(
+        "invalid `-reference` must be `name=<crate>,style=<full/flat/skip_root>,path=<type name>"
+    );
 }
 
 pub struct ReferenceStage {
@@ -28,8 +30,6 @@ impl Default for ReferenceStage {
 
 impl ReferenceStage {
     pub fn parse(arg: &str) -> Self {
-
-
         let mut result = ReferenceStage::default();
 
         for pair in arg.split(',') {
@@ -69,8 +69,8 @@ impl ReferenceStyle {
 
 #[derive(Debug)]
 pub struct Reference {
-    pub name: String, // crate name like "windows"
-    pub tree: NameTree, // what this reference provides
+    pub name: String,          // crate name like "windows"
+    pub tree: NameTree,        // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 
@@ -79,19 +79,26 @@ pub struct References(Vec<Reference>);
 
 impl References {
     pub fn new(reader: &'static Reader, stage: Vec<ReferenceStage>) -> Self {
-        Self(stage.into_iter().map(|stage| {
-            let filter = Filter::new(reader, &[&stage.path], &[]);
-            let tree = NameTree::new(reader, &filter);
+        Self(
+            stage
+                .into_iter()
+                .map(|stage| {
+                    let filter = Filter::new(reader, &[&stage.path], &[]);
+                    let tree = NameTree::new(reader, &filter);
 
-            Reference {
-                name: stage.name,
-                style: stage.style,
-                tree,
-            }
-        }).collect())
+                    Reference {
+                        name: stage.name,
+                        style: stage.style,
+                        tree,
+                    }
+                })
+                .collect(),
+        )
     }
 
-    pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
-        self.0.iter().any(|reference|reference.tree.includes_type_name(namespace, name))
+    pub fn includes_type_name(&self, namespace: &str, name: &str) -> Option<&Reference> {
+        self.0
+            .iter()
+            .find(|reference| reference.tree.includes_type_name(namespace, name))
     }
 }

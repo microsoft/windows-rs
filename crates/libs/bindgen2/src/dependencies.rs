@@ -43,19 +43,18 @@ impl Dependencies {
             // that depend on core types that aren't explicitly included in the filter.
             if namespace.is_empty() {
                 return true;
-            } 
-            
+            }
+
             if config.tree.includes_type_name(namespace, name) {
                 return true;
             }
 
-            if config.references.includes_type_name(namespace, name) {
+            if config.references.includes_type_name(namespace, name).is_some() {
                 return true;
             }
 
             // TODO: maybe have Reference type that includes map for crate association and a Filter for quick type inclusion detection here
             //if config.reference.values().find(|namespace|namespace)
-
 
             false
         })

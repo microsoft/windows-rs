@@ -49,13 +49,25 @@ impl Writer {
     }
 
     pub fn write_namespace(&self, type_name: TypeName<'_>) -> TokenStream {
-        if self.config.flat || type_name.namespace().is_empty() || type_name.namespace() == self.namespace {
-            return quote! {};
+        let mut tokens = TokenStream::new();
+
+        if !self
+            .config
+            .tree
+            .includes_type_name(type_name.namespace(), type_name.name()) {
+            if let Some(_reference) = self
+                .config
+                .references
+                .includes_type_name(type_name.namespace(), type_name.name()) {        
+            todo!("deal with external references `{type_name}`");
+                }
         }
 
-        if !self.config.tree.includes_type_name(type_name.namespace(), type_name.name()) && 
-        self.config.references.includes_type_name(type_name.namespace(), type_name.name()) {
-             todo!("deal with external references `{type_name}`");
+        if self.config.flat
+            || type_name.namespace().is_empty()
+            || type_name.namespace() == self.namespace
+        {
+            return quote! {};
         }
 
         let mut relative = self.namespace.split('.').peekable();
@@ -68,8 +80,6 @@ impl Writer {
 
             namespace.next();
         }
-
-        let mut tokens = TokenStream::new();
 
         for _ in 0..relative.count() {
             tokens.push_str("super::");

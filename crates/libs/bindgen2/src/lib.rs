@@ -14,6 +14,7 @@ mod io;
 mod item;
 mod item_tree;
 mod name_tree;
+mod references;
 mod signature;
 mod tables;
 mod tokens;
@@ -22,9 +23,7 @@ mod type_name;
 mod value;
 mod winmd;
 mod writer;
-mod references;
 
-use references::*;
 use dependencies::*;
 use derive::*;
 use filter::*;
@@ -34,6 +33,7 @@ use item::*;
 use item_tree::*;
 use name_tree::*;
 use r#type::*;
+use references::*;
 use signature::*;
 use std::cmp::Ordering;
 use std::collections::*;
@@ -68,8 +68,6 @@ struct Config {
     /// be implemented
     pub implement: bool,
 }
-
-
 
 /// The Windows code generator.
 #[track_caller]
@@ -133,7 +131,7 @@ where
                 }
             }
             ArgKind::Reference => {
-                references.push(ReferenceStage::parse(arg));                
+                references.push(ReferenceStage::parse(arg));
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
