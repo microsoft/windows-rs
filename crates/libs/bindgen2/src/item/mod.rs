@@ -145,21 +145,21 @@ impl Item {
         }
     }
 
-    pub fn type_name(&self) -> TypeName<'_> {
-        match self {
-            Self::Class(item) => item.type_name(),
-            Self::Delegate(item) => item.type_name(),
-            Self::Enum(item) => item.type_name(),
-            Self::Interface(item) => item.type_name(),
-            Self::Struct(item) => item.type_name(),
-            Self::CppDelegate(item) => item.type_name(),
-            Self::CppEnum(item) => item.type_name(),
-            Self::CppInterface(item) => item.type_name(),
-            Self::CppStruct(item) => item.type_name(),
-            Self::CppConst(item) => item.type_name(),
-            Self::CppFn(item) => item.type_name(),
-        }
-    }
+    // pub fn type_name(&self) -> TypeName<'_> {
+    //     match self {
+    //         Self::Class(item) => item.type_name(),
+    //         Self::Delegate(item) => item.type_name(),
+    //         Self::Enum(item) => item.type_name(),
+    //         Self::Interface(item) => item.type_name(),
+    //         Self::Struct(item) => item.type_name(),
+    //         Self::CppDelegate(item) => item.type_name(),
+    //         Self::CppEnum(item) => item.type_name(),
+    //         Self::CppInterface(item) => item.type_name(),
+    //         Self::CppStruct(item) => item.type_name(),
+    //         Self::CppConst(item) => item.type_name(),
+    //         Self::CppFn(item) => item.type_name(),
+    //     }
+    // }
 
     pub fn underlying_type(&self) -> Type {
         match self {

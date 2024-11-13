@@ -44,15 +44,15 @@ impl NameTree {
         tree
     }
 
-    pub fn includes_namespace(&self, namespace: &str) -> bool {
-        if let Some(next) = namespace.find('.') {
-            self.nested.get(&namespace[..next]).map_or(false, |tree| {
-                tree.includes_namespace(&namespace[next + 1..])
-            })
-        } else {
-            self.nested.contains_key(namespace)
-        }
-    }
+    // pub fn includes_namespace(&self, namespace: &str) -> bool {
+    //     if let Some(next) = namespace.find('.') {
+    //         self.nested.get(&namespace[..next]).map_or(false, |tree| {
+    //             tree.includes_namespace(&namespace[next + 1..])
+    //         })
+    //     } else {
+    //         self.nested.contains_key(namespace)
+    //     }
+    // }
 
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
         fn get<'a>(tree: &'a NameTree, path: &str) -> Option<&'a NameTree> {

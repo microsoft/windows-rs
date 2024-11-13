@@ -53,9 +53,9 @@ impl Writer {
             return quote! {};
         }
 
-        // TODO: here we need to check self.config.references
-        if !self.config.tree.includes_namespace(type_name.namespace()) {
-             todo!("deal with external references `{}`", type_name.namespace());
+        if !self.config.tree.includes_type_name(type_name.namespace(), type_name.name()) && 
+        self.config.references.includes_type_name(type_name.namespace(), type_name.name()) {
+             todo!("deal with external references `{type_name}`");
         }
 
         let mut relative = self.namespace.split('.').peekable();

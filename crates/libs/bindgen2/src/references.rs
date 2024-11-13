@@ -49,6 +49,7 @@ impl ReferenceStage {
     }
 }
 
+#[derive(Debug)]
 pub enum ReferenceStyle {
     Full,
     Flat,
@@ -66,12 +67,14 @@ impl ReferenceStyle {
     }
 }
 
+#[derive(Debug)]
 pub struct Reference {
     pub name: String, // crate name like "windows"
     pub tree: NameTree, // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 
+#[derive(Debug)]
 pub struct References(Vec<Reference>);
 
 impl References {
