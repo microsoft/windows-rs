@@ -9,5 +9,7 @@ fn main() {
         "test_component",
         "--no-comment",
         "--flat",
+        "--reference",
+        "name=windows,style=skip-root,path=Windows.Foundation",
     ]);
 }

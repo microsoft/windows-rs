@@ -82,7 +82,7 @@ impl Method {
                     quote! {
                         let ok__ = #inner(#this #(#invoke_args,)*);
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        result__.write(ok_data__);
+                        result__.write(core::mem::transmute(ok_data__));
                         result_size__.write(ok_data_len__);
                         windows_core::HRESULT(0)
                     }
@@ -92,7 +92,7 @@ impl Method {
                             Ok(ok__) => {
                                 let (ok_data__, ok_data_len__) = ok__.into_abi();
                                 // use `ptr::write` since `result` could be uninitialized
-                                result__.write(ok_data__);
+                                result__.write(core::mem::transmute(ok_data__));
                                 result_size__.write(ok_data_len__);
                                 windows_core::HRESULT(0)
                             }
