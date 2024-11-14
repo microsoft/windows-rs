@@ -1,8 +1,12 @@
 #![allow(non_snake_case)]
 
 use windows::{
-    core::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*,
-    Win32::UI::Shell::PropertiesSystem::*,
+    core::*,
+    Win32::{
+        Foundation::*,
+        System::Com::{StructuredStorage::*, *},
+        UI::Shell::PropertiesSystem::*,
+    },
 };
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
@@ -36,8 +40,8 @@ impl IPropertyStore_Impl for Object_Impl {
 }
 
 impl IPropertyStoreCapabilities_Impl for Object_Impl {
-    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> Result<()> {
-        Ok(())
+    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> HRESULT {
+        S_OK
     }
 }
 
@@ -54,7 +58,7 @@ fn test() -> Result<()> {
         assert_eq!(PROPVARIANT::from(123), b.GetValue(std::ptr::null())?);
 
         let c: IPropertyStoreCapabilities = b.cast()?;
-        c.IsPropertyWritable(&PROPERTYKEY::default())?;
+        c.IsPropertyWritable(&PROPERTYKEY::default()).ok()?;
 
         Ok(())
     }
