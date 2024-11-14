@@ -180,17 +180,16 @@ impl Reader {
             .cloned()
     }
 
-    // TODO: how do we filter by name only?
     // Gets all items with the given name regardless of namespace.
-    // pub fn with_name(&self, name: &str) -> Vec<Item> {
-    //     // This doesn't return an iterator as that would require `name` to be a static reference.
-    //     self.values()
-    //         .flatten()
-    //         .filter_map(|(key, value)| (*key == name).then_some(value))
-    //         .flatten()
-    //         .cloned()
-    //         .collect()
-    // }
+    pub fn with_name(&self, name: &str) -> Vec<Item> {
+        // This doesn't return an iterator as that would require `name` to be a static reference.
+        self.values()
+            .flatten()
+            .filter_map(|(key, value)| (*key == name).then_some(value))
+            .flatten()
+            .cloned()
+            .collect()
+    }
 
     /// Gets all items from the given namespace.
     pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
@@ -199,6 +198,24 @@ impl Reader {
             .flat_map(|map| map.values())
             .flatten()
             .cloned()
+    }
+
+    pub fn get_type_name(&self, path: &str) -> TypeName<'static> {
+        if let Some((namespace, name)) = path.rsplit_once('.') {
+            if let Some((namespace, items)) = self.get_key_value(namespace) {
+                if let Some((name, _)) = items.get_key_value(name) {
+                    return TypeName(namespace, name);
+                }
+            }
+        } else {
+            for (namespace, items) in self.iter() {
+                if let Some((name, _)) = items.get_key_value(path) {
+                    return TypeName(namespace, name);
+                }
+            }
+        }
+
+        panic!("Type not found: `{path}`");
     }
 }
 

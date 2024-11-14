@@ -117,7 +117,7 @@ impl CppStruct {
             }
         };
 
-        let mut derive = Derive::new();
+        let mut derive = DeriveWriter::new();
         let mut manual_clone = None;
 
         if writer.config.sys || is_copyable {

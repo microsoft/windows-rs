@@ -1,41 +1,35 @@
 use super::*;
 
-pub struct Derive(BTreeSet<String>);
+pub struct Derive(HashMap<TypeName<'static>, Vec<String>>);
 
 impl Derive {
-    pub fn new() -> Self {
-        Self(BTreeSet::new())
-    }
+    pub fn new(reader: &'static Reader, derive: &[&str]) -> Self {
+        let mut map = HashMap::new();
 
-    pub fn from<I, S>(names: I) -> Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        let mut derive = Self::new();
-        derive.add(names);
-        derive
-    }
+        for derive in derive.iter().copied() {
+            let Some((name, derive)) = derive.split_once('=') else {
+                invalid_derive();
+            };
 
-    pub fn add<I, S>(&mut self, names: I)
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for name in names {
-            let inserted = self.0.insert(name.as_ref().to_string());
-            debug_assert!(inserted);
+            let type_name = reader.get_type_name(name);
+            let derive = derive.split(',').map(|derive|derive.to_string()).collect();
+
+            // TODO: check for duplicates?
+            map.insert(type_name, derive);
         }
+
+        Self(map)
     }
+
+    // pub fn insert(&mut self, arg: &str) {
+    //     if let Some((name, derive)) = arg.split_once('=') {
+    //         derive
+    //     }
+    // }
 }
 
-impl ToTokens for Derive {
-    fn to_tokens(&self, tokens: &mut TokenStream) {
-        if !self.0.is_empty() {
-            let derive = self.0.iter().map(|derive| to_ident(derive));
-            tokens.combine(quote! {
-                #[derive(#(#derive),*)]
-            })
-        }
-    }
+fn invalid_derive() -> ! {
+    panic!(
+        "invalid `--derive` must be `<type name>=Comma,Separated,List"
+    );
 }

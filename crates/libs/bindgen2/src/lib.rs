@@ -8,6 +8,7 @@
 
 mod dependencies;
 mod derive;
+mod derive_writer;
 mod filter;
 mod guid;
 mod io;
@@ -26,6 +27,7 @@ mod writer;
 
 use dependencies::*;
 use derive::*;
+use derive_writer::*;
 use filter::*;
 use guid::*;
 use io::*;
@@ -71,6 +73,8 @@ struct Config {
     /// this provides implementation support for exclusive WinRT types only - other types can always
     /// be implemented
     pub implement: bool,
+
+    pub derive: Derive,
 }
 
 /// The Windows code generator.
@@ -86,6 +90,7 @@ where
     let mut include = Vec::new();
     let mut exclude = Vec::new();
     let mut references = Vec::new();
+    let mut derive = Vec::new();
 
     let mut flat = false;
     // let mut minimal = false;
@@ -110,6 +115,7 @@ where
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
                 "--reference" => kind = ArgKind::Reference,
+                "--derive" => kind = ArgKind::Derive,
                 "--flat" => flat = true,
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
@@ -135,7 +141,11 @@ where
                 }
             }
             ArgKind::Reference => {
+                // TODO: need to use Reader to validate reference type path?
                 references.push(ReferenceStage::parse(arg));
+            }
+            ArgKind::Derive => {
+                derive.push(arg.as_str());
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
@@ -169,11 +179,14 @@ where
 
     let references = References::new(reader, references);
 
+    let derive = Derive::new(reader, &derive);
+
     let config = Box::leak(Box::new(Config {
         tree,
         flat,
         //  minimal,
         references,
+        derive,
         no_allow,
         no_comment,
         no_deps,
@@ -213,6 +226,7 @@ enum ArgKind {
     Filter,
     Rustfmt,
     Reference,
+    Derive,
 }
 
 fn expand_args<I, S>(args: I) -> Vec<String>

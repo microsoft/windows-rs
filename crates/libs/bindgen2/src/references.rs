@@ -83,6 +83,7 @@ impl References {
             stage
                 .into_iter()
                 .map(|stage| {
+                    // TODO: does this validate the path?
                     let filter = Filter::new(reader, &[&stage.path], &[]);
                     let tree = NameTree::new(reader, &filter);
 

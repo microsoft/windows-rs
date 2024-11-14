@@ -4,7 +4,9 @@ use std::path::Path;
 use windows_bindgen2::bindgen;
 
 fn test(args: &str) {
-    bindgen(args.split_whitespace());
+    let mut expand = vec!["--in", "default"];
+    expand.extend(args.split_whitespace());
+    bindgen(expand);
 }
 
 fn main() {
