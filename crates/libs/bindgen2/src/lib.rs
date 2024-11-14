@@ -52,6 +52,9 @@ struct Config {
     pub references: References,
     pub output: String,
     pub flat: bool,
+    // pub skip_root: bool, TODO: need something like this for compat or have a style option like --reference
+    // where you can say style=<full/flat/skip-root> for consistency
+
     // pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     // and possibly types who's dependencies are filtered out?
     // and unscoped enum variants?
@@ -144,6 +147,10 @@ where
     if package && flat {
         panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
     }
+
+    if input.is_empty() {
+        panic!("windows-bindgen: one `--in` is required");
+    };
 
     if output.is_empty() {
         panic!("windows-bindgen: one `--out` is required");
@@ -261,7 +268,7 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 .flatten()
                 .map(|entry| entry.path())
             {
-                if path.is_file() {
+                if path.is_file() && path.extension().is_some_and(|extension|extension.to_ascii_lowercase() == "winmd") {
                     result.push(path.to_string_lossy().to_string());
                 }
             }
@@ -275,22 +282,30 @@ fn expand_input(input: &[&str]) -> Vec<File> {
     }
 
     let mut paths = vec![];
+    let mut use_default = false;
 
     for input in input {
-        expand_input(&mut paths, input);
+        if *input == "default" {
+            use_default = true;
+        } else {
+            expand_input(&mut paths, input);
+        }
     }
 
-    if paths.is_empty() {
-        [
+    let mut input = vec![];
+
+    if use_default {
+        input = [
             std::include_bytes!("../default/Windows.winmd").to_vec(),
             std::include_bytes!("../default/Windows.Win32.winmd").to_vec(),
             std::include_bytes!("../default/Windows.Wdk.winmd").to_vec(),
         ]
         .into_iter()
         .map(|bytes| File::new(bytes).unwrap())
-        .collect()
-    } else {
-        paths
+        .collect();
+    } 
+
+      input.extend(  paths
             .iter()
             .map(|path| {
                 let bytes = std::fs::read(path).unwrap_or_else(|_| {
@@ -300,9 +315,9 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 File::new(bytes).unwrap_or_else(|| {
                     panic!("windows-bindgen: failed to read .winmd format `{path}`")
                 })
-            })
-            .collect()
-    }
+            }));
+    
+            input
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
