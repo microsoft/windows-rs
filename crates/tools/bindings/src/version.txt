@@ -1,3 +1,4 @@
+--in default
 --out crates/libs/version/src/bindings.rs
 --flat --sys --no-comment
 

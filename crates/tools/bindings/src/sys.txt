@@ -1,3 +1,4 @@
+--in default
 --out crates/libs/sys
 --package --sys --no-comment --no-allow
 --rustfmt max_width=800,newline_style=Unix

@@ -5,7 +5,9 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+pub type CONTEXT_FLAGS = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
@@ -191,89 +193,4 @@ pub struct CONTEXT {
     pub Esp: u32,
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
-}
-pub type CONTEXT_FLAGS = u32;
-#[repr(C)]
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-#[derive(Clone, Copy)]
-pub struct FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Cr0NpxState: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Spare0: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct M128A {
-    pub Low: u64,
-    pub High: i64,
-}
-#[repr(C)]
-#[cfg(any(
-    target_arch = "aarch64",
-    target_arch = "arm64ec",
-    target_arch = "x86_64"
-))]
-#[derive(Clone, Copy)]
-pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
-    pub FloatRegisters: [M128A; 8],
-    pub XmmRegisters: [M128A; 16],
-    pub Reserved4: [u8; 96],
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy)]
-pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
-    pub FloatRegisters: [M128A; 8],
-    pub XmmRegisters: [M128A; 8],
-    pub Reserved4: [u8; 224],
 }

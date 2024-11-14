@@ -71,50 +71,48 @@ impl Writer {
             tokens.push_str(&reference.name);
             tokens.push_str("::");
 
-            if reference.style == ReferenceStyle::Flat { return tokens; }
+            if reference.style == ReferenceStyle::Flat {
+                return tokens;
+            }
 
             let mut namespace = type_name.namespace().split('.').peekable();
 
             if reference.style == ReferenceStyle::SkipRoot {
                 namespace.next();
             }
-    
+
             for namespace in namespace {
                 tokens.push_str(namespace);
                 tokens.push_str("::");
             }
-    
+
             tokens
         } else {
-            if self.config.flat
-                || type_name.namespace() == self.namespace
-            {
+            if self.config.flat || type_name.namespace() == self.namespace {
                 return tokens;
             }
 
             let mut relative = self.namespace.split('.').peekable();
             let mut namespace = type_name.namespace().split('.').peekable();
-    
+
             while relative.peek() == namespace.peek() {
                 if relative.next().is_none() {
                     break;
                 }
-    
+
                 namespace.next();
             }
-    
+
             for _ in 0..relative.count() {
                 tokens.push_str("super::");
             }
-    
+
             for namespace in namespace {
                 tokens.push_str(namespace);
                 tokens.push_str("::");
             }
-    
+
             tokens
         }
-
-
     }
 }

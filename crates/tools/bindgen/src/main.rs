@@ -72,7 +72,7 @@ fn main() {
     test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat --no-comment");
     test("--out winrt_class_without_handler.rs --filter Deferral --flat --no-comment");
 
-   test("--out reference.rs --filter IMemoryBuffer --flat --no-comment --reference name=windows,style=skip-root,path=IMemoryBufferReference");
+    test("--out reference.rs --filter IMemoryBuffer --flat --no-comment --reference name=windows,style=skip-root,path=IMemoryBufferReference");
 
     // TODO: need to test 3rd party package support and make sure we can compose code gen from different sources
     // test("--out package --filter WwwFormUrlDecoder --package");

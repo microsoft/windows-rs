@@ -5,5 +5,23 @@
     dead_code,
     clippy::all
 )]
-windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : * mut core::ffi::c_void, instance : *mut * mut core::ffi::c_void) -> HRESULT);
+
+windows_targets::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoActivateInstance(activatableclassid : HSTRING, instance : *mut * mut core::ffi::c_void) -> HRESULT);
+pub type HSTRING = *mut core::ffi::c_void;
 pub type HRESULT = i32;
+pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+#[repr(C)]
+pub struct IInspectable_Vtbl {
+    pub base: IUnknown_Vtbl,
+    pub GetIids: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        count: *mut u32,
+        values: *mut *mut GUID,
+    ) -> HRESULT,
+    pub GetRuntimeClassName: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        value: *mut *mut core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetTrustLevel:
+        unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
+}

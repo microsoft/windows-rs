@@ -26,6 +26,21 @@ impl NameTree {
                             item.dependencies(&mut item_dependencies);
                         }
 
+                        // TODO: The above doesn't work for multi-arch dependencies and the below
+                        // doesn't work for multi-arch dependencies of dependencies.
+                        
+                        // let item_dependencies = reader[namespace][name]
+                        //     .iter()
+                        //     .map(|item| {
+                        //         let mut dependencies = Dependencies::new();
+                        //         item.dependencies(&mut dependencies);
+                        //         dependencies
+                        //     })
+                        //     .fold(Dependencies::new(), |mut dependencies, item| {
+                        //         dependencies.combine(&item);
+                        //         dependencies
+                        //     });
+
                         if item_dependencies.excluded(filter) {
                             continue;
                         }

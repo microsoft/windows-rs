@@ -224,11 +224,7 @@ fn write_win(output: &Path, filter: &[&str]) {
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {
-    bindgen(
-        output,
-        filter,
-        &["--flat", "--no-allow"],
-    );
+    bindgen(output, filter, &["--flat", "--no-allow"]);
 }
 
 fn write_vtbl(output: &Path, filter: &[&str]) {
@@ -237,7 +233,7 @@ fn write_vtbl(output: &Path, filter: &[&str]) {
 
 fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     let output: &str = output.as_os_str().to_str().unwrap();
-    let mut args = vec!["--in", "default", "--out", output, "--filter"];
+    let mut args = vec!["--no-deps", "--in", "default", "--out", output, "--filter"];
     args.extend_from_slice(filter);
     args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);

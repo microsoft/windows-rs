@@ -2168,7 +2168,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
             match IReferenceArray_Impl::Value(this) {
                 Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    result__.write(ok_data__);
+                    result__.write(core::mem::transmute(ok_data__));
                     result_size__.write(ok_data_len__);
                     windows_core::HRESULT(0)
                 }

@@ -12,7 +12,7 @@ impl Derive {
             };
 
             let type_name = reader.get_type_name(name);
-            let derive = derive.split(',').map(|derive|derive.to_string()).collect();
+            let derive = derive.split(',').map(|derive| derive.to_string()).collect();
 
             // TODO: check for duplicates?
             map.insert(type_name, derive);
@@ -21,7 +21,7 @@ impl Derive {
         Self(map)
     }
 
-    pub fn get<'a>(&'a self, type_name: TypeName<'a>) -> impl Iterator<Item = String> + 'a  {
+    pub fn get<'a>(&'a self, type_name: TypeName<'a>) -> impl Iterator<Item = String> + 'a {
         self.0.get(&type_name).into_iter().flatten().cloned()
     }
 
@@ -33,7 +33,5 @@ impl Derive {
 }
 
 fn invalid_derive() -> ! {
-    panic!(
-        "invalid `--derive` must be `<type name>=Comma,Separated,List"
-    );
+    panic!("invalid `--derive` must be `<type name>=Comma,Separated,List");
 }

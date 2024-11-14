@@ -23,12 +23,12 @@ impl DeriveWriter {
         Self(derive)
     }
 
-    pub fn extend<I, S>(&mut self, iter: I) 
+    pub fn extend<I, S>(&mut self, iter: I)
     where
-    I: IntoIterator<Item = S>,
-    S: AsRef<str> + ToString,
+        I: IntoIterator<Item = S>,
+        S: AsRef<str> + ToString,
     {
-        self.0.extend(iter.into_iter().map(|s|s.to_string()));
+        self.0.extend(iter.into_iter().map(|s| s.to_string()));
     }
 }
 

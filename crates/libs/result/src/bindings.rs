@@ -58,8 +58,7 @@ pub type WIN32_ERROR = u32;
 pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
-pub type BSTR = *const u16;
-pub type HRESULT = i32;
+pub type PCWSTR = *const u16;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct GUID {
@@ -78,9 +77,9 @@ impl GUID {
         }
     }
 }
-pub type PWSTR = *mut u16;
+pub type BSTR = *const u16;
 pub type PCSTR = *const u8;
-pub type PCWSTR = *const u16;
+pub type HRESULT = i32;
 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
 #[repr(C)]
 pub struct IUnknown_Vtbl {
@@ -92,3 +91,4 @@ pub struct IUnknown_Vtbl {
     pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
 }
+pub type PWSTR = *mut u16;

@@ -209,7 +209,7 @@ where
     // TODO: this is where we need to populate the tree with methods based on whether or not they're included!!
     let items = ItemTree::new(reader, &config);
 
-    // dbg!(&items);
+    // dbg!(&config.tree);
 
     let writer = Writer {
         config,
@@ -283,7 +283,11 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 .flatten()
                 .map(|entry| entry.path())
             {
-                if path.is_file() && path.extension().is_some_and(|extension|extension.to_ascii_lowercase() == "winmd") {
+                if path.is_file()
+                    && path
+                        .extension()
+                        .is_some_and(|extension| extension.to_ascii_lowercase() == "winmd")
+                {
                     result.push(path.to_string_lossy().to_string());
                 }
             }
@@ -318,21 +322,17 @@ fn expand_input(input: &[&str]) -> Vec<File> {
         .into_iter()
         .map(|bytes| File::new(bytes).unwrap())
         .collect();
-    } 
+    }
 
-      input.extend(  paths
-            .iter()
-            .map(|path| {
-                let bytes = std::fs::read(path).unwrap_or_else(|_| {
-                    panic!("windows-bindgen: failed to read binary file `{path}`")
-                });
+    input.extend(paths.iter().map(|path| {
+        let bytes = std::fs::read(path)
+            .unwrap_or_else(|_| panic!("windows-bindgen: failed to read binary file `{path}`"));
 
-                File::new(bytes).unwrap_or_else(|| {
-                    panic!("windows-bindgen: failed to read .winmd format `{path}`")
-                })
-            }));
-    
-            input
+        File::new(bytes)
+            .unwrap_or_else(|| panic!("windows-bindgen: failed to read .winmd format `{path}`"))
+    }));
+
+    input
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {

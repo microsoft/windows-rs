@@ -1,7 +1,8 @@
 // These will use `windows` style bindings and include COM APIs.
 
+--in default
 --out crates/libs/core/src/imp/com_bindings.rs
---flat --minimal --no-comment
+--flat --no-comment
 
 --filter
     Windows.Win32.Foundation.CO_E_NOTINITIALIZED
