@@ -11,11 +11,11 @@ concurrency:
 
 on:
   pull_request:
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
+    paths:
+      - 'web/**'
   push:
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
+    paths:
+      - 'web/**'
     branches:
       - master
   workflow_dispatch:
