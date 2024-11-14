@@ -72,6 +72,16 @@ impl Writer {
                             pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
                         }
                     },
+                    "Object" => quote! {
+                        pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+                        #[repr(C)]
+                        pub struct IInspectable_Vtbl {
+                            pub base: IUnknown_Vtbl,
+                            pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
+                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
+                        }
+                    },
                     rest => panic!("windows-bindgen: {rest:?}"),
                 });
             }
