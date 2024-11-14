@@ -20,6 +20,8 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
+    test("--out derive.rs --filter DateTime --sys --flat --no-comment");// --derive DateTime=PartialOrd");
+
     // Very minimal example of generating just a single item.
     test("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 

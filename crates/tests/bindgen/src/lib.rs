@@ -9,6 +9,7 @@ pub mod cpp_interface2;
 pub mod deps;
 pub mod deps2;
 pub mod deps3;
+pub mod derive;
 pub mod iota;
 pub mod reference;
 pub mod udt_return_interface;

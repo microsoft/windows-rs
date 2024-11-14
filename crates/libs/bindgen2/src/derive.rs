@@ -21,6 +21,10 @@ impl Derive {
         Self(map)
     }
 
+    pub fn get<'a>(&'a self, type_name: TypeName<'a>) -> impl Iterator<Item = String> + 'a  {
+        self.0.get(&type_name).into_iter().flatten().cloned()
+    }
+
     // pub fn insert(&mut self, arg: &str) {
     //     if let Some((name, derive)) = arg.split_once('=') {
     //         derive

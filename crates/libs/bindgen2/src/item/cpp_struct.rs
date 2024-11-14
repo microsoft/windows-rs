@@ -117,11 +117,11 @@ impl CppStruct {
             }
         };
 
-        let mut derive = DeriveWriter::new();
+        let mut derive = DeriveWriter::new(writer, self.type_name());
         let mut manual_clone = None;
 
         if writer.config.sys || is_copyable {
-            derive.add(["Clone", "Copy"]);
+            derive.extend(["Clone", "Copy"]);
         } else if !matches!(
             TypeName(self.def.namespace(), self.def.name()),
             TypeName::VARIANT | TypeName::PROPVARIANT
@@ -136,12 +136,12 @@ impl CppStruct {
                     }
                 });
             } else if !has_packing {
-                derive.add(["Clone"]);
+                derive.extend(["Clone"]);
             }
         }
 
         if !writer.config.sys && !has_explicit_layout && !has_packing {
-            derive.add(["Debug", "PartialEq"]);
+            derive.extend(["Debug", "PartialEq"]);
         }
 
         // TODO: add any user-defined derive names

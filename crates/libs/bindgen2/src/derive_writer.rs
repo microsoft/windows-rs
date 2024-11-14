@@ -2,30 +2,33 @@ use super::*;
 
 pub struct DeriveWriter(BTreeSet<String>);
 
+// impl std::ops::Deref for DeriveWriter {
+//     type Target = BTreeSet<String>;
+
+//     fn deref(&self) -> &Self::Target {
+//         &self.0
+//     }
+// }
+
+// impl core::ops::DerefMut for DeriveWriter {
+//     fn deref_mut(&mut self) -> &mut BTreeSet<String> {
+//         &mut self.0
+//     }
+// }
+
 impl DeriveWriter {
-    pub fn new() -> Self {
-        Self(BTreeSet::new())
+    pub fn new(writer: &Writer, type_name: TypeName<'_>) -> Self {
+        let mut derive = BTreeSet::new();
+        derive.extend(writer.config.derive.get(type_name));
+        Self(derive)
     }
 
-    pub fn from<I, S>(names: I) -> Self
+    pub fn extend<I, S>(&mut self, iter: I) 
     where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
+    I: IntoIterator<Item = S>,
+    S: AsRef<str> + ToString,
     {
-        let mut derive = Self::new();
-        derive.add(names);
-        derive
-    }
-
-    pub fn add<I, S>(&mut self, names: I)
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for name in names {
-            let inserted = self.0.insert(name.as_ref().to_string());
-            debug_assert!(inserted);
-        }
+        self.0.extend(iter.into_iter().map(|s|s.to_string()));
     }
 }
 
