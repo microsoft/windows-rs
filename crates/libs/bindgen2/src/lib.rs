@@ -52,6 +52,7 @@ struct Config {
     pub references: References,
     pub output: String,
     pub flat: bool,
+    // Editor: probably want to say no to this since it can be achieved in Rust and we should avoid duplicating facilities that Rust itself can provide.
     // pub skip_root: bool, TODO: need something like this for compat or have a style option like --reference
     // where you can say style=<full/flat/skip-root> for consistency
 

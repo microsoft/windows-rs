@@ -11,7 +11,7 @@ doctest = false
 [dependencies.windows-core]
 workspace = true
 
-[build-dependencies.windows-bindgen]
+[build-dependencies.windows-bindgen2]
 workspace = true
 
 [build-dependencies]
