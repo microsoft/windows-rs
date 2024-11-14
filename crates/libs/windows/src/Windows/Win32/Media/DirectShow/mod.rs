@@ -35481,22 +35481,6 @@ impl Default for DVD_PLAYBACK_LOCATION2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DVD_REGION {
-    pub CopySystem: u8,
-    pub RegionData: u8,
-    pub SystemRegion: u8,
-    pub ResetCount: u8,
-}
-impl windows_core::TypeKind for DVD_REGION {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DVD_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
     pub CodingMode: DVD_SUBPICTURE_CODING,

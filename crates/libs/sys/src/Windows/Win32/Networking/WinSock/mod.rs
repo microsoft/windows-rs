@@ -142,7 +142,7 @@ windows_targets::link!("mswsock.dll" "system" fn WSARecvEx(s : SOCKET, buf : win
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("ws2_32.dll" "system" fn WSARecvFrom(s : SOCKET, lpbuffers : *const WSABUF, dwbuffercount : u32, lpnumberofbytesrecvd : *mut u32, lpflags : *mut u32, lpfrom : *mut SOCKADDR, lpfromlen : *mut i32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSARemoveServiceClass(lpserviceclassid : *const windows_sys::core::GUID) -> i32);
-windows_targets::link!("ws2_32.dll" "system" fn WSAResetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("ws2_32.dll" "system" fn WSAResetEvent(hevent : WSAEVENT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("fwpuclnt.dll" "system" fn WSARevertImpersonation() -> i32);
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("ws2_32.dll" "system" fn WSASend(s : SOCKET, lpbuffers : *const WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
@@ -152,7 +152,7 @@ windows_targets::link!("ws2_32.dll" "system" fn WSASendMsg(handle : SOCKET, lpms
 #[cfg(feature = "Win32_System_IO")]
 windows_targets::link!("ws2_32.dll" "system" fn WSASendTo(s : SOCKET, lpbuffers : *const WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpto : *const SOCKADDR, itolen : i32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
 windows_targets::link!("ws2_32.dll" "system" fn WSASetBlockingHook(lpblockfunc : super::super::Foundation:: FARPROC) -> super::super::Foundation:: FARPROC);
-windows_targets::link!("ws2_32.dll" "system" fn WSASetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+windows_targets::link!("ws2_32.dll" "system" fn WSASetEvent(hevent : WSAEVENT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("ws2_32.dll" "system" fn WSASetLastError(ierror : i32));
 #[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("ws2_32.dll" "system" fn WSASetServiceA(lpqsreginfo : *const WSAQUERYSETA, essoperation : WSAESETSERVICEOP, dwcontrolflags : u32) -> i32);

@@ -362,12 +362,12 @@ where
     CreateEnhMetaFileW(hdc.param().abi(), lpfilename.param().abi(), core::mem::transmute(lprc.unwrap_or(core::ptr::null())), lpdesc.param().abi())
 }
 #[inline]
-pub unsafe fn CreateFontA<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
+pub unsafe fn CreateFontA<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: FONT_CHARSET, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_core::PCSTR) -> HFONT);
-    CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.param().abi())
+    CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, ipitchandfamily, pszfacename.param().abi())
 }
 #[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
@@ -395,12 +395,12 @@ pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, 
     CreateFontPackage(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved)
 }
 #[inline]
-pub unsafe fn CreateFontW<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
+pub unsafe fn CreateFontW<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: FONT_CHARSET, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : windows_core::PCWSTR) -> HFONT);
-    CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.param().abi())
+    CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset.0 as _, ioutprecision.0 as _, iclipprecision.0 as _, iquality.0 as _, ipitchandfamily, pszfacename.param().abi())
 }
 #[inline]
 pub unsafe fn CreateHalftonePalette<P0>(hdc: P0) -> HPALETTE
@@ -3413,21 +3413,21 @@ pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
 pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
-pub const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64u32;
-pub const DISPLAY_DEVICE_ACTIVE: u32 = 1u32;
-pub const DISPLAY_DEVICE_ATTACHED: u32 = 2u32;
-pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: u32 = 1u32;
-pub const DISPLAY_DEVICE_DISCONNECT: u32 = 33554432u32;
-pub const DISPLAY_DEVICE_MIRRORING_DRIVER: u32 = 8u32;
-pub const DISPLAY_DEVICE_MODESPRUNED: u32 = 134217728u32;
-pub const DISPLAY_DEVICE_MULTI_DRIVER: u32 = 2u32;
-pub const DISPLAY_DEVICE_PRIMARY_DEVICE: u32 = 4u32;
-pub const DISPLAY_DEVICE_RDPUDD: u32 = 16777216u32;
-pub const DISPLAY_DEVICE_REMOTE: u32 = 67108864u32;
-pub const DISPLAY_DEVICE_REMOVABLE: u32 = 32u32;
-pub const DISPLAY_DEVICE_TS_COMPATIBLE: u32 = 2097152u32;
-pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
-pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
+pub const DISPLAY_DEVICE_ACC_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(64u32);
+pub const DISPLAY_DEVICE_ACTIVE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
+pub const DISPLAY_DEVICE_ATTACHED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
+pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(1u32);
+pub const DISPLAY_DEVICE_DISCONNECT: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(33554432u32);
+pub const DISPLAY_DEVICE_MIRRORING_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(8u32);
+pub const DISPLAY_DEVICE_MODESPRUNED: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(134217728u32);
+pub const DISPLAY_DEVICE_MULTI_DRIVER: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2u32);
+pub const DISPLAY_DEVICE_PRIMARY_DEVICE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(4u32);
+pub const DISPLAY_DEVICE_RDPUDD: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16777216u32);
+pub const DISPLAY_DEVICE_REMOTE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(67108864u32);
+pub const DISPLAY_DEVICE_REMOVABLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(32u32);
+pub const DISPLAY_DEVICE_TS_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(2097152u32);
+pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(524288u32);
+pub const DISPLAY_DEVICE_VGA_COMPATIBLE: DISPLAY_DEVICE_STATE_FLAGS = DISPLAY_DEVICE_STATE_FLAGS(16u32);
 pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
 pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
 pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
@@ -5170,6 +5170,50 @@ impl windows_core::TypeKind for DISPLAYCONFIG_COLOR_ENCODING {
 impl core::fmt::Debug for DISPLAYCONFIG_COLOR_ENCODING {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("DISPLAYCONFIG_COLOR_ENCODING").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct DISPLAY_DEVICE_STATE_FLAGS(pub u32);
+impl windows_core::TypeKind for DISPLAY_DEVICE_STATE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DISPLAY_DEVICE_STATE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISPLAY_DEVICE_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl DISPLAY_DEVICE_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DISPLAY_DEVICE_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DISPLAY_DEVICE_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DISPLAY_DEVICE_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -6958,7 +7002,7 @@ pub struct DISPLAY_DEVICEA {
     pub cb: u32,
     pub DeviceName: [i8; 32],
     pub DeviceString: [i8; 128],
-    pub StateFlags: u32,
+    pub StateFlags: DISPLAY_DEVICE_STATE_FLAGS,
     pub DeviceID: [i8; 128],
     pub DeviceKey: [i8; 128],
 }
@@ -6976,7 +7020,7 @@ pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
     pub DeviceString: [u16; 128],
-    pub StateFlags: u32,
+    pub StateFlags: DISPLAY_DEVICE_STATE_FLAGS,
     pub DeviceID: [u16; 128],
     pub DeviceKey: [u16; 128],
 }

@@ -36,10 +36,14 @@ pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const windows_core::G
     windows_targets::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *const windows_core::GUID, compartmentid : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
     ConvertCompartmentGuidToId(compartmentguid, compartmentid)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut windows_core::GUID) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn ConvertCompartmentIdToGuid(compartmentid : u32, compartmentguid : *mut windows_core::GUID) -> super::super::Foundation:: WIN32_ERROR);
-    ConvertCompartmentIdToGuid(compartmentid, compartmentguid)
+pub unsafe fn ConvertCompartmentIdToGuid<P0>(compartmentid: P0, compartmentguid: *mut windows_core::GUID) -> super::super::Foundation::WIN32_ERROR
+where
+    P0: windows_core::Param<super::Ndis::NET_IF_COMPARTMENT_ID>,
+{
+    windows_targets::link!("iphlpapi.dll" "system" fn ConvertCompartmentIdToGuid(compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, compartmentguid : *mut windows_core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+    ConvertCompartmentIdToGuid(compartmentid.param().abi(), compartmentguid)
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
@@ -334,9 +338,10 @@ pub unsafe fn GetBestRoute2(interfaceluid: Option<*const super::Ndis::NET_LUID_L
     windows_targets::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::Ndis:: NET_LUID_LH, interfaceindex : u32, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::super::Networking::WinSock:: SOCKADDR_INET) -> super::super::Foundation:: WIN32_ERROR);
     GetBestRoute2(core::mem::transmute(interfaceluid.unwrap_or(core::ptr::null())), interfaceindex, core::mem::transmute(sourceaddress.unwrap_or(core::ptr::null())), destinationaddress, addresssortoptions, bestroute, bestsourceaddress)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetCurrentThreadCompartmentId() -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetCurrentThreadCompartmentId() -> super::super::Foundation:: WIN32_ERROR);
+pub unsafe fn GetCurrentThreadCompartmentId() -> super::Ndis::NET_IF_COMPARTMENT_ID {
+    windows_targets::link!("iphlpapi.dll" "system" fn GetCurrentThreadCompartmentId() -> super::Ndis:: NET_IF_COMPARTMENT_ID);
     GetCurrentThreadCompartmentId()
 }
 #[inline]
@@ -344,9 +349,10 @@ pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compa
     windows_targets::link!("iphlpapi.dll" "system" fn GetCurrentThreadCompartmentScope(compartmentscope : *mut u32, compartmentid : *mut u32));
     GetCurrentThreadCompartmentScope(compartmentscope, compartmentid)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetDefaultCompartmentId() -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetDefaultCompartmentId() -> super::super::Foundation:: WIN32_ERROR);
+pub unsafe fn GetDefaultCompartmentId() -> super::Ndis::NET_IF_COMPARTMENT_ID {
+    windows_targets::link!("iphlpapi.dll" "system" fn GetDefaultCompartmentId() -> super::Ndis:: NET_IF_COMPARTMENT_ID);
     GetDefaultCompartmentId()
 }
 #[inline]
@@ -560,12 +566,13 @@ pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: u32) ->
     windows_targets::link!("iphlpapi.dll" "system" fn GetIpStatisticsEx(statistics : *mut MIB_IPSTATS_LH, family : u32) -> u32);
     GetIpStatisticsEx(statistics, family)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetJobCompartmentId<P0>(jobhandle: P0) -> u32
+pub unsafe fn GetJobCompartmentId<P0>(jobhandle: P0) -> super::Ndis::NET_IF_COMPARTMENT_ID
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE) -> u32);
+    windows_targets::link!("iphlpapi.dll" "system" fn GetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE) -> super::Ndis:: NET_IF_COMPARTMENT_ID);
     GetJobCompartmentId(jobhandle.param().abi())
 }
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
@@ -677,9 +684,10 @@ pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops:
     windows_targets::link!("iphlpapi.dll" "system" fn GetRTTAndHopCount(destipaddress : u32, hopcount : *mut u32, maxhops : u32, rtt : *mut u32) -> super::super::Foundation:: BOOL);
     GetRTTAndHopCount(destipaddress, hopcount, maxhops, rtt).ok()
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn GetSessionCompartmentId(sessionid : u32) -> super::super::Foundation:: WIN32_ERROR);
+pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::Ndis::NET_IF_COMPARTMENT_ID {
+    windows_targets::link!("iphlpapi.dll" "system" fn GetSessionCompartmentId(sessionid : u32) -> super::Ndis:: NET_IF_COMPARTMENT_ID);
     GetSessionCompartmentId(sessionid)
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -1094,10 +1102,14 @@ pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut core::ffi::c_void,
     windows_targets::link!("iphlpapi.dll" "system" fn SendARP(destip : u32, srcip : u32, pmacaddr : *mut core::ffi::c_void, phyaddrlen : *mut u32) -> u32);
     SendARP(destip, srcip, pmacaddr, phyaddrlen)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentId(compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SetCurrentThreadCompartmentId(compartmentid)
+pub unsafe fn SetCurrentThreadCompartmentId<P0>(compartmentid: P0) -> super::super::Foundation::WIN32_ERROR
+where
+    P0: windows_core::Param<super::Ndis::NET_IF_COMPARTMENT_ID>,
+{
+    windows_targets::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentId(compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID) -> super::super::Foundation:: WIN32_ERROR);
+    SetCurrentThreadCompartmentId(compartmentid.param().abi())
 }
 #[inline]
 pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> super::super::Foundation::WIN32_ERROR {
@@ -1163,21 +1175,25 @@ pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
     windows_targets::link!("iphlpapi.dll" "system" fn SetIpTTL(nttl : u32) -> u32);
     SetIpTTL(nttl)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetJobCompartmentId<P0>(jobhandle: P0, compartmentid: u32) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetJobCompartmentId<P0, P1>(jobhandle: P0, compartmentid: P1) -> super::super::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::Ndis::NET_IF_COMPARTMENT_ID>,
 {
-    windows_targets::link!("iphlpapi.dll" "system" fn SetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE, compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SetJobCompartmentId(jobhandle.param().abi(), compartmentid)
+    windows_targets::link!("iphlpapi.dll" "system" fn SetJobCompartmentId(jobhandle : super::super::Foundation:: HANDLE, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID) -> super::super::Foundation:: WIN32_ERROR);
+    SetJobCompartmentId(jobhandle.param().abi(), compartmentid.param().abi())
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetNetworkInformation<P0>(networkguid: *const windows_core::GUID, compartmentid: u32, networkname: P0) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn SetNetworkInformation<P0, P1>(networkguid: *const windows_core::GUID, compartmentid: P0, networkname: P1) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<super::Ndis::NET_IF_COMPARTMENT_ID>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : u32, networkname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    SetNetworkInformation(networkguid, compartmentid, networkname.param().abi())
+    windows_targets::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const windows_core::GUID, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+    SetNetworkInformation(networkguid, compartmentid.param().abi(), networkname.param().abi())
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -1190,10 +1206,14 @@ pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: T
     windows_targets::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : *const MIB_TCPROW_LH, estatstype : TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
     SetPerTcpConnectionEStats(row, estatstype, core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset)
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[inline]
-pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> super::super::Foundation::WIN32_ERROR {
-    windows_targets::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SetSessionCompartmentId(sessionid, compartmentid)
+pub unsafe fn SetSessionCompartmentId<P0>(sessionid: u32, compartmentid: P0) -> super::super::Foundation::WIN32_ERROR
+where
+    P0: windows_core::Param<super::Ndis::NET_IF_COMPARTMENT_ID>,
+{
+    windows_targets::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : super::Ndis:: NET_IF_COMPARTMENT_ID) -> super::super::Foundation:: WIN32_ERROR);
+    SetSessionCompartmentId(sessionid, compartmentid.param().abi())
 }
 #[inline]
 pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
@@ -2559,7 +2579,7 @@ pub struct IP_ADAPTER_ADDRESSES_LH {
     pub Ipv6Metric: u32,
     pub Luid: super::Ndis::NET_LUID_LH,
     pub Dhcpv4Server: super::super::Networking::WinSock::SOCKET_ADDRESS,
-    pub CompartmentId: u32,
+    pub CompartmentId: super::Ndis::NET_IF_COMPARTMENT_ID,
     pub NetworkGuid: windows_core::GUID,
     pub ConnectionType: super::Ndis::NET_IF_CONNECTION_TYPE,
     pub TunnelType: super::Ndis::TUNNEL_TYPE,

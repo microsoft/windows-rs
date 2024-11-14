@@ -870,9 +870,9 @@ pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const windows_core::GUID)
 #[inline]
 pub unsafe fn WSAResetEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<WSAEVENT>,
 {
-    windows_targets::link!("ws2_32.dll" "system" fn WSAResetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ws2_32.dll" "system" fn WSAResetEvent(hevent : WSAEVENT) -> super::super::Foundation:: BOOL);
     WSAResetEvent(hevent.param().abi()).ok()
 }
 #[inline]
@@ -923,9 +923,9 @@ pub unsafe fn WSASetBlockingHook(lpblockfunc: super::super::Foundation::FARPROC)
 #[inline]
 pub unsafe fn WSASetEvent<P0>(hevent: P0) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<WSAEVENT>,
 {
-    windows_targets::link!("ws2_32.dll" "system" fn WSASetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("ws2_32.dll" "system" fn WSASetEvent(hevent : WSAEVENT) -> super::super::Foundation:: BOOL);
     WSASetEvent(hevent.param().abi()).ok()
 }
 #[inline]
