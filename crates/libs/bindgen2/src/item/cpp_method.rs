@@ -214,7 +214,7 @@ impl CppMethod {
                         }
                     }
                 }
-                Type::Item(Item::CppStruct(item))
+                Type::CppStruct(item)
                     if TypeName(item.def.namespace(), item.def.name()) == TypeName::BOOL
                         && last_error =>
                 {
@@ -222,7 +222,7 @@ impl CppMethod {
                     return_hint = ReturnHint::ResultVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::Item(Item::CppStruct(item)) if !item.is_handle() => {
+                Type::CppStruct(item) if !item.is_handle() => {
                     return_hint = ReturnHint::ReturnStruct
                 }
                 _ => {}
@@ -257,7 +257,7 @@ impl CppMethod {
         for (position, (ty, _)) in self.signature.params.iter().enumerate() {
             if self.param_hints[position] == ParamHint::IntoParam {
                 let name: TokenStream = format!("P{position}").into();
-                let into = ty.write(writer);
+                let into = ty.write_name(writer);
                 tokens.combine(quote! { #name: windows_core::Param<#into>, })
             }
         }
@@ -324,7 +324,7 @@ impl CppMethod {
                     quote! { map(||core::mem::transmute(result__)) }
                 };
 
-                let return_type = return_type.write(writer);
+                let return_type = return_type.write_name(writer);
 
                 quote! {
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
@@ -350,7 +350,7 @@ impl CppMethod {
                     .deref();
 
                 if return_type.is_nullable() {
-                    let return_type = return_type.write(writer);
+                    let return_type = return_type.write_name(writer);
 
                     quote! {
                         pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
@@ -366,7 +366,7 @@ impl CppMethod {
                         quote! { core::mem::transmute(result__) }
                     };
 
-                    let return_type = return_type.write(writer);
+                    let return_type = return_type.write_name(writer);
                     let where_clause = self.write_where(writer, false);
 
                     quote! {
@@ -379,7 +379,7 @@ impl CppMethod {
                 }
             }
             ReturnHint::ReturnStruct => {
-                let return_type = self.signature.return_type.0.write(writer);
+                let return_type = self.signature.return_type.0.write_name(writer);
                 let where_clause = self.write_where(writer, false);
 
                 quote! {
@@ -508,7 +508,7 @@ impl CppMethod {
                 let return_type = self.signature.params[self.signature.params.len() - 1]
                     .0
                     .deref();
-                let return_type = return_type.write(writer);
+                let return_type = return_type.write_name(writer);
 
                 quote! { -> windows_core::Result<#return_type> }
             }
@@ -738,7 +738,7 @@ impl CppMethod {
     pub fn handle_last_error(&self) -> bool {
         if let Some(map) = self.def.impl_map() {
             if map.flags().contains(PInvokeAttributes::SupportsLastError) {
-                if let Type::Item(Item::CppStruct(item)) = &self.signature.return_type.0 {
+                if let Type::CppStruct(item) = &self.signature.return_type.0 {
                     if item.is_handle() {
                         // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
                         if self.def.name() == "LocalFree" {
@@ -766,7 +766,7 @@ fn write_produce_type(writer: &Writer, ty: &Type, param: Param) -> TokenStream {
         if ty.is_primitive() {
             quote! { #name: #kind, }
         } else if ty.is_nullable() {
-            let kind = ty.write(writer);
+            let kind = ty.write_name(writer);
             quote! { #name: Option<&#kind>, }
         } else {
             quote! { #name: &#kind, }

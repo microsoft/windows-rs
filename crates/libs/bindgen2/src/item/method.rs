@@ -150,7 +150,7 @@ impl Method {
                 } else if p.0.is_primitive() {
                     quote! { #default_type }
                 } else if p.0.is_nullable() {
-                    let type_name = p.0.write(writer);
+                    let type_name = p.0.write_name(writer);
                     quote! { Option<&#type_name> }
                 } else {
                     quote! { &#default_type }
@@ -158,7 +158,7 @@ impl Method {
             } else if p.0.is_winrt_array() {
                 quote! { &mut [#default_type] }
             } else if p.0.is_winrt_array_ref() {
-                let kind = p.0.write(writer);
+                let kind = p.0.write_name(writer);
                 quote! { &mut windows_core::Array<#kind> }
             } else {
                 quote! { &mut #default_type }
@@ -175,7 +175,7 @@ impl Method {
         let return_type_tokens = if self.signature.return_type.0 == Type::Void {
             quote! { () }
         } else {
-            let tokens = self.signature.return_type.0.write(writer);
+            let tokens = self.signature.return_type.0.write_name(writer);
 
             if self.signature.return_type.0.is_winrt_array() {
                 quote! { windows_core::Array<#tokens> }
@@ -345,7 +345,7 @@ impl Method {
                 Type::Void => quote! {},
                 ty => {
                     if ty.is_winrt_array() {
-                        let ty = ty.write(writer);
+                        let ty = ty.write_name(writer);
                         quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
                     } else {
                         quote! { &mut result__ }
@@ -383,7 +383,7 @@ impl Method {
                 .filter_map(|(position, (ty, def))| {
                     if is_convertible(ty, *def) {
                         let name: TokenStream = format!("P{position}").into();
-                        let ty = ty.write(writer);
+                        let ty = ty.write_name(writer);
 
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -401,7 +401,7 @@ impl Method {
 
         let params = params.iter().enumerate().map(|(position, param)| {
             let name = to_ident(&param.1.name().to_lowercase());
-            let kind = param.0.write(writer);
+            let kind = param.0.write_name(writer);
             let default_type = param.0.write_default(writer);
 
             if param.1.flags().contains(ParamAttributes::In) {
@@ -427,7 +427,7 @@ impl Method {
         let return_type = match &self.signature.return_type.0 {
             Type::Void => quote! { () },
             _ => {
-                let tokens = self.signature.return_type.0.write(writer);
+                let tokens = self.signature.return_type.0.write_name(writer);
                 if self.signature.return_type.0.is_winrt_array() {
                     quote! { windows_core::Array<#tokens> }
                 } else {

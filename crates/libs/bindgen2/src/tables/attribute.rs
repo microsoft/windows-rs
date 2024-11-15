@@ -44,8 +44,8 @@ impl Attribute {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
-                Type::Item(item) => {
-                    let underlying_type = item.underlying_type();
+                Type::Enum(item) => {
+                    let underlying_type = item.def.underlying_type();
                     values.read_integer(underlying_type)
                 }
                 rest => panic!("windows-bindgen: {rest:?}"),

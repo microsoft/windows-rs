@@ -4,7 +4,7 @@ use super::*;
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: String,
-    pub nested: BTreeMap<&'static str, Item>,
+    pub nested: BTreeMap<&'static str, Type>, // TODO: why isn't this CppStruct
 }
 
 impl Ord for CppStruct {
@@ -195,7 +195,7 @@ impl CppStruct {
                 if f.flags().contains(FieldAttributes::Literal) {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
-                        let ty = constant.ty().write(writer);
+                        let ty = constant.ty().write_name(writer);
                         let value = constant.value().write();
 
                         return Some(quote! {
@@ -234,7 +234,7 @@ impl CppStruct {
         };
 
         for nested in self.nested.values() {
-            if let Item::CppStruct(item) = nested {
+            if let Type::CppStruct(item) = nested {
                 tokens.combine(item.write_with_cfg(writer, cfg));
             } else {
                 panic!();

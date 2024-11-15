@@ -65,7 +65,7 @@ impl TypeName<'_> {
         if generics.is_empty() {
             quote! { #namespace #name }
         } else {
-            let generics = generics.iter().map(|ty| ty.write(writer));
+            let generics = generics.iter().map(|ty| ty.write_name(writer));
             quote! { #namespace #name < #(#generics),* > }
         }
     }

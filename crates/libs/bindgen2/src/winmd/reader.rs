@@ -3,10 +3,10 @@ use super::*;
 // TODO: maybe use LazyLock to "expand"  the items in place including things like dependencies
 // and required interfaces. This could avoid all the staging steps like Reader > Filter > NameTree > ItemTree
 
-type ItemMap = HashMap<&'static str, Vec<Item>>;
+type ItemMap = HashMap<&'static str, Vec<Type>>;
 type ReaderMap = HashMap<&'static str, ItemMap>;
 
-fn insert(items: &mut ItemMap, name: &'static str, item: Item) {
+fn insert(items: &mut ItemMap, name: &'static str, item: Type) {
     items.entry(name).or_default().push(item);
 }
 
@@ -57,17 +57,17 @@ impl Reader {
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     let item = match category {
                         Category::Attribute => continue,
-                        Category::Class => Item::Class(Class {
+                        Category::Class => Type::Class(Class {
                             def,
                             generics: def.generics(),
                             required_interfaces: vec![],
                         }),
-                        Category::Delegate => Item::Delegate(Delegate {
+                        Category::Delegate => Type::Delegate(Delegate {
                             def,
                             generics: def.generics(),
                         }),
-                        Category::Enum => Item::Enum(Enum { def }),
-                        Category::Interface => Item::Interface(Interface {
+                        Category::Enum => Type::Enum(Enum { def }),
+                        Category::Interface => Type::Interface(Interface {
                             def,
                             generics: def.generics(),
                             methods: vec![],
@@ -80,7 +80,7 @@ impl Reader {
                                 continue;
                             }
 
-                            Item::Struct(Struct { def })
+                            Type::Struct(Struct { def })
                         }
                     };
 
@@ -101,20 +101,20 @@ impl Reader {
                                     }
 
                                     let name = method.name();
-                                    insert(items, name, Item::CppFn(CppFn { def, method }));
+                                    insert(items, name, Type::CppFn(CppFn { def, method }));
                                 }
 
                                 for field in def.fields() {
                                     let name = field.name();
-                                    insert(items, name, Item::CppConst(CppConst { def, field }));
+                                    insert(items, name, Type::CppConst(CppConst { def, field }));
                                 }
                             }
                         }
                         Category::Delegate => {
-                            insert(items, name, Item::CppDelegate(CppDelegate { def }));
+                            insert(items, name, Type::CppDelegate(CppDelegate { def }));
                         }
                         Category::Enum => {
-                            insert(items, name, Item::CppEnum(CppEnum { def }));
+                            insert(items, name, Type::CppEnum(CppEnum { def }));
 
                             if !def.has_attribute("ScopedEnumAttribute") {
                                 for field in def.fields() {
@@ -123,7 +123,7 @@ impl Reader {
                                         insert(
                                             items,
                                             name,
-                                            Item::CppConst(CppConst { def, field }),
+                                            Type::CppConst(CppConst { def, field }),
                                         );
                                     }
                                 }
@@ -133,7 +133,7 @@ impl Reader {
                             insert(
                                 items,
                                 name,
-                                Item::CppInterface(CppInterface {
+                                Type::CppInterface(CppInterface {
                                     def,
                                     methods: vec![],
                                     base_interfaces: vec![],
@@ -145,7 +145,7 @@ impl Reader {
                                 def: TypeDef,
                                 name: String,
                                 nested: &HashMap<TypeDef, Vec<TypeDef>>,
-                            ) -> Item {
+                            ) -> Type {
                                 let mut item = CppStruct {
                                     def,
                                     name,
@@ -161,7 +161,7 @@ impl Reader {
                                     );
                                 }
 
-                                Item::CppStruct(item)
+                                Type::CppStruct(item)
                             }
 
                             insert(items, name, make(def, String::new(), &nested));
@@ -175,7 +175,7 @@ impl Reader {
     }
 
     /// Gets all items matching the given namespace and name.
-    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Item> + '_ {
+    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
         self.get(namespace)
             .and_then(|items| items.get(name))
             .into_iter()
@@ -184,7 +184,7 @@ impl Reader {
     }
 
     // Gets all items with the given name regardless of namespace.
-    pub fn with_name(&self, name: &str) -> Vec<Item> {
+    pub fn with_name(&self, name: &str) -> Vec<Type> {
         // This doesn't return an iterator as that would require `name` to be a static reference.
         self.values()
             .flatten()
@@ -195,7 +195,7 @@ impl Reader {
     }
 
     /// Gets all items from the given namespace.
-    pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
+    pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Type> + '_ {
         self.get(namespace)
             .into_iter()
             .flat_map(|map| map.values())

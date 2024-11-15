@@ -64,7 +64,7 @@ impl MethodDef {
                                 if let Some(item) =
                                     param.reader().with_full_name(namespace, name).next()
                                 {
-                                    ty = Type::PrimitiveOrEnum(Box::new(ty), item);
+                                    ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(item));
                                 }
                             }
                         }

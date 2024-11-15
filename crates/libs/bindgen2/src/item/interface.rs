@@ -108,7 +108,7 @@ impl Interface {
             let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
             let generics = self.generics.iter().map(|generic| {
-                let name = generic.write(writer);
+                let name = generic.write_name(writer);
 
                 quote! {
                     .push_slice(b";").push_other(#name::SIGNATURE)
@@ -246,7 +246,7 @@ impl Interface {
                     TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
                 })
                 .map(|interface| {
-                    let item = interface.generics[0].write(writer);
+                    let item = interface.generics[0].write_name(writer);
                     // TODO: just use typename.write?
                     let namespace = writer.write_namespace(TypeName::IIterator);
 
@@ -327,7 +327,7 @@ impl Interface {
 
         if writer.config.implement || !is_exclusive {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
-            let generics: Vec<_> = self.generics.iter().map(|ty| ty.write(writer)).collect();
+            let generics: Vec<_> = self.generics.iter().map(|ty| ty.write_name(writer)).collect();
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
             if writer.config.package {
@@ -451,7 +451,7 @@ impl Interface {
         if self.generics.is_empty() {
             name
         } else {
-            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            let generics = self.generics.iter().map(|ty| ty.write_name(writer));
             quote! { #name < #(#generics,)* > }
         }
     }
@@ -463,7 +463,7 @@ impl Interface {
         if self.generics.is_empty() {
             quote! { #namespace #name }
         } else {
-            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            let generics = self.generics.iter().map(|ty| ty.write_name(writer));
             quote! { #namespace #name < #(#generics),* > }
         }
     }
@@ -503,7 +503,7 @@ impl Interface {
                 .interface_impls()
                 .map(|imp| imp.ty(&interface.generics))
             {
-                let Type::Item(Item::Interface(interface)) = ty else {
+                let Type::Interface(interface) = ty else {
                     panic!();
                 };
 

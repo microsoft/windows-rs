@@ -83,7 +83,7 @@ impl TypeDef {
     pub fn free_function(&self) -> Option<CppFn> {
         if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
             if let Some((_, Value::String(name))) = attribute.args().first() {
-                if let Some(Item::CppFn(item)) = self
+                if let Some(Type::CppFn(item)) = self
                     .reader()
                     .with_full_name(self.namespace(), name.as_str())
                     .next()

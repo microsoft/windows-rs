@@ -143,7 +143,7 @@ impl CppFn {
                     quote! { and_then(||windows_core::Type::from_abi(result__)) }
                 };
 
-                let return_type = return_type.write(writer);
+                let return_type = return_type.write_name(writer);
 
                 quote! {
                     #cfg
@@ -175,7 +175,7 @@ impl CppFn {
                     .deref();
 
                 if return_type.is_nullable() {
-                    let return_type = return_type.write(writer);
+                    let return_type = return_type.write_name(writer);
 
                     quote! {
                         #cfg
@@ -195,7 +195,7 @@ impl CppFn {
                     };
 
                     let where_clause = method.write_where(writer, false);
-                    let return_type = return_type.write(writer);
+                    let return_type = return_type.write_name(writer);
 
                     quote! {
                         #cfg
@@ -213,7 +213,7 @@ impl CppFn {
                 let where_clause = method.write_where(writer, false);
 
                 if method.handle_last_error() {
-                    let return_type = signature.return_type.0.write(writer);
+                    let return_type = signature.return_type.0.write_name(writer);
 
                     quote! {
                         #cfg

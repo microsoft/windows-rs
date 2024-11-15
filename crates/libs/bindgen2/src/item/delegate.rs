@@ -17,7 +17,7 @@ impl Delegate {
         //let vtbl_name = self.write_vtbl_name(writer);
         let vtbl_name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let boxed: TokenStream = format!("{}Box", self.def.name()).into();
-        let generic_names = self.generics.iter().map(|ty| ty.write(writer));
+        let generic_names = self.generics.iter().map(|ty| ty.write_name(writer));
         let generic_names = quote! { #(#generic_names,)* };
 
         let constraints = writer.write_generic_constraints(&self.generics);
@@ -61,7 +61,7 @@ impl Delegate {
             let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
             let generics = self.generics.iter().map(|generic| {
-                let name = generic.write(writer);
+                let name = generic.write_name(writer);
                 quote! {
                     .push_slice(b";").push_other(#name::SIGNATURE)
                 }
@@ -214,7 +214,7 @@ impl Delegate {
     //     if self.generics.is_empty() {
     //         name
     //     } else {
-    //         let generics = self.generics.iter().map(|ty| ty.write(writer));
+    //         let generics = self.generics.iter().map(|ty| ty.write_name(writer));
     //         quote! { #name < #(#generics,)* > }
     //     }
     // }

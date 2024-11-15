@@ -58,7 +58,7 @@ impl CppInterface {
         self.base_interfaces = self.base_interfaces();
 
         for interface in self.base_interfaces.iter_mut() {
-            if let Type::Item(Item::CppInterface(item)) = interface {
+            if let Type::CppInterface(item) = interface {
                 item.expand(config);
             }
         }
@@ -88,7 +88,7 @@ impl CppInterface {
                 Some(Type::Object) => {
                     quote! { pub base__: #core IInspectable_Vtbl, }
                 }
-                Some(Type::Item(Item::CppInterface(item))) => {
+                Some(Type::CppInterface(item)) => {
                     let name = item.write_vtbl_name(writer);
                     quote! { pub base__: #name, }
                 }
@@ -180,7 +180,7 @@ impl CppInterface {
                 }
             };
 
-            if let Some(Type::Item(Item::CppInterface(base))) = self.base_interfaces.last() {
+            if let Some(Type::CppInterface(base)) = self.base_interfaces.last() {
                 let base = base.write_name(writer);
 
                 result.combine(quote! {
@@ -195,7 +195,7 @@ impl CppInterface {
             }
 
             if !self.base_interfaces.is_empty() {
-                let bases = self.base_interfaces.iter().map(|ty| ty.write(writer));
+                let bases = self.base_interfaces.iter().map(|ty| ty.write_name(writer));
                 result.combine(quote! {
                     #cfg
                     windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
@@ -251,7 +251,7 @@ impl CppInterface {
 
                 collect(self, &mut dependencies);
                 self.base_interfaces.iter().for_each(|interface| {
-                    if let Type::Item(Item::CppInterface(item)) = interface {
+                    if let Type::CppInterface(item) = interface {
                         collect(item, &mut dependencies);
                     }
                 });
@@ -334,7 +334,7 @@ impl CppInterface {
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
                     Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
-                    Type::Item(Item::CppInterface(item)) => {
+                    Type::CppInterface(item) => {
                         let ty = item.write_vtbl_name(writer);
                         if self.has_unknown_base () {
                             quote! { base__: #ty::new::<Identity, OFFSET>(), }
@@ -349,7 +349,7 @@ impl CppInterface {
             result.combine( if self.has_unknown_base() {
                 let matches = self.base_interfaces.iter().filter_map(|ty|{
                     match ty {
-                        Type::Item(Item::CppInterface(item)) => {
+                        Type::CppInterface(item) => {
                             let name = item.write_name(writer);
                             Some(quote! { || iid == &<#name as windows_core::Interface>::IID })
                         }
@@ -459,7 +459,7 @@ impl CppInterface {
             }
 
             for interface in &base_interfaces {
-                if let Type::Item(Item::CppInterface(item)) = interface {
+                if let Type::CppInterface(item) = interface {
                     item.dependencies(dependencies);
                 }
             }
@@ -472,7 +472,7 @@ impl CppInterface {
 
         while let Some(base) = def.interface_impls().map(move |imp| imp.ty(&[])).next() {
             match base {
-                Type::Item(Item::CppInterface(ref item)) => {
+                Type::CppInterface(ref item) => {
                     def = item.def;
                     bases.insert(0, base);
                 }

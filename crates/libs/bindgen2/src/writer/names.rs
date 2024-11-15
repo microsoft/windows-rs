@@ -25,7 +25,7 @@ impl Writer {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| ty.write(self));
+            let generics = generics.iter().map(|ty| ty.write_name(self));
             quote! { #(core::marker::PhantomData::<#generics>),* }
         }
     }
@@ -34,7 +34,7 @@ impl Writer {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| ty.write(self));
+            let generics = generics.iter().map(|ty| ty.write_name(self));
             quote! { #(#generics: core::marker::PhantomData::<#generics>),* }
         }
     }
@@ -43,7 +43,7 @@ impl Writer {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| ty.write(self));
+            let generics = generics.iter().map(|ty| ty.write_name(self));
             quote! { #(#generics: windows_core::RuntimeType + 'static,)* }
         }
     }

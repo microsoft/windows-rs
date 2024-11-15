@@ -34,7 +34,7 @@ impl CppEnum {
         }
 
         let name = to_ident(self.def.name());
-        let underlying_type = self.def.underlying_type().write(writer);
+        let underlying_type = self.def.underlying_type().write_name(writer);
 
         let mut derive = DeriveWriter::new(writer, self.type_name());
         derive.extend(["Copy", "Clone"]);

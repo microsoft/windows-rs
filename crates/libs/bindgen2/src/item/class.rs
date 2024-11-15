@@ -120,7 +120,7 @@ impl Class {
 
         if let Some(default_interface) = self.default_interface() {
             if default_interface.is_async() {
-                let default_interface = default_interface.write(writer);
+                let default_interface = default_interface.write_name(writer);
 
                 return quote! {
                     #cfg
@@ -129,7 +129,7 @@ impl Class {
             }
 
             let is_exclusive = default_interface.is_exclusive();
-            let default_interface = default_interface.write(writer);
+            let default_interface = default_interface.write_name(writer);
 
             let interface_hierarchy = if is_exclusive {
                 quote! { windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable); }
@@ -173,7 +173,7 @@ impl Class {
                     TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
                 })
                 .map(|interface| {
-                    let item = interface.generics[0].write(writer);
+                    let item = interface.generics[0].write_name(writer);
                     let namespace = writer.write_namespace(TypeName::IIterator);
 
                     quote! {
@@ -282,7 +282,7 @@ impl Class {
                 break;
             }
 
-            let Some(Item::Class(base)) = reader
+            let Some(Type::Class(base)) = reader
                 .with_full_name(extends.namespace(), extends.name())
                 .next()
             else {
@@ -300,7 +300,7 @@ impl Class {
     pub fn required_interfaces(&self) -> Vec<Interface> {
         fn walk(def: TypeDef, generics: &[Type], is_base: bool, set: &mut Vec<Interface>) {
             for imp in def.interface_impls() {
-                let Type::Item(Item::Interface(mut interface)) = imp.ty(generics) else {
+                let Type::Interface(mut interface) = imp.ty(generics) else {
                     panic!();
                 };
 
@@ -341,7 +341,7 @@ impl Class {
 
             for (_, arg) in attribute.args() {
                 if let Value::TypeName(type_name) = arg {
-                    let Some(Item::Interface(mut interface)) = self
+                    let Some(Type::Interface(mut interface)) = self
                         .def
                         .reader()
                         .with_full_name(type_name.namespace(), type_name.name())

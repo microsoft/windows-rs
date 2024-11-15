@@ -74,7 +74,7 @@ impl Enum {
             }
         };
 
-        let underlying_type = underlying_type.write(writer);
+        let underlying_type = underlying_type.write_name(writer);
 
         quote! {
             #[repr(transparent)]

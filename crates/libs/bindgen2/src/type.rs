@@ -32,7 +32,19 @@ pub enum Type {
     IUnknown,
     BSTR,
 
-    Item(Item),
+    Interface(Interface),
+    Class(Class),
+    Delegate(Delegate),
+    Enum(Enum),
+    Struct(Struct),
+
+    CppFn(CppFn),
+    CppInterface(CppInterface),
+    CppConst(CppConst),
+    CppEnum(CppEnum),
+    CppStruct(CppStruct),
+    CppDelegate(CppDelegate),
+
     Param(&'static str),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
@@ -40,7 +52,7 @@ pub enum Type {
     Array(Box<Self>),
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
-    PrimitiveOrEnum(Box<Self>, Item),
+    PrimitiveOrEnum(Box<Self>, Box<Self>),
 }
 
 #[derive(PartialEq)]
@@ -116,12 +128,12 @@ impl Type {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if namespace.is_empty() {
-                return Self::Item(outer.nested[name].clone());
+                return outer.nested[name].clone();
             }
         }
 
         if let Some(item) = code.reader().with_full_name(namespace, name).next() {
-            Self::Item(item)
+            item
         } else {
             panic!("windows-bindgen: type not found: {namespace}.{name}")
         }
@@ -211,7 +223,7 @@ impl Type {
                 }
 
                 item.set_generics(item_generics);
-                Self::Item(item)
+                item
             }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
@@ -253,13 +265,13 @@ impl Type {
 
     pub fn is_nullable(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_nullable(),
+            Self::Class(_) | Self::Interface(_) | Self::Delegate(_) | Self::CppInterface(_) => true,
             Self::IUnknown | Self::Object => true,
             _ => false,
         }
     }
 
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -324,7 +336,17 @@ impl Type {
                 let name = writer.write_core();
                 quote! { #name PCWSTR }
             }
-            Self::Item(item) => item.write_name(writer),
+            Self::CppInterface(item) => item.write_name(writer),
+            Self::Struct(item) => item.write_name(writer),
+            Self::Enum(item) => item.write_name(writer),
+            Self::Interface(item) => item.write_name(writer),
+            Self::CppStruct(item) => item.write_name(writer),
+            Self::CppEnum(item) => item.write_name(writer),
+            Self::CppFn(item) => item.write_name(writer),
+            Self::CppConst(item) => item.write_name(writer),
+            Self::CppDelegate(item) => item.write_name(writer),
+            Self::Delegate(item) => item.write_name(writer),
+            Self::Class(item) => item.write_name(writer),
             Self::Param(param) => to_ident(param),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
@@ -341,12 +363,12 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Self::Array(ty) => ty.write(writer),
-            Self::ArrayRef(ty) => ty.write(writer),
-            Self::ConstRef(ty) => ty.write(writer),
+            Self::Array(ty) => ty.write_name(writer),
+            Self::ArrayRef(ty) => ty.write_name(writer),
+            Self::ConstRef(ty) => ty.write_name(writer),
             Self::PrimitiveOrEnum(ty, item) => {
                 if writer.config.sys {
-                    ty.write(writer)
+                    ty.write_name(writer)
                 } else {
                     item.write_name(writer)
                 }
@@ -359,7 +381,7 @@ impl Type {
         if let Self::Array(ty) = self {
             ty.write_default(writer)
         } else {
-            let tokens = self.write(writer);
+            let tokens = self.write_name(writer);
 
             if matches!(self, Self::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
@@ -382,8 +404,8 @@ impl Type {
                 // TODO: ideally we can only require RuntimeName tough IInspectable_Impl
                 quote! { #name IUnknownImpl }
             }
-            Self::Item(Item::CppInterface(item)) => item.write_impl_name(writer),
-            Self::Item(Item::Interface(item)) => item.write_impl_name(writer),
+            Self::CppInterface(item) => item.write_impl_name(writer),
+            Self::Interface(item) => item.write_impl_name(writer),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -392,10 +414,10 @@ impl Type {
         match self {
             Self::IUnknown
             | Self::Object
-            | Self::Item(Item::Delegate(_))
-            | Self::Item(Item::Class(_))
-            | Self::Item(Item::CppInterface(_))
-            | Self::Item(Item::Interface(_))
+            | Self::Delegate(_)
+            | Self::Class(_)
+            | Self::CppInterface(_)
+            | Self::Interface(_)
             | Self::String
             | Self::BSTR => quote! { *mut core::ffi::c_void },
             Self::ArrayFixed(ty, len) => {
@@ -407,8 +429,8 @@ impl Type {
                 let name = to_ident(name);
                 quote! { windows_core::AbiType<#name> }
             }
-            Self::Item(Item::Struct(item)) => {
-                let name = self.write(writer);
+            Self::Struct(item) => {
+                let name = self.write_name(writer);
                 if item.is_copyable() {
                     name
                 } else {
@@ -425,8 +447,8 @@ impl Type {
                 let pointers = write_ptr_const(*pointers);
                 quote! { #pointers #ty }
             }
-            Self::PrimitiveOrEnum(ty, _) => ty.write(writer),
-            ty => ty.write(writer),
+            Self::PrimitiveOrEnum(ty, _) => ty.write_name(writer),
+            ty => ty.write_name(writer),
         }
     }
 
@@ -450,8 +472,13 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Item(item) => item.runtime_signature(),
+            Self::Class(item) => item.runtime_signature(),
+            Self::Delegate(item) => item.runtime_signature(),
+            Self::Enum(item) => item.runtime_signature(),
+            Self::Interface(item) => item.runtime_signature(),
+            Self::Struct(item) => item.runtime_signature(),
             rest => panic!("windows-bindgen: {rest:?}"),
+            
         }
     }
 
@@ -494,16 +521,24 @@ impl Type {
             Self::HRESULT => {
                 dependencies.insert("", "HRESULT");
             }
-            Self::Item(item) => {
-                item.dependencies(dependencies);
-            }
+            Self::Class(item) => item.dependencies(dependencies),
+            Self::Delegate(item) => item.dependencies(dependencies),
+            Self::Enum(item) => item.dependencies(dependencies),
+            Self::Interface(item) => item.dependencies(dependencies),
+            Self::Struct(item) => item.dependencies(dependencies),
+            Self::CppConst(item) => item.dependencies(dependencies),
+            Self::CppDelegate(item) => item.dependencies(dependencies),
+            Self::CppFn(item) => item.dependencies(dependencies),
+            Self::CppInterface(item) => item.dependencies(dependencies),
+            Self::CppStruct(item) => item.dependencies(dependencies),
+            Self::CppEnum(item) => item.dependencies(dependencies),
             _ => {}
         }
     }
 
     pub fn is_exclusive(&self) -> bool {
         match self {
-            Self::Item(Item::Interface(item)) => item.def.has_attribute("ExclusiveToAttribute"),
+            Self::Interface(item) => item.def.has_attribute("ExclusiveToAttribute"),
             _ => false,
         }
     }
@@ -518,15 +553,22 @@ impl Type {
 
     pub fn is_async(&self) -> bool {
         match self {
-            Self::Item(Item::Interface(item)) => item.def.is_async(),
+            Self::Interface(item) => item.def.is_async(),
             _ => false,
         }
     }
 
     pub fn is_copyable(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_copyable(),
-            Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
+            Self::Struct(item) => item.is_copyable(),
+            Self::CppStruct(item) => item.is_copyable(),
+            Self::Enum(_) => true,
+            Self::CppEnum(_) => true,
+            Self::CppDelegate(_) => true,
+
+            Self::Interface(..) | Self::CppInterface(..) | Self::Class(..) | Self::Delegate(..) => false,
+
+                        Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
             Self::ArrayFixed(ty, _) => ty.is_copyable(),
             Self::Array(ty) => ty.is_copyable(),
             _ => true,
@@ -535,8 +577,9 @@ impl Type {
 
     pub fn is_dropped(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_dropped(),
-            Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
+            Self::Struct(item) => !item.is_copyable(),
+            Self::CppInterface(..) => true,
+                        Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
             Self::ArrayFixed(ty, _) => ty.is_dropped(),
             _ => false,
         }
@@ -544,8 +587,11 @@ impl Type {
 
     pub fn is_convertible(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_convertible(),
-            Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
+            Self::CppStruct(item) => item.is_convertible(),
+            Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
+                true
+            }
+                        Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
             _ => false,
         }
     }
@@ -556,8 +602,9 @@ impl Type {
 
     pub fn is_primitive(&self) -> bool {
         match self {
-            Self::Item(item) => item.is_primitive(),
-            Self::Bool
+            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
+            Self::CppStruct(item) => item.is_handle(),
+                        Self::Bool
             | Self::Char
             | Self::I8
             | Self::U8
@@ -591,7 +638,7 @@ impl Type {
 
     pub fn has_explicit_layout(&self) -> bool {
         match self {
-            Self::Item(Item::CppStruct(item)) => item.has_explicit_layout(),
+            Self::CppStruct(item) => item.has_explicit_layout(),
             Self::ArrayFixed(ty, _) => ty.has_explicit_layout(),
             _ => false,
         }
@@ -599,7 +646,7 @@ impl Type {
 
     pub fn has_packing(&self) -> bool {
         match self {
-            Self::Item(Item::CppStruct(item)) => item.has_packing(),
+            Self::CppStruct(item) => item.has_packing(),
             Self::ArrayFixed(ty, _) => ty.has_packing(),
             _ => false,
         }
@@ -614,7 +661,7 @@ impl Type {
     }
 
     pub fn is_handle(&self) -> bool {
-        if let Self::Item(Item::CppStruct(item)) = self {
+        if let Self::CppStruct(item) = self {
             item.is_handle()
         } else {
             false
@@ -635,9 +682,11 @@ impl Type {
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
             Type::GUID => 16,
-            Type::Item(item) => item.size(),
             Type::ArrayFixed(ty, len) => ty.size() * len,
             Type::PrimitiveOrEnum(ty, _) => ty.size(),
+            Self::CppStruct(item) => item.size(),
+            Self::Struct(item) => item.size(),
+            Self::CppEnum(item) => item.size(),
             _ => 4,
         }
     }
@@ -647,21 +696,144 @@ impl Type {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 4,
-            Type::Item(item) => item.align(),
             Type::ArrayFixed(ty, len) => ty.align() * len,
-            _ => 4,
-        }
+            Self::CppStruct(item) => item.align(),
+            Self::Struct(item) => item.align(),
+            Self::CppEnum(item) => item.align(),
+        _ => 4,
+                }
     }
 
     pub fn underlying_type(&self) -> Self {
         match self {
-            Type::Item(item) => item.underlying_type(),
-            Type::HRESULT => Type::I32,
-            _ => self.clone(),
+            Self::Struct(item) => item.def.underlying_type(),
+            Self::CppEnum(item) => item.def.underlying_type(),
+            Self::Enum(item) => item.def.underlying_type(),
+            Self::CppStruct(item) => item.def.underlying_type(),
+                        Type::HRESULT => Type::I32,
+                        rest => unimplemented!("{rest:?}"),
         }
     }
 }
+
+
+impl Type {
+    pub fn expand(&mut self, config: &Config) {
+        match self {
+            Self::Interface(item) => item.expand(config),
+            Self::CppInterface(item) => item.expand(config),
+            Self::Class(item) => item.expand(config),
+            _ => {}
+        }
+    }
+
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Self::Struct(item) => item.write(writer),
+            Self::Enum(item) => item.write(writer),
+            Self::Interface(item) => item.write(writer),
+            Self::CppStruct(item) => item.write(writer),
+            Self::CppEnum(item) => item.write(writer),
+            Self::CppFn(item) => item.write(writer),
+            Self::CppConst(item) => item.write(writer),
+            Self::CppDelegate(item) => item.write(writer),
+            Self::Delegate(item) => item.write(writer),
+            Self::Class(item) => item.write(writer),
+            Self::CppInterface(item) => item.write(writer),
+            // TODO: here we should be able to write the other no-dep types like HSTRING and IUnknown
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
+
+    pub fn set_generics(&mut self, generics: Vec<Type>) {
+        match self {
+            Self::Class(item) => item.generics = generics,
+            Self::Interface(item) => item.generics = generics,
+            Self::Delegate(item) => item.generics = generics,
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
+    pub fn namespace(&self) -> &'static str {
+        match self {
+            Self::Class(item) => item.def.namespace(),
+            Self::Delegate(item) => item.def.namespace(),
+            Self::Enum(item) => item.def.namespace(),
+            Self::Interface(item) => item.def.namespace(),
+            Self::Struct(item) => item.def.namespace(),
+            Self::CppDelegate(item) => item.def.namespace(),
+            Self::CppEnum(item) => item.def.namespace(),
+            Self::CppInterface(item) => item.def.namespace(),
+            Self::CppStruct(item) => item.def.namespace(),
+            Self::CppConst(item) => item.def.namespace(),
+            Self::CppFn(item) => item.def.namespace(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
+    // TODO: remove
+    pub fn name(&self) -> &str {
+        match self {
+            Self::Class(item) => item.def.name(),
+            Self::Delegate(item) => item.def.name(),
+            Self::Enum(item) => item.def.name(),
+            Self::Interface(item) => item.def.name(),
+            Self::Struct(item) => item.def.name(),
+            Self::CppDelegate(item) => item.def.name(),
+            Self::CppEnum(item) => item.def.name(),
+            Self::CppInterface(item) => item.def.name(),
+            Self::CppStruct(item) => item.name(),
+            Self::CppConst(item) => item.field.name(),
+            Self::CppFn(item) => item.method.name(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
+    // pub fn type_name(&self) -> TypeName<'_> {
+    //     match self {
+    //         Self::Class(item) => item.type_name(),
+    //         Self::Delegate(item) => item.type_name(),
+    //         Self::Enum(item) => item.type_name(),
+    //         Self::Interface(item) => item.type_name(),
+    //         Self::Struct(item) => item.type_name(),
+    //         Self::CppDelegate(item) => item.type_name(),
+    //         Self::CppEnum(item) => item.type_name(),
+    //         Self::CppInterface(item) => item.type_name(),
+    //         Self::CppStruct(item) => item.type_name(),
+    //         Self::CppConst(item) => item.type_name(),
+    //         Self::CppFn(item) => item.type_name(),
+    //     }
+    // }
+
+
+
+
+
+
+}
+
+
+
+pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
+    if generics.is_empty() {
+        let guid = def.guid_attribute().unwrap();
+        format!("{{{guid}}}")
+    } else {
+        let guid = def.guid_attribute().unwrap();
+        let mut signature = format!("pinterface({{{guid}}}");
+
+        for generic in generics {
+            signature.push(';');
+            signature.push_str(&generic.runtime_signature())
+        }
+
+        signature.push(')');
+        signature
+    }
+}
+
+
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {
     "*mut ".repeat(pointers).into()

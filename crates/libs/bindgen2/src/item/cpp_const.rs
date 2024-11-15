@@ -67,7 +67,7 @@ impl CppConst {
                     }
                 } else {
                     // TODO: typed value
-                    let ty = field_ty.write(writer);
+                    let ty = field_ty.write_name(writer);
                     let value = constant.value().write();
 
                     quote! {
@@ -77,7 +77,7 @@ impl CppConst {
                 }
             } else {
                 let underlying_ty = field_ty.underlying_type();
-                let ty = field_ty.write(writer);
+                let ty = field_ty.write_name(writer);
                 let mut value = constant.value().write();
 
                 if underlying_ty == constant_ty {
@@ -108,7 +108,7 @@ impl CppConst {
                 panic!()
             };
 
-            let Type::Item(Item::CppStruct(item)) = &field_ty else {
+            let Type::CppStruct(item) = &field_ty else {
                 panic!()
             };
 
@@ -121,7 +121,7 @@ impl CppConst {
                 tokens.combine(value);
             }
 
-            let ty = field_ty.write(writer);
+            let ty = field_ty.write_name(writer);
 
             quote! {
                 #cfg
@@ -146,7 +146,7 @@ fn is_ansi_encoding(row: Field) -> bool {
 fn is_signed_error(ty: &Type) -> bool {
     match ty {
         Type::HRESULT => true,
-        Type::Item(item) => TypeName(item.namespace(), item.name()) == TypeName::NTSTATUS,
+        Type::CppStruct(item) => item.type_name() == TypeName::NTSTATUS,
         _ => false,
     }
 }
