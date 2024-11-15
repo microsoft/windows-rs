@@ -59,7 +59,6 @@ impl Reader {
                         Category::Attribute => continue,
                         Category::Class => Type::Class(Class {
                             def,
-                            generics: def.generics(),
                         }),
                         Category::Delegate => Type::Delegate(Delegate {
                             def,

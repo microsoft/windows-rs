@@ -778,7 +778,6 @@ impl Type {
 
     pub fn set_generics(&mut self, generics: Vec<Type>) {
         match self {
-            Self::Class(item) => item.generics = generics,
             Self::Interface(item) => item.generics = generics,
             Self::Delegate(item) => item.generics = generics,
             rest => panic!("windows-bindgen: {rest:?}"),

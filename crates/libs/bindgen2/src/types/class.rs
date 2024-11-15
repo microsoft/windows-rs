@@ -3,7 +3,6 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Class {
     pub def: TypeDef,
-    pub generics: Vec<Type>,
 }
 
 impl Class {
@@ -12,7 +11,6 @@ impl Class {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-        assert!(self.generics.is_empty());
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
 
@@ -237,7 +235,7 @@ impl Class {
         self.def
             .interface_impls()
             .find(|imp| imp.has_attribute("DefaultAttribute"))
-            .map(|imp| imp.ty(&self.generics))
+            .map(|imp| imp.ty(&[]))
     }
 
     pub fn runtime_signature(&self) -> String {
@@ -314,7 +312,7 @@ impl Class {
             }
         }
         let mut set = vec![];
-        walk(self.def, &self.generics, false, &mut set);
+        walk(self.def, &[], false, &mut set);
 
         for base in self.bases() {
             walk(base.def, &[], true, &mut set);
