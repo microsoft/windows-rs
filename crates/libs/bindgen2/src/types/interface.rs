@@ -20,7 +20,6 @@ pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
     pub kind: InterfaceKind,
-    // TODO: store dependencies here (in expand) to avoid repeated calls to self.required_interfaces()
 }
 
 impl PartialEq for Interface {

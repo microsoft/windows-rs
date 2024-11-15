@@ -170,7 +170,7 @@ impl Type {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if namespace.is_empty() {
-                return outer.nested[name].clone();
+                return Type::CppStruct(outer.nested[name].clone());
             }
         }
 
