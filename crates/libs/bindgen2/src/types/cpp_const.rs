@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppConst {
-    pub def: TypeDef,
+    pub namespace: &'static str,
     pub field: Field,
 }
 
@@ -20,7 +20,7 @@ impl PartialOrd for CppConst {
 
 impl CppConst {
     pub fn type_name(&self) -> TypeName<'_> {
-        TypeName(self.def.namespace(), self.field.name())
+        TypeName(self.namespace, self.field.name())
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
@@ -43,7 +43,7 @@ impl CppConst {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.field, self.def.namespace(), &dependencies, false);
+        let cfg = writer.write_cfg(self.field, self.namespace, &dependencies, false);
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.ty();
@@ -133,7 +133,7 @@ impl CppConst {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.field.name()) {
+        if dependencies.insert(self.namespace, self.field.name()) {
             self.field.ty(None).dependencies(dependencies);
         }
     }

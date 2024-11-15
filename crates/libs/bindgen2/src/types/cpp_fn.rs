@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppFn {
-    pub def: TypeDef,
+    pub namespace: &'static str,
     pub method: MethodDef,
 }
 
@@ -20,7 +20,7 @@ impl PartialOrd for CppFn {
 
 impl CppFn {
     pub fn type_name(&self) -> TypeName<'_> {
-        TypeName(self.def.namespace(), self.method.name())
+        TypeName(self.namespace, self.method.name())
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
@@ -48,7 +48,7 @@ impl CppFn {
             unimplemented!()
         };
 
-        let signature = self.method.signature(self.def.namespace(), &[]);
+        let signature = self.method.signature(self.namespace, &[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
@@ -83,7 +83,7 @@ impl CppFn {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.method.name());
-        let signature = self.method.signature(self.def.namespace(), &[]);
+        let signature = self.method.signature(self.namespace, &[]);
         let mut dependencies = Dependencies::new();
 
         if writer.config.package {
@@ -91,7 +91,7 @@ impl CppFn {
         }
 
         let link = self.write_link(writer, false);
-        let cfg = writer.write_cfg(self.method, self.def.namespace(), &dependencies, false);
+        let cfg = writer.write_cfg(self.method, self.namespace, &dependencies, false);
 
         if writer.config.sys {
             return quote! {
@@ -100,7 +100,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, self.def.namespace());
+        let method = CppMethod::new(self.method, self.namespace);
         // dbg!(&method);
         let args = method.write_args();
         let params = method.write_params(writer);
@@ -251,9 +251,9 @@ impl CppFn {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.method.name()) {
+        if dependencies.insert(self.namespace, self.method.name()) {
             self.method
-                .signature(self.def.namespace(), &[])
+                .signature(self.namespace, &[])
                 .dependencies(dependencies);
         }
     }

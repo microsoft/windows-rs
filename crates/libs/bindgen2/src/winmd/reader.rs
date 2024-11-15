@@ -97,12 +97,12 @@ impl Reader {
                                     }
 
                                     let name = method.name();
-                                    insert(items, name, Type::CppFn(CppFn { def, method }));
+                                    insert(items, name, Type::CppFn(CppFn { namespace: def.namespace(), method }));
                                 }
 
                                 for field in def.fields() {
                                     let name = field.name();
-                                    insert(items, name, Type::CppConst(CppConst { def, field }));
+                                    insert(items, name, Type::CppConst(CppConst { namespace: def.namespace(), field }));
                                 }
                             }
                         }
@@ -119,7 +119,7 @@ impl Reader {
                                         insert(
                                             items,
                                             name,
-                                            Type::CppConst(CppConst { def, field }),
+                                            Type::CppConst(CppConst { namespace: def.namespace(), field }),
                                         );
                                     }
                                 }
