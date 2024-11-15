@@ -2,7 +2,6 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Delegate {
-    // TODO: maybe this should be an `Interface` for simplicity
     pub def: TypeDef,
     pub generics: Vec<Type>,
 }
