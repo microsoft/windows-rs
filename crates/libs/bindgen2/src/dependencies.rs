@@ -14,6 +14,9 @@ impl Dependencies {
     }
 
     pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
+        // TODO: maybe move dependency recursion direclty into here?
+        // Have the Dependencies store a Reader to look up deps directly
+        // This would work more like the old standalone one?
         self.set.insert((namespace, name))
     }
 

@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: `Type` and `Item` can merge into a single enum
+
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
     Void,
