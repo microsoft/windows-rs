@@ -306,11 +306,7 @@ impl Type {
     }
 
     pub fn is_nullable(&self) -> bool {
-        match self {
-            Self::Class(_) | Self::Interface(_) | Self::Delegate(_) | Self::CppInterface(_) => true,
-            Self::IUnknown | Self::Object => true,
-            _ => false,
-        }
+        matches!(self, Self::Class(_) | Self::Interface(_) | Self::Delegate(_) | Self::CppInterface(_) | Self::IUnknown | Self::Object)
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {

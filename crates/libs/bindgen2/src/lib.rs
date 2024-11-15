@@ -205,7 +205,7 @@ where
     // dbg!(&tree);
 
     // TODO: this is where we need to populate the tree with methods based on whether or not they're included!!
-    let items = ItemTree::new(reader, &config);
+    let items = ItemTree::new(reader, config);
 
     // dbg!(&config.tree);
 
@@ -284,7 +284,7 @@ fn expand_input(input: &[&str]) -> Vec<File> {
                 if path.is_file()
                     && path
                         .extension()
-                        .is_some_and(|extension| extension.to_ascii_lowercase() == "winmd")
+                        .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
                 {
                     result.push(path.to_string_lossy().to_string());
                 }

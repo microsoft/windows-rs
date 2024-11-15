@@ -6,7 +6,7 @@ impl Derive {
     pub fn new(reader: &'static Reader, derive: &[&str]) -> Self {
         let mut map = HashMap::new();
 
-        for derive in derive.iter().copied() {
+        for derive in derive {
             let Some((name, derive)) = derive.split_once('=') else {
                 invalid_derive();
             };
