@@ -12,6 +12,7 @@ impl Class {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
+        assert!(self.generics.is_empty());
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
 

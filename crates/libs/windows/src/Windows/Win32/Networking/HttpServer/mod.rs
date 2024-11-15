@@ -1692,7 +1692,7 @@ impl windows_core::TypeKind for HTTP_REQUEST_TOKEN_BINDING_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
     pub ConnectionId: u64,
@@ -1721,11 +1721,11 @@ impl Default for HTTP_REQUEST_V1 {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for HTTP_REQUEST_V1 {
-    type TypeKind = windows_core::CloneType;
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
@@ -1739,7 +1739,7 @@ impl Default for HTTP_REQUEST_V2 {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl windows_core::TypeKind for HTTP_REQUEST_V2 {
-    type TypeKind = windows_core::CloneType;
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1774,7 +1774,7 @@ impl windows_core::TypeKind for HTTP_RESPONSE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
     pub Version: HTTP_VERSION,
@@ -1791,10 +1791,10 @@ impl Default for HTTP_RESPONSE_V1 {
     }
 }
 impl windows_core::TypeKind for HTTP_RESPONSE_V1 {
-    type TypeKind = windows_core::CloneType;
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V2 {
     pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
@@ -1806,7 +1806,7 @@ impl Default for HTTP_RESPONSE_V2 {
     }
 }
 impl windows_core::TypeKind for HTTP_RESPONSE_V2 {
-    type TypeKind = windows_core::CloneType;
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

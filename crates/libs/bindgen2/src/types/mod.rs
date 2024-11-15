@@ -750,7 +750,7 @@ impl Type {
             Self::Enum(item) => item.def.underlying_type(),
             Self::CppStruct(item) => item.def.underlying_type(),
             Type::HRESULT => Type::I32,
-            rest => unimplemented!("{rest:?}"),
+            _ => self.clone(),
         }
     }
 }
