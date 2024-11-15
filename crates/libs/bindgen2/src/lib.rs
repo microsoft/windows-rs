@@ -3,7 +3,6 @@
     non_upper_case_globals,
     clippy::enum_variant_names,
     clippy::upper_case_acronyms,
-    dead_code, // TODO: remove this
 )]
 
 mod dependencies;

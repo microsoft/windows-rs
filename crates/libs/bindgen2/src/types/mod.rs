@@ -792,40 +792,40 @@ impl Type {
         }
     }
 
-    pub fn namespace(&self) -> &'static str {
-        match self {
-            Self::Class(item) => item.def.namespace(),
-            Self::Delegate(item) => item.def.namespace(),
-            Self::Enum(item) => item.def.namespace(),
-            Self::Interface(item) => item.def.namespace(),
-            Self::Struct(item) => item.def.namespace(),
-            Self::CppDelegate(item) => item.def.namespace(),
-            Self::CppEnum(item) => item.def.namespace(),
-            Self::CppInterface(item) => item.def.namespace(),
-            Self::CppStruct(item) => item.def.namespace(),
-            Self::CppConst(item) => item.def.namespace(),
-            Self::CppFn(item) => item.def.namespace(),
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
+    // pub fn namespace(&self) -> &'static str {
+    //     match self {
+    //         Self::Class(item) => item.def.namespace(),
+    //         Self::Delegate(item) => item.def.namespace(),
+    //         Self::Enum(item) => item.def.namespace(),
+    //         Self::Interface(item) => item.def.namespace(),
+    //         Self::Struct(item) => item.def.namespace(),
+    //         Self::CppDelegate(item) => item.def.namespace(),
+    //         Self::CppEnum(item) => item.def.namespace(),
+    //         Self::CppInterface(item) => item.def.namespace(),
+    //         Self::CppStruct(item) => item.def.namespace(),
+    //         Self::CppConst(item) => item.def.namespace(),
+    //         Self::CppFn(item) => item.def.namespace(),
+    //         rest => panic!("windows-bindgen: {rest:?}"),
+    //     }
+    // }
 
-    // TODO: remove
-    pub fn name(&self) -> &str {
-        match self {
-            Self::Class(item) => item.def.name(),
-            Self::Delegate(item) => item.def.name(),
-            Self::Enum(item) => item.def.name(),
-            Self::Interface(item) => item.def.name(),
-            Self::Struct(item) => item.def.name(),
-            Self::CppDelegate(item) => item.def.name(),
-            Self::CppEnum(item) => item.def.name(),
-            Self::CppInterface(item) => item.def.name(),
-            Self::CppStruct(item) => item.name(),
-            Self::CppConst(item) => item.field.name(),
-            Self::CppFn(item) => item.method.name(),
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
+    // // TODO: remove
+    // pub fn name(&self) -> &str {
+    //     match self {
+    //         Self::Class(item) => item.def.name(),
+    //         Self::Delegate(item) => item.def.name(),
+    //         Self::Enum(item) => item.def.name(),
+    //         Self::Interface(item) => item.def.name(),
+    //         Self::Struct(item) => item.def.name(),
+    //         Self::CppDelegate(item) => item.def.name(),
+    //         Self::CppEnum(item) => item.def.name(),
+    //         Self::CppInterface(item) => item.def.name(),
+    //         Self::CppStruct(item) => item.name(),
+    //         Self::CppConst(item) => item.field.name(),
+    //         Self::CppFn(item) => item.method.name(),
+    //         rest => panic!("windows-bindgen: {rest:?}"),
+    //     }
+    // }
 
     // pub fn type_name(&self) -> TypeName<'_> {
     //     match self {

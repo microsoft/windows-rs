@@ -22,8 +22,6 @@ impl TypeName<'_> {
 
     pub const IIterable: Self = Self("Windows.Foundation.Collections", "IIterable");
     pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
-    // pub const IVectorView: Self = Self("Windows.Foundation.Collections", "IVectorView");
-    // pub const IVector: Self = Self("Windows.Foundation.Collections", "IVector");
 
     pub const PWSTR: Self = Self("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self("Windows.Win32.Foundation", "PSTR");
