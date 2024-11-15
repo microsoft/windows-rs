@@ -11,11 +11,11 @@ concurrency:
 
 on:
   pull_request:
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
+    paths:
+      - 'web/**'
   push:
-    paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'
+    paths:
+      - 'web/**'
     branches:
       - master
   workflow_dispatch:
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: current
+          node-version: '23.1' # Temporary: https://github.com/nodejs/node/issues/55826
 
       - name: Install dependencies
         run: npm install
