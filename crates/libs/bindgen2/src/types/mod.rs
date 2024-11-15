@@ -756,14 +756,7 @@ impl Type {
 }
 
 impl Type {
-    pub fn expand(&mut self, config: &Config) {
-        match self {
-            Self::Interface(item) => item.expand(config),
-            Self::CppInterface(item) => item.expand(config),
-            Self::Class(item) => item.expand(config),
-            _ => {}
-        }
-    }
+
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         match self {

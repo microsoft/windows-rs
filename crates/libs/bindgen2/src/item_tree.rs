@@ -18,8 +18,7 @@ impl ItemTree {
             };
 
             for name in &tree.items {
-                for mut item in reader.with_full_name(tree.namespace, name) {
-                    item.expand(config);
+                for  item in reader.with_full_name(tree.namespace, name) {
                     new.items.insert(item);
                 }
             }

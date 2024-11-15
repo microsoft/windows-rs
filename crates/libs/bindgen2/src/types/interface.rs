@@ -19,9 +19,7 @@ pub enum MethodOrName {
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
-    pub methods: Vec<MethodOrName>,
     pub kind: InterfaceKind,
-    pub required_interfaces: Vec<Interface>,
     // TODO: store dependencies here (in expand) to avoid repeated calls to self.required_interfaces()
 }
 
@@ -50,28 +48,30 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn expand(&mut self, config: &Config) {
-        self.methods = self
+    pub fn get_methods(&self, writer:&Writer) -> Vec<MethodOrName> {
+         self
             .def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                if method.dependencies.included(config) {
+                if method.dependencies.included(writer.config) {
                     MethodOrName::Method(method)
                 } else {
                     MethodOrName::Name(method.def.name())
                 }
             })
-            .collect();
-
-        self.required_interfaces = self.required_interfaces();
-        self.required_interfaces.sort();
-        for interface in self.required_interfaces.iter_mut() {
-            interface.expand(config);
+            .collect()
         }
-    }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
+        let methods = self.get_methods(writer);
+
+        
+        // TODO: just return it sorted
+        let mut required_interfaces = self.required_interfaces();
+        required_interfaces.sort();
+
+
         let name = self.write_name(writer);
 
         let vtbl_name = self.write_vtbl_name(writer);
@@ -163,9 +163,9 @@ impl Interface {
         if !is_exclusive {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
-            let mut methods = TokenStream::new();
+            let mut method_tokens = TokenStream::new();
 
-            for method in self.methods.iter().filter_map(|method| match &method {
+            for method in methods.iter().filter_map(|method| match &method {
                 MethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
@@ -185,16 +185,16 @@ impl Interface {
                     virtual_names,
                 );
 
-                methods.combine(quote! {
+                method_tokens.combine(quote! {
                     #cfg
                     #method
                 });
             }
 
-            for interface in &self.required_interfaces {
+            for interface in &required_interfaces {
                 let virtual_names = &mut MethodNames::new();
 
-                for method in interface.methods.iter().filter_map(|method| match &method {
+                for method in interface.get_methods(writer).iter().filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
@@ -214,18 +214,18 @@ impl Interface {
                         virtual_names,
                     );
 
-                    methods.combine(quote! {
+                    method_tokens.combine(quote! {
                         #cfg
                         #method
                     });
                 }
             }
 
-            if !methods.is_empty() {
+            if !method_tokens.is_empty() {
                 result.combine(quote! {
                     #cfg
                     impl<#constraints> #name {
-                        #methods
+                        #method_tokens
                     }
                 });
             }
@@ -239,8 +239,7 @@ impl Interface {
                 });
             }
 
-            if let Some(into_iterator) = self
-                .required_interfaces
+            if let Some(into_iterator) = required_interfaces
                 .iter()
                 .find(|interface| {
                     TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
@@ -280,7 +279,7 @@ impl Interface {
         {
             let virtual_names = &mut MethodNames::new();
 
-            let vtbl_methods = self.methods.iter().map(|method| match method {
+            let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let mut difference = Dependencies::new();
 
@@ -337,18 +336,18 @@ impl Interface {
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
             if writer.config.package {
-                fn collect(interface: &Interface, dependencies: &mut Dependencies) {
-                    for method in interface.methods.iter() {
+                fn collect(interface: &Interface, dependencies: &mut Dependencies, writer:&Writer) {
+                    for method in interface.get_methods(writer).iter() {
                         if let MethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
                         }
                     }
                 }
 
-                collect(self, &mut dependencies);
-                self.required_interfaces
+                collect(self, &mut dependencies, writer);
+                required_interfaces
                     .iter()
-                    .for_each(|interface| collect(interface, &mut dependencies));
+                    .for_each(|interface| collect(interface, &mut dependencies, writer));
             }
 
             let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
@@ -362,8 +361,7 @@ impl Interface {
 
             let mut names = MethodNames::new();
 
-            let field_methods: Vec<_> = self
-                .methods
+            let field_methods: Vec<_> = methods
                 .iter()
                 .map(|method| match method {
                     MethodOrName::Method(method) => {
@@ -381,7 +379,7 @@ impl Interface {
 
             let mut names = MethodNames::new();
 
-            let impl_methods: Vec<_> = self.methods.iter().map(|method| match method {
+            let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(writer, true);
@@ -400,8 +398,7 @@ impl Interface {
 
             let mut names = MethodNames::new();
 
-            let trait_methods: Vec<_> = self
-                .methods
+            let trait_methods: Vec<_> = methods
                 .iter()
                 .map(|method| match method {
                     MethodOrName::Method(method) => {

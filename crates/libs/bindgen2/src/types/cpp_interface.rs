@@ -9,9 +9,6 @@ pub enum CppMethodOrName {
 #[derive(Clone, Debug)]
 pub struct CppInterface {
     pub def: TypeDef,
-    pub methods: Vec<CppMethodOrName>,
-    pub base_interfaces: Vec<Type>,
-    // TODO: store dependencies here (in expand) to avoid repeated calls to self.base_interfaces()
 }
 
 impl PartialEq for CppInterface {
@@ -39,36 +36,30 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn expand(&mut self, config: &Config) {
+    pub fn get_methods(&self, writer: &Writer) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
-        self.methods = self
+         self
             .def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
-                if method.dependencies.included(config) {
+                if method.dependencies.included(writer.config) {
                     CppMethodOrName::Method(method)
                 } else {
                     CppMethodOrName::Name(method.def.name())
                 }
             })
-            .collect();
-
-        self.base_interfaces = self.base_interfaces();
-
-        for interface in self.base_interfaces.iter_mut() {
-            if let Type::CppInterface(item) = interface {
-                item.expand(config);
-            }
-        }
-    }
-
-    fn has_unknown_base(&self) -> bool {
-        matches!(self.base_interfaces.first(), Some(Type::IUnknown))
+            .collect()
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
+
+        let methods = self.get_methods(writer);
+
+        let base_interfaces = self.base_interfaces();
+        let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
+
         let mut dependencies = Dependencies::new();
 
         if writer.config.package {
@@ -81,7 +72,7 @@ impl CppInterface {
         let vtbl = {
             let core = writer.write_core();
 
-            let base = match self.base_interfaces.last() {
+            let base = match base_interfaces.last() {
                 Some(Type::IUnknown) => {
                     quote! { pub base__: #core IUnknown_Vtbl, }
                 }
@@ -97,7 +88,7 @@ impl CppInterface {
 
             let mut names = MethodNames::new();
 
-            let methods = self.methods.iter().map(|method| match method {
+            let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
                     let mut difference = Dependencies::new();
 
@@ -145,7 +136,7 @@ impl CppInterface {
             let mut result = quote! {};
 
             if !writer.config.package {
-                if self.has_unknown_base() {
+                if has_unknown_base {
                     if let Some(guid) = self.def.guid_attribute() {
                         let name: TokenStream = format!("IID_{}", self.def.name()).into();
                         result.combine(writer.write_cpp_const_guid(name, &guid));
@@ -159,7 +150,7 @@ impl CppInterface {
         } else {
             let name = to_ident(self.def.name());
 
-            let mut result = if self.has_unknown_base() {
+            let mut result = if has_unknown_base {
                 if let Some(guid) = self.def.guid_attribute() {
                     let guid = writer.write_guid_u128(&guid);
 
@@ -180,7 +171,7 @@ impl CppInterface {
                 }
             };
 
-            if let Some(Type::CppInterface(base)) = self.base_interfaces.last() {
+            if let Some(Type::CppInterface(base)) = base_interfaces.last() {
                 let base = base.write_name(writer);
 
                 result.combine(quote! {
@@ -194,8 +185,8 @@ impl CppInterface {
                 });
             }
 
-            if !self.base_interfaces.is_empty() {
-                let bases = self.base_interfaces.iter().map(|ty| ty.write_name(writer));
+            if !base_interfaces.is_empty() {
+                let bases = base_interfaces.iter().map(|ty| ty.write_name(writer));
                 result.combine(quote! {
                     #cfg
                     windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
@@ -204,9 +195,9 @@ impl CppInterface {
 
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
-            let mut methods = quote! {};
+            let mut methods_tokens = quote! {};
 
-            for method in self.methods.iter().filter_map(|method| match &method {
+            for method in methods.iter().filter_map(|method| match &method {
                 CppMethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
@@ -220,17 +211,17 @@ impl CppInterface {
 
                 let method = method.write(writer, method_names, virtual_names);
 
-                methods.combine(quote! {
+                methods_tokens.combine(quote! {
                     #cfg
                     #method
                 });
             }
 
-            if !methods.is_empty() {
+            if !methods_tokens.is_empty() {
                 result.combine(quote! {
                     #cfg
                     impl #name {
-                        #methods
+                        #methods_tokens
                     }
                 });
             }
@@ -241,18 +232,18 @@ impl CppInterface {
 
             // TODO: need to test code gen each time this split happens
             if writer.config.package {
-                fn collect(interface: &CppInterface, dependencies: &mut Dependencies) {
-                    for method in interface.methods.iter() {
+                fn collect(interface: &CppInterface, dependencies: &mut Dependencies, writer: &Writer) {
+                    for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
                         }
                     }
                 }
 
-                collect(self, &mut dependencies);
-                self.base_interfaces.iter().for_each(|interface| {
+                collect(self, &mut dependencies, writer);
+                base_interfaces.iter().for_each(|interface| {
                     if let Type::CppInterface(item) = interface {
-                        collect(item, &mut dependencies);
+                        collect(item, &mut dependencies, writer);
                     }
                 });
             }
@@ -261,13 +252,12 @@ impl CppInterface {
 
             let mut names = MethodNames::new();
 
-            let field_methods: Vec<_> = self
-                .methods
+            let field_methods: Vec<_> = methods
                 .iter()
                 .map(|method| match method {
                     CppMethodOrName::Method(method) => {
                         let name = names.add(method.def);
-                        if self.has_unknown_base() {
+                        if has_unknown_base {
                             quote! { #name: #name::<Identity, OFFSET>, }
                         } else {
                             quote! { #name: #name::<Identity>, }
@@ -284,13 +274,13 @@ impl CppInterface {
 
             let mut names = MethodNames::new();
 
-            let impl_methods: Vec<_> = self.methods.iter().map(|method| match method {
+            let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(writer, true);
                     let upcall = method.write_upcall(&impl_name, &name);
 
-                    if self.has_unknown_base() {
+                    if has_unknown_base {
                     quote! {
                         unsafe extern "system" fn #name<Identity: #impl_name, const OFFSET: isize> #signature {
                             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -312,8 +302,7 @@ impl CppInterface {
 
             let mut names = MethodNames::new();
 
-            let trait_methods: Vec<_> = self
-                .methods
+            let trait_methods: Vec<_> = methods
                 .iter()
                 .map(|method| match method {
                     CppMethodOrName::Method(method) => {
@@ -325,18 +314,17 @@ impl CppInterface {
                 })
                 .collect();
 
-            let impl_base = self
-                .base_interfaces
+            let impl_base = base_interfaces
                 .last()
                 .map(|ty| ty.write_impl_name(writer));
 
-            let field_base = self.base_interfaces.last().map(|ty|{
+            let field_base = base_interfaces.last().map(|ty|{
                 match ty {
                     Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
                     Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
                     Type::CppInterface(item) => {
                         let ty = item.write_vtbl_name(writer);
-                        if self.has_unknown_base () {
+                        if has_unknown_base {
                             quote! { base__: #ty::new::<Identity, OFFSET>(), }
                         } else {
                             quote! { base__: #ty::new::<Identity>(), }
@@ -346,8 +334,8 @@ impl CppInterface {
                 }
             });
 
-            result.combine( if self.has_unknown_base() {
-                let matches = self.base_interfaces.iter().filter_map(|ty|{
+            result.combine( if has_unknown_base {
+                let matches = base_interfaces.iter().filter_map(|ty|{
                     match ty {
                         Type::CppInterface(item) => {
                             let name = item.write_name(writer);

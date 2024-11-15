@@ -60,7 +60,6 @@ impl Reader {
                         Category::Class => Type::Class(Class {
                             def,
                             generics: def.generics(),
-                            required_interfaces: vec![],
                         }),
                         Category::Delegate => Type::Delegate(Delegate {
                             def,
@@ -70,9 +69,7 @@ impl Reader {
                         Category::Interface => Type::Interface(Interface {
                             def,
                             generics: def.generics(),
-                            methods: vec![],
                             kind: InterfaceKind::None,
-                            required_interfaces: vec![],
                         }),
                         Category::Struct => {
                             // Skip marker types representing API contracts.
@@ -135,8 +132,6 @@ impl Reader {
                                 name,
                                 Type::CppInterface(CppInterface {
                                     def,
-                                    methods: vec![],
-                                    base_interfaces: vec![],
                                 }),
                             );
                         }

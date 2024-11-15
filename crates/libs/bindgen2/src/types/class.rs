@@ -4,7 +4,6 @@ use super::*;
 pub struct Class {
     pub def: TypeDef,
     pub generics: Vec<Type>,
-    pub required_interfaces: Vec<Interface>, // This is required interfaces that have been "expanded" to include methods
 }
 
 impl Class {
@@ -12,22 +11,11 @@ impl Class {
         self.def.type_name()
     }
 
-    pub fn expand(&mut self, config: &Config) {
-        // TODO: load interfaces, methods, bases?
-        //  for interface in self.required_interfaces() {
-        //     set.interfaces.insert(interface.expand(filter));
-        //  }
-
-        debug_assert!(self.required_interfaces.is_empty());
-
-        self.required_interfaces = self.required_interfaces();
-        self.required_interfaces.sort();
-        for interface in self.required_interfaces.iter_mut() {
-            interface.expand(config);
-        }
-    }
-
     pub fn write(&self, writer: &Writer) -> TokenStream {
+        let mut required_interfaces = self.required_interfaces();
+        required_interfaces.sort();
+
+
         let name = to_ident(self.def.name());
 
         let mut dependencies = Dependencies::new();
@@ -50,10 +38,10 @@ impl Class {
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
 
-        for interface in &self.required_interfaces {
+        for interface in &required_interfaces {
             let mut virtual_names = MethodNames::new();
 
-            for method in interface.methods.iter().filter_map(|method| match &method {
+            for method in interface.get_methods(writer).iter().filter_map(|method| match &method {
                 MethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
@@ -95,9 +83,10 @@ impl Class {
             }
         );
 
-        let factories = self.required_interfaces.iter().filter_map(|interface| match interface.kind {
+        let factories = required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
-                if interface.methods.is_empty() {
+                // TODO: should be an iterator
+                if interface.get_methods(writer).is_empty() {
                     None
                 } else {
                         let interface_type = interface.write_name(writer);
@@ -138,8 +127,7 @@ impl Class {
             };
 
             let required_hierarchy = {
-                let mut interfaces: Vec<_> = self
-                    .required_interfaces
+                let mut interfaces: Vec<_> = required_interfaces
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .map(|ty| ty.write_name(writer))
@@ -166,8 +154,7 @@ impl Class {
                 }
             });
 
-            let into_iterator = self
-                .required_interfaces
+            let into_iterator = required_interfaces
                 .iter()
                 .find(|interface| {
                     TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
