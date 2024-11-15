@@ -39,8 +39,12 @@ impl Writer {
         // TODO: should provide non-sys versions of these as well for no-deps builds?
         if self.config.no_deps {
             // TODO: This items collection is a HashSet and thus the output is not stable - it needs to be sorted before tokenizing
-            for dependency in &self.config.tree.items {
-                tokens.combine(match *dependency {
+            for dependency in self.config.tree.iter() {
+                if !dependency.namespace().is_empty() {
+                    continue;
+                }
+
+                tokens.combine(match dependency.name() {
                     "HRESULT" => quote! { pub type HRESULT = i32; },
                     "PWSTR" => quote! { pub type PWSTR = *mut u16; },
                     "PCSTR" => quote! { pub type PCSTR = *const u8; },

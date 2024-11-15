@@ -9,30 +9,17 @@ pub struct ItemTree {
 }
 
 impl ItemTree {
-    pub fn new(reader: &'static Reader, config: &Config) -> Self {
-        fn expand(reader: &'static Reader, tree: &NameTree, config: &Config) -> ItemTree {
-            let mut new = ItemTree {
-                namespace: tree.namespace,
-                nested: BTreeMap::new(),
-                items: BTreeSet::new(),
-            };
+    pub fn new(reader: &'static Reader, config: &'static Config) -> Self {
+        let mut tree = Self::with_namespace("");
 
-            for name in &tree.items {
-                for  item in reader.with_full_name(tree.namespace, name) {
-                    new.items.insert(item);
+        for name in config.tree.iter() {
+            let tree = tree.insert_namespace(name.namespace());
+                            for  item in reader.with_full_name(name.0, name.1) {
+                    tree.items.insert(item);
                 }
-            }
-
-            for (name, tree) in &tree.nested {
-                new.nested.insert(name, expand(reader, tree, config));
-            }
-
-            // TODO: load methods here or above
-
-            new
         }
 
-        expand(reader, &config.tree, config)
+        tree
     }
 
     // This is used to provide a flat iterator of trees so that they can be processed in parallel.
@@ -65,5 +52,43 @@ impl ItemTree {
 
     pub fn feature(&self) -> String {
         self.namespace.split_once('.').unwrap().1.replace('.', "_")
+    }
+
+    fn with_namespace(namespace: &'static str) -> Self {
+        Self {
+            namespace,
+            nested: BTreeMap::new(),
+            items: BTreeSet::new(),
+        }
+    }
+
+    fn insert_namespace(&mut self, namespace: &'static str) -> &mut Self {
+        fn insert_namespace<'a>(
+            parent: &'a mut ItemTree,
+            namespace: &'static str,
+            pos: usize,
+        ) -> &'a mut ItemTree {
+            if let Some(next) = namespace[pos..].find('.') {
+                let next = pos + next;
+
+                let parent = parent
+                    .nested
+                    .entry(&namespace[pos..next])
+                    .or_insert_with(|| ItemTree::with_namespace(&namespace[..next]));
+
+                insert_namespace(parent, namespace, next + 1)
+            } else {
+                parent
+                    .nested
+                    .entry(&namespace[pos..])
+                    .or_insert_with(|| ItemTree::with_namespace(namespace))
+            }
+        }
+
+        if namespace.is_empty() {
+            self
+        } else {
+            insert_namespace(self, namespace, 0)
+        }
     }
 }

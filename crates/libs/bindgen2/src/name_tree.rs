@@ -1,23 +1,27 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct NameTree {
-    pub namespace: &'static str,
-    pub nested: HashMap<&'static str, Self>,
-    pub items: HashSet<&'static str>,
+pub struct NameTree (
+    HashSet<TypeName<'static>>
+);
+
+impl std::ops::Deref for NameTree {
+    type Target = HashSet<TypeName<'static>>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
 }
 
 // TODO: can't just use filter onces name tree is built since the filter won't include dependencies
 
 impl NameTree {
     pub fn new(reader: &'static Reader, filter: &Filter) -> Self {
-        let mut tree = Self::with_namespace("");
+        let mut set = HashSet::new();
         let mut dependencies = Dependencies::new();
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
-                let tree = tree.insert_namespace(namespace);
-
                 for name in reader[namespace].keys() {
                     if filter.includes_type_name(namespace, name) {
                         let mut item_dependencies = Dependencies::new();
@@ -26,26 +30,11 @@ impl NameTree {
                             item.dependencies(&mut item_dependencies);
                         }
 
-                        // TODO: The above doesn't work for multi-arch dependencies and the below
-                        // doesn't work for multi-arch dependencies of dependencies.
-
-                        // let item_dependencies = reader[namespace][name]
-                        //     .iter()
-                        //     .map(|item| {
-                        //         let mut dependencies = Dependencies::new();
-                        //         item.dependencies(&mut dependencies);
-                        //         dependencies
-                        //     })
-                        //     .fold(Dependencies::new(), |mut dependencies, item| {
-                        //         dependencies.combine(&item);
-                        //         dependencies
-                        //     });
-
                         if item_dependencies.excluded(filter) {
                             continue;
                         }
 
-                        tree.items.insert(name);
+                        set.insert(TypeName(namespace, name));
                         dependencies.combine(&item_dependencies);
                     }
                 }
@@ -53,71 +42,14 @@ impl NameTree {
         }
 
         for (namespace, name) in dependencies.iter() {
-            tree.insert_namespace(namespace).items.insert(name);
+            set.insert(TypeName(namespace, name));
         }
 
-        tree
+        Self(set)
     }
-
-    // pub fn includes_namespace(&self, namespace: &str) -> bool {
-    //     if let Some(next) = namespace.find('.') {
-    //         self.nested.get(&namespace[..next]).map_or(false, |tree| {
-    //             tree.includes_namespace(&namespace[next + 1..])
-    //         })
-    //     } else {
-    //         self.nested.contains_key(namespace)
-    //     }
-    // }
 
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
-        fn get<'a>(tree: &'a NameTree, path: &str) -> Option<&'a NameTree> {
-            if let Some(next) = path.find('.') {
-                tree.nested
-                    .get(&path[..next])
-                    .and_then(|tree| get(tree, &path[next + 1..]))
-            } else {
-                tree.nested.get(path)
-            }
-        }
-
-        get(self, namespace).is_some_and(|tree| tree.items.contains(name))
+        self.0.contains(&TypeName(namespace, name))
     }
 
-    fn with_namespace(namespace: &'static str) -> Self {
-        Self {
-            namespace,
-            nested: HashMap::new(),
-            items: HashSet::new(),
-        }
-    }
-
-    fn insert_namespace(&mut self, namespace: &'static str) -> &mut Self {
-        fn insert_namespace<'a>(
-            parent: &'a mut NameTree,
-            namespace: &'static str,
-            pos: usize,
-        ) -> &'a mut NameTree {
-            if let Some(next) = namespace[pos..].find('.') {
-                let next = pos + next;
-
-                let parent = parent
-                    .nested
-                    .entry(&namespace[pos..next])
-                    .or_insert_with(|| NameTree::with_namespace(&namespace[..next]));
-
-                insert_namespace(parent, namespace, next + 1)
-            } else {
-                parent
-                    .nested
-                    .entry(&namespace[pos..])
-                    .or_insert_with(|| NameTree::with_namespace(namespace))
-            }
-        }
-
-        if namespace.is_empty() {
-            self
-        } else {
-            insert_namespace(self, namespace, 0)
-        }
-    }
 }
