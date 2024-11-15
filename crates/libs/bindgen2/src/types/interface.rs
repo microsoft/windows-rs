@@ -327,7 +327,13 @@ impl Interface {
 
         if writer.config.implement || !is_exclusive {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
-            let generics: Vec<_> = self.generics.iter().map(|ty| ty.write_name(writer)).collect();
+
+            let generics: Vec<_> = self
+                .generics
+                .iter()
+                .map(|ty| ty.write_name(writer))
+                .collect();
+
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
             if writer.config.package {

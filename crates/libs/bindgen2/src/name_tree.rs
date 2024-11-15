@@ -28,7 +28,7 @@ impl NameTree {
 
                         // TODO: The above doesn't work for multi-arch dependencies and the below
                         // doesn't work for multi-arch dependencies of dependencies.
-                        
+
                         // let item_dependencies = reader[namespace][name]
                         //     .iter()
                         //     .map(|item| {

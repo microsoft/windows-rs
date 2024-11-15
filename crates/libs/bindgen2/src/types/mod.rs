@@ -44,9 +44,6 @@ pub use r#struct::*;
 //     }
 // }
 
-
-// TODO: `Type` and `Item` can merge into a single enum
-
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
     Void,
@@ -523,7 +520,6 @@ impl Type {
             Self::Interface(item) => item.runtime_signature(),
             Self::Struct(item) => item.runtime_signature(),
             rest => panic!("windows-bindgen: {rest:?}"),
-            
         }
     }
 
@@ -611,9 +607,11 @@ impl Type {
             Self::CppEnum(_) => true,
             Self::CppDelegate(_) => true,
 
-            Self::Interface(..) | Self::CppInterface(..) | Self::Class(..) | Self::Delegate(..) => false,
+            Self::Interface(..) | Self::CppInterface(..) | Self::Class(..) | Self::Delegate(..) => {
+                false
+            }
 
-                        Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
+            Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
             Self::ArrayFixed(ty, _) => ty.is_copyable(),
             Self::Array(ty) => ty.is_copyable(),
             _ => true,
@@ -624,7 +622,7 @@ impl Type {
         match self {
             Self::Struct(item) => !item.is_copyable(),
             Self::CppInterface(..) => true,
-                        Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
+            Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
             Self::ArrayFixed(ty, _) => ty.is_dropped(),
             _ => false,
         }
@@ -636,7 +634,7 @@ impl Type {
             Self::Delegate(..) | Self::Interface(..) | Self::Class(..) | Self::CppInterface(..) => {
                 true
             }
-                        Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
+            Self::PCSTR | Self::PCWSTR | Self::Object | Self::IUnknown | Self::Param(_) => true,
             _ => false,
         }
     }
@@ -649,7 +647,7 @@ impl Type {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
             Self::CppStruct(item) => item.is_handle(),
-                        Self::Bool
+            Self::Bool
             | Self::Char
             | Self::I8
             | Self::U8
@@ -745,8 +743,8 @@ impl Type {
             Self::CppStruct(item) => item.align(),
             Self::Struct(item) => item.align(),
             Self::CppEnum(item) => item.align(),
-        _ => 4,
-                }
+            _ => 4,
+        }
     }
 
     pub fn underlying_type(&self) -> Self {
@@ -755,12 +753,11 @@ impl Type {
             Self::CppEnum(item) => item.def.underlying_type(),
             Self::Enum(item) => item.def.underlying_type(),
             Self::CppStruct(item) => item.def.underlying_type(),
-                        Type::HRESULT => Type::I32,
-                        rest => unimplemented!("{rest:?}"),
+            Type::HRESULT => Type::I32,
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }
-
 
 impl Type {
     pub fn expand(&mut self, config: &Config) {
@@ -789,7 +786,6 @@ impl Type {
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
-
 
     pub fn set_generics(&mut self, generics: Vec<Type>) {
         match self {
@@ -850,15 +846,7 @@ impl Type {
     //         Self::CppFn(item) => item.type_name(),
     //     }
     // }
-
-
-
-
-
-
 }
-
-
 
 pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
     if generics.is_empty() {
@@ -877,8 +865,6 @@ pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
         signature
     }
 }
-
-
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {
     "*mut ".repeat(pointers).into()
