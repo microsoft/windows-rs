@@ -12,7 +12,7 @@ impl ItemTree {
     pub fn new(reader: &'static Reader, config: &'static Config) -> Self {
         let mut tree = Self::with_namespace("");
 
-        for name in config.tree.iter() {
+        for name in config.includes.iter() {
             let tree = tree.insert_namespace(name.namespace());
                             for  item in reader.with_full_name(name.0, name.1) {
                     tree.items.insert(item);

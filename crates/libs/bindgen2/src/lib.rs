@@ -12,7 +12,7 @@ mod filter;
 mod guid;
 mod io;
 mod item_tree;
-mod name_tree;
+mod includes;
 mod references;
 mod signature;
 mod tables;
@@ -30,7 +30,7 @@ use filter::*;
 use guid::*;
 use io::*;
 use item_tree::*;
-use name_tree::*;
+use includes::*;
 use references::*;
 use signature::*;
 use std::cmp::Ordering;
@@ -47,7 +47,7 @@ mod method_names;
 use method_names::*;
 
 struct Config {
-    pub tree: NameTree, // TODO: can we get rid of NameTree and just use it to create the ItemTree?
+    pub includes: Includes, // TODO: can we get rid of Includes and just use it to create the ItemTree?
     pub references: References,
     pub output: String,
     pub flat: bool,
@@ -172,14 +172,14 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let tree = NameTree::new(reader, &filter);
+    let includes = Includes::new(reader, &filter);
 
     let references = References::new(reader, references);
 
     let derive = Derive::new(reader, &derive);
 
     let config = Box::leak(Box::new(Config {
-        tree,
+        includes,
         flat,
         //  minimal,
         references,

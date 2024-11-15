@@ -23,7 +23,7 @@ impl Method {
         }
     }
 
-    // pub fn included(&self, filter: &NameTree) -> bool {
+    // pub fn included(&self, filter: &Includes) -> bool {
     //     self.dependencies.included(filter)
     // }
 

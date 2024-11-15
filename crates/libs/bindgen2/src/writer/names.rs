@@ -58,7 +58,7 @@ impl Writer {
         if let Some(reference) = {
             if self
                 .config
-                .tree
+                .includes
                 .includes_type_name(type_name.namespace(), type_name.name())
             {
                 None

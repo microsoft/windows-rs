@@ -48,7 +48,7 @@ impl Dependencies {
                 return true;
             }
 
-            if config.tree.includes_type_name(namespace, name) {
+            if config.includes.includes_type_name(namespace, name) {
                 return true;
             }
 

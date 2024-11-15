@@ -1,11 +1,11 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct NameTree (
+pub struct Includes (
     HashSet<TypeName<'static>>
 );
 
-impl std::ops::Deref for NameTree {
+impl std::ops::Deref for Includes {
     type Target = HashSet<TypeName<'static>>;
 
     fn deref(&self) -> &Self::Target {
@@ -15,7 +15,7 @@ impl std::ops::Deref for NameTree {
 
 // TODO: can't just use filter onces name tree is built since the filter won't include dependencies
 
-impl NameTree {
+impl Includes {
     pub fn new(reader: &'static Reader, filter: &Filter) -> Self {
         let mut set = HashSet::new();
         let mut dependencies = Dependencies::new();
@@ -49,7 +49,7 @@ impl NameTree {
     }
 
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
-        self.0.contains(&TypeName(namespace, name))
+        self.contains(&TypeName(namespace, name))
     }
 
 }

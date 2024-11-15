@@ -70,7 +70,7 @@ impl ReferenceStyle {
 #[derive(Debug)]
 pub struct Reference {
     pub name: String,          // crate name like "windows"
-    pub tree: NameTree,        // what this reference provides
+    pub includes: Includes,        // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 
@@ -85,12 +85,12 @@ impl References {
                 .map(|stage| {
                     // TODO: does this validate the path?
                     let filter = Filter::new(reader, &[&stage.path], &[]);
-                    let tree = NameTree::new(reader, &filter);
+                    let includes = Includes::new(reader, &filter);
 
                     Reference {
                         name: stage.name,
                         style: stage.style,
-                        tree,
+                        includes,
                     }
                 })
                 .collect(),
@@ -100,6 +100,6 @@ impl References {
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> Option<&Reference> {
         self.0
             .iter()
-            .find(|reference| reference.tree.includes_type_name(namespace, name))
+            .find(|reference| reference.includes.includes_type_name(namespace, name))
     }
 }
