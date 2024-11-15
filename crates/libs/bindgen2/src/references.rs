@@ -70,7 +70,7 @@ impl ReferenceStyle {
 #[derive(Debug)]
 pub struct Reference {
     pub name: String,          // crate name like "windows"
-    pub includes: Includes,        // what this reference provides
+    pub includes: Includes,    // what this reference provides
     pub style: ReferenceStyle, // how to generate the type path
 }
 

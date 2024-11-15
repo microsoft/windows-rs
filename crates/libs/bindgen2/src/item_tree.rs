@@ -14,9 +14,9 @@ impl ItemTree {
 
         for name in config.includes.iter() {
             let tree = tree.insert_namespace(name.namespace());
-                            for  item in reader.with_full_name(name.0, name.1) {
-                    tree.items.insert(item);
-                }
+            for item in reader.with_full_name(name.0, name.1) {
+                tree.items.insert(item);
+            }
         }
 
         tree

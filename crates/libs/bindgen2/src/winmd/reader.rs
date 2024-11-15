@@ -57,9 +57,7 @@ impl Reader {
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     let item = match category {
                         Category::Attribute => continue,
-                        Category::Class => Type::Class(Class {
-                            def,
-                        }),
+                        Category::Class => Type::Class(Class { def }),
                         Category::Delegate => Type::Delegate(Delegate {
                             def,
                             generics: def.generics(),
@@ -97,12 +95,26 @@ impl Reader {
                                     }
 
                                     let name = method.name();
-                                    insert(items, name, Type::CppFn(CppFn { namespace: def.namespace(), method }));
+                                    insert(
+                                        items,
+                                        name,
+                                        Type::CppFn(CppFn {
+                                            namespace: def.namespace(),
+                                            method,
+                                        }),
+                                    );
                                 }
 
                                 for field in def.fields() {
                                     let name = field.name();
-                                    insert(items, name, Type::CppConst(CppConst { namespace: def.namespace(), field }));
+                                    insert(
+                                        items,
+                                        name,
+                                        Type::CppConst(CppConst {
+                                            namespace: def.namespace(),
+                                            field,
+                                        }),
+                                    );
                                 }
                             }
                         }
@@ -119,20 +131,17 @@ impl Reader {
                                         insert(
                                             items,
                                             name,
-                                            Type::CppConst(CppConst { namespace: def.namespace(), field }),
+                                            Type::CppConst(CppConst {
+                                                namespace: def.namespace(),
+                                                field,
+                                            }),
                                         );
                                     }
                                 }
                             }
                         }
                         Category::Interface => {
-                            insert(
-                                items,
-                                name,
-                                Type::CppInterface(CppInterface {
-                                    def,
-                                }),
-                            );
+                            insert(items, name, Type::CppInterface(CppInterface { def }));
                         }
                         Category::Struct => {
                             fn make(
@@ -158,7 +167,11 @@ impl Reader {
                                 item
                             }
 
-                            insert(items, name, Type::CppStruct(make(def, String::new(), &nested)));
+                            insert(
+                                items,
+                                name,
+                                Type::CppStruct(make(def, String::new(), &nested)),
+                            );
                         }
                     };
                 }

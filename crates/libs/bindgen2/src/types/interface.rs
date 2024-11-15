@@ -47,9 +47,8 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, writer:&Writer) -> Vec<MethodOrName> {
-         self
-            .def
+    pub fn get_methods(&self, writer: &Writer) -> Vec<MethodOrName> {
+        self.def
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
@@ -60,16 +59,14 @@ impl Interface {
                 }
             })
             .collect()
-        }
+    }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let methods = self.get_methods(writer);
 
-        
         // TODO: just return it sorted
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
-
 
         let name = self.write_name(writer);
 
@@ -193,10 +190,15 @@ impl Interface {
             for interface in &required_interfaces {
                 let virtual_names = &mut MethodNames::new();
 
-                for method in interface.get_methods(writer).iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                }) {
+                for method in
+                    interface
+                        .get_methods(writer)
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                {
                     let mut difference = Dependencies::new();
 
                     if writer.config.package {
@@ -335,7 +337,11 @@ impl Interface {
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
             if writer.config.package {
-                fn collect(interface: &Interface, dependencies: &mut Dependencies, writer:&Writer) {
+                fn collect(
+                    interface: &Interface,
+                    dependencies: &mut Dependencies,
+                    writer: &Writer,
+                ) {
                     for method in interface.get_methods(writer).iter() {
                         if let MethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);

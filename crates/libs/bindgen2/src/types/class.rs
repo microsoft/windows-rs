@@ -14,7 +14,6 @@ impl Class {
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
 
-
         let name = to_ident(self.def.name());
 
         let mut dependencies = Dependencies::new();
@@ -40,10 +39,14 @@ impl Class {
         for interface in &required_interfaces {
             let mut virtual_names = MethodNames::new();
 
-            for method in interface.get_methods(writer).iter().filter_map(|method| match &method {
-                MethodOrName::Method(method) => Some(method),
-                _ => None,
-            }) {
+            for method in interface
+                .get_methods(writer)
+                .iter()
+                .filter_map(|method| match &method {
+                    MethodOrName::Method(method) => Some(method),
+                    _ => None,
+                })
+            {
                 let mut difference = Dependencies::new();
 
                 if writer.config.package {

@@ -39,8 +39,7 @@ impl CppInterface {
     pub fn get_methods(&self, writer: &Writer) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
-         self
-            .def
+        self.def
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, namespace);
@@ -54,7 +53,6 @@ impl CppInterface {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-
         let methods = self.get_methods(writer);
 
         let base_interfaces = self.base_interfaces();
@@ -232,7 +230,11 @@ impl CppInterface {
 
             // TODO: need to test code gen each time this split happens
             if writer.config.package {
-                fn collect(interface: &CppInterface, dependencies: &mut Dependencies, writer: &Writer) {
+                fn collect(
+                    interface: &CppInterface,
+                    dependencies: &mut Dependencies,
+                    writer: &Writer,
+                ) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -314,9 +316,7 @@ impl CppInterface {
                 })
                 .collect();
 
-            let impl_base = base_interfaces
-                .last()
-                .map(|ty| ty.write_impl_name(writer));
+            let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(writer));
 
             let field_base = base_interfaces.last().map(|ty|{
                 match ty {

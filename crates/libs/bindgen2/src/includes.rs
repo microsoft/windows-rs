@@ -1,9 +1,7 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct Includes (
-    HashSet<TypeName<'static>>
-);
+pub struct Includes(HashSet<TypeName<'static>>);
 
 impl std::ops::Deref for Includes {
     type Target = HashSet<TypeName<'static>>;
@@ -51,5 +49,4 @@ impl Includes {
     pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
         self.contains(&TypeName(namespace, name))
     }
-
 }

@@ -234,7 +234,7 @@ impl CppStruct {
         };
 
         for nested in self.nested.values() {
-                tokens.combine(nested.write_with_cfg(writer, cfg));
+            tokens.combine(nested.write_with_cfg(writer, cfg));
         }
 
         tokens

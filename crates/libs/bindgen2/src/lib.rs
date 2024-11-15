@@ -2,7 +2,7 @@
 #![allow(
     non_upper_case_globals,
     clippy::enum_variant_names,
-    clippy::upper_case_acronyms,
+    clippy::upper_case_acronyms
 )]
 
 mod dependencies;
@@ -10,9 +10,9 @@ mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
+mod includes;
 mod io;
 mod item_tree;
-mod includes;
 mod references;
 mod signature;
 mod tables;
@@ -28,9 +28,9 @@ use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
+use includes::*;
 use io::*;
 use item_tree::*;
-use includes::*;
 use references::*;
 use signature::*;
 use std::cmp::Ordering;
