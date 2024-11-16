@@ -163,7 +163,7 @@ extern "system" fn wndproc<S: DXSample>(
         _ => {
             let user_data = unsafe { GetWindowLongPtrA(window, GWLP_USERDATA) };
             let sample = std::ptr::NonNull::<S>::new(user_data as _);
-            let handled = sample.map_or(false, |mut s| {
+            let handled = sample.is_some_and(|mut s| {
                 sample_wndproc(unsafe { s.as_mut() }, message, wparam)
             });
 
