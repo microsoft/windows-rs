@@ -261,8 +261,7 @@ impl Window {
                 }
 
                 let desktop = self.desktop.as_ref().expect("IDCompositionDesktopDevice");
-                let mut stats = Default::default();
-                desktop.GetFrameStatistics(&mut stats)?;
+                let stats = desktop.GetFrameStatistics()?;
 
                 let next_frame: f64 =
                     stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;

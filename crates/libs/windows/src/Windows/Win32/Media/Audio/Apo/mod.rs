@@ -963,93 +963,50 @@ pub const DEVICE_NOT_ROTATED: DEVICE_ORIENTATION_TYPE = DEVICE_ORIENTATION_TYPE(
 pub const DEVICE_ROTATED_180_DEGREES_CLOCKWISE: DEVICE_ORIENTATION_TYPE = DEVICE_ORIENTATION_TYPE(2i32);
 pub const DEVICE_ROTATED_270_DEGREES_CLOCKWISE: DEVICE_ORIENTATION_TYPE = DEVICE_ORIENTATION_TYPE(3i32);
 pub const DEVICE_ROTATED_90_DEGREES_CLOCKWISE: DEVICE_ORIENTATION_TYPE = DEVICE_ORIENTATION_TYPE(1i32);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 13 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 15 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 18 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 17 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 16 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 14 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 20 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 19 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_CompositeFX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 13 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 10 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_EFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 7 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ApplyToBluetooth: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 30 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ApplyToCapture: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 33 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ApplyToRender: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 32 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ApplyToUsb: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 31 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_Association: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 0 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_Author: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 26 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_EffectPackSchema_Version: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 29 };
+pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 13 };
+pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 15 };
+pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 18 };
+pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 17 };
+pub const PKEY_CompositeFX_KeywordDetector_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 16 };
+pub const PKEY_CompositeFX_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 14 };
+pub const PKEY_CompositeFX_Offload_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 20 };
+pub const PKEY_CompositeFX_Offload_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 19 };
+pub const PKEY_CompositeFX_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 13 };
+pub const PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 10 };
+pub const PKEY_EFX_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 7 };
+pub const PKEY_FX_ApplyToBluetooth: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 30 };
+pub const PKEY_FX_ApplyToCapture: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 33 };
+pub const PKEY_FX_ApplyToRender: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 32 };
+pub const PKEY_FX_ApplyToUsb: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 31 };
+pub const PKEY_FX_Association: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 0 };
+pub const PKEY_FX_Author: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 26 };
+pub const PKEY_FX_EffectPackSchema_Version: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 29 };
 pub const PKEY_FX_EffectPack_Schema_V1: windows_core::GUID = windows_core::GUID::from_u128(0x7abf23d9_727e_4d0b_86a3_dd501d260001);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 7 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_Enumerator: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 23 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_FriendlyName: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 4 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 10 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 9 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 8 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 6 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_ObjectId: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 27 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 12 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 11 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_PostMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 2 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_PreMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 1 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_State: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 28 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 5 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_SupportAppLauncher: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 21 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_SupportedFormats: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 22 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_UserInterfaceClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 3 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_VersionMajor: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 24 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_FX_VersionMinor: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 25 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 9 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 12 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_MFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 6 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 8 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 11 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 5 };
+pub const PKEY_FX_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 7 };
+pub const PKEY_FX_Enumerator: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 23 };
+pub const PKEY_FX_FriendlyName: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 4 };
+pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 10 };
+pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 9 };
+pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 8 };
+pub const PKEY_FX_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 6 };
+pub const PKEY_FX_ObjectId: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 27 };
+pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 12 };
+pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 11 };
+pub const PKEY_FX_PostMixEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 2 };
+pub const PKEY_FX_PreMixEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 1 };
+pub const PKEY_FX_State: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 28 };
+pub const PKEY_FX_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 5 };
+pub const PKEY_FX_SupportAppLauncher: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 21 };
+pub const PKEY_FX_SupportedFormats: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 22 };
+pub const PKEY_FX_UserInterfaceClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 3 };
+pub const PKEY_FX_VersionMajor: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 24 };
+pub const PKEY_FX_VersionMinor: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 25 };
+pub const PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 9 };
+pub const PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 12 };
+pub const PKEY_MFX_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 6 };
+pub const PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 8 };
+pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 11 };
+pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 5 };
 pub const SID_AudioProcessingObjectLoggingService: windows_core::GUID = windows_core::GUID::from_u128(0x8b8008af_09f9_456e_a173_bdb58499bce7);
 pub const SID_AudioProcessingObjectRTQueue: windows_core::GUID = windows_core::GUID::from_u128(0x458c1a1f_6899_4c12_99ac_e2e6ac253104);
 pub const eAudioConstriction14_14: EAudioConstriction = EAudioConstriction(3i32);
@@ -1442,7 +1399,7 @@ impl Default for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: core::mem::ManuallyDrop<Option<super::IMMDevice>>,
     pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-    pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+    pub propertyKey: super::super::super::Foundation::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
@@ -1602,7 +1559,7 @@ pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub propertyStoreContext: windows_core::GUID,
     pub propertyStoreType: super::AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE,
     pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
-    pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+    pub propertyKey: super::super::super::Foundation::PROPERTYKEY,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {

@@ -12,8 +12,10 @@ void __stdcall CryptCATAdminResolveCatalogPath(int p0, int p1, int p2, int p3) {
 void __stdcall CryptCATAllocSortedMemberInfo(int p0, int p1) {}
 void __stdcall CryptCATCDFClose(int p0) {}
 void __stdcall CryptCATCDFEnumAttributes(int p0, int p1, int p2, int p3) {}
+void __stdcall CryptCATCDFEnumAttributesWithCDFTag(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall CryptCATCDFEnumCatAttributes(int p0, int p1, int p2) {}
 void __stdcall CryptCATCDFEnumMembers(int p0, int p1, int p2) {}
+void __stdcall CryptCATCDFEnumMembersByCDFTagEx(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall CryptCATCDFOpen(int p0, int p1) {}
 void __stdcall CryptCATCatalogInfoFromContext(int p0, int p1, int p2) {}
 void __stdcall CryptCATClose(int p0) {}

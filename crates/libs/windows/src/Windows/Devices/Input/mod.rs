@@ -799,6 +799,7 @@ impl PointerDeviceType {
     pub const Touch: Self = Self(0i32);
     pub const Pen: Self = Self(1i32);
     pub const Mouse: Self = Self(2i32);
+    pub const Touchpad: Self = Self(3i32);
 }
 impl windows_core::TypeKind for PointerDeviceType {
     type TypeKind = windows_core::CopyType;

@@ -1,7 +1,7 @@
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSCoerceToCanonicalValue(key : *const PROPERTYKEY, ppropvar : *mut core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
+pub unsafe fn PSCoerceToCanonicalValue(key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSCoerceToCanonicalValue(key : *const super::super::super::Foundation:: PROPERTYKEY, ppropvar : *mut core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
     PSCoerceToCanonicalValue(key, core::mem::transmute(ppropvar)).ok()
 }
 #[inline]
@@ -32,8 +32,8 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[Option<windows_cor
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: Option<*const PROPERTYKEY>, rgflags: Option<*const PKA_FLAGS>, rgpropvar: Option<*const super::super::super::System::Com::StructuredStorage::PROPVARIANT>, cchanges: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSCreatePropertyChangeArray(rgpropkey : *const PROPERTYKEY, rgflags : *const PKA_FLAGS, rgpropvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, cchanges : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: Option<*const super::super::super::Foundation::PROPERTYKEY>, rgflags: Option<*const PKA_FLAGS>, rgpropvar: Option<*const super::super::super::System::Com::StructuredStorage::PROPVARIANT>, cchanges: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSCreatePropertyChangeArray(rgpropkey : *const super::super::super::Foundation:: PROPERTYKEY, rgflags : *const PKA_FLAGS, rgpropvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, cchanges : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PSCreatePropertyChangeArray(core::mem::transmute(rgpropkey.unwrap_or(core::ptr::null())), core::mem::transmute(rgflags.unwrap_or(core::ptr::null())), core::mem::transmute(rgpropvar.unwrap_or(core::ptr::null())), cchanges, riid, ppv).ok()
 }
 #[inline]
@@ -55,8 +55,8 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSCreateSimplePropertyChange(flags : PKA_FLAGS, key : *const PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSCreateSimplePropertyChange(flags : PKA_FLAGS, key : *const super::super::super::Foundation:: PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PSCreateSimplePropertyChange(flags, key, core::mem::transmute(propvar), riid, ppv).ok()
 }
 #[inline]
@@ -66,14 +66,14 @@ pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, rii
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
+pub unsafe fn PSFormatForDisplay(propkey: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::super::super::Foundation:: PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
     PSFormatForDisplay(propkey, core::mem::transmute(propvar), pdfflags, core::mem::transmute(pwsztext.as_ptr()), pwsztext.len().try_into().unwrap()).ok()
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
-    windows_targets::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn PSFormatForDisplayAlloc(key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
+    windows_targets::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const super::super::super::Foundation:: PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PSFormatForDisplayAlloc(key, core::mem::transmute(propvar), pdff, &mut result__).map(|| result__)
 }
@@ -89,8 +89,8 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
-    windows_targets::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, ppszimageres : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
+    windows_targets::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const super::super::super::Foundation:: PROPERTYKEY, propvar : *const core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >, ppszimageres : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PSGetImageReferenceForValue(propkey, core::mem::transmute(propvar), &mut result__).map(|| result__)
 }
@@ -114,8 +114,8 @@ where
     PSGetItemPropertyHandlerWithCreateObject(punkitem.param().abi(), freadwrite.param().abi(), punkcreateobject.param().abi(), riid, ppv).ok()
 }
 #[inline]
-pub unsafe fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR> {
-    windows_targets::link!("propsys.dll" "system" fn PSGetNameFromPropertyKey(propkey : *const PROPERTYKEY, ppszcanonicalname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+pub unsafe fn PSGetNameFromPropertyKey(propkey: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<windows_core::PWSTR> {
+    windows_targets::link!("propsys.dll" "system" fn PSGetNameFromPropertyKey(propkey : *const super::super::super::Foundation:: PROPERTYKEY, ppszcanonicalname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PSGetNameFromPropertyKey(propkey, &mut result__).map(|| result__)
 }
@@ -131,8 +131,8 @@ where
     PSGetNamedPropertyFromPropertyStorage(psps.param().abi(), cb, pszname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyDescription(propkey : *const PROPERTYKEY, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+pub unsafe fn PSGetPropertyDescription(propkey: *const super::super::super::Foundation::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyDescription(propkey : *const super::super::super::Foundation:: PROPERTYKEY, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     PSGetPropertyDescription(propkey, riid, ppv).ok()
 }
 #[inline]
@@ -153,20 +153,20 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn PSGetPropertyFromPropertyStorage<P0>(psps: P0, cb: u32, rpkey: *const PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
+pub unsafe fn PSGetPropertyFromPropertyStorage<P0>(psps: P0, cb: u32, rpkey: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
 where
     P0: windows_core::Param<PCUSERIALIZEDPROPSTORAGE>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyFromPropertyStorage(psps : PCUSERIALIZEDPROPSTORAGE, cb : u32, rpkey : *const PROPERTYKEY, ppropvar : *mut core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyFromPropertyStorage(psps : PCUSERIALIZEDPROPSTORAGE, cb : u32, rpkey : *const super::super::super::Foundation:: PROPERTYKEY, ppropvar : *mut core::mem::MaybeUninit < super::super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
     PSGetPropertyFromPropertyStorage(psps.param().abi(), cb, rpkey, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn PSGetPropertyKeyFromName<P0>(pszname: P0, ppropkey: *mut PROPERTYKEY) -> windows_core::Result<()>
+pub unsafe fn PSGetPropertyKeyFromName<P0>(pszname: P0, ppropkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyKeyFromName(pszname : windows_core::PCWSTR, ppropkey : *mut PROPERTYKEY) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSGetPropertyKeyFromName(pszname : windows_core::PCWSTR, ppropkey : *mut super::super::super::Foundation:: PROPERTYKEY) -> windows_core::HRESULT);
     PSGetPropertyKeyFromName(pszname.param().abi(), ppropkey).ok()
 }
 #[inline]
@@ -294,12 +294,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadPropertyKey<P0, P1>(propbag: P0, propname: P1, value: *mut PROPERTYKEY) -> windows_core::Result<()>
+pub unsafe fn PSPropertyBag_ReadPropertyKey<P0, P1>(propbag: P0, propname: P1, value: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadPropertyKey(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut PROPERTYKEY) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_ReadPropertyKey(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *mut super::super::super::Foundation:: PROPERTYKEY) -> windows_core::HRESULT);
     PSPropertyBag_ReadPropertyKey(propbag.param().abi(), propname.param().abi(), value).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -471,12 +471,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn PSPropertyBag_WritePropertyKey<P0, P1>(propbag: P0, propname: P1, value: *const PROPERTYKEY) -> windows_core::Result<()>
+pub unsafe fn PSPropertyBag_WritePropertyKey<P0, P1>(propbag: P0, propname: P1, value: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::System::Com::StructuredStorage::IPropertyBag>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WritePropertyKey(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *const PROPERTYKEY) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSPropertyBag_WritePropertyKey(propbag : * mut core::ffi::c_void, propname : windows_core::PCWSTR, value : *const super::super::super::Foundation:: PROPERTYKEY) -> windows_core::HRESULT);
     PSPropertyBag_WritePropertyKey(propbag.param().abi(), propname.param().abi(), value).ok()
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -543,11 +543,11 @@ where
     PSPropertyBag_WriteUnknown(propbag.param().abi(), propname.param().abi(), punk.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PSPropertyKeyFromString<P0>(pszstring: P0, pkey: *mut PROPERTYKEY) -> windows_core::Result<()>
+pub unsafe fn PSPropertyKeyFromString<P0>(pszstring: P0, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("propsys.dll" "system" fn PSPropertyKeyFromString(pszstring : windows_core::PCWSTR, pkey : *mut PROPERTYKEY) -> windows_core::HRESULT);
+    windows_targets::link!("propsys.dll" "system" fn PSPropertyKeyFromString(pszstring : windows_core::PCWSTR, pkey : *mut super::super::super::Foundation:: PROPERTYKEY) -> windows_core::HRESULT);
     PSPropertyKeyFromString(pszstring.param().abi(), pkey).ok()
 }
 #[inline]
@@ -574,8 +574,8 @@ where
     PSSetPropertyValue(pps.param().abi(), ppd.param().abi(), core::mem::transmute(propvar)).ok()
 }
 #[inline]
-pub unsafe fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: &mut [u16]) -> windows_core::Result<()> {
-    windows_targets::link!("propsys.dll" "system" fn PSStringFromPropertyKey(pkey : *const PROPERTYKEY, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
+pub unsafe fn PSStringFromPropertyKey(pkey: *const super::super::super::Foundation::PROPERTYKEY, psz: &mut [u16]) -> windows_core::Result<()> {
+    windows_targets::link!("propsys.dll" "system" fn PSStringFromPropertyKey(pkey : *const super::super::super::Foundation:: PROPERTYKEY, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
     PSStringFromPropertyKey(pkey, core::mem::transmute(psz.as_ptr()), psz.len().try_into().unwrap()).ok()
 }
 #[inline]
@@ -957,31 +957,31 @@ impl core::ops::Deref for IObjectWithPropertyKey {
 }
 windows_core::imp::interface_hierarchy!(IObjectWithPropertyKey, windows_core::IUnknown);
 impl IObjectWithPropertyKey {
-    pub unsafe fn SetPropertyKey(&self, key: *const PROPERTYKEY) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertyKey(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetPropertyKey)(windows_core::Interface::as_raw(self), key).ok()
     }
-    pub unsafe fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> windows_core::Result<()> {
+    pub unsafe fn GetPropertyKey(&self, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPropertyKey)(windows_core::Interface::as_raw(self), pkey).ok()
     }
 }
 #[repr(C)]
 pub struct IObjectWithPropertyKey_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY) -> windows_core::HRESULT,
-    pub GetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPERTYKEY) -> windows_core::HRESULT,
+    pub SetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
+    pub GetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
 }
 pub trait IObjectWithPropertyKey_Impl: Sized + windows_core::IUnknownImpl {
-    fn SetPropertyKey(&self, key: *const PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> windows_core::Result<()>;
+    fn SetPropertyKey(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
+    fn GetPropertyKey(&self, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IObjectWithPropertyKey {}
 impl IObjectWithPropertyKey_Vtbl {
     pub const fn new<Identity: IObjectWithPropertyKey_Impl, const OFFSET: isize>() -> IObjectWithPropertyKey_Vtbl {
-        unsafe extern "system" fn SetPropertyKey<Identity: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPropertyKey<Identity: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IObjectWithPropertyKey_Impl::SetPropertyKey(this, core::mem::transmute_copy(&key)).into()
         }
-        unsafe extern "system" fn GetPropertyKey<Identity: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyKey<Identity: IObjectWithPropertyKey_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IObjectWithPropertyKey_Impl::GetPropertyKey(this, core::mem::transmute_copy(&pkey)).into()
         }
@@ -1198,7 +1198,7 @@ impl IPropertyChangeArray {
     pub unsafe fn RemoveAt(&self, iindex: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), iindex).ok()
     }
-    pub unsafe fn IsKeyInArray(&self, key: *const PROPERTYKEY) -> windows_core::Result<()> {
+    pub unsafe fn IsKeyInArray(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).IsKeyInArray)(windows_core::Interface::as_raw(self), key).ok()
     }
 }
@@ -1211,7 +1211,7 @@ pub struct IPropertyChangeArray_Vtbl {
     pub Append: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AppendOrReplace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub IsKeyInArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY) -> windows_core::HRESULT,
+    pub IsKeyInArray: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
 }
 pub trait IPropertyChangeArray_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
@@ -1220,7 +1220,7 @@ pub trait IPropertyChangeArray_Impl: Sized + windows_core::IUnknownImpl {
     fn Append(&self, ppropchange: Option<&IPropertyChange>) -> windows_core::Result<()>;
     fn AppendOrReplace(&self, ppropchange: Option<&IPropertyChange>) -> windows_core::Result<()>;
     fn RemoveAt(&self, iindex: u32) -> windows_core::Result<()>;
-    fn IsKeyInArray(&self, key: *const PROPERTYKEY) -> windows_core::Result<()>;
+    fn IsKeyInArray(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IPropertyChangeArray {}
 impl IPropertyChangeArray_Vtbl {
@@ -1255,7 +1255,7 @@ impl IPropertyChangeArray_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyChangeArray_Impl::RemoveAt(this, core::mem::transmute_copy(&iindex)).into()
         }
-        unsafe extern "system" fn IsKeyInArray<Identity: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsKeyInArray<Identity: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyChangeArray_Impl::IsKeyInArray(this, core::mem::transmute_copy(&key)).into()
         }
@@ -1283,7 +1283,7 @@ impl core::ops::Deref for IPropertyDescription {
 }
 windows_core::imp::interface_hierarchy!(IPropertyDescription, windows_core::IUnknown);
 impl IPropertyDescription {
-    pub unsafe fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> windows_core::Result<()> {
+    pub unsafe fn GetPropertyKey(&self, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetPropertyKey)(windows_core::Interface::as_raw(self), pkey).ok()
     }
     pub unsafe fn GetCanonicalName(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -1377,7 +1377,7 @@ impl IPropertyDescription {
 #[repr(C)]
 pub struct IPropertyDescription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROPERTYKEY) -> windows_core::HRESULT,
+    pub GetPropertyKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
     pub GetCanonicalName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetPropertyType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
@@ -1416,7 +1416,7 @@ pub struct IPropertyDescription_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 pub trait IPropertyDescription_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> windows_core::Result<()>;
+    fn GetPropertyKey(&self, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
     fn GetCanonicalName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetPropertyType(&self) -> windows_core::Result<u16>;
     fn GetDisplayName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -1443,7 +1443,7 @@ impl windows_core::RuntimeName for IPropertyDescription {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 impl IPropertyDescription_Vtbl {
     pub const fn new<Identity: IPropertyDescription_Impl, const OFFSET: isize>() -> IPropertyDescription_Vtbl {
-        unsafe extern "system" fn GetPropertyKey<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyKey<Identity: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyDescription_Impl::GetPropertyKey(this, core::mem::transmute_copy(&pkey)).into()
         }
@@ -2226,16 +2226,16 @@ impl IPropertyStore {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    pub unsafe fn GetAt(&self, iprop: u32, pkey: *mut PROPERTYKEY) -> windows_core::Result<()> {
+    pub unsafe fn GetAt(&self, iprop: u32, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), iprop, pkey).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self, key: *const PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetValue(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar)).ok()
     }
     pub unsafe fn Commit(&self) -> windows_core::Result<()> {
@@ -2246,13 +2246,13 @@ impl IPropertyStore {
 pub struct IPropertyStore_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut PROPERTYKEY) -> windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValue: usize,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetValue: usize,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2260,9 +2260,9 @@ pub struct IPropertyStore_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyStore_Impl: Sized + windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
-    fn GetAt(&self, iprop: u32, pkey: *mut PROPERTYKEY) -> windows_core::Result<()>;
-    fn GetValue(&self, key: *const PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetAt(&self, iprop: u32, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
+    fn GetValue(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetValue(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -2280,11 +2280,11 @@ impl IPropertyStore_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAt<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAt<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iprop: u32, pkey: *mut super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStore_Impl::GetAt(this, core::mem::transmute_copy(&iprop), core::mem::transmute_copy(&pkey)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, pv: *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPropertyStore_Impl::GetValue(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
@@ -2294,7 +2294,7 @@ impl IPropertyStore_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: IPropertyStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStore_Impl::SetValue(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar)).into()
         }
@@ -2324,49 +2324,49 @@ impl core::ops::Deref for IPropertyStoreCache {
 }
 windows_core::imp::interface_hierarchy!(IPropertyStoreCache, windows_core::IUnknown, IPropertyStore);
 impl IPropertyStoreCache {
-    pub unsafe fn GetState(&self, key: *const PROPERTYKEY) -> windows_core::Result<PSC_STATE> {
+    pub unsafe fn GetState(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<PSC_STATE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| result__)
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()> {
+    pub unsafe fn GetValueAndState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetValueAndState)(windows_core::Interface::as_raw(self), key, core::mem::transmute(ppropvar), pstate).ok()
     }
-    pub unsafe fn SetState(&self, key: *const PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), key, state).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetValueAndState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetValueAndState)(windows_core::Interface::as_raw(self), key, core::mem::transmute(ppropvar), state).ok()
     }
 }
 #[repr(C)]
 pub struct IPropertyStoreCache_Vtbl {
     pub base__: IPropertyStore_Vtbl,
-    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *mut PSC_STATE) -> windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *mut PSC_STATE) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub GetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut PSC_STATE) -> windows_core::HRESULT,
+    pub GetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, *mut PSC_STATE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValueAndState: usize,
-    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, PSC_STATE) -> windows_core::HRESULT,
+    pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, PSC_STATE) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub SetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PSC_STATE) -> windows_core::HRESULT,
+    pub SetValueAndState: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PSC_STATE) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetValueAndState: usize,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyStoreCache_Impl: Sized + IPropertyStore_Impl {
-    fn GetState(&self, key: *const PROPERTYKEY) -> windows_core::Result<PSC_STATE>;
-    fn GetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()>;
-    fn SetState(&self, key: *const PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()>;
-    fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()>;
+    fn GetState(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<PSC_STATE>;
+    fn GetValueAndState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::Result<()>;
+    fn SetState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, state: PSC_STATE) -> windows_core::Result<()>;
+    fn SetValueAndState(&self, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IPropertyStoreCache {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyStoreCache_Vtbl {
     pub const fn new<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>() -> IPropertyStoreCache_Vtbl {
-        unsafe extern "system" fn GetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPropertyStoreCache_Impl::GetState(this, core::mem::transmute_copy(&key)) {
                 Ok(ok__) => {
@@ -2376,15 +2376,15 @@ impl IPropertyStoreCache_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueAndState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueAndState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *mut core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStoreCache_Impl::GetValueAndState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&pstate)).into()
         }
-        unsafe extern "system" fn SetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, state: PSC_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, state: PSC_STATE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStoreCache_Impl::SetState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn SetValueAndState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, state: PSC_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValueAndState<Identity: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, ppropvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, state: PSC_STATE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStoreCache_Impl::SetValueAndState(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&state)).into()
         }
@@ -2409,24 +2409,24 @@ impl core::ops::Deref for IPropertyStoreCapabilities {
 }
 windows_core::imp::interface_hierarchy!(IPropertyStoreCapabilities, windows_core::IUnknown);
 impl IPropertyStoreCapabilities {
-    pub unsafe fn IsPropertyWritable(&self, key: *const PROPERTYKEY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).IsPropertyWritable)(windows_core::Interface::as_raw(self), key).ok()
+    pub unsafe fn IsPropertyWritable(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
+        (windows_core::Interface::vtable(self).IsPropertyWritable)(windows_core::Interface::as_raw(self), key)
     }
 }
 #[repr(C)]
 pub struct IPropertyStoreCapabilities_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub IsPropertyWritable: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY) -> windows_core::HRESULT,
+    pub IsPropertyWritable: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT,
 }
 pub trait IPropertyStoreCapabilities_Impl: Sized + windows_core::IUnknownImpl {
-    fn IsPropertyWritable(&self, key: *const PROPERTYKEY) -> windows_core::Result<()>;
+    fn IsPropertyWritable(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT;
 }
 impl windows_core::RuntimeName for IPropertyStoreCapabilities {}
 impl IPropertyStoreCapabilities_Vtbl {
     pub const fn new<Identity: IPropertyStoreCapabilities_Impl, const OFFSET: isize>() -> IPropertyStoreCapabilities_Vtbl {
-        unsafe extern "system" fn IsPropertyWritable<Identity: IPropertyStoreCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsPropertyWritable<Identity: IPropertyStoreCapabilities_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPropertyStoreCapabilities_Impl::IsPropertyWritable(this, core::mem::transmute_copy(&key)).into()
+            IPropertyStoreCapabilities_Impl::IsPropertyWritable(this, core::mem::transmute_copy(&key))
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsPropertyWritable: IsPropertyWritable::<Identity, OFFSET> }
     }
@@ -2451,7 +2451,7 @@ impl IPropertyStoreFactory {
         let mut result__ = core::ptr::null_mut();
         (windows_core::Interface::vtable(self).GetPropertyStore)(windows_core::Interface::as_raw(self), flags, punkfactory.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
+    pub unsafe fn GetPropertyStoreForKeys<T>(&self, rgkeys: *const super::super::super::Foundation::PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -2463,11 +2463,11 @@ impl IPropertyStoreFactory {
 pub struct IPropertyStoreFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPropertyStore: unsafe extern "system" fn(*mut core::ffi::c_void, GETPROPERTYSTOREFLAGS, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPropertyStoreForKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, u32, GETPROPERTYSTOREFLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPropertyStoreForKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, u32, GETPROPERTYSTOREFLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPropertyStoreFactory_Impl: Sized + windows_core::IUnknownImpl {
     fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: Option<&windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetPropertyStoreForKeys(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertyStoreForKeys(&self, rgkeys: *const super::super::super::Foundation::PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl windows_core::RuntimeName for IPropertyStoreFactory {}
 impl IPropertyStoreFactory_Vtbl {
@@ -2476,7 +2476,7 @@ impl IPropertyStoreFactory_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStoreFactory_Impl::GetPropertyStore(this, core::mem::transmute_copy(&flags), windows_core::from_raw_borrowed(&punkfactory), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetPropertyStoreForKeys<Identity: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyStoreForKeys<Identity: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rgkeys: *const super::super::super::Foundation::PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertyStoreFactory_Impl::GetPropertyStoreForKeys(this, core::mem::transmute_copy(&rgkeys), core::mem::transmute_copy(&ckeys), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
@@ -2499,7 +2499,7 @@ impl core::ops::Deref for IPropertySystem {
 }
 windows_core::imp::interface_hierarchy!(IPropertySystem, windows_core::IUnknown);
 impl IPropertySystem {
-    pub unsafe fn GetPropertyDescription<T>(&self, propkey: *const PROPERTYKEY) -> windows_core::Result<T>
+    pub unsafe fn GetPropertyDescription<T>(&self, propkey: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -2530,11 +2530,11 @@ impl IPropertySystem {
         (windows_core::Interface::vtable(self).EnumeratePropertyDescriptions)(windows_core::Interface::as_raw(self), filteron, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn FormatForDisplay(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: &mut [u16]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar), pdff, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn FormatForDisplayAlloc(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).FormatForDisplayAlloc)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar), pdff, &mut result__).map(|| result__)
     }
@@ -2557,16 +2557,16 @@ impl IPropertySystem {
 #[repr(C)]
 pub struct IPropertySystem_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPropertyDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPropertyDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyDescriptionByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPropertyDescriptionListFromString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumeratePropertyDescriptions: unsafe extern "system" fn(*mut core::ffi::c_void, PROPDESC_ENUMFILTER, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub FormatForDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, windows_core::PWSTR, u32) -> windows_core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, windows_core::PWSTR, u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     FormatForDisplay: usize,
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub FormatForDisplayAlloc: unsafe extern "system" fn(*mut core::ffi::c_void, *const PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    pub FormatForDisplayAlloc: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     FormatForDisplayAlloc: usize,
     pub RegisterPropertySchema: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
@@ -2575,12 +2575,12 @@ pub struct IPropertySystem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertySystem_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetPropertyDescription(&self, propkey: *const PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertyDescription(&self, propkey: *const super::super::super::Foundation::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyDescriptionByName(&self, pszcanonicalname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyDescriptionListFromString(&self, pszproplist: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn EnumeratePropertyDescriptions(&self, filteron: PROPDESC_ENUMFILTER, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::Result<()>;
-    fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR>;
+    fn FormatForDisplay(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::Result<()>;
+    fn FormatForDisplayAlloc(&self, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR>;
     fn RegisterPropertySchema(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn UnregisterPropertySchema(&self, pszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn RefreshPropertySchema(&self) -> windows_core::Result<()>;
@@ -2590,7 +2590,7 @@ impl windows_core::RuntimeName for IPropertySystem {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertySystem_Vtbl {
     pub const fn new<Identity: IPropertySystem_Impl, const OFFSET: isize>() -> IPropertySystem_Vtbl {
-        unsafe extern "system" fn GetPropertyDescription<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyDescription<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propkey: *const super::super::super::Foundation::PROPERTYKEY, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertySystem_Impl::GetPropertyDescription(this, core::mem::transmute_copy(&propkey), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
@@ -2606,11 +2606,11 @@ impl IPropertySystem_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertySystem_Impl::EnumeratePropertyDescriptions(this, core::mem::transmute_copy(&filteron), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn FormatForDisplay<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplay<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPropertySystem_Impl::FormatForDisplay(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff), core::mem::transmute_copy(&psztext), core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn FormatForDisplayAlloc<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplayAlloc<Identity: IPropertySystem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *const super::super::super::Foundation::PROPERTYKEY, propvar: *const core::mem::MaybeUninit<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPropertySystem_Impl::FormatForDisplayAlloc(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&propvar), core::mem::transmute_copy(&pdff)) {
                 Ok(ok__) => {
@@ -3667,20 +3667,6 @@ impl Default for PCUSERIALIZEDPROPSTORAGE {
 }
 impl windows_core::TypeKind for PCUSERIALIZEDPROPSTORAGE {
     type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROPERTYKEY {
-    pub fmtid: windows_core::GUID,
-    pub pid: u32,
-}
-impl windows_core::TypeKind for PROPERTYKEY {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PROPERTYKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]

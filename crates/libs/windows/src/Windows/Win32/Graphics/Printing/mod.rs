@@ -1,44 +1,29 @@
 #[cfg(feature = "Win32_Graphics_Printing_PrintTicket")]
 pub mod PrintTicket;
 #[inline]
-pub unsafe fn AbortPrinter<P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn AbortPrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    AbortPrinter(hprinter.param().abi())
+pub unsafe fn AbortPrinter(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn AbortPrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    AbortPrinter(core::mem::transmute(hprinter))
 }
 #[inline]
-pub unsafe fn AddFormA<P0>(hprinter: P0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn AddFormA(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
-    AddFormA(hprinter.param().abi(), level, pform)
+pub unsafe fn AddFormA(hprinter: PRINTER_HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn AddFormA(hprinter : PRINTER_HANDLE, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
+    AddFormA(core::mem::transmute(hprinter), level, pform)
 }
 #[inline]
-pub unsafe fn AddFormW<P0>(hprinter: P0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn AddFormW(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
-    AddFormW(hprinter.param().abi(), level, pform)
+pub unsafe fn AddFormW(hprinter: PRINTER_HANDLE, level: u32, pform: *const u8) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn AddFormW(hprinter : PRINTER_HANDLE, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
+    AddFormW(core::mem::transmute(hprinter), level, pform)
 }
 #[inline]
-pub unsafe fn AddJobA<P0>(hprinter: P0, level: u32, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn AddJobA(hprinter : super::super::Foundation:: HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    AddJobA(hprinter.param().abi(), level, core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+pub unsafe fn AddJobA(hprinter: PRINTER_HANDLE, level: u32, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn AddJobA(hprinter : PRINTER_HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    AddJobA(core::mem::transmute(hprinter), level, core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn AddJobW<P0>(hprinter: P0, level: u32, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn AddJobW(hprinter : super::super::Foundation:: HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    AddJobW(hprinter.param().abi(), level, core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+pub unsafe fn AddJobW(hprinter: PRINTER_HANDLE, level: u32, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn AddJobW(hprinter : PRINTER_HANDLE, level : u32, pdata : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    AddJobW(core::mem::transmute(hprinter), level, core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
 pub unsafe fn AddMonitorA<P0>(pname: P0, level: u32, pmonitors: Option<*const u8>) -> windows_core::Result<()>
@@ -77,13 +62,10 @@ where
     AddPortW(pname.param().abi(), hwnd.param().abi(), pmonitorname.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn AddPrintDeviceObject<P0>(hprinter: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn AddPrintDeviceObject(hprinter : super::super::Foundation:: HANDLE, phdeviceobject : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+pub unsafe fn AddPrintDeviceObject(hprinter: PRINTER_HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE> {
+    windows_targets::link!("spoolss.dll" "system" fn AddPrintDeviceObject(hprinter : PRINTER_HANDLE, phdeviceobject : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    AddPrintDeviceObject(hprinter.param().abi(), &mut result__).map(|| result__)
+    AddPrintDeviceObject(core::mem::transmute(hprinter), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn AddPrintProcessorA<P0, P1, P2, P3>(pname: P0, penvironment: P1, ppathname: P2, pprintprocessorname: P3) -> super::super::Foundation::BOOL
@@ -209,25 +191,23 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AdvancedDocumentPropertiesA<P0, P1, P2>(hwnd: P0, hprinter: P1, pdevicename: P2, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEA>, pdevmodeinput: Option<*const super::Gdi::DEVMODEA>) -> i32
+pub unsafe fn AdvancedDocumentPropertiesA<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, pdevicename: P1, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEA>, pdevmodeinput: Option<*const super::Gdi::DEVMODEA>) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesA(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, pdevicename : windows_core::PCSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevmodeinput : *const super::Gdi:: DEVMODEA) -> i32);
-    AdvancedDocumentPropertiesA(hwnd.param().abi(), hprinter.param().abi(), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())))
+    windows_targets::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesA(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, pdevicename : windows_core::PCSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevmodeinput : *const super::Gdi:: DEVMODEA) -> i32);
+    AdvancedDocumentPropertiesA(hwnd.param().abi(), core::mem::transmute(hprinter), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AdvancedDocumentPropertiesW<P0, P1, P2>(hwnd: P0, hprinter: P1, pdevicename: P2, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEW>, pdevmodeinput: Option<*const super::Gdi::DEVMODEW>) -> i32
+pub unsafe fn AdvancedDocumentPropertiesW<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, pdevicename: P1, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEW>, pdevmodeinput: Option<*const super::Gdi::DEVMODEW>) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesW(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, pdevicename : windows_core::PCWSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEW, pdevmodeinput : *const super::Gdi:: DEVMODEW) -> i32);
-    AdvancedDocumentPropertiesW(hwnd.param().abi(), hprinter.param().abi(), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())))
+    windows_targets::link!("winspool.drv" "system" fn AdvancedDocumentPropertiesW(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, pdevicename : windows_core::PCWSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEW, pdevmodeinput : *const super::Gdi:: DEVMODEW) -> i32);
+    AdvancedDocumentPropertiesW(hwnd.param().abi(), core::mem::transmute(hprinter), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn AppendPrinterNotifyInfoData(pinfodest: *const PRINTER_NOTIFY_INFO, pdatasrc: Option<*const PRINTER_NOTIFY_INFO_DATA>, fdwflags: u32) -> super::super::Foundation::BOOL {
@@ -244,30 +224,25 @@ where
     CallRouterFindFirstPrinterChangeNotification(hprinterrpc.param().abi(), fdwfilterflags, fdwoptions, hnotify.param().abi(), pprinternotifyoptions)
 }
 #[inline]
-pub unsafe fn ClosePrinter<P0>(hprinter: P0) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn ClosePrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    ClosePrinter(hprinter.param().abi()).ok()
+pub unsafe fn ClosePrinter(hprinter: PRINTER_HANDLE) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn ClosePrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    ClosePrinter(core::mem::transmute(hprinter)).ok()
 }
 #[inline]
-pub unsafe fn CloseSpoolFileHandle<P0, P1>(hprinter: P0, hspoolfile: P1) -> super::super::Foundation::BOOL
+pub unsafe fn CloseSpoolFileHandle<P0>(hprinter: PRINTER_HANDLE, hspoolfile: P0) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("winspool.drv" "system" fn CloseSpoolFileHandle(hprinter : super::super::Foundation:: HANDLE, hspoolfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    CloseSpoolFileHandle(hprinter.param().abi(), hspoolfile.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn CloseSpoolFileHandle(hprinter : PRINTER_HANDLE, hspoolfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    CloseSpoolFileHandle(core::mem::transmute(hprinter), hspoolfile.param().abi())
 }
 #[inline]
-pub unsafe fn CommitSpoolData<P0, P1>(hprinter: P0, hspoolfile: P1, cbcommit: u32) -> super::super::Foundation::HANDLE
+pub unsafe fn CommitSpoolData<P0>(hprinter: PRINTER_HANDLE, hspoolfile: P0, cbcommit: u32) -> super::super::Foundation::HANDLE
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("winspool.drv" "system" fn CommitSpoolData(hprinter : super::super::Foundation:: HANDLE, hspoolfile : super::super::Foundation:: HANDLE, cbcommit : u32) -> super::super::Foundation:: HANDLE);
-    CommitSpoolData(hprinter.param().abi(), hspoolfile.param().abi(), cbcommit)
+    windows_targets::link!("winspool.drv" "system" fn CommitSpoolData(hprinter : PRINTER_HANDLE, hspoolfile : super::super::Foundation:: HANDLE, cbcommit : u32) -> super::super::Foundation:: HANDLE);
+    CommitSpoolData(core::mem::transmute(hprinter), hspoolfile.param().abi(), cbcommit)
 }
 #[inline]
 pub unsafe fn CommonPropertySheetUIA<P0, P1>(hwndowner: P0, pfnpropsheetui: PFNPROPSHEETUI, lparam: P1, presult: Option<*mut u32>) -> i32
@@ -347,39 +322,33 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CreatePrinterIC<P0>(hprinter: P0, pdevmode: Option<*const super::Gdi::DEVMODEW>) -> super::super::Foundation::HANDLE
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn CreatePrinterIC(hprinter : super::super::Foundation:: HANDLE, pdevmode : *const super::Gdi:: DEVMODEW) -> super::super::Foundation:: HANDLE);
-    CreatePrinterIC(hprinter.param().abi(), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
+pub unsafe fn CreatePrinterIC(hprinter: PRINTER_HANDLE, pdevmode: Option<*const super::Gdi::DEVMODEW>) -> super::super::Foundation::HANDLE {
+    windows_targets::link!("winspool.drv" "system" fn CreatePrinterIC(hprinter : PRINTER_HANDLE, pdevmode : *const super::Gdi:: DEVMODEW) -> super::super::Foundation:: HANDLE);
+    CreatePrinterIC(core::mem::transmute(hprinter), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn DeleteFormA<P0, P1>(hprinter: P0, pformname: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DeleteFormA<P0>(hprinter: PRINTER_HANDLE, pformname: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeleteFormA(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    DeleteFormA(hprinter.param().abi(), pformname.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeleteFormA(hprinter : PRINTER_HANDLE, pformname : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    DeleteFormA(core::mem::transmute(hprinter), pformname.param().abi())
 }
 #[inline]
-pub unsafe fn DeleteFormW<P0, P1>(hprinter: P0, pformname: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DeleteFormW<P0>(hprinter: PRINTER_HANDLE, pformname: P0) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeleteFormW(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    DeleteFormW(hprinter.param().abi(), pformname.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeleteFormW(hprinter : PRINTER_HANDLE, pformname : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
+    DeleteFormW(core::mem::transmute(hprinter), pformname.param().abi())
 }
 #[inline]
-pub unsafe fn DeleteJobNamedProperty<P0, P1>(hprinter: P0, jobid: u32, pszname: P1) -> u32
+pub unsafe fn DeleteJobNamedProperty<P0>(hprinter: PRINTER_HANDLE, jobid: u32, pszname: P0) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeleteJobNamedProperty(hprinter : super::super::Foundation:: HANDLE, jobid : u32, pszname : windows_core::PCWSTR) -> u32);
-    DeleteJobNamedProperty(hprinter.param().abi(), jobid, pszname.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeleteJobNamedProperty(hprinter : PRINTER_HANDLE, jobid : u32, pszname : windows_core::PCWSTR) -> u32);
+    DeleteJobNamedProperty(core::mem::transmute(hprinter), jobid, pszname.param().abi())
 }
 #[inline]
 pub unsafe fn DeleteMonitorA<P0, P1, P2>(pname: P0, penvironment: P1, pmonitorname: P2) -> windows_core::Result<()>
@@ -462,9 +431,9 @@ where
     DeletePrintProvidorW(pname.param().abi(), penvironment.param().abi(), pprintprovidorname.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinter(hprinter: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    DeletePrinter(hprinter).ok()
+pub unsafe fn DeletePrinter(hprinter: PRINTER_HANDLE) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    DeletePrinter(core::mem::transmute(hprinter)).ok()
 }
 #[inline]
 pub unsafe fn DeletePrinterConnectionA<P0>(pname: P0) -> super::super::Foundation::BOOL
@@ -483,42 +452,38 @@ where
     DeletePrinterConnectionW(pname.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinterDataA<P0, P1>(hprinter: P0, pvaluename: P1) -> u32
+pub unsafe fn DeletePrinterDataA<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataA(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCSTR) -> u32);
+    DeletePrinterDataA(core::mem::transmute(hprinter), pvaluename.param().abi())
+}
+#[inline]
+pub unsafe fn DeletePrinterDataExA<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataA(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCSTR) -> u32);
-    DeletePrinterDataA(hprinter.param().abi(), pvaluename.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataExA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR) -> u32);
+    DeletePrinterDataExA(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinterDataExA<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2) -> u32
+pub unsafe fn DeletePrinterDataExW<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR) -> u32);
-    DeletePrinterDataExA(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi())
-}
-#[inline]
-pub unsafe fn DeletePrinterDataExW<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR) -> u32);
-    DeletePrinterDataExW(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi())
-}
-#[inline]
-pub unsafe fn DeletePrinterDataW<P0, P1>(hprinter: P0, pvaluename: P1) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataW(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCWSTR) -> u32);
-    DeletePrinterDataW(hprinter.param().abi(), pvaluename.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataExW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR) -> u32);
+    DeletePrinterDataExW(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi())
+}
+#[inline]
+pub unsafe fn DeletePrinterDataW<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterDataW(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCWSTR) -> u32);
+    DeletePrinterDataW(core::mem::transmute(hprinter), pvaluename.param().abi())
 }
 #[inline]
 pub unsafe fn DeletePrinterDriverA<P0, P1, P2>(pname: P0, penvironment: P1, pdrivername: P2) -> super::super::Foundation::BOOL
@@ -589,31 +554,26 @@ where
     DeletePrinterIC(hprinteric.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinterKeyA<P0, P1>(hprinter: P0, pkeyname: P1) -> u32
+pub unsafe fn DeletePrinterKeyA<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterKeyA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR) -> u32);
-    DeletePrinterKeyA(hprinter.param().abi(), pkeyname.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterKeyA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR) -> u32);
+    DeletePrinterKeyA(core::mem::transmute(hprinter), pkeyname.param().abi())
 }
 #[inline]
-pub unsafe fn DeletePrinterKeyW<P0, P1>(hprinter: P0, pkeyname: P1) -> u32
+pub unsafe fn DeletePrinterKeyW<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DeletePrinterKeyW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR) -> u32);
-    DeletePrinterKeyW(hprinter.param().abi(), pkeyname.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn DeletePrinterKeyW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR) -> u32);
+    DeletePrinterKeyW(core::mem::transmute(hprinter), pkeyname.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DevQueryPrint<P0>(hprinter: P0, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn DevQueryPrint(hprinter : super::super::Foundation:: HANDLE, pdevmode : *const super::Gdi:: DEVMODEA, presid : *mut u32) -> super::super::Foundation:: BOOL);
-    DevQueryPrint(hprinter.param().abi(), pdevmode, presid)
+pub unsafe fn DevQueryPrint(hprinter: PRINTER_HANDLE, pdevmode: *const super::Gdi::DEVMODEA, presid: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn DevQueryPrint(hprinter : PRINTER_HANDLE, pdevmode : *const super::Gdi:: DEVMODEA, presid : *mut u32) -> super::super::Foundation:: BOOL);
+    DevQueryPrint(core::mem::transmute(hprinter), pdevmode, presid)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -623,81 +583,58 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DocumentPropertiesA<P0, P1, P2>(hwnd: P0, hprinter: P1, pdevicename: P2, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEA>, pdevmodeinput: Option<*const super::Gdi::DEVMODEA>, fmode: u32) -> i32
+pub unsafe fn DocumentPropertiesA<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, pdevicename: P1, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEA>, pdevmodeinput: Option<*const super::Gdi::DEVMODEA>, fmode: u32) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DocumentPropertiesA(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, pdevicename : windows_core::PCSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevmodeinput : *const super::Gdi:: DEVMODEA, fmode : u32) -> i32);
-    DocumentPropertiesA(hwnd.param().abi(), hprinter.param().abi(), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())), fmode)
+    windows_targets::link!("winspool.drv" "system" fn DocumentPropertiesA(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, pdevicename : windows_core::PCSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEA, pdevmodeinput : *const super::Gdi:: DEVMODEA, fmode : u32) -> i32);
+    DocumentPropertiesA(hwnd.param().abi(), core::mem::transmute(hprinter), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())), fmode)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DocumentPropertiesW<P0, P1, P2>(hwnd: P0, hprinter: P1, pdevicename: P2, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEW>, pdevmodeinput: Option<*const super::Gdi::DEVMODEW>, fmode: u32) -> i32
+pub unsafe fn DocumentPropertiesW<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, pdevicename: P1, pdevmodeoutput: Option<*mut super::Gdi::DEVMODEW>, pdevmodeinput: Option<*const super::Gdi::DEVMODEW>, fmode: u32) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn DocumentPropertiesW(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, pdevicename : windows_core::PCWSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEW, pdevmodeinput : *const super::Gdi:: DEVMODEW, fmode : u32) -> i32);
-    DocumentPropertiesW(hwnd.param().abi(), hprinter.param().abi(), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())), fmode)
+    windows_targets::link!("winspool.drv" "system" fn DocumentPropertiesW(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, pdevicename : windows_core::PCWSTR, pdevmodeoutput : *mut super::Gdi:: DEVMODEW, pdevmodeinput : *const super::Gdi:: DEVMODEW, fmode : u32) -> i32);
+    DocumentPropertiesW(hwnd.param().abi(), core::mem::transmute(hprinter), pdevicename.param().abi(), core::mem::transmute(pdevmodeoutput.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdevmodeinput.unwrap_or(core::ptr::null())), fmode)
 }
 #[inline]
-pub unsafe fn EndDocPrinter<P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EndDocPrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    EndDocPrinter(hprinter.param().abi())
+pub unsafe fn EndDocPrinter(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn EndDocPrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    EndDocPrinter(core::mem::transmute(hprinter))
 }
 #[inline]
-pub unsafe fn EndPagePrinter<P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EndPagePrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    EndPagePrinter(hprinter.param().abi())
+pub unsafe fn EndPagePrinter(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn EndPagePrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    EndPagePrinter(core::mem::transmute(hprinter))
 }
 #[inline]
-pub unsafe fn EnumFormsA<P0>(hprinter: P0, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumFormsA(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumFormsA(hprinter.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
+pub unsafe fn EnumFormsA(hprinter: PRINTER_HANDLE, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn EnumFormsA(hprinter : PRINTER_HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumFormsA(core::mem::transmute(hprinter), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[inline]
-pub unsafe fn EnumFormsW<P0>(hprinter: P0, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumFormsW(hprinter : super::super::Foundation:: HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumFormsW(hprinter.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
+pub unsafe fn EnumFormsW(hprinter: PRINTER_HANDLE, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn EnumFormsW(hprinter : PRINTER_HANDLE, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumFormsW(core::mem::transmute(hprinter), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[inline]
-pub unsafe fn EnumJobNamedProperties<P0>(hprinter: P0, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumJobNamedProperties(hprinter : super::super::Foundation:: HANDLE, jobid : u32, pcproperties : *mut u32, ppproperties : *mut *mut PrintNamedProperty) -> u32);
-    EnumJobNamedProperties(hprinter.param().abi(), jobid, pcproperties, ppproperties)
+pub unsafe fn EnumJobNamedProperties(hprinter: PRINTER_HANDLE, jobid: u32, pcproperties: *mut u32, ppproperties: *mut *mut PrintNamedProperty) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn EnumJobNamedProperties(hprinter : PRINTER_HANDLE, jobid : u32, pcproperties : *mut u32, ppproperties : *mut *mut PrintNamedProperty) -> u32);
+    EnumJobNamedProperties(core::mem::transmute(hprinter), jobid, pcproperties, ppproperties)
 }
 #[inline]
-pub unsafe fn EnumJobsA<P0>(hprinter: P0, firstjob: u32, nojobs: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumJobsA(hprinter : super::super::Foundation:: HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumJobsA(hprinter.param().abi(), firstjob, nojobs, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
+pub unsafe fn EnumJobsA(hprinter: PRINTER_HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn EnumJobsA(hprinter : PRINTER_HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumJobsA(core::mem::transmute(hprinter), firstjob, nojobs, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[inline]
-pub unsafe fn EnumJobsW<P0>(hprinter: P0, firstjob: u32, nojobs: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumJobsW(hprinter : super::super::Foundation:: HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumJobsW(hprinter.param().abi(), firstjob, nojobs, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
+pub unsafe fn EnumJobsW(hprinter: PRINTER_HANDLE, firstjob: u32, nojobs: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn EnumJobsW(hprinter : PRINTER_HANDLE, firstjob : u32, nojobs : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32, pcreturned : *mut u32) -> super::super::Foundation:: BOOL);
+    EnumJobsW(core::mem::transmute(hprinter), firstjob, nojobs, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[inline]
 pub unsafe fn EnumMonitorsA<P0>(pname: P0, level: u32, pmonitor: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> super::super::Foundation::BOOL
@@ -768,38 +705,30 @@ where
     EnumPrintProcessorsW(pname.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pprintprocessorinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned)
 }
 #[inline]
-pub unsafe fn EnumPrinterDataA<P0>(hprinter: P0, dwindex: u32, pvaluename: &mut [u8], pcbvaluename: *mut u32, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbdata: Option<*mut u32>) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataA(hprinter : super::super::Foundation:: HANDLE, dwindex : u32, pvaluename : windows_core::PSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-    EnumPrinterDataA(hprinter.param().abi(), dwindex, core::mem::transmute(pvaluename.as_ptr()), pvaluename.len().try_into().unwrap(), pcbvaluename, core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn EnumPrinterDataA(hprinter: PRINTER_HANDLE, dwindex: u32, pvaluename: &mut [u8], pcbvaluename: *mut u32, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbdata: Option<*mut u32>) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataA(hprinter : PRINTER_HANDLE, dwindex : u32, pvaluename : windows_core::PSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
+    EnumPrinterDataA(core::mem::transmute(hprinter), dwindex, core::mem::transmute(pvaluename.as_ptr()), pvaluename.len().try_into().unwrap(), pcbvaluename, core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn EnumPrinterDataExA<P0, P1>(hprinter: P0, pkeyname: P1, penumvalues: Option<&mut [u8]>, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32
+pub unsafe fn EnumPrinterDataExA<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0, penumvalues: Option<&mut [u8]>, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-    EnumPrinterDataExA(hprinter.param().abi(), pkeyname.param().abi(), core::mem::transmute(penumvalues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
+    EnumPrinterDataExA(core::mem::transmute(hprinter), pkeyname.param().abi(), core::mem::transmute(penumvalues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
 }
 #[inline]
-pub unsafe fn EnumPrinterDataExW<P0, P1>(hprinter: P0, pkeyname: P1, penumvalues: Option<&mut [u8]>, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32
+pub unsafe fn EnumPrinterDataExW<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0, penumvalues: Option<&mut [u8]>, pcbenumvalues: *mut u32, pnenumvalues: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
-    EnumPrinterDataExW(hprinter.param().abi(), pkeyname.param().abi(), core::mem::transmute(penumvalues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataExW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR, penumvalues : *mut u8, cbenumvalues : u32, pcbenumvalues : *mut u32, pnenumvalues : *mut u32) -> u32);
+    EnumPrinterDataExW(core::mem::transmute(hprinter), pkeyname.param().abi(), core::mem::transmute(penumvalues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), penumvalues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbenumvalues, pnenumvalues)
 }
 #[inline]
-pub unsafe fn EnumPrinterDataW<P0>(hprinter: P0, dwindex: u32, pvaluename: windows_core::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbdata: Option<*mut u32>) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataW(hprinter : super::super::Foundation:: HANDLE, dwindex : u32, pvaluename : windows_core::PWSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
-    EnumPrinterDataW(hprinter.param().abi(), dwindex, core::mem::transmute(pvaluename), cbvaluename, pcbvaluename, core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn EnumPrinterDataW(hprinter: PRINTER_HANDLE, dwindex: u32, pvaluename: windows_core::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbdata: Option<*mut u32>) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterDataW(hprinter : PRINTER_HANDLE, dwindex : u32, pvaluename : windows_core::PWSTR, cbvaluename : u32, pcbvaluename : *mut u32, ptype : *mut u32, pdata : *mut u8, cbdata : u32, pcbdata : *mut u32) -> u32);
+    EnumPrinterDataW(core::mem::transmute(hprinter), dwindex, core::mem::transmute(pvaluename), cbvaluename, pcbvaluename, core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn EnumPrinterDriversA<P0, P1>(pname: P0, penvironment: P1, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()>
@@ -820,22 +749,20 @@ where
     EnumPrinterDriversW(pname.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded, pcreturned).ok()
 }
 #[inline]
-pub unsafe fn EnumPrinterKeyA<P0, P1>(hprinter: P0, pkeyname: P1, psubkey: Option<&mut [u8]>, pcbsubkey: *mut u32) -> u32
+pub unsafe fn EnumPrinterKeyA<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0, psubkey: Option<&mut [u8]>, pcbsubkey: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterKeyA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR, psubkey : windows_core::PSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
-    EnumPrinterKeyA(hprinter.param().abi(), pkeyname.param().abi(), core::mem::transmute(psubkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psubkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsubkey)
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterKeyA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR, psubkey : windows_core::PSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
+    EnumPrinterKeyA(core::mem::transmute(hprinter), pkeyname.param().abi(), core::mem::transmute(psubkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psubkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsubkey)
 }
 #[inline]
-pub unsafe fn EnumPrinterKeyW<P0, P1>(hprinter: P0, pkeyname: P1, psubkey: windows_core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32
+pub unsafe fn EnumPrinterKeyW<P0>(hprinter: PRINTER_HANDLE, pkeyname: P0, psubkey: windows_core::PWSTR, cbsubkey: u32, pcbsubkey: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn EnumPrinterKeyW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR, psubkey : windows_core::PWSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
-    EnumPrinterKeyW(hprinter.param().abi(), pkeyname.param().abi(), core::mem::transmute(psubkey), cbsubkey, pcbsubkey)
+    windows_targets::link!("winspool.drv" "system" fn EnumPrinterKeyW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR, psubkey : windows_core::PWSTR, cbsubkey : u32, pcbsubkey : *mut u32) -> u32);
+    EnumPrinterKeyW(core::mem::transmute(hprinter), pkeyname.param().abi(), core::mem::transmute(psubkey), cbsubkey, pcbsubkey)
 }
 #[inline]
 pub unsafe fn EnumPrintersA<P0>(flags: u32, name: P0, level: u32, pprinterenum: Option<&mut [u8]>, pcbneeded: *mut u32, pcreturned: *mut u32) -> windows_core::Result<()>
@@ -875,12 +802,9 @@ where
     FindClosePrinterChangeNotification(hchange.param().abi())
 }
 #[inline]
-pub unsafe fn FindFirstPrinterChangeNotification<P0>(hprinter: P0, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: Option<*const core::ffi::c_void>) -> super::super::Foundation::HANDLE
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn FindFirstPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, fdwfilter : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    FindFirstPrinterChangeNotification(hprinter.param().abi(), fdwfilter, fdwoptions, core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())))
+pub unsafe fn FindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilter: u32, fdwoptions: u32, pprinternotifyoptions: Option<*const core::ffi::c_void>) -> super::super::Foundation::HANDLE {
+    windows_targets::link!("winspool.drv" "system" fn FindFirstPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwfilter : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
+    FindFirstPrinterChangeNotification(core::mem::transmute(hprinter), fdwfilter, fdwoptions, core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn FindNextPrinterChangeNotification<P0>(hchange: P0, pdwchange: Option<*mut u32>, pvreserved: Option<*const core::ffi::c_void>, ppprinternotifyinfo: Option<*mut *mut core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -891,12 +815,9 @@ where
     FindNextPrinterChangeNotification(hchange.param().abi(), core::mem::transmute(pdwchange.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), core::mem::transmute(ppprinternotifyinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn FlushPrinter<P0>(hprinter: P0, pbuf: Option<*const core::ffi::c_void>, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn FlushPrinter(hprinter : super::super::Foundation:: HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32, csleep : u32) -> super::super::Foundation:: BOOL);
-    FlushPrinter(hprinter.param().abi(), core::mem::transmute(pbuf.unwrap_or(core::ptr::null())), cbbuf, pcwritten, csleep)
+pub unsafe fn FlushPrinter(hprinter: PRINTER_HANDLE, pbuf: Option<*const core::ffi::c_void>, cbbuf: u32, pcwritten: *mut u32, csleep: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn FlushPrinter(hprinter : PRINTER_HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32, csleep : u32) -> super::super::Foundation:: BOOL);
+    FlushPrinter(core::mem::transmute(hprinter), core::mem::transmute(pbuf.unwrap_or(core::ptr::null())), cbbuf, pcwritten, csleep)
 }
 #[inline]
 pub unsafe fn FreePrintNamedPropertyArray(ppproperties: Option<&mut [*mut PrintNamedProperty]>) {
@@ -1064,30 +985,25 @@ pub unsafe fn GetDefaultPrinterW(pszbuffer: windows_core::PWSTR, pcchbuffer: *mu
     GetDefaultPrinterW(core::mem::transmute(pszbuffer), pcchbuffer)
 }
 #[inline]
-pub unsafe fn GetFormA<P0, P1>(hprinter: P0, pformname: P1, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetFormA<P0>(hprinter: PRINTER_HANDLE, pformname: P0, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetFormA(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetFormA(hprinter.param().abi(), pformname.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetFormA(hprinter : PRINTER_HANDLE, pformname : windows_core::PCSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetFormA(core::mem::transmute(hprinter), pformname.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetFormW<P0, P1>(hprinter: P0, pformname: P1, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetFormW<P0>(hprinter: PRINTER_HANDLE, pformname: P0, level: u32, pform: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetFormW(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCWSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetFormW(hprinter.param().abi(), pformname.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetFormW(hprinter : PRINTER_HANDLE, pformname : windows_core::PCWSTR, level : u32, pform : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetFormW(core::mem::transmute(hprinter), pformname.param().abi(), level, core::mem::transmute(pform.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pform.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetJobA<P0>(hprinter: P0, jobid: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetJobA(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetJobA(hprinter.param().abi(), jobid, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+pub unsafe fn GetJobA(hprinter: PRINTER_HANDLE, jobid: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn GetJobA(hprinter : PRINTER_HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetJobA(core::mem::transmute(hprinter), jobid, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1108,21 +1024,17 @@ where
     GetJobAttributesEx(pprintername.param().abi(), pdevmode, dwlevel, core::mem::transmute(pattributeinfo.as_ptr()), pattributeinfo.len().try_into().unwrap(), dwflags)
 }
 #[inline]
-pub unsafe fn GetJobNamedPropertyValue<P0, P1>(hprinter: P0, jobid: u32, pszname: P1, pvalue: *mut PrintPropertyValue) -> u32
+pub unsafe fn GetJobNamedPropertyValue<P0>(hprinter: PRINTER_HANDLE, jobid: u32, pszname: P0, pvalue: *mut PrintPropertyValue) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetJobNamedPropertyValue(hprinter : super::super::Foundation:: HANDLE, jobid : u32, pszname : windows_core::PCWSTR, pvalue : *mut PrintPropertyValue) -> u32);
-    GetJobNamedPropertyValue(hprinter.param().abi(), jobid, pszname.param().abi(), pvalue)
+    windows_targets::link!("winspool.drv" "system" fn GetJobNamedPropertyValue(hprinter : PRINTER_HANDLE, jobid : u32, pszname : windows_core::PCWSTR, pvalue : *mut PrintPropertyValue) -> u32);
+    GetJobNamedPropertyValue(core::mem::transmute(hprinter), jobid, pszname.param().abi(), pvalue)
 }
 #[inline]
-pub unsafe fn GetJobW<P0>(hprinter: P0, jobid: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetJobW(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetJobW(hprinter.param().abi(), jobid, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+pub unsafe fn GetJobW(hprinter: PRINTER_HANDLE, jobid: u32, level: u32, pjob: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn GetJobW(hprinter : PRINTER_HANDLE, jobid : u32, level : u32, pjob : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetJobW(core::mem::transmute(hprinter), jobid, level, core::mem::transmute(pjob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pjob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
 pub unsafe fn GetPrintExecutionData(pdata: *mut PRINT_EXECUTION_DATA) -> super::super::Foundation::BOOL {
@@ -1157,79 +1069,69 @@ where
     GetPrintProcessorDirectoryW(pname.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pprintprocessorinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprintprocessorinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetPrinterA<P0>(hprinter: P0, level: u32, pprinter: Option<&mut [u8]>, pcbneeded: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterA(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterA(hprinter.param().abi(), level, core::mem::transmute(pprinter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
+pub unsafe fn GetPrinterA(hprinter: PRINTER_HANDLE, level: u32, pprinter: Option<&mut [u8]>, pcbneeded: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterA(hprinter : PRINTER_HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterA(core::mem::transmute(hprinter), level, core::mem::transmute(pprinter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
 }
 #[inline]
-pub unsafe fn GetPrinterDataA<P0, P1>(hprinter: P0, pvaluename: P1, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
+pub unsafe fn GetPrinterDataA<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataA(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
+    GetPrinterDataA(core::mem::transmute(hprinter), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+}
+#[inline]
+pub unsafe fn GetPrinterDataExA<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataA(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataA(hprinter.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
+    GetPrinterDataExA(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetPrinterDataExA<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
+pub unsafe fn GetPrinterDataExW<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataExA(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
-}
-#[inline]
-pub unsafe fn GetPrinterDataExW<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataExW(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
-}
-#[inline]
-pub unsafe fn GetPrinterDataW<P0, P1>(hprinter: P0, pvaluename: P1, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataW(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
-    GetPrinterDataW(hprinter.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataExW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
+    GetPrinterDataExW(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetPrinterDriver2A<P0, P1, P2>(hwnd: P0, hprinter: P1, penvironment: P2, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetPrinterDataW<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0, ptype: Option<*mut u32>, pdata: Option<&mut [u8]>, pcbneeded: *mut u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDataW(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCWSTR, ptype : *mut u32, pdata : *mut u8, nsize : u32, pcbneeded : *mut u32) -> u32);
+    GetPrinterDataW(core::mem::transmute(hprinter), pvaluename.param().abi(), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+}
+#[inline]
+pub unsafe fn GetPrinterDriver2A<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, penvironment: P1, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2A(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, penvironment : windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriver2A(hwnd.param().abi(), hprinter.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
-}
-#[inline]
-pub unsafe fn GetPrinterDriver2W<P0, P1, P2>(hwnd: P0, hprinter: P1, penvironment: P2, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2W(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE, penvironment : windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriver2W(hwnd.param().abi(), hprinter.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
-}
-#[inline]
-pub unsafe fn GetPrinterDriverA<P0, P1>(hprinter: P0, penvironment: P1, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverA(hprinter : super::super::Foundation:: HANDLE, penvironment : windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverA(hprinter.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2A(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, penvironment : windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterDriver2A(hwnd.param().abi(), core::mem::transmute(hprinter), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+}
+#[inline]
+pub unsafe fn GetPrinterDriver2W<P0, P1>(hwnd: P0, hprinter: PRINTER_HANDLE, penvironment: P1, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriver2W(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE, penvironment : windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterDriver2W(hwnd.param().abi(), core::mem::transmute(hprinter), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+}
+#[inline]
+pub unsafe fn GetPrinterDriverA<P0>(hprinter: PRINTER_HANDLE, penvironment: P0, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverA(hprinter : PRINTER_HANDLE, penvironment : windows_core::PCSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterDriverA(core::mem::transmute(hprinter), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
 pub unsafe fn GetPrinterDriverDirectoryA<P0, P1>(pname: P0, penvironment: P1, level: u32, pdriverdirectory: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
@@ -1272,29 +1174,22 @@ where
     GetPrinterDriverPackagePathW(pszserver.param().abi(), pszenvironment.param().abi(), pszlanguage.param().abi(), pszpackageid.param().abi(), core::mem::transmute(pszdriverpackagecab.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdriverpackagecab.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchrequiredsize).ok()
 }
 #[inline]
-pub unsafe fn GetPrinterDriverW<P0, P1>(hprinter: P0, penvironment: P1, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
+pub unsafe fn GetPrinterDriverW<P0>(hprinter: PRINTER_HANDLE, penvironment: P0, level: u32, pdriverinfo: Option<&mut [u8]>, pcbneeded: *mut u32) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverW(hprinter : super::super::Foundation:: HANDLE, penvironment : windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterDriverW(hprinter.param().abi(), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterDriverW(hprinter : PRINTER_HANDLE, penvironment : windows_core::PCWSTR, level : u32, pdriverinfo : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterDriverW(core::mem::transmute(hprinter), penvironment.param().abi(), level, core::mem::transmute(pdriverinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdriverinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded)
 }
 #[inline]
-pub unsafe fn GetPrinterW<P0>(hprinter: P0, level: u32, pprinter: Option<&mut [u8]>, pcbneeded: *mut u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetPrinterW(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPrinterW(hprinter.param().abi(), level, core::mem::transmute(pprinter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
+pub unsafe fn GetPrinterW(hprinter: PRINTER_HANDLE, level: u32, pprinter: Option<&mut [u8]>, pcbneeded: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn GetPrinterW(hprinter : PRINTER_HANDLE, level : u32, pprinter : *mut u8, cbbuf : u32, pcbneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    GetPrinterW(core::mem::transmute(hprinter), level, core::mem::transmute(pprinter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprinter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbneeded).ok()
 }
 #[inline]
-pub unsafe fn GetSpoolFileHandle<P0>(hprinter: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn GetSpoolFileHandle(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
-    let result__ = GetSpoolFileHandle(hprinter.param().abi());
+pub unsafe fn GetSpoolFileHandle(hprinter: PRINTER_HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE> {
+    windows_targets::link!("winspool.drv" "system" fn GetSpoolFileHandle(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: HANDLE);
+    let result__ = GetSpoolFileHandle(core::mem::transmute(hprinter));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -1341,47 +1236,44 @@ pub unsafe fn IsValidDevmodeW(pdevmode: Option<*const super::Gdi::DEVMODEW>, dev
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OpenPrinter2A<P0>(pprintername: P0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: Option<*const PRINTER_DEFAULTSA>, poptions: Option<*const PRINTER_OPTIONSA>) -> windows_core::Result<()>
+pub unsafe fn OpenPrinter2A<P0>(pprintername: P0, phprinter: *mut PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSA>, poptions: Option<*const PRINTER_OPTIONSA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn OpenPrinter2A(pprintername : windows_core::PCSTR, phprinter : *mut super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSA, poptions : *const PRINTER_OPTIONSA) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winspool.drv" "system" fn OpenPrinter2A(pprintername : windows_core::PCSTR, phprinter : *mut PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSA, poptions : *const PRINTER_OPTIONSA) -> super::super::Foundation:: BOOL);
     OpenPrinter2A(pprintername.param().abi(), phprinter, core::mem::transmute(pdefault.unwrap_or(core::ptr::null())), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OpenPrinter2W<P0>(pprintername: P0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: Option<*const PRINTER_DEFAULTSW>, poptions: Option<*const PRINTER_OPTIONSW>) -> windows_core::Result<()>
+pub unsafe fn OpenPrinter2W<P0>(pprintername: P0, phprinter: *mut PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSW>, poptions: Option<*const PRINTER_OPTIONSW>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn OpenPrinter2W(pprintername : windows_core::PCWSTR, phprinter : *mut super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSW, poptions : *const PRINTER_OPTIONSW) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winspool.drv" "system" fn OpenPrinter2W(pprintername : windows_core::PCWSTR, phprinter : *mut PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSW, poptions : *const PRINTER_OPTIONSW) -> super::super::Foundation:: BOOL);
     OpenPrinter2W(pprintername.param().abi(), phprinter, core::mem::transmute(pdefault.unwrap_or(core::ptr::null())), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OpenPrinterA<P0>(pprintername: P0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: Option<*const PRINTER_DEFAULTSA>) -> windows_core::Result<()>
+pub unsafe fn OpenPrinterA<P0>(pprintername: P0, phprinter: *mut PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSA>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn OpenPrinterA(pprintername : windows_core::PCSTR, phprinter : *mut super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winspool.drv" "system" fn OpenPrinterA(pprintername : windows_core::PCSTR, phprinter : *mut PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> super::super::Foundation:: BOOL);
     OpenPrinterA(pprintername.param().abi(), phprinter, core::mem::transmute(pdefault.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OpenPrinterW<P0>(pprintername: P0, phprinter: *mut super::super::Foundation::HANDLE, pdefault: Option<*const PRINTER_DEFAULTSW>) -> windows_core::Result<()>
+pub unsafe fn OpenPrinterW<P0>(pprintername: P0, phprinter: *mut PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSW>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn OpenPrinterW(pprintername : windows_core::PCWSTR, phprinter : *mut super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("winspool.drv" "system" fn OpenPrinterW(pprintername : windows_core::PCWSTR, phprinter : *mut PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> super::super::Foundation:: BOOL);
     OpenPrinterW(pprintername.param().abi(), phprinter, core::mem::transmute(pdefault.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn PartialReplyPrinterChangeNotification<P0>(hprinter: P0, pdatasrc: Option<*const PRINTER_NOTIFY_INFO_DATA>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn PartialReplyPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, pdatasrc : *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation:: BOOL);
-    PartialReplyPrinterChangeNotification(hprinter.param().abi(), core::mem::transmute(pdatasrc.unwrap_or(core::ptr::null())))
+pub unsafe fn PartialReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, pdatasrc: Option<*const PRINTER_NOTIFY_INFO_DATA>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn PartialReplyPrinterChangeNotification(hprinter : PRINTER_HANDLE, pdatasrc : *const PRINTER_NOTIFY_INFO_DATA) -> super::super::Foundation:: BOOL);
+    PartialReplyPrinterChangeNotification(core::mem::transmute(hprinter), core::mem::transmute(pdatasrc.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn PlayGdiScriptOnPrinterIC<P0>(hprinteric: P0, pin: &[u8], pout: &mut [u8], ul: u32) -> super::super::Foundation::BOOL
@@ -1392,60 +1284,50 @@ where
     PlayGdiScriptOnPrinterIC(hprinteric.param().abi(), core::mem::transmute(pin.as_ptr()), pin.len().try_into().unwrap(), core::mem::transmute(pout.as_ptr()), pout.len().try_into().unwrap(), ul)
 }
 #[inline]
-pub unsafe fn PrinterMessageBoxA<P0, P1, P2, P3>(hprinter: P0, error: u32, hwnd: P1, ptext: P2, pcaption: P3, dwtype: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn PrinterMessageBoxA(hprinter : super::super::Foundation:: HANDLE, error : u32, hwnd : super::super::Foundation:: HWND, ptext : windows_core::PCSTR, pcaption : windows_core::PCSTR, dwtype : u32) -> u32);
-    PrinterMessageBoxA(hprinter.param().abi(), error, hwnd.param().abi(), ptext.param().abi(), pcaption.param().abi(), dwtype)
-}
-#[inline]
-pub unsafe fn PrinterMessageBoxW<P0, P1, P2, P3>(hprinter: P0, error: u32, hwnd: P1, ptext: P2, pcaption: P3, dwtype: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn PrinterMessageBoxW(hprinter : super::super::Foundation:: HANDLE, error : u32, hwnd : super::super::Foundation:: HWND, ptext : windows_core::PCWSTR, pcaption : windows_core::PCWSTR, dwtype : u32) -> u32);
-    PrinterMessageBoxW(hprinter.param().abi(), error, hwnd.param().abi(), ptext.param().abi(), pcaption.param().abi(), dwtype)
-}
-#[inline]
-pub unsafe fn PrinterProperties<P0, P1>(hwnd: P0, hprinter: P1) -> super::super::Foundation::BOOL
+pub unsafe fn PrinterMessageBoxA<P0, P1, P2>(hprinter: PRINTER_HANDLE, error: u32, hwnd: P0, ptext: P1, pcaption: P2, dwtype: u32) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn PrinterProperties(hwnd : super::super::Foundation:: HWND, hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    PrinterProperties(hwnd.param().abi(), hprinter.param().abi())
+    windows_targets::link!("winspool.drv" "system" fn PrinterMessageBoxA(hprinter : PRINTER_HANDLE, error : u32, hwnd : super::super::Foundation:: HWND, ptext : windows_core::PCSTR, pcaption : windows_core::PCSTR, dwtype : u32) -> u32);
+    PrinterMessageBoxA(core::mem::transmute(hprinter), error, hwnd.param().abi(), ptext.param().abi(), pcaption.param().abi(), dwtype)
 }
 #[inline]
-pub unsafe fn ProvidorFindClosePrinterChangeNotification<P0>(hprinter: P0) -> super::super::Foundation::BOOL
+pub unsafe fn PrinterMessageBoxW<P0, P1, P2>(hprinter: PRINTER_HANDLE, error: u32, hwnd: P0, ptext: P1, pcaption: P2, dwtype: u32) -> u32
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn PrinterMessageBoxW(hprinter : PRINTER_HANDLE, error : u32, hwnd : super::super::Foundation:: HWND, ptext : windows_core::PCWSTR, pcaption : windows_core::PCWSTR, dwtype : u32) -> u32);
+    PrinterMessageBoxW(core::mem::transmute(hprinter), error, hwnd.param().abi(), ptext.param().abi(), pcaption.param().abi(), dwtype)
+}
+#[inline]
+pub unsafe fn PrinterProperties<P0>(hwnd: P0, hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("winspool.drv" "system" fn PrinterProperties(hwnd : super::super::Foundation:: HWND, hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    PrinterProperties(hwnd.param().abi(), core::mem::transmute(hprinter))
+}
+#[inline]
+pub unsafe fn ProvidorFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn ProvidorFindClosePrinterChangeNotification(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    ProvidorFindClosePrinterChangeNotification(core::mem::transmute(hprinter))
+}
+#[inline]
+pub unsafe fn ProvidorFindFirstPrinterChangeNotification<P0>(hprinter: PRINTER_HANDLE, fdwflags: u32, fdwoptions: u32, hnotify: P0, pprinternotifyoptions: Option<*const core::ffi::c_void>, pvreserved1: Option<*mut core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("spoolss.dll" "system" fn ProvidorFindClosePrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    ProvidorFindClosePrinterChangeNotification(hprinter.param().abi())
+    windows_targets::link!("spoolss.dll" "system" fn ProvidorFindFirstPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwflags : u32, fdwoptions : u32, hnotify : super::super::Foundation:: HANDLE, pprinternotifyoptions : *const core::ffi::c_void, pvreserved1 : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ProvidorFindFirstPrinterChangeNotification(core::mem::transmute(hprinter), fdwflags, fdwoptions, hnotify.param().abi(), core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved1.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ProvidorFindFirstPrinterChangeNotification<P0, P1>(hprinter: P0, fdwflags: u32, fdwoptions: u32, hnotify: P1, pprinternotifyoptions: Option<*const core::ffi::c_void>, pvreserved1: Option<*mut core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn ProvidorFindFirstPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, fdwflags : u32, fdwoptions : u32, hnotify : super::super::Foundation:: HANDLE, pprinternotifyoptions : *const core::ffi::c_void, pvreserved1 : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ProvidorFindFirstPrinterChangeNotification(hprinter.param().abi(), fdwflags, fdwoptions, hnotify.param().abi(), core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved1.unwrap_or(core::ptr::null_mut())))
-}
-#[inline]
-pub unsafe fn ReadPrinter<P0>(hprinter: P0, pbuf: *mut core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn ReadPrinter(hprinter : super::super::Foundation:: HANDLE, pbuf : *mut core::ffi::c_void, cbbuf : u32, pnobytesread : *mut u32) -> super::super::Foundation:: BOOL);
-    ReadPrinter(hprinter.param().abi(), pbuf, cbbuf, pnobytesread)
+pub unsafe fn ReadPrinter(hprinter: PRINTER_HANDLE, pbuf: *mut core::ffi::c_void, cbbuf: u32, pnobytesread: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn ReadPrinter(hprinter : PRINTER_HANDLE, pbuf : *mut core::ffi::c_void, cbbuf : u32, pnobytesread : *mut u32) -> super::super::Foundation:: BOOL);
+    ReadPrinter(core::mem::transmute(hprinter), pbuf, cbbuf, pnobytesread)
 }
 #[inline]
 pub unsafe fn RegisterForPrintAsyncNotifications<P0, P1>(pszname: P0, pnotificationtype: *const windows_core::GUID, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: P1) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -1466,12 +1348,9 @@ where
     RemovePrintDeviceObject(hdeviceobject.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn ReplyPrinterChangeNotification<P0>(hprinter: P0, fdwchangeflags: u32, pdwresult: Option<*mut u32>, pprinternotifyinfo: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn ReplyPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, fdwchangeflags : u32, pdwresult : *mut u32, pprinternotifyinfo : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReplyPrinterChangeNotification(hprinter.param().abi(), fdwchangeflags, core::mem::transmute(pdwresult.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pprinternotifyinfo.unwrap_or(core::ptr::null())))
+pub unsafe fn ReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwchangeflags: u32, pdwresult: Option<*mut u32>, pprinternotifyinfo: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn ReplyPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwchangeflags : u32, pdwresult : *mut u32, pprinternotifyinfo : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ReplyPrinterChangeNotification(core::mem::transmute(hprinter), fdwchangeflags, core::mem::transmute(pdwresult.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pprinternotifyinfo.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn ReplyPrinterChangeNotificationEx<P0>(hnotify: P0, dwcolor: u32, fdwflags: u32, pdwresult: *mut u32, pprinternotifyinfo: *const core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -1491,21 +1370,15 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ResetPrinterA<P0>(hprinter: P0, pdefault: Option<*const PRINTER_DEFAULTSA>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn ResetPrinterA(hprinter : super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> super::super::Foundation:: BOOL);
-    ResetPrinterA(hprinter.param().abi(), core::mem::transmute(pdefault.unwrap_or(core::ptr::null())))
+pub unsafe fn ResetPrinterA(hprinter: PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSA>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn ResetPrinterA(hprinter : PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSA) -> super::super::Foundation:: BOOL);
+    ResetPrinterA(core::mem::transmute(hprinter), core::mem::transmute(pdefault.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ResetPrinterW<P0>(hprinter: P0, pdefault: Option<*const PRINTER_DEFAULTSW>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn ResetPrinterW(hprinter : super::super::Foundation:: HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> super::super::Foundation:: BOOL);
-    ResetPrinterW(hprinter.param().abi(), core::mem::transmute(pdefault.unwrap_or(core::ptr::null())))
+pub unsafe fn ResetPrinterW(hprinter: PRINTER_HANDLE, pdefault: Option<*const PRINTER_DEFAULTSW>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn ResetPrinterW(hprinter : PRINTER_HANDLE, pdefault : *const PRINTER_DEFAULTSW) -> super::super::Foundation:: BOOL);
+    ResetPrinterW(core::mem::transmute(hprinter), core::mem::transmute(pdefault.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
@@ -1543,12 +1416,9 @@ pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: Option<*const PRINTER_NOTIFY_IN
     RouterFreePrinterNotifyInfo(core::mem::transmute(pinfo.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn ScheduleJob<P0>(hprinter: P0, jobid: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn ScheduleJob(hprinter : super::super::Foundation:: HANDLE, jobid : u32) -> super::super::Foundation:: BOOL);
-    ScheduleJob(hprinter.param().abi(), jobid)
+pub unsafe fn ScheduleJob(hprinter: PRINTER_HANDLE, jobid: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn ScheduleJob(hprinter : PRINTER_HANDLE, jobid : u32) -> super::super::Foundation:: BOOL);
+    ScheduleJob(core::mem::transmute(hprinter), jobid)
 }
 #[inline]
 pub unsafe fn SetCPSUIUserData<P0>(hdlg: P0, cpsuiuserdata: usize) -> super::super::Foundation::BOOL
@@ -1575,46 +1445,35 @@ where
     SetDefaultPrinterW(pszprinter.param().abi())
 }
 #[inline]
-pub unsafe fn SetFormA<P0, P1>(hprinter: P0, pformname: P1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
+pub unsafe fn SetFormA<P0>(hprinter: PRINTER_HANDLE, pformname: P0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn SetFormA(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCSTR, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
-    SetFormA(hprinter.param().abi(), pformname.param().abi(), level, pform)
+    windows_targets::link!("winspool.drv" "system" fn SetFormA(hprinter : PRINTER_HANDLE, pformname : windows_core::PCSTR, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
+    SetFormA(core::mem::transmute(hprinter), pformname.param().abi(), level, pform)
 }
 #[inline]
-pub unsafe fn SetFormW<P0, P1>(hprinter: P0, pformname: P1, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
+pub unsafe fn SetFormW<P0>(hprinter: PRINTER_HANDLE, pformname: P0, level: u32, pform: *const u8) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn SetFormW(hprinter : super::super::Foundation:: HANDLE, pformname : windows_core::PCWSTR, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
-    SetFormW(hprinter.param().abi(), pformname.param().abi(), level, pform)
+    windows_targets::link!("winspool.drv" "system" fn SetFormW(hprinter : PRINTER_HANDLE, pformname : windows_core::PCWSTR, level : u32, pform : *const u8) -> super::super::Foundation:: BOOL);
+    SetFormW(core::mem::transmute(hprinter), pformname.param().abi(), level, pform)
 }
 #[inline]
-pub unsafe fn SetJobA<P0>(hprinter: P0, jobid: u32, level: u32, pjob: Option<*const u8>, command: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetJobA(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *const u8, command : u32) -> super::super::Foundation:: BOOL);
-    SetJobA(hprinter.param().abi(), jobid, level, core::mem::transmute(pjob.unwrap_or(core::ptr::null())), command)
+pub unsafe fn SetJobA(hprinter: PRINTER_HANDLE, jobid: u32, level: u32, pjob: Option<*const u8>, command: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn SetJobA(hprinter : PRINTER_HANDLE, jobid : u32, level : u32, pjob : *const u8, command : u32) -> super::super::Foundation:: BOOL);
+    SetJobA(core::mem::transmute(hprinter), jobid, level, core::mem::transmute(pjob.unwrap_or(core::ptr::null())), command)
 }
 #[inline]
-pub unsafe fn SetJobNamedProperty<P0>(hprinter: P0, jobid: u32, pproperty: *const PrintNamedProperty) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetJobNamedProperty(hprinter : super::super::Foundation:: HANDLE, jobid : u32, pproperty : *const PrintNamedProperty) -> u32);
-    SetJobNamedProperty(hprinter.param().abi(), jobid, pproperty)
+pub unsafe fn SetJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: u32, pproperty: *const PrintNamedProperty) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn SetJobNamedProperty(hprinter : PRINTER_HANDLE, jobid : u32, pproperty : *const PrintNamedProperty) -> u32);
+    SetJobNamedProperty(core::mem::transmute(hprinter), jobid, pproperty)
 }
 #[inline]
-pub unsafe fn SetJobW<P0>(hprinter: P0, jobid: u32, level: u32, pjob: Option<*const u8>, command: u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetJobW(hprinter : super::super::Foundation:: HANDLE, jobid : u32, level : u32, pjob : *const u8, command : u32) -> super::super::Foundation:: BOOL);
-    SetJobW(hprinter.param().abi(), jobid, level, core::mem::transmute(pjob.unwrap_or(core::ptr::null())), command)
+pub unsafe fn SetJobW(hprinter: PRINTER_HANDLE, jobid: u32, level: u32, pjob: Option<*const u8>, command: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn SetJobW(hprinter : PRINTER_HANDLE, jobid : u32, level : u32, pjob : *const u8, command : u32) -> super::super::Foundation:: BOOL);
+    SetJobW(core::mem::transmute(hprinter), jobid, level, core::mem::transmute(pjob.unwrap_or(core::ptr::null())), command)
 }
 #[inline]
 pub unsafe fn SetPortA<P0, P1>(pname: P0, pportname: P1, dwlevel: u32, pportinfo: *const u8) -> windows_core::Result<()>
@@ -1635,74 +1494,58 @@ where
     SetPortW(pname.param().abi(), pportname.param().abi(), dwlevel, pportinfo).ok()
 }
 #[inline]
-pub unsafe fn SetPrinterA<P0>(hprinter: P0, level: u32, pprinter: Option<*const u8>, command: u32) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterA(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *const u8, command : u32) -> super::super::Foundation:: BOOL);
-    SetPrinterA(hprinter.param().abi(), level, core::mem::transmute(pprinter.unwrap_or(core::ptr::null())), command).ok()
+pub unsafe fn SetPrinterA(hprinter: PRINTER_HANDLE, level: u32, pprinter: Option<*const u8>, command: u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterA(hprinter : PRINTER_HANDLE, level : u32, pprinter : *const u8, command : u32) -> super::super::Foundation:: BOOL);
+    SetPrinterA(core::mem::transmute(hprinter), level, core::mem::transmute(pprinter.unwrap_or(core::ptr::null())), command).ok()
 }
 #[inline]
-pub unsafe fn SetPrinterDataA<P0, P1>(hprinter: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> u32
+pub unsafe fn SetPrinterDataA<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0, r#type: u32, pdata: &[u8]) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
+    SetPrinterDataA(core::mem::transmute(hprinter), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SetPrinterDataExA<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataA(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataA(hprinter.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
+    SetPrinterDataExA(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SetPrinterDataExA<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2, r#type: u32, pdata: &[u8]) -> u32
+pub unsafe fn SetPrinterDataExW<P0, P1>(hprinter: PRINTER_HANDLE, pkeyname: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExA(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCSTR, pvaluename : windows_core::PCSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataExA(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
-}
-#[inline]
-pub unsafe fn SetPrinterDataExW<P0, P1, P2>(hprinter: P0, pkeyname: P1, pvaluename: P2, r#type: u32, pdata: &[u8]) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : super::super::Foundation:: HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataExW(hprinter.param().abi(), pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
-}
-#[inline]
-pub unsafe fn SetPrinterDataW<P0, P1>(hprinter: P0, pvaluename: P1, r#type: u32, pdata: &[u8]) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : super::super::Foundation:: HANDLE, pvaluename : windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
-    SetPrinterDataW(hprinter.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataExW(hprinter : PRINTER_HANDLE, pkeyname : windows_core::PCWSTR, pvaluename : windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
+    SetPrinterDataExW(core::mem::transmute(hprinter), pkeyname.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SetPrinterW<P0>(hprinter: P0, level: u32, pprinter: Option<*const u8>, command: u32) -> windows_core::Result<()>
+pub unsafe fn SetPrinterDataW<P0>(hprinter: PRINTER_HANDLE, pvaluename: P0, r#type: u32, pdata: &[u8]) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("winspool.drv" "system" fn SetPrinterW(hprinter : super::super::Foundation:: HANDLE, level : u32, pprinter : *const u8, command : u32) -> super::super::Foundation:: BOOL);
-    SetPrinterW(hprinter.param().abi(), level, core::mem::transmute(pprinter.unwrap_or(core::ptr::null())), command).ok()
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterDataW(hprinter : PRINTER_HANDLE, pvaluename : windows_core::PCWSTR, r#type : u32, pdata : *const u8, cbdata : u32) -> u32);
+    SetPrinterDataW(core::mem::transmute(hprinter), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SplIsSessionZero<P0>(hprinter: P0, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SplIsSessionZero(hprinter : super::super::Foundation:: HANDLE, jobid : u32, pissessionzero : *mut super::super::Foundation:: BOOL) -> u32);
-    SplIsSessionZero(hprinter.param().abi(), jobid, pissessionzero)
+pub unsafe fn SetPrinterW(hprinter: PRINTER_HANDLE, level: u32, pprinter: Option<*const u8>, command: u32) -> windows_core::Result<()> {
+    windows_targets::link!("winspool.drv" "system" fn SetPrinterW(hprinter : PRINTER_HANDLE, level : u32, pprinter : *const u8, command : u32) -> super::super::Foundation:: BOOL);
+    SetPrinterW(core::mem::transmute(hprinter), level, core::mem::transmute(pprinter.unwrap_or(core::ptr::null())), command).ok()
 }
 #[inline]
-pub unsafe fn SplPromptUIInUsersSession<P0>(hprinter: P0, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SplPromptUIInUsersSession(hprinter : super::super::Foundation:: HANDLE, jobid : u32, puiparams : *const SHOWUIPARAMS, presponse : *mut u32) -> super::super::Foundation:: BOOL);
-    SplPromptUIInUsersSession(hprinter.param().abi(), jobid, puiparams, presponse)
+pub unsafe fn SplIsSessionZero(hprinter: PRINTER_HANDLE, jobid: u32, pissessionzero: *mut super::super::Foundation::BOOL) -> u32 {
+    windows_targets::link!("spoolss.dll" "system" fn SplIsSessionZero(hprinter : PRINTER_HANDLE, jobid : u32, pissessionzero : *mut super::super::Foundation:: BOOL) -> u32);
+    SplIsSessionZero(core::mem::transmute(hprinter), jobid, pissessionzero)
+}
+#[inline]
+pub unsafe fn SplPromptUIInUsersSession(hprinter: PRINTER_HANDLE, jobid: u32, puiparams: *const SHOWUIPARAMS, presponse: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn SplPromptUIInUsersSession(hprinter : PRINTER_HANDLE, jobid : u32, puiparams : *const SHOWUIPARAMS, presponse : *mut u32) -> super::super::Foundation:: BOOL);
+    SplPromptUIInUsersSession(core::mem::transmute(hprinter), jobid, puiparams, presponse)
 }
 #[inline]
 pub unsafe fn SpoolerCopyFileEvent<P0, P1>(pszprintername: P0, pszkey: P1, dwcopyfileevent: u32) -> super::super::Foundation::BOOL
@@ -1714,28 +1557,19 @@ where
     SpoolerCopyFileEvent(pszprintername.param().abi(), pszkey.param().abi(), dwcopyfileevent)
 }
 #[inline]
-pub unsafe fn SpoolerFindClosePrinterChangeNotification<P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindClosePrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SpoolerFindClosePrinterChangeNotification(hprinter.param().abi())
+pub unsafe fn SpoolerFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindClosePrinterChangeNotification(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    SpoolerFindClosePrinterChangeNotification(core::mem::transmute(hprinter))
 }
 #[inline]
-pub unsafe fn SpoolerFindFirstPrinterChangeNotification<P0>(hprinter: P0, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const core::ffi::c_void, pvreserved: Option<*const core::ffi::c_void>, pnotificationconfig: *const core::ffi::c_void, phnotify: Option<*mut super::super::Foundation::HANDLE>, phevent: Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindFirstPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, fdwfilterflags : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void, pvreserved : *const core::ffi::c_void, pnotificationconfig : *const core::ffi::c_void, phnotify : *mut super::super::Foundation:: HANDLE, phevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SpoolerFindFirstPrinterChangeNotification(hprinter.param().abi(), fdwfilterflags, fdwoptions, pprinternotifyoptions, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), pnotificationconfig, core::mem::transmute(phnotify.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phevent.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SpoolerFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const core::ffi::c_void, pvreserved: Option<*const core::ffi::c_void>, pnotificationconfig: *const core::ffi::c_void, phnotify: Option<*mut super::super::Foundation::HANDLE>, phevent: Option<*mut super::super::Foundation::HANDLE>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindFirstPrinterChangeNotification(hprinter : PRINTER_HANDLE, fdwfilterflags : u32, fdwoptions : u32, pprinternotifyoptions : *const core::ffi::c_void, pvreserved : *const core::ffi::c_void, pnotificationconfig : *const core::ffi::c_void, phnotify : *mut super::super::Foundation:: HANDLE, phevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    SpoolerFindFirstPrinterChangeNotification(core::mem::transmute(hprinter), fdwfilterflags, fdwoptions, pprinternotifyoptions, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null())), pnotificationconfig, core::mem::transmute(phnotify.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phevent.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn SpoolerFindNextPrinterChangeNotification<P0>(hprinter: P0, pfdwchange: *mut u32, pprinternotifyoptions: Option<*const core::ffi::c_void>, ppprinternotifyinfo: Option<*mut *mut core::ffi::c_void>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindNextPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, pfdwchange : *mut u32, pprinternotifyoptions : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SpoolerFindNextPrinterChangeNotification(hprinter.param().abi(), pfdwchange, core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())), core::mem::transmute(ppprinternotifyinfo.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SpoolerFindNextPrinterChangeNotification(hprinter: PRINTER_HANDLE, pfdwchange: *mut u32, pprinternotifyoptions: Option<*const core::ffi::c_void>, ppprinternotifyinfo: Option<*mut *mut core::ffi::c_void>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn SpoolerFindNextPrinterChangeNotification(hprinter : PRINTER_HANDLE, pfdwchange : *mut u32, pprinternotifyoptions : *const core::ffi::c_void, ppprinternotifyinfo : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    SpoolerFindNextPrinterChangeNotification(core::mem::transmute(hprinter), pfdwchange, core::mem::transmute(pprinternotifyoptions.unwrap_or(core::ptr::null())), core::mem::transmute(ppprinternotifyinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
@@ -1743,36 +1577,24 @@ pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     SpoolerFreePrinterNotifyInfo(pinfo)
 }
 #[inline]
-pub unsafe fn SpoolerRefreshPrinterChangeNotification<P0>(hprinter: P0, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: Option<*mut *mut PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("spoolss.dll" "system" fn SpoolerRefreshPrinterChangeNotification(hprinter : super::super::Foundation:: HANDLE, dwcolor : u32, poptions : *const PRINTER_NOTIFY_OPTIONS, ppinfo : *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation:: BOOL);
-    SpoolerRefreshPrinterChangeNotification(hprinter.param().abi(), dwcolor, poptions, core::mem::transmute(ppinfo.unwrap_or(core::ptr::null_mut())))
+pub unsafe fn SpoolerRefreshPrinterChangeNotification(hprinter: PRINTER_HANDLE, dwcolor: u32, poptions: *const PRINTER_NOTIFY_OPTIONS, ppinfo: Option<*mut *mut PRINTER_NOTIFY_INFO>) -> super::super::Foundation::BOOL {
+    windows_targets::link!("spoolss.dll" "system" fn SpoolerRefreshPrinterChangeNotification(hprinter : PRINTER_HANDLE, dwcolor : u32, poptions : *const PRINTER_NOTIFY_OPTIONS, ppinfo : *mut *mut PRINTER_NOTIFY_INFO) -> super::super::Foundation:: BOOL);
+    SpoolerRefreshPrinterChangeNotification(core::mem::transmute(hprinter), dwcolor, poptions, core::mem::transmute(ppinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn StartDocPrinterA<P0>(hprinter: P0, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn StartDocPrinterA(hprinter : super::super::Foundation:: HANDLE, level : u32, pdocinfo : *const DOC_INFO_1A) -> u32);
-    StartDocPrinterA(hprinter.param().abi(), level, pdocinfo)
+pub unsafe fn StartDocPrinterA(hprinter: PRINTER_HANDLE, level: u32, pdocinfo: *const DOC_INFO_1A) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn StartDocPrinterA(hprinter : PRINTER_HANDLE, level : u32, pdocinfo : *const DOC_INFO_1A) -> u32);
+    StartDocPrinterA(core::mem::transmute(hprinter), level, pdocinfo)
 }
 #[inline]
-pub unsafe fn StartDocPrinterW<P0>(hprinter: P0, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn StartDocPrinterW(hprinter : super::super::Foundation:: HANDLE, level : u32, pdocinfo : *const DOC_INFO_1W) -> u32);
-    StartDocPrinterW(hprinter.param().abi(), level, pdocinfo)
+pub unsafe fn StartDocPrinterW(hprinter: PRINTER_HANDLE, level: u32, pdocinfo: *const DOC_INFO_1W) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn StartDocPrinterW(hprinter : PRINTER_HANDLE, level : u32, pdocinfo : *const DOC_INFO_1W) -> u32);
+    StartDocPrinterW(core::mem::transmute(hprinter), level, pdocinfo)
 }
 #[inline]
-pub unsafe fn StartPagePrinter<P0>(hprinter: P0) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn StartPagePrinter(hprinter : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    StartPagePrinter(hprinter.param().abi())
+pub unsafe fn StartPagePrinter(hprinter: PRINTER_HANDLE) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn StartPagePrinter(hprinter : PRINTER_HANDLE) -> super::super::Foundation:: BOOL);
+    StartPagePrinter(core::mem::transmute(hprinter))
 }
 #[inline]
 pub unsafe fn UnRegisterForPrintAsyncNotifications<P0>(param0: P0) -> windows_core::Result<()>
@@ -1783,13 +1605,12 @@ where
     UnRegisterForPrintAsyncNotifications(param0.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn UpdatePrintDeviceObject<P0, P1>(hprinter: P0, hdeviceobject: P1) -> windows_core::Result<()>
+pub unsafe fn UpdatePrintDeviceObject<P0>(hprinter: PRINTER_HANDLE, hdeviceobject: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
-    windows_targets::link!("spoolss.dll" "system" fn UpdatePrintDeviceObject(hprinter : super::super::Foundation:: HANDLE, hdeviceobject : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    UpdatePrintDeviceObject(hprinter.param().abi(), hdeviceobject.param().abi()).ok()
+    windows_targets::link!("spoolss.dll" "system" fn UpdatePrintDeviceObject(hprinter : PRINTER_HANDLE, hdeviceobject : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    UpdatePrintDeviceObject(core::mem::transmute(hprinter), hdeviceobject.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn UploadPrinterDriverPackageA<P0, P1, P2, P3>(pszserver: P0, pszinfpath: P1, pszenvironment: P2, dwflags: u32, hwnd: P3, pszdestinfpath: windows_core::PSTR, pcchdestinfpath: *mut u32) -> windows_core::Result<()>
@@ -1814,20 +1635,14 @@ where
     UploadPrinterDriverPackageW(pszserver.param().abi(), pszinfpath.param().abi(), pszenvironment.param().abi(), dwflags, hwnd.param().abi(), core::mem::transmute(pszdestinfpath), pcchdestinfpath).ok()
 }
 #[inline]
-pub unsafe fn WaitForPrinterChange<P0>(hprinter: P0, flags: u32) -> u32
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn WaitForPrinterChange(hprinter : super::super::Foundation:: HANDLE, flags : u32) -> u32);
-    WaitForPrinterChange(hprinter.param().abi(), flags)
+pub unsafe fn WaitForPrinterChange(hprinter: PRINTER_HANDLE, flags: u32) -> u32 {
+    windows_targets::link!("winspool.drv" "system" fn WaitForPrinterChange(hprinter : PRINTER_HANDLE, flags : u32) -> u32);
+    WaitForPrinterChange(core::mem::transmute(hprinter), flags)
 }
 #[inline]
-pub unsafe fn WritePrinter<P0>(hprinter: P0, pbuf: *const core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL
-where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-{
-    windows_targets::link!("winspool.drv" "system" fn WritePrinter(hprinter : super::super::Foundation:: HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32) -> super::super::Foundation:: BOOL);
-    WritePrinter(hprinter.param().abi(), pbuf, cbbuf, pcwritten)
+pub unsafe fn WritePrinter(hprinter: PRINTER_HANDLE, pbuf: *const core::ffi::c_void, cbbuf: u32, pcwritten: *mut u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winspool.drv" "system" fn WritePrinter(hprinter : PRINTER_HANDLE, pbuf : *const core::ffi::c_void, cbbuf : u32, pcwritten : *mut u32) -> super::super::Foundation:: BOOL);
+    WritePrinter(core::mem::transmute(hprinter), pbuf, cbbuf, pcwritten)
 }
 #[inline]
 pub unsafe fn XcvDataW<P0, P1>(hxcv: P0, pszdataname: P1, pinputdata: Option<&[u8]>, poutputdata: Option<&mut [u8]>, pcboutputneeded: *mut u32, pdwstatus: Option<*mut u32>) -> super::super::Foundation::BOOL
@@ -4701,11 +4516,8 @@ impl IPrintOemUI {
         (windows_core::Interface::vtable(self).DriverEvent)(windows_core::Interface::as_raw(self), dwdriverevent, dwlevel, pdriverinfo, lparam.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn QueryColorProfile<P0>(&self, hprinter: P0, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).QueryColorProfile)(windows_core::Interface::as_raw(self), hprinter.param().abi(), poemuiobj, ppublicdm, poemdm, ulquerymode, pvprofiledata, pcbprofiledata, pflprofiledata).ok()
+    pub unsafe fn QueryColorProfile(&self, hprinter: PRINTER_HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).QueryColorProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), poemuiobj, ppublicdm, poemdm, ulquerymode, pvprofiledata, pcbprofiledata, pflprofiledata).ok()
     }
     pub unsafe fn FontInstallerDlgProc<P0, P1, P2>(&self, hwnd: P0, usmsg: u32, wparam: P1, lparam: P2) -> windows_core::Result<()>
     where
@@ -4715,13 +4527,12 @@ impl IPrintOemUI {
     {
         (windows_core::Interface::vtable(self).FontInstallerDlgProc)(windows_core::Interface::as_raw(self), hwnd.param().abi(), usmsg, wparam.param().abi(), lparam.param().abi()).ok()
     }
-    pub unsafe fn UpdateExternalFonts<P0, P1, P2>(&self, hprinter: P0, hheap: P1, pwstrcartridges: P2) -> windows_core::Result<()>
+    pub unsafe fn UpdateExternalFonts<P0, P1>(&self, hprinter: PRINTER_HANDLE, hheap: P0, pwstrcartridges: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::HANDLE>,
-        P1: windows_core::Param<super::super::Foundation::HANDLE>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).UpdateExternalFonts)(windows_core::Interface::as_raw(self), hprinter.param().abi(), hheap.param().abi(), pwstrcartridges.param().abi()).ok()
+        (windows_core::Interface::vtable(self).UpdateExternalFonts)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), hheap.param().abi(), pwstrcartridges.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -4746,11 +4557,11 @@ pub struct IPrintOemUI_Vtbl {
     pub PrinterEvent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, u32, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
     pub DriverEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub QueryColorProfile: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *const OEMUIOBJ, *const super::Gdi::DEVMODEA, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
+    pub QueryColorProfile: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, *const OEMUIOBJ, *const super::Gdi::DEVMODEA, *const core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     QueryColorProfile: usize,
     pub FontInstallerDlgProc: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, super::super::Foundation::WPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
-    pub UpdateExternalFonts: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, super::super::Foundation::HANDLE, windows_core::PCWSTR) -> windows_core::HRESULT,
+    pub UpdateExternalFonts: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, super::super::Foundation::HANDLE, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI_Impl: Sized + IPrintOemCommon_Impl {
@@ -4763,9 +4574,9 @@ pub trait IPrintOemUI_Impl: Sized + IPrintOemCommon_Impl {
     fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> windows_core::Result<()>;
     fn PrinterEvent(&self, pprintername: &windows_core::PCWSTR, idriverevent: i32, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn DriverEvent(&self, dwdriverevent: u32, dwlevel: u32, pdriverinfo: *const u8, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn QueryColorProfile(&self, hprinter: super::super::Foundation::HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::Result<()>;
+    fn QueryColorProfile(&self, hprinter: &PRINTER_HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::Result<()>;
     fn FontInstallerDlgProc(&self, hwnd: super::super::Foundation::HWND, usmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
-    fn UpdateExternalFonts(&self, hprinter: super::super::Foundation::HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn UpdateExternalFonts(&self, hprinter: &PRINTER_HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IPrintOemUI {}
@@ -4808,17 +4619,17 @@ impl IPrintOemUI_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPrintOemUI_Impl::DriverEvent(this, core::mem::transmute_copy(&dwdriverevent), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&pdriverinfo), core::mem::transmute_copy(&lparam)).into()
         }
-        unsafe extern "system" fn QueryColorProfile<Identity: IPrintOemUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryColorProfile<Identity: IPrintOemUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUI_Impl::QueryColorProfile(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&poemuiobj), core::mem::transmute_copy(&ppublicdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&ulquerymode), core::mem::transmute_copy(&pvprofiledata), core::mem::transmute_copy(&pcbprofiledata), core::mem::transmute_copy(&pflprofiledata)).into()
+            IPrintOemUI_Impl::QueryColorProfile(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&poemuiobj), core::mem::transmute_copy(&ppublicdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&ulquerymode), core::mem::transmute_copy(&pvprofiledata), core::mem::transmute_copy(&pcbprofiledata), core::mem::transmute_copy(&pflprofiledata)).into()
         }
         unsafe extern "system" fn FontInstallerDlgProc<Identity: IPrintOemUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND, usmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPrintOemUI_Impl::FontInstallerDlgProc(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&usmsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
         }
-        unsafe extern "system" fn UpdateExternalFonts<Identity: IPrintOemUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateExternalFonts<Identity: IPrintOemUI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, hheap: super::super::Foundation::HANDLE, pwstrcartridges: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUI_Impl::UpdateExternalFonts(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&hheap), core::mem::transmute(&pwstrcartridges)).into()
+            IPrintOemUI_Impl::UpdateExternalFonts(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&hheap), core::mem::transmute(&pwstrcartridges)).into()
         }
         Self {
             base__: IPrintOemCommon_Vtbl::new::<Identity, OFFSET>(),
@@ -4850,59 +4661,55 @@ impl core::ops::Deref for IPrintOemUI2 {
 windows_core::imp::interface_hierarchy!(IPrintOemUI2, windows_core::IUnknown, IPrintOemCommon, IPrintOemUI);
 impl IPrintOemUI2 {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn QueryJobAttributes<P0>(&self, hprinter: P0, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).QueryJobAttributes)(windows_core::Interface::as_raw(self), hprinter.param().abi(), pdevmode, dwlevel, lpattributeinfo).ok()
+    pub unsafe fn QueryJobAttributes(&self, hprinter: PRINTER_HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).QueryJobAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), pdevmode, dwlevel, lpattributeinfo).ok()
     }
     pub unsafe fn HideStandardUI(&self, dwmode: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).HideStandardUI)(windows_core::Interface::as_raw(self), dwmode).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn DocumentEvent<P0, P1>(&self, hprinter: P0, hdc: P1, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn DocumentEvent<P0>(&self, hprinter: PRINTER_HANDLE, hdc: P0, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-        P1: windows_core::Param<super::Gdi::HDC>,
+        P0: windows_core::Param<super::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).DocumentEvent)(windows_core::Interface::as_raw(self), hprinter.param().abi(), hdc.param().abi(), iesc, cbin, pvin, cbout, pvout, piresult).ok()
+        (windows_core::Interface::vtable(self).DocumentEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), hdc.param().abi(), iesc, cbin, pvin, cbout, pvout, piresult).ok()
     }
 }
 #[repr(C)]
 pub struct IPrintOemUI2_Vtbl {
     pub base__: IPrintOemUI_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub QueryJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *const super::Gdi::DEVMODEA, u32, *const u8) -> windows_core::HRESULT,
+    pub QueryJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, *const super::Gdi::DEVMODEA, u32, *const u8) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     QueryJobAttributes: usize,
     pub HideStandardUI: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub DocumentEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, super::Gdi::HDC, i32, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub DocumentEvent: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, super::Gdi::HDC, i32, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     DocumentEvent: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI2_Impl: Sized + IPrintOemUI_Impl {
-    fn QueryJobAttributes(&self, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::Result<()>;
+    fn QueryJobAttributes(&self, hprinter: &PRINTER_HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::Result<()>;
     fn HideStandardUI(&self, dwmode: u32) -> windows_core::Result<()>;
-    fn DocumentEvent(&self, hprinter: super::super::Foundation::HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::Result<()>;
+    fn DocumentEvent(&self, hprinter: &PRINTER_HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IPrintOemUI2 {}
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPrintOemUI2_Vtbl {
     pub const fn new<Identity: IPrintOemUI2_Impl, const OFFSET: isize>() -> IPrintOemUI2_Vtbl {
-        unsafe extern "system" fn QueryJobAttributes<Identity: IPrintOemUI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryJobAttributes<Identity: IPrintOemUI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUI2_Impl::QueryJobAttributes(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lpattributeinfo)).into()
+            IPrintOemUI2_Impl::QueryJobAttributes(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&dwlevel), core::mem::transmute_copy(&lpattributeinfo)).into()
         }
         unsafe extern "system" fn HideStandardUI<Identity: IPrintOemUI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmode: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPrintOemUI2_Impl::HideStandardUI(this, core::mem::transmute_copy(&dwmode)).into()
         }
-        unsafe extern "system" fn DocumentEvent<Identity: IPrintOemUI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DocumentEvent<Identity: IPrintOemUI2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, hdc: super::Gdi::HDC, iesc: i32, cbin: u32, pvin: *mut core::ffi::c_void, cbout: u32, pvout: *mut core::ffi::c_void, piresult: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUI2_Impl::DocumentEvent(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&iesc), core::mem::transmute_copy(&cbin), core::mem::transmute_copy(&pvin), core::mem::transmute_copy(&cbout), core::mem::transmute_copy(&pvout), core::mem::transmute_copy(&piresult)).into()
+            IPrintOemUI2_Impl::DocumentEvent(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&iesc), core::mem::transmute_copy(&cbin), core::mem::transmute_copy(&pvin), core::mem::transmute_copy(&cbout), core::mem::transmute_copy(&pvout), core::mem::transmute_copy(&piresult)).into()
         }
         Self {
             base__: IPrintOemUI_Vtbl::new::<Identity, OFFSET>(),
@@ -4925,65 +4732,56 @@ impl core::ops::Deref for IPrintOemUIMXDC {
 windows_core::imp::interface_hierarchy!(IPrintOemUIMXDC, windows_core::IUnknown);
 impl IPrintOemUIMXDC {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AdjustImageableArea<P0>(&self, hprinter: P0, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).AdjustImageableArea)(windows_core::Interface::as_raw(self), hprinter.param().abi(), cbdevmode, pdevmode, cboemdm, poemdm, prclimageablearea).ok()
+    pub unsafe fn AdjustImageableArea(&self, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AdjustImageableArea)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), cbdevmode, pdevmode, cboemdm, poemdm, prclimageablearea).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AdjustImageCompression<P0>(&self, hprinter: P0, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).AdjustImageCompression)(windows_core::Interface::as_raw(self), hprinter.param().abi(), cbdevmode, pdevmode, cboemdm, poemdm, pcompressionmode).ok()
+    pub unsafe fn AdjustImageCompression(&self, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AdjustImageCompression)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), cbdevmode, pdevmode, cboemdm, poemdm, pcompressionmode).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AdjustDPI<P0>(&self, hprinter: P0, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).AdjustDPI)(windows_core::Interface::as_raw(self), hprinter.param().abi(), cbdevmode, pdevmode, cboemdm, poemdm, pdpi).ok()
+    pub unsafe fn AdjustDPI(&self, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).AdjustDPI)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), cbdevmode, pdevmode, cboemdm, poemdm, pdpi).ok()
     }
 }
 #[repr(C)]
 pub struct IPrintOemUIMXDC_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AdjustImageableArea: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut super::super::Foundation::RECTL) -> windows_core::HRESULT,
+    pub AdjustImageableArea: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut super::super::Foundation::RECTL) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AdjustImageableArea: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AdjustImageCompression: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub AdjustImageCompression: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AdjustImageCompression: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AdjustDPI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub AdjustDPI: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, u32, *const super::Gdi::DEVMODEA, u32, *const core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AdjustDPI: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintOemUIMXDC_Impl: Sized + windows_core::IUnknownImpl {
-    fn AdjustImageableArea(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::Result<()>;
-    fn AdjustImageCompression(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::Result<()>;
-    fn AdjustDPI(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::Result<()>;
+    fn AdjustImageableArea(&self, hprinter: &PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::Result<()>;
+    fn AdjustImageCompression(&self, hprinter: &PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::Result<()>;
+    fn AdjustDPI(&self, hprinter: &PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IPrintOemUIMXDC {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IPrintOemUIMXDC_Vtbl {
     pub const fn new<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>() -> IPrintOemUIMXDC_Vtbl {
-        unsafe extern "system" fn AdjustImageableArea<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdjustImageableArea<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUIMXDC_Impl::AdjustImageableArea(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&prclimageablearea)).into()
+            IPrintOemUIMXDC_Impl::AdjustImageableArea(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&prclimageablearea)).into()
         }
-        unsafe extern "system" fn AdjustImageCompression<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdjustImageCompression<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pcompressionmode: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUIMXDC_Impl::AdjustImageCompression(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&pcompressionmode)).into()
+            IPrintOemUIMXDC_Impl::AdjustImageCompression(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&pcompressionmode)).into()
         }
-        unsafe extern "system" fn AdjustDPI<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdjustDPI<Identity: IPrintOemUIMXDC_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const core::ffi::c_void, pdpi: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintOemUIMXDC_Impl::AdjustDPI(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&pdpi)).into()
+            IPrintOemUIMXDC_Impl::AdjustDPI(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&cbdevmode), core::mem::transmute_copy(&pdevmode), core::mem::transmute_copy(&cboemdm), core::mem::transmute_copy(&poemdm), core::mem::transmute_copy(&pdpi)).into()
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -6873,17 +6671,11 @@ impl core::ops::Deref for IPrintTicketProvider {
 }
 windows_core::imp::interface_hierarchy!(IPrintTicketProvider, windows_core::IUnknown);
 impl IPrintTicketProvider {
-    pub unsafe fn GetSupportedVersions<P0>(&self, hprinter: P0, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).GetSupportedVersions)(windows_core::Interface::as_raw(self), hprinter.param().abi(), ppversions, cversions).ok()
+    pub unsafe fn GetSupportedVersions(&self, hprinter: PRINTER_HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetSupportedVersions)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), ppversions, cversions).ok()
     }
-    pub unsafe fn BindPrinter<P0>(&self, hprinter: P0, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    {
-        (windows_core::Interface::vtable(self).BindPrinter)(windows_core::Interface::as_raw(self), hprinter.param().abi(), version, poptions, pdevmodeflags, cnamespaces, ppnamespaces).ok()
+    pub unsafe fn BindPrinter(&self, hprinter: PRINTER_HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).BindPrinter)(windows_core::Interface::as_raw(self), core::mem::transmute(hprinter), version, poptions, pdevmodeflags, cnamespaces, ppnamespaces).ok()
     }
     pub unsafe fn QueryDeviceNamespace(&self, pdefaultnamespace: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryDeviceNamespace)(windows_core::Interface::as_raw(self), core::mem::transmute(pdefaultnamespace)).ok()
@@ -6921,8 +6713,8 @@ impl IPrintTicketProvider {
 #[repr(C)]
 pub struct IPrintTicketProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSupportedVersions: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, *mut *mut i32, *mut i32) -> windows_core::HRESULT,
-    pub BindPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, i32, *mut SHIMOPTS, *mut u32, *mut i32, *mut *mut windows_core::BSTR) -> windows_core::HRESULT,
+    pub GetSupportedVersions: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, *mut *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub BindPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, PRINTER_HANDLE, i32, *mut SHIMOPTS, *mut u32, *mut i32, *mut *mut windows_core::BSTR) -> windows_core::HRESULT,
     pub QueryDeviceNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub ConvertPrintTicketToDevMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::Gdi::DEVMODEA, *mut u32, *mut *mut super::Gdi::DEVMODEA) -> windows_core::HRESULT,
@@ -6943,8 +6735,8 @@ pub struct IPrintTicketProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintTicketProvider_Impl: Sized + windows_core::IUnknownImpl {
-    fn GetSupportedVersions(&self, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::Result<()>;
-    fn BindPrinter(&self, hprinter: super::super::Foundation::HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetSupportedVersions(&self, hprinter: &PRINTER_HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::Result<()>;
+    fn BindPrinter(&self, hprinter: &PRINTER_HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn QueryDeviceNamespace(&self, pdefaultnamespace: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn ConvertPrintTicketToDevMode(&self, pprintticket: Option<&super::super::Data::Xml::MsXml::IXMLDOMDocument2>, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> windows_core::Result<()>;
     fn ConvertDevModeToPrintTicket(&self, cbdevmode: u32, pdevmode: *mut super::Gdi::DEVMODEA, pprintticket: Option<&super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> windows_core::Result<()>;
@@ -6956,13 +6748,13 @@ impl windows_core::RuntimeName for IPrintTicketProvider {}
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPrintTicketProvider_Vtbl {
     pub const fn new<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>() -> IPrintTicketProvider_Vtbl {
-        unsafe extern "system" fn GetSupportedVersions<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSupportedVersions<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTicketProvider_Impl::GetSupportedVersions(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&ppversions), core::mem::transmute_copy(&cversions)).into()
+            IPrintTicketProvider_Impl::GetSupportedVersions(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&ppversions), core::mem::transmute_copy(&cversions)).into()
         }
-        unsafe extern "system" fn BindPrinter<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn BindPrinter<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hprinter: PRINTER_HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut windows_core::BSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IPrintTicketProvider_Impl::BindPrinter(this, core::mem::transmute_copy(&hprinter), core::mem::transmute_copy(&version), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pdevmodeflags), core::mem::transmute_copy(&cnamespaces), core::mem::transmute_copy(&ppnamespaces)).into()
+            IPrintTicketProvider_Impl::BindPrinter(this, core::mem::transmute(&hprinter), core::mem::transmute_copy(&version), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pdevmodeflags), core::mem::transmute_copy(&cnamespaces), core::mem::transmute_copy(&ppnamespaces)).into()
         }
         unsafe extern "system" fn QueryDeviceNamespace<Identity: IPrintTicketProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdefaultnamespace: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8040,7 +7832,7 @@ impl core::ops::Deref for IPrinterQueue {
 windows_core::imp::interface_hierarchy!(IPrinterQueue, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueue {
-    pub unsafe fn Handle(&self) -> windows_core::Result<super::super::Foundation::HANDLE> {
+    pub unsafe fn Handle(&self) -> windows_core::Result<PRINTER_HANDLE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Handle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
@@ -8064,7 +7856,7 @@ impl IPrinterQueue {
 #[repr(C)]
 pub struct IPrinterQueue_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT,
+    pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PRINTER_HANDLE) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SendBidiQuery: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -8074,7 +7866,7 @@ pub struct IPrinterQueue_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPrinterQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Handle(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
+    fn Handle(&self) -> windows_core::Result<PRINTER_HANDLE>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SendBidiQuery(&self, bstrbidiquery: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetProperties(&self) -> windows_core::Result<IPrinterPropertyBag>;
@@ -8084,7 +7876,7 @@ impl windows_core::RuntimeName for IPrinterQueue {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPrinterQueue_Vtbl {
     pub const fn new<Identity: IPrinterQueue_Impl, const OFFSET: isize>() -> IPrinterQueue_Vtbl {
-        unsafe extern "system" fn Handle<Identity: IPrinterQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phprinter: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Handle<Identity: IPrinterQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phprinter: *mut PRINTER_HANDLE) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPrinterQueue_Impl::Handle(this) {
                 Ok(ok__) => {
@@ -13965,6 +13757,19 @@ impl windows_core::TypeKind for PRINTER_EVENT_ATTRIBUTES_INFO {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for PRINTER_EVENT_ATTRIBUTES_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PRINTER_HANDLE {
+    pub Value: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for PRINTER_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PRINTER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

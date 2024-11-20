@@ -2350,54 +2350,63 @@ impl Default for MDL {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::super::Win32::Foundation::HANDLE,
     pub ObjectName: *const super::super::Win32::Foundation::UNICODE_STRING,
-    pub Attributes: u32,
-    pub SecurityDescriptor: *const core::ffi::c_void,
-    pub SecurityQualityOfService: *const core::ffi::c_void,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for OBJECT_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for OBJECT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTES32 {
     pub Length: u32,
     pub RootDirectory: u32,
     pub ObjectName: u32,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u32,
-    pub SecurityQualityOfService: u32,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for OBJECT_ATTRIBUTES32 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for OBJECT_ATTRIBUTES32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTES64 {
     pub Length: u32,
     pub RootDirectory: u64,
     pub ObjectName: u64,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u64,
-    pub SecurityQualityOfService: u64,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
+#[cfg(feature = "Win32_Security")]
 impl windows_core::TypeKind for OBJECT_ATTRIBUTES64 {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for OBJECT_ATTRIBUTES64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

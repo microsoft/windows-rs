@@ -1100,34 +1100,37 @@ pub struct MDL {
     pub ByteOffset: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::super::Win32::Foundation::HANDLE,
     pub ObjectName: *const super::super::Win32::Foundation::UNICODE_STRING,
-    pub Attributes: u32,
-    pub SecurityDescriptor: *const core::ffi::c_void,
-    pub SecurityQualityOfService: *const core::ffi::c_void,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct OBJECT_ATTRIBUTES32 {
     pub Length: u32,
     pub RootDirectory: u32,
     pub ObjectName: u32,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u32,
-    pub SecurityQualityOfService: u32,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct OBJECT_ATTRIBUTES64 {
     pub Length: u32,
     pub RootDirectory: u64,
     pub ObjectName: u64,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u64,
-    pub SecurityQualityOfService: u64,
+    pub Attributes: super::super::Win32::Foundation::OBJECT_ATTRIBUTE_FLAGS,
+    pub SecurityDescriptor: *const super::super::Win32::Security::SECURITY_DESCRIPTOR,
+    pub SecurityQualityOfService: *const super::super::Win32::Security::SECURITY_QUALITY_OF_SERVICE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

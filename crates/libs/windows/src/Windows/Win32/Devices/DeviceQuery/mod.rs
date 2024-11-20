@@ -127,11 +127,11 @@ where
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn DevFindProperty<P0>(pkey: *const super::Properties::DEVPROPKEY, store: super::Properties::DEVPROPSTORE, pszlocalename: P0, pproperties: Option<&[super::Properties::DEVPROPERTY]>) -> *mut super::Properties::DEVPROPERTY
+pub unsafe fn DevFindProperty<P0>(pkey: *const super::super::Foundation::DEVPROPKEY, store: super::Properties::DEVPROPSTORE, pszlocalename: P0, pproperties: Option<&[super::Properties::DEVPROPERTY]>) -> *mut super::Properties::DEVPROPERTY
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFindProperty(pkey : *const super::Properties:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : windows_core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
+    windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFindProperty(pkey : *const super::super::Foundation:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : windows_core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
     DevFindProperty(pkey, store, pszlocalename.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -383,7 +383,7 @@ impl Default for DEV_OBJECT {
 #[cfg(feature = "Win32_Devices_Properties")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEV_QUERY_PARAMETER {
-    pub Key: super::Properties::DEVPROPKEY,
+    pub Key: super::super::Foundation::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,

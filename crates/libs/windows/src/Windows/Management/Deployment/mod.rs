@@ -333,6 +333,18 @@ pub struct IPackageManager11_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RemovePackageByUriAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPackageManager12, IPackageManager12_Vtbl, 0x5d233adf_f9e3_4d96_b40d_96788e39539f);
+impl windows_core::RuntimeType for IPackageManager12 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPackageManager12_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsPackageRemovalPending: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
+    pub IsPackageRemovalPendingForUser: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
+    pub IsPackageRemovalPendingByUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsPackageRemovalPendingByUriForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPackageManager2, IPackageManager2_Vtbl, 0xf7aad08d_0840_46f2_b5d8_cad47693a095);
 impl windows_core::RuntimeType for IPackageManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -676,6 +688,16 @@ pub struct IRemovePackageOptions_Vtbl {
     pub SetPreserveRoamableApplicationData: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub RemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetRemoveForAllUsers: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IRemovePackageOptions2, IRemovePackageOptions2_Vtbl, 0x3fcc61e5_22c5_423b_b4b4_cf10bb50830c);
+impl windows_core::RuntimeType for IRemovePackageOptions2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IRemovePackageOptions2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DeferRemovalWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetDeferRemovalWhenPackagesAreInUse: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISharedPackageContainer, ISharedPackageContainer_Vtbl, 0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
 impl windows_core::RuntimeType for ISharedPackageContainer {
@@ -1755,6 +1777,40 @@ impl PackageManager {
             (windows_core::Interface::vtable(this).RemovePackageByUriAsync)(windows_core::Interface::as_raw(this), packageuri.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn IsPackageRemovalPending(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPackageRemovalPending)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsPackageRemovalPendingForUser(&self, packagefullname: &windows_core::HSTRING, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPackageRemovalPendingForUser)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), core::mem::transmute_copy(usersecurityid), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsPackageRemovalPendingByUri<P0>(&self, packageuri: P0) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPackageRemovalPendingByUri)(windows_core::Interface::as_raw(this), packageuri.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsPackageRemovalPendingByUriForUser<P0>(&self, packageuri: P0, usersecurityid: &windows_core::HSTRING) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = &windows_core::Interface::cast::<IPackageManager12>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPackageRemovalPendingByUriForUser)(windows_core::Interface::as_raw(this), packageuri.param().abi(), core::mem::transmute_copy(usersecurityid), &mut result__).map(|| result__)
+        }
+    }
     pub fn RemovePackageWithOptionsAsync(&self, packagefullname: &windows_core::HSTRING, removaloptions: RemovalOptions) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>> {
         let this = &windows_core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
@@ -2679,6 +2735,17 @@ impl RemovePackageOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRemoveForAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
     }
+    pub fn DeferRemovalWhenPackagesAreInUse(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IRemovePackageOptions2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeferRemovalWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetDeferRemovalWhenPackagesAreInUse(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IRemovePackageOptions2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetDeferRemovalWhenPackagesAreInUse)(windows_core::Interface::as_raw(this), value).ok() }
+    }
 }
 impl windows_core::RuntimeType for RemovePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemovePackageOptions>();
@@ -3425,6 +3492,7 @@ impl RemovalOptions {
     pub const None: Self = Self(0u32);
     pub const PreserveApplicationData: Self = Self(4096u32);
     pub const PreserveRoamableApplicationData: Self = Self(128u32);
+    pub const DeferRemovalWhenPackagesAreInUse: Self = Self(8192u32);
     pub const RemoveForAllUsers: Self = Self(524288u32);
 }
 impl windows_core::TypeKind for RemovalOptions {

@@ -1070,6 +1070,8 @@ pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(
 pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(2i32);
 pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(3i32);
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
+pub const NET_IF_COMPARTMENT_ID_PRIMARY: u32 = 1u32;
+pub const NET_IF_COMPARTMENT_ID_UNSPECIFIED: u32 = 0u32;
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
 pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(3i32);
 pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(4i32);
@@ -3246,7 +3248,7 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub ifHCOutUcastOctets: u64,
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
-    pub CompartmentId: u32,
+    pub CompartmentId: NET_IF_COMPARTMENT_ID,
     pub SupportedStatistics: u32,
 }
 impl windows_core::TypeKind for NDIS_INTERFACE_INFORMATION {
@@ -4593,6 +4595,17 @@ impl Default for NET_IF_ALIAS_LH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct NET_IF_COMPARTMENT_ID(pub u32);
+impl Default for NET_IF_COMPARTMENT_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for NET_IF_COMPARTMENT_ID {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

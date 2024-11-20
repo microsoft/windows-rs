@@ -361,6 +361,16 @@ where
     LockResource(hresdata.param().abi())
 }
 #[inline]
+pub unsafe fn QueryOptionalDelayLoadedAPI<P0, P1, P2>(hparentmodule: P0, lpdllname: P1, lpprocname: P2, reserved: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::Foundation::HMODULE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("api-ms-win-core-libraryloader-l2-1-0.dll" "system" fn QueryOptionalDelayLoadedAPI(hparentmodule : super::super::Foundation:: HMODULE, lpdllname : windows_core::PCSTR, lpprocname : windows_core::PCSTR, reserved : u32) -> super::super::Foundation:: BOOL);
+    QueryOptionalDelayLoadedAPI(hparentmodule.param().abi(), lpdllname.param().abi(), lpprocname.param().abi(), reserved).ok()
+}
+#[inline]
 pub unsafe fn RemoveDllDirectory(cookie: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     RemoveDllDirectory(cookie).ok()

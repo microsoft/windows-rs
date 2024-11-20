@@ -2,10 +2,10 @@ use windows_sys::{core::*, Win32::System::Performance::*};
 
 fn main() {
     unsafe {
-        let mut query = 0;
+        let mut query = std::ptr::null_mut();
         PdhOpenQueryW(std::ptr::null(), 0, &mut query);
 
-        let mut counter = 0;
+        let mut counter = std::ptr::null_mut();
         PdhAddCounterW(
             query,
             w!("\\Processor(0)\\% Processor Time"),

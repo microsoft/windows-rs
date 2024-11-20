@@ -60,7 +60,7 @@ runs:
     - name: Update packages
       shell: pwsh
       run: |
-        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-binutils
-        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-llvm
-        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-i686-gcc
-        C:\msys64\usr\bin\pacman.exe -S --noconfirm mingw-w64-x86_64-gcc
+        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-binutils
+        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-llvm
+        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-i686-gcc
+        C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-gcc

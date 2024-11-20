@@ -5,6 +5,6 @@ use windows::Win32::Graphics::Printing::*;
 #[test]
 fn test() {
     unsafe {
-        _ = GetSpoolFileHandle(None);
+        _ = GetSpoolFileHandle(PRINTER_HANDLE::default());
     }
 }

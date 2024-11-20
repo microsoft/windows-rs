@@ -861,14 +861,10 @@ impl IHardwareAudioEngineBase_Vtbl {
         iid == &<IHardwareAudioEngineBase as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
+pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
+pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };
+pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1 };
+pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
 pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
 pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
