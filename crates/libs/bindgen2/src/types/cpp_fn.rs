@@ -19,7 +19,7 @@ impl PartialOrd for CppFn {
 }
 
 impl CppFn {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         TypeName(self.namespace, self.method.name())
     }
 
@@ -251,7 +251,7 @@ impl CppFn {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.namespace, self.method.name()) {
+        if dependencies.insert(self.type_name()) {
             self.method
                 .signature(self.namespace, &[])
                 .dependencies(dependencies);

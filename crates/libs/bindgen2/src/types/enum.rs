@@ -95,14 +95,13 @@ impl Enum {
 
     pub fn runtime_signature(&self) -> String {
         format!(
-            "enum({}.{};{})",
-            self.def.namespace(),
-            self.def.name(),
+            "enum({};{})",
+            self.def.type_name(),
             self.def.underlying_type().runtime_signature()
         )
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        dependencies.insert(self.def.namespace(), self.def.name());
+        dependencies.insert(self.def.type_name());
     }
 }

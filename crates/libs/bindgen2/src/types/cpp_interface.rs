@@ -32,7 +32,7 @@ impl PartialOrd for CppInterface {
 }
 
 impl CppInterface {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 
@@ -438,7 +438,7 @@ impl CppInterface {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        if dependencies.insert(self.type_name()) {
             let base_interfaces = self.base_interfaces();
 
             if matches!(base_interfaces.first(), Some(Type::IUnknown)) {

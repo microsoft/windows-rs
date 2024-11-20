@@ -18,7 +18,7 @@ impl PartialOrd for CppDelegate {
 }
 
 impl CppDelegate {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 
@@ -34,9 +34,10 @@ impl CppDelegate {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
-        let name = to_ident(self.def.name());
+        let type_name = self.def.type_name();
+        let name = to_ident(type_name.name());
         let method = self.method();
-        let signature = method.signature(self.def.namespace(), &[]);
+        let signature = method.signature(type_name.namespace(), &[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
@@ -53,7 +54,7 @@ impl CppDelegate {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
 
         // TODO: are all callback "system" ABI?
 
@@ -64,9 +65,10 @@ impl CppDelegate {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        let type_name = self.type_name();
+        if dependencies.insert(type_name) {
             self.method()
-                .signature(self.def.namespace(), &[])
+                .signature(type_name.namespace(), &[])
                 .dependencies(dependencies);
         }
     }

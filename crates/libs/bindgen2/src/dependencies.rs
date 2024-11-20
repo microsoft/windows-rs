@@ -2,7 +2,7 @@ use super::*;
 
 // TODO: get rid of this in favor of Includes
 
-// TODO: store `HashSet<TypeName<'static>>` instead
+// TODO: should store Type rather than TypeName
 type Set = HashSet<TypeName<'static>>;
 
 // TODO: do we even need a wrapper type at this point?
@@ -14,6 +14,12 @@ impl std::ops::Deref for Dependencies {
 
     fn deref(&self) -> &Self::Target {
         &self.0
+    }
+}
+
+impl core::ops::DerefMut for Dependencies {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
     }
 }
 
@@ -49,13 +55,6 @@ impl Dependencies {
 
         set.extend(dependencies.iter());
         Self(set)
-    }
-
-    pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
-        // TODO: maybe move dependency recursion direclty into here?
-        // Have the Dependencies store a Reader to look up deps directly
-        // This would work more like the old standalone one?
-        self.0.insert(TypeName(namespace, name))
     }
 
     pub fn combine(&mut self, other: &Self) {

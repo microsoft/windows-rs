@@ -23,14 +23,14 @@ impl TypeDef {
         self.str(2)
     }
 
-    pub fn extends(&self) -> Option<TypeDefOrRef> {
+    pub fn extends(&self) -> Option<TypeName<'static>> {
         let extends = self.usize(3);
 
         if extends == 0 {
             return None;
         }
 
-        Some(TypeDefOrRef::decode(self.file(), extends))
+        Some(TypeDefOrRef::decode(self.file(), extends).type_name())
     }
 
     pub fn methods(&self) -> RowIterator<MethodDef> {
@@ -85,7 +85,7 @@ impl TypeDef {
             if let Some((_, Value::String(name))) = attribute.args().first() {
                 if let Some(Type::CppFn(item)) = self
                     .reader()
-                    .with_full_name(self.namespace(), name.as_str())
+                    .with_full_name(TypeName(self.namespace(), name.as_str()))
                     .next()
                 {
                     return Some(item);

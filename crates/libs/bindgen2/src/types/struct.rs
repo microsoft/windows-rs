@@ -65,7 +65,7 @@ impl Struct {
     }
 
     pub fn runtime_signature(&self) -> String {
-        let mut signature = format!("struct({}.{}", self.def.namespace(), self.def.name());
+        let mut signature = format!("struct({}", self.def.type_name());
         for field in self.def.fields() {
             signature.push(';');
             signature.push_str(&field.ty(None).runtime_signature());
@@ -75,7 +75,7 @@ impl Struct {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        if dependencies.insert(self.def.type_name()) {
             for field in self.def.fields() {
                 field.ty(None).dependencies(dependencies);
             }

@@ -76,7 +76,11 @@ code! { TypeOrMethodDef(1)
 }
 
 impl TypeDefOrRef {
-    pub fn name(&self) -> &'static str {
+    pub fn type_name(&self) -> TypeName<'static> {
+        TypeName(self.namespace(), self.name())
+    }
+
+    fn name(&self) -> &'static str {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
@@ -84,7 +88,7 @@ impl TypeDefOrRef {
         }
     }
 
-    pub fn namespace(&self) -> &'static str {
+    fn namespace(&self) -> &'static str {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),

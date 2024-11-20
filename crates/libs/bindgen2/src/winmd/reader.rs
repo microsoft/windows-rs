@@ -38,20 +38,18 @@ impl Reader {
             }
 
             for def in file.table::<TypeDef>() {
-                let namespace = def.namespace();
+                let type_name = def.type_name();
 
-                if namespace.is_empty() {
+                if type_name.namespace().is_empty() {
                     // This skips the nested types as we've already retrieved them.
                     continue;
                 }
 
-                let name = def.name();
-
-                if Type::remap(namespace, name) != Remap::None {
+                if Type::remap(type_name) != Remap::None {
                     continue;
                 }
 
-                let items = reader.0.entry(namespace).or_default();
+                let items = reader.0.entry(type_name.0).or_default();
                 let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
@@ -78,12 +76,12 @@ impl Reader {
                         }
                     };
 
-                    insert(items, name, item);
+                    insert(items, type_name.1, item);
                 } else {
                     match category {
                         Category::Attribute => continue,
                         Category::Class => {
-                            if name == "Apis" {
+                            if type_name.1 == "Apis" {
                                 for method in def.methods() {
                                     if let Some(map) = method.impl_map() {
                                         // Skip inline and ordinal functions.
@@ -119,10 +117,10 @@ impl Reader {
                             }
                         }
                         Category::Delegate => {
-                            insert(items, name, Type::CppDelegate(CppDelegate { def }));
+                            insert(items, type_name.1, Type::CppDelegate(CppDelegate { def }));
                         }
                         Category::Enum => {
-                            insert(items, name, Type::CppEnum(CppEnum { def }));
+                            insert(items, type_name.1, Type::CppEnum(CppEnum { def }));
 
                             if !def.has_attribute("ScopedEnumAttribute") {
                                 for field in def.fields() {
@@ -141,7 +139,7 @@ impl Reader {
                             }
                         }
                         Category::Interface => {
-                            insert(items, name, Type::CppInterface(CppInterface { def }));
+                            insert(items, type_name.1, Type::CppInterface(CppInterface { def }));
                         }
                         Category::Struct => {
                             fn make(
@@ -169,7 +167,7 @@ impl Reader {
 
                             insert(
                                 items,
-                                name,
+                                type_name.1,
                                 Type::CppStruct(make(def, String::new(), &nested)),
                             );
                         }
@@ -182,9 +180,9 @@ impl Reader {
     }
 
     /// Gets all items matching the given namespace and name.
-    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
-        self.get(namespace)
-            .and_then(|items| items.get(name))
+    pub fn with_full_name(&self, name: TypeName<'_>) -> impl Iterator<Item = Type> + '_ {
+        self.get(name.namespace())
+            .and_then(|items| items.get(name.name()))
             .into_iter()
             .flatten()
             .cloned()

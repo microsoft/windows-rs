@@ -6,15 +6,16 @@ pub struct Class {
 }
 
 impl Class {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let mut required_interfaces = self.required_interfaces();
         required_interfaces.sort();
+        let type_name = self.def.type_name();
 
-        let name = to_ident(self.def.name());
+        let name = to_ident(type_name.name());
 
         let mut dependencies = Dependencies::new();
 
@@ -22,9 +23,9 @@ impl Class {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+        let cfg = writer.write_cfg(self.def, type_name.namespace(), &dependencies, false);
 
-        let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
+        let runtime_name = format!("{type_name}");
 
         let runtime_name = quote! {
             #cfg
@@ -53,7 +54,7 @@ impl Class {
                     difference = method.dependencies.difference(&dependencies);
                 }
 
-                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+                let cfg = writer.write_cfg(self.def, type_name.namespace(), &difference, false);
 
                 let method = method.write(
                     writer,
@@ -159,7 +160,7 @@ impl Class {
             let into_iterator = required_interfaces
                 .iter()
                 .find(|interface| {
-                    TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
+                    interface.def.type_name() == TypeName::IIterable
                 })
                 .map(|interface| {
                     let item = interface.generics[0].write_name(writer);
@@ -243,15 +244,14 @@ impl Class {
 
     pub fn runtime_signature(&self) -> String {
         format!(
-            "rc({}.{};{})",
-            self.def.namespace(),
-            self.def.name(),
+            "rc({};{})",
+            self.type_name(),
             self.default_interface().unwrap().runtime_signature()
         )
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        if dependencies.insert(self.type_name()) {
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }
@@ -265,14 +265,13 @@ impl Class {
 
         loop {
             let extends = def.extends().unwrap();
-            let extends = TypeName(extends.namespace(), extends.name());
 
             if extends == TypeName::Object {
                 break;
             }
 
             let Some(Type::Class(base)) = reader
-                .with_full_name(extends.namespace(), extends.name())
+                .with_full_name(extends)
                 .next()
             else {
                 panic!("Type not found");
@@ -333,7 +332,7 @@ impl Class {
                     let Some(Type::Interface(mut interface)) = self
                         .def
                         .reader()
-                        .with_full_name(type_name.namespace(), type_name.name())
+                        .with_full_name(type_name)
                         .next()
                     else {
                         panic!("Type not found");

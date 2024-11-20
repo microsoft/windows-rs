@@ -18,7 +18,7 @@ impl PartialOrd for CppEnum {
 }
 
 impl CppEnum {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 
@@ -27,13 +27,14 @@ impl CppEnum {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
+        let type_name = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
         if !is_scoped && writer.config.sys {
             return writer.write_cpp_handle(self.def);
         }
 
-        let name = to_ident(self.def.name());
+        let name = to_ident(type_name.name());
         let underlying_type = self.def.underlying_type().write_name(writer);
 
         let mut derive = DeriveWriter::new(writer, self.type_name());
@@ -129,7 +130,7 @@ impl CppEnum {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        dependencies.insert(self.def.namespace(), self.def.name());
+        dependencies.insert(self.type_name());
     }
 
     pub fn size(&self) -> usize {

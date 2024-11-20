@@ -22,7 +22,7 @@ impl PartialOrd for CppStruct {
 
 impl CppStruct {
     pub fn type_name(&self) -> TypeName<'_> {
-        TypeName(self.def.namespace(), self.name())
+        self.def.type_name()
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
@@ -242,7 +242,7 @@ impl CppStruct {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         let namespace = self.def.namespace();
-        if namespace.is_empty() || dependencies.insert(namespace, self.def.name()) {
+        if namespace.is_empty() || dependencies.insert(TypeName(namespace, self.def.name())) {
             for field in self.def.fields() {
                 field.ty(Some(self)).dependencies(dependencies);
             }
@@ -255,7 +255,7 @@ impl CppStruct {
 
     pub fn is_copyable(&self) -> bool {
         if matches!(
-            TypeName(self.def.namespace(), self.def.name()),
+            self.def.type_name(),
             TypeName::VARIANT | TypeName::PROPVARIANT
         ) {
             return false;

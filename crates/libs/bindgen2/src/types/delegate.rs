@@ -194,7 +194,7 @@ impl Delegate {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        if dependencies.insert(self.def.type_name()) {
             dependencies.combine(&self.method().dependencies);
         }
         // TODO: collect generics here?

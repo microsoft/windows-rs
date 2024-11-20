@@ -19,7 +19,7 @@ impl PartialOrd for CppConst {
 }
 
 impl CppConst {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         TypeName(self.namespace, self.field.name())
     }
 
@@ -133,7 +133,7 @@ impl CppConst {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.namespace, self.field.name()) {
+        if dependencies.insert(self.type_name()) {
             self.field.ty(None).dependencies(dependencies);
         }
     }

@@ -105,8 +105,8 @@ pub enum Remap {
 }
 
 impl Type {
-    pub fn remap(namespace: &'static str, name: &'static str) -> Remap {
-        match TypeName(namespace, name) {
+    pub fn remap(type_name: TypeName<'_>) -> Remap {
+        match type_name {
             TypeName::GUID => Remap::Type(Self::GUID),
             TypeName::HResult => Remap::Type(Self::HRESULT),
             TypeName::HRESULT => Remap::Type(Self::HRESULT),
@@ -155,36 +155,34 @@ impl Type {
             return Self::from_blob_impl(&mut blob, None, generics);
         }
 
-        let mut namespace = code.namespace();
-        let mut name = code.name();
+        let mut code_name = code.type_name();
 
-        match Self::remap(namespace, name) {
+        match Self::remap(code_name) {
             Remap::Type(ty) => return ty,
             Remap::Name(type_name) => {
-                namespace = type_name.0;
-                name = type_name.1;
+                code_name = type_name;
             }
             Remap::None => {}
         }
 
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
-            if namespace.is_empty() {
-                return Type::CppStruct(outer.nested[name].clone());
+            if code_name.namespace().is_empty() {
+                return Type::CppStruct(outer.nested[code_name.name()].clone());
             }
         }
 
-        if let Some(item) = code.reader().with_full_name(namespace, name).next() {
+        if let Some(item) = code.reader().with_full_name(code_name).next() {
             item
         } else {
-            panic!("windows-bindgen: type not found: {namespace}.{name}")
+            panic!("windows-bindgen: type not found: {code_name}")
         }
     }
 
     pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
         let is_const = blob.read_modifiers().iter().any(|def| {
-            let type_name = TypeName(def.namespace(), def.name());
+            let type_name = def.type_name();
             type_name == TypeName::IsConst
         });
 
@@ -247,15 +245,14 @@ impl Type {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
 
                 let code = blob.decode::<TypeDefOrRef>();
-                let namespace = code.namespace();
-                let name = code.name();
+                let code_name = code.type_name();
 
                 let mut item = blob
                     .reader()
-                    .with_full_name(namespace, name)
+                    .with_full_name(code_name)
                     .next()
                     .unwrap_or_else(|| {
-                        panic!("windows-bindgen: type not found: {namespace}.{name}")
+                        panic!("windows-bindgen: type not found: {code_name}")
                     });
 
                 let mut item_generics = vec![];
@@ -537,34 +534,34 @@ impl Type {
             Self::ConstRef(ty) => ty.dependencies(dependencies),
             Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies),
             Self::String => {
-                dependencies.insert("", "String");
+                dependencies.insert(TypeName("", "String"));
             }
             Self::BSTR => {
-                dependencies.insert("", "BSTR");
+                dependencies.insert(TypeName("", "BSTR"));
             }
             Self::Object => {
-                dependencies.insert("", "Object");
+                dependencies.insert(TypeName("", "Object"));
             }
             Self::IUnknown => {
-                dependencies.insert("", "IUnknown");
+                dependencies.insert(TypeName("", "IUnknown"));
             }
             Self::PSTR => {
-                dependencies.insert("", "PSTR");
+                dependencies.insert(TypeName("", "PSTR"));
             }
             Self::PCSTR => {
-                dependencies.insert("", "PCSTR");
+                dependencies.insert(TypeName("", "PCSTR"));
             }
             Self::PWSTR => {
-                dependencies.insert("", "PWSTR");
+                dependencies.insert(TypeName("", "PWSTR"));
             }
             Self::PCWSTR => {
-                dependencies.insert("", "PCWSTR");
+                dependencies.insert(TypeName("", "PCWSTR"));
             }
             Self::GUID => {
-                dependencies.insert("", "GUID");
+                dependencies.insert(TypeName("", "GUID"));
             }
             Self::HRESULT => {
-                dependencies.insert("", "HRESULT");
+                dependencies.insert(TypeName("", "HRESULT"));
             }
             Self::Class(item) => item.dependencies(dependencies),
             Self::Delegate(item) => item.dependencies(dependencies),

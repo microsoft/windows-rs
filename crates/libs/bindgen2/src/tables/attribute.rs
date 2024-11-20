@@ -75,7 +75,7 @@ impl Attribute {
                 0x55 => {
                     let type_name = TypeName::parse(name);
                     let def = reader
-                        .with_full_name(type_name.namespace(), type_name.name())
+                        .with_full_name(type_name)
                         .next()
                         .expect("Type not found");
                     name = values.read_str();

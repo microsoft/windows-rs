@@ -62,6 +62,7 @@ impl Interface {
     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
+        let type_name = self.def.type_name();
         let methods = self.get_methods(writer);
 
         // TODO: just return it sorted
@@ -243,7 +244,7 @@ impl Interface {
             if let Some(into_iterator) = required_interfaces
                 .iter()
                 .find(|interface| {
-                    TypeName(interface.def.namespace(), interface.def.name()) == TypeName::IIterable
+                    interface.type_name() == TypeName::IIterable
                 })
                 .map(|interface| {
                     let item = interface.generics[0].write_name(writer);
@@ -334,7 +335,7 @@ impl Interface {
                 .map(|ty| ty.write_name(writer))
                 .collect();
 
-            let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
+            let runtime_name = format!("{type_name}");
 
             if writer.config.package {
                 fn collect(
@@ -485,7 +486,7 @@ impl Interface {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        if dependencies.insert(self.def.type_name()) {
             // TODO: does this also need to be outside
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
