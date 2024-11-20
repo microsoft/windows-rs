@@ -1,5 +1,8 @@
 use super::*;
 
+// TODO: get rid of this in favor of Includes
+
+// TODO: store `HashSet<TypeName<'static>>` instead
 type Set = HashSet<(&'static str, &'static str)>;
 
 // TODO: do we even need a wrapper type at this point?
@@ -8,9 +11,49 @@ pub struct Dependencies {
     set: Set,
 }
 
+impl std::ops::Deref for Dependencies {
+    type Target = HashSet<(&'static str, &'static str)>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.set
+    }
+}
+
 impl Dependencies {
     pub fn new() -> Self {
         Self { set: Set::new() }
+    }
+
+    pub fn filter(reader: &'static Reader, filter: &Filter) -> Self {
+        let mut set = HashSet::new();
+        let mut dependencies = Dependencies::new();
+
+        for namespace in reader.keys() {
+            if filter.includes_namespace(namespace) {
+                for name in reader[namespace].keys() {
+                    if filter.includes_type_name(namespace, name) {
+                        let mut item_dependencies = Dependencies::new();
+
+                        for item in &reader[namespace][name] {
+                            item.dependencies(&mut item_dependencies);
+                        }
+
+                        if item_dependencies.excluded(filter) {
+                            continue;
+                        }
+
+                        set.insert((*namespace, *name));
+                        dependencies.combine(&item_dependencies);
+                    }
+                }
+            }
+        }
+
+        for (namespace, name) in dependencies.iter() {
+            set.insert((namespace, name));
+        }
+
+        Self {set}
     }
 
     pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
@@ -48,7 +91,7 @@ impl Dependencies {
                 return true;
             }
 
-            if config.includes.includes_type_name(namespace, name) {
+            if config.includes.contains(&(namespace, name)) {
                 return true;
             }
 

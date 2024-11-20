@@ -40,11 +40,11 @@ impl Writer {
         if self.config.no_deps {
             // TODO: This items collection is a HashSet and thus the output is not stable - it needs to be sorted before tokenizing
             for dependency in self.config.includes.iter() {
-                if !dependency.namespace().is_empty() {
+                if !dependency.0.is_empty() {
                     continue;
                 }
 
-                tokens.combine(match dependency.name() {
+                tokens.combine(match dependency.1 {
                     "HRESULT" => quote! { pub type HRESULT = i32; },
                     "PWSTR" => quote! { pub type PWSTR = *mut u16; },
                     "PCSTR" => quote! { pub type PCSTR = *const u8; },

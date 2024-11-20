@@ -10,7 +10,6 @@ mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
-mod includes;
 mod io;
 mod item_tree;
 mod references;
@@ -28,7 +27,6 @@ use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
-use includes::*;
 use io::*;
 use item_tree::*;
 use references::*;
@@ -47,7 +45,7 @@ mod method_names;
 use method_names::*;
 
 struct Config {
-    pub includes: Includes, // TODO: can we get rid of Includes and just use it to create the ItemTree?
+    pub includes: Dependencies, // TODO: can we get rid of Includes and just use it to create the ItemTree?
     pub references: References,
     pub output: String,
     pub flat: bool,
@@ -172,7 +170,7 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let includes = Includes::new(reader, &filter);
+    let includes = Dependencies::filter(reader, &filter);
 
     let references = References::new(reader, references);
 
