@@ -7,6 +7,7 @@ type ItemMap = HashMap<&'static str, Vec<Type>>;
 type ReaderMap = HashMap<&'static str, ItemMap>;
 
 fn insert(items: &mut ItemMap, name: &'static str, item: Type) {
+    // TODO: debug assert that we're only getting arch dupes on CppStruct and CppFn?
     items.entry(name).or_default().push(item);
 }
 

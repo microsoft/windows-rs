@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppDelegate {
     pub def: TypeDef,
 }
@@ -62,6 +62,12 @@ impl CppDelegate {
             #cfg
             pub type #name = Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
         }
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        self.method()
+            .signature(self.def.namespace(), &[])
+            .dependencies2(dependencies);
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

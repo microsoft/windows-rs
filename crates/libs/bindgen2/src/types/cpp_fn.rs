@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppFn {
     pub namespace: &'static str,
     pub method: MethodDef,
@@ -248,6 +248,12 @@ impl CppFn {
                 }
             }
         }
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        self.method
+            .signature(self.namespace, &[])
+            .dependencies2(dependencies);
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

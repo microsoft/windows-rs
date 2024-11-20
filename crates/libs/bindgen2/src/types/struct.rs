@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub struct Struct {
     pub def: TypeDef,
 }
@@ -72,6 +72,12 @@ impl Struct {
         }
         signature.push(')');
         signature
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        for field in self.def.fields() {
+            field.ty(None).dependencies2(dependencies);
+        }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

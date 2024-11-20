@@ -6,6 +6,7 @@
 )]
 
 mod dependencies;
+mod dependencies2;
 mod derive;
 mod derive_writer;
 mod filter;
@@ -23,6 +24,7 @@ mod winmd;
 mod writer;
 
 use dependencies::*;
+use dependencies2::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
@@ -201,8 +203,11 @@ where
 
     // dbg!(&tree);
 
-    // TODO: this is where we need to populate the tree with methods based on whether or not they're included!!
+    // TODO: this won't be needed once the Dependencies2 type has been build and already contains all items - just need to turn
+    // it into a tree... - maybe that's what this becomes
     let items = ItemTree::new(reader, config);
+
+    // TODO: naming item -> type
 
     // dbg!(&config.tree);
 

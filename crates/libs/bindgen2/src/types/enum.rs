@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub struct Enum {
     pub def: TypeDef,
 }

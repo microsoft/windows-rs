@@ -44,7 +44,7 @@ pub use r#struct::*;
 //     }
 // }
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub enum Type {
     Void,
     Bool,
@@ -251,9 +251,7 @@ impl Type {
                     .reader()
                     .with_full_name(code_name)
                     .next()
-                    .unwrap_or_else(|| {
-                        panic!("windows-bindgen: type not found: {code_name}")
-                    });
+                    .unwrap_or_else(|| panic!("windows-bindgen: type not found: {code_name}"));
 
                 let mut item_generics = vec![];
 
@@ -524,6 +522,51 @@ impl Type {
         }
     }
 
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        let ty: &Type = match self {
+            Self::PtrMut(ty, _) => ty,
+            Self::PtrConst(ty, _) => ty,
+            Self::ArrayFixed(ty, _) => ty,
+            Self::Array(ty) => ty,
+            Self::ArrayRef(ty) => ty,
+            Self::ConstRef(ty) => ty,
+            Self::PrimitiveOrEnum(_, ty) => ty,
+            _ => self,
+        };
+
+        if !dependencies.insert(ty.clone()) {
+            return;
+        }
+
+        if let Some(multi) = match ty {
+            Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.type_name())),
+            Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.type_name())),
+            _ => None,
+        } {
+            multi.for_each(|multi| {
+                if ty != &multi {
+                    multi.dependencies2(dependencies)
+                }
+            });
+        }
+
+        match ty {
+            Self::Class(item) => item.dependencies2(dependencies),
+            Self::Delegate(item) => item.dependencies2(dependencies),
+            Self::Enum(item) => {}
+            Self::Interface(item) => item.dependencies2(dependencies),
+            Self::Struct(item) => item.dependencies2(dependencies),
+            Self::CppConst(item) => item.dependencies2(dependencies),
+            Self::CppDelegate(item) => item.dependencies2(dependencies),
+            Self::CppFn(item) => item.dependencies2(dependencies),
+            Self::CppInterface(item) => item.dependencies2(dependencies),
+            Self::CppStruct(item) => item.dependencies2(dependencies),
+            Self::CppEnum(item) => {}
+
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         match self {
             Self::PtrMut(ty, _) => ty.dependencies(dependencies),
@@ -755,6 +798,7 @@ impl Type {
             Self::Enum(item) => item.def.underlying_type(),
             Self::CppStruct(item) => item.def.underlying_type(),
             Type::HRESULT => Type::I32,
+            // TODO: can we use this for type dependencies or do we need somethign else?
             _ => self.clone(),
         }
     }
@@ -787,56 +831,57 @@ impl Type {
         }
     }
 
-    // pub fn namespace(&self) -> &'static str {
-    //     match self {
-    //         Self::Class(item) => item.def.namespace(),
-    //         Self::Delegate(item) => item.def.namespace(),
-    //         Self::Enum(item) => item.def.namespace(),
-    //         Self::Interface(item) => item.def.namespace(),
-    //         Self::Struct(item) => item.def.namespace(),
-    //         Self::CppDelegate(item) => item.def.namespace(),
-    //         Self::CppEnum(item) => item.def.namespace(),
-    //         Self::CppInterface(item) => item.def.namespace(),
-    //         Self::CppStruct(item) => item.def.namespace(),
-    //         Self::CppConst(item) => item.def.namespace(),
-    //         Self::CppFn(item) => item.def.namespace(),
-    //         rest => panic!("windows-bindgen: {rest:?}"),
-    //     }
-    // }
+    pub fn namespace(&self) -> &'static str {
+        match self {
+            Self::Class(item) => item.def.namespace(),
+            Self::Delegate(item) => item.def.namespace(),
+            Self::Enum(item) => item.def.namespace(),
+            Self::Interface(item) => item.def.namespace(),
+            Self::Struct(item) => item.def.namespace(),
+            Self::CppDelegate(item) => item.def.namespace(),
+            Self::CppEnum(item) => item.def.namespace(),
+            Self::CppInterface(item) => item.def.namespace(),
+            Self::CppStruct(item) => item.def.namespace(),
+            Self::CppConst(item) => item.namespace,
+            Self::CppFn(item) => item.namespace,
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
 
-    // // TODO: remove
-    // pub fn name(&self) -> &str {
-    //     match self {
-    //         Self::Class(item) => item.def.name(),
-    //         Self::Delegate(item) => item.def.name(),
-    //         Self::Enum(item) => item.def.name(),
-    //         Self::Interface(item) => item.def.name(),
-    //         Self::Struct(item) => item.def.name(),
-    //         Self::CppDelegate(item) => item.def.name(),
-    //         Self::CppEnum(item) => item.def.name(),
-    //         Self::CppInterface(item) => item.def.name(),
-    //         Self::CppStruct(item) => item.name(),
-    //         Self::CppConst(item) => item.field.name(),
-    //         Self::CppFn(item) => item.method.name(),
-    //         rest => panic!("windows-bindgen: {rest:?}"),
-    //     }
-    // }
+    // TODO: remove
+    pub fn name(&self) -> &str {
+        match self {
+            Self::Class(item) => item.def.name(),
+            Self::Delegate(item) => item.def.name(),
+            Self::Enum(item) => item.def.name(),
+            Self::Interface(item) => item.def.name(),
+            Self::Struct(item) => item.def.name(),
+            Self::CppDelegate(item) => item.def.name(),
+            Self::CppEnum(item) => item.def.name(),
+            Self::CppInterface(item) => item.def.name(),
+            Self::CppStruct(item) => item.name(),
+            Self::CppConst(item) => item.field.name(),
+            Self::CppFn(item) => item.method.name(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
 
-    // pub fn type_name(&self) -> TypeName<'_> {
-    //     match self {
-    //         Self::Class(item) => item.type_name(),
-    //         Self::Delegate(item) => item.type_name(),
-    //         Self::Enum(item) => item.type_name(),
-    //         Self::Interface(item) => item.type_name(),
-    //         Self::Struct(item) => item.type_name(),
-    //         Self::CppDelegate(item) => item.type_name(),
-    //         Self::CppEnum(item) => item.type_name(),
-    //         Self::CppInterface(item) => item.type_name(),
-    //         Self::CppStruct(item) => item.type_name(),
-    //         Self::CppConst(item) => item.type_name(),
-    //         Self::CppFn(item) => item.type_name(),
-    //     }
-    // }
+    pub fn type_name(&self) -> TypeName<'_> {
+        match self {
+            Self::Class(item) => item.type_name(),
+            Self::Delegate(item) => item.type_name(),
+            Self::Enum(item) => item.type_name(),
+            Self::Interface(item) => item.type_name(),
+            Self::Struct(item) => item.type_name(),
+            Self::CppDelegate(item) => item.type_name(),
+            Self::CppEnum(item) => item.type_name(),
+            Self::CppInterface(item) => item.type_name(),
+            Self::CppStruct(item) => item.type_name(),
+            Self::CppConst(item) => item.type_name(),
+            Self::CppFn(item) => item.type_name(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
 }
 
 pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {

@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppEnum {
     pub def: TypeDef,
 }

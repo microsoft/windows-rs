@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: String,
@@ -238,6 +238,12 @@ impl CppStruct {
         }
 
         tokens
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        for field in self.def.fields() {
+            field.ty(Some(self)).dependencies2(dependencies);
+        }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

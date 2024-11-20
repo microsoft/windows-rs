@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub struct Delegate {
     pub def: TypeDef,
     pub generics: Vec<Type>,
@@ -191,6 +191,14 @@ impl Delegate {
         } else {
             interface_signature(self.def, &self.generics)
         }
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        dependencies.combine(&self.method().dependencies2);
+        // TODO: collect generics here?
+        // for ty in &self.generics {
+        //     ty.dependencies(dependencies);
+        // }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

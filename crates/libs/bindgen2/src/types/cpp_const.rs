@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppConst {
     pub namespace: &'static str,
     pub field: Field,
@@ -130,6 +130,10 @@ impl CppConst {
         } else {
             panic!()
         }
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        self.field.ty(None).dependencies2(dependencies);
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

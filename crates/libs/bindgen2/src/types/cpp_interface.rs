@@ -6,7 +6,7 @@ pub enum CppMethodOrName {
     Name(&'static str),
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Hash)]
 pub struct CppInterface {
     pub def: TypeDef,
 }
@@ -435,6 +435,21 @@ impl CppInterface {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.type_name());
         quote! { #namespace #name }
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        let base_interfaces = self.base_interfaces();
+
+        if matches!(base_interfaces.first(), Some(Type::IUnknown)) {
+            Type::IUnknown.dependencies2(dependencies);
+            Type::GUID.dependencies2(dependencies);
+        }
+
+        for interface in &base_interfaces {
+            if let Type::CppInterface(item) = interface {
+                item.dependencies2(dependencies);
+            }
+        }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

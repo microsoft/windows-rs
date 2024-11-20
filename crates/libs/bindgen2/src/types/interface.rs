@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum InterfaceKind {
     None,
     Default,
@@ -15,7 +15,7 @@ pub enum MethodOrName {
     Name(&'static str),
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Hash)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
@@ -243,9 +243,7 @@ impl Interface {
 
             if let Some(into_iterator) = required_interfaces
                 .iter()
-                .find(|interface| {
-                    interface.type_name() == TypeName::IIterable
-                })
+                .find(|interface| interface.type_name() == TypeName::IIterable)
                 .map(|interface| {
                     let item = interface.generics[0].write_name(writer);
                     // TODO: just use typename.write?
@@ -483,6 +481,24 @@ impl Interface {
 
     pub fn runtime_signature(&self) -> String {
         interface_signature(self.def, &self.generics)
+    }
+
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        // TODO: does this also need to be outside
+        for interface in self.required_interfaces() {
+            interface.dependencies2(dependencies);
+        }
+
+        // Different specializations of Interface may have different generics...
+        for ty in &self.generics {
+            ty.dependencies2(dependencies);
+        }
+
+        // TODO: have "Foundation" dependencies as required?
+        // match TypeName(self.def.namespace(), self.def.name()) {
+        //     TypeName::IIterable => _ = dependencies.insert(TypeName::IIterator.namespace(), TypeName::IIterator.name()),
+        //     _ => {}
+        // }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

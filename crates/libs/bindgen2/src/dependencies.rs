@@ -35,7 +35,7 @@ impl Dependencies {
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
                 for name in reader[namespace].keys() {
-                    if filter.includes_type_name(namespace, name) {
+                    if filter.includes_type_name(TypeName(namespace, name)) {
                         let mut item_dependencies = Self::new();
 
                         for item in &reader[namespace][name] {
@@ -85,11 +85,7 @@ impl Dependencies {
                 return true;
             }
 
-            if config
-                .references
-                .contains(*name)
-                .is_some()
-            {
+            if config.references.contains(*name).is_some() {
                 return true;
             }
 
@@ -101,9 +97,7 @@ impl Dependencies {
     }
 
     pub fn excluded(&self, filter: &Filter) -> bool {
-        self.0
-            .iter()
-            .any(|name| filter.excludes_type_name(*name))
+        self.0.iter().any(|name| filter.excludes_type_name(*name))
     }
 }
 

@@ -7,6 +7,7 @@ pub struct Method {
     pub signature: Signature,
     // TODO: this should already exclude the parent/interface dependencies?
     pub dependencies: Dependencies,
+    pub dependencies2: Dependencies2,
 }
 
 impl Method {
@@ -16,10 +17,14 @@ impl Method {
         let mut dependencies = Dependencies::new();
         signature.dependencies(&mut dependencies);
 
+        let mut dependencies2 = Dependencies2::new();
+        signature.dependencies2(&mut dependencies2);
+
         Self {
             def,
             signature,
             dependencies,
+            dependencies2,
         }
     }
 

@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub struct Class {
     pub def: TypeDef,
 }
@@ -159,9 +159,7 @@ impl Class {
 
             let into_iterator = required_interfaces
                 .iter()
-                .find(|interface| {
-                    interface.def.type_name() == TypeName::IIterable
-                })
+                .find(|interface| interface.def.type_name() == TypeName::IIterable)
                 .map(|interface| {
                     let item = interface.generics[0].write_name(writer);
                     let namespace = writer.write_namespace(TypeName::IIterator);
@@ -250,6 +248,12 @@ impl Class {
         )
     }
 
+    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+        for interface in self.required_interfaces() {
+            interface.dependencies2(dependencies);
+        }
+    }
+
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.type_name()) {
             for interface in self.required_interfaces() {
@@ -270,10 +274,7 @@ impl Class {
                 break;
             }
 
-            let Some(Type::Class(base)) = reader
-                .with_full_name(extends)
-                .next()
-            else {
+            let Some(Type::Class(base)) = reader.with_full_name(extends).next() else {
                 panic!("Type not found");
             };
 
@@ -329,11 +330,8 @@ impl Class {
 
             for (_, arg) in attribute.args() {
                 if let Value::TypeName(type_name) = arg {
-                    let Some(Type::Interface(mut interface)) = self
-                        .def
-                        .reader()
-                        .with_full_name(type_name)
-                        .next()
+                    let Some(Type::Interface(mut interface)) =
+                        self.def.reader().with_full_name(type_name).next()
                     else {
                         panic!("Type not found");
                     };

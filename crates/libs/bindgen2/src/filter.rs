@@ -49,9 +49,9 @@ impl Filter {
         false
     }
 
-    pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
+    pub fn includes_type_name(&self, name: TypeName<'_>) -> bool {
         for rule in &self.0 {
-            if match_type_name(&rule.0, namespace, name) {
+            if match_type_name(&rule.0, name.namespace(), name.name()) {
                 return rule.1;
             }
         }
@@ -77,7 +77,11 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
     }
 
     if let Some((namespace, name)) = filter.rsplit_once('.') {
-        if reader.with_full_name(TypeName(namespace, name)).next().is_some() {
+        if reader
+            .with_full_name(TypeName(namespace, name))
+            .next()
+            .is_some()
+        {
             rules.push((filter.to_string(), include));
             return;
         }
