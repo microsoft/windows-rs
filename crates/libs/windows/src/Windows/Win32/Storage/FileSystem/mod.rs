@@ -223,21 +223,21 @@ where
     CopyFileA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), bfailifexists.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: u32) -> windows_core::Result<()>
+pub unsafe fn CopyFileExA<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_core::PCSTR, lpnewfilename : windows_core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
     CopyFileExA(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), dwcopyflags).ok()
 }
 #[inline]
-pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: u32) -> windows_core::Result<()>
+pub unsafe fn CopyFileExW<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: Option<*const core::ffi::c_void>, pbcancel: Option<*mut super::super::Foundation::BOOL>, dwcopyflags: COPYFILE_FLAGS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+    windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_core::PCWSTR, lpnewfilename : windows_core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
     CopyFileExW(lpexistingfilename.param().abi(), lpnewfilename.param().abi(), lpprogressroutine, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pbcancel.unwrap_or(core::ptr::null_mut())), dwcopyflags).ok()
 }
 #[inline]
@@ -4108,6 +4108,10 @@ pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TY
 pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
 pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
 pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
+pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
+pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
+pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
+pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
 pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
 pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
@@ -4121,6 +4125,27 @@ pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESS
 pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
 pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
 pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
+pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
+pub const COPY_FILE2_V2_VALID_FLAGS: COPYFILE2_V2_FLAGS = COPYFILE2_V2_FLAGS(1u32);
+pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: COPYFILE_FLAGS = COPYFILE_FLAGS(8u32);
+pub const COPY_FILE_COPY_SYMLINK: COPYFILE_FLAGS = COPYFILE_FLAGS(2048u32);
+pub const COPY_FILE_DIRECTORY: COPYFILE_FLAGS = COPYFILE_FLAGS(128u32);
+pub const COPY_FILE_DISABLE_PRE_ALLOCATION: COPYFILE_FLAGS = COPYFILE_FLAGS(67108864u32);
+pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: COPYFILE_FLAGS = COPYFILE_FLAGS(33554432u32);
+pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: COPYFILE_FLAGS = COPYFILE_FLAGS(134217728u32);
+pub const COPY_FILE_ENABLE_SPARSE_COPY: COPYFILE_FLAGS = COPYFILE_FLAGS(536870912u32);
+pub const COPY_FILE_FAIL_IF_EXISTS: COPYFILE_FLAGS = COPYFILE_FLAGS(1u32);
+pub const COPY_FILE_IGNORE_EDP_BLOCK: COPYFILE_FLAGS = COPYFILE_FLAGS(4194304u32);
+pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: COPYFILE_FLAGS = COPYFILE_FLAGS(8388608u32);
+pub const COPY_FILE_NO_BUFFERING: COPYFILE_FLAGS = COPYFILE_FLAGS(4096u32);
+pub const COPY_FILE_NO_OFFLOAD: COPYFILE_FLAGS = COPYFILE_FLAGS(262144u32);
+pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: COPYFILE_FLAGS = COPYFILE_FLAGS(2097152u32);
+pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: COPYFILE_FLAGS = COPYFILE_FLAGS(4u32);
+pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: COPYFILE_FLAGS = COPYFILE_FLAGS(268435456u32);
+pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: COPYFILE_FLAGS = COPYFILE_FLAGS(8192u32);
+pub const COPY_FILE_RESTARTABLE: COPYFILE_FLAGS = COPYFILE_FLAGS(2u32);
+pub const COPY_FILE_RESUME_FROM_PAUSE: COPYFILE_FLAGS = COPYFILE_FLAGS(16384u32);
+pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: COPYFILE_FLAGS = COPYFILE_FLAGS(32768u32);
 pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
@@ -4733,6 +4758,10 @@ pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISS
 pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
 pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
 pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
+pub const PROGRESS_CANCEL: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(1u32);
+pub const PROGRESS_CONTINUE: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(0u32);
+pub const PROGRESS_QUIET: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(3u32);
+pub const PROGRESS_STOP: COPYPROGRESSROUTINE_PROGRESS = COPYPROGRESSROUTINE_PROGRESS(2u32);
 pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
 pub const READ_CONTROL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
@@ -5162,6 +5191,138 @@ impl windows_core::TypeKind for COPYFILE2_MESSAGE_TYPE {
 impl core::fmt::Debug for COPYFILE2_MESSAGE_TYPE {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_tuple("COPYFILE2_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct COPYFILE2_V2_FLAGS(pub u32);
+impl windows_core::TypeKind for COPYFILE2_V2_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for COPYFILE2_V2_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("COPYFILE2_V2_FLAGS").field(&self.0).finish()
+    }
+}
+impl COPYFILE2_V2_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE2_V2_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct COPYFILE_FLAGS(pub u32);
+impl windows_core::TypeKind for COPYFILE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for COPYFILE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("COPYFILE_FLAGS").field(&self.0).finish()
+    }
+}
+impl COPYFILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYFILE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYFILE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYFILE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYFILE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct COPYPROGRESSROUTINE_PROGRESS(pub u32);
+impl windows_core::TypeKind for COPYPROGRESSROUTINE_PROGRESS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for COPYPROGRESSROUTINE_PROGRESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("COPYPROGRESSROUTINE_PROGRESS").field(&self.0).finish()
+    }
+}
+impl COPYPROGRESSROUTINE_PROGRESS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -7505,7 +7666,7 @@ impl Default for CONNECTION_INFO_1 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
-    pub dwCopyFlags: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
     pub pfCancel: *mut super::super::Foundation::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
@@ -7522,11 +7683,11 @@ impl Default for COPYFILE2_EXTENDED_PARAMETERS {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
-    pub dwCopyFlags: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
     pub pfCancel: *mut super::super::Foundation::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
-    pub dwCopyFlagsV2: u32,
+    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
     pub ioDesiredSize: u32,
     pub ioDesiredRate: u32,
     pub reserved: [*mut core::ffi::c_void; 8],
@@ -8080,6 +8241,19 @@ impl windows_core::TypeKind for FILE_BASIC_INFO {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for FILE_BASIC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct FILE_CASE_SENSITIVE_INFO {
+    pub Flags: u32,
+}
+impl windows_core::TypeKind for FILE_CASE_SENSITIVE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for FILE_CASE_SENSITIVE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11004,7 +11178,7 @@ pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength
 pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
 pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
 pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
-pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> u32>;
+pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
 pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
 pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
 pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;

@@ -31606,7 +31606,7 @@ impl IMFVirtualCamera {
         (windows_core::Interface::vtable(self).AddDeviceSourceInfo)(windows_core::Interface::as_raw(self), devicesourceinfo.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Devices_Properties")]
-    pub unsafe fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn AddProperty(&self, pkey: *const super::super::Foundation::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: &[u8]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pkey, r#type, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap()).ok()
     }
     pub unsafe fn AddRegistryEntry<P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: u32, pbdata: &[u8]) -> windows_core::Result<()>
@@ -31658,7 +31658,7 @@ pub struct IMFVirtualCamera_Vtbl {
     pub base__: IMFAttributes_Vtbl,
     pub AddDeviceSourceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_Devices_Properties")]
-    pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Devices::Properties::DEVPROPKEY, super::super::Devices::Properties::DEVPROPTYPE, *const u8, u32) -> windows_core::HRESULT,
+    pub AddProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Foundation::DEVPROPKEY, super::super::Devices::Properties::DEVPROPTYPE, *const u8, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Properties"))]
     AddProperty: usize,
     pub AddRegistryEntry: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32, *const u8, u32) -> windows_core::HRESULT,
@@ -31674,7 +31674,7 @@ pub struct IMFVirtualCamera_Vtbl {
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn AddDeviceSourceInfo(&self, devicesourceinfo: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
+    fn AddProperty(&self, pkey: *const super::super::Foundation::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
     fn AddRegistryEntry(&self, entryname: &windows_core::PCWSTR, subkeypath: &windows_core::PCWSTR, dwregtype: u32, pbdata: *const u8, cbdata: u32) -> windows_core::Result<()>;
     fn Start(&self, pcallback: Option<&IMFAsyncCallback>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
@@ -31694,7 +31694,7 @@ impl IMFVirtualCamera_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMFVirtualCamera_Impl::AddDeviceSourceInfo(this, core::mem::transmute(&devicesourceinfo)).into()
         }
-        unsafe extern "system" fn AddProperty<Identity: IMFVirtualCamera_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddProperty<Identity: IMFVirtualCamera_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkey: *const super::super::Foundation::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: *const u8, cbdata: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMFVirtualCamera_Impl::AddProperty(this, core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&cbdata)).into()
         }
@@ -34574,12 +34574,9 @@ pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PRO
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(2i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(1i32);
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 5 };
+pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
+pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
+pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 5 };
 pub const DSATTRIB_CAPTURE_STREAMTIME: windows_core::GUID = windows_core::GUID::from_u128(0x0c1a5614_30cd_4f40_bcbf_d03e52306207);
 pub const DSATTRIB_CC_CONTAINER_INFO: windows_core::GUID = windows_core::GUID::from_u128(0xe7e050fb_dd5d_40dd_9915_35dcb81bdc8a);
 pub const DSATTRIB_DSHOW_STREAM_DESC: windows_core::GUID = windows_core::GUID::from_u128(0x5fb5673b_0a2a_4565_827b_6853fd75e611);

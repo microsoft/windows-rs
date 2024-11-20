@@ -39,6 +39,7 @@ windows_targets::link!("kernel32.dll" "system" fn LoadModule(lpmodulename : wind
 windows_targets::link!("kernel32.dll" "system" fn LoadPackagedLibrary(lpwlibfilename : windows_sys::core::PCWSTR, reserved : u32) -> super::super::Foundation:: HMODULE);
 windows_targets::link!("kernel32.dll" "system" fn LoadResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> super::super::Foundation:: HGLOBAL);
 windows_targets::link!("kernel32.dll" "system" fn LockResource(hresdata : super::super::Foundation:: HGLOBAL) -> *mut core::ffi::c_void);
+windows_targets::link!("api-ms-win-core-libraryloader-l2-1-0.dll" "system" fn QueryOptionalDelayLoadedAPI(hparentmodule : super::super::Foundation:: HMODULE, lpdllname : windows_sys::core::PCSTR, lpprocname : windows_sys::core::PCSTR, reserved : u32) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn SetDefaultDllDirectories(directoryflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn SetDllDirectoryA(lppathname : windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);

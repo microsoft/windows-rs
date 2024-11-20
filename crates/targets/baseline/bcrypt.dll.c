@@ -1,4 +1,5 @@
 void __stdcall BCryptAddContextFunction(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall BCryptAddContextFunctionProvider(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall BCryptCloseAlgorithmProvider(int p0, int p1) {}
 void __stdcall BCryptConfigureContext(int p0, int p1, int p2) {}
 void __stdcall BCryptConfigureContextFunction(int p0, int p1, int p2, int p3, int p4) {}
@@ -43,11 +44,14 @@ void __stdcall BCryptQueryContextFunctionConfiguration(int p0, int p1, int p2, i
 void __stdcall BCryptQueryContextFunctionProperty(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall BCryptQueryProviderRegistration(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall BCryptRegisterConfigChangeNotify(int p0) {}
+void __stdcall BCryptRegisterProvider(int p0, int p1, int p2) {}
 void __stdcall BCryptRemoveContextFunction(int p0, int p1, int p2, int p3) {}
+void __stdcall BCryptRemoveContextFunctionProvider(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall BCryptResolveProviders(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
 void __stdcall BCryptSecretAgreement(int p0, int p1, int p2, int p3) {}
 void __stdcall BCryptSetContextFunctionProperty(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall BCryptSetProperty(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall BCryptSignHash(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7) {}
 void __stdcall BCryptUnregisterConfigChangeNotify(int p0) {}
+void __stdcall BCryptUnregisterProvider(int p0) {}
 void __stdcall BCryptVerifySignature(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}

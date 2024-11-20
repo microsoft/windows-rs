@@ -48,6 +48,45 @@ pub struct IWebAccountMonitor2_Vtbl {
     pub AccountPictureUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveAccountPictureUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponse_Vtbl, 0x7fb013e8_0bd8_542b_b486_8323163a4b85);
+impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationAddAccountResponse_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub WebAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    WebAccount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+}
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResponseFactory, IWebAuthenticationAddAccountResponseFactory_Vtbl, 0x325f903e_77be_5365_81d9_0321cdd82195);
+impl windows_core::RuntimeType for IWebAuthenticationAddAccountResponseFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationAddAccountResponseFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateWithAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateWithAccount: usize,
+}
+windows_core::imp::define_interface!(IWebAuthenticationAddAccountResult, IWebAuthenticationAddAccountResult_Vtbl, 0x88fad03c_901d_5ffa_9259_701d3ca08ef2);
+impl windows_core::RuntimeType for IWebAuthenticationAddAccountResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationAddAccountResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ResponseData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResponseStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAuthenticationAddAccountStatus) -> windows_core::HRESULT,
+    pub ResponseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics, IWebAuthenticationCoreManagerStatics_Vtbl, 0x6aca7c92_a581_4479_9c10_752eff44fd34);
 impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -129,6 +168,51 @@ pub struct IWebAuthenticationCoreManagerStatics4_Vtbl {
     pub FindSystemAccountProviderWithAuthorityForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Security_Credentials", feature = "System")))]
     FindSystemAccountProviderWithAuthorityForUserAsync: usize,
+}
+windows_core::imp::define_interface!(IWebAuthenticationCoreManagerStatics5, IWebAuthenticationCoreManagerStatics5_Vtbl, 0xd07c1ded_270f_4554_9966_27b7df05b965);
+impl windows_core::RuntimeType for IWebAuthenticationCoreManagerStatics5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationCoreManagerStatics5_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub AddAccountWithTransferTokenAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequest_Vtbl, 0x7acfa5b6_529d_5e76_9846_f3fd999304d0);
+impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationTransferTokenRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub WebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    WebAccountProvider: usize,
+    pub TransferToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetTransferToken: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    pub CorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebAuthenticationTransferTokenRequestFactory, IWebAuthenticationTransferTokenRequestFactory_Vtbl, 0x5f16b627_04c4_5f0b_8683_8bab58965656);
+impl windows_core::RuntimeType for IWebAuthenticationTransferTokenRequestFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAuthenticationTransferTokenRequestFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Security_Credentials")]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    Create: usize,
+    #[cfg(feature = "Security_Credentials")]
+    pub CreateWithCorrelationId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Security_Credentials"))]
+    CreateWithCorrelationId: usize,
 }
 windows_core::imp::define_interface!(IWebProviderError, IWebProviderError_Vtbl, 0xdb191bb1_50c5_4809_8dca_09c99410245c);
 impl windows_core::RuntimeType for IWebProviderError {
@@ -408,6 +492,93 @@ impl windows_core::RuntimeName for WebAccountMonitor {
 }
 unsafe impl Send for WebAccountMonitor {}
 unsafe impl Sync for WebAccountMonitor {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct WebAuthenticationAddAccountResponse(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WebAuthenticationAddAccountResponse, windows_core::IUnknown, windows_core::IInspectable);
+impl WebAuthenticationAddAccountResponse {
+    #[cfg(feature = "Security_Credentials")]
+    pub fn WebAccount(&self) -> windows_core::Result<super::super::super::Credentials::WebAccount> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebAccount)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn CreateWithAccount<P0>(webaccount: P0) -> windows_core::Result<WebAuthenticationAddAccountResponse>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAuthenticationAddAccountResponseFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithAccount)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWebAuthenticationAddAccountResponseFactory<R, F: FnOnce(&IWebAuthenticationAddAccountResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAuthenticationAddAccountResponse, IWebAuthenticationAddAccountResponseFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WebAuthenticationAddAccountResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationAddAccountResponse>();
+}
+unsafe impl windows_core::Interface for WebAuthenticationAddAccountResponse {
+    type Vtable = IWebAuthenticationAddAccountResponse_Vtbl;
+    const IID: windows_core::GUID = <IWebAuthenticationAddAccountResponse as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WebAuthenticationAddAccountResponse {
+    const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResponse";
+}
+unsafe impl Send for WebAuthenticationAddAccountResponse {}
+unsafe impl Sync for WebAuthenticationAddAccountResponse {}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct WebAuthenticationAddAccountResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WebAuthenticationAddAccountResult, windows_core::IUnknown, windows_core::IInspectable);
+impl WebAuthenticationAddAccountResult {
+    pub fn ResponseData(&self) -> windows_core::Result<WebAuthenticationAddAccountResponse> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResponseData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ResponseStatus(&self) -> windows_core::Result<WebAuthenticationAddAccountStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResponseStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResponseError(&self) -> windows_core::Result<WebProviderError> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResponseError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WebAuthenticationAddAccountResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationAddAccountResult>();
+}
+unsafe impl windows_core::Interface for WebAuthenticationAddAccountResult {
+    type Vtable = IWebAuthenticationAddAccountResult_Vtbl;
+    const IID: windows_core::GUID = <IWebAuthenticationAddAccountResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WebAuthenticationAddAccountResult {
+    const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResult";
+}
+unsafe impl Send for WebAuthenticationAddAccountResult {}
+unsafe impl Sync for WebAuthenticationAddAccountResult {}
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
     pub fn GetTokenSilentlyAsync<P0>(request: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
@@ -538,6 +709,15 @@ impl WebAuthenticationCoreManager {
             (windows_core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityForUserAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountproviderid), core::mem::transmute_copy(authority), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn AddAccountWithTransferTokenAsync<P0>(request: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<WebAuthenticationAddAccountResult>>
+    where
+        P0: windows_core::Param<WebAuthenticationTransferTokenRequest>,
+    {
+        Self::IWebAuthenticationCoreManagerStatics5(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddAccountWithTransferTokenAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
     fn IWebAuthenticationCoreManagerStatics<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -554,10 +734,94 @@ impl WebAuthenticationCoreManager {
         static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    fn IWebAuthenticationCoreManagerStatics5<R, F: FnOnce(&IWebAuthenticationCoreManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAuthenticationCoreManager, IWebAuthenticationCoreManagerStatics5> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
 impl windows_core::RuntimeName for WebAuthenticationCoreManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager";
 }
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct WebAuthenticationTransferTokenRequest(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WebAuthenticationTransferTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
+impl WebAuthenticationTransferTokenRequest {
+    #[cfg(feature = "Security_Credentials")]
+    pub fn WebAccountProvider(&self) -> windows_core::Result<super::super::super::Credentials::WebAccountProvider> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TransferToken(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TransferToken)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetTransferToken(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetTransferToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> windows_core::Result<super::super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CorrelationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetCorrelationId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetCorrelationId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn Create<P0>(provider: P0, transfertoken: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
+    {
+        Self::IWebAuthenticationTransferTokenRequestFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), provider.param().abi(), core::mem::transmute_copy(transfertoken), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn CreateWithCorrelationId<P0>(provider: P0, transfertoken: &windows_core::HSTRING, correlationid: &windows_core::HSTRING) -> windows_core::Result<WebAuthenticationTransferTokenRequest>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccountProvider>,
+    {
+        Self::IWebAuthenticationTransferTokenRequestFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateWithCorrelationId)(windows_core::Interface::as_raw(this), provider.param().abi(), core::mem::transmute_copy(transfertoken), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWebAuthenticationTransferTokenRequestFactory<R, F: FnOnce(&IWebAuthenticationTransferTokenRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAuthenticationTransferTokenRequest, IWebAuthenticationTransferTokenRequestFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WebAuthenticationTransferTokenRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationTransferTokenRequest>();
+}
+unsafe impl windows_core::Interface for WebAuthenticationTransferTokenRequest {
+    type Vtable = IWebAuthenticationTransferTokenRequest_Vtbl;
+    const IID: windows_core::GUID = <IWebAuthenticationTransferTokenRequest as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WebAuthenticationTransferTokenRequest {
+    const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationTransferTokenRequest";
+}
+unsafe impl Send for WebAuthenticationTransferTokenRequest {}
+unsafe impl Sync for WebAuthenticationTransferTokenRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderError(windows_core::IUnknown);
@@ -878,6 +1142,27 @@ impl core::fmt::Debug for FindAllWebAccountsStatus {
 }
 impl windows_core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct WebAuthenticationAddAccountStatus(pub i32);
+impl WebAuthenticationAddAccountStatus {
+    pub const Success: Self = Self(0i32);
+    pub const Error: Self = Self(1i32);
+    pub const NotSupportedByProvider: Self = Self(2i32);
+    pub const ServiceConnectionError: Self = Self(3i32);
+    pub const ProviderError: Self = Self(4i32);
+}
+impl windows_core::TypeKind for WebAuthenticationAddAccountStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for WebAuthenticationAddAccountStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WebAuthenticationAddAccountStatus").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for WebAuthenticationAddAccountStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountStatus;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

@@ -7,6 +7,7 @@ pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
 pub mod UI;
 windows_targets::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_sys::core::PCWSTR, dwposition : u32) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcrypt.dll" "system" fn BCryptAddContextFunctionProvider(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwposition : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : BCRYPT_ALG_HANDLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptConfigureContext(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, pconfig : *const CRYPT_CONTEXT_CONFIG) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptConfigureContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_sys::core::PCWSTR, pconfig : *const CRYPT_CONTEXT_FUNCTION_CONFIG) -> super::super::Foundation:: NTSTATUS);
@@ -51,13 +52,16 @@ windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionConfig
 windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryContextFunctionProperty(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptQueryProviderRegistration(pszprovider : windows_sys::core::PCWSTR, dwmode : BCRYPT_QUERY_PROVIDER_MODE, dwinterface : BCRYPT_INTERFACE, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDER_REG) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptRegisterConfigChangeNotify(phevent : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcrypt.dll" "system" fn BCryptRegisterProvider(pszprovider : windows_sys::core::PCWSTR, dwflags : u32, preg : *const CRYPT_PROVIDER_REG) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunction(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_sys::core::PCWSTR) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcrypt.dll" "system" fn BCryptRemoveContextFunctionProvider(dwtable : u32, pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptResolveProviders(pszcontext : windows_sys::core::PCWSTR, dwinterface : u32, pszfunction : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR, dwmode : BCRYPT_QUERY_PROVIDER_MODE, dwflags : BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer : *mut u32, ppbuffer : *mut *mut CRYPT_PROVIDER_REFS) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptSecretAgreement(hprivkey : BCRYPT_KEY_HANDLE, hpubkey : BCRYPT_KEY_HANDLE, phagreedsecret : *mut BCRYPT_SECRET_HANDLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : BCRYPT_TABLE, pszcontext : windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : windows_sys::core::PCWSTR, pszproperty : windows_sys::core::PCWSTR, cbvalue : u32, pbvalue : *const u8) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_sys::core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : BCRYPT_FLAGS) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptUnregisterConfigChangeNotify(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcrypt.dll" "system" fn BCryptUnregisterProvider(pszprovider : windows_sys::core::PCWSTR) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : BCRYPT_FLAGS) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("crypt32.dll" "system" fn CertAddCRLContextToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CRL_CONTEXT) -> super::super::Foundation:: BOOL);
 windows_targets::link!("crypt32.dll" "system" fn CertAddCRLLinkToStore(hcertstore : HCERTSTORE, pcrlcontext : *const CRL_CONTEXT, dwadddisposition : u32, ppstorecontext : *mut *mut CRL_CONTEXT) -> super::super::Foundation:: BOOL);
@@ -348,11 +352,18 @@ windows_targets::link!("infocardapi.dll" "system" fn Encrypt(hcrypto : *const IN
 windows_targets::link!("wintrust.dll" "system" fn FindCertsByIssuer(pcertchains : *mut CERT_CHAIN, pcbcertchains : *mut u32, pccertchains : *mut u32, pbencodedissuername : *const u8, cbencodedissuername : u32, pwszpurpose : windows_sys::core::PCWSTR, dwkeyspec : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("infocardapi.dll" "system" fn FreeToken(pallocmemory : *const GENERIC_XML_TOKEN) -> super::super::Foundation:: BOOL);
 windows_targets::link!("infocardapi.dll" "system" fn GenerateDerivedKey(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cblabel : u32, plabel : *const u8, cbnonce : u32, pnonce : *const u8, derivedkeylength : u32, offset : u32, algid : windows_sys::core::PCWSTR, pcbkey : *mut u32, ppkey : *mut *mut u8) -> windows_sys::core::HRESULT);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetAsymmetricEncryptionInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_ASYMMETRIC_ENCRYPTION_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("infocardapi.dll" "system" fn GetBrowserToken(dwparamtype : u32, pparam : *const core::ffi::c_void, pcbtoken : *mut u32, pptoken : *mut *mut u8) -> windows_sys::core::HRESULT);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetCipherInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_CIPHER_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("infocardapi.dll" "system" fn GetCryptoTransform(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, mode : u32, padding : PaddingMode, feedbacksize : u32, direction : Direction, cbiv : u32, piv : *const u8, pphtransform : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetHashInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_HASH_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetKeyDerivationInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_KEY_DERIVATION_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("ncrypt.dll" "system" fn GetKeyStorageInterface(pszprovidername : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut NCRYPT_KEY_STORAGE_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("infocardapi.dll" "system" fn GetKeyedHash(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, pphhash : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> windows_sys::core::HRESULT);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetRngInterface(pszprovidername : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_RNG_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("ncrypt.dll" "system" fn GetSChannelInterface(pszprovidername : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut NCRYPT_SSL_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetSecretAgreementInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_SECRET_AGREEMENT_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
+windows_targets::link!("bcryptprimitives.dll" "system" fn GetSignatureInterface(pszprovidername : windows_sys::core::PCWSTR, pszalgid : windows_sys::core::PCWSTR, ppfunctiontable : *mut *mut BCRYPT_SIGNATURE_FUNCTION_TABLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
 windows_targets::link!("infocardapi.dll" "system" fn GetToken(cpolicychain : u32, ppolicychain : *const POLICY_ELEMENT, securitytoken : *mut *mut GENERIC_XML_TOKEN, phprooftokencrypto : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> windows_sys::core::HRESULT);
 windows_targets::link!("infocardapi.dll" "system" fn HashCore(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata : u32, pindata : *const u8) -> windows_sys::core::HRESULT);
 windows_targets::link!("infocardapi.dll" "system" fn HashFinal(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbindata : u32, pindata : *const u8, pcboutdata : *mut u32, ppoutdata : *mut *mut u8) -> windows_sys::core::HRESULT);
@@ -561,8 +572,8 @@ pub const AdminReadWriteAc: CARD_FILE_ACCESS_CONDITION = 6i32;
 pub const AdministratorPin: SECRET_PURPOSE = 4i32;
 pub const AlphaNumericPinType: SECRET_TYPE = 0i32;
 pub const AuthenticationPin: SECRET_PURPOSE = 0i32;
-pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648u32;
-pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: u32 = 1073741824u32;
+pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: CERT_CHAIN_POLICY_FLAGS = 2147483648u32;
+pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: CERT_CHAIN_POLICY_FLAGS = 1073741824u32;
 pub const BCRYPTBUFFER_VERSION: u32 = 0u32;
 pub const BCRYPT_3DES_112_ALGORITHM: windows_sys::core::PCWSTR = windows_sys::core::w!("3DES_112");
 pub const BCRYPT_3DES_112_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = 369u32 as _;
@@ -1141,7 +1152,7 @@ pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_NESTED_FLAG: CERT_CHAIN_POLICY_FLAGS
 pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = 1u32;
 pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = 4096u32;
 pub const CERT_CHAIN_POLICY_IGNORE_ROOT_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = 2048u32;
-pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
+pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: CERT_CHAIN_POLICY_FLAGS = 134217728u32;
 pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CERT_CHAIN_POLICY_FLAGS = 32u32;
 pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: windows_sys::core::PCSTR = 7i32 as _;
 pub const CERT_CHAIN_POLICY_NT_AUTH: windows_sys::core::PCSTR = 6i32 as _;
@@ -2795,9 +2806,9 @@ pub const LEGACY_RSAPUBLIC_BLOB: windows_sys::core::PCWSTR = windows_sys::core::
 pub const MAXUIDLEN: u32 = 64u32;
 pub const MAX_CONTAINER_NAME_LEN: u32 = 39u32;
 pub const MAX_PINS: u32 = 8u32;
-pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG: u32 = 131072u32;
-pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: u32 = 262144u32;
-pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: u32 = 65536u32;
+pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 131072u32;
+pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 262144u32;
+pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 65536u32;
 pub const MSCRYPT_ECC_MAX_CURVE_NAME_LENGTH: u32 = 255u32;
 pub const MSCRYPT_ECC_MAX_OID_LENGTH: u32 = 255u32;
 pub const MS_DEF_DH_SCHANNEL_PROV: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft DH SChannel Cryptographic Provider");
@@ -5020,6 +5031,13 @@ pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
+    pub RequestedIssuancePolicy: CERT_USAGE_MATCH,
+    pub dwUrlRetrievalTimeout: u32,
+    pub fCheckRevocationFreshnessTime: super::super::Foundation::BOOL,
+    pub dwRevocationFreshnessTime: u32,
+    pub pftCacheResync: *mut super::super::Foundation::FILETIME,
+    pub pStrongSignPara: *mut CERT_STRONG_SIGN_PARA,
+    pub dwStrongSignFlags: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7399,7 +7417,7 @@ pub struct GENERIC_XML_TOKEN {
     pub internalTokenReference: windows_sys::core::PWSTR,
     pub externalTokenReference: windows_sys::core::PWSTR,
 }
-pub type HCERTCHAINENGINE = isize;
+pub type HCERTCHAINENGINE = *mut core::ffi::c_void;
 pub type HCERTSTORE = *mut core::ffi::c_void;
 pub type HCERTSTOREPROV = *mut core::ffi::c_void;
 pub type HCRYPTASYNC = isize;

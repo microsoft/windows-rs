@@ -104,8 +104,8 @@ where
     EventProviderEnabled(reghandle.param().abi(), level, keyword)
 }
 #[inline]
-pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut u64) -> u32 {
-    windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut u64) -> u32);
+pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut REGHANDLE) -> u32 {
+    windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut REGHANDLE) -> u32);
     EventRegister(providerid, enablecallback, core::mem::transmute(callbackcontext.unwrap_or(core::ptr::null())), reghandle)
 }
 #[inline]

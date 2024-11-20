@@ -29,8 +29,8 @@ windows_targets::link!("ktmw32.dll" "system" fn CommitTransactionAsync(transacti
 windows_targets::link!("kernel32.dll" "system" fn CompareFileTime(lpfiletime1 : *const super::super::Foundation:: FILETIME, lpfiletime2 : *const super::super::Foundation:: FILETIME) -> i32);
 windows_targets::link!("kernel32.dll" "system" fn CopyFile2(pwszexistingfilename : windows_sys::core::PCWSTR, pwsznewfilename : windows_sys::core::PCWSTR, pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT);
 windows_targets::link!("kernel32.dll" "system" fn CopyFileA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
-windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : u32) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
+windows_targets::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut super::super::Foundation:: BOOL, dwcopyflags : COPYFILE_FLAGS) -> super::super::Foundation:: BOOL);
 windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CopyFileFromAppW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, bfailifexists : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 windows_targets::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const super::super::Foundation:: BOOL, dwcopyflags : u32, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
@@ -553,6 +553,10 @@ pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = 0i32;
 pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = 5i32;
 pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = 4i32;
 pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = 3i32;
+pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
+pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
+pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
+pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
 pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = 7i32;
 pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = 6i32;
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = 0i32;
@@ -566,6 +570,27 @@ pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = 0i32;
 pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = 4i32;
 pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = 3i32;
 pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = 2i32;
+pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: COPYFILE2_V2_FLAGS = 1u32;
+pub const COPY_FILE2_V2_VALID_FLAGS: COPYFILE2_V2_FLAGS = 1u32;
+pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: COPYFILE_FLAGS = 8u32;
+pub const COPY_FILE_COPY_SYMLINK: COPYFILE_FLAGS = 2048u32;
+pub const COPY_FILE_DIRECTORY: COPYFILE_FLAGS = 128u32;
+pub const COPY_FILE_DISABLE_PRE_ALLOCATION: COPYFILE_FLAGS = 67108864u32;
+pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: COPYFILE_FLAGS = 33554432u32;
+pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: COPYFILE_FLAGS = 134217728u32;
+pub const COPY_FILE_ENABLE_SPARSE_COPY: COPYFILE_FLAGS = 536870912u32;
+pub const COPY_FILE_FAIL_IF_EXISTS: COPYFILE_FLAGS = 1u32;
+pub const COPY_FILE_IGNORE_EDP_BLOCK: COPYFILE_FLAGS = 4194304u32;
+pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: COPYFILE_FLAGS = 8388608u32;
+pub const COPY_FILE_NO_BUFFERING: COPYFILE_FLAGS = 4096u32;
+pub const COPY_FILE_NO_OFFLOAD: COPYFILE_FLAGS = 262144u32;
+pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: COPYFILE_FLAGS = 2097152u32;
+pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: COPYFILE_FLAGS = 4u32;
+pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: COPYFILE_FLAGS = 268435456u32;
+pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: COPYFILE_FLAGS = 8192u32;
+pub const COPY_FILE_RESTARTABLE: COPYFILE_FLAGS = 2u32;
+pub const COPY_FILE_RESUME_FROM_PAUSE: COPYFILE_FLAGS = 16384u32;
+pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: COPYFILE_FLAGS = 32768u32;
 pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = 2u32;
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = 1u32;
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
@@ -1178,6 +1203,10 @@ pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = 2u32;
 pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = 3u32;
 pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
 pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = 2u32;
+pub const PROGRESS_CANCEL: COPYPROGRESSROUTINE_PROGRESS = 1u32;
+pub const PROGRESS_CONTINUE: COPYPROGRESSROUTINE_PROGRESS = 0u32;
+pub const PROGRESS_QUIET: COPYPROGRESSROUTINE_PROGRESS = 3u32;
+pub const PROGRESS_STOP: COPYPROGRESSROUTINE_PROGRESS = 2u32;
 pub const QUIC: SERVER_CERTIFICATE_TYPE = 0i32;
 pub const READ_CONTROL: FILE_ACCESS_RIGHTS = 131072u32;
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = 4u32;
@@ -1446,6 +1475,9 @@ pub type COMPRESSION_FORMAT = u16;
 pub type COPYFILE2_COPY_PHASE = i32;
 pub type COPYFILE2_MESSAGE_ACTION = i32;
 pub type COPYFILE2_MESSAGE_TYPE = i32;
+pub type COPYFILE2_V2_FLAGS = u32;
+pub type COPYFILE_FLAGS = u32;
+pub type COPYPROGRESSROUTINE_PROGRESS = u32;
 pub type CREATE_TAPE_PARTITION_METHOD = u32;
 pub type DEFINE_DOS_DEVICE_FLAGS = u32;
 pub type DISKQUOTA_USERNAME_RESOLVE = u32;
@@ -1777,7 +1809,7 @@ pub struct CONNECTION_INFO_1 {
 #[derive(Clone, Copy)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
-    pub dwCopyFlags: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
     pub pfCancel: *mut super::super::Foundation::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
@@ -1786,11 +1818,11 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
 #[derive(Clone, Copy)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
-    pub dwCopyFlags: u32,
+    pub dwCopyFlags: COPYFILE_FLAGS,
     pub pfCancel: *mut super::super::Foundation::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut core::ffi::c_void,
-    pub dwCopyFlagsV2: u32,
+    pub dwCopyFlagsV2: COPYFILE2_V2_FLAGS,
     pub ioDesiredSize: u32,
     pub ioDesiredRate: u32,
     pub reserved: [*mut core::ffi::c_void; 8],
@@ -2065,6 +2097,11 @@ pub struct FILE_BASIC_INFO {
     pub LastWriteTime: i64,
     pub ChangeTime: i64,
     pub FileAttributes: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FILE_CASE_SENSITIVE_INFO {
+    pub Flags: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3685,7 +3722,7 @@ pub type CLFS_BLOCK_ALLOCATION = Option<unsafe extern "system" fn(cbbufferlength
 pub type CLFS_BLOCK_DEALLOCATION = Option<unsafe extern "system" fn(pvbuffer: *mut core::ffi::c_void, pvusercontext: *mut core::ffi::c_void)>;
 pub type FCACHE_CREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_sys::core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
 pub type FCACHE_RICHCREATE_CALLBACK = Option<unsafe extern "system" fn(lpstrname: windows_sys::core::PCSTR, lpvdata: *mut core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
-pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> u32>;
+pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const core::ffi::c_void) -> COPYPROGRESSROUTINE_PROGRESS>;
 pub type MAXMEDIALABEL = Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
 pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlapped: *mut core::ffi::c_void, ulreserved: u32)>;
 pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;

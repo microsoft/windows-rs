@@ -5714,6 +5714,17 @@ pub const NTE_TOKEN_KEYSET_STORAGE_FULL: windows_core::HRESULT = windows_core::H
 pub const NTE_UI_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x8009002E_u32 as _);
 pub const NTE_USER_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80090036_u32 as _);
 pub const NTE_VALIDATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x80090032_u32 as _);
+pub const OBJ_CASE_INSENSITIVE: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(64u32);
+pub const OBJ_DONT_REPARSE: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(4096u32);
+pub const OBJ_EXCLUSIVE: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(32u32);
+pub const OBJ_FORCE_ACCESS_CHECK: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(1024u32);
+pub const OBJ_IGNORE_IMPERSONATED_DEVICEMAP: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(2048u32);
+pub const OBJ_INHERIT: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(2u32);
+pub const OBJ_KERNEL_HANDLE: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(512u32);
+pub const OBJ_OPENIF: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(128u32);
+pub const OBJ_OPENLINK: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(256u32);
+pub const OBJ_PERMANENT: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(16u32);
+pub const OBJ_VALID_ATTRIBUTES: OBJECT_ATTRIBUTE_FLAGS = OBJECT_ATTRIBUTE_FLAGS(8178u32);
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 pub const OLEOBJ_E_INVALIDVERB: windows_core::HRESULT = windows_core::HRESULT(0x80040181_u32 as _);
 pub const OLEOBJ_E_LAST: i32 = -2147221105i32;
@@ -10470,6 +10481,50 @@ impl core::fmt::Debug for NTSTATUS_SEVERITY_CODE {
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct OBJECT_ATTRIBUTE_FLAGS(pub u32);
+impl windows_core::TypeKind for OBJECT_ATTRIBUTE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for OBJECT_ATTRIBUTE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OBJECT_ATTRIBUTE_FLAGS").field(&self.0).finish()
+    }
+}
+impl OBJECT_ATTRIBUTE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for OBJECT_ATTRIBUTE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for OBJECT_ATTRIBUTE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WAIT_EVENT(pub u32);
 impl windows_core::TypeKind for WAIT_EVENT {
     type TypeKind = windows_core::CopyType;
@@ -10606,6 +10661,20 @@ impl windows_core::TypeKind for DECIMAL_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for DECIMAL_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DEVPROPKEY {
+    pub fmtid: windows_core::GUID,
+    pub pid: u32,
+}
+impl windows_core::TypeKind for DEVPROPKEY {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10969,6 +11038,20 @@ impl windows_core::TypeKind for POINTS {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for POINTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PROPERTYKEY {
+    pub fmtid: windows_core::GUID,
+    pub pid: u32,
+}
+impl windows_core::TypeKind for PROPERTYKEY {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PROPERTYKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

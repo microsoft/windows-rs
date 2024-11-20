@@ -96,6 +96,15 @@ pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CR
     windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributes(pcdf : *mut CRYPTCATCDF, pmember : *mut CRYPTCATMEMBER, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
     CryptCATCDFEnumAttributes(pcdf, pmember, pprevattr, pfnparseerror)
 }
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+#[inline]
+pub unsafe fn CryptCATCDFEnumAttributesWithCDFTag<P0>(pcdf: *const CRYPTCATCDF, pwszmembertag: P0, pmember: *const CRYPTCATMEMBER, pprevattr: *const CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributesWithCDFTag(pcdf : *const CRYPTCATCDF, pwszmembertag : windows_core::PCWSTR, pmember : *const CRYPTCATMEMBER, pprevattr : *const CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
+    CryptCATCDFEnumAttributesWithCDFTag(pcdf, pwszmembertag.param().abi(), pmember, pprevattr, pfnparseerror)
+}
 #[inline]
 pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumCatAttributes(pcdf : *mut CRYPTCATCDF, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
@@ -106,6 +115,15 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
 pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembers(pcdf : *mut CRYPTCATCDF, pprevmember : *mut CRYPTCATMEMBER, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER);
     CryptCATCDFEnumMembers(pcdf, pprevmember, pfnparseerror)
+}
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+#[inline]
+pub unsafe fn CryptCATCDFEnumMembersByCDFTagEx<P0>(pcdf: *const CRYPTCATCDF, pwszprevcdftag: windows_core::PWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK, ppmember: *const *const CRYPTCATMEMBER, fcontinueonerror: P0, pvreserved: *const core::ffi::c_void) -> windows_core::PWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembersByCDFTagEx(pcdf : *const CRYPTCATCDF, pwszprevcdftag : windows_core::PWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK, ppmember : *const *const CRYPTCATMEMBER, fcontinueonerror : super::super::super::Foundation:: BOOL, pvreserved : *const core::ffi::c_void) -> windows_core::PWSTR);
+    CryptCATCDFEnumMembersByCDFTagEx(pcdf, core::mem::transmute(pwszprevcdftag), pfnparseerror, ppmember, fcontinueonerror.param().abi(), pvreserved)
 }
 #[inline]
 pub unsafe fn CryptCATCDFOpen<P0>(pwszfilepath: P0, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF
@@ -262,14 +280,14 @@ where
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
-pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
-pub const CRYPTCAT_ATTR_DATAASCII: u32 = 65536u32;
-pub const CRYPTCAT_ATTR_DATABASE64: u32 = 131072u32;
-pub const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144u32;
-pub const CRYPTCAT_ATTR_NAMEASCII: u32 = 1u32;
-pub const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2u32;
-pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216u32;
-pub const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912u32;
+pub const CRYPTCAT_ATTR_AUTHENTICATED: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(268435456u32);
+pub const CRYPTCAT_ATTR_DATAASCII: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(65536u32);
+pub const CRYPTCAT_ATTR_DATABASE64: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(131072u32);
+pub const CRYPTCAT_ATTR_DATAREPLACE: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(262144u32);
+pub const CRYPTCAT_ATTR_NAMEASCII: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(1u32);
+pub const CRYPTCAT_ATTR_NAMEOBJID: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(2u32);
+pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(16777216u32);
+pub const CRYPTCAT_ATTR_UNAUTHENTICATED: CRYPTCATATTRIBUTE_FLAGS = CRYPTCATATTRIBUTE_FLAGS(536870912u32);
 pub const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072u32;
 pub const CRYPTCAT_E_AREA_HEADER: u32 = 0u32;
 pub const CRYPTCAT_E_AREA_MEMBER: u32 = 65536u32;
@@ -299,6 +317,50 @@ pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
 pub const szOID_CATALOG_LIST: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.1");
 pub const szOID_CATALOG_LIST_MEMBER: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.2");
 pub const szOID_CATALOG_LIST_MEMBER2: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.3");
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct CRYPTCATATTRIBUTE_FLAGS(pub u32);
+impl windows_core::TypeKind for CRYPTCATATTRIBUTE_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CRYPTCATATTRIBUTE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CRYPTCATATTRIBUTE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPTCATATTRIBUTE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CRYPTCATATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CRYPTCATATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CRYPTCATATTRIBUTE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CRYPTCATATTRIBUTE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CRYPTCATATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
@@ -373,7 +435,7 @@ impl Default for CATALOG_INFO {
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
-    pub dwAttrTypeAndAction: u32,
+    pub dwAttrTypeAndAction: CRYPTCATATTRIBUTE_FLAGS,
     pub cbValue: u32,
     pub pbValue: *mut u8,
     pub dwReserved: u32,

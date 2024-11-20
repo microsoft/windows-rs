@@ -1,10 +1,12 @@
 #[inline]
-pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const windows_core::GUID, presentationfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreatePresentationFactory<P0, T>(d3ddevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_targets::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    CreatePresentationFactory(d3ddevice.param().abi(), riid, presentationfactory).ok()
+    let mut result__ = core::ptr::null_mut();
+    CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(ICompositionFramePresentStatistics, ICompositionFramePresentStatistics_Vtbl, 0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
 impl core::ops::Deref for ICompositionFramePresentStatistics {
@@ -444,9 +446,12 @@ impl IPresentationManager {
     pub unsafe fn Present(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn GetPresentRetiringFence(&self, riid: *const windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
-        let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), riid, &mut result__).map(|| result__)
+    pub unsafe fn GetPresentRetiringFence<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).CancelPresentsFrom)(windows_core::Interface::as_raw(self), presentidtocancelfrom).ok()
@@ -492,7 +497,7 @@ pub trait IPresentationManager_Impl: Sized + windows_core::IUnknownImpl {
     fn SetPreferredPresentDuration(&self, preferredduration: &SystemInterruptTime, deviationtolerance: &SystemInterruptTime) -> windows_core::Result<()>;
     fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> windows_core::Result<()>;
     fn Present(&self) -> windows_core::Result<()>;
-    fn GetPresentRetiringFence(&self, riid: *const windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
+    fn GetPresentRetiringFence(&self, riid: *const windows_core::GUID, fence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> windows_core::Result<()>;
     fn GetLostEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
     fn GetPresentStatisticsAvailableEvent(&self) -> windows_core::Result<super::super::Foundation::HANDLE>;
@@ -544,13 +549,7 @@ impl IPresentationManager_Vtbl {
         }
         unsafe extern "system" fn GetPresentRetiringFence<Identity: IPresentationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, fence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IPresentationManager_Impl::GetPresentRetiringFence(this, core::mem::transmute_copy(&riid)) {
-                Ok(ok__) => {
-                    fence.write(core::mem::transmute(ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
+            IPresentationManager_Impl::GetPresentRetiringFence(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&fence)).into()
         }
         unsafe extern "system" fn CancelPresentsFrom<Identity: IPresentationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presentidtocancelfrom: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);

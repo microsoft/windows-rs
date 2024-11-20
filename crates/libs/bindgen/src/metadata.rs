@@ -240,7 +240,7 @@ impl Signature {
         }
 
         // Then we see if we can infer retval-like behavior more conservatively.
-        self.params.last().map_or(false, |param| param.is_retval())
+        self.params.last().is_some_and(|param| param.is_retval())
             && self.params[..self.params.len() - 1].iter().all(|param| {
                 let flags = param.def.flags();
                 !flags.contains(ParamAttributes::Out)

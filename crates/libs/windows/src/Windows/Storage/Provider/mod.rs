@@ -485,6 +485,125 @@ pub struct IStorageProviderQuotaUI_Vtbl {
     #[cfg(not(feature = "UI"))]
     SetQuotaUsedColor: usize,
 }
+windows_core::imp::define_interface!(IStorageProviderShareLinkSource, IStorageProviderShareLinkSource_Vtbl, 0x4c6055e2_029c_5539_8e51_a1afc838b5cb);
+impl core::ops::Deref for IStorageProviderShareLinkSource {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IStorageProviderShareLinkSource, windows_core::IUnknown, windows_core::IInspectable);
+impl IStorageProviderShareLinkSource {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateLinkAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateLinkAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetDefaultAccessControlStringAsync<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDefaultAccessControlStringAsync)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetState<P0>(&self, storageitemlist: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetState)(windows_core::Interface::as_raw(this), storageitemlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for IStorageProviderShareLinkSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IStorageProviderShareLinkSource_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub CreateLinkAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    CreateLinkAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetDefaultAccessControlStringAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetDefaultAccessControlStringAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetState: usize,
+}
+#[cfg(feature = "Foundation_Collections")]
+pub trait IStorageProviderShareLinkSource_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateLinkAsync(&self, storageitemlist: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDefaultAccessControlStringAsync(&self, storageitemlist: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>;
+    fn GetState(&self, storageitemlist: Option<&super::super::Foundation::Collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>>;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
+    const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IStorageProviderShareLinkSource_Vtbl {
+    pub const fn new<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>() -> IStorageProviderShareLinkSource_Vtbl {
+        unsafe extern "system" fn CreateLinkAsync<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IStorageProviderShareLinkSource_Impl::CreateLinkAsync(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDefaultAccessControlStringAsync<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IStorageProviderShareLinkSource_Impl::GetDefaultAccessControlStringAsync(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetState<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storageitemlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IStorageProviderShareLinkSource_Impl::GetState(this, windows_core::from_raw_borrowed(&storageitemlist)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IStorageProviderShareLinkSource, OFFSET>(),
+            CreateLinkAsync: CreateLinkAsync::<Identity, OFFSET>,
+            GetDefaultAccessControlStringAsync: GetDefaultAccessControlStringAsync::<Identity, OFFSET>,
+            GetState: GetState::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IStorageProviderShareLinkSource as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IStorageProviderStatusUI, IStorageProviderStatusUI_Vtbl, 0xd6b6a758_198d_5b80_977f_5ff73da33118);
 impl windows_core::RuntimeType for IStorageProviderStatusUI {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2442,6 +2561,24 @@ impl core::fmt::Debug for StorageProviderProtectionMode {
 }
 impl windows_core::RuntimeType for StorageProviderProtectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderProtectionMode;i4)");
+}
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct StorageProviderShareLinkState(pub i32);
+impl StorageProviderShareLinkState {
+    pub const Enabled: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+}
+impl windows_core::TypeKind for StorageProviderShareLinkState {
+    type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for StorageProviderShareLinkState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("StorageProviderShareLinkState").field(&self.0).finish()
+    }
+}
+impl windows_core::RuntimeType for StorageProviderShareLinkState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Provider.StorageProviderShareLinkState;i4)");
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Copy, Clone, Default)]

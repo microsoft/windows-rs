@@ -225,6 +225,7 @@ void __stdcall RtlDeleteHashTable(int p0) {}
 void __stdcall RtlDeleteNoSplay(int p0, int p1) {}
 void __stdcall RtlDeleteRegistryValue(int p0, int p1, int p2) {}
 void __stdcall RtlDestroyHeap(int p0) {}
+void __stdcall RtlDosPathNameToNtPathName_U_WithStatus(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlDowncaseUnicodeChar(int p0) {}
 void __stdcall RtlDowncaseUnicodeString(int p0, int p1, int p2) {}
 void __stdcall RtlDrainNonVolatileFlush(int p0) {}
@@ -352,6 +353,7 @@ void __stdcall RtlIpv6StringToAddressExW(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlIpv6StringToAddressW(int p0, int p1, int p2) {}
 void __stdcall RtlIsApiSetImplemented(int p0) {}
 void __stdcall RtlIsCloudFilesPlaceholder(int p0, int p1) {}
+void __stdcall RtlIsDosDeviceName_U(int p0) {}
 void __stdcall RtlIsGenericTableEmpty(int p0) {}
 void __stdcall RtlIsGenericTableEmptyAvl(int p0) {}
 void __stdcall RtlIsMultiSessionSku() {}
