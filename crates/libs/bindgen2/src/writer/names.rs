@@ -59,14 +59,13 @@ impl Writer {
             if self
                 .config
                 .includes
-                .contains(&(type_name.namespace(), type_name.name()))
+                .contains(&type_name)
             {
                 None
             } else {
                 self.config
                     .references
-                    // TODO: should should also be "contains" for consistency
-                    .includes_type_name(type_name.namespace(), type_name.name())
+                    .contains(type_name)
             }
         } {
             tokens.push_str(&reference.name);

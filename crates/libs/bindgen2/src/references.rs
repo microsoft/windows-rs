@@ -97,9 +97,9 @@ impl References {
         )
     }
 
-    pub fn includes_type_name(&self, namespace: &str, name: &str) -> Option<&Reference> {
+    pub fn contains(&self, name: TypeName<'_>) -> Option<&Reference> {
         self.0
             .iter()
-            .find(|reference| reference.includes.contains(&(namespace, name)))
+            .find(|reference| reference.includes.contains(&name))
     }
 }

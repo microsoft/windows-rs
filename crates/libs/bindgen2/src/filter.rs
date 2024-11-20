@@ -59,9 +59,9 @@ impl Filter {
         false
     }
 
-    pub fn excludes_type_name(&self, namespace: &str, name: &str) -> bool {
+    pub fn excludes_type_name(&self, name: TypeName<'_>) -> bool {
         for rule in &self.0 {
-            if match_type_name(&rule.0, namespace, name) {
+            if match_type_name(&rule.0, name.0, name.1) {
                 return !rule.1;
             }
         }

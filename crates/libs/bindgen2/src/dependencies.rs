@@ -3,36 +3,34 @@ use super::*;
 // TODO: get rid of this in favor of Includes
 
 // TODO: store `HashSet<TypeName<'static>>` instead
-type Set = HashSet<(&'static str, &'static str)>;
+type Set = HashSet<TypeName<'static>>;
 
 // TODO: do we even need a wrapper type at this point?
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct Dependencies {
-    set: Set,
-}
+pub struct Dependencies(Set);
 
 impl std::ops::Deref for Dependencies {
-    type Target = HashSet<(&'static str, &'static str)>;
+    type Target = HashSet<TypeName<'static>>;
 
     fn deref(&self) -> &Self::Target {
-        &self.set
+        &self.0
     }
 }
 
 impl Dependencies {
     pub fn new() -> Self {
-        Self { set: Set::new() }
+        Self(Set::new())
     }
 
     pub fn filter(reader: &'static Reader, filter: &Filter) -> Self {
         let mut set = HashSet::new();
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = Self::new();
 
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
                 for name in reader[namespace].keys() {
                     if filter.includes_type_name(namespace, name) {
-                        let mut item_dependencies = Dependencies::new();
+                        let mut item_dependencies = Self::new();
 
                         for item in &reader[namespace][name] {
                             item.dependencies(&mut item_dependencies);
@@ -42,62 +40,55 @@ impl Dependencies {
                             continue;
                         }
 
-                        set.insert((*namespace, *name));
+                        set.insert(TypeName(*namespace, *name));
                         dependencies.combine(&item_dependencies);
                     }
                 }
             }
         }
 
-        for (namespace, name) in dependencies.iter() {
-            set.insert((namespace, name));
-        }
-
-        Self {set}
+        set.extend(dependencies.iter());
+        Self(set)
     }
 
     pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
         // TODO: maybe move dependency recursion direclty into here?
         // Have the Dependencies store a Reader to look up deps directly
         // This would work more like the old standalone one?
-        self.set.insert((namespace, name))
+        self.0.insert(TypeName(namespace, name))
     }
 
     pub fn combine(&mut self, other: &Self) {
-        for (namespace, name) in other.set.iter() {
-            self.insert(namespace, name);
-        }
+        self.0.extend(other.iter());
     }
 
     pub fn difference(&self, other: &Self) -> Self {
-        Self {
-            set: self.set.difference(&other.set).copied().collect(),
-        }
+        Self(self.0.difference(&other.0).copied().collect())
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
-        self.set.iter().copied()
+    pub fn iter(&self) -> impl Iterator<Item = TypeName<'static>> + '_ {
+        self.0.iter().copied()
     }
 
     pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
-        self.set.iter().map(|(namespace, _)| namespace).copied()
+        self.0.iter().map(|name| name.0)
     }
 
     pub fn included(&self, config: &Config) -> bool {
-        self.set.iter().all(|(namespace, name)| {
+        self.0.iter().all(|name| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
-            if namespace.is_empty() {
+            if name.0.is_empty() {
                 return true;
             }
 
-            if config.includes.contains(&(namespace, name)) {
+            if config.includes.contains(name) {
                 return true;
             }
 
             if config
                 .references
-                .includes_type_name(namespace, name)
+                .contains(*name)
                 .is_some()
             {
                 return true;
@@ -111,9 +102,9 @@ impl Dependencies {
     }
 
     pub fn excluded(&self, filter: &Filter) -> bool {
-        self.set
+        self.0
             .iter()
-            .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+            .any(|name| filter.excludes_type_name(*name))
     }
 }
 
