@@ -940,6 +940,15 @@ impl Type {
             Self::CppConst(item) => item.type_name(),
             Self::CppFn(item) => item.type_name(),
 
+            Self::PSTR => TypeName("", "PSTR"),
+            Self::PCSTR => TypeName("", "PCSTR"),
+            Self::PWSTR => TypeName("", "PWSTR"),
+            Self::PCWSTR => TypeName("", "PCWSTR"),
+            Self::GUID => TypeName("", "GUID"),
+            Self::HRESULT => TypeName("", "HRESULT"),
+            Self::IUnknown => TypeName("", "IUnknown"),
+            Self::BSTR => TypeName("", "BSTR"),
+
             _ => TypeName("", ""),
         }
     }

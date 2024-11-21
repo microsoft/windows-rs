@@ -1,9 +1,12 @@
 use super::*;
 
+// TODO: call this TypeMap and reuse in Reader?
+
 // TODO: get rid of this in favor of Includes
 
-// TODO: should store Type rather than TypeName
-type Set = HashSet<Type>;
+
+
+type Set = HashMap<TypeName<'static>, HashSet<Type>>;
 
 // TODO: do we even need a wrapper type at this point?
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -55,30 +58,28 @@ impl Dependencies {
     }
 
     pub fn insert(&mut self, ty: Type) -> bool {
-        self.0.insert(ty)
+        self.0.entry(ty.type_name()).or_default().insert(ty)
     }
 
     pub fn combine(&mut self, other: &Self) {
-        self.0.extend(other.0.iter().cloned());
+        self.0.extend(other.0.clone());
     }
 
     pub fn difference(&self, other: &Self) -> Self {
-        Self(self.0.difference(&other.0).cloned().collect())
+        Self(self.0.iter().filter(|(tn, _)|!other.0.contains_key(tn)).map(|(tn, ty)| (*tn, ty.clone())).collect())
     }
 
     pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
-        self.0.iter().map(|ty| ty.namespace())
+        self.0.keys().map(|tn| tn.0)
     }
 
     // TODO: do we need a consuming version of this?
     pub fn types(&self) -> impl Iterator<Item = Type> + '_ {
-        self.0.iter().cloned()
+        self.0.values().flatten().cloned()
     }
 
     pub fn included(&self, config: &Config) -> bool {
-        self.0.iter().all(|ty| {
-            let tn = ty.type_name();
-
+        self.0.iter().all(|(tn, _)| {
             // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
             // that depend on core types that aren't explicitly included in the filter.
             if tn.namespace().is_empty() {
@@ -86,11 +87,11 @@ impl Dependencies {
             }
 
             // TODO: would it be faster/simpler to search by `ty` instead
-            if config.includes.contains(tn) {
+            if config.includes.contains(*tn) {
                 return true;
             }
 
-            if config.references.contains(tn).is_some() {
+            if config.references.contains(*tn).is_some() {
                 return true;
             }
 
@@ -104,11 +105,11 @@ impl Dependencies {
     fn excluded(&self, filter: &Filter) -> bool {
         self.0
             .iter()
-            .any(|name| filter.excludes_type_name(name.type_name()))
+            .any(|(tn, _)| filter.excludes_type_name(*tn))
     }
 
     pub fn contains(&self, name: TypeName<'_>) -> bool {
-        self.0.iter().any(|ty| ty.type_name() == name)
+        self.0.contains_key(&name)
     }
 }
 
