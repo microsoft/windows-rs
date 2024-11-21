@@ -36,7 +36,10 @@ impl Dependencies {
                 for (name, types) in &reader[namespace] {
                     if filter.includes_type_name(TypeName(namespace, name)) {
                         let mut item_dependencies = Self::new();
-                        types[0].dependencies(&mut item_dependencies);
+                        
+                        for ty in types {
+                            ty.dependencies(&mut item_dependencies);
+                        }
 
                         if item_dependencies.excluded(filter) {
                             continue;

@@ -63,6 +63,7 @@ struct Config {
     pub no_allow: bool,
     pub no_comment: bool,
     pub no_deps: bool, // TODO: to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows-core/windows/windows-sys/windows-targets etc?
+    pub no_toml: bool,
     pub package: bool,
     pub rustfmt: String,
     pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
@@ -96,6 +97,7 @@ where
     let mut no_allow = false;
     let mut no_comment = false;
     let mut no_deps = false; // TODO: can we drop this in favor of --reference ?
+    let mut no_toml = false;
     let mut package = false;
     let mut implement = false;
     let mut rustfmt = String::new();
@@ -119,6 +121,7 @@ where
                 "--no-allow" => no_allow = true,
                 "--no-comment" => no_comment = true,
                 "--no-deps" => no_deps = true,
+                "--no-toml" => no_toml = true,
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--implement" => implement = true,
@@ -176,9 +179,11 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let includes = Dependencies::filter(reader, &filter);
 
-    let references = References::new(reader, references);
+  //  dbg!(&includes);
 
-    let derive = Derive::new(reader, &derive);
+      let references = References::new(reader, references);
+
+      let derive = Derive::new(reader, &derive);
 
     let config = Box::leak(Box::new(Config {
         includes,
@@ -189,6 +194,7 @@ where
         no_allow,
         no_comment,
         no_deps,
+        no_toml,
         package,
         rustfmt,
         output,
@@ -196,29 +202,29 @@ where
         implement,
     }));
 
-    //dbg!(&filter);
+    // // //dbg!(&filter);
 
-    // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
-    // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
+    // // // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
+    // // // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
 
-    // TODO: the "name tree" wouldn't be needed after creating the "item tree" if the root/core named types were represented by Item(...)
+    // // // TODO: the "name tree" wouldn't be needed after creating the "item tree" if the root/core named types were represented by Item(...)
 
-    // dbg!(&tree);
+    // // // dbg!(&tree);
 
-    // TODO: this won't be needed once the Dependencies type has been build and already contains all items - just need to turn
-    // it into a tree... - maybe that's what this becomes
-    let items = TypeTree::new(&config.includes);
+    // // // TODO: this won't be needed once the Dependencies type has been build and already contains all items - just need to turn
+    // // // it into a tree... - maybe that's what this becomes
+     let items = TypeTree::new(&config.includes);
 
-    // TODO: naming item -> type
+    // // // TODO: naming item -> type
 
-    // dbg!(&config.tree);
+    // // // dbg!(&config.tree);
 
     let writer = Writer {
         config,
         namespace: "",
     };
 
-    writer.write(items)
+     writer.write(items)
 }
 
 enum ArgKind {

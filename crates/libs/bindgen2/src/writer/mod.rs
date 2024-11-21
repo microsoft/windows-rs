@@ -101,6 +101,10 @@ impl Writer {
             write_to_file(&output, self.format(&tokens.into_string()));
         });
 
+        if self.config.no_toml {
+            return;
+        }
+
         let toml_path = format!("{}/Cargo.toml", &self.config.output);
         let mut toml = String::new();
 

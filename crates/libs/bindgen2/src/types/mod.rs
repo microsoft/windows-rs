@@ -33,7 +33,6 @@ pub use r#struct::*;
 // 2. order everything else by name
 // Otherwise it looks weird when you have things like LOAD_LIBRARY_FLAGS sorting before BOOL
 
-
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub enum Type {
     Void,
@@ -515,11 +514,21 @@ impl Type {
     pub fn split_generic(&self) -> (Type, Vec<Type>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = ty.def.reader().with_full_name(ty.type_name()).next().unwrap();
+                let base = ty
+                    .def
+                    .reader()
+                    .with_full_name(ty.type_name())
+                    .next()
+                    .unwrap();
                 (base, ty.generics.clone())
             }
-            Self::Delegate(ty) if !ty.generics.is_empty() =>{
-                let base = ty.def.reader().with_full_name(ty.type_name()).next().unwrap();
+            Self::Delegate(ty) if !ty.generics.is_empty() => {
+                let base = ty
+                    .def
+                    .reader()
+                    .with_full_name(ty.type_name())
+                    .next()
+                    .unwrap();
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -527,20 +536,25 @@ impl Type {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        let ty: &Type = match self {
-            Self::PtrMut(ty, _) => ty,
-            Self::PtrConst(ty, _) => ty,
-            Self::ArrayFixed(ty, _) => ty,
-            Self::Array(ty) => ty,
-            Self::ArrayRef(ty) => ty,
-            Self::ConstRef(ty) => ty,
-            Self::PrimitiveOrEnum(_, ty) => ty,
-            _ => self,
-        };
-    
+        fn underlying_type(ty: &Type) -> &Type {
+            match ty {
+                Type::PtrMut(ty, _) => ty,
+                Type::PtrConst(ty, _) => ty,
+                Type::ArrayFixed(ty, _) => underlying_type(ty),
+                Type::Array(ty) => ty,
+                Type::ArrayRef(ty) => ty,
+                Type::ConstRef(ty) => ty,
+                Type::PrimitiveOrEnum(_, ty) => ty,
+                _ => ty,
+            }
+        }
+
+        let ty = underlying_type(self);
+        let mut nested = false;
+
         if let Self::CppStruct(ty) = ty {
             if ty.def.namespace().is_empty() {
-                return;
+                nested = true;
             }
         }
 
@@ -550,20 +564,22 @@ impl Type {
             ty.dependencies(dependencies);
         }
 
-        if !dependencies.insert(ty.clone()) {
-            return;
+        if !nested {
+            if !dependencies.insert(ty.clone()) {
+                return;
+            }
         }
 
-        if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.type_name())),
-            Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.type_name())),
-            _ => None,
-        } {
-            multi.for_each(|multi| {
-                if ty != multi {
-                    multi.dependencies(dependencies)
-                }
-            });
+            if let Some(multi) = match &ty {
+                Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.type_name())),
+                Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.type_name())),
+                _ => None,
+            } {
+                multi.for_each(|multi| {
+                    if ty != multi {
+                        multi.dependencies(dependencies)
+                    }
+                });
         }
 
         match &ty {
