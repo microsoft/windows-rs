@@ -179,11 +179,11 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let includes = Dependencies::filter(reader, &filter);
 
-  //  dbg!(&includes);
+    //  dbg!(&includes);
 
-      let references = References::new(reader, references);
+    let references = References::new(reader, references);
 
-      let derive = Derive::new(reader, &derive);
+    let derive = Derive::new(reader, &derive);
 
     let config = Box::leak(Box::new(Config {
         includes,
@@ -213,7 +213,7 @@ where
 
     // // // TODO: this won't be needed once the Dependencies type has been build and already contains all items - just need to turn
     // // // it into a tree... - maybe that's what this becomes
-     let items = TypeTree::new(&config.includes);
+    let items = TypeTree::new(&config.includes);
 
     // // // TODO: naming item -> type
 
@@ -224,7 +224,7 @@ where
         namespace: "",
     };
 
-     writer.write(items)
+    writer.write(items)
 }
 
 enum ArgKind {

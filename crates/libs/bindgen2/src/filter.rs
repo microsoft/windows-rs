@@ -77,11 +77,7 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
     }
 
     if let Some((namespace, name)) = filter.rsplit_once('.') {
-        if reader
-            .with_full_name(namespace, name)
-            .next()
-            .is_some()
-        {
+        if reader.with_full_name(namespace, name).next().is_some() {
             rules.push((filter.to_string(), include));
             return;
         }

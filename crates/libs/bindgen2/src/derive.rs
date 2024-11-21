@@ -21,7 +21,7 @@ impl Derive {
         Self(map)
     }
 
-    pub fn get<'a>(&'a self, type_name: TypeName) -> impl Iterator<Item = String> + 'a {
+    pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = String> + '_ {
         self.0.get(&type_name).into_iter().flatten().cloned()
     }
 

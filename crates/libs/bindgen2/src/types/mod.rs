@@ -161,7 +161,11 @@ impl Type {
             }
         }
 
-        if let Some(item) = code.reader().with_full_name(code_name.namespace(), code_name.name()).next() {
+        if let Some(item) = code
+            .reader()
+            .with_full_name(code_name.namespace(), code_name.name())
+            .next()
+        {
             item
         } else {
             panic!("windows-bindgen: type not found: {code_name}")
@@ -565,22 +569,28 @@ impl Type {
             ty.dependencies(dependencies);
         }
 
-        if !nested {
-            if !dependencies.insert(ty.clone()) {
-                return;
-            }
+        if !nested && !dependencies.insert(ty.clone()) {
+            return;
         }
 
-            if let Some(multi) = match &ty {
-                Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.def.namespace(), ty.def.name())),
-                Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.namespace, ty.method.name())),
-                _ => None,
-            } {
-                multi.for_each(|multi| {
-                    if ty != multi {
-                        multi.dependencies(dependencies)
-                    }
-                });
+        if let Some(multi) = match &ty {
+            Self::CppStruct(ty) => Some(
+                ty.def
+                    .reader()
+                    .with_full_name(ty.def.namespace(), ty.def.name()),
+            ),
+            Self::CppFn(ty) => Some(
+                ty.method
+                    .reader()
+                    .with_full_name(ty.namespace, ty.method.name()),
+            ),
+            _ => None,
+        } {
+            multi.for_each(|multi| {
+                if ty != multi {
+                    multi.dependencies(dependencies)
+                }
+            });
         }
 
         match &ty {

@@ -4,8 +4,6 @@ use super::*;
 
 // TODO: get rid of this in favor of Includes
 
-
-
 type Set = HashMap<TypeName, HashSet<Type>>;
 
 // TODO: do we even need a wrapper type at this point?
@@ -39,7 +37,7 @@ impl Dependencies {
                 for (name, types) in &reader[namespace] {
                     if filter.includes_type_name(TypeName(namespace, name)) {
                         let mut item_dependencies = Self::new();
-                        
+
                         for ty in types {
                             ty.dependencies(&mut item_dependencies);
                         }
@@ -66,7 +64,13 @@ impl Dependencies {
     }
 
     pub fn difference(&self, other: &Self) -> Self {
-        Self(self.0.iter().filter(|(tn, _)|!other.0.contains_key(tn)).map(|(tn, ty)| (*tn, ty.clone())).collect())
+        Self(
+            self.0
+                .iter()
+                .filter(|(tn, _)| !other.0.contains_key(tn))
+                .map(|(tn, ty)| (*tn, ty.clone()))
+                .collect(),
+        )
     }
 
     pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
@@ -103,9 +107,7 @@ impl Dependencies {
     }
 
     fn excluded(&self, filter: &Filter) -> bool {
-        self.0
-            .iter()
-            .any(|(tn, _)| filter.excludes_type_name(*tn))
+        self.0.iter().any(|(tn, _)| filter.excludes_type_name(*tn))
     }
 
     pub fn contains(&self, name: TypeName) -> bool {
