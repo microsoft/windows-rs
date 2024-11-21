@@ -959,6 +959,7 @@ impl Type {
             Self::HRESULT => TypeName("", "HRESULT"),
             Self::IUnknown => TypeName("", "IUnknown"),
             Self::BSTR => TypeName("", "BSTR"),
+            Self::String => TypeName("", "String"),
 
             _ => TypeName("", ""),
         }

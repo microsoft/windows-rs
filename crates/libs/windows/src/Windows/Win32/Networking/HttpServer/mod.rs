@@ -2517,20 +2517,6 @@ impl windows_core::TypeKind for HTTP_UNKNOWN_HEADER {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct HTTP_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-impl Default for HTTP_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTTP_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_WSK_API_TIMINGS {
     pub ConnectCount: u64,
     pub ConnectSum: u64,

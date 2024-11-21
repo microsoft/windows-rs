@@ -64,10 +64,6 @@ impl ExtendedExecutionSession {
         static SHARED: windows_core::imp::FactoryCache<ExtendedExecutionSession, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionReason> {
         let this = self;
         unsafe {
@@ -121,6 +117,10 @@ impl ExtendedExecutionSession {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestExtensionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
 impl windows_core::RuntimeType for ExtendedExecutionSession {

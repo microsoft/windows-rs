@@ -306,7 +306,7 @@ pub struct ModuleBindInfo {
     pub lpModuleName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,

@@ -2624,6 +2624,67 @@ impl IPlayReadyLicenseSession_Vtbl {
         iid == &<IPlayReadyLicenseSession as windows_core::Interface>::IID
     }
 }
+windows_core::imp::define_interface!(IPlayReadyLicenseSession, IPlayReadyLicenseSession_Vtbl, 0xa1723a39_87fa_4fdd_abbb_a9720e845259);
+impl windows_core::RuntimeType for IPlayReadyLicenseSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IPlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable);
+impl IPlayReadyLicenseSession {
+    pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateLAServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::MediaProtectionManager>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+pub struct IPlayReadyLicenseSession_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateLAServiceRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ConfigureMediaProtectionManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+impl windows_core::RuntimeName for IPlayReadyLicenseSession {
+    const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
+}
+pub trait IPlayReadyLicenseSession_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
+    fn ConfigureMediaProtectionManager(&self, mpm: Option<&super::MediaProtectionManager>) -> windows_core::Result<()>;
+}
+impl IPlayReadyLicenseSession_Vtbl {
+    pub const fn new<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateLAServiceRequest<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPlayReadyLicenseSession_Impl::CreateLAServiceRequest(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mpm: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPlayReadyLicenseSession_Impl::ConfigureMediaProtectionManager(this, windows_core::from_raw_borrowed(&mpm)).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPlayReadyLicenseSession, OFFSET>(),
+            CreateLAServiceRequest: CreateLAServiceRequest::<Identity, OFFSET>,
+            ConfigureMediaProtectionManager: ConfigureMediaProtectionManager::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPlayReadyLicenseSession as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IPlayReadyLicenseSession2, IPlayReadyLicenseSession2_Vtbl, 0x4909be3a_3aed_4656_8ad7_ee0fd7799510);
 impl windows_core::RuntimeType for IPlayReadyLicenseSession2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

@@ -34,6 +34,41 @@ pub struct IPhoneCallOrigin_Vtbl {
     SetLocation: usize,
 }
 #[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPhoneCallOrigin, IPhoneCallOrigin_Vtbl, 0x20613479_0ef9_4454_871c_afb66a14b6a5);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPhoneCallOrigin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPhoneCallOrigin_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub Category: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Category: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetCategory: usize,
+    #[cfg(feature = "deprecated")]
+    pub CategoryDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CategoryDescription: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetCategoryDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetCategoryDescription: usize,
+    #[cfg(feature = "deprecated")]
+    pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Location: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetLocation: usize,
+}
+#[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOrigin2, IPhoneCallOrigin2_Vtbl, 0x04c7e980_9ac2_4768_b536_b68da4957d02);
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for IPhoneCallOrigin2 {
@@ -70,6 +105,29 @@ pub struct IPhoneCallOrigin3_Vtbl {
     pub SetDisplayPicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetDisplayPicture: usize,
+}
+#[cfg(feature = "deprecated")]
+windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IPhoneCallOriginManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+pub struct IPhoneCallOriginManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "deprecated")]
+    pub IsCurrentAppActiveCallOriginApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsCurrentAppActiveCallOriginApp: usize,
+    #[cfg(feature = "deprecated")]
+    pub ShowPhoneCallOriginSettingsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ShowPhoneCallOriginSettingsUI: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetCallOrigin: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetCallOrigin: usize,
 }
 #[cfg(feature = "deprecated")]
 windows_core::imp::define_interface!(IPhoneCallOriginManagerStatics, IPhoneCallOriginManagerStatics_Vtbl, 0xccfc5a0a_9af7_6149_39d0_e076fcce1395);

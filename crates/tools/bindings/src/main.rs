@@ -11,7 +11,7 @@ fn main() {
      bindgen(["--etc", "crates/tools/bindings/src/strings.txt"]);
       bindgen(["--etc", "crates/tools/bindings/src/sys.txt"]);
       bindgen(["--etc", "crates/tools/bindings/src/version.txt"]);
-     // bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
+      bindgen(["--etc", "crates/tools/bindings/src/windows.txt"]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

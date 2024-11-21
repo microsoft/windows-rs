@@ -236,6 +236,30 @@ pub struct IStartScreenManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     RequestAddAppListEntryAsync: usize,
 }
+windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
+impl windows_core::RuntimeType for IStartScreenManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IStartScreenManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+    #[cfg(feature = "ApplicationModel_Core")]
+    pub SupportsAppListEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Core"))]
+    SupportsAppListEntry: usize,
+    #[cfg(feature = "ApplicationModel_Core")]
+    pub ContainsAppListEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Core"))]
+    ContainsAppListEntryAsync: usize,
+    #[cfg(feature = "ApplicationModel_Core")]
+    pub RequestAddAppListEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel_Core"))]
+    RequestAddAppListEntryAsync: usize,
+}
 windows_core::imp::define_interface!(IStartScreenManager2, IStartScreenManager2_Vtbl, 0x08a716b6_316b_4ad9_acb8_fe9cf00bd608);
 impl windows_core::RuntimeType for IStartScreenManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

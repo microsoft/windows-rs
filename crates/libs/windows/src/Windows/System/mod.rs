@@ -940,6 +940,16 @@ pub struct IShutdownManagerStatics_Vtbl {
     pub BeginShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, ShutdownKind, super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub CancelShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IShutdownManagerStatics, IShutdownManagerStatics_Vtbl, 0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94);
+impl windows_core::RuntimeType for IShutdownManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IShutdownManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BeginShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, ShutdownKind, super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CancelShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IShutdownManagerStatics2, IShutdownManagerStatics2_Vtbl, 0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
 impl windows_core::RuntimeType for IShutdownManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

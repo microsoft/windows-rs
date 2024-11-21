@@ -648,16 +648,6 @@ pub struct TRACKMOUSEEVENT {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VK_F {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [VK_FPARAM; 8],
-    pub NLSFEProcAlt: [VK_FPARAM; 8],
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,

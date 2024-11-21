@@ -235,7 +235,7 @@ pub struct PSS_PROCESS_INFORMATION {
     pub ImageFileName: [u16; 260],
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,

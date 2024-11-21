@@ -11839,9 +11839,11 @@ impl IDebugControl {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -11988,8 +11990,14 @@ pub struct IDebugControl_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -12005,6 +12013,7 @@ pub struct IDebugControl_Vtbl {
     pub WaitForEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub GetLastEventInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -12099,6 +12108,7 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn WaitForEvent(&self, flags: u32, timeout: u32) -> windows_core::Result<()>;
     fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: windows_core::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl_Vtbl {
     pub const fn new<Identity: IDebugControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12725,6 +12735,7 @@ impl IDebugControl_Vtbl {
         iid == &<IDebugControl as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl {}
 windows_core::imp::define_interface!(IDebugControl2, IDebugControl2_Vtbl, 0xd4366723_44df_4bed_8c7e_4c05424f4588);
 windows_core::imp::interface_hierarchy!(IDebugControl2, windows_core::IUnknown);
@@ -13074,9 +13085,11 @@ impl IDebugControl2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -13269,8 +13282,14 @@ pub struct IDebugControl2_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -13294,6 +13313,7 @@ pub struct IDebugControl2_Vtbl {
     pub RemoveTextReplacements: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputTextReplacements: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -13396,6 +13416,7 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn RemoveTextReplacements(&self) -> windows_core::Result<()>;
     fn OutputTextReplacements(&self, outputcontrol: u32, flags: u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl2_Vtbl {
     pub const fn new<Identity: IDebugControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -14086,6 +14107,7 @@ impl IDebugControl2_Vtbl {
         iid == &<IDebugControl2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl2 {}
 windows_core::imp::define_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x7df74a86_b03f_407f_90ab_a20dadcead08);
 windows_core::imp::interface_hierarchy!(IDebugControl3, windows_core::IUnknown);
@@ -14435,9 +14457,11 @@ impl IDebugControl3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -14691,8 +14715,14 @@ pub struct IDebugControl3_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -14729,6 +14759,7 @@ pub struct IDebugControl3_Vtbl {
     pub GetCurrentEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetNextEventIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -14844,6 +14875,7 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetCurrentEventIndex(&self) -> windows_core::Result<u32>;
     fn SetNextEventIndex(&self, relation: u32, value: u32) -> windows_core::Result<u32>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl3_Vtbl {
     pub const fn new<Identity: IDebugControl3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15635,6 +15667,7 @@ impl IDebugControl3_Vtbl {
         iid == &<IDebugControl3 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl3 {}
 windows_core::imp::define_interface!(IDebugControl4, IDebugControl4_Vtbl, 0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
 windows_core::imp::interface_hierarchy!(IDebugControl4, windows_core::IUnknown);
@@ -15984,9 +16017,11 @@ impl IDebugControl4 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -16556,8 +16591,14 @@ pub struct IDebugControl4_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -16647,6 +16688,7 @@ pub struct IDebugControl4_Vtbl {
     pub GetManagedStatusWide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub ResetManagedStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -16815,6 +16857,7 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetManagedStatusWide(&self, flags: *mut u32, whichstring: u32, string: windows_core::PWSTR, stringsize: u32, stringneeded: *mut u32) -> windows_core::Result<()>;
     fn ResetManagedStatus(&self, flags: u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl4_Vtbl {
     pub const fn new<Identity: IDebugControl4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17913,6 +17956,7 @@ impl IDebugControl4_Vtbl {
         iid == &<IDebugControl4 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl4 {}
 windows_core::imp::define_interface!(IDebugControl5, IDebugControl5_Vtbl, 0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
 windows_core::imp::interface_hierarchy!(IDebugControl5, windows_core::IUnknown);
@@ -18262,9 +18306,11 @@ impl IDebugControl5 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -18861,8 +18907,14 @@ pub struct IDebugControl5_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -18957,6 +19009,7 @@ pub struct IDebugControl5_Vtbl {
     pub OutputContextStackTraceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DEBUG_STACK_FRAME_EX, u32, *const core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub GetBreakpointByGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -19130,6 +19183,7 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: *const DEBUG_STACK_FRAME_EX, framessize: u32, framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::Result<()>;
     fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl5_Vtbl {
     pub const fn new<Identity: IDebugControl5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -20259,6 +20313,7 @@ impl IDebugControl5_Vtbl {
         iid == &<IDebugControl5 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl5 {}
 windows_core::imp::define_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
 windows_core::imp::interface_hierarchy!(IDebugControl6, windows_core::IUnknown);
@@ -20608,9 +20663,11 @@ impl IDebugControl6 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -21214,8 +21271,14 @@ pub struct IDebugControl6_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -21312,6 +21375,7 @@ pub struct IDebugControl6_Vtbl {
     pub GetExecutionStatusEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -21487,6 +21551,7 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetExecutionStatusEx(&self) -> windows_core::Result<u32>;
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl6_Vtbl {
     pub const fn new<Identity: IDebugControl6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -22632,6 +22697,7 @@ impl IDebugControl6_Vtbl {
         iid == &<IDebugControl6 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl6 {}
 windows_core::imp::define_interface!(IDebugControl7, IDebugControl7_Vtbl, 0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
 windows_core::imp::interface_hierarchy!(IDebugControl7, windows_core::IUnknown);
@@ -22981,9 +23047,11 @@ impl IDebugControl7 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetExtensionFunction)(windows_core::Interface::as_raw(self), core::mem::transmute(handle), funcname.param().abi(), &mut result__).map(|| result__)
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
+    #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(windows_core::Interface::as_raw(self), core::mem::transmute(api)).ok()
     }
@@ -23590,8 +23658,14 @@ pub struct IDebugControl7_Vtbl {
     pub GetExtensionByPath: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64) -> windows_core::HRESULT,
     pub CallExtension: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetExtensionFunction: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCSTR, *mut super::super::super::super::Foundation::FARPROC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis32: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis32: usize,
+    #[cfg(feature = "Win32_System_Kernel")]
     pub GetWindbgExtensionApis64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINDBG_EXTENSION_APIS64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Kernel"))]
+    GetWindbgExtensionApis64: usize,
     pub GetNumberEventFilters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterText: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetEventFilterCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
@@ -23689,6 +23763,7 @@ pub struct IDebugControl7_Vtbl {
     pub GetSynchronizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetDebuggeeType2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
@@ -23865,6 +23940,7 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> windows_core::Result<()>;
     fn GetDebuggeeType2(&self, flags: u32, class: *mut u32, qualifier: *mut u32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl IDebugControl7_Vtbl {
     pub const fn new<Identity: IDebugControl7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -25015,6 +25091,7 @@ impl IDebugControl7_Vtbl {
         iid == &<IDebugControl7 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::RuntimeName for IDebugControl7 {}
 windows_core::imp::define_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces, windows_core::IUnknown);
@@ -46367,6 +46444,7 @@ impl windows_core::TypeKind for WDBGEXTS_THREAD_OS_INFO {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -46382,15 +46460,18 @@ pub struct WINDBG_EXTENSION_APIS {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for WINDBG_EXTENSION_APIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for WINDBG_EXTENSION_APIS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -46406,15 +46487,18 @@ pub struct WINDBG_EXTENSION_APIS32 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for WINDBG_EXTENSION_APIS32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for WINDBG_EXTENSION_APIS32 {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
@@ -46430,11 +46514,13 @@ pub struct WINDBG_EXTENSION_APIS64 {
     pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
     pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for WINDBG_EXTENSION_APIS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl windows_core::TypeKind for WINDBG_EXTENSION_APIS64 {
     type TypeKind = windows_core::CopyType;
 }
@@ -46559,8 +46645,11 @@ pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize,
 pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT32 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 pub type PWINDBG_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_core::PCSTR)>;
 pub type PWINDBG_EXTENSION_ROUTINE32 = Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: windows_core::PCSTR)>;
@@ -46571,16 +46660,19 @@ pub type PWINDBG_GET_EXPRESSION64 = Option<unsafe extern "system" fn(lpexpressio
 pub type PWINDBG_GET_SYMBOL = Option<unsafe extern "system" fn(offset: *mut core::ffi::c_void, pchbuffer: windows_core::PCSTR, pdisplacement: *mut usize)>;
 pub type PWINDBG_GET_SYMBOL32 = Option<unsafe extern "system" fn(offset: u32, pchbuffer: windows_core::PCSTR, pdisplacement: *mut u32)>;
 pub type PWINDBG_GET_SYMBOL64 = Option<unsafe extern "system" fn(offset: u64, pchbuffer: windows_core::PCSTR, pdisplacement: *mut u64)>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
 pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_core::PCSTR)>;
 pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
 pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: windows_core::PCSTR)>;
 pub type PWINDBG_OUTPUT_ROUTINE = Option<unsafe extern "system" fn(lpformat: windows_core::PCSTR)>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE32 = Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
