@@ -248,17 +248,9 @@ impl Class {
         )
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
-        for interface in self.required_interfaces() {
-            interface.dependencies2(dependencies);
-        }
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.type_name()) {
-            for interface in self.required_interfaces() {
-                interface.dependencies(dependencies);
-            }
+        for interface in self.required_interfaces() {
+            Type::Interface(interface).dependencies(dependencies);
         }
     }
 

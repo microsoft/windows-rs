@@ -14,13 +14,6 @@ impl Signature {
     //         .fold(0, |sum, param| sum + std::cmp::max(4, param.0.size()))
     // }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
-        self.return_type.0.dependencies2(dependencies);
-        self.params
-            .iter()
-            .for_each(|(ty, _)| ty.dependencies2(dependencies));
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         self.return_type.0.dependencies(dependencies);
         self.params

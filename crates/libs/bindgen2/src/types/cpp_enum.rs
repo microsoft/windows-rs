@@ -129,10 +129,6 @@ impl CppEnum {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        dependencies.insert(self.type_name());
-    }
-
     pub fn size(&self) -> usize {
         self.def.underlying_type().size()
     }

@@ -6,6 +6,7 @@
     clippy::all
 )]
 
+pub type PCSTR = *const u8;
 windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE, lpprocname : PCSTR) -> FARPROC);
 windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
@@ -15,4 +16,3 @@ pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type PCSTR = *const u8;

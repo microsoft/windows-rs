@@ -9,7 +9,7 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    pub fn new(dependencies: Dependencies2) -> Self {
+    pub fn new(dependencies: &Dependencies) -> Self {
         let mut tree = Self::with_namespace("");
 
         dependencies.types().for_each(|ty| {

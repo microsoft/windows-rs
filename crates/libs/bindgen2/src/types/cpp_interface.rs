@@ -6,18 +6,10 @@ pub enum CppMethodOrName {
     Name(&'static str),
 }
 
-#[derive(Clone, Debug, Hash)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq)]
 pub struct CppInterface {
     pub def: TypeDef,
 }
-
-impl PartialEq for CppInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.def == other.def
-    }
-}
-
-impl Eq for CppInterface {}
 
 impl Ord for CppInterface {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -437,35 +429,16 @@ impl CppInterface {
         quote! { #namespace #name }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         let base_interfaces = self.base_interfaces();
 
         if matches!(base_interfaces.first(), Some(Type::IUnknown)) {
-            Type::IUnknown.dependencies2(dependencies);
-            Type::GUID.dependencies2(dependencies);
+            Type::IUnknown.dependencies(dependencies);
+            Type::GUID.dependencies(dependencies);
         }
 
         for interface in &base_interfaces {
-            if let Type::CppInterface(item) = interface {
-                item.dependencies2(dependencies);
-            }
-        }
-    }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.type_name()) {
-            let base_interfaces = self.base_interfaces();
-
-            if matches!(base_interfaces.first(), Some(Type::IUnknown)) {
-                Type::IUnknown.dependencies(dependencies);
-                Type::GUID.dependencies(dependencies);
-            }
-
-            for interface in &base_interfaces {
-                if let Type::CppInterface(item) = interface {
-                    item.dependencies(dependencies);
-                }
-            }
+            interface.dependencies(dependencies);
         }
     }
 

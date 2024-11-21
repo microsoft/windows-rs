@@ -100,8 +100,4 @@ impl Enum {
             self.def.underlying_type().runtime_signature()
         )
     }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        dependencies.insert(self.def.type_name());
-    }
 }

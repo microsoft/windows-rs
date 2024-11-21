@@ -100,6 +100,6 @@ impl References {
     pub fn contains(&self, name: TypeName<'_>) -> Option<&Reference> {
         self.0
             .iter()
-            .find(|reference| reference.includes.contains(&name))
+            .find(|reference| reference.includes.contains(name))
     }
 }

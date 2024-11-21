@@ -6,6 +6,7 @@
     clippy::all
 )]
 
+pub type PCSTR = *const u8;
 pub mod Windows {
     pub mod Win32 {
         pub mod Foundation {
@@ -25,4 +26,3 @@ pub mod Windows {
         }
     }
 }
-pub type PCSTR = *const u8;

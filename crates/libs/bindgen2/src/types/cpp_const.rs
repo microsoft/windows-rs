@@ -132,14 +132,8 @@ impl CppConst {
         }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
-        self.field.ty(None).dependencies2(dependencies);
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.type_name()) {
-            self.field.ty(None).dependencies(dependencies);
-        }
+        self.field.ty(None).dependencies(dependencies);
     }
 }
 

@@ -64,18 +64,9 @@ impl CppDelegate {
         }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         self.method()
             .signature(self.def.namespace(), &[])
-            .dependencies2(dependencies);
-    }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        let type_name = self.type_name();
-        if dependencies.insert(type_name) {
-            self.method()
-                .signature(type_name.namespace(), &[])
-                .dependencies(dependencies);
-        }
+            .dependencies(dependencies);
     }
 }

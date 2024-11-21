@@ -5,34 +5,33 @@
     clippy::upper_case_acronyms
 )]
 
+//mod dependencies;
 mod dependencies;
-mod dependencies2;
 mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
 mod io;
-mod item_tree;
-mod type_tree;
+//mod item_tree;
 mod references;
 mod signature;
 mod tables;
 mod tokens;
 mod type_name;
+mod type_tree;
 mod types;
 mod value;
 mod winmd;
 mod writer;
 
+//use dependencies::*;
 use dependencies::*;
-use dependencies2::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
 use io::*;
-use item_tree::*;
-use type_tree::*;
+//use item_tree::*;
 use references::*;
 use signature::*;
 use std::cmp::Ordering;
@@ -41,6 +40,7 @@ use std::fmt::Write;
 use tables::*;
 use tokens::*;
 use type_name::*;
+use type_tree::*;
 use types::*;
 use value::*;
 use winmd::*;
@@ -49,7 +49,7 @@ mod method_names;
 use method_names::*;
 
 struct Config {
-    pub includes: Dependencies, // TODO: can we get rid of Includes and just use it to create the ItemTree?
+    pub includes: Dependencies, // TODO: can we get rid of Includes and just use it to create the TypeTree?
     pub references: References,
     pub output: String,
     pub flat: bool,
@@ -176,6 +176,8 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let includes = Dependencies::filter(reader, &filter);
 
+    //dbg!(&includes);
+
     let references = References::new(reader, references);
 
     let derive = Derive::new(reader, &derive);
@@ -205,9 +207,9 @@ where
 
     // dbg!(&tree);
 
-    // TODO: this won't be needed once the Dependencies2 type has been build and already contains all items - just need to turn
+    // TODO: this won't be needed once the Dependencies type has been build and already contains all items - just need to turn
     // it into a tree... - maybe that's what this becomes
-    let items = ItemTree::new(reader, config);
+    let items = TypeTree::new(&config.includes);
 
     // TODO: naming item -> type
 

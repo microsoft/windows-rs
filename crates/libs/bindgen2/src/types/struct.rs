@@ -74,17 +74,9 @@ impl Struct {
         signature
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
-        for field in self.def.fields() {
-            field.ty(None).dependencies2(dependencies);
-        }
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.type_name()) {
-            for field in self.def.fields() {
-                field.ty(None).dependencies(dependencies);
-            }
+        for field in self.def.fields() {
+            field.ty(None).dependencies(dependencies);
         }
     }
 

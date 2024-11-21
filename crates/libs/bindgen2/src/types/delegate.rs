@@ -193,18 +193,8 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
-        dependencies.combine(&self.method().dependencies2);
-        // TODO: collect generics here?
-        // for ty in &self.generics {
-        //     ty.dependencies(dependencies);
-        // }
-    }
-
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.type_name()) {
-            dependencies.combine(&self.method().dependencies);
-        }
+        dependencies.combine(&self.method().dependencies);
         // TODO: collect generics here?
         // for ty in &self.generics {
         //     ty.dependencies(dependencies);

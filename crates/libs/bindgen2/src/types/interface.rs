@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum InterfaceKind {
     None,
     Default,
@@ -15,31 +15,11 @@ pub enum MethodOrName {
     Name(&'static str),
 }
 
-#[derive(Clone, Debug, Hash)]
+#[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
     pub kind: InterfaceKind,
-}
-
-impl PartialEq for Interface {
-    fn eq(&self, other: &Self) -> bool {
-        self.def == other.def
-    }
-}
-
-impl Eq for Interface {}
-
-impl Ord for Interface {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.def.name().cmp(other.def.name())
-    }
-}
-
-impl PartialOrd for Interface {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
 }
 
 impl Interface {
@@ -483,31 +463,12 @@ impl Interface {
         interface_signature(self.def, &self.generics)
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         // TODO: does this also need to be outside
         for interface in self.required_interfaces() {
-            interface.dependencies2(dependencies);
+            Type::Interface(interface).dependencies(dependencies);
         }
 
-        // Different specializations of Interface may have different generics...
-        for ty in &self.generics {
-            ty.dependencies2(dependencies);
-        }
-
-        // TODO: have "Foundation" dependencies as required?
-        // match TypeName(self.def.namespace(), self.def.name()) {
-        //     TypeName::IIterable => _ = dependencies.insert(TypeName::IIterator.namespace(), TypeName::IIterator.name()),
-        //     _ => {}
-        // }
-    }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.def.type_name()) {
-            // TODO: does this also need to be outside
-            for interface in self.required_interfaces() {
-                interface.dependencies(dependencies);
-            }
-        }
         // Different specializations of Interface may have different generics...
         for ty in &self.generics {
             ty.dependencies(dependencies);

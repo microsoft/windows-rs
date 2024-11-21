@@ -56,7 +56,7 @@ impl Writer {
         }
 
         if let Some(reference) = {
-            if self.config.includes.contains(&type_name) {
+            if self.config.includes.contains(type_name) {
                 None
             } else {
                 self.config.references.contains(type_name)

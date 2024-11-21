@@ -33,16 +33,6 @@ pub use r#struct::*;
 // 2. order everything else by name
 // Otherwise it looks weird when you have things like LOAD_LIBRARY_FLAGS sorting before BOOL
 
-// impl Ord for Item {
-//     fn cmp(&self, other: &Self) -> Ordering {
-//     }
-// }
-
-// impl PartialOrd for Item {
-//     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-//         Some(self.cmp(other))
-//     }
-// }
 
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd, Hash)]
 pub enum Type {
@@ -522,7 +512,21 @@ impl Type {
         }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+    pub fn split_generic(&self) -> (Type, Vec<Type>) {
+        match self {
+            Self::Interface(ty) if !ty.generics.is_empty() => {
+                let base = ty.def.reader().with_full_name(ty.type_name()).next().unwrap();
+                (base, ty.generics.clone())
+            }
+            Self::Delegate(ty) if !ty.generics.is_empty() =>{
+                let base = ty.def.reader().with_full_name(ty.type_name()).next().unwrap();
+                (base, ty.generics.clone())
+            }
+            _ => (self.clone(), vec![]),
+        }
+    }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         let ty: &Type = match self {
             Self::PtrMut(ty, _) => ty,
             Self::PtrConst(ty, _) => ty,
@@ -534,81 +538,32 @@ impl Type {
             _ => self,
         };
 
+        let (ty, generics) = ty.split_generic();
+
+        for ty in generics {
+            ty.dependencies(dependencies);
+        }
+
         if !dependencies.insert(ty.clone()) {
             return;
         }
 
-        if let Some(multi) = match ty {
+        if let Some(multi) = match &ty {
             Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.type_name())),
             Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.type_name())),
             _ => None,
         } {
             multi.for_each(|multi| {
-                if ty != &multi {
-                    multi.dependencies2(dependencies)
+                if ty != multi {
+                    multi.dependencies(dependencies)
                 }
             });
         }
 
-        match ty {
-            Self::Class(item) => item.dependencies2(dependencies),
-            Self::Delegate(item) => item.dependencies2(dependencies),
-            Self::Enum(item) => {}
-            Self::Interface(item) => item.dependencies2(dependencies),
-            Self::Struct(item) => item.dependencies2(dependencies),
-            Self::CppConst(item) => item.dependencies2(dependencies),
-            Self::CppDelegate(item) => item.dependencies2(dependencies),
-            Self::CppFn(item) => item.dependencies2(dependencies),
-            Self::CppInterface(item) => item.dependencies2(dependencies),
-            Self::CppStruct(item) => item.dependencies2(dependencies),
-            Self::CppEnum(item) => {}
-
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        match self {
-            Self::PtrMut(ty, _) => ty.dependencies(dependencies),
-            Self::PtrConst(ty, _) => ty.dependencies(dependencies),
-            Self::ArrayFixed(ty, _) => ty.dependencies(dependencies),
-            Self::Array(ty) => ty.dependencies(dependencies),
-            Self::ArrayRef(ty) => ty.dependencies(dependencies),
-            Self::ConstRef(ty) => ty.dependencies(dependencies),
-            Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies),
-            Self::String => {
-                dependencies.insert(TypeName("", "String"));
-            }
-            Self::BSTR => {
-                dependencies.insert(TypeName("", "BSTR"));
-            }
-            Self::Object => {
-                dependencies.insert(TypeName("", "Object"));
-            }
-            Self::IUnknown => {
-                dependencies.insert(TypeName("", "IUnknown"));
-            }
-            Self::PSTR => {
-                dependencies.insert(TypeName("", "PSTR"));
-            }
-            Self::PCSTR => {
-                dependencies.insert(TypeName("", "PCSTR"));
-            }
-            Self::PWSTR => {
-                dependencies.insert(TypeName("", "PWSTR"));
-            }
-            Self::PCWSTR => {
-                dependencies.insert(TypeName("", "PCWSTR"));
-            }
-            Self::GUID => {
-                dependencies.insert(TypeName("", "GUID"));
-            }
-            Self::HRESULT => {
-                dependencies.insert(TypeName("", "HRESULT"));
-            }
+        match &ty {
             Self::Class(item) => item.dependencies(dependencies),
             Self::Delegate(item) => item.dependencies(dependencies),
-            Self::Enum(item) => item.dependencies(dependencies),
+            Self::Enum(..) => {}
             Self::Interface(item) => item.dependencies(dependencies),
             Self::Struct(item) => item.dependencies(dependencies),
             Self::CppConst(item) => item.dependencies(dependencies),
@@ -616,10 +571,65 @@ impl Type {
             Self::CppFn(item) => item.dependencies(dependencies),
             Self::CppInterface(item) => item.dependencies(dependencies),
             Self::CppStruct(item) => item.dependencies(dependencies),
-            Self::CppEnum(item) => item.dependencies(dependencies),
+            Self::CppEnum(..) => {}
+
             _ => {}
         }
     }
+
+    // pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    //     match self {
+    //         Self::PtrMut(ty, _) => ty.dependencies(dependencies),
+    //         Self::PtrConst(ty, _) => ty.dependencies(dependencies),
+    //         Self::ArrayFixed(ty, _) => ty.dependencies(dependencies),
+    //         Self::Array(ty) => ty.dependencies(dependencies),
+    //         Self::ArrayRef(ty) => ty.dependencies(dependencies),
+    //         Self::ConstRef(ty) => ty.dependencies(dependencies),
+    //         Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies),
+    //         Self::String => {
+    //             dependencies.insert(TypeName("", "String"));
+    //         }
+    //         Self::BSTR => {
+    //             dependencies.insert(TypeName("", "BSTR"));
+    //         }
+    //         Self::Object => {
+    //             dependencies.insert(TypeName("", "Object"));
+    //         }
+    //         Self::IUnknown => {
+    //             dependencies.insert(TypeName("", "IUnknown"));
+    //         }
+    //         Self::PSTR => {
+    //             dependencies.insert(TypeName("", "PSTR"));
+    //         }
+    //         Self::PCSTR => {
+    //             dependencies.insert(TypeName("", "PCSTR"));
+    //         }
+    //         Self::PWSTR => {
+    //             dependencies.insert(TypeName("", "PWSTR"));
+    //         }
+    //         Self::PCWSTR => {
+    //             dependencies.insert(TypeName("", "PCWSTR"));
+    //         }
+    //         Self::GUID => {
+    //             dependencies.insert(TypeName("", "GUID"));
+    //         }
+    //         Self::HRESULT => {
+    //             dependencies.insert(TypeName("", "HRESULT"));
+    //         }
+    //         Self::Class(item) => item.dependencies(dependencies),
+    //         Self::Delegate(item) => item.dependencies(dependencies),
+    //         Self::Enum(item) => item.dependencies(dependencies),
+    //         Self::Interface(item) => item.dependencies(dependencies),
+    //         Self::Struct(item) => item.dependencies(dependencies),
+    //         Self::CppConst(item) => item.dependencies(dependencies),
+    //         Self::CppDelegate(item) => item.dependencies(dependencies),
+    //         Self::CppFn(item) => item.dependencies(dependencies),
+    //         Self::CppInterface(item) => item.dependencies(dependencies),
+    //         Self::CppStruct(item) => item.dependencies(dependencies),
+    //         Self::CppEnum(item) => item.dependencies(dependencies),
+    //         _ => {}
+    //     }
+    // }
 
     pub fn is_exclusive(&self) -> bool {
         match self {
@@ -818,8 +828,54 @@ impl Type {
             Self::Delegate(item) => item.write(writer),
             Self::Class(item) => item.write(writer),
             Self::CppInterface(item) => item.write(writer),
-            // TODO: here we should be able to write the other no-dep types like HSTRING and IUnknown
-            rest => panic!("windows-bindgen: {rest:?}"),
+
+            // TODO: should provide non-sys versions of these as well for no-deps builds?
+            Self::HRESULT if writer.config.no_deps => quote! { pub type HRESULT = i32; },
+
+            Self::PWSTR if writer.config.no_deps => quote! { pub type PWSTR = *mut u16; },
+            Self::PCSTR if writer.config.no_deps => quote! { pub type PCSTR = *const u8; },
+            Self::PSTR if writer.config.no_deps => quote! { pub type PSTR = *mut u8; },
+            Self::PCWSTR if writer.config.no_deps => quote! { pub type PCWSTR = *const u16; },
+            Self::BSTR if writer.config.no_deps => quote! { pub type BSTR = *const u16; },
+            Self::String if writer.config.no_deps => {
+                quote! { pub type HSTRING = *mut core::ffi::c_void; }
+            }
+            Self::GUID if writer.config.no_deps => quote! {
+                #[repr(C)]
+                #[derive(Clone, Copy)]
+                pub struct GUID {
+                    pub data1: u32,
+                    pub data2: u16,
+                    pub data3: u16,
+                    pub data4: [u8; 8],
+                }
+                impl GUID {
+                    pub const fn from_u128(uuid: u128) -> Self {
+                        Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
+                    }
+                }
+            },
+            Self::IUnknown if writer.config.no_deps => quote! {
+                pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+                #[repr(C)]
+                pub struct IUnknown_Vtbl {
+                    pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT,
+                    pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+                    pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
+                }
+            },
+            Self::Object if writer.config.no_deps => quote! {
+                pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+                #[repr(C)]
+                pub struct IInspectable_Vtbl {
+                    pub base: IUnknown_Vtbl,
+                    pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+                    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
+                    pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
+                }
+            },
+
+            _ => quote! {},
         }
     }
 
@@ -844,25 +900,7 @@ impl Type {
             Self::CppStruct(item) => item.def.namespace(),
             Self::CppConst(item) => item.namespace,
             Self::CppFn(item) => item.namespace,
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
-
-    // TODO: remove
-    pub fn name(&self) -> &str {
-        match self {
-            Self::Class(item) => item.def.name(),
-            Self::Delegate(item) => item.def.name(),
-            Self::Enum(item) => item.def.name(),
-            Self::Interface(item) => item.def.name(),
-            Self::Struct(item) => item.def.name(),
-            Self::CppDelegate(item) => item.def.name(),
-            Self::CppEnum(item) => item.def.name(),
-            Self::CppInterface(item) => item.def.name(),
-            Self::CppStruct(item) => item.name(),
-            Self::CppConst(item) => item.field.name(),
-            Self::CppFn(item) => item.method.name(),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            _ => "",
         }
     }
 
@@ -879,7 +917,8 @@ impl Type {
             Self::CppStruct(item) => item.type_name(),
             Self::CppConst(item) => item.type_name(),
             Self::CppFn(item) => item.type_name(),
-            rest => panic!("windows-bindgen: {rest:?}"),
+
+            _ => TypeName("", ""),
         }
     }
 }

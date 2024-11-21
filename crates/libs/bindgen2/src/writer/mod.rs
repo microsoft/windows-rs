@@ -20,7 +20,7 @@ impl Writer {
         clone
     }
 
-    pub fn write(&self, tree: ItemTree) {
+    pub fn write(&self, tree: TypeTree) {
         if self.config.package {
             self.write_package(&tree);
         } else {
@@ -28,73 +28,17 @@ impl Writer {
         }
     }
 
-    fn write_file(&self, tree: ItemTree) {
-        let mut tokens = if self.config.flat {
+    fn write_file(&self, tree: TypeTree) {
+        let tokens = if self.config.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
 
-        // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
-        // TODO: should provide non-sys versions of these as well for no-deps builds?
-        if self.config.no_deps {
-            // TODO: This items collection is a HashSet and thus the output is not stable - it needs to be sorted before tokenizing
-            for dependency in self.config.includes.iter() {
-                if !dependency.0.is_empty() {
-                    continue;
-                }
-
-                tokens.combine(match dependency.1 {
-                    "HRESULT" => quote! { pub type HRESULT = i32; },
-                    "PWSTR" => quote! { pub type PWSTR = *mut u16; },
-                    "PCSTR" => quote! { pub type PCSTR = *const u8; },
-                    "PSTR" => quote! { pub type PSTR = *mut u8; },
-                    "PCWSTR" => quote! { pub type PCWSTR = *const u16; },
-                    "BSTR" => quote! { pub type BSTR = *const u16; },
-                    "String" => quote! { pub type HSTRING = *mut core::ffi::c_void; },
-                    "GUID" => quote! { 
-                        #[repr(C)]
-                        #[derive(Clone, Copy)]
-                        pub struct GUID {
-                            pub data1: u32,
-                            pub data2: u16,
-                            pub data3: u16,
-                            pub data4: [u8; 8],
-                        }
-                        impl GUID {
-                            pub const fn from_u128(uuid: u128) -> Self {
-                                Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
-                            }
-                        }
-                    },
-                    "IUnknown" => quote! {
-                        pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
-                        #[repr(C)]
-                        pub struct IUnknown_Vtbl {
-                            pub QueryInterface: unsafe extern "system" fn(this: *mut core::ffi::c_void, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT,
-                            pub AddRef: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
-                            pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
-                        }
-                    },
-                    "Object" => quote! {
-                        pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
-                        #[repr(C)]
-                        pub struct IInspectable_Vtbl {
-                            pub base: IUnknown_Vtbl,
-                            pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
-                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
-                        }
-                    },
-                    rest => panic!("windows-bindgen: {rest:?}"),
-                });
-            }
-        }
-
         write_to_file(&self.config.output, self.format(&tokens.into_string()));
     }
 
-    fn write_flat(&self, tree: ItemTree) -> TokenStream {
+    fn write_flat(&self, tree: TypeTree) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         for item in tree.flatten_items() {
@@ -104,10 +48,10 @@ impl Writer {
         tokens
     }
 
-    fn write_modules(&self, tree: &ItemTree) -> TokenStream {
+    fn write_modules(&self, tree: &TypeTree) -> TokenStream {
         let mut tokens = TokenStream::new();
 
-        for item in &tree.items {
+        for item in &tree.types {
             tokens.combine(item.write(self));
         }
 
@@ -120,7 +64,7 @@ impl Writer {
         tokens
     }
 
-    fn write_package(&self, tree: &ItemTree) {
+    fn write_package(&self, tree: &TypeTree) {
         for name in tree.nested.keys() {
             _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
         }
@@ -148,7 +92,8 @@ impl Writer {
 
             let writer = self.with_namespace(tree.namespace);
 
-            for item in &tree.items {
+            // TODO: Rename all "item" to "ty" and all "type_name" to "tn"
+            for item in &tree.types {
                 tokens.combine(item.write(&writer));
             }
 

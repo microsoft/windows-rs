@@ -250,18 +250,10 @@ impl CppFn {
         }
     }
 
-    pub fn dependencies2(&self, dependencies: &mut Dependencies2) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         self.method
             .signature(self.namespace, &[])
-            .dependencies2(dependencies);
-    }
-
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if dependencies.insert(self.type_name()) {
-            self.method
-                .signature(self.namespace, &[])
-                .dependencies(dependencies);
-        }
+            .dependencies(dependencies);
     }
 }
 
