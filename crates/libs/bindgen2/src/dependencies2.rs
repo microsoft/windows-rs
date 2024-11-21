@@ -67,6 +67,11 @@ impl Dependencies2 {
         self.0.iter().map(|ty| ty.namespace())
     }
 
+    // TODO: do we need a consuming version of this?
+    pub fn types(&self) -> impl Iterator<Item = Type> + '_ {
+        self.0.iter().cloned()
+    }
+
     pub fn included(&self, config: &Config) -> bool {
         self.0.iter().all(|name| {
             // // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
