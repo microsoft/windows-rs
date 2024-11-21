@@ -11,7 +11,7 @@ impl TypeDef {
         TypeAttributes(self.usize(0) as u32)
     }
 
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace(), self.name())
     }
 
@@ -23,7 +23,7 @@ impl TypeDef {
         self.str(2)
     }
 
-    pub fn extends(&self) -> Option<TypeName<'static>> {
+    pub fn extends(&self) -> Option<TypeName> {
         let extends = self.usize(3);
 
         if extends == 0 {
@@ -85,7 +85,7 @@ impl TypeDef {
             if let Some((_, Value::String(name))) = attribute.args().first() {
                 if let Some(Type::CppFn(item)) = self
                     .reader()
-                    .with_full_name(TypeName(self.namespace(), name.as_str()))
+                    .with_full_name(self.namespace(), name.as_str())
                     .next()
                 {
                     return Some(item);

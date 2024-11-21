@@ -51,7 +51,7 @@ impl Reader {
                     continue;
                 }
 
-                let items = reader.0.entry(type_name.0).or_default();
+                let items = reader.0.entry(type_name.namespace()).or_default();
                 let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
@@ -182,9 +182,9 @@ impl Reader {
     }
 
     /// Gets all items matching the given namespace and name.
-    pub fn with_full_name(&self, name: TypeName<'_>) -> impl Iterator<Item = Type> + '_ {
-        self.get(name.namespace())
-            .and_then(|items| items.get(name.name()))
+    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
+        self.get(namespace)
+            .and_then(|items| items.get(name))
             .into_iter()
             .flatten()
             .cloned()
@@ -210,7 +210,7 @@ impl Reader {
             .cloned()
     }
 
-    pub fn get_type_name(&self, path: &str) -> TypeName<'static> {
+    pub fn get_type_name(&self, path: &str) -> TypeName {
         if let Some((namespace, name)) = path.rsplit_once('.') {
             if let Some((namespace, items)) = self.get_key_value(namespace) {
                 if let Some((name, _)) = items.get_key_value(name) {

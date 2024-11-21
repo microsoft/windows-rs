@@ -1,6 +1,6 @@
 use super::*;
 
-pub struct Derive(HashMap<TypeName<'static>, Vec<String>>);
+pub struct Derive(HashMap<TypeName, Vec<String>>);
 
 impl Derive {
     pub fn new(reader: &'static Reader, derive: &[&str]) -> Self {
@@ -21,7 +21,7 @@ impl Derive {
         Self(map)
     }
 
-    pub fn get<'a>(&'a self, type_name: TypeName<'a>) -> impl Iterator<Item = String> + 'a {
+    pub fn get<'a>(&'a self, type_name: TypeName) -> impl Iterator<Item = String> + 'a {
         self.0.get(&type_name).into_iter().flatten().cloned()
     }
 

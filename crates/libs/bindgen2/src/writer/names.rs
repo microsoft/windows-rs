@@ -48,7 +48,7 @@ impl Writer {
         }
     }
 
-    pub fn write_namespace(&self, type_name: TypeName<'_>) -> TokenStream {
+    pub fn write_namespace(&self, type_name: TypeName) -> TokenStream {
         let mut tokens = TokenStream::new();
 
         if type_name.namespace().is_empty() {

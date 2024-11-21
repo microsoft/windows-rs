@@ -21,7 +21,7 @@ impl PartialOrd for CppStruct {
 }
 
 impl CppStruct {
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         TypeName(self.def.namespace(), self.name)
     }
 

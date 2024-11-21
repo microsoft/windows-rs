@@ -49,7 +49,7 @@ impl Filter {
         false
     }
 
-    pub fn includes_type_name(&self, name: TypeName<'_>) -> bool {
+    pub fn includes_type_name(&self, name: TypeName) -> bool {
         for rule in &self.0 {
             if match_type_name(&rule.0, name.namespace(), name.name()) {
                 return rule.1;
@@ -59,9 +59,9 @@ impl Filter {
         false
     }
 
-    pub fn excludes_type_name(&self, name: TypeName<'_>) -> bool {
+    pub fn excludes_type_name(&self, name: TypeName) -> bool {
         for rule in &self.0 {
-            if match_type_name(&rule.0, name.0, name.1) {
+            if match_type_name(&rule.0, name.namespace(), name.name()) {
                 return !rule.1;
             }
         }
@@ -78,7 +78,7 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
 
     if let Some((namespace, name)) = filter.rsplit_once('.') {
         if reader
-            .with_full_name(TypeName(namespace, name))
+            .with_full_name(namespace, name)
             .next()
             .is_some()
         {

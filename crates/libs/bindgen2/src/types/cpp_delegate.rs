@@ -18,7 +18,7 @@ impl PartialOrd for CppDelegate {
 }
 
 impl CppDelegate {
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         self.def.type_name()
     }
 

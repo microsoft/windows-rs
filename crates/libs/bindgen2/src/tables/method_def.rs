@@ -63,7 +63,7 @@ impl MethodDef {
                             if let Some((_, Value::String(name))) = attribute.args().first() {
                                 if let Some(item) = param
                                     .reader()
-                                    .with_full_name(TypeName(namespace, name))
+                                    .with_full_name(namespace, name)
                                     .next()
                                 {
                                     ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(item));

@@ -1,9 +1,9 @@
 use super::*;
 
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
-pub struct TypeName<'a>(pub &'a str, pub &'a str);
+pub struct TypeName(pub &'static str, pub &'static str);
 
-impl TypeName<'_> {
+impl TypeName {
     pub const Object: Self = Self("System", "Object");
     pub const GUID: Self = Self("System", "Guid");
     pub const Type: Self = Self("System", "Type");
@@ -49,12 +49,12 @@ impl TypeName<'_> {
     }
 
     // TODO: can we just make this return &'static str
-    pub fn namespace(&self) -> &str {
+    pub fn namespace(&self) -> &'static str {
         self.0
     }
 
     // TODO: can we just make this return &'static str
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'static str {
         self.1
     }
 
@@ -71,7 +71,7 @@ impl TypeName<'_> {
     }
 }
 
-impl std::fmt::Display for TypeName<'_> {
+impl std::fmt::Display for TypeName {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.0, self.1)
     }

@@ -89,12 +89,12 @@ pub enum Type {
 #[derive(PartialEq)]
 pub enum Remap {
     Type(Type),
-    Name(TypeName<'static>),
+    Name(TypeName),
     None,
 }
 
 impl Type {
-    pub fn remap(type_name: TypeName<'_>) -> Remap {
+    pub fn remap(type_name: TypeName) -> Remap {
         match type_name {
             TypeName::GUID => Remap::Type(Self::GUID),
             TypeName::HResult => Remap::Type(Self::HRESULT),
@@ -161,7 +161,7 @@ impl Type {
             }
         }
 
-        if let Some(item) = code.reader().with_full_name(code_name).next() {
+        if let Some(item) = code.reader().with_full_name(code_name.namespace(), code_name.name()).next() {
             item
         } else {
             panic!("windows-bindgen: type not found: {code_name}")
@@ -238,7 +238,7 @@ impl Type {
 
                 let mut item = blob
                     .reader()
-                    .with_full_name(code_name)
+                    .with_full_name(code_name.namespace(), code_name.name())
                     .next()
                     .unwrap_or_else(|| panic!("windows-bindgen: type not found: {code_name}"));
 
@@ -511,13 +511,14 @@ impl Type {
         }
     }
 
+    // TODO: clean this up
     pub fn split_generic(&self) -> (Type, Vec<Type>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
                 let base = ty
                     .def
                     .reader()
-                    .with_full_name(ty.type_name())
+                    .with_full_name(ty.def.namespace(), ty.def.name())
                     .next()
                     .unwrap();
                 (base, ty.generics.clone())
@@ -526,7 +527,7 @@ impl Type {
                 let base = ty
                     .def
                     .reader()
-                    .with_full_name(ty.type_name())
+                    .with_full_name(ty.def.namespace(), ty.def.name())
                     .next()
                     .unwrap();
                 (base, ty.generics.clone())
@@ -571,8 +572,8 @@ impl Type {
         }
 
             if let Some(multi) = match &ty {
-                Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.type_name())),
-                Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.type_name())),
+                Self::CppStruct(ty) => Some(ty.def.reader().with_full_name(ty.def.namespace(), ty.def.name())),
+                Self::CppFn(ty) => Some(ty.method.reader().with_full_name(ty.namespace, ty.method.name())),
                 _ => None,
             } {
                 multi.for_each(|multi| {
@@ -926,7 +927,7 @@ impl Type {
         }
     }
 
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         match self {
             Self::Class(item) => item.type_name(),
             Self::Delegate(item) => item.type_name(),

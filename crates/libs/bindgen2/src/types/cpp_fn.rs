@@ -19,7 +19,7 @@ impl PartialOrd for CppFn {
 }
 
 impl CppFn {
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace, self.method.name())
     }
 

@@ -6,7 +6,7 @@ use super::*;
 
 
 
-type Set = HashMap<TypeName<'static>, HashSet<Type>>;
+type Set = HashMap<TypeName, HashSet<Type>>;
 
 // TODO: do we even need a wrapper type at this point?
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -108,7 +108,7 @@ impl Dependencies {
             .any(|(tn, _)| filter.excludes_type_name(*tn))
     }
 
-    pub fn contains(&self, name: TypeName<'_>) -> bool {
+    pub fn contains(&self, name: TypeName) -> bool {
         self.0.contains_key(&name)
     }
 }

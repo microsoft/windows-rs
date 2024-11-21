@@ -19,7 +19,7 @@ impl PartialOrd for CppConst {
 }
 
 impl CppConst {
-    pub fn type_name(&self) -> TypeName<'static> {
+    pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace, self.field.name())
     }
 
