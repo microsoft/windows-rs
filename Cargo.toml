@@ -23,7 +23,6 @@ unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows
 [workspace.dependencies]
 cppwinrt = { path = "crates/libs/cppwinrt" }
 windows = { path = "crates/libs/windows" }
-windows-bindgen = { path = "crates/libs/bindgen" }
 windows-bindgen2 = { path = "crates/libs/bindgen2" }
 windows-core = { path = "crates/libs/core" }
 windows-metadata = { path = "crates/libs/metadata" }
