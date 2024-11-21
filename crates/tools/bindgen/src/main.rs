@@ -1,7 +1,7 @@
 //! Regenerates bindings sources for `crates/tests/bindgen`
 
 use std::path::Path;
-use windows_bindgen2::bindgen;
+use windows_bindgen::bindgen;
 
 fn test(args: &str) {
     let mut expand = vec!["--in", "default"];

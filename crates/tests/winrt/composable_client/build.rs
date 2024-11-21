@@ -6,7 +6,7 @@ fn main() {
     println!("cargo:rerun-if-changed=src/interop.cpp");
     println!("cargo:rustc-link-lib=onecoreuap");
 
-    windows_bindgen2::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "../composable/metadata.winmd",
         "../../../libs/bindgen/default",

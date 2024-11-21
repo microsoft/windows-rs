@@ -1,5 +1,5 @@
 fn main() {
-    windows_bindgen2::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "../component/component.winmd",
         &format!("{}\\System32\\WinMetadata", env!("windir")),

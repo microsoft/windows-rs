@@ -1,5 +1,5 @@
 --in default
---out crates/libs/bindgen2/src/winmd/bindings.rs
+--out crates/libs/bindgen/src/winmd/bindings.rs
 --flat --sys --no-comment
 
 --filter

@@ -8,5 +8,5 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-bindgen2]
+[dependencies.windows-bindgen]
 workspace = true

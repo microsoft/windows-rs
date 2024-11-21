@@ -5,4 +5,4 @@ edition = "2021"
 publish = false
 
 [dependencies]
-windows-bindgen2 = { workspace = true }
+windows-bindgen = { workspace = true }

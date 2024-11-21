@@ -1,5 +1,5 @@
 fn main() {
-    windows_bindgen2::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "../json_validator_winrt/sample.winmd",
         &format!("{}\\System32\\WinMetadata", env!("windir")),

@@ -27,7 +27,7 @@ fn main() {
         panic!("Failed to run midlrt");
     }
 
-    windows_bindgen2::bindgen([
+    windows_bindgen::bindgen([
         "--in",
         "test.winmd",
         &metadata_dir,

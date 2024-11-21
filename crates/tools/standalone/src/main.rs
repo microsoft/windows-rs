@@ -238,5 +238,5 @@ fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);
     println!("running: bindgen {}", args.join(" "));
-    windows_bindgen2::bindgen(args);
+    windows_bindgen::bindgen(args);
 }

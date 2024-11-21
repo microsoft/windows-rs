@@ -36,5 +36,5 @@ fn main() {
         "name=windows,style=skip-root,path=Windows.Foundation".to_owned(),
     ];
 
-    windows_bindgen2::bindgen(&command);
+    windows_bindgen::bindgen(&command);
 }

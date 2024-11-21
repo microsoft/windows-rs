@@ -30,6 +30,36 @@ pub struct ICompositor_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    IVisual,
+    IVisual_Vtbl,
+    0xce89606a_5b03_5861_af26_9dced3aab7e6
+);
+impl windows_core::RuntimeType for IVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compositor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IVisualFactory,
+    IVisualFactory_Vtbl,
+    0x1974545d_259f_553c_8ea0_e505f897df81
+);
+impl windows_core::RuntimeType for IVisualFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IVisualFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IContainerVisual,
     IContainerVisual_Vtbl,
     0xb8accc46_3ff7_5a24_8247_f5a52e1f5a8d
@@ -71,36 +101,6 @@ pub struct ISpriteVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Brush: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(
-    IVisual,
-    IVisual_Vtbl,
-    0xce89606a_5b03_5861_af26_9dced3aab7e6
-);
-impl windows_core::RuntimeType for IVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisual_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Compositor: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(
-    IVisualFactory,
-    IVisualFactory_Vtbl,
-    0x1974545d_259f_553c_8ea0_e505f897df81
-);
-impl windows_core::RuntimeType for IVisualFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IVisualFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpriteVisual(windows_core::IUnknown);
@@ -111,6 +111,17 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(SpriteVisual, ContainerVisual, Visual);
 impl SpriteVisual {
+    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+        let this = &windows_core::Interface::cast::<IVisual>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn Children(&self) -> i32 {
         let this = &windows_core::Interface::cast::<IContainerVisual>(self).unwrap();
         unsafe {
@@ -133,17 +144,6 @@ impl SpriteVisual {
             );
             debug_assert!(hresult__.0 == 0);
             result__
-        }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
-        let this = &windows_core::Interface::cast::<IVisual>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -170,6 +170,17 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(ContainerVisual, Visual);
 impl ContainerVisual {
+    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+        let this = &windows_core::Interface::cast::<IVisual>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Compositor)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn Children(&self) -> i32 {
         let this = self;
         unsafe {
@@ -180,17 +191,6 @@ impl ContainerVisual {
             );
             debug_assert!(hresult__.0 == 0);
             result__
-        }
-    }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
-        let this = &windows_core::Interface::cast::<IVisual>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Compositor)(
-                windows_core::Interface::as_raw(this),
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

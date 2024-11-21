@@ -20,5 +20,5 @@ features = [
     "Win32_System_WinRT",
 ]
 
-[build-dependencies.windows-bindgen2]
+[build-dependencies.windows-bindgen]
 workspace = true
