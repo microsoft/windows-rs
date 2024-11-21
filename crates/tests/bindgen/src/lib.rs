@@ -11,6 +11,7 @@ pub mod deps2;
 pub mod deps3;
 pub mod derive;
 pub mod iota;
+pub mod multi;
 pub mod reference;
 pub mod udt_return_interface;
 pub mod winrt_class_with_handler;

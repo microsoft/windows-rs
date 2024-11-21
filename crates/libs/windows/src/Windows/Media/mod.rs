@@ -327,6 +327,44 @@ pub struct IMediaExtensionManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterVideoEncoderWithSettings: usize,
 }
+windows_core::imp::define_interface!(IMediaExtensionManager, IMediaExtensionManager_Vtbl, 0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff);
+impl windows_core::RuntimeType for IMediaExtensionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMediaExtensionManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RegisterSchemeHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterSchemeHandlerWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterSchemeHandlerWithSettings: usize,
+    pub RegisterByteStreamHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterByteStreamHandlerWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterByteStreamHandlerWithSettings: usize,
+    pub RegisterAudioDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterAudioDecoderWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterAudioDecoderWithSettings: usize,
+    pub RegisterAudioEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterAudioEncoderWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterAudioEncoderWithSettings: usize,
+    pub RegisterVideoDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterVideoDecoderWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterVideoDecoderWithSettings: usize,
+    pub RegisterVideoEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub RegisterVideoEncoderWithSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    RegisterVideoEncoderWithSettings: usize,
+}
 windows_core::imp::define_interface!(IMediaExtensionManager2, IMediaExtensionManager2_Vtbl, 0x5bcebf47_4043_4fed_acaf_54ec29dfb1f7);
 impl windows_core::RuntimeType for IMediaExtensionManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

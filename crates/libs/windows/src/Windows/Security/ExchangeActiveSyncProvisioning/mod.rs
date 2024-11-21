@@ -65,6 +65,23 @@ pub struct IEasComplianceResults_Vtbl {
     pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
     pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IEasComplianceResults, IEasComplianceResults_Vtbl, 0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
+impl windows_core::RuntimeType for IEasComplianceResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IEasComplianceResults_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Compliant: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub RequireEncryptionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasRequireEncryptionResult) -> windows_core::HRESULT,
+    pub MinPasswordLengthResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordLengthResult) -> windows_core::HRESULT,
+    pub DisallowConvenienceLogonResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasDisallowConvenienceLogonResult) -> windows_core::HRESULT,
+    pub MinPasswordComplexCharactersResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMinPasswordComplexCharactersResult) -> windows_core::HRESULT,
+    pub PasswordExpirationResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordExpirationResult) -> windows_core::HRESULT,
+    pub PasswordHistoryResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasPasswordHistoryResult) -> windows_core::HRESULT,
+    pub MaxPasswordFailedAttemptsResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxPasswordFailedAttemptsResult) -> windows_core::HRESULT,
+    pub MaxInactivityTimeLockResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EasMaxInactivityTimeLockResult) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IEasComplianceResults2, IEasComplianceResults2_Vtbl, 0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15);
 impl windows_core::RuntimeType for IEasComplianceResults2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

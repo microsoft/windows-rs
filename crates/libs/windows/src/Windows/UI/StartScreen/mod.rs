@@ -99,6 +99,53 @@ pub struct ISecondaryTile_Vtbl {
     RequestDeleteAsyncWithRectAndPlacement: usize,
     pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(ISecondaryTile, ISecondaryTile_Vtbl, 0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
+impl windows_core::RuntimeType for ISecondaryTile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ISecondaryTile_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetTileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetShortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ShortName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetSmallLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SmallLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetWideLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub WideLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLockScreenBadgeLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LockScreenBadgeLogo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetLockScreenDisplayBadgeAndTileText: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub LockScreenDisplayBadgeAndTileText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetTileOptions: unsafe extern "system" fn(*mut core::ffi::c_void, TileOptions) -> windows_core::HRESULT,
+    pub TileOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TileOptions) -> windows_core::HRESULT,
+    pub SetForegroundText: unsafe extern "system" fn(*mut core::ffi::c_void, ForegroundText) -> windows_core::HRESULT,
+    pub ForegroundText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ForegroundText) -> windows_core::HRESULT,
+    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::Color) -> windows_core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Color) -> windows_core::HRESULT,
+    pub RequestCreateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestCreateAsyncWithPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestCreateAsyncWithRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "UI_Popups")]
+    pub RequestCreateAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, super::Popups::Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Popups"))]
+    RequestCreateAsyncWithRectAndPlacement: usize,
+    pub RequestDeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestDeleteAsyncWithPoint: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestDeleteAsyncWithRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "UI_Popups")]
+    pub RequestDeleteAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, super::Popups::Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Popups"))]
+    RequestDeleteAsyncWithRectAndPlacement: usize,
+    pub UpdateAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ISecondaryTile2, ISecondaryTile2_Vtbl, 0xb2f6cc35_3250_4990_923c_294ab4b694dd);
 impl windows_core::RuntimeType for ISecondaryTile2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -211,30 +258,6 @@ impl windows_core::RuntimeType for ISecondaryTileVisualElements4 {
 pub struct ISecondaryTileVisualElements4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MixedRealityModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
-impl windows_core::RuntimeType for IStartScreenManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IStartScreenManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub SupportsAppListEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    SupportsAppListEntry: usize,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub ContainsAppListEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    ContainsAppListEntryAsync: usize,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub RequestAddAppListEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    RequestAddAppListEntryAsync: usize,
 }
 windows_core::imp::define_interface!(IStartScreenManager, IStartScreenManager_Vtbl, 0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
 impl windows_core::RuntimeType for IStartScreenManager {

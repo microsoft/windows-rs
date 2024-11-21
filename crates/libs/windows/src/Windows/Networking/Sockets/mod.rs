@@ -323,6 +323,18 @@ pub struct IMessageWebSocket_Vtbl {
     pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IMessageWebSocket, IMessageWebSocket_Vtbl, 0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
+impl windows_core::RuntimeType for IMessageWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMessageWebSocket_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Control: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Information: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveMessageReceived: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IMessageWebSocket2, IMessageWebSocket2_Vtbl, 0xbed0cee7_f9c8_440a_9ad5_737281d9742e);
 impl windows_core::RuntimeType for IMessageWebSocket2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -381,6 +393,23 @@ pub struct IMessageWebSocketControl2_Vtbl {
     pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
     SetClientCertificate: usize,
+}
+windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs, IMessageWebSocketMessageReceivedEventArgs_Vtbl, 0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
+impl windows_core::RuntimeType for IMessageWebSocketMessageReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IMessageWebSocketMessageReceivedEventArgs_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub MessageType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SocketMessageType) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetDataReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetDataReader: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub GetDataStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    GetDataStream: usize,
 }
 windows_core::imp::define_interface!(IMessageWebSocketMessageReceivedEventArgs, IMessageWebSocketMessageReceivedEventArgs_Vtbl, 0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
 impl windows_core::RuntimeType for IMessageWebSocketMessageReceivedEventArgs {
@@ -797,6 +826,20 @@ pub struct IStreamSocketStatics_Vtbl {
     pub GetEndpointPairsWithSortOptionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::HostNameSortOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetEndpointPairsWithSortOptionsAsync: usize,
+}
+windows_core::imp::define_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843);
+impl windows_core::RuntimeType for IStreamWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IStreamWebSocket_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Control: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Information: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub InputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    InputStream: usize,
 }
 windows_core::imp::define_interface!(IStreamWebSocket, IStreamWebSocket_Vtbl, 0xbd4a49d8_b289_45bb_97eb_c7525205a843);
 impl windows_core::RuntimeType for IStreamWebSocket {

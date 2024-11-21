@@ -1115,15 +1115,6 @@ pub struct IContactManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IContactManagerStatics2, IContactManagerStatics2_Vtbl, 0xa178e620_47d8_48cc_963c_9592b6e510c6);
-impl windows_core::RuntimeType for IContactManagerStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IContactManagerStatics2_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestStoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(IContactManagerStatics3, IContactManagerStatics3_Vtbl, 0xc4cc3d42_7586_492a_930b_7bc138fc2139);
 impl windows_core::RuntimeType for IContactManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

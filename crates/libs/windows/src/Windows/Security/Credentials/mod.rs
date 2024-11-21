@@ -214,6 +214,94 @@ impl IWebAccount_Vtbl {
         iid == &<IWebAccount as windows_core::Interface>::IID
     }
 }
+windows_core::imp::define_interface!(IWebAccount, IWebAccount_Vtbl, 0x69473eb2_8031_49be_80bb_96cb46d99aba);
+impl windows_core::RuntimeType for IWebAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(IWebAccount, windows_core::IUnknown, windows_core::IInspectable);
+impl IWebAccount {
+    pub fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).WebAccountProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn State(&self) -> windows_core::Result<WebAccountState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct IWebAccount_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub WebAccountProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UserName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WebAccountState) -> windows_core::HRESULT,
+}
+impl windows_core::RuntimeName for IWebAccount {
+    const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
+}
+pub trait IWebAccount_Impl: Sized + windows_core::IUnknownImpl {
+    fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider>;
+    fn UserName(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn State(&self) -> windows_core::Result<WebAccountState>;
+}
+impl IWebAccount_Vtbl {
+    pub const fn new<Identity: IWebAccount_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn WebAccountProvider<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebAccount_Impl::WebAccountProvider(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn UserName<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebAccount_Impl::UserName(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn State<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut WebAccountState) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebAccount_Impl::State(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebAccount, OFFSET>(),
+            WebAccountProvider: WebAccountProvider::<Identity, OFFSET>,
+            UserName: UserName::<Identity, OFFSET>,
+            State: State::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebAccount as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWebAccount2, IWebAccount2_Vtbl, 0x7b56d6f8_990b_4eb5_94a7_5621f3a8b824);
 impl windows_core::RuntimeType for IWebAccount2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -241,6 +329,17 @@ impl windows_core::RuntimeType for IWebAccountFactory {
 pub struct IWebAccountFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateWebAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, WebAccountState, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+impl windows_core::RuntimeType for IWebAccountProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IWebAccountProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IconUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProvider, IWebAccountProvider_Vtbl, 0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
 impl windows_core::RuntimeType for IWebAccountProvider {

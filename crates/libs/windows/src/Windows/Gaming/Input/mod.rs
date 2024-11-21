@@ -30,6 +30,22 @@ pub struct IArcadeStickStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ArcadeSticks: usize,
 }
+windows_core::imp::define_interface!(IArcadeStickStatics, IArcadeStickStatics_Vtbl, 0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
+impl windows_core::RuntimeType for IArcadeStickStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IArcadeStickStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ArcadeStickAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveArcadeStickAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub ArcadeStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveArcadeStickRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ArcadeSticks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ArcadeSticks: usize,
+}
 windows_core::imp::define_interface!(IArcadeStickStatics2, IArcadeStickStatics2_Vtbl, 0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 impl windows_core::RuntimeType for IArcadeStickStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -333,6 +349,17 @@ pub struct IGamepad_Vtbl {
     pub SetVibration: unsafe extern "system" fn(*mut core::ffi::c_void, GamepadVibration) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GamepadReading) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IGamepad, IGamepad_Vtbl, 0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
+impl windows_core::RuntimeType for IGamepad {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGamepad_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Vibration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GamepadVibration) -> windows_core::HRESULT,
+    pub SetVibration: unsafe extern "system" fn(*mut core::ffi::c_void, GamepadVibration) -> windows_core::HRESULT,
+    pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GamepadReading) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGamepad2, IGamepad2_Vtbl, 0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
 impl windows_core::RuntimeType for IGamepad2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -341,6 +368,22 @@ impl windows_core::RuntimeType for IGamepad2 {
 pub struct IGamepad2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, GamepadButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IGamepadStatics, IGamepadStatics_Vtbl, 0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
+impl windows_core::RuntimeType for IGamepadStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGamepadStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GamepadAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveGamepadAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub GamepadRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveGamepadRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Gamepads: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Gamepads: usize,
 }
 windows_core::imp::define_interface!(IGamepadStatics, IGamepadStatics_Vtbl, 0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
 impl windows_core::RuntimeType for IGamepadStatics {
@@ -395,22 +438,6 @@ pub struct IRacingWheel_Vtbl {
     WheelMotor: usize,
     pub GetButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, RacingWheelButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RacingWheelReading) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IRacingWheelStatics, IRacingWheelStatics_Vtbl, 0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
-impl windows_core::RuntimeType for IRacingWheelStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IRacingWheelStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RacingWheelAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveRacingWheelAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RacingWheelRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveRacingWheelRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub RacingWheels: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    RacingWheels: usize,
 }
 windows_core::imp::define_interface!(IRacingWheelStatics, IRacingWheelStatics_Vtbl, 0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
 impl windows_core::RuntimeType for IRacingWheelStatics {
@@ -498,6 +525,22 @@ pub struct IUINavigationController_Vtbl {
     pub GetCurrentReading: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UINavigationReading) -> windows_core::HRESULT,
     pub GetOptionalButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, OptionalUINavigationButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
     pub GetRequiredButtonLabel: unsafe extern "system" fn(*mut core::ffi::c_void, RequiredUINavigationButtons, *mut GameControllerButtonLabel) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUINavigationControllerStatics, IUINavigationControllerStatics_Vtbl, 0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
+impl windows_core::RuntimeType for IUINavigationControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IUINavigationControllerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UINavigationControllerAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUINavigationControllerAdded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UINavigationControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUINavigationControllerRemoved: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub UINavigationControllers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    UINavigationControllers: usize,
 }
 windows_core::imp::define_interface!(IUINavigationControllerStatics, IUINavigationControllerStatics_Vtbl, 0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
 impl windows_core::RuntimeType for IUINavigationControllerStatics {

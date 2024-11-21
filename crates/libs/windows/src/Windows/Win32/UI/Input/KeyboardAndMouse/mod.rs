@@ -1283,24 +1283,6 @@ impl windows_core::TypeKind for TRACKMOUSEEVENT {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct VK_F {
-    pub Vk: u8,
-    pub NLSFEProcType: u8,
-    pub NLSFEProcCurrent: u8,
-    pub NLSFEProcSwitch: u8,
-    pub NLSFEProc: [VK_FPARAM; 8],
-    pub NLSFEProcAlt: [VK_FPARAM; 8],
-}
-impl Default for VK_F {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for VK_F {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VK_FPARAM {
     pub NLSFEProcIndex: u8,
     pub NLSFEProcParam: u32,

@@ -548,6 +548,15 @@ pub struct IGattPresentationFormatStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IGattPresentationFormatStatics, IGattPresentationFormatStatics_Vtbl, 0x196d0020_faad_45dc_ae5b_2ac3184e84db);
+impl windows_core::RuntimeType for IGattPresentationFormatStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGattPresentationFormatStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub BluetoothSigAssignedNumbers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGattPresentationFormatStatics2, IGattPresentationFormatStatics2_Vtbl, 0xa9c21713_b82f_435e_b634_21fd85a43c07);
 impl windows_core::RuntimeType for IGattPresentationFormatStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

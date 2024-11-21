@@ -3254,6 +3254,31 @@ pub struct IPlayReadyStatics_Vtbl {
     pub MediaProtectionSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub PlayReadySecurityVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPlayReadyStatics, IPlayReadyStatics_Vtbl, 0x5e69c00d_247c_469a_8f31_5c1a1571d9c6);
+impl windows_core::RuntimeType for IPlayReadyStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlayReadyStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DomainJoinServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub DomainLeaveServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub IndividualizationServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub LicenseAcquirerServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub MeteringReportServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub RevocationServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub MediaProtectionSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub PlayReadySecurityVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPlayReadyStatics2, IPlayReadyStatics2_Vtbl, 0x1f8d6a92_5f9a_423e_9466_b33969af7a3d);
+impl windows_core::RuntimeType for IPlayReadyStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlayReadyStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PlayReadyCertificateSecurityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPlayReadyStatics2, IPlayReadyStatics2_Vtbl, 0x1f8d6a92_5f9a_423e_9466_b33969af7a3d);
 impl windows_core::RuntimeType for IPlayReadyStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3272,6 +3297,26 @@ pub struct IPlayReadyStatics3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SecureStopServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CheckSupportedHardware: unsafe extern "system" fn(*mut core::ffi::c_void, PlayReadyHardwareDRMFeatures, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPlayReadyStatics3, IPlayReadyStatics3_Vtbl, 0x3fa33f71_2dd3_4bed_ae49_f7148e63e710);
+impl windows_core::RuntimeType for IPlayReadyStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlayReadyStatics3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SecureStopServiceRequestType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+    pub CheckSupportedHardware: unsafe extern "system" fn(*mut core::ffi::c_void, PlayReadyHardwareDRMFeatures, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPlayReadyStatics4, IPlayReadyStatics4_Vtbl, 0x50a91300_d824_4231_9d5e_78ef8844c7d7);
+impl windows_core::RuntimeType for IPlayReadyStatics4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPlayReadyStatics4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InputTrustAuthorityToCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProtectionSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPlayReadyStatics4, IPlayReadyStatics4_Vtbl, 0x50a91300_d824_4231_9d5e_78ef8844c7d7);
 impl windows_core::RuntimeType for IPlayReadyStatics4 {

@@ -156,6 +156,15 @@ pub struct IInputInjectorStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
+impl windows_core::RuntimeType for IInputInjectorStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IInputInjectorStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub TryCreate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 impl windows_core::RuntimeType for IInputInjectorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

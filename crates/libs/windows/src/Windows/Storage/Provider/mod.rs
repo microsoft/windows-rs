@@ -26,6 +26,22 @@ pub struct ICachedFileUpdaterUI_Vtbl {
     pub RemoveUIRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub UIStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIStatus) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(ICachedFileUpdaterUI, ICachedFileUpdaterUI_Vtbl, 0x9e6f41e6_baf2_4a97_b600_9333f5df80fd);
+impl windows_core::RuntimeType for ICachedFileUpdaterUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICachedFileUpdaterUI_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UpdateTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CachedFileTarget) -> windows_core::HRESULT,
+    pub FileUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveFileUpdateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UIRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveUIRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub UIStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UIStatus) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ICachedFileUpdaterUI2, ICachedFileUpdaterUI2_Vtbl, 0x8856a21c_8699_4340_9f49_f7cad7fe8991);
 impl windows_core::RuntimeType for ICachedFileUpdaterUI2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -35,6 +51,26 @@ pub struct ICachedFileUpdaterUI2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UpdateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IFileUpdateRequest, IFileUpdateRequest_Vtbl, 0x40c82536_c1fe_4d93_a792_1e736bc70837);
+impl windows_core::RuntimeType for IFileUpdateRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IFileUpdateRequest_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ContentId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub File: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    File: usize,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FileUpdateStatus) -> windows_core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, FileUpdateStatus) -> windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub UpdateLocalFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    UpdateLocalFile: usize,
 }
 windows_core::imp::define_interface!(IFileUpdateRequest, IFileUpdateRequest_Vtbl, 0x40c82536_c1fe_4d93_a792_1e736bc70837);
 impl windows_core::RuntimeType for IFileUpdateRequest {

@@ -104,23 +104,6 @@ pub struct ISpatialInteractionController_Vtbl {
     pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialInteractionController, ISpatialInteractionController_Vtbl, 0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
-impl windows_core::RuntimeType for ISpatialInteractionController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISpatialInteractionController_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub HasTouchpad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub HasThumbstick: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    #[cfg(feature = "Devices_Haptics")]
-    pub SimpleHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Devices_Haptics"))]
-    SimpleHapticsController: usize,
-    pub VendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(ISpatialInteractionController2, ISpatialInteractionController2_Vtbl, 0x35b6d924_c7a2_49b7_b72e_5436b2fb8f9c);
 impl windows_core::RuntimeType for ISpatialInteractionController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -235,16 +218,6 @@ pub struct ISpatialInteractionSource_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialInteractionSource, ISpatialInteractionSource_Vtbl, 0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
-impl windows_core::RuntimeType for ISpatialInteractionSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISpatialInteractionSource_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SpatialInteractionSourceKind) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(ISpatialInteractionSource2, ISpatialInteractionSource2_Vtbl, 0xe4c5b70c_0470_4028_88c0_a0eb44d34efe);
 impl windows_core::RuntimeType for ISpatialInteractionSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -285,15 +258,6 @@ pub struct ISpatialInteractionSource4_Vtbl {
     pub TryCreateHandMeshObserverAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Perception_People"))]
     TryCreateHandMeshObserverAsync: usize,
-}
-windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs_Vtbl, 0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
-impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISpatialInteractionSourceEventArgs_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs_Vtbl, 0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
 impl windows_core::RuntimeType for ISpatialInteractionSourceEventArgs {

@@ -578,17 +578,6 @@ pub struct IEnclosureLocation_Vtbl {
     pub InLid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub Panel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Panel) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IEnclosureLocation, IEnclosureLocation_Vtbl, 0x42340a27_5810_459c_aabb_c65e1f813ecf);
-impl windows_core::RuntimeType for IEnclosureLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IEnclosureLocation_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub InDock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub InLid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub Panel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut Panel) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(IEnclosureLocation2, IEnclosureLocation2_Vtbl, 0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
 impl windows_core::RuntimeType for IEnclosureLocation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

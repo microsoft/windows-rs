@@ -87,6 +87,17 @@ pub struct IGameControllerFactoryManagerStatics_Vtbl {
     pub RegisterCustomFactoryForHardwareId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
     pub RegisterCustomFactoryForXusbType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XusbDeviceType, XusbDeviceSubtype) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IGameControllerFactoryManagerStatics, IGameControllerFactoryManagerStatics_Vtbl, 0x36cb66e3_d0a1_4986_a24c_40b137deba9e);
+impl windows_core::RuntimeType for IGameControllerFactoryManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGameControllerFactoryManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub RegisterCustomFactoryForGipInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
+    pub RegisterCustomFactoryForHardwareId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
+    pub RegisterCustomFactoryForXusbType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, XusbDeviceType, XusbDeviceSubtype) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGameControllerFactoryManagerStatics2, IGameControllerFactoryManagerStatics2_Vtbl, 0xeace5644_19df_4115_b32a_2793e2aea3bb);
 impl windows_core::RuntimeType for IGameControllerFactoryManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

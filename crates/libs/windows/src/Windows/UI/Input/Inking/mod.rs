@@ -267,37 +267,6 @@ pub struct IInkPresenter_Vtbl {
     pub StrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveStrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IInkPresenter, IInkPresenter_Vtbl, 0xa69b70e2_887b_458f_b173_4fe4438930a3);
-impl windows_core::RuntimeType for IInkPresenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct IInkPresenter_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetIsInputEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    #[cfg(feature = "UI_Core")]
-    pub InputDeviceTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Core::CoreInputDeviceTypes) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Core"))]
-    InputDeviceTypes: usize,
-    #[cfg(feature = "UI_Core")]
-    pub SetInputDeviceTypes: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Core::CoreInputDeviceTypes) -> windows_core::HRESULT,
-    #[cfg(not(feature = "UI_Core"))]
-    SetInputDeviceTypes: usize,
-    pub UnprocessedInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StrokeInput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InputProcessingConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub StrokeContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetStrokeContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CopyDefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UpdateDefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ActivateCustomDrying: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPredefinedConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, InkPresenterPredefinedConfiguration) -> windows_core::HRESULT,
-    pub StrokesCollected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStrokesCollected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub StrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub RemoveStrokesErased: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(IInkPresenter2, IInkPresenter2_Vtbl, 0xcf53e612_9a34_11e6_9f33_a24fc0d9649c);
 impl windows_core::RuntimeType for IInkPresenter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

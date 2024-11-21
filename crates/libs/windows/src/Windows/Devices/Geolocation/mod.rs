@@ -175,6 +175,27 @@ pub struct IGeolocator_Vtbl {
     pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IGeolocator, IGeolocator_Vtbl, 0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
+impl windows_core::RuntimeType for IGeolocator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IGeolocator_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PositionAccuracy) -> windows_core::HRESULT,
+    pub SetDesiredAccuracy: unsafe extern "system" fn(*mut core::ffi::c_void, PositionAccuracy) -> windows_core::HRESULT,
+    pub MovementThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub SetMovementThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub ReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub SetReportInterval: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub LocationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PositionStatus) -> windows_core::HRESULT,
+    pub GetGeopositionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetGeopositionAsyncWithAgeAndTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PositionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemovePositionChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub StatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+    pub RemoveStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGeolocator2, IGeolocator2_Vtbl, 0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1);
 impl windows_core::RuntimeType for IGeolocator2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

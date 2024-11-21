@@ -190,26 +190,6 @@ pub struct ITaskbarManager_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Core"))]
     RequestPinAppListEntryAsync: usize,
 }
-windows_core::imp::define_interface!(ITaskbarManager, ITaskbarManager_Vtbl, 0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
-impl windows_core::RuntimeType for ITaskbarManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ITaskbarManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsPinningAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub IsCurrentAppPinnedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub IsAppListEntryPinnedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    IsAppListEntryPinnedAsync: usize,
-    pub RequestPinCurrentAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "ApplicationModel_Core")]
-    pub RequestPinAppListEntryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ApplicationModel_Core"))]
-    RequestPinAppListEntryAsync: usize,
-}
 windows_core::imp::define_interface!(ITaskbarManager2, ITaskbarManager2_Vtbl, 0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 impl windows_core::RuntimeType for ITaskbarManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
