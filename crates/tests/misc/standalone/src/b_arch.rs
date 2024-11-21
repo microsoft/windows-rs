@@ -6,6 +6,7 @@
     clippy::all
 )]
 
+pub type PSTR = *mut u8;
 #[cfg(any(
     target_arch = "aarch64",
     target_arch = "arm64ec",
@@ -42,4 +43,3 @@ pub struct WSADATA {
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: PSTR,
 }
-pub type PSTR = *mut u8;

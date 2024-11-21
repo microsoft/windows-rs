@@ -6,6 +6,8 @@
     clippy::all
 )]
 
+pub type PSTR = *mut u8;
+pub type PCSTR = *const u8;
 windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
 windows_targets::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
 windows_targets::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> BOOLEAN);
@@ -19,5 +21,3 @@ pub type BOOLEAN = u8;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type HMODULE = *mut core::ffi::c_void;
 pub type SOCKET = usize;
-pub type PCSTR = *const u8;
-pub type PSTR = *mut u8;

@@ -6,6 +6,6 @@
     clippy::all
 )]
 
-windows_targets::link!("oleaut32.dll" "system" fn SysAllocString(psz : PCWSTR) -> BSTR);
 pub type PCWSTR = *const u16;
 pub type BSTR = *const u16;
+windows_targets::link!("oleaut32.dll" "system" fn SysAllocString(psz : PCWSTR) -> BSTR);

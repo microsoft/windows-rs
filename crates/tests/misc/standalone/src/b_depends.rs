@@ -6,6 +6,7 @@
     clippy::all
 )]
 
+pub type PSTR = *mut u8;
 pub type ADDRESS_FAMILY = u16;
 pub type HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
@@ -67,4 +68,3 @@ pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<
         dwflags: u32,
     ),
 >;
-pub type PSTR = *mut u8;
