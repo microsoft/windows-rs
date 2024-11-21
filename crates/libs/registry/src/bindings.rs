@@ -6,6 +6,8 @@
     clippy::all
 )]
 
+pub type PWSTR = *mut u16;
+pub type PCWSTR = *const u16;
 windows_targets::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_targets::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwflags : HEAP_FLAGS, dwbytes : usize) -> *mut core::ffi::c_void);
 windows_targets::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
@@ -57,5 +59,3 @@ pub struct SECURITY_ATTRIBUTES {
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
     pub bInheritHandle: BOOL,
 }
-pub type PWSTR = *mut u16;
-pub type PCWSTR = *const u16;

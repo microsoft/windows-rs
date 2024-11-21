@@ -145,7 +145,7 @@ impl Reader {
                         Category::Struct => {
                             fn make(
                                 def: TypeDef,
-                                name: String,
+                                name: &'static str,
                                 nested: &HashMap<TypeDef, Vec<TypeDef>>,
                             ) -> CppStruct {
                                 let mut item = CppStruct {
@@ -159,7 +159,7 @@ impl Reader {
                                 {
                                     item.nested.insert(
                                         def.name(),
-                                        make(*def, format!("{}_{index}", item.name()), nested),
+                                        make(*def, format!("{}_{index}", item.name).leak(), nested),
                                     );
                                 }
 
@@ -169,7 +169,7 @@ impl Reader {
                             insert(
                                 items,
                                 type_name.1,
-                                Type::CppStruct(make(def, String::new(), &nested)),
+                                Type::CppStruct(make(def, def.name(), &nested)),
                             );
                         }
                     };

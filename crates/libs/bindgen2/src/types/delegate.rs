@@ -7,7 +7,7 @@ pub struct Delegate {
 }
 
 impl Delegate {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 

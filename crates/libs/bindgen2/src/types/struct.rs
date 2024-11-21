@@ -6,7 +6,7 @@ pub struct Struct {
 }
 
 impl Struct {
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         self.def.type_name()
     }
 

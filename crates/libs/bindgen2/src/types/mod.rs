@@ -537,6 +537,12 @@ impl Type {
             Self::PrimitiveOrEnum(_, ty) => ty,
             _ => self,
         };
+    
+        if let Self::CppStruct(ty) = ty {
+            if ty.def.namespace().is_empty() {
+                return;
+            }
+        }
 
         let (ty, generics) = ty.split_generic();
 
@@ -904,7 +910,7 @@ impl Type {
         }
     }
 
-    pub fn type_name(&self) -> TypeName<'_> {
+    pub fn type_name(&self) -> TypeName<'static> {
         match self {
             Self::Class(item) => item.type_name(),
             Self::Delegate(item) => item.type_name(),

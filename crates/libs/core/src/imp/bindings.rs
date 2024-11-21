@@ -6,6 +6,28 @@
     clippy::all
 )]
 
+pub type HSTRING = *mut core::ffi::c_void;
+pub type PCSTR = *const u8;
+pub type PCWSTR = *const u16;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct GUID {
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
+}
+impl GUID {
+    pub const fn from_u128(uuid: u128) -> Self {
+        Self {
+            data1: (uuid >> 96) as u32,
+            data2: (uuid >> 80 & 0xffff) as u16,
+            data3: (uuid >> 64 & 0xffff) as u16,
+            data4: (uuid as u64).to_be_bytes(),
+        }
+    }
+}
+pub type HRESULT = i32;
 windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
 windows_targets::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> HRESULT);
 windows_targets::link!("ole32.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
@@ -33,25 +55,3 @@ pub struct SECURITY_ATTRIBUTES {
     pub bInheritHandle: BOOL,
 }
 pub type FARPROC = Option<unsafe extern "system" fn() -> isize>;
-pub type HSTRING = *mut core::ffi::c_void;
-pub type PCWSTR = *const u16;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct GUID {
-    pub data1: u32,
-    pub data2: u16,
-    pub data3: u16,
-    pub data4: [u8; 8],
-}
-impl GUID {
-    pub const fn from_u128(uuid: u128) -> Self {
-        Self {
-            data1: (uuid >> 96) as u32,
-            data2: (uuid >> 80 & 0xffff) as u16,
-            data3: (uuid >> 64 & 0xffff) as u16,
-            data4: (uuid as u64).to_be_bytes(),
-        }
-    }
-}
-pub type HRESULT = i32;
-pub type PCSTR = *const u8;

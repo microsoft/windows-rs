@@ -3,14 +3,14 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppStruct {
     pub def: TypeDef,
-    pub name: String,
+    pub name: &'static str,
     pub nested: BTreeMap<&'static str, CppStruct>, // TODO: why isn't this CppStruct
 }
 
 impl Ord for CppStruct {
     fn cmp(&self, other: &Self) -> Ordering {
         // TODO: need to do the same for other Cpp types that may have multiple arches
-        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+        (self.name, self.def).cmp(&(other.name, other.def))
     }
 }
 
@@ -21,21 +21,12 @@ impl PartialOrd for CppStruct {
 }
 
 impl CppStruct {
-    pub fn type_name(&self) -> TypeName<'_> {
-        self.def.type_name()
+    pub fn type_name(&self) -> TypeName<'static> {
+        TypeName(self.def.namespace(), self.name)
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         self.type_name().write(writer, &[])
-    }
-
-    // TODO: Get rid of this?
-    pub fn name(&self) -> &str {
-        if self.name.is_empty() {
-            self.def.name()
-        } else {
-            &self.name
-        }
     }
 
     pub fn is_handle(&self) -> bool {
@@ -51,7 +42,7 @@ impl CppStruct {
         // TODO: there are actually structs with fields and GUIDs like LOGGING_PARAMETERS
         if self.def.fields().next().is_none() {
             if let Some(guid) = self.def.guid_attribute() {
-                return writer.write_cpp_const_guid(to_ident(self.name()), &guid);
+                return writer.write_cpp_const_guid(to_ident(self.name), &guid);
             }
         }
 
@@ -66,7 +57,7 @@ impl CppStruct {
     }
 
     fn write_with_cfg(&self, writer: &Writer, cfg: &TokenStream) -> TokenStream {
-        let name = to_ident(self.name());
+        let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
         let has_explicit_layout = self.has_explicit_layout();

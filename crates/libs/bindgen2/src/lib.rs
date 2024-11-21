@@ -176,8 +176,6 @@ where
     let filter = Filter::new(reader, &include, &exclude);
     let includes = Dependencies::filter(reader, &filter);
 
-    //dbg!(&includes);
-
     let references = References::new(reader, references);
 
     let derive = Derive::new(reader, &derive);
