@@ -60,7 +60,10 @@ impl TypeMap {
     }
 
     pub fn combine(&mut self, other: &Self) {
-        self.0.extend(other.0.clone());
+        for (name, types) in &other.0 {
+            let set = self.0.entry(*name).or_default();
+            types.iter().for_each(|ty|{set.insert(ty.clone());});
+        }
     }
 
     pub fn difference(&self, other: &Self) -> Self {
