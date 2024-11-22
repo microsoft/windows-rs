@@ -14,7 +14,9 @@ impl TypeTree {
 
         for (tn, types) in dependencies.iter() {
             let tree = tree.insert_namespace(tn.namespace());
-            types.iter().for_each(|ty|{tree.types.insert(ty.clone());});
+            types.iter().for_each(|ty| {
+                tree.types.insert(ty.clone());
+            });
         }
 
         tree

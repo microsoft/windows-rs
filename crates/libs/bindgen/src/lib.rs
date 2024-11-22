@@ -6,13 +6,14 @@
 )]
 
 //mod dependencies;
-mod type_map;
 mod derive;
 mod derive_writer;
 mod filter;
 mod guid;
 mod io;
+mod type_map;
 //mod item_tree;
+mod libraries;
 mod references;
 mod signature;
 mod tables;
@@ -23,17 +24,16 @@ mod types;
 mod value;
 mod winmd;
 mod writer;
-mod libraries;
 
 pub use libraries::*;
 
 //use dependencies::*;
-use type_map::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
 use guid::*;
 use io::*;
+use type_map::*;
 //use item_tree::*;
 use references::*;
 use signature::*;

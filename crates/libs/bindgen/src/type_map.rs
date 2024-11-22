@@ -62,7 +62,9 @@ impl TypeMap {
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
             let set = self.0.entry(*name).or_default();
-            types.iter().for_each(|ty|{set.insert(ty.clone());});
+            types.iter().for_each(|ty| {
+                set.insert(ty.clone());
+            });
         }
     }
 

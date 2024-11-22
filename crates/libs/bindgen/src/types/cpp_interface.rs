@@ -222,11 +222,7 @@ impl CppInterface {
 
             // TODO: need to test code gen each time this split happens
             if writer.config.package {
-                fn collect(
-                    interface: &CppInterface,
-                    dependencies: &mut TypeMap,
-                    writer: &Writer,
-                ) {
+                fn collect(interface: &CppInterface, dependencies: &mut TypeMap, writer: &Writer) {
                     for method in interface.get_methods(writer).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);

@@ -342,11 +342,7 @@ impl Interface {
             let runtime_name = format!("{type_name}");
 
             if writer.config.package {
-                fn collect(
-                    interface: &Interface,
-                    dependencies: &mut TypeMap,
-                    writer: &Writer,
-                ) {
+                fn collect(interface: &Interface, dependencies: &mut TypeMap, writer: &Writer) {
                     for method in interface.get_methods(writer).iter() {
                         if let MethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
