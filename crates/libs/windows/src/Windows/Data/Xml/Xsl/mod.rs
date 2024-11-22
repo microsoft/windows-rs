@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for IXsltProcessor {
 pub struct IXsltProcessor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub TransformToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     TransformToString: usize,
 }
@@ -35,7 +35,7 @@ pub struct IXsltProcessorFactory_Vtbl {
     CreateInstance: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct XsltProcessor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
 impl XsltProcessor {
@@ -47,7 +47,7 @@ impl XsltProcessor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -80,7 +80,7 @@ impl windows_core::RuntimeType for XsltProcessor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
 }
 unsafe impl windows_core::Interface for XsltProcessor {
-    type Vtable = IXsltProcessor_Vtbl;
+    type Vtable = <IXsltProcessor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXsltProcessor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for XsltProcessor {

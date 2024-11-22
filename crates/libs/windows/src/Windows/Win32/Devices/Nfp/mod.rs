@@ -8,16 +8,16 @@ pub const IOCTL_NFP_GET_NEXT_SUBSCRIBED_MESSAGE: u32 = 5308480u32;
 pub const IOCTL_NFP_GET_NEXT_TRANSMITTED_MESSAGE: u32 = 5308488u32;
 pub const IOCTL_NFP_SET_PAYLOAD: u32 = 5308484u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SUBSCRIBED_MESSAGE {
     pub cbPayloadHint: u32,
     pub payload: [u8; 1],
-}
-impl windows_core::TypeKind for SUBSCRIBED_MESSAGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SUBSCRIBED_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for SUBSCRIBED_MESSAGE {
+    type TypeKind = windows_core::CopyType;
 }

@@ -727,7 +727,7 @@ pub struct TF_PRESERVEDKEY {
     pub uModifiers: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct TF_PROPERTYVAL {
     pub guidId: windows_sys::core::GUID,
@@ -746,7 +746,7 @@ pub struct TF_SELECTIONSTYLE {
     pub fInterimChar: super::super::Foundation::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct TS_ATTRVAL {
     pub idAttr: windows_sys::core::GUID,

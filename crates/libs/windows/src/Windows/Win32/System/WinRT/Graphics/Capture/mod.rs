@@ -1,10 +1,4 @@
 windows_core::imp::define_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
-impl core::ops::Deref for IGraphicsCaptureItemInterop {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IGraphicsCaptureItemInterop {
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> windows_core::Result<T>
@@ -35,15 +29,13 @@ pub struct IGraphicsCaptureItemInterop_Vtbl {
     CreateForMonitor: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IGraphicsCaptureItemInterop_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
     fn CreateForWindow(&self, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateForMonitor(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::RuntimeName for IGraphicsCaptureItemInterop {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGraphicsCaptureItemInterop_Vtbl {
-    pub const fn new<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> IGraphicsCaptureItemInterop_Vtbl {
+    pub const fn new<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateForWindow<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGraphicsCaptureItemInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
@@ -62,3 +54,5 @@ impl IGraphicsCaptureItemInterop_Vtbl {
         iid == &<IGraphicsCaptureItemInterop as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for IGraphicsCaptureItemInterop {}

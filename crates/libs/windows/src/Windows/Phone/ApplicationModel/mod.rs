@@ -24,7 +24,7 @@ impl windows_core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
     pub const Default: Self = Self(0u32);
@@ -33,10 +33,8 @@ impl ApplicationProfileModes {
 impl windows_core::TypeKind for ApplicationProfileModes {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ApplicationProfileModes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for ApplicationProfileModes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }
 impl ApplicationProfileModes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -70,7 +68,4 @@ impl core::ops::Not for ApplicationProfileModes {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-impl windows_core::RuntimeType for ApplicationProfileModes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }

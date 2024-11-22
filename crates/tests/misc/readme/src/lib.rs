@@ -1,6 +1,5 @@
 #![doc = include_str!("../../../../libs/core/readme.md")]
 #![doc = include_str!("../../../../libs/cppwinrt/readme.md")]
-#![doc = include_str!("../../../../libs/metadata/readme.md")]
 #![doc = include_str!("../../../../libs/registry/readme.md")]
 #![doc = include_str!("../../../../libs/result/readme.md")]
 #![doc = include_str!("../../../../libs/strings/readme.md")]

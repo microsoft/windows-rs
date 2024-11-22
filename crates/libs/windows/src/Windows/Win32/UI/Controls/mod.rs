@@ -10,7 +10,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::super::Graphics::Gdi:: HDC, phdcto : *mut super::super::Graphics::Gdi:: HDC) -> isize);
-    BeginBufferedAnimation(hwnd.param().abi(), hdctarget.param().abi(), prctarget, dwformat, core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), panimationparams, phdcfrom, phdcto)
+    BeginBufferedAnimation(hwnd.param().abi(), hdctarget.param().abi(), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), core::mem::transmute(panimationparams), core::mem::transmute(phdcfrom), core::mem::transmute(phdcto))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedPaint(hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, phdc : *mut super::super::Graphics::Gdi:: HDC) -> isize);
-    BeginBufferedPaint(hdctarget.param().abi(), prctarget, dwformat, core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), phdc)
+    BeginBufferedPaint(hdctarget.param().abi(), core::mem::transmute(prctarget), core::mem::transmute(dwformat), core::mem::transmute(ppaintparams.unwrap_or(core::ptr::null())), core::mem::transmute(phdc))
 }
 #[inline]
 pub unsafe fn BeginPanningFeedback<P0>(hwnd: P0) -> super::super::Foundation::BOOL
@@ -32,7 +32,7 @@ where
 #[inline]
 pub unsafe fn BufferedPaintClear(hbufferedpaint: isize, prc: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintClear(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    BufferedPaintClear(hbufferedpaint, core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
+    BufferedPaintClear(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn BufferedPaintInit() -> windows_core::Result<()> {
@@ -52,7 +52,7 @@ where
 #[inline]
 pub unsafe fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: Option<*const super::super::Foundation::RECT>, alpha: u8) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintSetAlpha(hbufferedpaint : isize, prc : *const super::super::Foundation:: RECT, alpha : u8) -> windows_core::HRESULT);
-    BufferedPaintSetAlpha(hbufferedpaint, core::mem::transmute(prc.unwrap_or(core::ptr::null())), alpha).ok()
+    BufferedPaintSetAlpha(core::mem::transmute(hbufferedpaint), core::mem::transmute(prc.unwrap_or(core::ptr::null())), core::mem::transmute(alpha)).ok()
 }
 #[inline]
 pub unsafe fn BufferedPaintStopAllAnimations<P0>(hwnd: P0) -> windows_core::Result<()>
@@ -73,7 +73,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::super::Foundation:: HWND, nidbutton : i32, ucheck : DLG_BUTTON_CHECK_STATE) -> super::super::Foundation:: BOOL);
-    CheckDlgButton(hdlg.param().abi(), nidbutton, ucheck).ok()
+    CheckDlgButton(hdlg.param().abi(), core::mem::transmute(nidbutton), core::mem::transmute(ucheck)).ok()
 }
 #[inline]
 pub unsafe fn CheckRadioButton<P0>(hdlg: P0, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> windows_core::Result<()>
@@ -81,7 +81,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::super::Foundation:: HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> super::super::Foundation:: BOOL);
-    CheckRadioButton(hdlg.param().abi(), nidfirstbutton, nidlastbutton, nidcheckbutton).ok()
+    CheckRadioButton(hdlg.param().abi(), core::mem::transmute(nidfirstbutton), core::mem::transmute(nidlastbutton), core::mem::transmute(nidcheckbutton)).ok()
 }
 #[inline]
 pub unsafe fn CloseThemeData<P0>(htheme: P0) -> windows_core::Result<()>
@@ -98,67 +98,67 @@ where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateMappedBitmap(hinstance : super::super::Foundation:: HINSTANCE, idbitmap : isize, wflags : u32, lpcolormap : *const COLORMAP, inummaps : i32) -> super::super::Graphics::Gdi:: HBITMAP);
-    let result__ = CreateMappedBitmap(hinstance.param().abi(), idbitmap, wflags, core::mem::transmute(lpcolormap.unwrap_or(core::ptr::null())), inummaps);
+    let result__ = CreateMappedBitmap(hinstance.param().abi(), core::mem::transmute(idbitmap), core::mem::transmute(wflags), core::mem::transmute(lpcolormap.unwrap_or(core::ptr::null())), core::mem::transmute(inummaps));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE {
     windows_targets::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpropsheetpagepointer : *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE);
-    CreatePropertySheetPageA(constpropsheetpagepointer)
+    CreatePropertySheetPageA(core::mem::transmute(constpropsheetpagepointer))
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE {
     windows_targets::link!("comctl32.dll" "system" fn CreatePropertySheetPageW(constpropsheetpagepointer : *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE);
-    CreatePropertySheetPageW(constpropsheetpagepointer)
+    CreatePropertySheetPageW(core::mem::transmute(constpropsheetpagepointer))
 }
 #[inline]
-pub unsafe fn CreateStatusWindowA<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateStatusWindowA<P1, P2>(style: i32, lpsztext: P1, hwndparent: P2, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateStatusWindowA(style, lpsztext.param().abi(), hwndparent.param().abi(), wid);
+    let result__ = CreateStatusWindowA(core::mem::transmute(style), lpsztext.param().abi(), hwndparent.param().abi(), core::mem::transmute(wid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateStatusWindowW<P0, P1>(style: i32, lpsztext: P0, hwndparent: P1, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateStatusWindowW<P1, P2>(style: i32, lpsztext: P1, hwndparent: P2, wid: u32) -> windows_core::Result<super::super::Foundation::HWND>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateStatusWindowW(style, lpsztext.param().abi(), hwndparent.param().abi(), wid);
+    let result__ = CreateStatusWindowW(core::mem::transmute(style), lpsztext.param().abi(), hwndparent.param().abi(), core::mem::transmute(wid));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> windows_core::Result<HSYNTHETICPOINTERDEVICE> {
     windows_targets::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
-    let result__ = CreateSyntheticPointerDevice(pointertype, maxcount, mode);
+    let result__ = CreateSyntheticPointerDevice(core::mem::transmute(pointertype), core::mem::transmute(maxcount), core::mem::transmute(mode));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateToolbarEx<P0, P1>(hwnd: P0, ws: u32, wid: u32, nbitmaps: i32, hbminst: P1, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn CreateToolbarEx<P0, P4>(hwnd: P0, ws: u32, wid: u32, nbitmaps: i32, hbminst: P4, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> windows_core::Result<super::super::Foundation::HWND>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::super::Foundation:: HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::super::Foundation:: HINSTANCE, wbmid : usize, lpbuttons : *mut TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::super::Foundation:: HWND);
-    let result__ = CreateToolbarEx(hwnd.param().abi(), ws, wid, nbitmaps, hbminst.param().abi(), wbmid, lpbuttons, inumbuttons, dxbutton, dybutton, dxbitmap, dybitmap, ustructsize);
+    let result__ = CreateToolbarEx(hwnd.param().abi(), core::mem::transmute(ws), core::mem::transmute(wid), core::mem::transmute(nbitmaps), hbminst.param().abi(), core::mem::transmute(wbmid), core::mem::transmute(lpbuttons), core::mem::transmute(inumbuttons), core::mem::transmute(dxbutton), core::mem::transmute(dybutton), core::mem::transmute(dxbitmap), core::mem::transmute(dybitmap), core::mem::transmute(ustructsize));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn CreateUpDownControl<P0, P1, P2>(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: P0, nid: i32, hinst: P1, hbuddy: P2, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND
+pub unsafe fn CreateUpDownControl<P5, P7, P8>(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: P5, nid: i32, hinst: P7, hbuddy: P8, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P5: windows_core::Param<super::super::Foundation::HWND>,
+    P7: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P8: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::super::Foundation:: HWND, nid : i32, hinst : super::super::Foundation:: HINSTANCE, hbuddy : super::super::Foundation:: HWND, nupper : i32, nlower : i32, npos : i32) -> super::super::Foundation:: HWND);
-    CreateUpDownControl(dwstyle, x, y, cx, cy, hparent.param().abi(), nid, hinst.param().abi(), hbuddy.param().abi(), nupper, nlower, npos)
+    CreateUpDownControl(core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(cx), core::mem::transmute(cy), hparent.param().abi(), core::mem::transmute(nid), hinst.param().abi(), hbuddy.param().abi(), core::mem::transmute(nupper), core::mem::transmute(nlower), core::mem::transmute(npos))
 }
 #[inline]
 pub unsafe fn DPA_Clone<P0, P1>(hdpa: P0, hdpanew: P1) -> HDPA
@@ -172,15 +172,15 @@ where
 #[inline]
 pub unsafe fn DPA_Create(citemgrow: i32) -> HDPA {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Create(citemgrow : i32) -> HDPA);
-    DPA_Create(citemgrow)
+    DPA_Create(core::mem::transmute(citemgrow))
 }
 #[inline]
-pub unsafe fn DPA_CreateEx<P0>(cpgrow: i32, hheap: P0) -> HDPA
+pub unsafe fn DPA_CreateEx<P1>(cpgrow: i32, hheap: P1) -> HDPA
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::super::Foundation:: HANDLE) -> HDPA);
-    DPA_CreateEx(cpgrow, hheap.param().abi())
+    DPA_CreateEx(core::mem::transmute(cpgrow), hheap.param().abi())
 }
 #[inline]
 pub unsafe fn DPA_DeleteAllPtrs<P0>(hdpa: P0) -> super::super::Foundation::BOOL
@@ -196,7 +196,7 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
-    DPA_DeletePtr(hdpa.param().abi(), i)
+    DPA_DeletePtr(hdpa.param().abi(), core::mem::transmute(i))
 }
 #[inline]
 pub unsafe fn DPA_Destroy<P0>(hdpa: P0) -> super::super::Foundation::BOOL
@@ -212,7 +212,7 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DPA_DestroyCallback(hdpa.param().abi(), pfncb, core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DPA_DestroyCallback(hdpa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DPA_EnumCallback<P0>(hdpa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
@@ -220,7 +220,7 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DPA_EnumCallback(hdpa.param().abi(), pfncb, core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DPA_EnumCallback(hdpa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DPA_GetPtr<P0>(hdpa: P0, i: isize) -> *mut core::ffi::c_void
@@ -228,7 +228,7 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
-    DPA_GetPtr(hdpa.param().abi(), i)
+    DPA_GetPtr(hdpa.param().abi(), core::mem::transmute(i))
 }
 #[inline]
 pub unsafe fn DPA_GetPtrIndex<P0>(hdpa: P0, p: Option<*const core::ffi::c_void>) -> i32
@@ -252,7 +252,7 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
-    DPA_Grow(pdpa.param().abi(), cp)
+    DPA_Grow(pdpa.param().abi(), core::mem::transmute(cp))
 }
 #[inline]
 pub unsafe fn DPA_InsertPtr<P0>(hdpa: P0, i: i32, p: Option<*const core::ffi::c_void>) -> i32
@@ -260,45 +260,45 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
-    DPA_InsertPtr(hdpa.param().abi(), i, core::mem::transmute(p.unwrap_or(core::ptr::null())))
+    DPA_InsertPtr(hdpa.param().abi(), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_LoadStream<P0>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P0, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn DPA_LoadStream<P2>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::System::Com::IStream>,
+    P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    DPA_LoadStream(phdpa, pfn, pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
+    DPA_LoadStream(core::mem::transmute(phdpa), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn DPA_Merge<P0, P1, P2>(hdpadest: P0, hdpasrc: P1, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: P2) -> super::super::Foundation::BOOL
+pub unsafe fn DPA_Merge<P0, P1, P5>(hdpadest: P0, hdpasrc: P1, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: P5) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HDPA>,
     P1: windows_core::Param<HDPA>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P5: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DPA_Merge(hdpadest.param().abi(), hdpasrc.param().abi(), dwflags, pfncompare, pfnmerge, lparam.param().abi())
+    DPA_Merge(hdpadest.param().abi(), hdpasrc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(pfncompare), core::mem::transmute(pfnmerge), lparam.param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DPA_SaveStream<P0, P1>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P1, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn DPA_SaveStream<P0, P2>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P2, pvinstdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDPA>,
-    P1: windows_core::Param<super::super::System::Com::IStream>,
+    P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_core::HRESULT);
-    DPA_SaveStream(hdpa.param().abi(), pfn, pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
+    DPA_SaveStream(hdpa.param().abi(), core::mem::transmute(pfn), pstream.param().abi(), core::mem::transmute(pvinstdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn DPA_Search<P0, P1>(hdpa: P0, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: P1, options: u32) -> i32
+pub unsafe fn DPA_Search<P0, P4>(hdpa: P0, pfind: Option<*const core::ffi::c_void>, istart: i32, pfncompare: PFNDACOMPARE, lparam: P4, options: u32) -> i32
 where
     P0: windows_core::Param<HDPA>,
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P4: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
-    DPA_Search(hdpa.param().abi(), core::mem::transmute(pfind.unwrap_or(core::ptr::null())), istart, pfncompare, lparam.param().abi(), options)
+    DPA_Search(hdpa.param().abi(), core::mem::transmute(pfind.unwrap_or(core::ptr::null())), core::mem::transmute(istart), core::mem::transmute(pfncompare), lparam.param().abi(), core::mem::transmute(options))
 }
 #[inline]
 pub unsafe fn DPA_SetPtr<P0>(hdpa: P0, i: i32, p: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -306,16 +306,16 @@ where
     P0: windows_core::Param<HDPA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DPA_SetPtr(hdpa.param().abi(), i, core::mem::transmute(p.unwrap_or(core::ptr::null())))
+    DPA_SetPtr(hdpa.param().abi(), core::mem::transmute(i), core::mem::transmute(p.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn DPA_Sort<P0, P1>(hdpa: P0, pfncompare: PFNDACOMPARE, lparam: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DPA_Sort<P0, P2>(hdpa: P0, pfncompare: PFNDACOMPARE, lparam: P2) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HDPA>,
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DPA_Sort(hdpa.param().abi(), pfncompare, lparam.param().abi())
+    DPA_Sort(hdpa.param().abi(), core::mem::transmute(pfncompare), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn DSA_Clone<P0>(hdsa: P0) -> HDSA
@@ -328,7 +328,7 @@ where
 #[inline]
 pub unsafe fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA {
     windows_targets::link!("comctl32.dll" "system" fn DSA_Create(cbitem : i32, citemgrow : i32) -> HDSA);
-    DSA_Create(cbitem, citemgrow)
+    DSA_Create(core::mem::transmute(cbitem), core::mem::transmute(citemgrow))
 }
 #[inline]
 pub unsafe fn DSA_DeleteAllItems<P0>(hdsa: P0) -> super::super::Foundation::BOOL
@@ -344,7 +344,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_DeleteItem(hdsa : HDSA, i : i32) -> super::super::Foundation:: BOOL);
-    DSA_DeleteItem(hdsa.param().abi(), i)
+    DSA_DeleteItem(hdsa.param().abi(), core::mem::transmute(i))
 }
 #[inline]
 pub unsafe fn DSA_Destroy<P0>(hdsa: P0) -> super::super::Foundation::BOOL
@@ -360,7 +360,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DSA_DestroyCallback(hdsa.param().abi(), pfncb, core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DSA_DestroyCallback(hdsa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DSA_EnumCallback<P0>(hdsa: P0, pfncb: PFNDAENUMCALLBACK, pdata: Option<*const core::ffi::c_void>)
@@ -368,7 +368,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-    DSA_EnumCallback(hdsa.param().abi(), pfncb, core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
+    DSA_EnumCallback(hdsa.param().abi(), core::mem::transmute(pfncb), core::mem::transmute(pdata.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DSA_GetItem<P0>(hdsa: P0, i: i32, pitem: *mut core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -376,7 +376,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DSA_GetItem(hdsa.param().abi(), i, pitem)
+    DSA_GetItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
 pub unsafe fn DSA_GetItemPtr<P0>(hdsa: P0, i: i32) -> *mut core::ffi::c_void
@@ -384,7 +384,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
-    DSA_GetItemPtr(hdsa.param().abi(), i)
+    DSA_GetItemPtr(hdsa.param().abi(), core::mem::transmute(i))
 }
 #[inline]
 pub unsafe fn DSA_GetSize<P0>(hdsa: P0) -> u64
@@ -400,7 +400,7 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
-    DSA_InsertItem(hdsa.param().abi(), i, pitem)
+    DSA_InsertItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
 pub unsafe fn DSA_SetItem<P0>(hdsa: P0, i: i32, pitem: *const core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -408,16 +408,16 @@ where
     P0: windows_core::Param<HDSA>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    DSA_SetItem(hdsa.param().abi(), i, pitem)
+    DSA_SetItem(hdsa.param().abi(), core::mem::transmute(i), core::mem::transmute(pitem))
 }
 #[inline]
-pub unsafe fn DSA_Sort<P0, P1>(pdsa: P0, pfncompare: PFNDACOMPARE, lparam: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DSA_Sort<P0, P2>(pdsa: P0, pfncompare: PFNDACOMPARE, lparam: P2) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HDSA>,
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-    DSA_Sort(pdsa.param().abi(), pfncompare, lparam.param().abi())
+    DSA_Sort(pdsa.param().abi(), core::mem::transmute(pfncompare), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn DestroyPropertySheetPage<P0>(param0: P0) -> super::super::Foundation::BOOL
@@ -441,7 +441,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListA(hdlg.param().abi(), core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype)
+    DlgDirListA(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
 pub unsafe fn DlgDirListComboBoxA<P0>(hdlg: P0, lppathspec: windows_core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
@@ -449,7 +449,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListComboBoxA(hdlg.param().abi(), core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype)
+    DlgDirListComboBoxA(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
 pub unsafe fn DlgDirListComboBoxW<P0>(hdlg: P0, lppathspec: windows_core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
@@ -457,7 +457,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListComboBoxW(hdlg.param().abi(), core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype)
+    DlgDirListComboBoxW(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidcombobox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
 pub unsafe fn DlgDirListW<P0>(hdlg: P0, lppathspec: windows_core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32
@@ -465,7 +465,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
-    DlgDirListW(hdlg.param().abi(), core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype)
+    DlgDirListW(hdlg.param().abi(), core::mem::transmute(lppathspec), core::mem::transmute(nidlistbox), core::mem::transmute(nidstaticpath), core::mem::transmute(ufiletype))
 }
 #[inline]
 pub unsafe fn DlgDirSelectComboBoxExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idcombobox: i32) -> windows_core::Result<()>
@@ -473,7 +473,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectComboBoxExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), idcombobox).ok()
+    DlgDirSelectComboBoxExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
 }
 #[inline]
 pub unsafe fn DlgDirSelectComboBoxExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idcombobox: i32) -> windows_core::Result<()>
@@ -481,7 +481,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PWSTR, cchout : i32, idcombobox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectComboBoxExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), idcombobox).ok()
+    DlgDirSelectComboBoxExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idcombobox)).ok()
 }
 #[inline]
 pub unsafe fn DlgDirSelectExA<P0>(hwnddlg: P0, lpstring: &mut [u8], idlistbox: i32) -> windows_core::Result<()>
@@ -489,7 +489,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), idlistbox).ok()
+    DlgDirSelectExA(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
 }
 #[inline]
 pub unsafe fn DlgDirSelectExW<P0>(hwnddlg: P0, lpstring: &mut [u16], idlistbox: i32) -> windows_core::Result<()>
@@ -497,7 +497,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::super::Foundation:: HWND, lpstring : windows_core::PWSTR, chcount : i32, idlistbox : i32) -> super::super::Foundation:: BOOL);
-    DlgDirSelectExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), idlistbox).ok()
+    DlgDirSelectExW(hwnddlg.param().abi(), core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap(), core::mem::transmute(idlistbox)).ok()
 }
 #[inline]
 pub unsafe fn DrawInsert<P0, P1>(handparent: P0, hlb: P1, nitem: i32)
@@ -506,38 +506,38 @@ where
     P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32));
-    DrawInsert(handparent.param().abi(), hlb.param().abi(), nitem)
+    DrawInsert(handparent.param().abi(), hlb.param().abi(), core::mem::transmute(nitem))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawShadowText<P0, P1, P2>(hdc: P0, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: P1, crshadow: P2, ixoffset: i32, iyoffset: i32) -> i32
+pub unsafe fn DrawShadowText<P0, P5, P6>(hdc: P0, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: P5, crshadow: P6, ixoffset: i32, iyoffset: i32) -> i32
 where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P1: windows_core::Param<super::super::Foundation::COLORREF>,
-    P2: windows_core::Param<super::super::Foundation::COLORREF>,
+    P5: windows_core::Param<super::super::Foundation::COLORREF>,
+    P6: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : windows_core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
-    DrawShadowText(hdc.param().abi(), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), prc, dwflags, crtext.param().abi(), crshadow.param().abi(), ixoffset, iyoffset)
+    DrawShadowText(hdc.param().abi(), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(prc), core::mem::transmute(dwflags), crtext.param().abi(), crshadow.param().abi(), core::mem::transmute(ixoffset), core::mem::transmute(iyoffset))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawStatusTextA<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
+pub unsafe fn DrawStatusTextA<P0, P2>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
 where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_core::PCSTR, uflags : u32));
-    DrawStatusTextA(hdc.param().abi(), lprc, psztext.param().abi(), uflags)
+    DrawStatusTextA(hdc.param().abi(), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawStatusTextW<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
+pub unsafe fn DrawStatusTextW<P0, P2>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P2, uflags: u32)
 where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : windows_core::PCWSTR, uflags : u32));
-    DrawStatusTextW(hdc.param().abi(), lprc, psztext.param().abi(), uflags)
+    DrawStatusTextW(hdc.param().abi(), core::mem::transmute(lprc), psztext.param().abi(), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -547,7 +547,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeBackground(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, prect, core::mem::transmute(pcliprect.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeBackground(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(pcliprect.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -557,7 +557,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> windows_core::HRESULT);
-    DrawThemeBackgroundEx(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, prect, core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeBackgroundEx(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -567,18 +567,18 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeEdge(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, pdestrect, uedge, uflags, core::mem::transmute(pcontentrect.unwrap_or(core::ptr::null_mut()))).ok()
+    DrawThemeEdge(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pdestrect), core::mem::transmute(uedge), core::mem::transmute(uflags), core::mem::transmute(pcontentrect.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawThemeIcon<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P2, iimageindex: i32) -> windows_core::Result<()>
+pub unsafe fn DrawThemeIcon<P0, P1, P5>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P5, iimageindex: i32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HTHEME>,
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P2: windows_core::Param<HIMAGELIST>,
+    P5: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> windows_core::HRESULT);
-    DrawThemeIcon(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, prect, himl.param().abi(), iimageindex).ok()
+    DrawThemeIcon(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), himl.param().abi(), core::mem::transmute(iimageindex)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -598,7 +598,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeParentBackgroundEx(hwnd.param().abi(), hdc.param().abi(), dwflags, core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeParentBackgroundEx(hwnd.param().abi(), hdc.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(prc.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -608,7 +608,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> windows_core::HRESULT);
-    DrawThemeText(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, dwtextflags2, prect).ok()
+    DrawThemeText(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(dwtextflags2), core::mem::transmute(prect)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -618,7 +618,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn DrawThemeTextEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, prect : *mut super::super::Foundation:: RECT, poptions : *const DTTOPTS) -> windows_core::HRESULT);
-    DrawThemeTextEx(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, prect, core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
+    DrawThemeTextEx(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(prect), core::mem::transmute(poptions.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnableScrollBar<P0>(hwnd: P0, wsbflags: u32, warrows: ENABLE_SCROLL_BAR_ARROWS) -> windows_core::Result<()>
@@ -626,7 +626,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::super::Foundation:: HWND, wsbflags : u32, warrows : ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation:: BOOL);
-    EnableScrollBar(hwnd.param().abi(), wsbflags, warrows).ok()
+    EnableScrollBar(hwnd.param().abi(), core::mem::transmute(wsbflags), core::mem::transmute(warrows)).ok()
 }
 #[inline]
 pub unsafe fn EnableThemeDialogTexture<P0>(hwnd: P0, dwflags: u32) -> windows_core::Result<()>
@@ -634,7 +634,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn EnableThemeDialogTexture(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> windows_core::HRESULT);
-    EnableThemeDialogTexture(hwnd.param().abi(), dwflags).ok()
+    EnableThemeDialogTexture(hwnd.param().abi(), core::mem::transmute(dwflags)).ok()
 }
 #[inline]
 pub unsafe fn EnableTheming<P0>(fenable: P0) -> windows_core::Result<()>
@@ -645,20 +645,20 @@ where
     EnableTheming(fenable.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EndBufferedAnimation<P0>(hbpanimation: isize, fupdatetarget: P0) -> windows_core::Result<()>
+pub unsafe fn EndBufferedAnimation<P1>(hbpanimation: isize, fupdatetarget: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn EndBufferedAnimation(hbpanimation : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    EndBufferedAnimation(hbpanimation, fupdatetarget.param().abi()).ok()
+    EndBufferedAnimation(core::mem::transmute(hbpanimation), fupdatetarget.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn EndBufferedPaint<P0>(hbufferedpaint: isize, fupdatetarget: P0) -> windows_core::Result<()>
+pub unsafe fn EndBufferedPaint<P1>(hbufferedpaint: isize, fupdatetarget: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn EndBufferedPaint(hbufferedpaint : isize, fupdatetarget : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    EndBufferedPaint(hbufferedpaint, fupdatetarget.param().abi()).ok()
+    EndBufferedPaint(core::mem::transmute(hbufferedpaint), fupdatetarget.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn EndPanningFeedback<P0, P1>(hwnd: P0, fanimateback: P1) -> super::super::Foundation::BOOL
@@ -672,12 +672,12 @@ where
 #[inline]
 pub unsafe fn EvaluateProximityToPolygon(controlpolygon: &[super::super::Foundation::POINT], phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : u32, controlpolygon : *const super::super::Foundation:: POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: BOOL);
-    EvaluateProximityToPolygon(controlpolygon.len().try_into().unwrap(), core::mem::transmute(controlpolygon.as_ptr()), phittestinginput, pproximityeval).ok()
+    EvaluateProximityToPolygon(controlpolygon.len().try_into().unwrap(), core::mem::transmute(controlpolygon.as_ptr()), core::mem::transmute(phittestinginput), core::mem::transmute(pproximityeval)).ok()
 }
 #[inline]
 pub unsafe fn EvaluateProximityToRect(controlboundingbox: *const super::super::Foundation::RECT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn EvaluateProximityToRect(controlboundingbox : *const super::super::Foundation:: RECT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: BOOL);
-    EvaluateProximityToRect(controlboundingbox, phittestinginput, pproximityeval).ok()
+    EvaluateProximityToRect(core::mem::transmute(controlboundingbox), core::mem::transmute(phittestinginput), core::mem::transmute(pproximityeval)).ok()
 }
 #[inline]
 pub unsafe fn FlatSB_EnableScrollBar<P0>(param0: P0, param1: i32, param2: u32) -> super::super::Foundation::BOOL
@@ -685,7 +685,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::super::Foundation:: HWND, param1 : i32, param2 : u32) -> super::super::Foundation:: BOOL);
-    FlatSB_EnableScrollBar(param0.param().abi(), param1, param2)
+    FlatSB_EnableScrollBar(param0.param().abi(), core::mem::transmute(param1), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -694,7 +694,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut super::WindowsAndMessaging:: SCROLLINFO) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollInfo(param0.param().abi(), code, param2)
+    FlatSB_GetScrollInfo(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -703,7 +703,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS) -> i32);
-    FlatSB_GetScrollPos(param0.param().abi(), code)
+    FlatSB_GetScrollPos(param0.param().abi(), core::mem::transmute(code))
 }
 #[inline]
 pub unsafe fn FlatSB_GetScrollProp<P0>(param0: P0, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL
@@ -711,7 +711,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::super::Foundation:: HWND, propindex : WSB_PROP, param2 : *mut i32) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollProp(param0.param().abi(), propindex, param2)
+    FlatSB_GetScrollProp(param0.param().abi(), core::mem::transmute(propindex), core::mem::transmute(param2))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -720,80 +720,80 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut i32, param3 : *mut i32) -> super::super::Foundation:: BOOL);
-    FlatSB_GetScrollRange(param0.param().abi(), code, param2, param3)
+    FlatSB_GetScrollRange(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(param2), core::mem::transmute(param3))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollInfo<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P1) -> i32
+pub unsafe fn FlatSB_SetScrollInfo<P0, P3>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P3) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollInfo(param0.param().abi(), code, psi, fredraw.param().abi())
+    FlatSB_SetScrollInfo(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(psi), fredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollPos<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P1) -> i32
+pub unsafe fn FlatSB_SetScrollPos<P0, P3>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P3) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollPos(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, pos : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollPos(param0.param().abi(), code, pos, fredraw.param().abi())
+    FlatSB_SetScrollPos(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(pos), fredraw.param().abi())
 }
 #[inline]
-pub unsafe fn FlatSB_SetScrollProp<P0, P1>(param0: P0, index: WSB_PROP, newvalue: isize, param3: P1) -> super::super::Foundation::BOOL
+pub unsafe fn FlatSB_SetScrollProp<P0, P3>(param0: P0, index: WSB_PROP, newvalue: isize, param3: P3) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : u32, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_SetScrollProp(param0.param().abi(), index.0 as _, newvalue, param3.param().abi())
+    FlatSB_SetScrollProp(param0.param().abi(), index.0 as _, core::mem::transmute(newvalue), param3.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_SetScrollRange<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P1) -> i32
+pub unsafe fn FlatSB_SetScrollRange<P0, P4>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P4) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
-    FlatSB_SetScrollRange(param0.param().abi(), code, min, max, fredraw.param().abi())
+    FlatSB_SetScrollRange(param0.param().abi(), core::mem::transmute(code), core::mem::transmute(min), core::mem::transmute(max), fredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn FlatSB_ShowScrollBar<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P1) -> super::super::Foundation::BOOL
+pub unsafe fn FlatSB_ShowScrollBar<P0, P2>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P2) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    FlatSB_ShowScrollBar(param0.param().abi(), code, param2.param().abi())
+    FlatSB_ShowScrollBar(param0.param().abi(), core::mem::transmute(code), param2.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> windows_core::HRESULT);
-    GetBufferedPaintBits(hbufferedpaint, ppbbuffer, pcxrow).ok()
+    GetBufferedPaintBits(core::mem::transmute(hbufferedpaint), core::mem::transmute(ppbbuffer), core::mem::transmute(pcxrow)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintDC(hbufferedpaint : isize) -> super::super::Graphics::Gdi:: HDC);
-    GetBufferedPaintDC(hbufferedpaint)
+    GetBufferedPaintDC(core::mem::transmute(hbufferedpaint))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetDC(hbufferedpaint : isize) -> super::super::Graphics::Gdi:: HDC);
-    GetBufferedPaintTargetDC(hbufferedpaint)
+    GetBufferedPaintTargetDC(core::mem::transmute(hbufferedpaint))
 }
 #[inline]
 pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: isize) -> windows_core::Result<super::super::Foundation::RECT> {
     windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintTargetRect(hbufferedpaint : isize, prc : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetBufferedPaintTargetRect(hbufferedpaint, &mut result__).map(|| result__)
+    GetBufferedPaintTargetRect(core::mem::transmute(hbufferedpaint), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetComboBoxInfo<P0>(hwndcombo: P0, pcbi: *mut COMBOBOXINFO) -> windows_core::Result<()>
@@ -801,7 +801,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::super::Foundation:: HWND, pcbi : *mut COMBOBOXINFO) -> super::super::Foundation:: BOOL);
-    GetComboBoxInfo(hwndcombo.param().abi(), pcbi).ok()
+    GetComboBoxInfo(hwndcombo.param().abi(), core::mem::transmute(pcbi)).ok()
 }
 #[inline]
 pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: Option<&mut [u16]>, pszsizebuff: Option<&mut [u16]>) -> windows_core::Result<()> {
@@ -814,7 +814,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn GetEffectiveClientRect(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT, lpinfo : *const i32));
-    GetEffectiveClientRect(hwnd.param().abi(), lprc, lpinfo)
+    GetEffectiveClientRect(hwnd.param().abi(), core::mem::transmute(lprc), core::mem::transmute(lpinfo))
 }
 #[inline]
 pub unsafe fn GetListBoxInfo<P0>(hwnd: P0) -> u32
@@ -835,7 +835,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationProperty(htheme : HTHEME, istoryboardid : i32, itargetid : i32, eproperty : TA_PROPERTY, pvproperty : *mut core::ffi::c_void, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeAnimationProperty(htheme.param().abi(), istoryboardid, itargetid, eproperty, core::mem::transmute(pvproperty.unwrap_or(core::ptr::null_mut())), cbsize, pcbsizeout).ok()
+    GetThemeAnimationProperty(htheme.param().abi(), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(eproperty), core::mem::transmute(pvproperty.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeAnimationTransform<P0>(htheme: P0, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: Option<*mut TA_TRANSFORM>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()>
@@ -843,7 +843,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeAnimationTransform(htheme : HTHEME, istoryboardid : i32, itargetid : i32, dwtransformindex : u32, ptransform : *mut TA_TRANSFORM, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeAnimationTransform(htheme.param().abi(), istoryboardid, itargetid, dwtransformindex, core::mem::transmute(ptransform.unwrap_or(core::ptr::null_mut())), cbsize, pcbsizeout).ok()
+    GetThemeAnimationTransform(htheme.param().abi(), core::mem::transmute(istoryboardid), core::mem::transmute(itargetid), core::mem::transmute(dwtransformindex), core::mem::transmute(ptransform.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
@@ -859,7 +859,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundContentRect(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pboundingrect : *const super::super::Foundation:: RECT, pcontentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundContentRect(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, pboundingrect, &mut result__).map(|| result__)
+    GetThemeBackgroundContentRect(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pboundingrect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -870,7 +870,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pcontentrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundExtent(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, pcontentrect, &mut result__).map(|| result__)
+    GetThemeBackgroundExtent(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(pcontentrect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -881,7 +881,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBackgroundRegion(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pregion : *mut super::super::Graphics::Gdi:: HRGN) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBackgroundRegion(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, prect, &mut result__).map(|| result__)
+    GetThemeBackgroundRegion(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prect), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -891,7 +891,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBitmap(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, dwflags : GET_THEME_BITMAP_FLAGS, phbitmap : *mut super::super::Graphics::Gdi:: HBITMAP) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBitmap(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, dwflags, &mut result__).map(|| result__)
+    GetThemeBitmap(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(dwflags), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeBool<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -900,7 +900,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeBool(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pfval : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeBool(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemeBool(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeColor<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::COLORREF>
@@ -909,7 +909,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeColor(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pcolor : *mut super::super::Foundation:: COLORREF) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeColor(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemeColor(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeDocumentationProperty<P0, P1>(pszthemename: P0, pszpropertyname: P1, pszvaluebuff: &mut [u16]) -> windows_core::Result<()>
@@ -927,7 +927,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeEnumValue(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeEnumValue(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemeEnumValue(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeFilename<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> windows_core::Result<()>
@@ -935,7 +935,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    GetThemeFilename(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()).ok()
+    GetThemeFilename(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -945,7 +945,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeFont(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pfont : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::HRESULT);
-    GetThemeFont(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, ipropid, pfont).ok()
+    GetThemeFont(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pfont)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeInt<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
@@ -954,7 +954,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeInt(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeInt(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemeInt(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeIntList<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> windows_core::Result<()>
@@ -962,7 +962,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> windows_core::HRESULT);
-    GetThemeIntList(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, pintlist).ok()
+    GetThemeIntList(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(pintlist)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -973,7 +973,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeMargins(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, prc : *const super::super::Foundation:: RECT, pmargins : *mut MARGINS) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeMargins(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, ipropid.0 as _, core::mem::transmute(prc.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+    GetThemeMargins(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, core::mem::transmute(prc.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -984,7 +984,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeMetric(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ipropid : i32, pival : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeMetric(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemeMetric(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -995,7 +995,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePartSize(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prc : *const super::super::Foundation:: RECT, esize : THEMESIZE, psz : *mut super::super::Foundation:: SIZE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePartSize(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, core::mem::transmute(prc.unwrap_or(core::ptr::null())), esize, &mut result__).map(|| result__)
+    GetThemePartSize(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(prc.unwrap_or(core::ptr::null())), core::mem::transmute(esize), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemePosition<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<super::super::Foundation::POINT>
@@ -1004,7 +1004,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePosition(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppoint : *mut super::super::Foundation:: POINT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePosition(htheme.param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).map(|| result__)
+    GetThemePosition(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), ipropid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemePropertyOrigin<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<PROPERTYORIGIN>
@@ -1013,7 +1013,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemePropertyOrigin(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, porigin : *mut PROPERTYORIGIN) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemePropertyOrigin(htheme.param().abi(), ipartid, istateid, ipropid, &mut result__).map(|| result__)
+    GetThemePropertyOrigin(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeRect<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32) -> windows_core::Result<super::super::Foundation::RECT>
@@ -1022,16 +1022,16 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeRect(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, prect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeRect(htheme.param().abi(), ipartid, istateid, ipropid, &mut result__).map(|| result__)
+    GetThemeRect(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
-pub unsafe fn GetThemeStream<P0, P1>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut core::ffi::c_void, pcbstream: Option<*mut u32>, hinst: P1) -> windows_core::Result<()>
+pub unsafe fn GetThemeStream<P0, P6>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut core::ffi::c_void, pcbstream: Option<*mut u32>, hinst: P6) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HTHEME>,
-    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P6: windows_core::Param<super::super::Foundation::HINSTANCE>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeStream(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, ppvstream : *mut *mut core::ffi::c_void, pcbstream : *mut u32, hinst : super::super::Foundation:: HINSTANCE) -> windows_core::HRESULT);
-    GetThemeStream(htheme.param().abi(), ipartid, istateid, ipropid, ppvstream, core::mem::transmute(pcbstream.unwrap_or(core::ptr::null_mut())), hinst.param().abi()).ok()
+    GetThemeStream(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(ppvstream), core::mem::transmute(pcbstream.unwrap_or(core::ptr::null_mut())), hinst.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn GetThemeString<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> windows_core::Result<()>
@@ -1039,7 +1039,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeString(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    GetThemeString(htheme.param().abi(), ipartid, istateid, ipropid, core::mem::transmute(pszbuff.as_ptr()), pszbuff.len().try_into().unwrap()).ok()
+    GetThemeString(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ipropid), core::mem::transmute(pszbuff.as_ptr()), pszbuff.len().try_into().unwrap()).ok()
 }
 #[inline]
 pub unsafe fn GetThemeSysBool<P0>(htheme: P0, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL
@@ -1055,7 +1055,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
-    GetThemeSysColor(htheme.param().abi(), icolorid)
+    GetThemeSysColor(htheme.param().abi(), core::mem::transmute(icolorid))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1073,7 +1073,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysFont(htheme : HTHEME, ifontid : i32, plf : *mut super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::HRESULT);
-    GetThemeSysFont(htheme.param().abi(), ifontid.0 as _, plf).ok()
+    GetThemeSysFont(htheme.param().abi(), ifontid.0 as _, core::mem::transmute(plf)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeSysInt<P0>(htheme: P0, iintid: THEME_PROPERTY_SYMBOL_ID) -> windows_core::Result<i32>
@@ -1082,7 +1082,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysInt(htheme : HTHEME, iintid : i32, pivalue : *mut i32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeSysInt(htheme.param().abi(), iintid.0 as _, &mut result__).map(|| result__)
+    GetThemeSysInt(htheme.param().abi(), iintid.0 as _, &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetThemeSysSize<P0>(htheme: P0, isizeid: i32) -> i32
@@ -1090,7 +1090,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysSize(htheme : HTHEME, isizeid : i32) -> i32);
-    GetThemeSysSize(htheme.param().abi(), isizeid)
+    GetThemeSysSize(htheme.param().abi(), core::mem::transmute(isizeid))
 }
 #[inline]
 pub unsafe fn GetThemeSysString<P0>(htheme: P0, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: &mut [u16]) -> windows_core::Result<()>
@@ -1109,7 +1109,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextExtent(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : windows_core::PCWSTR, cchcharcount : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, pboundingrect : *const super::super::Foundation:: RECT, pextentrect : *mut super::super::Foundation:: RECT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeTextExtent(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, core::mem::transmute(pboundingrect.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
+    GetThemeTextExtent(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), core::mem::transmute(dwtextflags), core::mem::transmute(pboundingrect.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1119,7 +1119,7 @@ where
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTextMetrics(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, ptm : *mut super::super::Graphics::Gdi:: TEXTMETRICW) -> windows_core::HRESULT);
-    GetThemeTextMetrics(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, ptm).ok()
+    GetThemeTextMetrics(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(ptm)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeTimingFunction<P0>(htheme: P0, itimingfunctionid: i32, ptimingfunction: Option<*mut TA_TIMINGFUNCTION>, cbsize: u32, pcbsizeout: *mut u32) -> windows_core::Result<()>
@@ -1127,7 +1127,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTimingFunction(htheme : HTHEME, itimingfunctionid : i32, ptimingfunction : *mut TA_TIMINGFUNCTION, cbsize : u32, pcbsizeout : *mut u32) -> windows_core::HRESULT);
-    GetThemeTimingFunction(htheme.param().abi(), itimingfunctionid, core::mem::transmute(ptimingfunction.unwrap_or(core::ptr::null_mut())), cbsize, pcbsizeout).ok()
+    GetThemeTimingFunction(htheme.param().abi(), core::mem::transmute(itimingfunctionid), core::mem::transmute(ptimingfunction.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbsize), core::mem::transmute(pcbsizeout)).ok()
 }
 #[inline]
 pub unsafe fn GetThemeTransitionDuration<P0>(htheme: P0, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32) -> windows_core::Result<u32>
@@ -1136,7 +1136,7 @@ where
 {
     windows_targets::link!("uxtheme.dll" "system" fn GetThemeTransitionDuration(htheme : HTHEME, ipartid : i32, istateidfrom : i32, istateidto : i32, ipropid : i32, pdwduration : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    GetThemeTransitionDuration(htheme.param().abi(), ipartid, istateidfrom, istateidto, ipropid, &mut result__).map(|| result__)
+    GetThemeTransitionDuration(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateidfrom), core::mem::transmute(istateidto), core::mem::transmute(ipropid), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn GetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: Option<*mut core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -1144,7 +1144,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    GetWindowFeedbackSetting(hwnd.param().abi(), feedback, dwflags, psize, core::mem::transmute(config.unwrap_or(core::ptr::null_mut())))
+    GetWindowFeedbackSetting(hwnd.param().abi(), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(psize), core::mem::transmute(config.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetWindowTheme<P0>(hwnd: P0) -> HTHEME
@@ -1160,19 +1160,19 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    HIMAGELIST_QueryInterface(himl.param().abi(), riid, ppv).ok()
+    HIMAGELIST_QueryInterface(himl.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HitTestThemeBackground<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P2, pttest: super::super::Foundation::POINT) -> windows_core::Result<u16>
+pub unsafe fn HitTestThemeBackground<P0, P1, P6>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P6, pttest: super::super::Foundation::POINT) -> windows_core::Result<u16>
 where
     P0: windows_core::Param<HTHEME>,
     P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HRGN>,
+    P6: windows_core::Param<super::super::Graphics::Gdi::HRGN>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, dwoptions : HIT_TEST_BACKGROUND_OPTIONS, prect : *const super::super::Foundation:: RECT, hrgn : super::super::Graphics::Gdi:: HRGN, pttest : super::super::Foundation:: POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    HitTestThemeBackground(htheme.param().abi(), hdc.param().abi(), ipartid, istateid, dwoptions, prect, hrgn.param().abi(), core::mem::transmute(pttest), &mut result__).map(|| result__)
+    HitTestThemeBackground(htheme.param().abi(), hdc.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid), core::mem::transmute(dwoptions), core::mem::transmute(prect), hrgn.param().abi(), core::mem::transmute(pttest), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1202,31 +1202,31 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_BeginDrag(himltrack : HIMAGELIST, itrack : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
-    ImageList_BeginDrag(himltrack.param().abi(), itrack, dxhotspot, dyhotspot)
+    ImageList_BeginDrag(himltrack.param().abi(), core::mem::transmute(itrack), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
 }
 #[inline]
-pub unsafe fn ImageList_CoCreateInstance<P0, T>(rclsid: *const windows_core::GUID, punkouter: P0) -> windows_core::Result<T>
+pub unsafe fn ImageList_CoCreateInstance<P1, T>(rclsid: *const windows_core::GUID, punkouter: P1) -> windows_core::Result<T>
 where
-    P0: windows_core::Param<windows_core::IUnknown>,
+    P1: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    ImageList_CoCreateInstance(rclsid, punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    ImageList_CoCreateInstance(core::mem::transmute(rclsid), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn ImageList_Copy<P0, P1>(himldst: P0, idst: i32, himlsrc: P1, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_Copy<P0, P2>(himldst: P0, idst: i32, himlsrc: P2, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<HIMAGELIST>,
+    P2: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Copy(himldst : HIMAGELIST, idst : i32, himlsrc : HIMAGELIST, isrc : i32, uflags : IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation:: BOOL);
-    ImageList_Copy(himldst.param().abi(), idst, himlsrc.param().abi(), isrc, uflags)
+    ImageList_Copy(himldst.param().abi(), core::mem::transmute(idst), himlsrc.param().abi(), core::mem::transmute(isrc), core::mem::transmute(uflags))
 }
 #[inline]
 pub unsafe fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Create(cx : i32, cy : i32, flags : IMAGELIST_CREATION_FLAGS, cinitial : i32, cgrow : i32) -> HIMAGELIST);
-    ImageList_Create(cx, cy, flags, cinitial, cgrow)
+    ImageList_Create(core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(flags), core::mem::transmute(cinitial), core::mem::transmute(cgrow))
 }
 #[inline]
 pub unsafe fn ImageList_Destroy<P0>(himl: P0) -> super::super::Foundation::BOOL
@@ -1242,7 +1242,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DragEnter(hwndlock : super::super::Foundation:: HWND, x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    ImageList_DragEnter(hwndlock.param().abi(), x, y)
+    ImageList_DragEnter(hwndlock.param().abi(), core::mem::transmute(x), core::mem::transmute(y))
 }
 #[inline]
 pub unsafe fn ImageList_DragLeave<P0>(hwndlock: P0) -> super::super::Foundation::BOOL
@@ -1255,7 +1255,7 @@ where
 #[inline]
 pub unsafe fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DragMove(x : i32, y : i32) -> super::super::Foundation:: BOOL);
-    ImageList_DragMove(x, y)
+    ImageList_DragMove(core::mem::transmute(x), core::mem::transmute(y))
 }
 #[inline]
 pub unsafe fn ImageList_DragShowNolock<P0>(fshow: P0) -> super::super::Foundation::BOOL
@@ -1267,31 +1267,31 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_Draw<P0, P1>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_Draw<P0, P2>(himl: P0, i: i32, hdcdst: P2, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
-    ImageList_Draw(himl.param().abi(), i, hdcdst.param().abi(), x, y, fstyle)
+    ImageList_Draw(himl.param().abi(), core::mem::transmute(i), hdcdst.param().abi(), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(fstyle))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_DrawEx<P0, P1, P2, P3>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P2, rgbfg: P3, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_DrawEx<P0, P2, P7, P8>(himl: P0, i: i32, hdcdst: P2, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P7, rgbfg: P8, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P2: windows_core::Param<super::super::Foundation::COLORREF>,
-    P3: windows_core::Param<super::super::Foundation::COLORREF>,
+    P2: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P7: windows_core::Param<super::super::Foundation::COLORREF>,
+    P8: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::super::Foundation:: COLORREF, rgbfg : super::super::Foundation:: COLORREF, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
-    ImageList_DrawEx(himl.param().abi(), i, hdcdst.param().abi(), x, y, dx, dy, rgbbk.param().abi(), rgbfg.param().abi(), fstyle)
+    ImageList_DrawEx(himl.param().abi(), core::mem::transmute(i), hdcdst.param().abi(), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy), rgbbk.param().abi(), rgbfg.param().abi(), core::mem::transmute(fstyle))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_DrawIndirect(pimldp : *const IMAGELISTDRAWPARAMS) -> super::super::Foundation:: BOOL);
-    ImageList_DrawIndirect(pimldp)
+    ImageList_DrawIndirect(core::mem::transmute(pimldp))
 }
 #[inline]
 pub unsafe fn ImageList_Duplicate<P0>(himl: P0) -> HIMAGELIST
@@ -1326,7 +1326,7 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging:: HICON);
-    ImageList_GetIcon(himl.param().abi(), i, flags)
+    ImageList_GetIcon(himl.param().abi(), core::mem::transmute(i), core::mem::transmute(flags))
 }
 #[inline]
 pub unsafe fn ImageList_GetIconSize<P0>(himl: P0, cx: Option<*mut i32>, cy: Option<*mut i32>) -> super::super::Foundation::BOOL
@@ -1351,38 +1351,38 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> super::super::Foundation:: BOOL);
-    ImageList_GetImageInfo(himl.param().abi(), i, pimageinfo)
+    ImageList_GetImageInfo(himl.param().abi(), core::mem::transmute(i), core::mem::transmute(pimageinfo))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_LoadImageA<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageA<P0, P1, P4>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P4, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::COLORREF>,
+    P4: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
-    ImageList_LoadImageA(hi.param().abi(), lpbmp.param().abi(), cx, cgrow, crmask.param().abi(), utype, uflags)
+    ImageList_LoadImageA(hi.param().abi(), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), crmask.param().abi(), core::mem::transmute(utype), core::mem::transmute(uflags))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_LoadImageW<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageW<P0, P1, P4>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P4, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::COLORREF>,
+    P4: windows_core::Param<super::super::Foundation::COLORREF>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : windows_core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
-    ImageList_LoadImageW(hi.param().abi(), lpbmp.param().abi(), cx, cgrow, crmask.param().abi(), utype, uflags)
+    ImageList_LoadImageW(hi.param().abi(), lpbmp.param().abi(), core::mem::transmute(cx), core::mem::transmute(cgrow), crmask.param().abi(), core::mem::transmute(utype), core::mem::transmute(uflags))
 }
 #[inline]
-pub unsafe fn ImageList_Merge<P0, P1>(himl1: P0, i1: i32, himl2: P1, i2: i32, dx: i32, dy: i32) -> HIMAGELIST
+pub unsafe fn ImageList_Merge<P0, P2>(himl1: P0, i1: i32, himl2: P2, i2: i32, dx: i32, dy: i32) -> HIMAGELIST
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<HIMAGELIST>,
+    P2: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
-    ImageList_Merge(himl1.param().abi(), i1, himl2.param().abi(), i2, dx, dy)
+    ImageList_Merge(himl1.param().abi(), core::mem::transmute(i1), himl2.param().abi(), core::mem::transmute(i2), core::mem::transmute(dx), core::mem::transmute(dy))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1395,12 +1395,12 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_ReadEx<P0>(dwflags: u32, pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn ImageList_ReadEx<P1>(dwflags: u32, pstm: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::System::Com::IStream>,
+    P1: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    ImageList_ReadEx(dwflags, pstm.param().abi(), riid, ppv).ok()
+    ImageList_ReadEx(core::mem::transmute(dwflags), pstm.param().abi(), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
 }
 #[inline]
 pub unsafe fn ImageList_Remove<P0>(himl: P0, i: i32) -> super::super::Foundation::BOOL
@@ -1408,28 +1408,28 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
-    ImageList_Remove(himl.param().abi(), i)
+    ImageList_Remove(himl.param().abi(), core::mem::transmute(i))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImageList_Replace<P0, P1, P2>(himl: P0, i: i32, hbmimage: P1, hbmmask: P2) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_Replace<P0, P2, P3>(himl: P0, i: i32, hbmimage: P2, hbmmask: P3) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
     P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
+    P3: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
-    ImageList_Replace(himl.param().abi(), i, hbmimage.param().abi(), hbmmask.param().abi())
+    ImageList_Replace(himl.param().abi(), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_ReplaceIcon<P0, P1>(himl: P0, i: i32, hicon: P1) -> i32
+pub unsafe fn ImageList_ReplaceIcon<P0, P2>(himl: P0, i: i32, hicon: P2) -> i32
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::WindowsAndMessaging::HICON>,
+    P2: windows_core::Param<super::WindowsAndMessaging::HICON>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_ReplaceIcon(himl : HIMAGELIST, i : i32, hicon : super::WindowsAndMessaging:: HICON) -> i32);
-    ImageList_ReplaceIcon(himl.param().abi(), i, hicon.param().abi())
+    ImageList_ReplaceIcon(himl.param().abi(), core::mem::transmute(i), hicon.param().abi())
 }
 #[inline]
 pub unsafe fn ImageList_SetBkColor<P0, P1>(himl: P0, clrbk: P1) -> super::super::Foundation::COLORREF
@@ -1446,7 +1446,7 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetDragCursorImage(himldrag : HIMAGELIST, idrag : i32, dxhotspot : i32, dyhotspot : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetDragCursorImage(himldrag.param().abi(), idrag, dxhotspot, dyhotspot)
+    ImageList_SetDragCursorImage(himldrag.param().abi(), core::mem::transmute(idrag), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot))
 }
 #[inline]
 pub unsafe fn ImageList_SetIconSize<P0>(himl: P0, cx: i32, cy: i32) -> super::super::Foundation::BOOL
@@ -1454,7 +1454,7 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetIconSize(himl.param().abi(), cx, cy)
+    ImageList_SetIconSize(himl.param().abi(), core::mem::transmute(cx), core::mem::transmute(cy))
 }
 #[inline]
 pub unsafe fn ImageList_SetImageCount<P0>(himl: P0, unewcount: u32) -> super::super::Foundation::BOOL
@@ -1462,7 +1462,7 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
-    ImageList_SetImageCount(himl.param().abi(), unewcount)
+    ImageList_SetImageCount(himl.param().abi(), core::mem::transmute(unewcount))
 }
 #[inline]
 pub unsafe fn ImageList_SetOverlayImage<P0>(himl: P0, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL
@@ -1470,7 +1470,7 @@ where
     P0: windows_core::Param<HIMAGELIST>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
-    ImageList_SetOverlayImage(himl.param().abi(), iimage, ioverlay)
+    ImageList_SetOverlayImage(himl.param().abi(), core::mem::transmute(iimage), core::mem::transmute(ioverlay))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1484,13 +1484,13 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ImageList_WriteEx<P0, P1>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P1) -> windows_core::Result<()>
+pub unsafe fn ImageList_WriteEx<P0, P2>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HIMAGELIST>,
-    P1: windows_core::Param<super::super::System::Com::IStream>,
+    P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
-    ImageList_WriteEx(himl.param().abi(), dwflags, pstm.param().abi()).ok()
+    ImageList_WriteEx(himl.param().abi(), core::mem::transmute(dwflags), pstm.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn InitCommonControls() {
@@ -1500,12 +1500,12 @@ pub unsafe fn InitCommonControls() {
 #[inline]
 pub unsafe fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super::super::Foundation::BOOL {
     windows_targets::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> super::super::Foundation:: BOOL);
-    InitCommonControlsEx(picce)
+    InitCommonControlsEx(core::mem::transmute(picce))
 }
 #[inline]
 pub unsafe fn InitMUILanguage(uilang: u16) {
     windows_targets::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16));
-    InitMUILanguage(uilang)
+    InitMUILanguage(core::mem::transmute(uilang))
 }
 #[inline]
 pub unsafe fn InitializeFlatSB<P0>(param0: P0) -> super::super::Foundation::BOOL
@@ -1523,7 +1523,7 @@ pub unsafe fn IsAppThemed() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn IsCharLowerW(ch: u16) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn IsCharLowerW(ch : u16) -> super::super::Foundation:: BOOL);
-    IsCharLowerW(ch).ok()
+    IsCharLowerW(core::mem::transmute(ch)).ok()
 }
 #[inline]
 pub unsafe fn IsCompositionActive() -> super::super::Foundation::BOOL {
@@ -1536,7 +1536,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::super::Foundation:: HWND, nidbutton : i32) -> u32);
-    IsDlgButtonChecked(hdlg.param().abi(), nidbutton)
+    IsDlgButtonChecked(hdlg.param().abi(), core::mem::transmute(nidbutton))
 }
 #[inline]
 pub unsafe fn IsThemeActive() -> super::super::Foundation::BOOL {
@@ -1549,7 +1549,7 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn IsThemeBackgroundPartiallyTransparent(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
-    IsThemeBackgroundPartiallyTransparent(htheme.param().abi(), ipartid, istateid)
+    IsThemeBackgroundPartiallyTransparent(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid))
 }
 #[inline]
 pub unsafe fn IsThemeDialogTextureEnabled<P0>(hwnd: P0) -> super::super::Foundation::BOOL
@@ -1565,13 +1565,13 @@ where
     P0: windows_core::Param<HTHEME>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn IsThemePartDefined(htheme : HTHEME, ipartid : i32, istateid : i32) -> super::super::Foundation:: BOOL);
-    IsThemePartDefined(htheme.param().abi(), ipartid, istateid)
+    IsThemePartDefined(htheme.param().abi(), core::mem::transmute(ipartid), core::mem::transmute(istateid))
 }
 #[inline]
-pub unsafe fn LBItemFromPt<P0, P1>(hlb: P0, pt: super::super::Foundation::POINT, bautoscroll: P1) -> i32
+pub unsafe fn LBItemFromPt<P0, P2>(hlb: P0, pt: super::super::Foundation::POINT, bautoscroll: P2) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
     LBItemFromPt(hlb.param().abi(), core::mem::transmute(pt), bautoscroll.param().abi())
@@ -1585,7 +1585,7 @@ where
 {
     windows_targets::link!("comctl32.dll" "system" fn LoadIconMetric(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_core::PCWSTR, lims : _LI_METRIC, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    LoadIconMetric(hinst.param().abi(), pszname.param().abi(), lims, &mut result__).map(|| result__)
+    LoadIconMetric(hinst.param().abi(), pszname.param().abi(), core::mem::transmute(lims), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -1596,7 +1596,7 @@ where
 {
     windows_targets::link!("comctl32.dll" "system" fn LoadIconWithScaleDown(hinst : super::super::Foundation:: HINSTANCE, pszname : windows_core::PCWSTR, cx : i32, cy : i32, phico : *mut super::WindowsAndMessaging:: HICON) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    LoadIconWithScaleDown(hinst.param().abi(), pszname.param().abi(), cx, cy, &mut result__).map(|| result__)
+    LoadIconWithScaleDown(hinst.param().abi(), pszname.param().abi(), core::mem::transmute(cx), core::mem::transmute(cy), &mut result__).map(|| core::mem::transmute(result__))
 }
 #[inline]
 pub unsafe fn MakeDragList<P0>(hlb: P0) -> super::super::Foundation::BOOL
@@ -1608,16 +1608,16 @@ where
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn MenuHelp<P0, P1, P2, P3, P4>(umsg: u32, wparam: P0, lparam: P1, hmainmenu: P2, hinst: P3, hwndstatus: P4, lpwids: *const u32)
+pub unsafe fn MenuHelp<P1, P2, P3, P4, P5>(umsg: u32, wparam: P1, lparam: P2, hmainmenu: P3, hinst: P4, hwndstatus: P5, lpwids: *const u32)
 where
-    P0: windows_core::Param<super::super::Foundation::WPARAM>,
-    P1: windows_core::Param<super::super::Foundation::LPARAM>,
-    P2: windows_core::Param<super::WindowsAndMessaging::HMENU>,
-    P3: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P4: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::WPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P3: windows_core::Param<super::WindowsAndMessaging::HMENU>,
+    P4: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P5: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn MenuHelp(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, hmainmenu : super::WindowsAndMessaging:: HMENU, hinst : super::super::Foundation:: HINSTANCE, hwndstatus : super::super::Foundation:: HWND, lpwids : *const u32));
-    MenuHelp(umsg, wparam.param().abi(), lparam.param().abi(), hmainmenu.param().abi(), hinst.param().abi(), hwndstatus.param().abi(), lpwids)
+    MenuHelp(core::mem::transmute(umsg), wparam.param().abi(), lparam.param().abi(), hmainmenu.param().abi(), hinst.param().abi(), hwndstatus.param().abi(), core::mem::transmute(lpwids))
 }
 #[inline]
 pub unsafe fn OpenThemeData<P0, P1>(hwnd: P0, pszclasslist: P1) -> HTHEME
@@ -1635,24 +1635,24 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn OpenThemeDataEx(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR, dwflags : OPEN_THEME_DATA_FLAGS) -> HTHEME);
-    OpenThemeDataEx(hwnd.param().abi(), pszclasslist.param().abi(), dwflags)
+    OpenThemeDataEx(hwnd.param().abi(), pszclasslist.param().abi(), core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::LRESULT {
     windows_targets::link!("user32.dll" "system" fn PackTouchHitTestingProximityEvaluation(phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: LRESULT);
-    PackTouchHitTestingProximityEvaluation(phittestinginput, pproximityeval)
+    PackTouchHitTestingProximityEvaluation(core::mem::transmute(phittestinginput), core::mem::transmute(pproximityeval))
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     windows_targets::link!("comctl32.dll" "system" fn PropertySheetA(param0 : *mut PROPSHEETHEADERA_V2) -> isize);
-    PropertySheetA(param0)
+    PropertySheetA(core::mem::transmute(param0))
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
     windows_targets::link!("comctl32.dll" "system" fn PropertySheetW(param0 : *mut PROPSHEETHEADERW_V2) -> isize);
-    PropertySheetW(param0)
+    PropertySheetW(core::mem::transmute(param0))
 }
 #[inline]
 pub unsafe fn RegisterPointerDeviceNotifications<P0, P1>(window: P0, notifyrange: P1) -> windows_core::Result<()>
@@ -1669,42 +1669,42 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::super::Foundation:: HWND, value : u32) -> super::super::Foundation:: BOOL);
-    RegisterTouchHitTestingWindow(hwnd.param().abi(), value).ok()
+    RegisterTouchHitTestingWindow(hwnd.param().abi(), core::mem::transmute(value)).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollInfo<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P1) -> i32
+pub unsafe fn SetScrollInfo<P0, P3>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P3) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, lpsi : *const super::WindowsAndMessaging:: SCROLLINFO, redraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollInfo(hwnd.param().abi(), nbar, lpsi, redraw.param().abi())
+    SetScrollInfo(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(lpsi), redraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollPos<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P1) -> i32
+pub unsafe fn SetScrollPos<P0, P3>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P3) -> i32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, npos : i32, bredraw : super::super::Foundation:: BOOL) -> i32);
-    SetScrollPos(hwnd.param().abi(), nbar, npos, bredraw.param().abi())
+    SetScrollPos(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(npos), bredraw.param().abi())
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SetScrollRange<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P1) -> windows_core::Result<()>
+pub unsafe fn SetScrollRange<P0, P4>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P4) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, nminpos : i32, nmaxpos : i32, bredraw : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    SetScrollRange(hwnd.param().abi(), nbar, nminpos, nmaxpos, bredraw.param().abi()).ok()
+    SetScrollRange(hwnd.param().abi(), core::mem::transmute(nbar), core::mem::transmute(nminpos), core::mem::transmute(nmaxpos), bredraw.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
     windows_targets::link!("uxtheme.dll" "system" fn SetThemeAppProperties(dwflags : SET_THEME_APP_PROPERTIES_FLAGS));
-    SetThemeAppProperties(dwflags)
+    SetThemeAppProperties(core::mem::transmute(dwflags))
 }
 #[inline]
 pub unsafe fn SetWindowFeedbackSetting<P0>(hwnd: P0, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: Option<*const core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -1712,7 +1712,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::super::Foundation:: HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    SetWindowFeedbackSetting(hwnd.param().abi(), feedback, dwflags, size, core::mem::transmute(configuration.unwrap_or(core::ptr::null())))
+    SetWindowFeedbackSetting(hwnd.param().abi(), core::mem::transmute(feedback), core::mem::transmute(dwflags), core::mem::transmute(size), core::mem::transmute(configuration.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SetWindowTheme<P0, P1, P2>(hwnd: P0, pszsubappname: P1, pszsubidlist: P2) -> windows_core::Result<()>
@@ -1730,7 +1730,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn SetWindowThemeAttribute(hwnd : super::super::Foundation:: HWND, eattribute : WINDOWTHEMEATTRIBUTETYPE, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
-    SetWindowThemeAttribute(hwnd.param().abi(), eattribute, pvattribute, cbattribute).ok()
+    SetWindowThemeAttribute(hwnd.param().abi(), core::mem::transmute(eattribute), core::mem::transmute(pvattribute), core::mem::transmute(cbattribute)).ok()
 }
 #[inline]
 pub unsafe fn ShowHideMenuCtl<P0>(hwnd: P0, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL
@@ -1738,44 +1738,44 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::super::Foundation:: HWND, uflags : usize, lpinfo : *const i32) -> super::super::Foundation:: BOOL);
-    ShowHideMenuCtl(hwnd.param().abi(), uflags, lpinfo)
+    ShowHideMenuCtl(hwnd.param().abi(), core::mem::transmute(uflags), core::mem::transmute(lpinfo))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ShowScrollBar<P0, P1>(hwnd: P0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P1) -> windows_core::Result<()>
+pub unsafe fn ShowScrollBar<P0, P2>(hwnd: P0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("user32.dll" "system" fn ShowScrollBar(hwnd : super::super::Foundation:: HWND, wbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, bshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    ShowScrollBar(hwnd.param().abi(), wbar, bshow.param().abi()).ok()
+    ShowScrollBar(hwnd.param().abi(), core::mem::transmute(wbar), bshow.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn Str_SetPtrW<P0>(ppsz: *mut windows_core::PWSTR, psz: P0) -> super::super::Foundation::BOOL
+pub unsafe fn Str_SetPtrW<P1>(ppsz: *mut windows_core::PWSTR, psz: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn Str_SetPtrW(ppsz : *mut windows_core::PWSTR, psz : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    Str_SetPtrW(ppsz, psz.param().abi())
+    Str_SetPtrW(core::mem::transmute(ppsz), psz.param().abi())
 }
 #[inline]
-pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P5>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P5, pnbutton: Option<*mut i32>) -> windows_core::Result<()>
+pub unsafe fn TaskDialog<P0, P1, P2, P3, P4, P6>(hwndowner: P0, hinstance: P1, pszwindowtitle: P2, pszmaininstruction: P3, pszcontent: P4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: P6, pnbutton: Option<*mut i32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
-    P5: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszwindowtitle : windows_core::PCWSTR, pszmaininstruction : windows_core::PCWSTR, pszcontent : windows_core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : windows_core::PCWSTR, pnbutton : *mut i32) -> windows_core::HRESULT);
-    TaskDialog(hwndowner.param().abi(), hinstance.param().abi(), pszwindowtitle.param().abi(), pszmaininstruction.param().abi(), pszcontent.param().abi(), dwcommonbuttons, pszicon.param().abi(), core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut()))).ok()
+    TaskDialog(hwndowner.param().abi(), hinstance.param().abi(), pszwindowtitle.param().abi(), pszmaininstruction.param().abi(), pszcontent.param().abi(), core::mem::transmute(dwcommonbuttons), pszicon.param().abi(), core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: Option<*mut i32>, pnradiobutton: Option<*mut i32>, pfverificationflagchecked: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("comctl32.dll" "system" fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    TaskDialogIndirect(ptaskconfig, core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnradiobutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfverificationflagchecked.unwrap_or(core::ptr::null_mut()))).ok()
+    TaskDialogIndirect(core::mem::transmute(ptaskconfig), core::mem::transmute(pnbutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pnradiobutton.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfverificationflagchecked.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn UninitializeFlatSB<P0>(param0: P0) -> windows_core::Result<()>
@@ -1786,21 +1786,15 @@ where
     UninitializeFlatSB(param0.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn UpdatePanningFeedback<P0, P1>(hwnd: P0, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P1) -> super::super::Foundation::BOOL
+pub unsafe fn UpdatePanningFeedback<P0, P3>(hwnd: P0, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: P3) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    UpdatePanningFeedback(hwnd.param().abi(), ltotaloverpanoffsetx, ltotaloverpanoffsety, fininertia.param().abi())
+    UpdatePanningFeedback(hwnd.param().abi(), core::mem::transmute(ltotaloverpanoffsetx), core::mem::transmute(ltotaloverpanoffsety), fininertia.param().abi())
 }
 windows_core::imp::define_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
-impl core::ops::Deref for IImageList {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IImageList, windows_core::IUnknown);
 impl IImageList {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1813,23 +1807,23 @@ impl IImageList {
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), hbmimage.param().abi(), hbmmask.param().abi(), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> windows_core::Result<i32>
+    pub unsafe fn ReplaceIcon<P1>(&self, i: i32, hicon: P1) -> windows_core::Result<i32>
     where
-        P0: windows_core::Param<super::WindowsAndMessaging::HICON>,
+        P1: windows_core::Param<super::WindowsAndMessaging::HICON>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), i, hicon.param().abi(), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).ReplaceIcon)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hicon.param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOverlayImage)(windows_core::Interface::as_raw(self), iimage, ioverlay).ok()
+        (windows_core::Interface::vtable(self).SetOverlayImage)(windows_core::Interface::as_raw(self), core::mem::transmute(iimage), core::mem::transmute(ioverlay)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> windows_core::Result<()>
+    pub unsafe fn Replace<P1, P2>(&self, i: i32, hbmimage: P1, hbmmask: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
         P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
+        P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
     {
-        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), i, hbmimage.param().abi(), hbmmask.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> windows_core::Result<i32>
@@ -1842,51 +1836,51 @@ impl IImageList {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), pimldp).ok()
+        (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), core::mem::transmute(pimldp)).ok()
     }
     pub unsafe fn Remove(&self, i: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), i).ok()
+        (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute(i)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> windows_core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), i, flags, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetIcon)(windows_core::Interface::as_raw(self), core::mem::transmute(i), core::mem::transmute(flags), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), i, pimageinfo).ok()
+        (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(i), core::mem::transmute(pimageinfo)).ok()
     }
-    pub unsafe fn Copy<P0>(&self, idst: i32, punksrc: P0, isrc: i32, uflags: u32) -> windows_core::Result<()>
+    pub unsafe fn Copy<P1>(&self, idst: i32, punksrc: P1, isrc: i32, uflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), idst, punksrc.param().abi(), isrc, uflags).ok()
+        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), core::mem::transmute(idst), punksrc.param().abi(), core::mem::transmute(isrc), core::mem::transmute(uflags)).ok()
     }
-    pub unsafe fn Merge<P0>(&self, i1: i32, punk2: P0, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn Merge<P1>(&self, i1: i32, punk2: P1, i2: i32, dx: i32, dy: i32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), i1, punk2.param().abi(), i2, dx, dy, riid, ppv).ok()
+        (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), core::mem::transmute(i1), punk2.param().abi(), core::mem::transmute(i2), core::mem::transmute(dx), core::mem::transmute(dy), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn Clone(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), riid, ppv).ok()
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn GetImageRect(&self, i: i32) -> windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetImageRect)(windows_core::Interface::as_raw(self), i, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetImageRect)(windows_core::Interface::as_raw(self), core::mem::transmute(i), &mut result__).map(|| result__)
     }
     pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetIconSize)(windows_core::Interface::as_raw(self), cx, cy).ok()
+        (windows_core::Interface::vtable(self).GetIconSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx), core::mem::transmute(cy)).ok()
     }
     pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetIconSize)(windows_core::Interface::as_raw(self), cx, cy).ok()
+        (windows_core::Interface::vtable(self).SetIconSize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx), core::mem::transmute(cy)).ok()
     }
     pub unsafe fn GetImageCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetImageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), unewcount).ok()
+        (windows_core::Interface::vtable(self).SetImageCount)(windows_core::Interface::as_raw(self), core::mem::transmute(unewcount)).ok()
     }
     pub unsafe fn SetBkColor<P0>(&self, clrbk: P0) -> windows_core::Result<super::super::Foundation::COLORREF>
     where
@@ -1900,7 +1894,7 @@ impl IImageList {
         (windows_core::Interface::vtable(self).GetBkColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginDrag)(windows_core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
+        (windows_core::Interface::vtable(self).BeginDrag)(windows_core::Interface::as_raw(self), core::mem::transmute(itrack), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot)).ok()
     }
     pub unsafe fn EndDrag(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndDrag)(windows_core::Interface::as_raw(self)).ok()
@@ -1909,7 +1903,7 @@ impl IImageList {
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), hwndlock.param().abi(), x, y).ok()
+        (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), hwndlock.param().abi(), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
     pub unsafe fn DragLeave<P0>(&self, hwndlock: P0) -> windows_core::Result<()>
     where
@@ -1918,13 +1912,13 @@ impl IImageList {
         (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self), hwndlock.param().abi()).ok()
     }
     pub unsafe fn DragMove(&self, x: i32, y: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DragMove)(windows_core::Interface::as_raw(self), x, y).ok()
+        (windows_core::Interface::vtable(self).DragMove)(windows_core::Interface::as_raw(self), core::mem::transmute(x), core::mem::transmute(y)).ok()
     }
     pub unsafe fn SetDragCursorImage<P0>(&self, punk: P0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).SetDragCursorImage)(windows_core::Interface::as_raw(self), punk.param().abi(), idrag, dxhotspot, dyhotspot).ok()
+        (windows_core::Interface::vtable(self).SetDragCursorImage)(windows_core::Interface::as_raw(self), punk.param().abi(), core::mem::transmute(idrag), core::mem::transmute(dxhotspot), core::mem::transmute(dyhotspot)).ok()
     }
     pub unsafe fn DragShowNolock<P0>(&self, fshow: P0) -> windows_core::Result<()>
     where
@@ -1933,15 +1927,15 @@ impl IImageList {
         (windows_core::Interface::vtable(self).DragShowNolock)(windows_core::Interface::as_raw(self), fshow.param().abi()).ok()
     }
     pub unsafe fn GetDragImage(&self, ppt: Option<*mut super::super::Foundation::POINT>, ppthotspot: Option<*mut super::super::Foundation::POINT>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ppt.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppthotspot.unwrap_or(core::ptr::null_mut())), riid, ppv).ok()
+        (windows_core::Interface::vtable(self).GetDragImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ppt.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppthotspot.unwrap_or(core::ptr::null_mut())), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn GetItemFlags(&self, i: i32) -> windows_core::Result<IMAGE_LIST_ITEM_FLAGS> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), i, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetItemFlags)(windows_core::Interface::as_raw(self), core::mem::transmute(i), &mut result__).map(|| result__)
     }
     pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetOverlayImage)(windows_core::Interface::as_raw(self), ioverlay, &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).GetOverlayImage)(windows_core::Interface::as_raw(self), core::mem::transmute(ioverlay), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1999,7 +1993,7 @@ pub struct IImageList_Vtbl {
     pub GetOverlayImage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IImageList_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IImageList_Impl: windows_core::IUnknownImpl {
     fn Add(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<i32>;
     fn ReplaceIcon(&self, i: i32, hicon: super::WindowsAndMessaging::HICON) -> windows_core::Result<i32>;
     fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> windows_core::Result<()>;
@@ -2031,10 +2025,8 @@ pub trait IImageList_Impl: Sized + windows_core::IUnknownImpl {
     fn GetOverlayImage(&self, ioverlay: i32) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IImageList {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImageList_Vtbl {
-    pub const fn new<Identity: IImageList_Impl, const OFFSET: isize>() -> IImageList_Vtbl {
+    pub const fn new<Identity: IImageList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Add<Identity: IImageList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IImageList_Impl::Add(this, core::mem::transmute_copy(&hbmimage), core::mem::transmute_copy(&hbmmask)) {
@@ -2248,6 +2240,8 @@ impl IImageList_Vtbl {
         iid == &<IImageList as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IImageList {}
 windows_core::imp::define_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 impl core::ops::Deref for IImageList2 {
     type Target = IImageList;
@@ -2258,13 +2252,13 @@ impl core::ops::Deref for IImageList2 {
 windows_core::imp::interface_hierarchy!(IImageList2, windows_core::IUnknown, IImageList);
 impl IImageList2 {
     pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), cxnewiconsize, cynewiconsize).ok()
+        (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(cxnewiconsize), core::mem::transmute(cynewiconsize)).ok()
     }
     pub unsafe fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetOriginalSize)(windows_core::Interface::as_raw(self), iimage, dwflags, pcx, pcy).ok()
+        (windows_core::Interface::vtable(self).GetOriginalSize)(windows_core::Interface::as_raw(self), core::mem::transmute(iimage), core::mem::transmute(dwflags), core::mem::transmute(pcx), core::mem::transmute(pcy)).ok()
     }
     pub unsafe fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetOriginalSize)(windows_core::Interface::as_raw(self), iimage, cx, cy).ok()
+        (windows_core::Interface::vtable(self).SetOriginalSize)(windows_core::Interface::as_raw(self), core::mem::transmute(iimage), core::mem::transmute(cx), core::mem::transmute(cy)).ok()
     }
     pub unsafe fn SetCallback<P0>(&self, punk: P0) -> windows_core::Result<()>
     where
@@ -2273,39 +2267,39 @@ impl IImageList2 {
         (windows_core::Interface::vtable(self).SetCallback)(windows_core::Interface::as_raw(self), punk.param().abi()).ok()
     }
     pub unsafe fn GetCallback(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCallback)(windows_core::Interface::as_raw(self), riid, ppv).ok()
+        (windows_core::Interface::vtable(self).GetCallback)(windows_core::Interface::as_raw(self), core::mem::transmute(riid), core::mem::transmute(ppv)).ok()
     }
     pub unsafe fn ForceImagePresent(&self, iimage: i32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ForceImagePresent)(windows_core::Interface::as_raw(self), iimage, dwflags).ok()
+        (windows_core::Interface::vtable(self).ForceImagePresent)(windows_core::Interface::as_raw(self), core::mem::transmute(iimage), core::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DiscardImages)(windows_core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
+        (windows_core::Interface::vtable(self).DiscardImages)(windows_core::Interface::as_raw(self), core::mem::transmute(ifirstimage), core::mem::transmute(ilastimage), core::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).PreloadImages)(windows_core::Interface::as_raw(self), pimldp).ok()
+        (windows_core::Interface::vtable(self).PreloadImages)(windows_core::Interface::as_raw(self), core::mem::transmute(pimldp)).ok()
     }
     pub unsafe fn GetStatistics(&self, pils: *mut IMAGELISTSTATS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), pils).ok()
+        (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), core::mem::transmute(pils)).ok()
     }
     pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(cx), core::mem::transmute(cy), core::mem::transmute(flags), core::mem::transmute(cinitial), core::mem::transmute(cgrow)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace2<P0, P1, P2>(&self, i: i32, hbmimage: P0, hbmmask: P1, punk: P2, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn Replace2<P1, P2, P3>(&self, i: i32, hbmimage: P1, hbmmask: P2, punk: P3, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
         P1: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
-        P2: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<super::super::Graphics::Gdi::HBITMAP>,
+        P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Replace2)(windows_core::Interface::as_raw(self), i, hbmimage.param().abi(), hbmmask.param().abi(), punk.param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).Replace2)(windows_core::Interface::as_raw(self), core::mem::transmute(i), hbmimage.param().abi(), hbmmask.param().abi(), punk.param().abi(), core::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn ReplaceFromImageList<P0, P1>(&self, i: i32, pil: P0, isrc: i32, punk: P1, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn ReplaceFromImageList<P1, P3>(&self, i: i32, pil: P1, isrc: i32, punk: P3, dwflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IImageList>,
-        P1: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<IImageList>,
+        P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).ReplaceFromImageList)(windows_core::Interface::as_raw(self), i, pil.param().abi(), isrc, punk.param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).ReplaceFromImageList)(windows_core::Interface::as_raw(self), core::mem::transmute(i), pil.param().abi(), core::mem::transmute(isrc), punk.param().abi(), core::mem::transmute(dwflags)).ok()
     }
 }
 #[repr(C)]
@@ -2331,7 +2325,7 @@ pub struct IImageList2_Vtbl {
     pub ReplaceFromImageList: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IImageList2_Impl: Sized + IImageList_Impl {
+pub trait IImageList2_Impl: IImageList_Impl {
     fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::Result<()>;
     fn GetOriginalSize(&self, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> windows_core::Result<()>;
     fn SetOriginalSize(&self, iimage: i32, cx: i32, cy: i32) -> windows_core::Result<()>;
@@ -2346,10 +2340,8 @@ pub trait IImageList2_Impl: Sized + IImageList_Impl {
     fn ReplaceFromImageList(&self, i: i32, pil: Option<&IImageList>, isrc: i32, punk: Option<&windows_core::IUnknown>, dwflags: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IImageList2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImageList2_Vtbl {
-    pub const fn new<Identity: IImageList2_Impl, const OFFSET: isize>() -> IImageList2_Vtbl {
+    pub const fn new<Identity: IImageList2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Resize<Identity: IImageList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IImageList2_Impl::Resize(this, core::mem::transmute_copy(&cxnewiconsize), core::mem::transmute_copy(&cynewiconsize)).into()
@@ -2418,6 +2410,8 @@ impl IImageList2_Vtbl {
         iid == &<IImageList2 as windows_core::Interface>::IID || iid == &<IImageList as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IImageList2 {}
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
 pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
 pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
@@ -6592,213 +6586,118 @@ pub const stc7: u32 = 1094u32;
 pub const stc8: u32 = 1095u32;
 pub const stc9: u32 = 1096u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AEROWIZARDPARTS(pub i32);
 impl windows_core::TypeKind for AEROWIZARDPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AEROWIZARDPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AEROWIZARDPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARROWBTNSTATES(pub i32);
 impl windows_core::TypeKind for ARROWBTNSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ARROWBTNSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ARROWBTNSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for BACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BACKGROUNDWITHBORDERSTATES(pub i32);
 impl windows_core::TypeKind for BACKGROUNDWITHBORDERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BACKGROUNDWITHBORDERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BACKGROUNDWITHBORDERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BALLOONSTATES(pub i32);
 impl windows_core::TypeKind for BALLOONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BALLOONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BALLOONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BALLOONSTEMSTATES(pub i32);
 impl windows_core::TypeKind for BALLOONSTEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BALLOONSTEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BALLOONSTEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BARBACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for BARBACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BARBACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BARBACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BARITEMSTATES(pub i32);
 impl windows_core::TypeKind for BARITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BARITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BARITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BGTYPE(pub i32);
 impl windows_core::TypeKind for BGTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BGTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BGTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BODYSTATES(pub i32);
 impl windows_core::TypeKind for BODYSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BODYSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BODYSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDERSTATES(pub i32);
 impl windows_core::TypeKind for BORDERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDERTYPE(pub i32);
 impl windows_core::TypeKind for BORDERTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDERTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDERTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDER_HSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for BORDER_HSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDER_HSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDER_HSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDER_HVSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for BORDER_HVSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDER_HVSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDER_HVSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDER_NOSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for BORDER_NOSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDER_NOSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDER_NOSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BORDER_VSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for BORDER_VSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BORDER_VSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BORDER_VSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_ANIMATIONSTYLE(pub i32);
 impl windows_core::TypeKind for BP_ANIMATIONSTYLE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BP_ANIMATIONSTYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BP_ANIMATIONSTYLE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_BUFFERFORMAT(pub i32);
 impl windows_core::TypeKind for BP_BUFFERFORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BP_BUFFERFORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BP_BUFFERFORMAT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_PAINTPARAMS_FLAGS(pub u32);
 impl windows_core::TypeKind for BP_PAINTPARAMS_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for BP_PAINTPARAMS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BP_PAINTPARAMS_FLAGS").field(&self.0).finish()
-    }
 }
 impl BP_PAINTPARAMS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -6834,169 +6733,94 @@ impl core::ops::Not for BP_PAINTPARAMS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUTTONPARTS(pub i32);
 impl windows_core::TypeKind for BUTTONPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BUTTONPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BUTTONPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUTTON_IMAGELIST_ALIGN(pub u32);
 impl windows_core::TypeKind for BUTTON_IMAGELIST_ALIGN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BUTTON_IMAGELIST_ALIGN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BUTTON_IMAGELIST_ALIGN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPTIONSTATES(pub i32);
 impl windows_core::TypeKind for CAPTIONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CAPTIONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CAPTIONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHECKBOXSTATES(pub i32);
 impl windows_core::TypeKind for CHECKBOXSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CHECKBOXSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CHECKBOXSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHEVRONSTATES(pub i32);
 impl windows_core::TypeKind for CHEVRONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CHEVRONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CHEVRONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHEVRONVERTSTATES(pub i32);
 impl windows_core::TypeKind for CHEVRONVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CHEVRONVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CHEVRONVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLOCKPARTS(pub i32);
 impl windows_core::TypeKind for CLOCKPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLOCKPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLOCKPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLOCKSTATES(pub i32);
 impl windows_core::TypeKind for CLOCKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLOCKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLOCKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLOSEBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for CLOSEBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLOSEBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLOSEBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLOSESTATES(pub i32);
 impl windows_core::TypeKind for CLOSESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLOSESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLOSESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLLAPSEBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for COLLAPSEBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COLLAPSEBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COLLAPSEBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOXINFO_BUTTON_STATE(pub u32);
 impl windows_core::TypeKind for COMBOBOXINFO_BUTTON_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMBOBOXINFO_BUTTON_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOXPARTS(pub i32);
 impl windows_core::TypeKind for COMBOBOXPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMBOBOXPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMBOBOXPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOXSTYLESTATES(pub i32);
 impl windows_core::TypeKind for COMBOBOXSTYLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMBOBOXSTYLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMBOBOXSTYLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
 impl windows_core::TypeKind for COMBOBOX_EX_ITEM_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for COMBOBOX_EX_ITEM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMBOBOX_EX_ITEM_FLAGS").field(&self.0).finish()
-    }
 }
 impl COMBOBOX_EX_ITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7032,191 +6856,106 @@ impl core::ops::Not for COMBOBOX_EX_ITEM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMMANDLINKGLYPHSTATES(pub i32);
 impl windows_core::TypeKind for COMMANDLINKGLYPHSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMMANDLINKGLYPHSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMMANDLINKGLYPHSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMMANDLINKSTATES(pub i32);
 impl windows_core::TypeKind for COMMANDLINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMMANDLINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMMANDLINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMMUNICATIONSPARTS(pub i32);
 impl windows_core::TypeKind for COMMUNICATIONSPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMMUNICATIONSPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMMUNICATIONSPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTENTALIGNMENT(pub i32);
 impl windows_core::TypeKind for CONTENTALIGNMENT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTENTALIGNMENT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTENTALIGNMENT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTENTAREASTATES(pub i32);
 impl windows_core::TypeKind for CONTENTAREASTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTENTAREASTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTENTAREASTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTENTLINKSTATES(pub i32);
 impl windows_core::TypeKind for CONTENTLINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTENTLINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTENTLINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTENTPANESTATES(pub i32);
 impl windows_core::TypeKind for CONTENTPANESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTENTPANESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTENTPANESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTROLLABELSTATES(pub i32);
 impl windows_core::TypeKind for CONTROLLABELSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTROLLABELSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTROLLABELSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTROLPANELPARTS(pub i32);
 impl windows_core::TypeKind for CONTROLPANELPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONTROLPANELPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONTROLPANELPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPYSTATES(pub i32);
 impl windows_core::TypeKind for COPYSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COPYSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COPYSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATELINKSTATES(pub i32);
 impl windows_core::TypeKind for CREATELINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CREATELINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CREATELINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUEBANNERSTATES(pub i32);
 impl windows_core::TypeKind for CUEBANNERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CUEBANNERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CUEBANNERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATEBORDERSTATES(pub i32);
 impl windows_core::TypeKind for DATEBORDERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DATEBORDERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DATEBORDERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATEPICKERPARTS(pub i32);
 impl windows_core::TypeKind for DATEPICKERPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DATEPICKERPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DATEPICKERPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATETEXTSTATES(pub i32);
 impl windows_core::TypeKind for DATETEXTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DATETEXTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DATETEXTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLG_BUTTON_CHECK_STATE(pub u32);
 impl windows_core::TypeKind for DLG_BUTTON_CHECK_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DLG_BUTTON_CHECK_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DLG_BUTTON_CHECK_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
 impl windows_core::TypeKind for DLG_DIR_LIST_FILE_TYPE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DLG_DIR_LIST_FILE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DLG_DIR_LIST_FILE_TYPE").field(&self.0).finish()
-    }
 }
 impl DLG_DIR_LIST_FILE_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7252,81 +6991,46 @@ impl core::ops::Not for DLG_DIR_LIST_FILE_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOWNHORZSTATES(pub i32);
 impl windows_core::TypeKind for DOWNHORZSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DOWNHORZSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DOWNHORZSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOWNSTATES(pub i32);
 impl windows_core::TypeKind for DOWNSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DOWNSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DOWNSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPAMM_MESSAGE(pub u32);
 impl windows_core::TypeKind for DPAMM_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DPAMM_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DPAMM_MESSAGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGDROPPARTS(pub i32);
 impl windows_core::TypeKind for DRAGDROPPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRAGDROPPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRAGDROPPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(pub u32);
 impl windows_core::TypeKind for DRAGLISTINFO_NOTIFICATION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRAGLISTINFO_NOTIFICATION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRAGLISTINFO_NOTIFICATION_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWITEMSTRUCT_CTL_TYPE(pub u32);
 impl windows_core::TypeKind for DRAWITEMSTRUCT_CTL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DRAWITEMSTRUCT_CTL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRAWITEMSTRUCT_CTL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
 impl windows_core::TypeKind for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DRAW_THEME_PARENT_BACKGROUND_FLAGS").field(&self.0).finish()
-    }
 }
 impl DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7362,48 +7066,28 @@ impl core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPDOWNBUTTONLEFTSTATES(pub i32);
 impl windows_core::TypeKind for DROPDOWNBUTTONLEFTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DROPDOWNBUTTONLEFTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DROPDOWNBUTTONLEFTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPDOWNBUTTONRIGHTSTATES(pub i32);
 impl windows_core::TypeKind for DROPDOWNBUTTONRIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DROPDOWNBUTTONRIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DROPDOWNBUTTONRIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DROPDOWNITEMSTATES(pub i32);
 impl windows_core::TypeKind for DROPDOWNITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DROPDOWNITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DROPDOWNITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTTOPTS_FLAGS(pub u32);
 impl windows_core::TypeKind for DTTOPTS_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DTTOPTS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DTTOPTS_FLAGS").field(&self.0).finish()
-    }
 }
 impl DTTOPTS_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7439,400 +7123,220 @@ impl core::ops::Not for DTTOPTS_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EC_ENDOFLINE(pub i32);
 impl windows_core::TypeKind for EC_ENDOFLINE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EC_ENDOFLINE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EC_ENDOFLINE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
 impl windows_core::TypeKind for EC_SEARCHWEB_ENTRYPOINT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EC_SEARCHWEB_ENTRYPOINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EC_SEARCHWEB_ENTRYPOINT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBALLOONTIP_ICON(pub i32);
 impl windows_core::TypeKind for EDITBALLOONTIP_ICON {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITBALLOONTIP_ICON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITBALLOONTIP_ICON").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBORDER_HSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for EDITBORDER_HSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITBORDER_HSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITBORDER_HSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBORDER_HVSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for EDITBORDER_HVSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITBORDER_HVSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITBORDER_HVSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBORDER_NOSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for EDITBORDER_NOSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITBORDER_NOSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITBORDER_NOSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBORDER_VSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for EDITBORDER_VSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITBORDER_VSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITBORDER_VSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITPARTS(pub i32);
 impl windows_core::TypeKind for EDITPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITTEXTSTATES(pub i32);
 impl windows_core::TypeKind for EDITTEXTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EDITTEXTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EDITTEXTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMPTYMARKUPPARTS(pub i32);
 impl windows_core::TypeKind for EMPTYMARKUPPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EMPTYMARKUPPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EMPTYMARKUPPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENABLE_SCROLL_BAR_ARROWS(pub u32);
 impl windows_core::TypeKind for ENABLE_SCROLL_BAR_ARROWS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ENABLE_SCROLL_BAR_ARROWS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ENABLE_SCROLL_BAR_ARROWS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPANDBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for EXPANDBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EXPANDBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EXPANDBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPANDOBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for EXPANDOBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EXPANDOBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EXPANDOBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPLORERBARPARTS(pub i32);
 impl windows_core::TypeKind for EXPLORERBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EXPLORERBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EXPLORERBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEEDBACK_TYPE(pub i32);
 impl windows_core::TypeKind for FEEDBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FEEDBACK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FEEDBACK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILLSTATES(pub i32);
 impl windows_core::TypeKind for FILLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILLTYPE(pub i32);
 impl windows_core::TypeKind for FILLTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILLTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILLTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILLVERTSTATES(pub i32);
 impl windows_core::TypeKind for FILLVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILLVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILLVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLYOUTPARTS(pub i32);
 impl windows_core::TypeKind for FLYOUTPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FLYOUTPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FLYOUTPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMEBOTTOMSTATES(pub i32);
 impl windows_core::TypeKind for FRAMEBOTTOMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FRAMEBOTTOMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FRAMEBOTTOMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMELEFTSTATES(pub i32);
 impl windows_core::TypeKind for FRAMELEFTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FRAMELEFTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FRAMELEFTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMERIGHTSTATES(pub i32);
 impl windows_core::TypeKind for FRAMERIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FRAMERIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FRAMERIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FRAMESTATES(pub i32);
 impl windows_core::TypeKind for FRAMESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FRAMESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FRAMESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_THEME_BITMAP_FLAGS(pub u32);
 impl windows_core::TypeKind for GET_THEME_BITMAP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GET_THEME_BITMAP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GET_THEME_BITMAP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLYPHFONTSIZINGTYPE(pub i32);
 impl windows_core::TypeKind for GLYPHFONTSIZINGTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GLYPHFONTSIZINGTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLYPHFONTSIZINGTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLYPHSTATES(pub i32);
 impl windows_core::TypeKind for GLYPHSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GLYPHSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLYPHSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLYPHTYPE(pub i32);
 impl windows_core::TypeKind for GLYPHTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GLYPHTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GLYPHTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRIDCELLBACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for GRIDCELLBACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GRIDCELLBACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GRIDCELLBACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRIDCELLSTATES(pub i32);
 impl windows_core::TypeKind for GRIDCELLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GRIDCELLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GRIDCELLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRIDCELLUPPERSTATES(pub i32);
 impl windows_core::TypeKind for GRIDCELLUPPERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GRIDCELLUPPERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GRIDCELLUPPERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRIPPERSTATES(pub i32);
 impl windows_core::TypeKind for GRIPPERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GRIPPERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GRIPPERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUPBOXSTATES(pub i32);
 impl windows_core::TypeKind for GROUPBOXSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GROUPBOXSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GROUPBOXSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUPHEADERLINESTATES(pub i32);
 impl windows_core::TypeKind for GROUPHEADERLINESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GROUPHEADERLINESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GROUPHEADERLINESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUPHEADERSTATES(pub i32);
 impl windows_core::TypeKind for GROUPHEADERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GROUPHEADERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GROUPHEADERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HALIGN(pub i32);
 impl windows_core::TypeKind for HALIGN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HALIGN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HALIGN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDI_MASK(pub u32);
 impl windows_core::TypeKind for HDI_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HDI_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HDI_MASK").field(&self.0).finish()
-    }
 }
 impl HDI_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -7868,191 +7372,106 @@ impl core::ops::Not for HDI_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERAREASTATES(pub i32);
 impl windows_core::TypeKind for HEADERAREASTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERAREASTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERAREASTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERCLOSESTATES(pub i32);
 impl windows_core::TypeKind for HEADERCLOSESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERCLOSESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERCLOSESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERDROPDOWNFILTERSTATES(pub i32);
 impl windows_core::TypeKind for HEADERDROPDOWNFILTERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERDROPDOWNFILTERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERDROPDOWNFILTERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERDROPDOWNSTATES(pub i32);
 impl windows_core::TypeKind for HEADERDROPDOWNSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERDROPDOWNSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERDROPDOWNSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERITEMLEFTSTATES(pub i32);
 impl windows_core::TypeKind for HEADERITEMLEFTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERITEMLEFTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERITEMLEFTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERITEMRIGHTSTATES(pub i32);
 impl windows_core::TypeKind for HEADERITEMRIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERITEMRIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERITEMRIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERITEMSTATES(pub i32);
 impl windows_core::TypeKind for HEADERITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADEROVERFLOWSTATES(pub i32);
 impl windows_core::TypeKind for HEADEROVERFLOWSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADEROVERFLOWSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADEROVERFLOWSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERPARTS(pub i32);
 impl windows_core::TypeKind for HEADERPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERPINSTATES(pub i32);
 impl windows_core::TypeKind for HEADERPINSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERPINSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERPINSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERSORTARROWSTATES(pub i32);
 impl windows_core::TypeKind for HEADERSORTARROWSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERSORTARROWSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERSORTARROWSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADERSTYLESTATES(pub i32);
 impl windows_core::TypeKind for HEADERSTYLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADERSTYLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADERSTYLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADER_CONTROL_FORMAT_FLAGS(pub i32);
 impl windows_core::TypeKind for HEADER_CONTROL_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADER_CONTROL_FORMAT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADER_CONTROL_FORMAT_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADER_CONTROL_FORMAT_STATE(pub u32);
 impl windows_core::TypeKind for HEADER_CONTROL_FORMAT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADER_CONTROL_FORMAT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADER_CONTROL_FORMAT_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADER_CONTROL_FORMAT_TYPE(pub u32);
 impl windows_core::TypeKind for HEADER_CONTROL_FORMAT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADER_CONTROL_FORMAT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADER_CONTROL_FORMAT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub i32);
 impl windows_core::TypeKind for HEADER_CONTROL_NOTIFICATION_BUTTON {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADER_CONTROL_NOTIFICATION_BUTTON").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEADER_HITTEST_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for HEADER_HITTEST_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HEADER_HITTEST_INFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HEADER_HITTEST_INFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl HEADER_HITTEST_INFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8088,147 +7507,82 @@ impl core::ops::Not for HEADER_HITTEST_INFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HELPBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for HELPBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HELPBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HELPBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HELPLINKSTATES(pub i32);
 impl windows_core::TypeKind for HELPLINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HELPLINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HELPLINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIT_TEST_BACKGROUND_OPTIONS(pub u32);
 impl windows_core::TypeKind for HIT_TEST_BACKGROUND_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HIT_TEST_BACKGROUND_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HIT_TEST_BACKGROUND_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HORZSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for HORZSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HORZSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HORZSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HORZTHUMBSTATES(pub i32);
 impl windows_core::TypeKind for HORZTHUMBSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HORZTHUMBSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HORZTHUMBSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOTGLYPHSTATES(pub i32);
 impl windows_core::TypeKind for HOTGLYPHSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HOTGLYPHSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HOTGLYPHSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HOVERBACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for HOVERBACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HOVERBACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HOVERBACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYPERLINKSTATES(pub i32);
 impl windows_core::TypeKind for HYPERLINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HYPERLINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HYPERLINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYPERLINKTEXTSTATES(pub i32);
 impl windows_core::TypeKind for HYPERLINKTEXTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HYPERLINKTEXTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HYPERLINKTEXTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICONEFFECT(pub i32);
 impl windows_core::TypeKind for ICONEFFECT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ICONEFFECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ICONEFFECT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEBARMENUSTATES(pub i32);
 impl windows_core::TypeKind for IEBARMENUSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IEBARMENUSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IEBARMENUSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELAYOUT(pub i32);
 impl windows_core::TypeKind for IMAGELAYOUT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGELAYOUT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGELAYOUT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELIST_CREATION_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGELIST_CREATION_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGELIST_CREATION_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGELIST_CREATION_FLAGS").field(&self.0).finish()
-    }
 }
 impl IMAGELIST_CREATION_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8264,37 +7618,22 @@ impl core::ops::Not for IMAGELIST_CREATION_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGESELECTTYPE(pub i32);
 impl windows_core::TypeKind for IMAGESELECTTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGESELECTTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGESELECTTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LIST_COPY_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGE_LIST_COPY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_LIST_COPY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_LIST_COPY_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LIST_DRAW_STYLE(pub u32);
 impl windows_core::TypeKind for IMAGE_LIST_DRAW_STYLE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_LIST_DRAW_STYLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_LIST_DRAW_STYLE").field(&self.0).finish()
-    }
 }
 impl IMAGE_LIST_DRAW_STYLE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8330,26 +7669,16 @@ impl core::ops::Not for IMAGE_LIST_DRAW_STYLE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LIST_ITEM_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGE_LIST_ITEM_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IMAGE_LIST_ITEM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_LIST_ITEM_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LIST_WRITE_STREAM_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGE_LIST_WRITE_STREAM_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for IMAGE_LIST_WRITE_STREAM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IMAGE_LIST_WRITE_STREAM_FLAGS").field(&self.0).finish()
-    }
 }
 impl IMAGE_LIST_WRITE_STREAM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8385,15 +7714,10 @@ impl core::ops::Not for IMAGE_LIST_WRITE_STREAM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INITCOMMONCONTROLSEX_ICC(pub u32);
 impl windows_core::TypeKind for INITCOMMONCONTROLSEX_ICC {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for INITCOMMONCONTROLSEX_ICC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INITCOMMONCONTROLSEX_ICC").field(&self.0).finish()
-    }
 }
 impl INITCOMMONCONTROLSEX_ICC {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8429,103 +7753,58 @@ impl core::ops::Not for INITCOMMONCONTROLSEX_ICC {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEMSTATES(pub i32);
 impl windows_core::TypeKind for ITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LABELSTATES(pub i32);
 impl windows_core::TypeKind for LABELSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LABELSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LABELSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINKHEADERSTATES(pub i32);
 impl windows_core::TypeKind for LINKHEADERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LINKHEADERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LINKHEADERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINKPARTS(pub i32);
 impl windows_core::TypeKind for LINKPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LINKPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LINKPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINKSTATES(pub i32);
 impl windows_core::TypeKind for LINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LISTBOXPARTS(pub i32);
 impl windows_core::TypeKind for LISTBOXPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LISTBOXPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LISTBOXPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LISTITEMSTATES(pub i32);
 impl windows_core::TypeKind for LISTITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LISTITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LISTITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LISTVIEWPARTS(pub i32);
 impl windows_core::TypeKind for LISTVIEWPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LISTVIEWPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LISTVIEWPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ITEM_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_ITEM_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_ITEM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_ITEM_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_ITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8561,15 +7840,10 @@ impl core::ops::Not for LIST_ITEM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ITEM_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_ITEM_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_ITEM_STATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_ITEM_STATE_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_ITEM_STATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8605,15 +7879,10 @@ impl core::ops::Not for LIST_ITEM_STATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_BACKGROUND_IMAGE_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_BACKGROUND_IMAGE_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8649,15 +7918,10 @@ impl core::ops::Not for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_GROUP_ALIGN_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_VIEW_GROUP_ALIGN_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_VIEW_GROUP_ALIGN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_GROUP_ALIGN_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_VIEW_GROUP_ALIGN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8693,15 +7957,10 @@ impl core::ops::Not for LIST_VIEW_GROUP_ALIGN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_GROUP_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_VIEW_GROUP_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_VIEW_GROUP_STATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_GROUP_STATE_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_VIEW_GROUP_STATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8737,15 +7996,10 @@ impl core::ops::Not for LIST_VIEW_GROUP_STATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(pub i32);
 impl windows_core::TypeKind for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8781,15 +8035,10 @@ impl core::ops::Not for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_ITEM_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_VIEW_ITEM_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LIST_VIEW_ITEM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_ITEM_FLAGS").field(&self.0).finish()
-    }
 }
 impl LIST_VIEW_ITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8825,37 +8074,22 @@ impl core::ops::Not for LIST_VIEW_ITEM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_VIEW_ITEM_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for LIST_VIEW_ITEM_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LIST_VIEW_ITEM_STATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_ITEM_STATE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGOFFBUTTONSSTATES(pub i32);
 impl windows_core::TypeKind for LOGOFFBUTTONSSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LOGOFFBUTTONSSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOGOFFBUTTONSSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVCOLUMNW_FORMAT(pub i32);
 impl windows_core::TypeKind for LVCOLUMNW_FORMAT {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVCOLUMNW_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVCOLUMNW_FORMAT").field(&self.0).finish()
-    }
 }
 impl LVCOLUMNW_FORMAT {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8891,15 +8125,10 @@ impl core::ops::Not for LVCOLUMNW_FORMAT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVCOLUMNW_MASK(pub u32);
 impl windows_core::TypeKind for LVCOLUMNW_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVCOLUMNW_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVCOLUMNW_MASK").field(&self.0).finish()
-    }
 }
 impl LVCOLUMNW_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8935,15 +8164,10 @@ impl core::ops::Not for LVCOLUMNW_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFINDINFOW_FLAGS(pub u32);
 impl windows_core::TypeKind for LVFINDINFOW_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVFINDINFOW_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVFINDINFOW_FLAGS").field(&self.0).finish()
-    }
 }
 impl LVFINDINFOW_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8979,26 +8203,16 @@ impl core::ops::Not for LVFINDINFOW_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFOOTERITEM_MASK(pub u32);
 impl windows_core::TypeKind for LVFOOTERITEM_MASK {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LVFOOTERITEM_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVFOOTERITEM_MASK").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVGROUP_MASK(pub u32);
 impl windows_core::TypeKind for LVGROUP_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVGROUP_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVGROUP_MASK").field(&self.0).finish()
-    }
 }
 impl LVGROUP_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9034,15 +8248,10 @@ impl core::ops::Not for LVGROUP_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVHITTESTINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for LVHITTESTINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVHITTESTINFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVHITTESTINFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl LVHITTESTINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9078,26 +8287,16 @@ impl core::ops::Not for LVHITTESTINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVITEMA_GROUP_ID(pub i32);
 impl windows_core::TypeKind for LVITEMA_GROUP_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LVITEMA_GROUP_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVITEMA_GROUP_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for LVTILEVIEWINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVTILEVIEWINFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVTILEVIEWINFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl LVTILEVIEWINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9133,15 +8332,10 @@ impl core::ops::Not for LVTILEVIEWINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVTILEVIEWINFO_MASK(pub u32);
 impl windows_core::TypeKind for LVTILEVIEWINFO_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LVTILEVIEWINFO_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LVTILEVIEWINFO_MASK").field(&self.0).finish()
-    }
 }
 impl LVTILEVIEWINFO_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9177,48 +8371,28 @@ impl core::ops::Not for LVTILEVIEWINFO_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MARKUPTEXTSTATES(pub i32);
 impl windows_core::TypeKind for MARKUPTEXTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MARKUPTEXTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MARKUPTEXTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for MAXBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MAXBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MAXBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXCAPTIONSTATES(pub i32);
 impl windows_core::TypeKind for MAXCAPTIONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MAXCAPTIONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MAXCAPTIONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCGRIDINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for MCGRIDINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MCGRIDINFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MCGRIDINFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl MCGRIDINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9254,26 +8428,16 @@ impl core::ops::Not for MCGRIDINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCGRIDINFO_PART(pub u32);
 impl windows_core::TypeKind for MCGRIDINFO_PART {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MCGRIDINFO_PART {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MCGRIDINFO_PART").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCHITTESTINFO_HIT_FLAGS(pub u32);
 impl windows_core::TypeKind for MCHITTESTINFO_HIT_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MCHITTESTINFO_HIT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MCHITTESTINFO_HIT_FLAGS").field(&self.0).finish()
-    }
 }
 impl MCHITTESTINFO_HIT_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9309,246 +8473,136 @@ impl core::ops::Not for MCHITTESTINFO_HIT_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDICLOSEBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for MDICLOSEBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MDICLOSEBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MDICLOSEBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDIMINBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for MDIMINBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MDIMINBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MDIMINBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MDIRESTOREBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for MDIRESTOREBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MDIRESTOREBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MDIRESTOREBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUBANDPARTS(pub i32);
 impl windows_core::TypeKind for MENUBANDPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MENUBANDPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MENUBANDPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUBANDSTATES(pub i32);
 impl windows_core::TypeKind for MENUBANDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MENUBANDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MENUBANDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENUPARTS(pub i32);
 impl windows_core::TypeKind for MENUPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MENUPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MENUPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for MINBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINCAPTIONSTATES(pub i32);
 impl windows_core::TypeKind for MINCAPTIONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MINCAPTIONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MINCAPTIONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONTHCALPARTS(pub i32);
 impl windows_core::TypeKind for MONTHCALPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MONTHCALPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MONTHCALPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONTH_CALDENDAR_MESSAGES_VIEW(pub u32);
 impl windows_core::TypeKind for MONTH_CALDENDAR_MESSAGES_VIEW {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MONTH_CALDENDAR_MESSAGES_VIEW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MONTH_CALDENDAR_MESSAGES_VIEW").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
 impl windows_core::TypeKind for MOREPROGRAMSARROWBACKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOREPROGRAMSARROWBACKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOREPROGRAMSARROWBACKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOREPROGRAMSARROWSTATES(pub i32);
 impl windows_core::TypeKind for MOREPROGRAMSARROWSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOREPROGRAMSARROWSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOREPROGRAMSARROWSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOREPROGRAMSTABSTATES(pub i32);
 impl windows_core::TypeKind for MOREPROGRAMSTABSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOREPROGRAMSTABSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOREPROGRAMSTABSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOVESTATES(pub i32);
 impl windows_core::TypeKind for MOVESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOVESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOVESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVIGATIONPARTS(pub i32);
 impl windows_core::TypeKind for NAVIGATIONPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAVIGATIONPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAVIGATIONPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVNEXTSTATES(pub i32);
 impl windows_core::TypeKind for NAVNEXTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAVNEXTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAVNEXTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAVPREVSTATES(pub i32);
 impl windows_core::TypeKind for NAVPREVSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAVPREVSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAVPREVSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAV_BACKBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for NAV_BACKBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAV_BACKBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAV_BACKBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAV_FORWARDBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for NAV_FORWARDBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAV_FORWARDBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAV_FORWARDBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAV_MENUBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for NAV_MENUBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAV_MENUBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAV_MENUBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCUSTOMDRAW_DRAW_STAGE(pub u32);
 impl windows_core::TypeKind for NMCUSTOMDRAW_DRAW_STAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMCUSTOMDRAW_DRAW_STAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMCUSTOMDRAW_DRAW_STAGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCUSTOMDRAW_DRAW_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMCUSTOMDRAW_DRAW_STATE_FLAGS").field(&self.0).finish()
-    }
 }
 impl NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9584,81 +8638,46 @@ impl core::ops::Not for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMECHANGE_FLAGS(pub u32);
 impl windows_core::TypeKind for NMDATETIMECHANGE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMDATETIMECHANGE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMDATETIMECHANGE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
 impl windows_core::TypeKind for NMLVCUSTOMDRAW_ITEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMLVCUSTOMDRAW_ITEM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMLVCUSTOMDRAW_ITEM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
 impl windows_core::TypeKind for NMLVEMPTYMARKUP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMLVEMPTYMARKUP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMLVEMPTYMARKUP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVGETINFOTIP_FLAGS(pub u32);
 impl windows_core::TypeKind for NMLVGETINFOTIP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMLVGETINFOTIP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMLVGETINFOTIP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGCALCSIZE_FLAGS(pub u32);
 impl windows_core::TypeKind for NMPGCALCSIZE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMPGCALCSIZE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMPGCALCSIZE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGSCROLL_DIR(pub i32);
 impl windows_core::TypeKind for NMPGSCROLL_DIR {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NMPGSCROLL_DIR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMPGSCROLL_DIR").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGSCROLL_KEYS(pub u16);
 impl windows_core::TypeKind for NMPGSCROLL_KEYS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NMPGSCROLL_KEYS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMPGSCROLL_KEYS").field(&self.0).finish()
-    }
 }
 impl NMPGSCROLL_KEYS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9694,15 +8713,10 @@ impl core::ops::Not for NMPGSCROLL_KEYS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBAR_MASK_FLAGS(pub u32);
 impl windows_core::TypeKind for NMREBAR_MASK_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NMREBAR_MASK_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMREBAR_MASK_FLAGS").field(&self.0).finish()
-    }
 }
 impl NMREBAR_MASK_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9738,15 +8752,10 @@ impl core::ops::Not for NMREBAR_MASK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBDISPINFOW_MASK(pub u32);
 impl windows_core::TypeKind for NMTBDISPINFOW_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NMTBDISPINFOW_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMTBDISPINFOW_MASK").field(&self.0).finish()
-    }
 }
 impl NMTBDISPINFOW_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9782,15 +8791,10 @@ impl core::ops::Not for NMTBDISPINFOW_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBHOTITEM_FLAGS(pub u32);
 impl windows_core::TypeKind for NMTBHOTITEM_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NMTBHOTITEM_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NMTBHOTITEM_FLAGS").field(&self.0).finish()
-    }
 }
 impl NMTBHOTITEM_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9826,15 +8830,10 @@ impl core::ops::Not for NMTBHOTITEM_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NM_TREEVIEW_ACTION(pub u32);
 impl windows_core::TypeKind for NM_TREEVIEW_ACTION {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NM_TREEVIEW_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NM_TREEVIEW_ACTION").field(&self.0).finish()
-    }
 }
 impl NM_TREEVIEW_ACTION {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9870,92 +8869,52 @@ impl core::ops::Not for NM_TREEVIEW_ACTION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NONESTATES(pub i32);
 impl windows_core::TypeKind for NONESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NONESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NONESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NORMALGROUPCOLLAPSESTATES(pub i32);
 impl windows_core::TypeKind for NORMALGROUPCOLLAPSESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NORMALGROUPCOLLAPSESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NORMALGROUPCOLLAPSESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NORMALGROUPEXPANDSTATES(pub i32);
 impl windows_core::TypeKind for NORMALGROUPEXPANDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NORMALGROUPEXPANDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NORMALGROUPEXPANDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ODA_FLAGS(pub u32);
 impl windows_core::TypeKind for ODA_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ODA_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ODA_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ODS_FLAGS(pub u32);
 impl windows_core::TypeKind for ODS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ODS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ODS_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFSETTYPE(pub i32);
 impl windows_core::TypeKind for OFFSETTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for OFFSETTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OFFSETTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPENBOXSTATES(pub i32);
 impl windows_core::TypeKind for OPENBOXSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for OPENBOXSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OPENBOXSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_THEME_DATA_FLAGS(pub u32);
 impl windows_core::TypeKind for OPEN_THEME_DATA_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for OPEN_THEME_DATA_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OPEN_THEME_DATA_FLAGS").field(&self.0).finish()
-    }
 }
 impl OPEN_THEME_DATA_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -9991,268 +8950,148 @@ impl core::ops::Not for OPEN_THEME_DATA_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGEPARTS(pub i32);
 impl windows_core::TypeKind for PAGEPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PAGEPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PAGEPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_DEVICE_CURSOR_TYPE(pub i32);
 impl windows_core::TypeKind for POINTER_DEVICE_CURSOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POINTER_DEVICE_CURSOR_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POINTER_DEVICE_CURSOR_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for POINTER_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POINTER_DEVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POINTER_DEVICE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTER_FEEDBACK_MODE(pub i32);
 impl windows_core::TypeKind for POINTER_FEEDBACK_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POINTER_FEEDBACK_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POINTER_FEEDBACK_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPCHECKBACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for POPUPCHECKBACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPCHECKBACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPCHECKBACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPCHECKSTATES(pub i32);
 impl windows_core::TypeKind for POPUPCHECKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPCHECKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPCHECKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPITEMFOCUSABLESTATES(pub i32);
 impl windows_core::TypeKind for POPUPITEMFOCUSABLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPITEMFOCUSABLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPITEMFOCUSABLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPITEMKBFOCUSSTATES(pub i32);
 impl windows_core::TypeKind for POPUPITEMKBFOCUSSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPITEMKBFOCUSSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPITEMKBFOCUSSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPITEMSTATES(pub i32);
 impl windows_core::TypeKind for POPUPITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPSUBMENUHCHOTSTATES(pub i32);
 impl windows_core::TypeKind for POPUPSUBMENUHCHOTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPSUBMENUHCHOTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPSUBMENUHCHOTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POPUPSUBMENUSTATES(pub i32);
 impl windows_core::TypeKind for POPUPSUBMENUSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POPUPSUBMENUSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POPUPSUBMENUSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROGRESSPARTS(pub i32);
 impl windows_core::TypeKind for PROGRESSPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROGRESSPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROGRESSPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYORIGIN(pub i32);
 impl windows_core::TypeKind for PROPERTYORIGIN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROPERTYORIGIN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROPERTYORIGIN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSPCB_MESSAGE(pub u32);
 impl windows_core::TypeKind for PSPCB_MESSAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PSPCB_MESSAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PSPCB_MESSAGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUSHBUTTONDROPDOWNSTATES(pub i32);
 impl windows_core::TypeKind for PUSHBUTTONDROPDOWNSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PUSHBUTTONDROPDOWNSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PUSHBUTTONDROPDOWNSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUSHBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for PUSHBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PUSHBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PUSHBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RADIOBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for RADIOBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIOBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIOBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READONLYSTATES(pub i32);
 impl windows_core::TypeKind for READONLYSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for READONLYSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("READONLYSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REBARPARTS(pub i32);
 impl windows_core::TypeKind for REBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESTOREBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for RESTOREBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RESTOREBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESTOREBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLBARPARTS(pub i32);
 impl windows_core::TypeKind for SCROLLBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCROLLBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCROLLBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCROLLBARSTYLESTATES(pub i32);
 impl windows_core::TypeKind for SCROLLBARSTYLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCROLLBARSTYLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCROLLBARSTYLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECTIONTITLELINKSTATES(pub i32);
 impl windows_core::TypeKind for SECTIONTITLELINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SECTIONTITLELINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SECTIONTITLELINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_THEME_APP_PROPERTIES_FLAGS(pub u32);
 impl windows_core::TypeKind for SET_THEME_APP_PROPERTIES_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SET_THEME_APP_PROPERTIES_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SET_THEME_APP_PROPERTIES_FLAGS").field(&self.0).finish()
-    }
 }
 impl SET_THEME_APP_PROPERTIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -10288,422 +9127,232 @@ impl core::ops::Not for SET_THEME_APP_PROPERTIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHOWCALENDARBUTTONRIGHTSTATES(pub i32);
 impl windows_core::TypeKind for SHOWCALENDARBUTTONRIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SHOWCALENDARBUTTONRIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHOWCALENDARBUTTONRIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZEBOXSTATES(pub i32);
 impl windows_core::TypeKind for SIZEBOXSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SIZEBOXSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SIZEBOXSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZINGTYPE(pub i32);
 impl windows_core::TypeKind for SIZINGTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SIZINGTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SIZINGTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALLCAPTIONSTATES(pub i32);
 impl windows_core::TypeKind for SMALLCAPTIONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SMALLCAPTIONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SMALLCAPTIONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALLCLOSEBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for SMALLCLOSEBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SMALLCLOSEBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SMALLCLOSEBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALLFRAMEBOTTOMSTATES(pub i32);
 impl windows_core::TypeKind for SMALLFRAMEBOTTOMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SMALLFRAMEBOTTOMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SMALLFRAMEBOTTOMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALLFRAMELEFTSTATES(pub i32);
 impl windows_core::TypeKind for SMALLFRAMELEFTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SMALLFRAMELEFTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SMALLFRAMELEFTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALLFRAMERIGHTSTATES(pub i32);
 impl windows_core::TypeKind for SMALLFRAMERIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SMALLFRAMERIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SMALLFRAMERIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOFTWAREEXPLORERSTATES(pub i32);
 impl windows_core::TypeKind for SOFTWAREEXPLORERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SOFTWAREEXPLORERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SOFTWAREEXPLORERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPECIALGROUPCOLLAPSESTATES(pub i32);
 impl windows_core::TypeKind for SPECIALGROUPCOLLAPSESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SPECIALGROUPCOLLAPSESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPECIALGROUPCOLLAPSESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPECIALGROUPEXPANDSTATES(pub i32);
 impl windows_core::TypeKind for SPECIALGROUPEXPANDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SPECIALGROUPEXPANDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPECIALGROUPEXPANDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPINPARTS(pub i32);
 impl windows_core::TypeKind for SPINPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SPINPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPINPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPLITTERSTATES(pub i32);
 impl windows_core::TypeKind for SPLITTERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SPLITTERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPLITTERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPLITTERVERTSTATES(pub i32);
 impl windows_core::TypeKind for SPLITTERVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SPLITTERVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SPLITTERVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STANDARDSTATES(pub i32);
 impl windows_core::TypeKind for STANDARDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for STANDARDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STANDARDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTPANELPARTS(pub i32);
 impl windows_core::TypeKind for STARTPANELPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for STARTPANELPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STARTPANELPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATICPARTS(pub i32);
 impl windows_core::TypeKind for STATICPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for STATICPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STATICPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATUSPARTS(pub i32);
 impl windows_core::TypeKind for STATUSPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for STATUSPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("STATUSPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSBUTTONSTATES(pub i32);
 impl windows_core::TypeKind for SYSBUTTONSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSBUTTONSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSBUTTONSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMCLOSEHCHOTSTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMCLOSEHCHOTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMCLOSEHCHOTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMCLOSEHCHOTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMCLOSESTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMCLOSESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMCLOSESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMCLOSESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMMAXIMIZEHCHOTSTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMMAXIMIZEHCHOTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMMAXIMIZEHCHOTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMMAXIMIZEHCHOTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMMAXIMIZESTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMMAXIMIZESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMMAXIMIZESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMMAXIMIZESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMMINIMIZEHCHOTSTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMMINIMIZEHCHOTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMMINIMIZEHCHOTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMMINIMIZEHCHOTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMMINIMIZESTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMMINIMIZESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMMINIMIZESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMMINIMIZESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMRESTOREHCHOTSTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMRESTOREHCHOTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMRESTOREHCHOTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMRESTOREHCHOTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMRESTORESTATES(pub i32);
 impl windows_core::TypeKind for SYSTEMRESTORESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SYSTEMRESTORESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SYSTEMRESTORESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABITEMBOTHEDGESTATES(pub i32);
 impl windows_core::TypeKind for TABITEMBOTHEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABITEMBOTHEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABITEMBOTHEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABITEMLEFTEDGESTATES(pub i32);
 impl windows_core::TypeKind for TABITEMLEFTEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABITEMLEFTEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABITEMLEFTEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABITEMRIGHTEDGESTATES(pub i32);
 impl windows_core::TypeKind for TABITEMRIGHTEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABITEMRIGHTEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABITEMRIGHTEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABITEMSTATES(pub i32);
 impl windows_core::TypeKind for TABITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABPARTS(pub i32);
 impl windows_core::TypeKind for TABPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TABSTATES(pub i32);
 impl windows_core::TypeKind for TABSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TABSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TABSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAB_CONTROL_ITEM_STATE(pub u32);
 impl windows_core::TypeKind for TAB_CONTROL_ITEM_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TAB_CONTROL_ITEM_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TAB_CONTROL_ITEM_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKBANDPARTS(pub i32);
 impl windows_core::TypeKind for TASKBANDPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKBANDPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKBANDPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKBARPARTS(pub i32);
 impl windows_core::TypeKind for TASKBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOGPARTS(pub i32);
 impl windows_core::TypeKind for TASKDIALOGPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKDIALOGPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOGPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_COMMON_BUTTON_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TASKDIALOG_COMMON_BUTTON_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_COMMON_BUTTON_FLAGS").field(&self.0).finish()
-    }
 }
 impl TASKDIALOG_COMMON_BUTTON_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -10739,26 +9388,16 @@ impl core::ops::Not for TASKDIALOG_COMMON_BUTTON_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_ELEMENTS(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_ELEMENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKDIALOG_ELEMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_ELEMENTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_FLAGS(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TASKDIALOG_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_FLAGS").field(&self.0).finish()
-    }
 }
 impl TASKDIALOG_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -10794,70 +9433,40 @@ impl core::ops::Not for TASKDIALOG_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_ICON_ELEMENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKDIALOG_ICON_ELEMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_ICON_ELEMENTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_MESSAGES(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_MESSAGES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKDIALOG_MESSAGES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_MESSAGES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
 impl windows_core::TypeKind for TASKDIALOG_NOTIFICATIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKDIALOG_NOTIFICATIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKDIALOG_NOTIFICATIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TASKLINKSTATES(pub i32);
 impl windows_core::TypeKind for TASKLINKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TASKLINKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TASKLINKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_PROPERTY(pub i32);
 impl windows_core::TypeKind for TA_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TA_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TA_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_PROPERTY_FLAG(pub i32);
 impl windows_core::TypeKind for TA_PROPERTY_FLAG {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TA_PROPERTY_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TA_PROPERTY_FLAG").field(&self.0).finish()
-    }
 }
 impl TA_PROPERTY_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -10893,26 +9502,16 @@ impl core::ops::Not for TA_PROPERTY_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
 impl windows_core::TypeKind for TA_TIMINGFUNCTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TA_TIMINGFUNCTION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TA_TIMINGFUNCTION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TRANSFORM_FLAG(pub i32);
 impl windows_core::TypeKind for TA_TRANSFORM_FLAG {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TA_TRANSFORM_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TA_TRANSFORM_FLAG").field(&self.0).finish()
-    }
 }
 impl TA_TRANSFORM_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -10948,26 +9547,16 @@ impl core::ops::Not for TA_TRANSFORM_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TRANSFORM_TYPE(pub i32);
 impl windows_core::TypeKind for TA_TRANSFORM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TA_TRANSFORM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TA_TRANSFORM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBBUTTONINFOW_MASK(pub u32);
 impl windows_core::TypeKind for TBBUTTONINFOW_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TBBUTTONINFOW_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TBBUTTONINFOW_MASK").field(&self.0).finish()
-    }
 }
 impl TBBUTTONINFOW_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -11003,37 +9592,22 @@ impl core::ops::Not for TBBUTTONINFOW_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBINSERTMARK_FLAGS(pub u32);
 impl windows_core::TypeKind for TBINSERTMARK_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TBINSERTMARK_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TBINSERTMARK_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCHITTESTINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for TCHITTESTINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TCHITTESTINFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TCHITTESTINFO_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCITEMHEADERA_MASK(pub u32);
 impl windows_core::TypeKind for TCITEMHEADERA_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TCITEMHEADERA_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TCITEMHEADERA_MASK").field(&self.0).finish()
-    }
 }
 impl TCITEMHEADERA_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -11069,202 +9643,112 @@ impl core::ops::Not for TCITEMHEADERA_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTSELECTIONGRIPPERPARTS(pub i32);
 impl windows_core::TypeKind for TEXTSELECTIONGRIPPERPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TEXTSELECTIONGRIPPERPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEXTSELECTIONGRIPPERPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTSHADOWTYPE(pub i32);
 impl windows_core::TypeKind for TEXTSHADOWTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TEXTSHADOWTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEXTSHADOWTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTSTYLEPARTS(pub i32);
 impl windows_core::TypeKind for TEXTSTYLEPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TEXTSTYLEPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEXTSTYLEPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THEMESIZE(pub i32);
 impl windows_core::TypeKind for THEMESIZE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THEMESIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THEMESIZE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
 impl windows_core::TypeKind for THEME_PROPERTY_SYMBOL_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THEME_PROPERTY_SYMBOL_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THEME_PROPERTY_SYMBOL_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBBOTTOMSTATES(pub i32);
 impl windows_core::TypeKind for THUMBBOTTOMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBBOTTOMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBBOTTOMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBLEFTSTATES(pub i32);
 impl windows_core::TypeKind for THUMBLEFTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBLEFTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBLEFTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBRIGHTSTATES(pub i32);
 impl windows_core::TypeKind for THUMBRIGHTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBRIGHTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBRIGHTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBSTATES(pub i32);
 impl windows_core::TypeKind for THUMBSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBTOPSTATES(pub i32);
 impl windows_core::TypeKind for THUMBTOPSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBTOPSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBTOPSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THUMBVERTSTATES(pub i32);
 impl windows_core::TypeKind for THUMBVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for THUMBVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("THUMBVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TICSSTATES(pub i32);
 impl windows_core::TypeKind for TICSSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TICSSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TICSSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TICSVERTSTATES(pub i32);
 impl windows_core::TypeKind for TICSVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TICSVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TICSVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TITLEBARSTATES(pub i32);
 impl windows_core::TypeKind for TITLEBARSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TITLEBARSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TITLEBARSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOOLBARPARTS(pub i32);
 impl windows_core::TypeKind for TOOLBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOOLBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOOLBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOOLBARSTYLESTATES(pub i32);
 impl windows_core::TypeKind for TOOLBARSTYLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOOLBARSTYLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOOLBARSTYLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOOLTIPPARTS(pub i32);
 impl windows_core::TypeKind for TOOLTIPPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOOLTIPPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOOLTIPPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOOLTIP_FLAGS(pub u32);
 impl windows_core::TypeKind for TOOLTIP_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TOOLTIP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOOLTIP_FLAGS").field(&self.0).finish()
-    }
 }
 impl TOOLTIP_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -11300,213 +9784,118 @@ impl core::ops::Not for TOOLTIP_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
 impl windows_core::TypeKind for TOPTABITEMBOTHEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOPTABITEMBOTHEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOPTABITEMBOTHEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOPTABITEMLEFTEDGESTATES(pub i32);
 impl windows_core::TypeKind for TOPTABITEMLEFTEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOPTABITEMLEFTEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOPTABITEMLEFTEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOPTABITEMRIGHTEDGESTATES(pub i32);
 impl windows_core::TypeKind for TOPTABITEMRIGHTEDGESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOPTABITEMRIGHTEDGESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOPTABITEMRIGHTEDGESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOPTABITEMSTATES(pub i32);
 impl windows_core::TypeKind for TOPTABITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TOPTABITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TOPTABITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKBARPARTS(pub i32);
 impl windows_core::TypeKind for TRACKBARPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRACKBARPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACKBARPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKBARSTYLESTATES(pub i32);
 impl windows_core::TypeKind for TRACKBARSTYLESTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRACKBARSTYLESTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACKBARSTYLESTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKSTATES(pub i32);
 impl windows_core::TypeKind for TRACKSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRACKSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACKSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACKVERTSTATES(pub i32);
 impl windows_core::TypeKind for TRACKVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRACKVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRACKVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRAILINGGRIDCELLSTATES(pub i32);
 impl windows_core::TypeKind for TRAILINGGRIDCELLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRAILINGGRIDCELLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRAILINGGRIDCELLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
 impl windows_core::TypeKind for TRAILINGGRIDCELLUPPERSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRAILINGGRIDCELLUPPERSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRAILINGGRIDCELLUPPERSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPARENTBACKGROUNDSTATES(pub i32);
 impl windows_core::TypeKind for TRANSPARENTBACKGROUNDSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRANSPARENTBACKGROUNDSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRANSPARENTBACKGROUNDSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPARENTBARSTATES(pub i32);
 impl windows_core::TypeKind for TRANSPARENTBARSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRANSPARENTBARSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRANSPARENTBARSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPARENTBARVERTSTATES(pub i32);
 impl windows_core::TypeKind for TRANSPARENTBARVERTSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRANSPARENTBARVERTSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRANSPARENTBARVERTSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRAYNOTIFYPARTS(pub i32);
 impl windows_core::TypeKind for TRAYNOTIFYPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRAYNOTIFYPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRAYNOTIFYPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TREEITEMSTATES(pub i32);
 impl windows_core::TypeKind for TREEITEMSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TREEITEMSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TREEITEMSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TREEVIEWPARTS(pub i32);
 impl windows_core::TypeKind for TREEVIEWPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TREEVIEWPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TREEVIEWPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TREE_VIEW_ITEM_STATE_FLAGS(pub u32);
 impl windows_core::TypeKind for TREE_VIEW_ITEM_STATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TREE_VIEW_ITEM_STATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TREE_VIEW_ITEM_STATE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUESIZESCALINGTYPE(pub i32);
 impl windows_core::TypeKind for TRUESIZESCALINGTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TRUESIZESCALINGTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TRUESIZESCALINGTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVHITTESTINFO_FLAGS(pub u32);
 impl windows_core::TypeKind for TVHITTESTINFO_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TVHITTESTINFO_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TVHITTESTINFO_FLAGS").field(&self.0).finish()
-    }
 }
 impl TVHITTESTINFO_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -11542,37 +9931,22 @@ impl core::ops::Not for TVHITTESTINFO_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMEXW_CHILDREN(pub i32);
 impl windows_core::TypeKind for TVITEMEXW_CHILDREN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TVITEMEXW_CHILDREN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TVITEMEXW_CHILDREN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMPART(pub i32);
 impl windows_core::TypeKind for TVITEMPART {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TVITEMPART {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TVITEMPART").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEM_MASK(pub u32);
 impl windows_core::TypeKind for TVITEM_MASK {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for TVITEM_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TVITEM_MASK").field(&self.0).finish()
-    }
 }
 impl TVITEM_MASK {
     pub const fn contains(&self, other: Self) -> bool {
@@ -11608,178 +9982,108 @@ impl core::ops::Not for TVITEM_MASK {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPDATEMETADATASTATES(pub i32);
 impl windows_core::TypeKind for UPDATEMETADATASTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UPDATEMETADATASTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UPDATEMETADATASTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPHORZSTATES(pub i32);
 impl windows_core::TypeKind for UPHORZSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UPHORZSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UPHORZSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPSTATES(pub i32);
 impl windows_core::TypeKind for UPSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UPSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UPSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERTILEPARTS(pub i32);
 impl windows_core::TypeKind for USERTILEPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for USERTILEPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("USERTILEPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALIGN(pub i32);
 impl windows_core::TypeKind for VALIGN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VALIGN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VALIGN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VERTSCROLLSTATES(pub i32);
 impl windows_core::TypeKind for VERTSCROLLSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VERTSCROLLSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VERTSCROLLSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VERTTHUMBSTATES(pub i32);
 impl windows_core::TypeKind for VERTTHUMBSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VERTTHUMBSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VERTTHUMBSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WARNINGSTATES(pub i32);
 impl windows_core::TypeKind for WARNINGSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WARNINGSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WARNINGSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWPARTS(pub i32);
 impl windows_core::TypeKind for WINDOWPARTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WINDOWPARTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINDOWPARTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
 impl windows_core::TypeKind for WINDOWTHEMEATTRIBUTETYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WINDOWTHEMEATTRIBUTETYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WINDOWTHEMEATTRIBUTETYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WORD_BREAK_ACTION(pub i32);
 impl windows_core::TypeKind for WORD_BREAK_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WORD_BREAK_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WORD_BREAK_ACTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRENCHSTATES(pub i32);
 impl windows_core::TypeKind for WRENCHSTATES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WRENCHSTATES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WRENCHSTATES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSB_PROP(pub i32);
 impl windows_core::TypeKind for WSB_PROP {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WSB_PROP {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WSB_PROP").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _LI_METRIC(pub i32);
 impl windows_core::TypeKind for _LI_METRIC {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for _LI_METRIC {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("_LI_METRIC").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub style: BP_ANIMATIONSTYLE,
     pub dwDuration: u32,
 }
-impl windows_core::TypeKind for BP_ANIMATIONPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for BP_ANIMATIONPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BP_ANIMATIONPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: BP_PAINTPARAMS_FLAGS,
@@ -11787,49 +10091,49 @@ pub struct BP_PAINTPARAMS {
     pub pBlendFunction: *const super::super::Graphics::Gdi::BLENDFUNCTION,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for BP_PAINTPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for BP_PAINTPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for BP_PAINTPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::super::Foundation::RECT,
     pub uAlign: BUTTON_IMAGELIST_ALIGN,
-}
-impl windows_core::TypeKind for BUTTON_IMAGELIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for BUTTON_IMAGELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BUTTON_IMAGELIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
     pub himlGlyph: HIMAGELIST,
     pub uSplitStyle: u32,
     pub size: super::super::Foundation::SIZE,
 }
-impl windows_core::TypeKind for BUTTON_SPLITINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for BUTTON_SPLITINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BUTTON_SPLITINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCINFOA {
     pub szClass: [i8; 32],
     pub flOptions: u32,
@@ -11848,18 +10152,18 @@ pub struct CCINFOA {
     pub dwReserved2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CCINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CCINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CCINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCINFOW {
     pub szClass: [u16; 32],
     pub flOptions: u32,
@@ -11878,17 +10182,17 @@ pub struct CCINFOW {
     pub dwReserved2: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CCINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CCINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CCINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCSTYLEA {
     pub flStyle: u32,
     pub flExtStyle: u32,
@@ -11896,46 +10200,46 @@ pub struct CCSTYLEA {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl windows_core::TypeKind for CCSTYLEA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CCSTYLEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CCSTYLEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCSTYLEFLAGA {
     pub flStyle: u32,
     pub flStyleMask: u32,
     pub pszStyle: windows_core::PSTR,
-}
-impl windows_core::TypeKind for CCSTYLEFLAGA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CCSTYLEFLAGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CCSTYLEFLAGA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
     pub flStyleMask: u32,
     pub pszStyle: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for CCSTYLEFLAGW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CCSTYLEFLAGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CCSTYLEFLAGW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CCSTYLEW {
     pub flStyle: u32,
     pub flExtStyle: u32,
@@ -11943,45 +10247,45 @@ pub struct CCSTYLEW {
     pub lgid: u16,
     pub wReserved1: u16,
 }
-impl windows_core::TypeKind for CCSTYLEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CCSTYLEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CCSTYLEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORMAP {
     pub from: super::super::Foundation::COLORREF,
     pub to: super::super::Foundation::COLORREF,
-}
-impl windows_core::TypeKind for COLORMAP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for COLORMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COLORMAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COLORSCHEME {
     pub dwSize: u32,
     pub clrBtnHighlight: super::super::Foundation::COLORREF,
     pub clrBtnShadow: super::super::Foundation::COLORREF,
-}
-impl windows_core::TypeKind for COLORSCHEME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for COLORSCHEME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COLORSCHEME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMBOBOXEXITEMA {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
@@ -11993,16 +10297,16 @@ pub struct COMBOBOXEXITEMA {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for COMBOBOXEXITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for COMBOBOXEXITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COMBOBOXEXITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMBOBOXEXITEMW {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
     pub iItem: isize,
@@ -12014,16 +10318,16 @@ pub struct COMBOBOXEXITEMW {
     pub iIndent: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for COMBOBOXEXITEMW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for COMBOBOXEXITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COMBOBOXEXITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMBOBOXINFO {
     pub cbSize: u32,
     pub rcItem: super::super::Foundation::RECT,
@@ -12033,16 +10337,16 @@ pub struct COMBOBOXINFO {
     pub hwndItem: super::super::Foundation::HWND,
     pub hwndList: super::super::Foundation::HWND,
 }
-impl windows_core::TypeKind for COMBOBOXINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for COMBOBOXINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COMBOBOXINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct COMPAREITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -12053,16 +10357,16 @@ pub struct COMPAREITEMSTRUCT {
     pub itemData2: usize,
     pub dwLocaleId: u32,
 }
-impl windows_core::TypeKind for COMPAREITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for COMPAREITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COMPAREITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: u32,
     pub rcCheck: super::super::Foundation::RECT,
@@ -12073,16 +10377,16 @@ pub struct DATETIMEPICKERINFO {
     pub hwndUD: super::super::Foundation::HWND,
     pub hwndDropDown: super::super::Foundation::HWND,
 }
-impl windows_core::TypeKind for DATETIMEPICKERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DATETIMEPICKERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DATETIMEPICKERINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DELETEITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -12090,46 +10394,46 @@ pub struct DELETEITEMSTRUCT {
     pub hwndItem: super::super::Foundation::HWND,
     pub itemData: usize,
 }
-impl windows_core::TypeKind for DELETEITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DELETEITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DELETEITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for DPASTREAMINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DPASTREAMINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DPASTREAMINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRAGLISTINFO {
     pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
     pub hWnd: super::super::Foundation::HWND,
     pub ptCursor: super::super::Foundation::POINT,
-}
-impl windows_core::TypeKind for DRAGLISTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRAGLISTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DRAGLISTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DRAWITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -12142,33 +10446,33 @@ pub struct DRAWITEMSTRUCT {
     pub itemData: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DRAWITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DRAWITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for DRAWITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub rcClip: super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for DTBGOPTS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DTBGOPTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DTBGOPTS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DTTOPTS {
     pub dwSize: u32,
     pub dwFlags: DTTOPTS_FLAGS,
@@ -12187,49 +10491,49 @@ pub struct DTTOPTS {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DTTOPTS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DTTOPTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for DTTOPTS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
     pub pszTitle: windows_core::PCWSTR,
     pub pszText: windows_core::PCWSTR,
     pub ttiIcon: EDITBALLOONTIP_ICON,
 }
-impl windows_core::TypeKind for EDITBALLOONTIP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for EDITBALLOONTIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for EDITBALLOONTIP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: HEADER_HITTEST_INFO_FLAGS,
     pub iItem: i32,
-}
-impl windows_core::TypeKind for HDHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HDHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HDHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDITEMA {
     pub mask: HDI_MASK,
     pub cxy: i32,
@@ -12245,18 +10549,18 @@ pub struct HDITEMA {
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for HDITEMA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for HDITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for HDITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDITEMW {
     pub mask: HDI_MASK,
     pub cxy: i32,
@@ -12272,25 +10576,21 @@ pub struct HDITEMW {
     pub state: HEADER_CONTROL_FORMAT_STATE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for HDITEMW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for HDITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for HDITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HDLAYOUT {
     pub prc: *mut super::super::Foundation::RECT,
     pub pwpos: *mut super::WindowsAndMessaging::WINDOWPOS,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for HDLAYOUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for HDLAYOUT {
@@ -12298,9 +10598,16 @@ impl Default for HDLAYOUT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for HDLAYOUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HDPA(pub isize);
+impl windows_core::TypeKind for HDPA {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDPA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -12310,21 +10617,17 @@ impl windows_core::Free for HDPA {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DPA_Destroy(*self);
+            windows_targets::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : isize) -> i32);
+            DPA_Destroy(self.0);
         }
     }
 }
-impl Default for HDPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HDPA {
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HDSA(pub isize);
+impl windows_core::TypeKind for HDSA {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDSA(pub isize);
 impl HDSA {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -12334,49 +10637,45 @@ impl windows_core::Free for HDSA {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DSA_Destroy(*self);
+            windows_targets::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : isize) -> i32);
+            DSA_Destroy(self.0);
         }
     }
 }
-impl Default for HDSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HDSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HD_TEXTFILTERA {
     pub pszText: windows_core::PSTR,
     pub cchTextMax: i32,
-}
-impl windows_core::TypeKind for HD_TEXTFILTERA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HD_TEXTFILTERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HD_TEXTFILTERA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
-}
-impl windows_core::TypeKind for HD_TEXTFILTERW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HD_TEXTFILTERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HD_TEXTFILTERW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HIMAGELIST(pub isize);
+impl windows_core::TypeKind for HIMAGELIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl HIMAGELIST {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -12386,21 +10685,17 @@ impl windows_core::Free for HIMAGELIST {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = ImageList_Destroy(*self);
+            windows_targets::link!("comctl32.dll" "system" fn ImageList_Destroy(himl : isize) -> i32);
+            ImageList_Destroy(self.0);
         }
     }
-}
-impl Default for HIMAGELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HIMAGELIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPROPSHEETPAGE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HPROPSHEETPAGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl HPROPSHEETPAGE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -12410,7 +10705,8 @@ impl windows_core::Free for HPROPSHEETPAGE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DestroyPropertySheetPage(*self);
+            windows_targets::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : *mut core::ffi::c_void) -> i32);
+            DestroyPropertySheetPage(self.0);
         }
     }
 }
@@ -12419,12 +10715,12 @@ impl Default for HPROPSHEETPAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HPROPSHEETPAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
 impl HSYNTHETICPOINTERDEVICE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -12434,7 +10730,8 @@ impl windows_core::Free for HSYNTHETICPOINTERDEVICE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            DestroySyntheticPointerDevice(*self);
+            windows_targets::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : *mut core::ffi::c_void));
+            DestroySyntheticPointerDevice(self.0);
         }
     }
 }
@@ -12443,12 +10740,12 @@ impl Default for HSYNTHETICPOINTERDEVICE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HSYNTHETICPOINTERDEVICE {
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HTHEME(pub isize);
+impl windows_core::TypeKind for HTHEME {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTHEME(pub isize);
 impl HTHEME {
     pub fn is_invalid(&self) -> bool {
         self.0 == 0
@@ -12458,32 +10755,20 @@ impl windows_core::Free for HTHEME {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = CloseThemeData(*self);
+            windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : isize) -> i32);
+            CloseThemeData(self.0);
         }
     }
 }
-impl Default for HTHEME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HTHEME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTREEITEM(pub isize);
-impl Default for HTREEITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HTREEITEM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGEINFO {
     pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
     pub hbmMask: super::super::Graphics::Gdi::HBITMAP,
@@ -12492,18 +10777,18 @@ pub struct IMAGEINFO {
     pub rcImage: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMAGEINFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMAGEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMAGEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
     pub himl: HIMAGELIST,
@@ -12524,76 +10809,76 @@ pub struct IMAGELISTDRAWPARAMS {
     pub crEffect: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for IMAGELISTDRAWPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for IMAGELISTDRAWPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for IMAGELISTDRAWPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IMAGELISTSTATS {
     pub cbSize: u32,
     pub cAlloc: i32,
     pub cUsed: i32,
     pub cStandby: i32,
 }
-impl windows_core::TypeKind for IMAGELISTSTATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IMAGELISTSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IMAGELISTSTATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: INITCOMMONCONTROLSEX_ICC,
-}
-impl windows_core::TypeKind for INITCOMMONCONTROLSEX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INITCOMMONCONTROLSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INITCOMMONCONTROLSEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
-}
-impl windows_core::TypeKind for INTLIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTLIST {
+    type TypeKind = windows_core::CopyType;
+}
 pub const ImageList: windows_core::GUID = windows_core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub item: LITEM,
-}
-impl windows_core::TypeKind for LHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LITEM {
     pub mask: LIST_ITEM_FLAGS,
     pub iLink: i32,
@@ -12602,17 +10887,17 @@ pub struct LITEM {
     pub szID: [u16; 48],
     pub szUrl: [u16; 2084],
 }
-impl windows_core::TypeKind for LITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVBKIMAGEA {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
@@ -12622,18 +10907,18 @@ pub struct LVBKIMAGEA {
     pub yOffsetPercent: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LVBKIMAGEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for LVBKIMAGEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for LVBKIMAGEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVBKIMAGEW {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
     pub hbm: super::super::Graphics::Gdi::HBITMAP,
@@ -12643,17 +10928,17 @@ pub struct LVBKIMAGEW {
     pub yOffsetPercent: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for LVBKIMAGEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for LVBKIMAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for LVBKIMAGEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVCOLUMNA {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
@@ -12667,16 +10952,16 @@ pub struct LVCOLUMNA {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl windows_core::TypeKind for LVCOLUMNA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVCOLUMNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVCOLUMNA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVCOLUMNW {
     pub mask: LVCOLUMNW_MASK,
     pub fmt: LVCOLUMNW_FORMAT,
@@ -12690,16 +10975,16 @@ pub struct LVCOLUMNW {
     pub cxDefault: i32,
     pub cxIdeal: i32,
 }
-impl windows_core::TypeKind for LVCOLUMNW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVCOLUMNW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVCOLUMNW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVFINDINFOA {
     pub flags: LVFINDINFOW_FLAGS,
     pub psz: windows_core::PCSTR,
@@ -12707,16 +10992,16 @@ pub struct LVFINDINFOA {
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl windows_core::TypeKind for LVFINDINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVFINDINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVFINDINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVFINDINFOW {
     pub flags: LVFINDINFOW_FLAGS,
     pub psz: windows_core::PCWSTR,
@@ -12724,32 +11009,32 @@ pub struct LVFINDINFOW {
     pub pt: super::super::Foundation::POINT,
     pub vkDirection: u32,
 }
-impl windows_core::TypeKind for LVFINDINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVFINDINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVFINDINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVFOOTERINFO {
     pub mask: u32,
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
     pub cItems: u32,
 }
-impl windows_core::TypeKind for LVFOOTERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVFOOTERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVFOOTERINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVFOOTERITEM {
     pub mask: LVFOOTERITEM_MASK,
     pub iItem: i32,
@@ -12758,16 +11043,16 @@ pub struct LVFOOTERITEM {
     pub state: u32,
     pub stateMask: u32,
 }
-impl windows_core::TypeKind for LVFOOTERITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVFOOTERITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVFOOTERITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: LVGROUP_MASK,
@@ -12794,16 +11079,16 @@ pub struct LVGROUP {
     pub pszSubsetTitle: windows_core::PWSTR,
     pub cchSubsetTitle: u32,
 }
-impl windows_core::TypeKind for LVGROUP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVGROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVGROUP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -12818,16 +11103,16 @@ pub struct LVGROUPMETRICS {
     pub crHeader: super::super::Foundation::COLORREF,
     pub crFooter: super::super::Foundation::COLORREF,
 }
-impl windows_core::TypeKind for LVGROUPMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVGROUPMETRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVGROUPMETRICS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: LVHITTESTINFO_FLAGS,
@@ -12835,47 +11120,47 @@ pub struct LVHITTESTINFO {
     pub iSubItem: i32,
     pub iGroup: i32,
 }
-impl windows_core::TypeKind for LVHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
     pub pvData: *mut core::ffi::c_void,
     pub lvGroup: LVGROUP,
-}
-impl windows_core::TypeKind for LVINSERTGROUPSORTED {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LVINSERTGROUPSORTED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVINSERTGROUPSORTED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
     pub dwFlags: u32,
     pub iItem: i32,
     pub dwReserved: u32,
 }
-impl windows_core::TypeKind for LVINSERTMARK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVINSERTMARK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVINSERTMARK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVITEMA {
     pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
@@ -12893,30 +11178,30 @@ pub struct LVITEMA {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl windows_core::TypeKind for LVITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
-}
-impl windows_core::TypeKind for LVITEMINDEX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for LVITEMINDEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVITEMINDEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVITEMW {
     pub mask: LIST_VIEW_ITEM_FLAGS,
     pub iItem: i32,
@@ -12934,16 +11219,16 @@ pub struct LVITEMW {
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
     pub iGroup: i32,
 }
-impl windows_core::TypeKind for LVITEMW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -12951,16 +11236,16 @@ pub struct LVSETINFOTIP {
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl windows_core::TypeKind for LVSETINFOTIP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVSETINFOTIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVSETINFOTIP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVTILEINFO {
     pub cbSize: u32,
     pub iItem: i32,
@@ -12968,16 +11253,16 @@ pub struct LVTILEINFO {
     pub puColumns: *mut u32,
     pub piColFmt: *mut i32,
 }
-impl windows_core::TypeKind for LVTILEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVTILEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVTILEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
     pub dwMask: LVTILEVIEWINFO_MASK,
@@ -12986,32 +11271,32 @@ pub struct LVTILEVIEWINFO {
     pub cLines: i32,
     pub rcLabelMargin: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for LVTILEVIEWINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LVTILEVIEWINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LVTILEVIEWINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
     pub cyTopHeight: i32,
     pub cyBottomHeight: i32,
 }
-impl windows_core::TypeKind for MARGINS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MARGINS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MARGINS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MCGRIDINFO {
     pub cbSize: u32,
     pub dwPart: MCGRIDINFO_PART,
@@ -13026,16 +11311,16 @@ pub struct MCGRIDINFO {
     pub pszName: windows_core::PWSTR,
     pub cchName: usize,
 }
-impl windows_core::TypeKind for MCGRIDINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MCGRIDINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MCGRIDINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
     pub pt: super::super::Foundation::POINT,
@@ -13046,16 +11331,16 @@ pub struct MCHITTESTINFO {
     pub iRow: i32,
     pub iCol: i32,
 }
-impl windows_core::TypeKind for MCHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MCHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MCHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MEASUREITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
     pub CtlID: u32,
@@ -13064,74 +11349,74 @@ pub struct MEASUREITEMSTRUCT {
     pub itemHeight: u32,
     pub itemData: usize,
 }
-impl windows_core::TypeKind for MEASUREITEMSTRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MEASUREITEMSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MEASUREITEMSTRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMBCDROPDOWN {
     pub hdr: NMHDR,
     pub rcButton: super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for NMBCDROPDOWN {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMBCDROPDOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMBCDROPDOWN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMBCHOTITEM {
     pub hdr: NMHDR,
     pub dwFlags: NMTBHOTITEM_FLAGS,
-}
-impl windows_core::TypeKind for NMBCHOTITEM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMBCHOTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMBCHOTITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
     pub iItemid: i32,
     pub szText: [i8; 260],
-}
-impl windows_core::TypeKind for NMCBEDRAGBEGINA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMCBEDRAGBEGINA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCBEDRAGBEGINA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: NMHDR,
     pub iItemid: i32,
     pub szText: [u16; 260],
-}
-impl windows_core::TypeKind for NMCBEDRAGBEGINW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMCBEDRAGBEGINW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCBEDRAGBEGINW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
@@ -13139,16 +11424,16 @@ pub struct NMCBEENDEDITA {
     pub szText: [i8; 260],
     pub iWhy: i32,
 }
-impl windows_core::TypeKind for NMCBEENDEDITA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMCBEENDEDITA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCBEENDEDITA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCBEENDEDITW {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
@@ -13156,61 +11441,61 @@ pub struct NMCBEENDEDITW {
     pub szText: [u16; 260],
     pub iWhy: i32,
 }
-impl windows_core::TypeKind for NMCBEENDEDITW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMCBEENDEDITW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCBEENDEDITW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCHAR {
     pub hdr: NMHDR,
     pub ch: u32,
     pub dwItemPrev: u32,
     pub dwItemNext: u32,
 }
-impl windows_core::TypeKind for NMCHAR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMCHAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCHAR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCOMBOBOXEXA {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
-}
-impl windows_core::TypeKind for NMCOMBOBOXEXA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMCOMBOBOXEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCOMBOBOXEXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCOMBOBOXEXW {
     pub hdr: NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
-}
-impl windows_core::TypeKind for NMCOMBOBOXEXW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMCOMBOBOXEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCOMBOBOXEXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCUSTOMDRAW {
     pub hdr: NMHDR,
     pub dwDrawStage: NMCUSTOMDRAW_DRAW_STAGE,
@@ -13221,34 +11506,34 @@ pub struct NMCUSTOMDRAW {
     pub lItemlParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMCUSTOMDRAW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMCUSTOMDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMCUSTOMDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: NMHDR,
     pub rcClient: super::super::Foundation::RECT,
     pub rcButton: super::super::Foundation::RECT,
     pub rcSplit: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for NMCUSTOMSPLITRECTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMCUSTOMSPLITRECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMCUSTOMSPLITRECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
     pub hDC: super::super::Graphics::Gdi::HDC,
@@ -13259,32 +11544,32 @@ pub struct NMCUSTOMTEXT {
     pub fLink: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMCUSTOMTEXT {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMCUSTOMTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMCUSTOMTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: NMHDR,
     pub dwFlags: NMDATETIMECHANGE_FLAGS,
     pub st: super::super::Foundation::SYSTEMTIME,
-}
-impl windows_core::TypeKind for NMDATETIMECHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMDATETIMECHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMECHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_core::PCSTR,
@@ -13292,46 +11577,46 @@ pub struct NMDATETIMEFORMATA {
     pub pszDisplay: windows_core::PCSTR,
     pub szDisplay: [i8; 64],
 }
-impl windows_core::TypeKind for NMDATETIMEFORMATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMEFORMATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEFORMATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_core::PCSTR,
     pub szMax: super::super::Foundation::SIZE,
-}
-impl windows_core::TypeKind for NMDATETIMEFORMATQUERYA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMDATETIMEFORMATQUERYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEFORMATQUERYA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_core::PCWSTR,
     pub szMax: super::super::Foundation::SIZE,
-}
-impl windows_core::TypeKind for NMDATETIMEFORMATQUERYW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMDATETIMEFORMATQUERYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEFORMATQUERYW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: NMHDR,
     pub pszFormat: windows_core::PCWSTR,
@@ -13339,96 +11624,96 @@ pub struct NMDATETIMEFORMATW {
     pub pszDisplay: windows_core::PCWSTR,
     pub szDisplay: [u16; 64],
 }
-impl windows_core::TypeKind for NMDATETIMEFORMATW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMEFORMATW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEFORMATW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: NMHDR,
     pub pszUserString: windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for NMDATETIMESTRINGA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMESTRINGA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMESTRINGA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: NMHDR,
     pub pszUserString: windows_core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for NMDATETIMESTRINGW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMESTRINGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMESTRINGW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_core::PCSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl windows_core::TypeKind for NMDATETIMEWMKEYDOWNA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMEWMKEYDOWNA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEWMKEYDOWNA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: NMHDR,
     pub nVirtKey: i32,
     pub pszFormat: windows_core::PCWSTR,
     pub st: super::super::Foundation::SYSTEMTIME,
 }
-impl windows_core::TypeKind for NMDATETIMEWMKEYDOWNW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDATETIMEWMKEYDOWNW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDATETIMEWMKEYDOWNW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMDAYSTATE {
     pub nmhdr: NMHDR,
     pub stStart: super::super::Foundation::SYSTEMTIME,
     pub cDayState: i32,
     pub prgDayState: *mut u32,
 }
-impl windows_core::TypeKind for NMDAYSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMDAYSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMDAYSTATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHDDISPINFOA {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13438,16 +11723,16 @@ pub struct NMHDDISPINFOA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMHDDISPINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMHDDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMHDDISPINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHDDISPINFOW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13457,47 +11742,47 @@ pub struct NMHDDISPINFOW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMHDDISPINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMHDDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMHDDISPINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: NMHDR,
     pub iItem: i32,
     pub rc: super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for NMHDFILTERBTNCLICK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMHDFILTERBTNCLICK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMHDFILTERBTNCLICK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHDR {
     pub hwndFrom: super::super::Foundation::HWND,
     pub idFrom: usize,
     pub code: u32,
-}
-impl windows_core::TypeKind for NMHDR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMHDR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHEADERA {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13505,18 +11790,18 @@ pub struct NMHEADERA {
     pub pitem: *mut HDITEMA,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMHEADERA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMHEADERA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMHEADERW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13524,32 +11809,32 @@ pub struct NMHEADERW {
     pub pitem: *mut HDITEMW,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMHEADERW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMHEADERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMHEADERW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMIPADDRESS {
     pub hdr: NMHDR,
     pub iField: i32,
     pub iValue: i32,
-}
-impl windows_core::TypeKind for NMIPADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMIPADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMIPADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMITEMACTIVATE {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13561,45 +11846,45 @@ pub struct NMITEMACTIVATE {
     pub lParam: super::super::Foundation::LPARAM,
     pub uKeyFlags: u32,
 }
-impl windows_core::TypeKind for NMITEMACTIVATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMITEMACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMITEMACTIVATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMKEY {
     pub hdr: NMHDR,
     pub nVKey: u32,
     pub uFlags: u32,
-}
-impl windows_core::TypeKind for NMKEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMKEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLINK {
     pub hdr: NMHDR,
     pub item: LITEM,
-}
-impl windows_core::TypeKind for NMLINK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLINK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLISTVIEW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13610,32 +11895,32 @@ pub struct NMLISTVIEW {
     pub ptAction: super::super::Foundation::POINT,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMLISTVIEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLISTVIEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLISTVIEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVCACHEHINT {
     pub hdr: NMHDR,
     pub iFrom: i32,
     pub iTo: i32,
-}
-impl windows_core::TypeKind for NMLVCACHEHINT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVCACHEHINT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVCACHEHINT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
@@ -13651,90 +11936,90 @@ pub struct NMLVCUSTOMDRAW {
     pub uAlign: LIST_VIEW_GROUP_ALIGN_FLAGS,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMLVCUSTOMDRAW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMLVCUSTOMDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMLVCUSTOMDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVDISPINFOA {
     pub hdr: NMHDR,
     pub item: LVITEMA,
-}
-impl windows_core::TypeKind for NMLVDISPINFOA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVDISPINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVDISPINFOW {
     pub hdr: NMHDR,
     pub item: LVITEMW,
-}
-impl windows_core::TypeKind for NMLVDISPINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVDISPINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVEMPTYMARKUP {
     pub hdr: NMHDR,
     pub dwFlags: NMLVEMPTYMARKUP_FLAGS,
     pub szMarkup: [u16; 2084],
-}
-impl windows_core::TypeKind for NMLVEMPTYMARKUP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVEMPTYMARKUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVEMPTYMARKUP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVFINDITEMA {
     pub hdr: NMHDR,
     pub iStart: i32,
     pub lvfi: LVFINDINFOA,
-}
-impl windows_core::TypeKind for NMLVFINDITEMA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVFINDITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVFINDITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVFINDITEMW {
     pub hdr: NMHDR,
     pub iStart: i32,
     pub lvfi: LVFINDINFOW,
-}
-impl windows_core::TypeKind for NMLVFINDITEMW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVFINDITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVFINDITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
@@ -13744,16 +12029,16 @@ pub struct NMLVGETINFOTIPA {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMLVGETINFOTIPA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLVGETINFOTIPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVGETINFOTIPA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
     pub dwFlags: NMLVGETINFOTIP_FLAGS,
@@ -13763,13 +12048,13 @@ pub struct NMLVGETINFOTIPW {
     pub iSubItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMLVGETINFOTIPW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLVGETINFOTIPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for NMLVGETINFOTIPW {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -13778,32 +12063,32 @@ pub struct NMLVKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl windows_core::TypeKind for NMLVKEYDOWN {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLVKEYDOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVKEYDOWN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVLINK {
     pub hdr: NMHDR,
     pub link: LITEM,
     pub iItem: i32,
     pub iSubItem: i32,
 }
-impl windows_core::TypeKind for NMLVLINK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLVLINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVLINK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVODSTATECHANGE {
     pub hdr: NMHDR,
     pub iFrom: i32,
@@ -13811,31 +12096,31 @@ pub struct NMLVODSTATECHANGE {
     pub uNewState: LIST_VIEW_ITEM_STATE_FLAGS,
     pub uOldState: LIST_VIEW_ITEM_STATE_FLAGS,
 }
-impl windows_core::TypeKind for NMLVODSTATECHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMLVODSTATECHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVODSTATECHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMLVSCROLL {
     pub hdr: NMHDR,
     pub dx: i32,
     pub dy: i32,
-}
-impl windows_core::TypeKind for NMLVSCROLL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMLVSCROLL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMLVSCROLL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMMOUSE {
     pub hdr: NMHDR,
     pub dwItemSpec: usize,
@@ -13843,16 +12128,16 @@ pub struct NMMOUSE {
     pub pt: super::super::Foundation::POINT,
     pub dwHitInfo: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMMOUSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMMOUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMMOUSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -13861,45 +12146,45 @@ pub struct NMOBJECTNOTIFY {
     pub hResult: windows_core::HRESULT,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for NMOBJECTNOTIFY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMOBJECTNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMOBJECTNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMPGCALCSIZE {
     pub hdr: NMHDR,
     pub dwFlag: NMPGCALCSIZE_FLAGS,
     pub iWidth: i32,
     pub iHeight: i32,
 }
-impl windows_core::TypeKind for NMPGCALCSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMPGCALCSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMPGCALCSIZE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMPGHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
     pub idNew: i32,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for NMPGHOTITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMPGHOTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for NMPGHOTITEM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -13912,32 +12197,32 @@ pub struct NMPGSCROLL {
     pub iYpos: i32,
     pub iScroll: i32,
 }
-impl windows_core::TypeKind for NMPGSCROLL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMPGSCROLL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMPGSCROLL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMRBAUTOSIZE {
     pub hdr: NMHDR,
     pub fChanged: super::super::Foundation::BOOL,
     pub rcTarget: super::super::Foundation::RECT,
     pub rcActual: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for NMRBAUTOSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMRBAUTOSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMRBAUTOSIZE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMREBAR {
     pub hdr: NMHDR,
     pub dwMask: NMREBAR_MASK_FLAGS,
@@ -13946,16 +12231,16 @@ pub struct NMREBAR {
     pub wID: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMREBAR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMREBAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMREBAR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMREBARAUTOBREAK {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -13965,16 +12250,16 @@ pub struct NMREBARAUTOBREAK {
     pub fStyleCurrent: u32,
     pub fAutoBreak: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for NMREBARAUTOBREAK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMREBARAUTOBREAK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMREBARAUTOBREAK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMREBARCHEVRON {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -13983,16 +12268,16 @@ pub struct NMREBARCHEVRON {
     pub rc: super::super::Foundation::RECT,
     pub lParamNM: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMREBARCHEVRON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMREBARCHEVRON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMREBARCHEVRON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMREBARCHILDSIZE {
     pub hdr: NMHDR,
     pub uBand: u32,
@@ -14000,62 +12285,62 @@ pub struct NMREBARCHILDSIZE {
     pub rcChild: super::super::Foundation::RECT,
     pub rcBand: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for NMREBARCHILDSIZE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMREBARCHILDSIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMREBARCHILDSIZE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
     pub rcSizing: super::super::Foundation::RECT,
-}
-impl windows_core::TypeKind for NMREBARSPLITTER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMREBARSPLITTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMREBARSPLITTER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMSEARCHWEB {
     pub hdr: NMHDR,
     pub entrypoint: EC_SEARCHWEB_ENTRYPOINT,
     pub hasQueryText: super::super::Foundation::BOOL,
     pub invokeSucceeded: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for NMSEARCHWEB {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMSEARCHWEB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMSEARCHWEB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMSELCHANGE {
     pub nmhdr: NMHDR,
     pub stSelStart: super::super::Foundation::SYSTEMTIME,
     pub stSelEnd: super::super::Foundation::SYSTEMTIME,
-}
-impl windows_core::TypeKind for NMSELCHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMSELCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMSELCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub hbrMonoDither: super::super::Graphics::Gdi::HBRUSH,
@@ -14073,17 +12358,17 @@ pub struct NMTBCUSTOMDRAW {
     pub iListGap: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMTBCUSTOMDRAW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMTBCUSTOMDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMTBCUSTOMDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBDISPINFOA {
     pub hdr: NMHDR,
     pub dwMask: NMTBDISPINFOW_MASK,
@@ -14093,16 +12378,16 @@ pub struct NMTBDISPINFOA {
     pub pszText: windows_core::PSTR,
     pub cchText: i32,
 }
-impl windows_core::TypeKind for NMTBDISPINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBDISPINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBDISPINFOW {
     pub hdr: NMHDR,
     pub dwMask: NMTBDISPINFOW_MASK,
@@ -14112,16 +12397,16 @@ pub struct NMTBDISPINFOW {
     pub pszText: windows_core::PWSTR,
     pub cchText: i32,
 }
-impl windows_core::TypeKind for NMTBDISPINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBDISPINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: NMHDR,
     pub pszText: windows_core::PSTR,
@@ -14129,16 +12414,16 @@ pub struct NMTBGETINFOTIPA {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTBGETINFOTIPA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBGETINFOTIPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBGETINFOTIPA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: NMHDR,
     pub pszText: windows_core::PWSTR,
@@ -14146,32 +12431,32 @@ pub struct NMTBGETINFOTIPW {
     pub iItem: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTBGETINFOTIPW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBGETINFOTIPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBGETINFOTIPW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBHOTITEM {
     pub hdr: NMHDR,
     pub idOld: i32,
     pub idNew: i32,
     pub dwFlags: NMTBHOTITEM_FLAGS,
 }
-impl windows_core::TypeKind for NMTBHOTITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBHOTITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBHOTITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBRESTORE {
     pub hdr: NMHDR,
     pub pData: *mut u32,
@@ -14182,16 +12467,16 @@ pub struct NMTBRESTORE {
     pub cbBytesPerRecord: i32,
     pub tbButton: TBBUTTON,
 }
-impl windows_core::TypeKind for NMTBRESTORE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBRESTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTBRESTORE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTBSAVE {
     pub hdr: NMHDR,
     pub pData: *mut u32,
@@ -14201,13 +12486,13 @@ pub struct NMTBSAVE {
     pub cButtons: i32,
     pub tbButton: TBBUTTON,
 }
-impl windows_core::TypeKind for NMTBSAVE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTBSAVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for NMTBSAVE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -14216,16 +12501,16 @@ pub struct NMTCKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl windows_core::TypeKind for NMTCKEYDOWN {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTCKEYDOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTCKEYDOWN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTOOLBARA {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -14234,16 +12519,16 @@ pub struct NMTOOLBARA {
     pub pszText: windows_core::PSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for NMTOOLBARA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTOOLBARA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTOOLBARA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTOOLBARW {
     pub hdr: NMHDR,
     pub iItem: i32,
@@ -14252,45 +12537,45 @@ pub struct NMTOOLBARW {
     pub pszText: windows_core::PWSTR,
     pub rcButton: super::super::Foundation::RECT,
 }
-impl windows_core::TypeKind for NMTOOLBARW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTOOLBARW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTOOLBARW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: NMHDR,
     pub hwndToolTips: super::super::Foundation::HWND,
-}
-impl windows_core::TypeKind for NMTOOLTIPSCREATED {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTOOLTIPSCREATED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTOOLTIPSCREATED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: NMHDR,
     pub dwPos: u32,
     pub nReason: i32,
-}
-impl windows_core::TypeKind for NMTRBTHUMBPOSCHANGING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTRBTHUMBPOSCHANGING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTRBTHUMBPOSCHANGING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTREEVIEWA {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -14298,16 +12583,16 @@ pub struct NMTREEVIEWA {
     pub itemNew: TVITEMA,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl windows_core::TypeKind for NMTREEVIEWA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTREEVIEWA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTREEVIEWA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTREEVIEWW {
     pub hdr: NMHDR,
     pub action: NM_TREEVIEW_ACTION,
@@ -14315,24 +12600,20 @@ pub struct NMTREEVIEWW {
     pub itemNew: TVITEMW,
     pub ptDrag: super::super::Foundation::POINT,
 }
-impl windows_core::TypeKind for NMTREEVIEWW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTREEVIEWW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTREEVIEWW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub uDrawFlags: u32,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMTTCUSTOMDRAW {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMTTCUSTOMDRAW {
@@ -14340,8 +12621,12 @@ impl Default for NMTTCUSTOMDRAW {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMTTCUSTOMDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
     pub lpszText: windows_core::PSTR,
@@ -14350,16 +12635,16 @@ pub struct NMTTDISPINFOA {
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTTDISPINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTTDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTTDISPINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
     pub lpszText: windows_core::PWSTR,
@@ -14368,17 +12653,17 @@ pub struct NMTTDISPINFOW {
     pub uFlags: TOOLTIP_FLAGS,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTTDISPINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTTDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTTDISPINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
@@ -14389,18 +12674,18 @@ pub struct NMTVASYNCDRAW {
     pub iRetImageIndex: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMTVASYNCDRAW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMTVASYNCDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMTVASYNCDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::super::Foundation::COLORREF,
@@ -14408,73 +12693,73 @@ pub struct NMTVCUSTOMDRAW {
     pub iLevel: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for NMTVCUSTOMDRAW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for NMTVCUSTOMDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for NMTVCUSTOMDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVDISPINFOA {
     pub hdr: NMHDR,
     pub item: TVITEMA,
-}
-impl windows_core::TypeKind for NMTVDISPINFOA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTVDISPINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVDISPINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVDISPINFOEXA {
     pub hdr: NMHDR,
     pub item: TVITEMEXA,
-}
-impl windows_core::TypeKind for NMTVDISPINFOEXA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTVDISPINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVDISPINFOEXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVDISPINFOEXW {
     pub hdr: NMHDR,
     pub item: TVITEMEXW,
-}
-impl windows_core::TypeKind for NMTVDISPINFOEXW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTVDISPINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVDISPINFOEXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVDISPINFOW {
     pub hdr: NMHDR,
     pub item: TVITEMW,
-}
-impl windows_core::TypeKind for NMTVDISPINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMTVDISPINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVDISPINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
     pub pszText: windows_core::PSTR,
@@ -14482,16 +12767,16 @@ pub struct NMTVGETINFOTIPA {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTVGETINFOTIPA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTVGETINFOTIPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVGETINFOTIPA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
     pub pszText: windows_core::PWSTR,
@@ -14499,16 +12784,16 @@ pub struct NMTVGETINFOTIPW {
     pub hItem: HTREEITEM,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTVGETINFOTIPW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTVGETINFOTIPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVGETINFOTIPW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVITEMCHANGE {
     pub hdr: NMHDR,
     pub uChanged: u32,
@@ -14517,13 +12802,13 @@ pub struct NMTVITEMCHANGE {
     pub uStateOld: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for NMTVITEMCHANGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTVITEMCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for NMTVITEMCHANGE {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -14532,91 +12817,91 @@ pub struct NMTVKEYDOWN {
     pub wVKey: u16,
     pub flags: u32,
 }
-impl windows_core::TypeKind for NMTVKEYDOWN {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTVKEYDOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVKEYDOWN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: NMHDR,
     pub hti: HTREEITEM,
     pub iOldStateImageIndex: i32,
     pub iNewStateImageIndex: i32,
 }
-impl windows_core::TypeKind for NMTVSTATEIMAGECHANGING {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NMTVSTATEIMAGECHANGING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMTVSTATEIMAGECHANGING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMUPDOWN {
     pub hdr: NMHDR,
     pub iPos: i32,
     pub iDelta: i32,
-}
-impl windows_core::TypeKind for NMUPDOWN {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMUPDOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMUPDOWN {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct NMVIEWCHANGE {
     pub nmhdr: NMHDR,
     pub dwOldView: MONTH_CALDENDAR_MESSAGES_VIEW,
     pub dwNewView: MONTH_CALDENDAR_MESSAGES_VIEW,
-}
-impl windows_core::TypeKind for NMVIEWCHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NMVIEWCHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NMVIEWCHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
-}
-impl windows_core::TypeKind for PBRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PBRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PBRANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
-}
-impl windows_core::TypeKind for POINTER_DEVICE_CURSOR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POINTER_DEVICE_CURSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POINTER_DEVICE_CURSOR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_DEVICE_INFO {
     pub displayOrientation: u32,
     pub device: super::super::Foundation::HANDLE,
@@ -14627,17 +12912,17 @@ pub struct POINTER_DEVICE_INFO {
     pub productString: [u16; 520],
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for POINTER_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for POINTER_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for POINTER_DEVICE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_DEVICE_PROPERTY {
     pub logicalMin: i32,
     pub logicalMax: i32,
@@ -14648,13 +12933,13 @@ pub struct POINTER_DEVICE_PROPERTY {
     pub usagePageId: u16,
     pub usageId: u16,
 }
-impl windows_core::TypeKind for POINTER_DEVICE_PROPERTY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for POINTER_DEVICE_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for POINTER_DEVICE_PROPERTY {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14664,14 +12949,14 @@ pub struct POINTER_TYPE_INFO {
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for POINTER_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for POINTER_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for POINTER_TYPE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14681,14 +12966,14 @@ pub union POINTER_TYPE_INFO_0 {
     pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for POINTER_TYPE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for POINTER_TYPE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for POINTER_TYPE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14706,14 +12991,14 @@ pub struct PROPSHEETHEADERA_V1 {
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14723,14 +13008,14 @@ pub union PROPSHEETHEADERA_V1_0 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14740,14 +13025,14 @@ pub union PROPSHEETHEADERA_V1_1 {
     pub pStartPage: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V1_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14757,14 +13042,14 @@ pub union PROPSHEETHEADERA_V1_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V1_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V1_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14785,14 +13070,14 @@ pub struct PROPSHEETHEADERA_V2 {
     pub Anonymous5: PROPSHEETHEADERA_V2_4,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14802,14 +13087,14 @@ pub union PROPSHEETHEADERA_V2_0 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14819,14 +13104,14 @@ pub union PROPSHEETHEADERA_V2_1 {
     pub pStartPage: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14836,14 +13121,14 @@ pub union PROPSHEETHEADERA_V2_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14853,14 +13138,14 @@ pub union PROPSHEETHEADERA_V2_3 {
     pub pszbmWatermark: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2_3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14870,14 +13155,14 @@ pub union PROPSHEETHEADERA_V2_4 {
     pub pszbmHeader: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERA_V2_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERA_V2_4 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14895,14 +13180,14 @@ pub struct PROPSHEETHEADERW_V1 {
     pub pfnCallback: PFNPROPSHEETCALLBACK,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14912,14 +13197,14 @@ pub union PROPSHEETHEADERW_V1_0 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14929,14 +13214,14 @@ pub union PROPSHEETHEADERW_V1_1 {
     pub pStartPage: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V1_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14946,14 +13231,14 @@ pub union PROPSHEETHEADERW_V1_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V1_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V1_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14974,14 +13259,14 @@ pub struct PROPSHEETHEADERW_V2 {
     pub Anonymous5: PROPSHEETHEADERW_V2_4,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14991,14 +13276,14 @@ pub union PROPSHEETHEADERW_V2_0 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15008,14 +13293,14 @@ pub union PROPSHEETHEADERW_V2_1 {
     pub pStartPage: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15025,14 +13310,14 @@ pub union PROPSHEETHEADERW_V2_2 {
     pub phpage: *mut HPROPSHEETPAGE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15042,14 +13327,14 @@ pub union PROPSHEETHEADERW_V2_3 {
     pub pszbmWatermark: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2_3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15059,14 +13344,14 @@ pub union PROPSHEETHEADERW_V2_4 {
     pub pszbmHeader: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETHEADERW_V2_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETHEADERW_V2_4 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15088,14 +13373,14 @@ pub struct PROPSHEETPAGEA {
     pub Anonymous3: PROPSHEETPAGEA_2,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15105,14 +13390,14 @@ pub union PROPSHEETPAGEA_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15122,14 +13407,14 @@ pub union PROPSHEETPAGEA_1 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15139,14 +13424,14 @@ pub union PROPSHEETPAGEA_2 {
     pub pszbmHeader: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15164,14 +13449,14 @@ pub struct PROPSHEETPAGEA_V1 {
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15181,14 +13466,14 @@ pub union PROPSHEETPAGEA_V1_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15198,14 +13483,14 @@ pub union PROPSHEETPAGEA_V1_1 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V1_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15225,14 +13510,14 @@ pub struct PROPSHEETPAGEA_V2 {
     pub pszHeaderSubTitle: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15242,14 +13527,14 @@ pub union PROPSHEETPAGEA_V2_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15259,14 +13544,14 @@ pub union PROPSHEETPAGEA_V2_1 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V2_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15287,14 +13572,14 @@ pub struct PROPSHEETPAGEA_V3 {
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15304,14 +13589,14 @@ pub union PROPSHEETPAGEA_V3_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15321,14 +13606,14 @@ pub union PROPSHEETPAGEA_V3_1 {
     pub pszIcon: windows_core::PCSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEA_V3_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEA_V3_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15350,14 +13635,14 @@ pub struct PROPSHEETPAGEW {
     pub Anonymous3: PROPSHEETPAGEW_2,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15367,14 +13652,14 @@ pub union PROPSHEETPAGEW_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15384,14 +13669,14 @@ pub union PROPSHEETPAGEW_1 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15401,14 +13686,14 @@ pub union PROPSHEETPAGEW_2 {
     pub pszbmHeader: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15426,14 +13711,14 @@ pub struct PROPSHEETPAGEW_V1 {
     pub pcRefParent: *mut u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15443,14 +13728,14 @@ pub union PROPSHEETPAGEW_V1_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15460,14 +13745,14 @@ pub union PROPSHEETPAGEW_V1_1 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V1_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15487,14 +13772,14 @@ pub struct PROPSHEETPAGEW_V2 {
     pub pszHeaderSubTitle: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15504,14 +13789,14 @@ pub union PROPSHEETPAGEW_V2_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15521,14 +13806,14 @@ pub union PROPSHEETPAGEW_V2_1 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V2_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15549,14 +13834,14 @@ pub struct PROPSHEETPAGEW_V3 {
     pub hActCtx: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15566,14 +13851,14 @@ pub union PROPSHEETPAGEW_V3_0 {
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V3_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -15583,47 +13868,47 @@ pub union PROPSHEETPAGEW_V3_1 {
     pub pszIcon: windows_core::PCWSTR,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PROPSHEETPAGEW_V3_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::TypeKind for PROPSHEETPAGEW_V3_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PSHNOTIFY {
     pub hdr: NMHDR,
     pub lParam: super::super::Foundation::LPARAM,
-}
-impl windows_core::TypeKind for PSHNOTIFY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for PSHNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PSHNOTIFY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RBHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: u32,
     pub iBand: i32,
-}
-impl windows_core::TypeKind for RBHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RBHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RBHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -15649,18 +13934,18 @@ pub struct REBARBANDINFOA {
     pub uChevronState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for REBARBANDINFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for REBARBANDINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for REBARBANDINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -15686,29 +13971,29 @@ pub struct REBARBANDINFOW {
     pub uChevronState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for REBARBANDINFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for REBARBANDINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for REBARBANDINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
     pub himl: HIMAGELIST,
 }
-impl windows_core::TypeKind for REBARINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for REBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for REBARINFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15740,14 +14025,14 @@ pub struct TASKDIALOGCONFIG {
     pub cxWidth: u32,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for TASKDIALOGCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15757,14 +14042,14 @@ pub union TASKDIALOGCONFIG_0 {
     pub pszMainIcon: windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for TASKDIALOGCONFIG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -15774,14 +14059,14 @@ pub union TASKDIALOGCONFIG_1 {
     pub pszFooterIcon: windows_core::PCWSTR,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for TASKDIALOGCONFIG_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for TASKDIALOGCONFIG_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for TASKDIALOGCONFIG_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -15789,13 +14074,13 @@ pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
     pub pszButtonText: windows_core::PCWSTR,
 }
-impl windows_core::TypeKind for TASKDIALOG_BUTTON {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TASKDIALOG_BUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TASKDIALOG_BUTTON {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15806,29 +14091,29 @@ pub struct TA_CUBIC_BEZIER {
     pub rX1: f32,
     pub rY1: f32,
 }
-impl windows_core::TypeKind for TA_CUBIC_BEZIER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TA_CUBIC_BEZIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TA_CUBIC_BEZIER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
-}
-impl windows_core::TypeKind for TA_TIMINGFUNCTION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TA_TIMINGFUNCTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TA_TIMINGFUNCTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -15836,13 +14121,13 @@ pub struct TA_TRANSFORM {
     pub dwDurationTime: u32,
     pub eFlags: TA_TRANSFORM_FLAG,
 }
-impl windows_core::TypeKind for TA_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TA_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TA_TRANSFORM {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15855,13 +14140,13 @@ pub struct TA_TRANSFORM_2D {
     pub rOriginX: f32,
     pub rOriginY: f32,
 }
-impl windows_core::TypeKind for TA_TRANSFORM_2D {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TA_TRANSFORM_2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TA_TRANSFORM_2D {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15876,13 +14161,13 @@ pub struct TA_TRANSFORM_CLIP {
     pub rInitialRight: f32,
     pub rInitialBottom: f32,
 }
-impl windows_core::TypeKind for TA_TRANSFORM_CLIP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TA_TRANSFORM_CLIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TA_TRANSFORM_CLIP {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -15891,31 +14176,31 @@ pub struct TA_TRANSFORM_OPACITY {
     pub rOpacity: f32,
     pub rInitialOpacity: f32,
 }
-impl windows_core::TypeKind for TA_TRANSFORM_OPACITY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TA_TRANSFORM_OPACITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TA_TRANSFORM_OPACITY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
     pub nID: usize,
-}
-impl windows_core::TypeKind for TBADDBITMAP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBADDBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBADDBITMAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -15926,18 +14211,18 @@ pub struct TBBUTTON {
     pub iString: isize,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for TBBUTTON {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for TBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for TBBUTTON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -15948,17 +14233,17 @@ pub struct TBBUTTON {
     pub iString: isize,
 }
 #[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for TBBUTTON {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(target_arch = "x86")]
 impl Default for TBBUTTON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for TBBUTTON {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBBUTTONINFOA {
     pub cbSize: u32,
     pub dwMask: TBBUTTONINFOW_MASK,
@@ -15971,16 +14256,16 @@ pub struct TBBUTTONINFOA {
     pub pszText: windows_core::PSTR,
     pub cchText: i32,
 }
-impl windows_core::TypeKind for TBBUTTONINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TBBUTTONINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBBUTTONINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBBUTTONINFOW {
     pub cbSize: u32,
     pub dwMask: TBBUTTONINFOW_MASK,
@@ -15993,30 +14278,30 @@ pub struct TBBUTTONINFOW {
     pub pszText: windows_core::PWSTR,
     pub cchText: i32,
 }
-impl windows_core::TypeKind for TBBUTTONINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TBBUTTONINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBBUTTONINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
-}
-impl windows_core::TypeKind for TBINSERTMARK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TBINSERTMARK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBINSERTMARK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBMETRICS {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -16027,16 +14312,16 @@ pub struct TBMETRICS {
     pub cxButtonSpacing: i32,
     pub cyButtonSpacing: i32,
 }
-impl windows_core::TypeKind for TBMETRICS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TBMETRICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBMETRICS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::super::Foundation::HINSTANCE,
     pub nIDOld: usize,
@@ -16044,25 +14329,21 @@ pub struct TBREPLACEBITMAP {
     pub nIDNew: usize,
     pub nButtons: i32,
 }
-impl windows_core::TypeKind for TBREPLACEBITMAP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TBREPLACEBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TBREPLACEBITMAP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
     pub pszSubKey: windows_core::PCSTR,
     pub pszValueName: windows_core::PCSTR,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for TBSAVEPARAMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for TBSAVEPARAMSA {
@@ -16070,17 +14351,17 @@ impl Default for TBSAVEPARAMSA {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for TBSAVEPARAMSA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
     pub pszSubKey: windows_core::PCWSTR,
     pub pszValueName: windows_core::PCWSTR,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for TBSAVEPARAMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for TBSAVEPARAMSW {
@@ -16088,22 +14369,26 @@ impl Default for TBSAVEPARAMSW {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for TBSAVEPARAMSW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TCHITTESTINFO_FLAGS,
-}
-impl windows_core::TypeKind for TCHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TCHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TCHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
@@ -16113,16 +14398,16 @@ pub struct TCITEMA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for TCITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TCITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TCITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCITEMHEADERA {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
@@ -16131,16 +14416,16 @@ pub struct TCITEMHEADERA {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl windows_core::TypeKind for TCITEMHEADERA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TCITEMHEADERA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TCITEMHEADERA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCITEMHEADERW {
     pub mask: TCITEMHEADERA_MASK,
     pub lpReserved1: u32,
@@ -16149,16 +14434,16 @@ pub struct TCITEMHEADERW {
     pub cchTextMax: i32,
     pub iImage: i32,
 }
-impl windows_core::TypeKind for TCITEMHEADERW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TCITEMHEADERW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TCITEMHEADERW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
     pub dwState: TAB_CONTROL_ITEM_STATE,
@@ -16168,16 +14453,16 @@ pub struct TCITEMW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for TCITEMW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TCITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TCITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOUCH_HIT_TESTING_INPUT {
     pub pointerId: u32,
     pub point: super::super::Foundation::POINT,
@@ -16185,76 +14470,76 @@ pub struct TOUCH_HIT_TESTING_INPUT {
     pub nonOccludedBoundingBox: super::super::Foundation::RECT,
     pub orientation: u32,
 }
-impl windows_core::TypeKind for TOUCH_HIT_TESTING_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TOUCH_HIT_TESTING_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOUCH_HIT_TESTING_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
     pub adjustedPoint: super::super::Foundation::POINT,
-}
-impl windows_core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
     pub cch: u32,
     pub pszTitle: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for TTGETTITLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TTGETTITLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TTGETTITLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::super::Foundation::HWND,
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOA,
-}
-impl windows_core::TypeKind for TTHITTESTINFOA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TTHITTESTINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TTHITTESTINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::super::Foundation::HWND,
     pub pt: super::super::Foundation::POINT,
     pub ti: TTTOOLINFOW,
-}
-impl windows_core::TypeKind for TTHITTESTINFOW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TTHITTESTINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TTHITTESTINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
     pub uFlags: TOOLTIP_FLAGS,
@@ -16266,16 +14551,16 @@ pub struct TTTOOLINFOA {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for TTTOOLINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TTTOOLINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TTTOOLINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
     pub uFlags: TOOLTIP_FLAGS,
@@ -16287,43 +14572,43 @@ pub struct TTTOOLINFOW {
     pub lParam: super::super::Foundation::LPARAM,
     pub lpReserved: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for TTTOOLINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TTTOOLINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TTTOOLINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
     pub prc: *mut super::super::Foundation::RECT,
     pub partID: TVITEMPART,
-}
-impl windows_core::TypeKind for TVGETITEMPARTRECTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TVGETITEMPARTRECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVGETITEMPARTRECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
     pub flags: TVHITTESTINFO_FLAGS,
     pub hItem: HTREEITEM,
 }
-impl windows_core::TypeKind for TVHITTESTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVHITTESTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TVHITTESTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16332,13 +14617,13 @@ pub struct TVINSERTSTRUCTA {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTA_0,
 }
-impl windows_core::TypeKind for TVINSERTSTRUCTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVINSERTSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTA {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16346,13 +14631,13 @@ pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
     pub item: TVITEMA,
 }
-impl windows_core::TypeKind for TVINSERTSTRUCTA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVINSERTSTRUCTA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTA_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16361,13 +14646,13 @@ pub struct TVINSERTSTRUCTW {
     pub hInsertAfter: HTREEITEM,
     pub Anonymous: TVINSERTSTRUCTW_0,
 }
-impl windows_core::TypeKind for TVINSERTSTRUCTW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVINSERTSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TVINSERTSTRUCTW {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16375,16 +14660,16 @@ pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
     pub item: TVITEMW,
 }
-impl windows_core::TypeKind for TVINSERTSTRUCTW_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVINSERTSTRUCTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVINSERTSTRUCTW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVITEMA {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -16397,16 +14682,16 @@ pub struct TVITEMA {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for TVITEMA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVITEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVITEMA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVITEMEXA {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -16424,16 +14709,16 @@ pub struct TVITEMEXA {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl windows_core::TypeKind for TVITEMEXA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVITEMEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVITEMEXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVITEMEXW {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -16451,16 +14736,16 @@ pub struct TVITEMEXW {
     pub iExpandedImage: i32,
     pub iReserved: i32,
 }
-impl windows_core::TypeKind for TVITEMEXW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVITEMEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVITEMEXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVITEMW {
     pub mask: TVITEM_MASK,
     pub hItem: HTREEITEM,
@@ -16473,45 +14758,45 @@ pub struct TVITEMW {
     pub cChildren: TVITEMEXW_CHILDREN,
     pub lParam: super::super::Foundation::LPARAM,
 }
-impl windows_core::TypeKind for TVITEMW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for TVITEMW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVITEMW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
     pub lpfnCompare: PFNTVCOMPARE,
     pub lParam: super::super::Foundation::LPARAM,
-}
-impl windows_core::TypeKind for TVSORTCB {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TVSORTCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TVSORTCB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
-}
-impl windows_core::TypeKind for UDACCEL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for UDACCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for UDACCEL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct USAGE_PROPERTIES {
     pub level: u16,
     pub page: u16,
@@ -16524,27 +14809,27 @@ pub struct USAGE_PROPERTIES {
     pub physicalMinimum: i32,
     pub physicalMaximum: i32,
 }
-impl windows_core::TypeKind for USAGE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for USAGE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for USAGE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
-}
-impl windows_core::TypeKind for WTA_OPTIONS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WTA_OPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WTA_OPTIONS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type DTT_CALLBACK_PROC = Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: windows_core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Matrix3x2 {
     pub M11: f32,
     pub M12: f32,
@@ -14,13 +14,8 @@ impl windows_core::TypeKind for Matrix3x2 {
 impl windows_core::RuntimeType for Matrix3x2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
 }
-impl Default for Matrix3x2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Matrix4x4 {
     pub M11: f32,
     pub M12: f32,
@@ -45,13 +40,8 @@ impl windows_core::TypeKind for Matrix4x4 {
 impl windows_core::RuntimeType for Matrix4x4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
 }
-impl Default for Matrix4x4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Plane {
     pub Normal: Vector3,
     pub D: f32,
@@ -62,13 +52,8 @@ impl windows_core::TypeKind for Plane {
 impl windows_core::RuntimeType for Plane {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
-impl Default for Plane {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Quaternion {
     pub X: f32,
     pub Y: f32,
@@ -81,13 +66,8 @@ impl windows_core::TypeKind for Quaternion {
 impl windows_core::RuntimeType for Quaternion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
 }
-impl Default for Quaternion {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Rational {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -98,13 +78,8 @@ impl windows_core::TypeKind for Rational {
 impl windows_core::RuntimeType for Rational {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
 }
-impl Default for Rational {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Vector2 {
     pub X: f32,
     pub Y: f32,
@@ -115,13 +90,8 @@ impl windows_core::TypeKind for Vector2 {
 impl windows_core::RuntimeType for Vector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
 }
-impl Default for Vector2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Vector3 {
     pub X: f32,
     pub Y: f32,
@@ -133,13 +103,8 @@ impl windows_core::TypeKind for Vector3 {
 impl windows_core::RuntimeType for Vector3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
 }
-impl Default for Vector3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Vector4 {
     pub X: f32,
     pub Y: f32,
@@ -151,9 +116,4 @@ impl windows_core::TypeKind for Vector4 {
 }
 impl windows_core::RuntimeType for Vector4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
-}
-impl Default for Vector4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

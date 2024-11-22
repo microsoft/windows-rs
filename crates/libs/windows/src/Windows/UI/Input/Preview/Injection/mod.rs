@@ -166,7 +166,7 @@ pub struct IInputInjectorStatics2_Vtbl {
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InjectedInputGamepadInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InjectedInputGamepadInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InjectedInputGamepadInfo {
@@ -272,14 +272,14 @@ impl windows_core::RuntimeType for InjectedInputGamepadInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputGamepadInfo>();
 }
 unsafe impl windows_core::Interface for InjectedInputGamepadInfo {
-    type Vtable = IInjectedInputGamepadInfo_Vtbl;
+    type Vtable = <IInjectedInputGamepadInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputGamepadInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InjectedInputKeyboardInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InjectedInputKeyboardInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InjectedInputKeyboardInfo {
@@ -328,14 +328,14 @@ impl windows_core::RuntimeType for InjectedInputKeyboardInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputKeyboardInfo>();
 }
 unsafe impl windows_core::Interface for InjectedInputKeyboardInfo {
-    type Vtable = IInjectedInputKeyboardInfo_Vtbl;
+    type Vtable = <IInjectedInputKeyboardInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputKeyboardInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InjectedInputMouseInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InjectedInputMouseInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InjectedInputMouseInfo {
@@ -406,14 +406,14 @@ impl windows_core::RuntimeType for InjectedInputMouseInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputMouseInfo>();
 }
 unsafe impl windows_core::Interface for InjectedInputMouseInfo {
-    type Vtable = IInjectedInputMouseInfo_Vtbl;
+    type Vtable = <IInjectedInputMouseInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputMouseInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InjectedInputPenInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InjectedInputPenInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InjectedInputPenInfo {
@@ -428,7 +428,7 @@ impl InjectedInputPenInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> windows_core::Result<()> {
@@ -506,14 +506,14 @@ impl windows_core::RuntimeType for InjectedInputPenInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputPenInfo>();
 }
 unsafe impl windows_core::Interface for InjectedInputPenInfo {
-    type Vtable = IInjectedInputPenInfo_Vtbl;
+    type Vtable = <IInjectedInputPenInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputPenInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InjectedInputTouchInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InjectedInputTouchInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl InjectedInputTouchInfo {
@@ -528,7 +528,7 @@ impl InjectedInputTouchInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetContact(&self, value: InjectedInputRectangle) -> windows_core::Result<()> {
@@ -550,7 +550,7 @@ impl InjectedInputTouchInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerInfo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> windows_core::Result<()> {
@@ -584,14 +584,14 @@ impl windows_core::RuntimeType for InjectedInputTouchInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputTouchInfo>();
 }
 unsafe impl windows_core::Interface for InjectedInputTouchInfo {
-    type Vtable = IInjectedInputTouchInfo_Vtbl;
+    type Vtable = <IInjectedInputTouchInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputTouchInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputInjector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputInjector, windows_core::IUnknown, windows_core::IInspectable);
 impl InputInjector {
@@ -686,14 +686,14 @@ impl windows_core::RuntimeType for InputInjector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputInjector>();
 }
 unsafe impl windows_core::Interface for InputInjector {
-    type Vtable = IInputInjector_Vtbl;
+    type Vtable = <IInputInjector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputInjector as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
     pub const None: Self = Self(0i32);
@@ -711,16 +711,11 @@ impl InjectedInputButtonChangeKind {
 impl windows_core::TypeKind for InjectedInputButtonChangeKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputButtonChangeKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
     pub const None: Self = Self(0u32);
@@ -732,10 +727,8 @@ impl InjectedInputKeyOptions {
 impl windows_core::TypeKind for InjectedInputKeyOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputKeyOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputKeyOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
 }
 impl InjectedInputKeyOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -770,11 +763,8 @@ impl core::ops::Not for InjectedInputKeyOptions {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputKeyOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
     pub const None: Self = Self(0u32);
@@ -796,10 +786,8 @@ impl InjectedInputMouseOptions {
 impl windows_core::TypeKind for InjectedInputMouseOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputMouseOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputMouseOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
 }
 impl InjectedInputMouseOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -834,11 +822,8 @@ impl core::ops::Not for InjectedInputMouseOptions {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputMouseOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
     pub const None: Self = Self(0u32);
@@ -849,10 +834,8 @@ impl InjectedInputPenButtons {
 impl windows_core::TypeKind for InjectedInputPenButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputPenButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputPenButtons {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
 }
 impl InjectedInputPenButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -887,11 +870,8 @@ impl core::ops::Not for InjectedInputPenButtons {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputPenButtons {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
     pub const None: Self = Self(0u32);
@@ -903,10 +883,8 @@ impl InjectedInputPenParameters {
 impl windows_core::TypeKind for InjectedInputPenParameters {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputPenParameters {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputPenParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
 }
 impl InjectedInputPenParameters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -941,11 +919,8 @@ impl core::ops::Not for InjectedInputPenParameters {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputPenParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
     pub const None: Self = Self(0u32);
@@ -965,10 +940,8 @@ impl InjectedInputPointerOptions {
 impl windows_core::TypeKind for InjectedInputPointerOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputPointerOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputPointerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
 }
 impl InjectedInputPointerOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1003,11 +976,8 @@ impl core::ops::Not for InjectedInputPointerOptions {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputPointerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
     pub const Back: Self = Self(0i32);
@@ -1017,16 +987,11 @@ impl InjectedInputShortcut {
 impl windows_core::TypeKind for InjectedInputShortcut {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputShortcut {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
     pub const None: Self = Self(0u32);
@@ -1037,10 +1002,8 @@ impl InjectedInputTouchParameters {
 impl windows_core::TypeKind for InjectedInputTouchParameters {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputTouchParameters {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for InjectedInputTouchParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
 }
 impl InjectedInputTouchParameters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1075,11 +1038,8 @@ impl core::ops::Not for InjectedInputTouchParameters {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for InjectedInputTouchParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {
     pub const None: Self = Self(0i32);
@@ -1089,16 +1049,11 @@ impl InjectedInputVisualizationMode {
 impl windows_core::TypeKind for InjectedInputVisualizationMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InjectedInputVisualizationMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -1109,13 +1064,8 @@ impl windows_core::TypeKind for InjectedInputPoint {
 impl windows_core::RuntimeType for InjectedInputPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
 }
-impl Default for InjectedInputPoint {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -1129,13 +1079,8 @@ impl windows_core::TypeKind for InjectedInputPointerInfo {
 impl windows_core::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
 }
-impl Default for InjectedInputPointerInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
@@ -1147,9 +1092,4 @@ impl windows_core::TypeKind for InjectedInputRectangle {
 }
 impl windows_core::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
-}
-impl Default for InjectedInputRectangle {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

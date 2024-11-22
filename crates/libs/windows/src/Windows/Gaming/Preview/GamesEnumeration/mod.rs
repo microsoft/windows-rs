@@ -1,9 +1,6 @@
 windows_core::imp::define_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
-impl core::ops::Deref for IGameListEntry {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IGameListEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IGameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameListEntry {
@@ -45,9 +42,6 @@ impl IGameListEntry {
         }
     }
 }
-impl windows_core::RuntimeType for IGameListEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGameListEntry_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -64,6 +58,10 @@ pub struct IGameListEntry_Vtbl {
     pub SetCategoryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, GameListCategory, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
+impl windows_core::RuntimeName for IGameListEntry {
+    const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
+}
+#[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
 pub trait IGameListEntry_Impl: Sized + windows_core::IUnknownImpl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
     fn LaunchAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>;
@@ -72,12 +70,8 @@ pub trait IGameListEntry_Impl: Sized + windows_core::IUnknownImpl {
     fn SetCategoryAsync(&self, value: GameListCategory) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-impl windows_core::RuntimeName for IGameListEntry {
-    const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
-}
-#[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
 impl IGameListEntry_Vtbl {
-    pub const fn new<Identity: IGameListEntry_Impl, const OFFSET: isize>() -> IGameListEntry_Vtbl {
+    pub const fn new<Identity: IGameListEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DisplayInfo<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameListEntry_Impl::DisplayInfo(this) {
@@ -153,21 +147,21 @@ impl windows_core::RuntimeType for IGameListEntry2 {
 pub struct IGameListEntry2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LaunchableState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameListEntryLaunchableState) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub LauncherExecutable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(feature = "Storage_Streams"))]
     LauncherExecutable: usize,
-    pub LaunchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    pub LaunchParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
     pub SetLauncherExecutableFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(feature = "Storage_Streams"))]
     SetLauncherExecutableFileAsync: usize,
-    #[cfg(feature = "Storage")]
-    pub SetLauncherExecutableFileWithParamsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(feature = "Storage_Streams")]
+    pub SetLauncherExecutableFileWithParamsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
     SetLauncherExecutableFileWithParamsAsync: usize,
-    pub TitleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    pub SetTitleIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TitleId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetTitleIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GameModeConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameListStatics, IGameListStatics_Vtbl, 0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c);
@@ -182,7 +176,7 @@ pub struct IGameListStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindAllAsyncPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAllAsyncPackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsyncPackageFamilyName: usize,
     pub GameAdded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
@@ -278,7 +272,7 @@ impl GameList {
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn RemoveGameAdded(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -290,7 +284,7 @@ impl GameList {
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn RemoveGameRemoved(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -302,7 +296,7 @@ impl GameList {
     {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GameUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn RemoveGameUpdated(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -341,7 +335,7 @@ impl windows_core::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameListEntry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable, IGameListEntry);
 impl GameListEntry {
@@ -389,7 +383,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).LaunchableState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub fn LauncherExecutable(&self) -> windows_core::Result<super::super::super::Storage::IStorageFile> {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
@@ -401,10 +395,10 @@ impl GameListEntry {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
@@ -415,7 +409,7 @@ impl GameListEntry {
             (windows_core::Interface::vtable(this).SetLauncherExecutableFileAsync)(windows_core::Interface::as_raw(this), executablefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(feature = "Storage_Streams")]
     pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
@@ -430,7 +424,7 @@ impl GameListEntry {
         let this = &windows_core::Interface::cast::<IGameListEntry2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TitleId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TitleId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetTitleIdAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
@@ -452,7 +446,7 @@ impl windows_core::RuntimeType for GameListEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameListEntry>();
 }
 unsafe impl windows_core::Interface for GameListEntry {
-    type Vtable = IGameListEntry_Vtbl;
+    type Vtable = <IGameListEntry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameListEntry as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameListEntry {
@@ -461,7 +455,7 @@ impl windows_core::RuntimeName for GameListEntry {
 unsafe impl Send for GameListEntry {}
 unsafe impl Sync for GameListEntry {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeConfiguration {
@@ -591,7 +585,7 @@ impl windows_core::RuntimeType for GameModeConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeConfiguration>();
 }
 unsafe impl windows_core::Interface for GameModeConfiguration {
-    type Vtable = IGameModeConfiguration_Vtbl;
+    type Vtable = <IGameModeConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameModeConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameModeConfiguration {
@@ -600,7 +594,7 @@ impl windows_core::RuntimeName for GameModeConfiguration {
 unsafe impl Send for GameModeConfiguration {}
 unsafe impl Sync for GameModeConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl GameModeUserConfiguration {
@@ -634,7 +628,7 @@ impl windows_core::RuntimeType for GameModeUserConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeUserConfiguration>();
 }
 unsafe impl windows_core::Interface for GameModeUserConfiguration {
-    type Vtable = IGameModeUserConfiguration_Vtbl;
+    type Vtable = <IGameModeUserConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameModeUserConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameModeUserConfiguration {
@@ -642,49 +636,13 @@ impl windows_core::RuntimeName for GameModeUserConfiguration {
 }
 unsafe impl Send for GameModeUserConfiguration {}
 unsafe impl Sync for GameModeUserConfiguration {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GameListCategory(pub i32);
-impl GameListCategory {
-    pub const Candidate: Self = Self(0i32);
-    pub const ConfirmedBySystem: Self = Self(1i32);
-    pub const ConfirmedByUser: Self = Self(2i32);
-}
-impl windows_core::TypeKind for GameListCategory {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GameListCategory {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameListCategory").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for GameListCategory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct GameListEntryLaunchableState(pub i32);
-impl GameListEntryLaunchableState {
-    pub const NotLaunchable: Self = Self(0i32);
-    pub const ByLastRunningFullPath: Self = Self(1i32);
-    pub const ByUserProvidedPath: Self = Self(2i32);
-    pub const ByTile: Self = Self(3i32);
-}
-impl windows_core::TypeKind for GameListEntryLaunchableState {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GameListEntryLaunchableState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for GameListEntryLaunchableState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
-}
 windows_core::imp::define_interface!(GameListChangedEventHandler, GameListChangedEventHandler_Vtbl, 0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
+impl windows_core::RuntimeType for GameListChangedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl GameListChangedEventHandler {
     pub fn new<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = GameListChangedEventHandlerBox::<F> { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = GameListChangedEventHandlerBox { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, game: P0) -> windows_core::Result<()>
@@ -694,6 +652,11 @@ impl GameListChangedEventHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), game.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct GameListChangedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, game: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct GameListChangedEventHandlerBox<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'static> {
@@ -733,24 +696,24 @@ impl<F: FnMut(Option<&GameListEntry>) -> windows_core::Result<()> + Send + 'stat
         (this.invoke)(windows_core::from_raw_borrowed(&game)).into()
     }
 }
-impl windows_core::RuntimeType for GameListChangedEventHandler {
+windows_core::imp::define_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
+impl windows_core::RuntimeType for GameListRemovedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct GameListChangedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(GameListRemovedEventHandler, GameListRemovedEventHandler_Vtbl, 0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
 impl GameListRemovedEventHandler {
     pub fn new<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = GameListRemovedEventHandlerBox::<F> { vtable: &GameListRemovedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = GameListRemovedEventHandlerBox { vtable: &GameListRemovedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke(&self, identifier: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier)).ok() }
     }
+}
+#[repr(C)]
+pub struct GameListRemovedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct GameListRemovedEventHandlerBox<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'static> {
@@ -785,16 +748,37 @@ impl<F: FnMut(&windows_core::HSTRING) -> windows_core::Result<()> + Send + 'stat
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, identifier: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
         (this.invoke)(core::mem::transmute(&identifier)).into()
     }
 }
-impl windows_core::RuntimeType for GameListRemovedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameListCategory(pub i32);
+impl GameListCategory {
+    pub const Candidate: Self = Self(0i32);
+    pub const ConfirmedBySystem: Self = Self(1i32);
+    pub const ConfirmedByUser: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct GameListRemovedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+impl windows_core::TypeKind for GameListCategory {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameListCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GameListEntryLaunchableState(pub i32);
+impl GameListEntryLaunchableState {
+    pub const NotLaunchable: Self = Self(0i32);
+    pub const ByLastRunningFullPath: Self = Self(1i32);
+    pub const ByUserProvidedPath: Self = Self(2i32);
+    pub const ByTile: Self = Self(3i32);
+}
+impl windows_core::TypeKind for GameListEntryLaunchableState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for GameListEntryLaunchableState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
 }

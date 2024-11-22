@@ -142,7 +142,7 @@ pub struct IGazePointPreview_Vtbl {
     HidInputReport: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDevicePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDevicePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDevicePreview {
@@ -202,7 +202,7 @@ impl windows_core::RuntimeType for GazeDevicePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeDevicePreview>();
 }
 unsafe impl windows_core::Interface for GazeDevicePreview {
-    type Vtable = IGazeDevicePreview_Vtbl;
+    type Vtable = <IGazeDevicePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDevicePreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeDevicePreview {
@@ -211,7 +211,7 @@ impl windows_core::RuntimeName for GazeDevicePreview {
 unsafe impl Send for GazeDevicePreview {}
 unsafe impl Sync for GazeDevicePreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
@@ -227,7 +227,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherAddedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeDeviceWatcherAddedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeDeviceWatcherAddedPreviewEventArgs {
-    type Vtable = IGazeDeviceWatcherAddedPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeDeviceWatcherAddedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherAddedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
@@ -236,7 +236,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDeviceWatcherPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherPreview {
@@ -247,7 +247,7 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -261,7 +261,7 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -275,7 +275,7 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -289,7 +289,7 @@ impl GazeDeviceWatcherPreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -309,7 +309,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeDeviceWatcherPreview>();
 }
 unsafe impl windows_core::Interface for GazeDeviceWatcherPreview {
-    type Vtable = IGazeDeviceWatcherPreview_Vtbl;
+    type Vtable = <IGazeDeviceWatcherPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherPreview {
@@ -318,7 +318,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherPreview {
 unsafe impl Send for GazeDeviceWatcherPreview {}
 unsafe impl Sync for GazeDeviceWatcherPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -334,7 +334,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherRemovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeDeviceWatcherRemovedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeDeviceWatcherRemovedPreviewEventArgs {
-    type Vtable = IGazeDeviceWatcherRemovedPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeDeviceWatcherRemovedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherRemovedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -343,7 +343,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -359,7 +359,7 @@ impl windows_core::RuntimeType for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeDeviceWatcherUpdatedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeDeviceWatcherUpdatedPreviewEventArgs {
-    type Vtable = IGazeDeviceWatcherUpdatedPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeDeviceWatcherUpdatedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeDeviceWatcherUpdatedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -368,7 +368,7 @@ impl windows_core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
 unsafe impl Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeEnteredPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeEnteredPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeEnteredPreviewEventArgs {
@@ -395,7 +395,7 @@ impl windows_core::RuntimeType for GazeEnteredPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeEnteredPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeEnteredPreviewEventArgs {
-    type Vtable = IGazeEnteredPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeEnteredPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeEnteredPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeEnteredPreviewEventArgs {
@@ -404,7 +404,7 @@ impl windows_core::RuntimeName for GazeEnteredPreviewEventArgs {
 unsafe impl Send for GazeEnteredPreviewEventArgs {}
 unsafe impl Sync for GazeEnteredPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeExitedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeExitedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeExitedPreviewEventArgs {
@@ -431,7 +431,7 @@ impl windows_core::RuntimeType for GazeExitedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeExitedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeExitedPreviewEventArgs {
-    type Vtable = IGazeExitedPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeExitedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeExitedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeExitedPreviewEventArgs {
@@ -440,7 +440,7 @@ impl windows_core::RuntimeName for GazeExitedPreviewEventArgs {
 unsafe impl Send for GazeExitedPreviewEventArgs {}
 unsafe impl Sync for GazeExitedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeInputSourcePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeInputSourcePreview {
@@ -451,7 +451,7 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveGazeMoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -465,7 +465,7 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveGazeEntered(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -479,7 +479,7 @@ impl GazeInputSourcePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GazeExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GazeExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveGazeExited(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -507,7 +507,7 @@ impl windows_core::RuntimeType for GazeInputSourcePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeInputSourcePreview>();
 }
 unsafe impl windows_core::Interface for GazeInputSourcePreview {
-    type Vtable = IGazeInputSourcePreview_Vtbl;
+    type Vtable = <IGazeInputSourcePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeInputSourcePreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeInputSourcePreview {
@@ -516,7 +516,7 @@ impl windows_core::RuntimeName for GazeInputSourcePreview {
 unsafe impl Send for GazeInputSourcePreview {}
 unsafe impl Sync for GazeInputSourcePreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazeMovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeMovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeMovedPreviewEventArgs {
@@ -551,7 +551,7 @@ impl windows_core::RuntimeType for GazeMovedPreviewEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazeMovedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for GazeMovedPreviewEventArgs {
-    type Vtable = IGazeMovedPreviewEventArgs_Vtbl;
+    type Vtable = <IGazeMovedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazeMovedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazeMovedPreviewEventArgs {
@@ -560,7 +560,7 @@ impl windows_core::RuntimeName for GazeMovedPreviewEventArgs {
 unsafe impl Send for GazeMovedPreviewEventArgs {}
 unsafe impl Sync for GazeMovedPreviewEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GazePointPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazePointPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazePointPreview {
@@ -605,7 +605,7 @@ impl windows_core::RuntimeType for GazePointPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGazePointPreview>();
 }
 unsafe impl windows_core::Interface for GazePointPreview {
-    type Vtable = IGazePointPreview_Vtbl;
+    type Vtable = <IGazePointPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGazePointPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GazePointPreview {
@@ -614,7 +614,7 @@ impl windows_core::RuntimeName for GazePointPreview {
 unsafe impl Send for GazePointPreview {}
 unsafe impl Sync for GazePointPreview {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
     pub const Unknown: Self = Self(0i32);
@@ -625,11 +625,6 @@ impl GazeDeviceConfigurationStatePreview {
 }
 impl windows_core::TypeKind for GazeDeviceConfigurationStatePreview {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GazeDeviceConfigurationStatePreview {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GazeDeviceConfigurationStatePreview").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");

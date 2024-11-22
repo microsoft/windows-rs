@@ -28,6 +28,7 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "test_component",
+        "--flat",
         "--implement",
         "--no-comment",
         "--reference",

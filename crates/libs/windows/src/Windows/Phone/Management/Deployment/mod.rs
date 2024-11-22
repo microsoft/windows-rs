@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for IEnterprise {
 pub struct IEnterprise_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WorkplaceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub EnrollmentValidFrom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub EnrollmentValidTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -25,7 +25,7 @@ pub struct IEnterpriseEnrollmentManager_Vtbl {
     EnrolledEnterprises: usize,
     pub CurrentEnterprise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ValidateEnterprisesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RequestEnrollmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestEnrollmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RequestUnenrollmentAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnterpriseEnrollmentResult, IEnterpriseEnrollmentResult_Vtbl, 0x9ff71ce6_90db_4342_b326_1729aa91301c);
@@ -45,8 +45,8 @@ impl windows_core::RuntimeType for IInstallationManagerStatics {
 #[repr(C)]
 pub struct IInstallationManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddPackagePreloadedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddPackagePreloadedAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetPendingPackageInstalls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -68,7 +68,7 @@ impl windows_core::RuntimeType for IInstallationManagerStatics2 {
 pub struct IInstallationManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Management_Deployment")]
-    pub RemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, super::super::super::Management::Deployment::RemovalOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemovePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Management::Deployment::RemovalOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Management_Deployment"))]
     RemovePackageAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Management_Deployment"))]
@@ -76,7 +76,7 @@ pub struct IInstallationManagerStatics2_Vtbl {
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Management_Deployment")))]
     RegisterPackageAsync: usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
-    pub FindPackagesByNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindPackagesByNamePublisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation_Collections")))]
     FindPackagesByNamePublisher: usize,
 }
@@ -87,7 +87,7 @@ impl windows_core::RuntimeType for IPackageInstallResult {
 #[repr(C)]
 pub struct IPackageInstallResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Management_Deployment")]
     pub InstallState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Management::Deployment::PackageInstallState) -> windows_core::HRESULT,
     #[cfg(not(feature = "Management_Deployment"))]
@@ -100,10 +100,10 @@ impl windows_core::RuntimeType for IPackageInstallResult2 {
 #[repr(C)]
 pub struct IPackageInstallResult2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub ErrorText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Enterprise(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Enterprise, windows_core::IUnknown, windows_core::IInspectable);
 impl Enterprise {
@@ -111,14 +111,14 @@ impl Enterprise {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn WorkplaceId(&self) -> windows_core::Result<i32> {
@@ -132,14 +132,14 @@ impl Enterprise {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnrollmentValidFrom)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnrollmentValidFrom)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn EnrollmentValidTo(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnrollmentValidTo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).EnrollmentValidTo)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<EnterpriseStatus> {
@@ -154,7 +154,7 @@ impl windows_core::RuntimeType for Enterprise {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterprise>();
 }
 unsafe impl windows_core::Interface for Enterprise {
-    type Vtable = IEnterprise_Vtbl;
+    type Vtable = <IEnterprise as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterprise as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Enterprise {
@@ -207,7 +207,7 @@ impl windows_core::RuntimeName for EnterpriseEnrollmentManager {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EnterpriseEnrollmentResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseEnrollmentResult, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseEnrollmentResult {
@@ -230,7 +230,7 @@ impl windows_core::RuntimeType for EnterpriseEnrollmentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseEnrollmentResult>();
 }
 unsafe impl windows_core::Interface for EnterpriseEnrollmentResult {
-    type Vtable = IEnterpriseEnrollmentResult_Vtbl;
+    type Vtable = <IEnterpriseEnrollmentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseEnrollmentResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseEnrollmentResult {
@@ -238,19 +238,19 @@ impl windows_core::RuntimeName for EnterpriseEnrollmentResult {
 }
 pub struct InstallationManager;
 impl InstallationManager {
-    pub fn AddPackageAsync<P0>(title: &windows_core::HSTRING, sourcelocation: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn AddPackageAsync<P1>(title: &windows_core::HSTRING, sourcelocation: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Uri>,
+        P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), sourcelocation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AddPackagePreloadedAsync<P0, P1>(title: &windows_core::HSTRING, sourcelocation: P0, instanceid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, license: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
+    pub fn AddPackagePreloadedAsync<P1, P4>(title: &windows_core::HSTRING, sourcelocation: P1, instanceid: &windows_core::HSTRING, offerid: &windows_core::HSTRING, license: P4) -> windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
+        P4: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IInstallationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -316,7 +316,7 @@ impl windows_core::RuntimeName for InstallationManager {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.InstallationManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PackageInstallResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageInstallResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageInstallResult {
@@ -324,7 +324,7 @@ impl PackageInstallResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Management_Deployment")]
@@ -339,7 +339,7 @@ impl PackageInstallResult {
         let this = &windows_core::Interface::cast::<IPackageInstallResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -347,14 +347,14 @@ impl windows_core::RuntimeType for PackageInstallResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallResult>();
 }
 unsafe impl windows_core::Interface for PackageInstallResult {
-    type Vtable = IPackageInstallResult_Vtbl;
+    type Vtable = <IPackageInstallResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageInstallResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
     pub const Success: Self = Self(0i32);
@@ -364,16 +364,11 @@ impl EnterpriseEnrollmentStatus {
 impl windows_core::TypeKind for EnterpriseEnrollmentStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EnterpriseEnrollmentStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
     pub const Enrolled: Self = Self(0i32);
@@ -383,11 +378,6 @@ impl EnterpriseStatus {
 }
 impl windows_core::TypeKind for EnterpriseStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for EnterpriseStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for EnterpriseStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");

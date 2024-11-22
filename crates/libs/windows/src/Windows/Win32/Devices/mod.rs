@@ -82,13 +82,13 @@ pub struct IEEE1394_API_REQUEST {
     pub Flags: u32,
     pub u: IEEE1394_API_REQUEST_0,
 }
-impl windows_core::TypeKind for IEEE1394_API_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IEEE1394_API_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for IEEE1394_API_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -96,27 +96,27 @@ pub union IEEE1394_API_REQUEST_0 {
     pub AddVirtualDevice: IEEE1394_VDEV_PNP_REQUEST,
     pub RemoveVirtualDevice: IEEE1394_VDEV_PNP_REQUEST,
 }
-impl windows_core::TypeKind for IEEE1394_API_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IEEE1394_API_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IEEE1394_API_REQUEST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IEEE1394_VDEV_PNP_REQUEST {
     pub fulFlags: u32,
     pub Reserved: u32,
     pub InstanceId: u64,
     pub DeviceId: u8,
 }
-impl windows_core::TypeKind for IEEE1394_VDEV_PNP_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IEEE1394_VDEV_PNP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for IEEE1394_VDEV_PNP_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }

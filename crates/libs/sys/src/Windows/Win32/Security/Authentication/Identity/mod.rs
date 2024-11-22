@@ -2274,7 +2274,7 @@ pub type SECPKG_NAME_TYPE = i32;
 pub type SECPKG_PACKAGE_CHANGE_TYPE = u32;
 pub type SECPKG_SESSIONINFO_TYPE = i32;
 #[repr(transparent)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_LOGON_TYPE(pub i32);
 impl SECURITY_LOGON_TYPE {
     pub const UndefinedLogonType: Self = Self(0i32);

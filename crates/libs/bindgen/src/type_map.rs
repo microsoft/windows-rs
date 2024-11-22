@@ -112,18 +112,3 @@ impl TypeMap {
         self.0.contains_key(&name)
     }
 }
-
-#[test]
-fn test_difference() {
-    let mut interface = TypeMap::new();
-    interface.insert("Windows.Foundation", "IReference");
-
-    let mut method = TypeMap::new();
-    method.insert("Windows.Foundation", "IReference");
-    method.insert("Windows.Foundation.Collections", "IVector");
-
-    let mut diff = TypeMap::new();
-    diff.insert("Windows.Foundation.Collections", "IVector");
-
-    assert_eq!(diff, method.difference(&interface));
-}

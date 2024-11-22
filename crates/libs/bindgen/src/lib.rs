@@ -23,6 +23,9 @@ mod types;
 mod value;
 mod winmd;
 mod writer;
+mod libraries;
+
+pub use libraries::*;
 
 //use dependencies::*;
 use type_map::*;

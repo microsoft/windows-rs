@@ -9,32 +9,32 @@ where
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: windows_core::PWSTR, prendercount: Option<*mut u32>, pcapturedeviceid: windows_core::PWSTR, pcapturecount: Option<*mut u32>) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_core::PWSTR, pcapturecount : *mut u32) -> u32);
-    XInputGetAudioDeviceIds(dwuserindex, core::mem::transmute(prenderdeviceid), core::mem::transmute(prendercount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcapturedeviceid), core::mem::transmute(pcapturecount.unwrap_or(core::ptr::null_mut())))
+    XInputGetAudioDeviceIds(core::mem::transmute(dwuserindex), core::mem::transmute(prenderdeviceid), core::mem::transmute(prendercount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcapturedeviceid), core::mem::transmute(pcapturecount.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
-    XInputGetBatteryInformation(dwuserindex, devtype, pbatteryinformation)
+    XInputGetBatteryInformation(core::mem::transmute(dwuserindex), core::mem::transmute(devtype), core::mem::transmute(pbatteryinformation))
 }
 #[inline]
 pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: XINPUT_FLAG, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
-    XInputGetCapabilities(dwuserindex, dwflags, pcapabilities)
+    XInputGetCapabilities(core::mem::transmute(dwuserindex), core::mem::transmute(dwflags), core::mem::transmute(pcapabilities))
 }
 #[inline]
 pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
-    XInputGetKeystroke(dwuserindex, dwreserved, pkeystroke)
+    XInputGetKeystroke(core::mem::transmute(dwuserindex), core::mem::transmute(dwreserved), core::mem::transmute(pkeystroke))
 }
 #[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
-    XInputGetState(dwuserindex, pstate)
+    XInputGetState(core::mem::transmute(dwuserindex), core::mem::transmute(pstate))
 }
 #[inline]
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
-    XInputSetState(dwuserindex, pvibration)
+    XInputSetState(core::mem::transmute(dwuserindex), core::mem::transmute(pvibration))
 }
 pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = BATTERY_DEVTYPE(0u8);
 pub const BATTERY_DEVTYPE_HEADSET: BATTERY_DEVTYPE = BATTERY_DEVTYPE(1u8);
@@ -124,48 +124,28 @@ pub const XINPUT_KEYSTROKE_REPEAT: XINPUT_KEYSTROKE_FLAGS = XINPUT_KEYSTROKE_FLA
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_DEVTYPE(pub u8);
 impl windows_core::TypeKind for BATTERY_DEVTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BATTERY_DEVTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BATTERY_DEVTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_LEVEL(pub u8);
 impl windows_core::TypeKind for BATTERY_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BATTERY_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BATTERY_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_TYPE(pub u8);
 impl windows_core::TypeKind for BATTERY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BATTERY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BATTERY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_CAPABILITIES_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XINPUT_CAPABILITIES_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_CAPABILITIES_FLAGS").field(&self.0).finish()
-    }
 }
 impl XINPUT_CAPABILITIES_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -201,37 +181,22 @@ impl core::ops::Not for XINPUT_CAPABILITIES_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_DEVSUBTYPE(pub u8);
 impl windows_core::TypeKind for XINPUT_DEVSUBTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XINPUT_DEVSUBTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_DEVSUBTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_DEVTYPE(pub u8);
 impl windows_core::TypeKind for XINPUT_DEVTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XINPUT_DEVTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_DEVTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_FLAG(pub u32);
 impl windows_core::TypeKind for XINPUT_FLAG {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XINPUT_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_FLAG").field(&self.0).finish()
-    }
 }
 impl XINPUT_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -267,15 +232,10 @@ impl core::ops::Not for XINPUT_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_GAMEPAD_BUTTON_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XINPUT_GAMEPAD_BUTTON_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_GAMEPAD_BUTTON_FLAGS").field(&self.0).finish()
-    }
 }
 impl XINPUT_GAMEPAD_BUTTON_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -311,15 +271,10 @@ impl core::ops::Not for XINPUT_GAMEPAD_BUTTON_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_KEYSTROKE_FLAGS(pub u16);
 impl windows_core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XINPUT_KEYSTROKE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_KEYSTROKE_FLAGS").field(&self.0).finish()
-    }
 }
 impl XINPUT_KEYSTROKE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -355,32 +310,27 @@ impl core::ops::Not for XINPUT_KEYSTROKE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 impl windows_core::TypeKind for XINPUT_VIRTUAL_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XINPUT_VIRTUAL_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XINPUT_VIRTUAL_KEY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: BATTERY_TYPE,
     pub BatteryLevel: BATTERY_LEVEL,
-}
-impl windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XINPUT_BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XINPUT_BATTERY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: XINPUT_DEVTYPE,
     pub SubType: XINPUT_DEVSUBTYPE,
@@ -388,16 +338,16 @@ pub struct XINPUT_CAPABILITIES {
     pub Gamepad: XINPUT_GAMEPAD,
     pub Vibration: XINPUT_VIBRATION,
 }
-impl windows_core::TypeKind for XINPUT_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XINPUT_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XINPUT_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: XINPUT_GAMEPAD_BUTTON_FLAGS,
     pub bLeftTrigger: u8,
@@ -407,16 +357,16 @@ pub struct XINPUT_GAMEPAD {
     pub sThumbRX: i16,
     pub sThumbRY: i16,
 }
-impl windows_core::TypeKind for XINPUT_GAMEPAD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XINPUT_GAMEPAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XINPUT_GAMEPAD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -424,39 +374,39 @@ pub struct XINPUT_KEYSTROKE {
     pub UserIndex: u8,
     pub HidCode: u8,
 }
-impl windows_core::TypeKind for XINPUT_KEYSTROKE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XINPUT_KEYSTROKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XINPUT_KEYSTROKE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
-}
-impl windows_core::TypeKind for XINPUT_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XINPUT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XINPUT_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,
-}
-impl windows_core::TypeKind for XINPUT_VIBRATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XINPUT_VIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for XINPUT_VIBRATION {
+    type TypeKind = windows_core::CopyType;
 }

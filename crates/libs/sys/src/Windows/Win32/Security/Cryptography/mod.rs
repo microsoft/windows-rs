@@ -4284,7 +4284,7 @@ pub type ECC_CURVE_TYPE_ENUM = i32;
 pub type HASHALGORITHM_ENUM = i32;
 pub type HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = u32;
 #[repr(transparent)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
@@ -4298,7 +4298,7 @@ pub type NCRYPT_FLAGS = u32;
 pub type NCRYPT_OPERATION = u32;
 pub type PIN_CACHE_POLICY_TYPE = i32;
 #[repr(transparent)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);

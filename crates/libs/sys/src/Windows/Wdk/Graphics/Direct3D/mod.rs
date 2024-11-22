@@ -3410,26 +3410,9 @@ pub struct D3DHAL_DRAWPRIMITIVESDATA {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct D3DHAL_RENDERSTATEDATA {
-    pub dwhContext: usize,
-    pub dwOffset: u32,
-    pub dwCount: u32,
-    pub lpExeBuf: *mut core::ffi::c_void,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct D3DHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DHAL_TEXTURECREATEDATA {
-    pub dwhContext: usize,
-    pub lpDDS: *mut core::ffi::c_void,
-    pub dwHandle: u32,
     pub ddrval: windows_sys::core::HRESULT,
 }
 #[repr(C)]
@@ -8953,9 +8936,7 @@ pub struct _NT_D3DLINEPATTERN {
 pub type LPD3DHAL_CONTEXTDESTROYALLCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
 pub type LPD3DHAL_DRAWPRIMITIVESCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
-pub type LPD3DHAL_RENDERSTATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
 pub type LPD3DHAL_SCENECAPTURECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
-pub type LPD3DHAL_TEXTURECREATECB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREDESTROYCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREGETSURFCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
 pub type LPD3DHAL_TEXTURESWAPCB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;

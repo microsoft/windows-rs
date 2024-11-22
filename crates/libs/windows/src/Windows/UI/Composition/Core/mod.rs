@@ -12,7 +12,7 @@ pub struct ICompositorController_Vtbl {
     pub RemoveCommitNeeded: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositorController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositorController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositorController, super::super::super::Foundation::IClosable);
@@ -53,7 +53,7 @@ impl CompositorController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CommitNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CommitNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCommitNeeded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -65,7 +65,7 @@ impl windows_core::RuntimeType for CompositorController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositorController>();
 }
 unsafe impl windows_core::Interface for CompositorController {
-    type Vtable = ICompositorController_Vtbl;
+    type Vtable = <ICompositorController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositorController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CompositorController {

@@ -370,7 +370,7 @@ pub struct HH_FTS_QUERY {
     pub pszWindow: *mut i8,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,

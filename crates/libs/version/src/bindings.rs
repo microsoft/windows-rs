@@ -5,7 +5,9 @@
     dead_code,
     clippy::all
 )]
+
 windows_targets::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut OSVERSIONINFOW) -> NTSTATUS);
+pub const VER_NT_WORKSTATION: u32 = 1u32;
 pub type NTSTATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -32,4 +34,3 @@ pub struct OSVERSIONINFOW {
     pub dwPlatformId: u32,
     pub szCSDVersion: [u16; 128],
 }
-pub const VER_NT_WORKSTATION: u32 = 1u32;

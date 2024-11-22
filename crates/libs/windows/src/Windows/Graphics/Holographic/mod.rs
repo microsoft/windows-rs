@@ -198,7 +198,7 @@ impl windows_core::RuntimeType for IHolographicDisplay {
 #[repr(C)]
 pub struct IHolographicDisplay_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaxViewportSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub IsStereo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsOpaque: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -471,10 +471,7 @@ pub struct IHolographicSpace2_Vtbl {
     pub RemoveUserPresenceChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub WaitForNextFrameReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForNextFrameReadyWithHeadStart: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub CreateFramePresentationMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CreateFramePresentationMonitor: usize,
 }
 windows_core::imp::define_interface!(IHolographicSpace3, IHolographicSpace3_Vtbl, 0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
 impl windows_core::RuntimeType for IHolographicSpace3 {
@@ -579,7 +576,7 @@ pub struct IHolographicViewConfiguration2_Vtbl {
     SupportedDepthReprojectionMethods: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicCamera(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCamera, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCamera {
@@ -587,7 +584,7 @@ impl HolographicCamera {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ViewportScaleFactor(&self) -> windows_core::Result<f64> {
@@ -707,7 +704,7 @@ impl windows_core::RuntimeType for HolographicCamera {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCamera>();
 }
 unsafe impl windows_core::Interface for HolographicCamera {
-    type Vtable = IHolographicCamera_Vtbl;
+    type Vtable = <IHolographicCamera as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCamera as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicCamera {
@@ -716,7 +713,7 @@ impl windows_core::RuntimeName for HolographicCamera {
 unsafe impl Send for HolographicCamera {}
 unsafe impl Sync for HolographicCamera {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicCameraPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraPose {
@@ -731,7 +728,7 @@ impl HolographicCameraPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Viewport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Viewport)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -750,7 +747,7 @@ impl HolographicCameraPose {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ProjectionTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -811,7 +808,7 @@ impl windows_core::RuntimeType for HolographicCameraPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraPose>();
 }
 unsafe impl windows_core::Interface for HolographicCameraPose {
-    type Vtable = IHolographicCameraPose_Vtbl;
+    type Vtable = <IHolographicCameraPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraPose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicCameraPose {
@@ -820,7 +817,7 @@ impl windows_core::RuntimeName for HolographicCameraPose {
 unsafe impl Send for HolographicCameraPose {}
 unsafe impl Sync for HolographicCameraPose {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicCameraRenderingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraRenderingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraRenderingParameters {
@@ -910,7 +907,7 @@ impl windows_core::RuntimeType for HolographicCameraRenderingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraRenderingParameters>();
 }
 unsafe impl windows_core::Interface for HolographicCameraRenderingParameters {
-    type Vtable = IHolographicCameraRenderingParameters_Vtbl;
+    type Vtable = <IHolographicCameraRenderingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraRenderingParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicCameraRenderingParameters {
@@ -919,7 +916,7 @@ impl windows_core::RuntimeName for HolographicCameraRenderingParameters {
 unsafe impl Send for HolographicCameraRenderingParameters {}
 unsafe impl Sync for HolographicCameraRenderingParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicCameraViewportParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicCameraViewportParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicCameraViewportParameters {
@@ -944,7 +941,7 @@ impl windows_core::RuntimeType for HolographicCameraViewportParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraViewportParameters>();
 }
 unsafe impl windows_core::Interface for HolographicCameraViewportParameters {
-    type Vtable = IHolographicCameraViewportParameters_Vtbl;
+    type Vtable = <IHolographicCameraViewportParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraViewportParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicCameraViewportParameters {
@@ -953,7 +950,7 @@ impl windows_core::RuntimeName for HolographicCameraViewportParameters {
 unsafe impl Send for HolographicCameraViewportParameters {}
 unsafe impl Sync for HolographicCameraViewportParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicDisplay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicDisplay, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicDisplay {
@@ -961,14 +958,14 @@ impl HolographicDisplay {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn MaxViewportSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxViewportSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).MaxViewportSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn IsStereo(&self) -> windows_core::Result<bool> {
@@ -989,7 +986,7 @@ impl HolographicDisplay {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Perception_Spatial")]
@@ -1029,7 +1026,7 @@ impl windows_core::RuntimeType for HolographicDisplay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicDisplay>();
 }
 unsafe impl windows_core::Interface for HolographicDisplay {
-    type Vtable = IHolographicDisplay_Vtbl;
+    type Vtable = <IHolographicDisplay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicDisplay as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicDisplay {
@@ -1038,7 +1035,7 @@ impl windows_core::RuntimeName for HolographicDisplay {
 unsafe impl Send for HolographicDisplay {}
 unsafe impl Sync for HolographicDisplay {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrame {
@@ -1072,7 +1069,7 @@ impl HolographicFrame {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CurrentPrediction(&self) -> windows_core::Result<HolographicFramePrediction> {
@@ -1118,7 +1115,7 @@ impl HolographicFrame {
         let this = &windows_core::Interface::cast::<IHolographicFrame3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1126,7 +1123,7 @@ impl windows_core::RuntimeType for HolographicFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrame>();
 }
 unsafe impl windows_core::Interface for HolographicFrame {
-    type Vtable = IHolographicFrame_Vtbl;
+    type Vtable = <IHolographicFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrame as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicFrame {
@@ -1135,7 +1132,7 @@ impl windows_core::RuntimeName for HolographicFrame {
 unsafe impl Send for HolographicFrame {}
 unsafe impl Sync for HolographicFrame {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePrediction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFramePrediction, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFramePrediction {
@@ -1160,7 +1157,7 @@ impl windows_core::RuntimeType for HolographicFramePrediction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePrediction>();
 }
 unsafe impl windows_core::Interface for HolographicFramePrediction {
-    type Vtable = IHolographicFramePrediction_Vtbl;
+    type Vtable = <IHolographicFramePrediction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePrediction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicFramePrediction {
@@ -1170,7 +1167,7 @@ unsafe impl Send for HolographicFramePrediction {}
 unsafe impl Sync for HolographicFramePrediction {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePresentationMonitor(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationMonitor, windows_core::IUnknown, windows_core::IInspectable);
@@ -1178,6 +1175,7 @@ windows_core::imp::interface_hierarchy!(HolographicFramePresentationMonitor, win
 windows_core::imp::required_hierarchy!(HolographicFramePresentationMonitor, super::super::Foundation::IClosable);
 #[cfg(feature = "deprecated")]
 impl HolographicFramePresentationMonitor {
+    #[cfg(feature = "deprecated")]
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
@@ -1197,7 +1195,7 @@ impl windows_core::RuntimeType for HolographicFramePresentationMonitor {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationMonitor {
-    type Vtable = IHolographicFramePresentationMonitor_Vtbl;
+    type Vtable = <IHolographicFramePresentationMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationMonitor as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1210,7 +1208,7 @@ unsafe impl Send for HolographicFramePresentationMonitor {}
 unsafe impl Sync for HolographicFramePresentationMonitor {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFramePresentationReport(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationReport, windows_core::IUnknown, windows_core::IInspectable);
@@ -1221,7 +1219,7 @@ impl HolographicFramePresentationReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CompositorGpuDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CompositorGpuDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1229,7 +1227,7 @@ impl HolographicFramePresentationReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppGpuDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AppGpuDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1237,7 +1235,7 @@ impl HolographicFramePresentationReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppGpuOverrun)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).AppGpuOverrun)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -1263,7 +1261,7 @@ impl windows_core::RuntimeType for HolographicFramePresentationReport {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationReport {
-    type Vtable = IHolographicFramePresentationReport_Vtbl;
+    type Vtable = <IHolographicFramePresentationReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationReport as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1275,7 +1273,7 @@ unsafe impl Send for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
 unsafe impl Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFrameRenderingReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameRenderingReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrameRenderingReport {
@@ -1283,7 +1281,7 @@ impl HolographicFrameRenderingReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FrameId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).FrameId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn MissedLatchCount(&self) -> windows_core::Result<u32> {
@@ -1297,21 +1295,21 @@ impl HolographicFrameRenderingReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeFrameReadyTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeFrameReadyTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemRelativeActualGpuFinishTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeActualGpuFinishTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeActualGpuFinishTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemRelativeTargetLatchTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTargetLatchTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeTargetLatchTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1319,7 +1317,7 @@ impl windows_core::RuntimeType for HolographicFrameRenderingReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameRenderingReport>();
 }
 unsafe impl windows_core::Interface for HolographicFrameRenderingReport {
-    type Vtable = IHolographicFrameRenderingReport_Vtbl;
+    type Vtable = <IHolographicFrameRenderingReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameRenderingReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicFrameRenderingReport {
@@ -1328,7 +1326,7 @@ impl windows_core::RuntimeName for HolographicFrameRenderingReport {
 unsafe impl Send for HolographicFrameRenderingReport {}
 unsafe impl Sync for HolographicFrameRenderingReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFrameScanoutMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrameScanoutMonitor, super::super::Foundation::IClosable);
@@ -1350,7 +1348,7 @@ impl windows_core::RuntimeType for HolographicFrameScanoutMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutMonitor>();
 }
 unsafe impl windows_core::Interface for HolographicFrameScanoutMonitor {
-    type Vtable = IHolographicFrameScanoutMonitor_Vtbl;
+    type Vtable = <IHolographicFrameScanoutMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameScanoutMonitor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicFrameScanoutMonitor {
@@ -1359,7 +1357,7 @@ impl windows_core::RuntimeName for HolographicFrameScanoutMonitor {
 unsafe impl Send for HolographicFrameScanoutMonitor {}
 unsafe impl Sync for HolographicFrameScanoutMonitor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicFrameScanoutReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutReport, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicFrameScanoutReport {
@@ -1381,21 +1379,21 @@ impl HolographicFrameScanoutReport {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeLatchTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeLatchTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemRelativeScanoutStartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeScanoutStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativeScanoutStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SystemRelativePhotonTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativePhotonTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemRelativePhotonTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1403,7 +1401,7 @@ impl windows_core::RuntimeType for HolographicFrameScanoutReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutReport>();
 }
 unsafe impl windows_core::Interface for HolographicFrameScanoutReport {
-    type Vtable = IHolographicFrameScanoutReport_Vtbl;
+    type Vtable = <IHolographicFrameScanoutReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameScanoutReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicFrameScanoutReport {
@@ -1412,7 +1410,7 @@ impl windows_core::RuntimeName for HolographicFrameScanoutReport {
 unsafe impl Send for HolographicFrameScanoutReport {}
 unsafe impl Sync for HolographicFrameScanoutReport {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicQuadLayer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicQuadLayer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicQuadLayer, super::super::Foundation::IClosable);
@@ -1433,7 +1431,7 @@ impl HolographicQuadLayer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Create(size: super::super::Foundation::Size) -> windows_core::Result<HolographicQuadLayer> {
@@ -1458,7 +1456,7 @@ impl windows_core::RuntimeType for HolographicQuadLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayer>();
 }
 unsafe impl windows_core::Interface for HolographicQuadLayer {
-    type Vtable = IHolographicQuadLayer_Vtbl;
+    type Vtable = <IHolographicQuadLayer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicQuadLayer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicQuadLayer {
@@ -1467,7 +1465,7 @@ impl windows_core::RuntimeName for HolographicQuadLayer {
 unsafe impl Send for HolographicQuadLayer {}
 unsafe impl Sync for HolographicQuadLayer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicQuadLayerUpdateParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicQuadLayerUpdateParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicQuadLayerUpdateParameters {
@@ -1525,7 +1523,7 @@ impl windows_core::RuntimeType for HolographicQuadLayerUpdateParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayerUpdateParameters>();
 }
 unsafe impl windows_core::Interface for HolographicQuadLayerUpdateParameters {
-    type Vtable = IHolographicQuadLayerUpdateParameters_Vtbl;
+    type Vtable = <IHolographicQuadLayerUpdateParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicQuadLayerUpdateParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
@@ -1534,7 +1532,7 @@ impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
 unsafe impl Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl Sync for HolographicQuadLayerUpdateParameters {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicSpace(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpace, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpace {
@@ -1542,7 +1540,7 @@ impl HolographicSpace {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrimaryAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrimaryAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1560,7 +1558,7 @@ impl HolographicSpace {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraAdded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCameraAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1574,7 +1572,7 @@ impl HolographicSpace {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CameraRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CameraRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCameraRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1602,7 +1600,7 @@ impl HolographicSpace {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveUserPresenceChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1617,7 +1615,6 @@ impl HolographicSpace {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).WaitForNextFrameReadyWithHeadStart)(windows_core::Interface::as_raw(this), requestedheadstartduration).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn CreateFramePresentationMonitor(&self, maxqueuedreports: u32) -> windows_core::Result<HolographicFramePresentationMonitor> {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
@@ -1660,7 +1657,7 @@ impl HolographicSpace {
     {
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
     pub fn RemoveIsAvailableChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1689,7 +1686,7 @@ impl windows_core::RuntimeType for HolographicSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpace>();
 }
 unsafe impl windows_core::Interface for HolographicSpace {
-    type Vtable = IHolographicSpace_Vtbl;
+    type Vtable = <IHolographicSpace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpace as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicSpace {
@@ -1698,7 +1695,7 @@ impl windows_core::RuntimeName for HolographicSpace {
 unsafe impl Send for HolographicSpace {}
 unsafe impl Sync for HolographicSpace {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicSpaceCameraAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpaceCameraAddedEventArgs {
@@ -1721,7 +1718,7 @@ impl windows_core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraAddedEventArgs>();
 }
 unsafe impl windows_core::Interface for HolographicSpaceCameraAddedEventArgs {
-    type Vtable = IHolographicSpaceCameraAddedEventArgs_Vtbl;
+    type Vtable = <IHolographicSpaceCameraAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpaceCameraAddedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
@@ -1730,7 +1727,7 @@ impl windows_core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
 unsafe impl Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl Sync for HolographicSpaceCameraAddedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicSpaceCameraRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicSpaceCameraRemovedEventArgs {
@@ -1746,7 +1743,7 @@ impl windows_core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for HolographicSpaceCameraRemovedEventArgs {
-    type Vtable = IHolographicSpaceCameraRemovedEventArgs_Vtbl;
+    type Vtable = <IHolographicSpaceCameraRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpaceCameraRemovedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
@@ -1755,7 +1752,7 @@ impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
 unsafe impl Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HolographicViewConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicViewConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicViewConfiguration {
@@ -1763,21 +1760,21 @@ impl HolographicViewConfiguration {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NativeRenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).NativeRenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RenderTargetSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RenderTargetSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RequestRenderTargetSize(&self, size: super::super::Foundation::Size) -> windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRenderTargetSize)(windows_core::Interface::as_raw(this), size, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RequestRenderTargetSize)(windows_core::Interface::as_raw(this), size, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
@@ -1853,7 +1850,7 @@ impl windows_core::RuntimeType for HolographicViewConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicViewConfiguration>();
 }
 unsafe impl windows_core::Interface for HolographicViewConfiguration {
-    type Vtable = IHolographicViewConfiguration_Vtbl;
+    type Vtable = <IHolographicViewConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicViewConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicViewConfiguration {
@@ -1862,7 +1859,7 @@ impl windows_core::RuntimeName for HolographicViewConfiguration {
 unsafe impl Send for HolographicViewConfiguration {}
 unsafe impl Sync for HolographicViewConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
     pub const DepthReprojection: Self = Self(0i32);
@@ -1871,16 +1868,11 @@ impl HolographicDepthReprojectionMethod {
 impl windows_core::TypeKind for HolographicDepthReprojectionMethod {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicDepthReprojectionMethod {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
     pub const Success: Self = Self(0i32);
@@ -1889,16 +1881,11 @@ impl HolographicFramePresentResult {
 impl windows_core::TypeKind for HolographicFramePresentResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicFramePresentResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
     pub const WaitForFrameToFinish: Self = Self(0i32);
@@ -1907,16 +1894,11 @@ impl HolographicFramePresentWaitBehavior {
 impl windows_core::TypeKind for HolographicFramePresentWaitBehavior {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicFramePresentWaitBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
     pub const PositionAndOrientation: Self = Self(0i32);
@@ -1926,16 +1908,11 @@ impl HolographicReprojectionMode {
 impl windows_core::TypeKind for HolographicReprojectionMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicReprojectionMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
     pub const Absent: Self = Self(0i32);
@@ -1945,16 +1922,11 @@ impl HolographicSpaceUserPresence {
 impl windows_core::TypeKind for HolographicSpaceUserPresence {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicSpaceUserPresence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
     pub const Display: Self = Self(0i32);
@@ -1963,16 +1935,11 @@ impl HolographicViewConfigurationKind {
 impl windows_core::TypeKind for HolographicViewConfigurationKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HolographicViewConfigurationKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -1983,13 +1950,8 @@ impl windows_core::TypeKind for HolographicAdapterId {
 impl windows_core::RuntimeType for HolographicAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
 }
-impl Default for HolographicAdapterId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HolographicFrameId {
     pub Value: u64,
 }
@@ -1999,29 +1961,15 @@ impl windows_core::TypeKind for HolographicFrameId {
 impl windows_core::RuntimeType for HolographicFrameId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
 }
-impl Default for HolographicFrameId {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[cfg(feature = "Foundation_Numerics")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
     pub Right: super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for HolographicStereoTransform {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeType for HolographicStereoTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicStereoTransform;struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4);struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4))");
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl Default for HolographicStereoTransform {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

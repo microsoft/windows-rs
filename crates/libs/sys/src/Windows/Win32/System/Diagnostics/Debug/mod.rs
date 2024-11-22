@@ -2260,7 +2260,6 @@ pub struct ARM64_NT_NEON128_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
@@ -2278,7 +2277,6 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
@@ -2286,7 +2284,6 @@ pub union CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
@@ -2323,7 +2320,6 @@ pub struct CONTEXT_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub P1Home: u64,
@@ -2375,7 +2371,6 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
@@ -2383,7 +2378,6 @@ pub union CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
@@ -2713,7 +2707,7 @@ pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,

@@ -812,7 +812,7 @@ pub type AudioSessionDisconnectReason = i32;
 pub type AudioSessionState = i32;
 pub type AudioStateMonitorSoundLevel = i32;
 #[repr(transparent)]
-#[derive(Copy, Clone)]
+#[derive(Clone, Copy)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);

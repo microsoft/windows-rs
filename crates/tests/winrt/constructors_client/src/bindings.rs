@@ -5,6 +5,7 @@
     dead_code,
     clippy::all
 )]
+
 windows_core::imp::define_interface!(
     IActivatable,
     IActivatable_Vtbl,
@@ -80,7 +81,7 @@ pub struct IComposableFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Activatable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     Activatable,
@@ -138,7 +139,7 @@ impl windows_core::RuntimeType for Activatable {
         windows_core::imp::ConstBuffer::for_class::<Self, IActivatable>();
 }
 unsafe impl windows_core::Interface for Activatable {
-    type Vtable = IActivatable_Vtbl;
+    type Vtable = <IActivatable as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivatable as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Activatable {
@@ -147,7 +148,7 @@ impl windows_core::RuntimeName for Activatable {
 unsafe impl Send for Activatable {}
 unsafe impl Sync for Activatable {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Composable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     Composable,
@@ -204,7 +205,7 @@ impl windows_core::RuntimeType for Composable {
         windows_core::imp::ConstBuffer::for_class::<Self, IComposable>();
 }
 unsafe impl windows_core::Interface for Composable {
-    type Vtable = IComposable_Vtbl;
+    type Vtable = <IComposable as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IComposable as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Composable {

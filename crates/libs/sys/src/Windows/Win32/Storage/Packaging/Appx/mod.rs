@@ -261,6 +261,7 @@ pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub plainTextFiles: *const windows_sys::core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
@@ -269,6 +270,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub blockMapHashAlgorithm: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
@@ -285,12 +287,14 @@ pub struct APPX_KEY_INFO {
     pub keyId: *mut u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
     pub hashMethod: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: *mut core::ffi::c_void,

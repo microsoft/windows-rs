@@ -513,11 +513,8 @@ pub struct IPointerPointStatics_Vtbl {
     GetIntermediatePointsTransformed: usize,
 }
 windows_core::imp::define_interface!(IPointerPointTransform, IPointerPointTransform_Vtbl, 0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
-impl core::ops::Deref for IPointerPointTransform {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IPointerPointTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPointerPointTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl IPointerPointTransform {
@@ -539,12 +536,9 @@ impl IPointerPointTransform {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformBounds)(windows_core::Interface::as_raw(this), rect, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TransformBounds)(windows_core::Interface::as_raw(this), rect, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IPointerPointTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IPointerPointTransform_Vtbl {
@@ -553,16 +547,16 @@ pub struct IPointerPointTransform_Vtbl {
     pub TryTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point, *mut super::super::Foundation::Point, *mut bool) -> windows_core::HRESULT,
     pub TransformBounds: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
 }
-pub trait IPointerPointTransform_Impl: Sized + windows_core::IUnknownImpl {
-    fn Inverse(&self) -> windows_core::Result<IPointerPointTransform>;
-    fn TryTransform(&self, inpoint: &super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool>;
-    fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect>;
-}
 impl windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
+pub trait IPointerPointTransform_Impl: Sized + windows_core::IUnknownImpl {
+    fn Inverse(&self) -> windows_core::Result<IPointerPointTransform>;
+    fn TryTransform(&self, inPoint: &super::super::Foundation::Point, outPoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool>;
+    fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect>;
+}
 impl IPointerPointTransform_Vtbl {
-    pub const fn new<Identity: IPointerPointTransform_Impl, const OFFSET: isize>() -> IPointerPointTransform_Vtbl {
+    pub const fn new<Identity: IPointerPointTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Inverse<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPointerPointTransform_Impl::Inverse(this) {
@@ -820,7 +814,7 @@ impl windows_core::RuntimeType for IRadialControllerMenuItem {
 #[repr(C)]
 pub struct IRadialControllerMenuItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplayText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Tag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Invoked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
@@ -834,10 +828,10 @@ impl windows_core::RuntimeType for IRadialControllerMenuItemStatics {
 pub struct IRadialControllerMenuItemStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromIcon: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromIcon: usize,
-    pub CreateFromKnownIcon: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, RadialControllerMenuKnownIcon, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromKnownIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, RadialControllerMenuKnownIcon, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerMenuItemStatics2, IRadialControllerMenuItemStatics2_Vtbl, 0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
 impl windows_core::RuntimeType for IRadialControllerMenuItemStatics2 {
@@ -846,8 +840,8 @@ impl windows_core::RuntimeType for IRadialControllerMenuItemStatics2 {
 #[repr(C)]
 pub struct IRadialControllerMenuItemStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateFromFontGlyph: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromFontGlyph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromFontGlyphWithUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IRadialControllerRotationChangedEventArgs, IRadialControllerRotationChangedEventArgs_Vtbl, 0x206aa435_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerRotationChangedEventArgs {
@@ -1106,7 +1100,7 @@ pub struct ITouchpadGlobalActionEventArgs_Vtbl {
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TouchpadGlobalAction) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AttachableInputObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AttachableInputObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AttachableInputObject, super::super::Foundation::IClosable);
@@ -1120,7 +1114,7 @@ impl windows_core::RuntimeType for AttachableInputObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAttachableInputObject>();
 }
 unsafe impl windows_core::Interface for AttachableInputObject {
-    type Vtable = IAttachableInputObject_Vtbl;
+    type Vtable = <IAttachableInputObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAttachableInputObject as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AttachableInputObject {
@@ -1129,7 +1123,7 @@ impl windows_core::RuntimeName for AttachableInputObject {
 unsafe impl Send for AttachableInputObject {}
 unsafe impl Sync for AttachableInputObject {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CrossSlidingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CrossSlidingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CrossSlidingEventArgs {
@@ -1145,7 +1139,7 @@ impl CrossSlidingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn CrossSlidingState(&self) -> windows_core::Result<CrossSlidingState> {
@@ -1167,14 +1161,14 @@ impl windows_core::RuntimeType for CrossSlidingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICrossSlidingEventArgs>();
 }
 unsafe impl windows_core::Interface for CrossSlidingEventArgs {
-    type Vtable = ICrossSlidingEventArgs_Vtbl;
+    type Vtable = <ICrossSlidingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICrossSlidingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DraggingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DraggingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DraggingEventArgs {
@@ -1190,7 +1184,7 @@ impl DraggingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn DraggingState(&self) -> windows_core::Result<DraggingState> {
@@ -1212,14 +1206,14 @@ impl windows_core::RuntimeType for DraggingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDraggingEventArgs>();
 }
 unsafe impl windows_core::Interface for DraggingEventArgs {
-    type Vtable = IDraggingEventArgs_Vtbl;
+    type Vtable = <IDraggingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDraggingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EdgeGesture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGesture {
@@ -1230,7 +1224,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1244,7 +1238,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1258,7 +1252,7 @@ impl EdgeGesture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCanceled(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1280,14 +1274,14 @@ impl windows_core::RuntimeType for EdgeGesture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEdgeGesture>();
 }
 unsafe impl windows_core::Interface for EdgeGesture {
-    type Vtable = IEdgeGesture_Vtbl;
+    type Vtable = <IEdgeGesture as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEdgeGesture as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EdgeGestureEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGestureEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGestureEventArgs {
@@ -1303,14 +1297,14 @@ impl windows_core::RuntimeType for EdgeGestureEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEdgeGestureEventArgs>();
 }
 unsafe impl windows_core::Interface for EdgeGestureEventArgs {
-    type Vtable = IEdgeGestureEventArgs_Vtbl;
+    type Vtable = <IEdgeGestureEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEdgeGestureEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct GestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl GestureRecognizer {
@@ -1361,7 +1355,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PivotCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PivotCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPivotCenter(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -1460,7 +1454,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CrossSlideThresholds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CrossSlideThresholds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetCrossSlideThresholds(&self, value: CrossSlideThresholds) -> windows_core::Result<()> {
@@ -1561,7 +1555,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1575,7 +1569,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveRightTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1589,7 +1583,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1603,7 +1597,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveDragging(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1617,7 +1611,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1631,7 +1625,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1645,7 +1639,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationInertiaStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1659,7 +1653,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1673,7 +1667,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveCrossSliding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1739,7 +1733,7 @@ impl GestureRecognizer {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -1773,14 +1767,14 @@ impl windows_core::RuntimeType for GestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGestureRecognizer>();
 }
 unsafe impl windows_core::Interface for GestureRecognizer {
-    type Vtable = IGestureRecognizer_Vtbl;
+    type Vtable = <IGestureRecognizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGestureRecognizer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HoldingEventArgs {
@@ -1796,7 +1790,7 @@ impl HoldingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn HoldingState(&self) -> windows_core::Result<HoldingState> {
@@ -1825,14 +1819,14 @@ impl windows_core::RuntimeType for HoldingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHoldingEventArgs>();
 }
 unsafe impl windows_core::Interface for HoldingEventArgs {
-    type Vtable = IHoldingEventArgs_Vtbl;
+    type Vtable = <IHoldingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHoldingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputActivationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputActivationListener, super::super::Foundation::IClosable, AttachableInputObject);
@@ -1855,7 +1849,7 @@ impl InputActivationListener {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveInputActivationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1867,7 +1861,7 @@ impl windows_core::RuntimeType for InputActivationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputActivationListener>();
 }
 unsafe impl windows_core::Interface for InputActivationListener {
-    type Vtable = IInputActivationListener_Vtbl;
+    type Vtable = <IInputActivationListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputActivationListener as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InputActivationListener {
@@ -1876,7 +1870,7 @@ impl windows_core::RuntimeName for InputActivationListener {
 unsafe impl Send for InputActivationListener {}
 unsafe impl Sync for InputActivationListener {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InputActivationListenerActivationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListenerActivationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InputActivationListenerActivationChangedEventArgs {
@@ -1892,7 +1886,7 @@ impl windows_core::RuntimeType for InputActivationListenerActivationChangedEvent
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputActivationListenerActivationChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for InputActivationListenerActivationChangedEventArgs {
-    type Vtable = IInputActivationListenerActivationChangedEventArgs_Vtbl;
+    type Vtable = <IInputActivationListenerActivationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputActivationListenerActivationChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InputActivationListenerActivationChangedEventArgs {
@@ -1901,7 +1895,7 @@ impl windows_core::RuntimeName for InputActivationListenerActivationChangedEvent
 unsafe impl Send for InputActivationListenerActivationChangedEventArgs {}
 unsafe impl Sync for InputActivationListenerActivationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyboardDeliveryInterceptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardDeliveryInterceptor, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardDeliveryInterceptor {
@@ -1924,7 +1918,7 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveKeyDown(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1939,7 +1933,7 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveKeyUp(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1961,7 +1955,7 @@ impl windows_core::RuntimeType for KeyboardDeliveryInterceptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyboardDeliveryInterceptor>();
 }
 unsafe impl windows_core::Interface for KeyboardDeliveryInterceptor {
-    type Vtable = IKeyboardDeliveryInterceptor_Vtbl;
+    type Vtable = <IKeyboardDeliveryInterceptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyboardDeliveryInterceptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for KeyboardDeliveryInterceptor {
@@ -1970,7 +1964,7 @@ impl windows_core::RuntimeName for KeyboardDeliveryInterceptor {
 unsafe impl Send for KeyboardDeliveryInterceptor {}
 unsafe impl Sync for KeyboardDeliveryInterceptor {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ManipulationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationCompletedEventArgs {
@@ -1986,21 +1980,21 @@ impl ManipulationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2022,14 +2016,14 @@ impl windows_core::RuntimeType for ManipulationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationCompletedEventArgs {
-    type Vtable = IManipulationCompletedEventArgs_Vtbl;
+    type Vtable = <IManipulationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManipulationCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ManipulationInertiaStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationInertiaStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationInertiaStartingEventArgs {
@@ -2045,28 +2039,28 @@ impl ManipulationInertiaStartingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2081,14 +2075,14 @@ impl windows_core::RuntimeType for ManipulationInertiaStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationInertiaStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationInertiaStartingEventArgs {
-    type Vtable = IManipulationInertiaStartingEventArgs_Vtbl;
+    type Vtable = <IManipulationInertiaStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManipulationInertiaStartingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ManipulationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationStartedEventArgs {
@@ -2104,14 +2098,14 @@ impl ManipulationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2126,14 +2120,14 @@ impl windows_core::RuntimeType for ManipulationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationStartedEventArgs {
-    type Vtable = IManipulationStartedEventArgs_Vtbl;
+    type Vtable = <IManipulationStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManipulationStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ManipulationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationUpdatedEventArgs {
@@ -2149,28 +2143,28 @@ impl ManipulationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -2192,14 +2186,14 @@ impl windows_core::RuntimeType for ManipulationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManipulationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for ManipulationUpdatedEventArgs {
-    type Vtable = IManipulationUpdatedEventArgs_Vtbl;
+    type Vtable = <IManipulationUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManipulationUpdatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MouseWheelParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseWheelParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseWheelParameters {
@@ -2207,7 +2201,7 @@ impl MouseWheelParameters {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CharTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetCharTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -2240,7 +2234,7 @@ impl MouseWheelParameters {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PageTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PageTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetPageTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
@@ -2252,14 +2246,14 @@ impl windows_core::RuntimeType for MouseWheelParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMouseWheelParameters>();
 }
 unsafe impl windows_core::Interface for MouseWheelParameters {
-    type Vtable = IMouseWheelParameters_Vtbl;
+    type Vtable = <IMouseWheelParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMouseWheelParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PhysicalGestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhysicalGestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl PhysicalGestureRecognizer {
@@ -2340,7 +2334,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
@@ -2402,7 +2396,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2416,7 +2410,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2430,7 +2424,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveManipulationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2444,7 +2438,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2458,7 +2452,7 @@ impl PhysicalGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2470,14 +2464,14 @@ impl windows_core::RuntimeType for PhysicalGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhysicalGestureRecognizer>();
 }
 unsafe impl windows_core::Interface for PhysicalGestureRecognizer {
-    type Vtable = IPhysicalGestureRecognizer_Vtbl;
+    type Vtable = <IPhysicalGestureRecognizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhysicalGestureRecognizer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PhysicalGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.PhysicalGestureRecognizer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PointerPoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPoint, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPoint {
@@ -2493,14 +2487,14 @@ impl PointerPoint {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RawPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RawPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn PointerId(&self) -> windows_core::Result<u32> {
@@ -2549,7 +2543,7 @@ impl PointerPoint {
         let this = &windows_core::Interface::cast::<IPointerPointPhysicalPosition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn GetCurrentPoint(pointerid: u32) -> windows_core::Result<PointerPoint> {
@@ -2565,9 +2559,9 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetIntermediatePoints)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCurrentPointTransformed<P0>(pointerid: u32, transform: P0) -> windows_core::Result<PointerPoint>
+    pub fn GetCurrentPointTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<PointerPoint>
     where
-        P0: windows_core::Param<IPointerPointTransform>,
+        P1: windows_core::Param<IPointerPointTransform>,
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2575,9 +2569,9 @@ impl PointerPoint {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIntermediatePointsTransformed<P0>(pointerid: u32, transform: P0) -> windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
+    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
     where
-        P0: windows_core::Param<IPointerPointTransform>,
+        P1: windows_core::Param<IPointerPointTransform>,
     {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2593,14 +2587,14 @@ impl windows_core::RuntimeType for PointerPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerPoint>();
 }
 unsafe impl windows_core::Interface for PointerPoint {
-    type Vtable = IPointerPoint_Vtbl;
+    type Vtable = <IPointerPoint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointerPoint as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PointerPointProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPointProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPointProperties {
@@ -2657,14 +2651,14 @@ impl PointerPointProperties {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContactRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactRectRaw(&self) -> windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContactRectRaw)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ContactRectRaw)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TouchConfidence(&self) -> windows_core::Result<bool> {
@@ -2784,14 +2778,14 @@ impl windows_core::RuntimeType for PointerPointProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerPointProperties>();
 }
 unsafe impl windows_core::Interface for PointerPointProperties {
-    type Vtable = IPointerPointProperties_Vtbl;
+    type Vtable = <IPointerPointProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointerPointProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PointerVisualizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerVisualizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerVisualizationSettings {
@@ -2832,7 +2826,7 @@ impl windows_core::RuntimeType for PointerVisualizationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerVisualizationSettings>();
 }
 unsafe impl windows_core::Interface for PointerVisualizationSettings {
-    type Vtable = IPointerVisualizationSettings_Vtbl;
+    type Vtable = <IPointerVisualizationSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointerVisualizationSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PointerVisualizationSettings {
@@ -2841,7 +2835,7 @@ impl windows_core::RuntimeName for PointerVisualizationSettings {
 unsafe impl Send for PointerVisualizationSettings {}
 unsafe impl Sync for PointerVisualizationSettings {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialController, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialController {
@@ -2881,7 +2875,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveScreenContactStarted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2895,7 +2889,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveScreenContactEnded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2909,7 +2903,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveScreenContactContinued(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2923,7 +2917,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveControlLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2937,7 +2931,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveRotationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2951,7 +2945,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2965,7 +2959,7 @@ impl RadialController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveControlAcquired(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2979,7 +2973,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2993,7 +2987,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveButtonHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3007,7 +3001,7 @@ impl RadialController {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3035,7 +3029,7 @@ impl windows_core::RuntimeType for RadialController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialController>();
 }
 unsafe impl windows_core::Interface for RadialController {
-    type Vtable = IRadialController_Vtbl;
+    type Vtable = <IRadialController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialController {
@@ -3044,7 +3038,7 @@ impl windows_core::RuntimeName for RadialController {
 unsafe impl Send for RadialController {}
 unsafe impl Sync for RadialController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonClickedEventArgs {
@@ -3068,7 +3062,7 @@ impl windows_core::RuntimeType for RadialControllerButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonClickedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonClickedEventArgs {
-    type Vtable = IRadialControllerButtonClickedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerButtonClickedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerButtonClickedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerButtonClickedEventArgs {
@@ -3077,7 +3071,7 @@ impl windows_core::RuntimeName for RadialControllerButtonClickedEventArgs {
 unsafe impl Send for RadialControllerButtonClickedEventArgs {}
 unsafe impl Sync for RadialControllerButtonClickedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerButtonHoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonHoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonHoldingEventArgs {
@@ -3101,7 +3095,7 @@ impl windows_core::RuntimeType for RadialControllerButtonHoldingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonHoldingEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonHoldingEventArgs {
-    type Vtable = IRadialControllerButtonHoldingEventArgs_Vtbl;
+    type Vtable = <IRadialControllerButtonHoldingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerButtonHoldingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerButtonHoldingEventArgs {
@@ -3110,7 +3104,7 @@ impl windows_core::RuntimeName for RadialControllerButtonHoldingEventArgs {
 unsafe impl Send for RadialControllerButtonHoldingEventArgs {}
 unsafe impl Sync for RadialControllerButtonHoldingEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerButtonPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonPressedEventArgs {
@@ -3134,7 +3128,7 @@ impl windows_core::RuntimeType for RadialControllerButtonPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonPressedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonPressedEventArgs {
-    type Vtable = IRadialControllerButtonPressedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerButtonPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerButtonPressedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerButtonPressedEventArgs {
@@ -3143,7 +3137,7 @@ impl windows_core::RuntimeName for RadialControllerButtonPressedEventArgs {
 unsafe impl Send for RadialControllerButtonPressedEventArgs {}
 unsafe impl Sync for RadialControllerButtonPressedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerButtonReleasedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonReleasedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonReleasedEventArgs {
@@ -3167,7 +3161,7 @@ impl windows_core::RuntimeType for RadialControllerButtonReleasedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerButtonReleasedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerButtonReleasedEventArgs {
-    type Vtable = IRadialControllerButtonReleasedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerButtonReleasedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerButtonReleasedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerButtonReleasedEventArgs {
@@ -3176,7 +3170,7 @@ impl windows_core::RuntimeName for RadialControllerButtonReleasedEventArgs {
 unsafe impl Send for RadialControllerButtonReleasedEventArgs {}
 unsafe impl Sync for RadialControllerButtonReleasedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerConfiguration {
@@ -3264,7 +3258,7 @@ impl windows_core::RuntimeType for RadialControllerConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerConfiguration>();
 }
 unsafe impl windows_core::Interface for RadialControllerConfiguration {
-    type Vtable = IRadialControllerConfiguration_Vtbl;
+    type Vtable = <IRadialControllerConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerConfiguration {
@@ -3273,7 +3267,7 @@ impl windows_core::RuntimeName for RadialControllerConfiguration {
 unsafe impl Send for RadialControllerConfiguration {}
 unsafe impl Sync for RadialControllerConfiguration {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerControlAcquiredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerControlAcquiredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerControlAcquiredEventArgs {
@@ -3304,7 +3298,7 @@ impl windows_core::RuntimeType for RadialControllerControlAcquiredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerControlAcquiredEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerControlAcquiredEventArgs {
-    type Vtable = IRadialControllerControlAcquiredEventArgs_Vtbl;
+    type Vtable = <IRadialControllerControlAcquiredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerControlAcquiredEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerControlAcquiredEventArgs {
@@ -3313,7 +3307,7 @@ impl windows_core::RuntimeName for RadialControllerControlAcquiredEventArgs {
 unsafe impl Send for RadialControllerControlAcquiredEventArgs {}
 unsafe impl Sync for RadialControllerControlAcquiredEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenu {
@@ -3362,7 +3356,7 @@ impl windows_core::RuntimeType for RadialControllerMenu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerMenu>();
 }
 unsafe impl windows_core::Interface for RadialControllerMenu {
-    type Vtable = IRadialControllerMenu_Vtbl;
+    type Vtable = <IRadialControllerMenu as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerMenu as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerMenu {
@@ -3371,7 +3365,7 @@ impl windows_core::RuntimeName for RadialControllerMenu {
 unsafe impl Send for RadialControllerMenu {}
 unsafe impl Sync for RadialControllerMenu {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerMenuItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenuItem, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenuItem {
@@ -3379,7 +3373,7 @@ impl RadialControllerMenuItem {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -3403,7 +3397,7 @@ impl RadialControllerMenuItem {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3411,9 +3405,9 @@ impl RadialControllerMenuItem {
         unsafe { (windows_core::Interface::vtable(this).RemoveInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromIcon<P0>(displaytext: &windows_core::HSTRING, icon: P0) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> windows_core::Result<RadialControllerMenuItem>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
+        P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3432,9 +3426,9 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyphWithUri<P0>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P0) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromFontGlyphWithUri<P3>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P3) -> windows_core::Result<RadialControllerMenuItem>
     where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
+        P3: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3454,7 +3448,7 @@ impl windows_core::RuntimeType for RadialControllerMenuItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerMenuItem>();
 }
 unsafe impl windows_core::Interface for RadialControllerMenuItem {
-    type Vtable = IRadialControllerMenuItem_Vtbl;
+    type Vtable = <IRadialControllerMenuItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerMenuItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerMenuItem {
@@ -3463,7 +3457,7 @@ impl windows_core::RuntimeName for RadialControllerMenuItem {
 unsafe impl Send for RadialControllerMenuItem {}
 unsafe impl Sync for RadialControllerMenuItem {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerRotationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerRotationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerRotationChangedEventArgs {
@@ -3501,7 +3495,7 @@ impl windows_core::RuntimeType for RadialControllerRotationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerRotationChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerRotationChangedEventArgs {
-    type Vtable = IRadialControllerRotationChangedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerRotationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerRotationChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerRotationChangedEventArgs {
@@ -3510,7 +3504,7 @@ impl windows_core::RuntimeName for RadialControllerRotationChangedEventArgs {
 unsafe impl Send for RadialControllerRotationChangedEventArgs {}
 unsafe impl Sync for RadialControllerRotationChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerScreenContact(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContact, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContact {
@@ -3518,14 +3512,14 @@ impl RadialControllerScreenContact {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -3533,7 +3527,7 @@ impl windows_core::RuntimeType for RadialControllerScreenContact {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContact>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContact {
-    type Vtable = IRadialControllerScreenContact_Vtbl;
+    type Vtable = <IRadialControllerScreenContact as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerScreenContact as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerScreenContact {
@@ -3542,7 +3536,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContact {
 unsafe impl Send for RadialControllerScreenContact {}
 unsafe impl Sync for RadialControllerScreenContact {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerScreenContactContinuedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactContinuedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactContinuedEventArgs {
@@ -3573,7 +3567,7 @@ impl windows_core::RuntimeType for RadialControllerScreenContactContinuedEventAr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactContinuedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactContinuedEventArgs {
-    type Vtable = IRadialControllerScreenContactContinuedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerScreenContactContinuedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerScreenContactContinuedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
@@ -3582,7 +3576,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactContinuedEventAr
 unsafe impl Send for RadialControllerScreenContactContinuedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactContinuedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerScreenContactEndedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactEndedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactEndedEventArgs {
@@ -3606,7 +3600,7 @@ impl windows_core::RuntimeType for RadialControllerScreenContactEndedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactEndedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactEndedEventArgs {
-    type Vtable = IRadialControllerScreenContactEndedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerScreenContactEndedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerScreenContactEndedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
@@ -3615,7 +3609,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
 unsafe impl Send for RadialControllerScreenContactEndedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactEndedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RadialControllerScreenContactStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactStartedEventArgs {
@@ -3646,7 +3640,7 @@ impl windows_core::RuntimeType for RadialControllerScreenContactStartedEventArgs
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadialControllerScreenContactStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for RadialControllerScreenContactStartedEventArgs {
-    type Vtable = IRadialControllerScreenContactStartedEventArgs_Vtbl;
+    type Vtable = <IRadialControllerScreenContactStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRadialControllerScreenContactStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RadialControllerScreenContactStartedEventArgs {
@@ -3655,7 +3649,7 @@ impl windows_core::RuntimeName for RadialControllerScreenContactStartedEventArgs
 unsafe impl Send for RadialControllerScreenContactStartedEventArgs {}
 unsafe impl Sync for RadialControllerScreenContactStartedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RightTappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RightTappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RightTappedEventArgs {
@@ -3671,7 +3665,7 @@ impl RightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn ContactCount(&self) -> windows_core::Result<u32> {
@@ -3686,14 +3680,14 @@ impl windows_core::RuntimeType for RightTappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRightTappedEventArgs>();
 }
 unsafe impl windows_core::Interface for RightTappedEventArgs {
-    type Vtable = IRightTappedEventArgs_Vtbl;
+    type Vtable = <IRightTappedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRightTappedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemButtonEventController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemButtonEventController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemButtonEventController, super::super::Foundation::IClosable, AttachableInputObject);
@@ -3709,7 +3703,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSystemFunctionButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3723,7 +3717,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSystemFunctionButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3737,7 +3731,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSystemFunctionLockChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3751,7 +3745,7 @@ impl SystemButtonEventController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -3777,7 +3771,7 @@ impl windows_core::RuntimeType for SystemButtonEventController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemButtonEventController>();
 }
 unsafe impl windows_core::Interface for SystemButtonEventController {
-    type Vtable = ISystemButtonEventController_Vtbl;
+    type Vtable = <ISystemButtonEventController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemButtonEventController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemButtonEventController {
@@ -3786,7 +3780,7 @@ impl windows_core::RuntimeName for SystemButtonEventController {
 unsafe impl Send for SystemButtonEventController {}
 unsafe impl Sync for SystemButtonEventController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemFunctionButtonEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionButtonEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionButtonEventArgs {
@@ -3813,7 +3807,7 @@ impl windows_core::RuntimeType for SystemFunctionButtonEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionButtonEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionButtonEventArgs {
-    type Vtable = ISystemFunctionButtonEventArgs_Vtbl;
+    type Vtable = <ISystemFunctionButtonEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemFunctionButtonEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemFunctionButtonEventArgs {
@@ -3822,7 +3816,7 @@ impl windows_core::RuntimeName for SystemFunctionButtonEventArgs {
 unsafe impl Send for SystemFunctionButtonEventArgs {}
 unsafe impl Sync for SystemFunctionButtonEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemFunctionLockChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockChangedEventArgs {
@@ -3856,7 +3850,7 @@ impl windows_core::RuntimeType for SystemFunctionLockChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionLockChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionLockChangedEventArgs {
-    type Vtable = ISystemFunctionLockChangedEventArgs_Vtbl;
+    type Vtable = <ISystemFunctionLockChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemFunctionLockChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemFunctionLockChangedEventArgs {
@@ -3865,7 +3859,7 @@ impl windows_core::RuntimeName for SystemFunctionLockChangedEventArgs {
 unsafe impl Send for SystemFunctionLockChangedEventArgs {}
 unsafe impl Sync for SystemFunctionLockChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockIndicatorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockIndicatorChangedEventArgs {
@@ -3899,7 +3893,7 @@ impl windows_core::RuntimeType for SystemFunctionLockIndicatorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemFunctionLockIndicatorChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemFunctionLockIndicatorChangedEventArgs {
-    type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_Vtbl;
+    type Vtable = <ISystemFunctionLockIndicatorChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemFunctionLockIndicatorChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
@@ -3908,7 +3902,7 @@ impl windows_core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
 unsafe impl Send for SystemFunctionLockIndicatorChangedEventArgs {}
 unsafe impl Sync for SystemFunctionLockIndicatorChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TappedEventArgs {
@@ -3924,7 +3918,7 @@ impl TappedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn TapCount(&self) -> windows_core::Result<u32> {
@@ -3946,14 +3940,14 @@ impl windows_core::RuntimeType for TappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITappedEventArgs>();
 }
 unsafe impl windows_core::Interface for TappedEventArgs {
-    type Vtable = ITappedEventArgs_Vtbl;
+    type Vtable = <ITappedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITappedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.TappedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TouchpadGesturesController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchpadGesturesController, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchpadGesturesController {
@@ -3987,7 +3981,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePointerPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4002,7 +3996,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePointerMoved(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4017,7 +4011,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemovePointerReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4031,7 +4025,7 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).TouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn RemoveTouchpadGlobalActionPerformed(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -4059,7 +4053,7 @@ impl windows_core::RuntimeType for TouchpadGesturesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchpadGesturesController>();
 }
 unsafe impl windows_core::Interface for TouchpadGesturesController {
-    type Vtable = ITouchpadGesturesController_Vtbl;
+    type Vtable = <ITouchpadGesturesController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITouchpadGesturesController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TouchpadGesturesController {
@@ -4068,7 +4062,7 @@ impl windows_core::RuntimeName for TouchpadGesturesController {
 unsafe impl Send for TouchpadGesturesController {}
 unsafe impl Sync for TouchpadGesturesController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Debug, Clone)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TouchpadGlobalActionEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchpadGlobalActionEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchpadGlobalActionEventArgs {
@@ -4084,7 +4078,7 @@ impl windows_core::RuntimeType for TouchpadGlobalActionEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchpadGlobalActionEventArgs>();
 }
 unsafe impl windows_core::Interface for TouchpadGlobalActionEventArgs {
-    type Vtable = ITouchpadGlobalActionEventArgs_Vtbl;
+    type Vtable = <ITouchpadGlobalActionEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITouchpadGlobalActionEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TouchpadGlobalActionEventArgs {
@@ -4093,7 +4087,7 @@ impl windows_core::RuntimeName for TouchpadGlobalActionEventArgs {
 unsafe impl Send for TouchpadGlobalActionEventArgs {}
 unsafe impl Sync for TouchpadGlobalActionEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
     pub const Started: Self = Self(0i32);
@@ -4107,16 +4101,11 @@ impl CrossSlidingState {
 impl windows_core::TypeKind for CrossSlidingState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CrossSlidingState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CrossSlidingState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for CrossSlidingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
     pub const Started: Self = Self(0i32);
@@ -4126,16 +4115,11 @@ impl DraggingState {
 impl windows_core::TypeKind for DraggingState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DraggingState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DraggingState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DraggingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
     pub const Touch: Self = Self(0i32);
@@ -4145,16 +4129,11 @@ impl EdgeGestureKind {
 impl windows_core::TypeKind for EdgeGestureKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EdgeGestureKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -4165,16 +4144,11 @@ impl GazeInputAccessStatus {
 impl windows_core::TypeKind for GazeInputAccessStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GazeInputAccessStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
     pub const None: Self = Self(0u32);
@@ -4199,10 +4173,8 @@ impl GestureSettings {
 impl windows_core::TypeKind for GestureSettings {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GestureSettings {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GestureSettings").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for GestureSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
 }
 impl GestureSettings {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4237,11 +4209,8 @@ impl core::ops::Not for GestureSettings {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for GestureSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
     pub const Started: Self = Self(0i32);
@@ -4251,16 +4220,11 @@ impl HoldingState {
 impl windows_core::TypeKind for HoldingState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HoldingState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HoldingState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HoldingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
     pub const None: Self = Self(0i32);
@@ -4271,16 +4235,11 @@ impl InputActivationState {
 impl windows_core::TypeKind for InputActivationState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InputActivationState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InputActivationState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for InputActivationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
     pub const Other: Self = Self(0i32);
@@ -4298,16 +4257,11 @@ impl PointerUpdateKind {
 impl windows_core::TypeKind for PointerUpdateKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PointerUpdateKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
     pub const Scroll: Self = Self(0i32);
@@ -4323,16 +4277,11 @@ impl RadialControllerMenuKnownIcon {
 impl windows_core::TypeKind for RadialControllerMenuKnownIcon {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RadialControllerMenuKnownIcon {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
     pub const Scroll: Self = Self(0i32);
@@ -4344,16 +4293,11 @@ impl RadialControllerSystemMenuItemKind {
 impl windows_core::TypeKind for RadialControllerSystemMenuItemKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RadialControllerSystemMenuItemKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TouchpadGlobalAction(pub i32);
 impl TouchpadGlobalAction {
     pub const ThreeFingerTap: Self = Self(0i32);
@@ -4369,16 +4313,11 @@ impl TouchpadGlobalAction {
 impl windows_core::TypeKind for TouchpadGlobalAction {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TouchpadGlobalAction {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TouchpadGlobalAction").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for TouchpadGlobalAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.TouchpadGlobalAction;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TouchpadGlobalGestureKinds(pub u32);
 impl TouchpadGlobalGestureKinds {
     pub const None: Self = Self(0u32);
@@ -4392,10 +4331,8 @@ impl TouchpadGlobalGestureKinds {
 impl windows_core::TypeKind for TouchpadGlobalGestureKinds {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TouchpadGlobalGestureKinds {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TouchpadGlobalGestureKinds").field(&self.0).finish()
-    }
+impl windows_core::RuntimeType for TouchpadGlobalGestureKinds {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.TouchpadGlobalGestureKinds;u4)");
 }
 impl TouchpadGlobalGestureKinds {
     pub const fn contains(&self, other: Self) -> bool {
@@ -4430,11 +4367,8 @@ impl core::ops::Not for TouchpadGlobalGestureKinds {
         Self(self.0.not())
     }
 }
-impl windows_core::RuntimeType for TouchpadGlobalGestureKinds {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.TouchpadGlobalGestureKinds;u4)");
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
     pub SpeedBumpStart: f32,
@@ -4447,13 +4381,8 @@ impl windows_core::TypeKind for CrossSlideThresholds {
 impl windows_core::RuntimeType for CrossSlideThresholds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
 }
-impl Default for CrossSlideThresholds {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ManipulationDelta {
     pub Translation: super::super::Foundation::Point,
     pub Scale: f32,
@@ -4466,13 +4395,8 @@ impl windows_core::TypeKind for ManipulationDelta {
 impl windows_core::RuntimeType for ManipulationDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
 }
-impl Default for ManipulationDelta {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ManipulationVelocities {
     pub Linear: super::super::Foundation::Point,
     pub Angular: f32,
@@ -4483,9 +4407,4 @@ impl windows_core::TypeKind for ManipulationVelocities {
 }
 impl windows_core::RuntimeType for ManipulationVelocities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
-}
-impl Default for ManipulationVelocities {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
