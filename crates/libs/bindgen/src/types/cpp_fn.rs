@@ -84,7 +84,7 @@ impl CppFn {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -250,7 +250,7 @@ impl CppFn {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         self.method
             .signature(self.namespace, &[])
             .dependencies(dependencies);

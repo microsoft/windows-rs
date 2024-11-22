@@ -59,7 +59,7 @@ impl Interface {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let interfaces = self.required_interfaces();
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -146,7 +146,7 @@ impl Interface {
                 MethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
-                let mut difference = Dependencies::new();
+                let mut difference = TypeMap::new();
 
                 if writer.config.package {
                     difference = method.dependencies.difference(&dependencies);
@@ -180,7 +180,7 @@ impl Interface {
                             _ => None,
                         })
                 {
-                    let mut difference = Dependencies::new();
+                    let mut difference = TypeMap::new();
 
                     if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
@@ -261,7 +261,7 @@ impl Interface {
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
-                    let mut difference = Dependencies::new();
+                    let mut difference = TypeMap::new();
 
                     if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
@@ -318,7 +318,7 @@ impl Interface {
             if writer.config.package {
                 fn collect(
                     interface: &Interface,
-                    dependencies: &mut Dependencies,
+                    dependencies: &mut TypeMap,
                     writer: &Writer,
                 ) {
                     for method in interface.get_methods(writer).iter() {
@@ -463,7 +463,7 @@ impl Interface {
         interface_signature(self.def, &self.generics)
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         // TODO: does this also need to be outside
         for interface in self.required_interfaces() {
             Type::Interface(interface).dependencies(dependencies);

@@ -23,7 +23,7 @@ impl Delegate {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let method = self.method();
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -193,7 +193,7 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         dependencies.combine(&self.method().dependencies);
         // TODO: collect generics here?
         // for ty in &self.generics {

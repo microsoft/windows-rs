@@ -47,8 +47,8 @@ impl CppDelegate {
 
         let return_sig = writer.write_return_sig(method, &signature, false);
 
-        // TODO: maybe create Dependencies with config as arg and use a trait to capture depdnencies if "package"
-        let mut dependencies = Dependencies::new();
+        // TODO: maybe create TypeMap with config as arg and use a trait to capture depdnencies if "package"
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -64,7 +64,7 @@ impl CppDelegate {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         self.method()
             .signature(self.def.namespace(), &[])
             .dependencies(dependencies);

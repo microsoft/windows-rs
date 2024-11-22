@@ -50,7 +50,7 @@ impl CppInterface {
         let base_interfaces = self.base_interfaces();
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -80,7 +80,7 @@ impl CppInterface {
 
             let methods = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let mut difference = Dependencies::new();
+                    let mut difference = TypeMap::new();
 
                     if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
@@ -191,7 +191,7 @@ impl CppInterface {
                 CppMethodOrName::Method(method) => Some(method),
                 _ => None,
             }) {
-                let mut difference = Dependencies::new();
+                let mut difference = TypeMap::new();
 
                 if writer.config.package {
                     difference = method.dependencies.difference(&dependencies);
@@ -224,7 +224,7 @@ impl CppInterface {
             if writer.config.package {
                 fn collect(
                     interface: &CppInterface,
-                    dependencies: &mut Dependencies,
+                    dependencies: &mut TypeMap,
                     writer: &Writer,
                 ) {
                     for method in interface.get_methods(writer).iter() {
@@ -429,7 +429,7 @@ impl CppInterface {
         quote! { #namespace #name }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         let base_interfaces = self.base_interfaces();
 
         if matches!(base_interfaces.first(), Some(Type::IUnknown)) {

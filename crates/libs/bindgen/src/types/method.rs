@@ -6,14 +6,14 @@ pub struct Method {
     pub def: MethodDef,
     pub signature: Signature,
     // TODO: this should already exclude the parent/interface dependencies?
-    pub dependencies: Dependencies,
+    pub dependencies: TypeMap,
 }
 
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type]) -> Self {
         let signature = def.signature("", generics);
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
         signature.dependencies(&mut dependencies);
 
         Self {

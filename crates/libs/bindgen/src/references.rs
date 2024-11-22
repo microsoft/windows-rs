@@ -70,7 +70,7 @@ impl ReferenceStyle {
 #[derive(Debug)]
 pub struct Reference {
     pub name: String,           // crate name like "windows"
-    pub includes: Dependencies, // what this reference provides
+    pub includes: TypeMap, // what this reference provides
     pub style: ReferenceStyle,  // how to generate the type path
 }
 
@@ -85,7 +85,7 @@ impl References {
                 .map(|stage| {
                     // TODO: does this validate the path?
                     let filter = Filter::new(reader, &[&stage.path], &[]);
-                    let includes = Dependencies::filter(reader, &filter);
+                    let includes = TypeMap::filter(reader, &filter);
 
                     Reference {
                         name: stage.name,

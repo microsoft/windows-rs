@@ -74,7 +74,7 @@ impl Struct {
         signature
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         for field in self.def.fields() {
             field.ty(None).dependencies(dependencies);
         }

@@ -4,7 +4,7 @@ use super::*;
 pub struct CppMethod {
     pub def: MethodDef,
     pub signature: Signature,
-    pub dependencies: Dependencies,
+    pub dependencies: TypeMap,
     pub return_hint: ReturnHint,
     pub param_hints: Vec<ParamHint>,
 }
@@ -83,7 +83,7 @@ impl CppMethod {
             param_hints[position] = ParamHint::from_param(*param);
         }
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
         signature.dependencies(&mut dependencies);
 
         for position in 0..signature.params.len() {

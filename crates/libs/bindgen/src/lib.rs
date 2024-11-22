@@ -6,7 +6,7 @@
 )]
 
 //mod dependencies;
-mod dependencies;
+mod type_map;
 mod derive;
 mod derive_writer;
 mod filter;
@@ -25,7 +25,7 @@ mod winmd;
 mod writer;
 
 //use dependencies::*;
-use dependencies::*;
+use type_map::*;
 use derive::*;
 use derive_writer::*;
 use filter::*;
@@ -49,7 +49,7 @@ mod method_names;
 use method_names::*;
 
 struct Config {
-    pub includes: Dependencies, // TODO: can we get rid of Includes and just use it to create the TypeTree?
+    pub includes: TypeMap, // TODO: can we get rid of Includes and just use it to create the TypeTree?
     pub references: References,
     pub output: String,
     pub flat: bool,
@@ -177,7 +177,7 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
-    let includes = Dependencies::filter(reader, &filter);
+    let includes = TypeMap::filter(reader, &filter);
 
     //  dbg!(&includes);
 
@@ -211,7 +211,7 @@ where
 
     // // // dbg!(&tree);
 
-    // // // TODO: this won't be needed once the Dependencies type has been build and already contains all items - just need to turn
+    // // // TODO: this won't be needed once the TypeMap type has been build and already contains all items - just need to turn
     // // // it into a tree... - maybe that's what this becomes
     let items = TypeTree::new(&config.includes);
 

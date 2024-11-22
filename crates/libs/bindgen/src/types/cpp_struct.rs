@@ -46,7 +46,7 @@ impl CppStruct {
             }
         }
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -231,7 +231,7 @@ impl CppStruct {
         tokens
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         for field in self.def.fields() {
             field.ty(Some(self)).dependencies(dependencies);
         }

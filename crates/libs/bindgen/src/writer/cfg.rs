@@ -6,7 +6,7 @@ impl Writer {
         &self,
         row: R,
         namespace: &str,
-        dependencies: &Dependencies,
+        dependencies: &TypeMap,
         not: bool,
     ) -> TokenStream {
         let mut features = BTreeSet::new();

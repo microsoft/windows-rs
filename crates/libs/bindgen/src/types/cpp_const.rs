@@ -37,7 +37,7 @@ impl CppConst {
 
         let field_ty = self.field.ty(None).to_const_type();
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -132,7 +132,7 @@ impl CppConst {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         self.field.ty(None).dependencies(dependencies);
     }
 }

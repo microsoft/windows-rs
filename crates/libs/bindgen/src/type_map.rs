@@ -8,9 +8,9 @@ type Set = HashMap<TypeName, HashSet<Type>>;
 
 // TODO: do we even need a wrapper type at this point?
 #[derive(Clone, Debug, PartialEq, Eq)]
-pub struct Dependencies(Set);
+pub struct TypeMap(Set);
 
-// impl std::ops::Deref for Dependencies {
+// impl std::ops::Deref for TypeMap {
 //     type Target = HashSet<Type>;
 
 //     fn deref(&self) -> &Self::Target {
@@ -18,13 +18,13 @@ pub struct Dependencies(Set);
 //     }
 // }
 
-// impl core::ops::DerefMut for Dependencies {
+// impl core::ops::DerefMut for TypeMap {
 //     fn deref_mut(&mut self) -> &mut Self::Target {
 //         &mut self.0
 //     }
 // }
 
-impl Dependencies {
+impl TypeMap {
     pub fn new() -> Self {
         Self(Set::new())
     }
@@ -117,14 +117,14 @@ impl Dependencies {
 
 #[test]
 fn test_difference() {
-    let mut interface = Dependencies::new();
+    let mut interface = TypeMap::new();
     interface.insert("Windows.Foundation", "IReference");
 
-    let mut method = Dependencies::new();
+    let mut method = TypeMap::new();
     method.insert("Windows.Foundation", "IReference");
     method.insert("Windows.Foundation.Collections", "IVector");
 
-    let mut diff = Dependencies::new();
+    let mut diff = TypeMap::new();
     diff.insert("Windows.Foundation.Collections", "IVector");
 
     assert_eq!(diff, method.difference(&interface));

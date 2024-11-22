@@ -540,7 +540,7 @@ impl Type {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         fn underlying_type(ty: &Type) -> &Type {
             match ty {
                 Type::PtrMut(ty, _) => ty,
@@ -610,7 +610,7 @@ impl Type {
         }
     }
 
-    // pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    // pub fn dependencies(&self, dependencies: &mut TypeMap) {
     //     match self {
     //         Self::PtrMut(ty, _) => ty.dependencies(dependencies),
     //         Self::PtrConst(ty, _) => ty.dependencies(dependencies),

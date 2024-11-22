@@ -17,7 +17,7 @@ impl Class {
 
         let name = to_ident(type_name.name());
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = TypeMap::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
@@ -48,7 +48,7 @@ impl Class {
                     _ => None,
                 })
             {
-                let mut difference = Dependencies::new();
+                let mut difference = TypeMap::new();
 
                 if writer.config.package {
                     difference = method.dependencies.difference(&dependencies);
@@ -248,7 +248,7 @@ impl Class {
         )
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies) {
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
         for interface in self.required_interfaces() {
             Type::Interface(interface).dependencies(dependencies);
         }
