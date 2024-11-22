@@ -1,13 +1,11 @@
 #[test]
-fn test() {
-    let e = windows_bindgen::bindgen(["--etc", "file_not_found.txt"]).unwrap_err();
+#[should_panic(expected = "failed to open file `file_not_found.txt`")]
+fn file_not_found() {
+    windows_bindgen::bindgen(["--etc", "file_not_found.txt"]);
+}
 
-    assert_eq!(
-        format!("{e}"),
-        "error: failed to read lines\n  --> file_not_found.txt\n"
-    );
-
-    let e = windows_bindgen::bindgen(["-etc"]).unwrap_err();
-
-    assert_eq!(format!("{e}"), "error: invalid option `-etc`\n");
+#[test]
+#[should_panic(expected = "invalid option `-etc`")]
+fn invalid_option() {
+     windows_bindgen::bindgen(["-etc"]);
 }

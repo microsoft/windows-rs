@@ -208,39 +208,35 @@ fn main() {
         &src.join("b_prepend.rs"),
         &["Windows.Foundation.DateTime"],
         &[
-            "flatten",
-            "minimal",
-            "prepend:Windows.Foundation.DateTime=#[derive(std::cmp::PartialOrd,std::cmp::Ord)]",
+            "--flat",
+            "--derive",
+            "Windows.Foundation.DateTime=std::cmp::PartialOrd,std::cmp::Ord",
         ],
     );
 }
 
 fn write_sys(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "sys", "minimal"]);
+    bindgen(output, filter, &["--flat", "--sys"]);
 }
 
 fn write_win(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "minimal"]);
+    bindgen(output, filter, &["--flat"]);
 }
 
 fn write_no_inner_attr(output: &Path, filter: &[&str]) {
-    bindgen(
-        output,
-        filter,
-        &["flatten", "no-inner-attributes", "minimal"],
-    );
+    bindgen(output, filter, &["--flat", "--no-allow"]);
 }
 
 fn write_vtbl(output: &Path, filter: &[&str]) {
-    bindgen(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
+    bindgen(output, filter, &["--flat", "--sys"]);
 }
 
 fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     let output: &str = output.as_os_str().to_str().unwrap();
-    let mut args = vec!["--out", output, "--filter"];
+    let mut args = vec!["--no-deps", "--in", "default", "--out", output, "--filter"];
     args.extend_from_slice(filter);
-    args.extend_from_slice(&["--config", "no-bindgen-comment"]);
+    args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);
     println!("running: bindgen {}", args.join(" "));
-    windows_bindgen::bindgen(args).unwrap();
+    windows_bindgen::bindgen(args);
 }

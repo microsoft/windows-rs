@@ -9,6 +9,7 @@ pub type PWSTR = *mut u16;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
 pub type BSTR = *const u16;
+pub type HSTRING = *mut core::ffi::c_void;
 
 #[repr(C)]
 pub struct GUID {

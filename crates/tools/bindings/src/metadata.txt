@@ -1,5 +1,6 @@
---out crates/libs/metadata/src/bindings.rs
---config flatten sys minimal no-bindgen-comment
+--in default
+--out crates/libs/bindgen/src/winmd/bindings.rs
+--flat --sys --no-comment
 
 --filter
     Windows.Win32.System.Diagnostics.Debug.IMAGE_COR20_HEADER

@@ -21,13 +21,13 @@ fn main() {
     windows_bindgen::bindgen([
         "--in",
         "metadata.winmd",
+        "../../../libs/bindgen/default",
         "--out",
         "src/bindings.rs",
         "--filter",
         "test_constructors",
-        "--config",
-        "implement",
-        "no-bindgen-comment",
-    ])
-    .unwrap();
+        "--implement",
+        "--no-comment",
+        "--flat",
+    ]);
 }

@@ -24,9 +24,6 @@ features = [
 [dependencies.windows-targets]
 workspace = true
 
-[dependencies.windows-metadata]
-workspace = true
-
 [dev-dependencies.windows-result]
 workspace = true
 

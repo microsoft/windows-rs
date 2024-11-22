@@ -6,6 +6,7 @@ members = [
     "crates/samples/windows/*",
     "crates/samples/components/*",
     "crates/targets/*",
+    "crates/tests/bindgen",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
     "crates/tools/*",
@@ -24,7 +25,6 @@ cppwinrt = { path = "crates/libs/cppwinrt" }
 windows = { path = "crates/libs/windows" }
 windows-bindgen = { path = "crates/libs/bindgen" }
 windows-core = { path = "crates/libs/core" }
-windows-metadata = { path = "crates/libs/metadata" }
 windows-registry = { path = "crates/libs/registry" }
 windows-result = { path = "crates/libs/result" }
 windows-strings = { path = "crates/libs/strings" }
