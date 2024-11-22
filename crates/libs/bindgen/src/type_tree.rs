@@ -12,9 +12,9 @@ impl TypeTree {
     pub fn new(dependencies: &TypeMap) -> Self {
         let mut tree = Self::with_namespace("");
 
-        dependencies.types().for_each(|ty| {
-            tree.insert_namespace(ty.namespace()).types.insert(ty);
-        });
+        for (tn, types) in dependencies.iter() {
+             tree.insert_namespace(tn.namespace()).types.extend(types.iter().cloned());
+        }
 
         tree
     }

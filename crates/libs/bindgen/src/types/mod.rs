@@ -920,23 +920,6 @@ impl Type {
         }
     }
 
-    pub fn namespace(&self) -> &'static str {
-        match self {
-            Self::Class(item) => item.def.namespace(),
-            Self::Delegate(item) => item.def.namespace(),
-            Self::Enum(item) => item.def.namespace(),
-            Self::Interface(item) => item.def.namespace(),
-            Self::Struct(item) => item.def.namespace(),
-            Self::CppDelegate(item) => item.def.namespace(),
-            Self::CppEnum(item) => item.def.namespace(),
-            Self::CppInterface(item) => item.def.namespace(),
-            Self::CppStruct(item) => item.def.namespace(),
-            Self::CppConst(item) => item.namespace,
-            Self::CppFn(item) => item.namespace,
-            _ => "",
-        }
-    }
-
     pub fn type_name(&self) -> TypeName {
         match self {
             Self::Class(item) => item.type_name(),

@@ -8,7 +8,7 @@ pub struct CppConst {
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.field.name().cmp(other.field.name())
+        (self.field.name(), self).cmp(&(other.field.name(), other))
     }
 }
 

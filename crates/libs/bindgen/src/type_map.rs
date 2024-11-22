@@ -10,13 +10,13 @@ type Set = HashMap<TypeName, HashSet<Type>>;
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct TypeMap(Set);
 
-// impl std::ops::Deref for TypeMap {
-//     type Target = HashSet<Type>;
+impl std::ops::Deref for TypeMap {
+    type Target = Set;
 
-//     fn deref(&self) -> &Self::Target {
-//         &self.0
-//     }
-// }
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
 
 // impl core::ops::DerefMut for TypeMap {
 //     fn deref_mut(&mut self) -> &mut Self::Target {
@@ -75,11 +75,6 @@ impl TypeMap {
 
     pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
         self.0.keys().map(|tn| tn.0)
-    }
-
-    // TODO: do we need a consuming version of this?
-    pub fn types(&self) -> impl Iterator<Item = Type> + '_ {
-        self.0.values().flatten().cloned()
     }
 
     pub fn included(&self, config: &Config) -> bool {
