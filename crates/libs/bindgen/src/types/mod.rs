@@ -606,6 +606,11 @@ impl Type {
             Self::CppStruct(item) => item.dependencies(dependencies),
             Self::CppEnum(..) => {}
 
+            Self::IUnknown => {
+                Self::GUID.dependencies(dependencies);
+                Self::HRESULT.dependencies(dependencies);
+            }
+
             _ => {}
         }
     }
@@ -862,7 +867,6 @@ impl Type {
             Self::Class(item) => item.write(writer),
             Self::CppInterface(item) => item.write(writer),
 
-            // TODO: should provide non-sys versions of these as well for no-deps builds?
             Self::HRESULT if writer.config.no_deps => quote! { pub type HRESULT = i32; },
 
             Self::PWSTR if writer.config.no_deps => quote! { pub type PWSTR = *mut u16; },

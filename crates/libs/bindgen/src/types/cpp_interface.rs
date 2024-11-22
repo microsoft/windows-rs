@@ -428,11 +428,6 @@ impl CppInterface {
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
         let base_interfaces = self.base_interfaces();
 
-        if matches!(base_interfaces.first(), Some(Type::IUnknown)) {
-            Type::IUnknown.dependencies(dependencies);
-            Type::GUID.dependencies(dependencies);
-        }
-
         for interface in &base_interfaces {
             interface.dependencies(dependencies);
         }
