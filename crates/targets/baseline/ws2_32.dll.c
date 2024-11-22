@@ -92,36 +92,36 @@ void __stdcall WSAUnadvertiseProvider(int p0) {}
 void __stdcall WSAUnhookBlockingHook() {}
 void __stdcall WSAWaitForMultipleEvents(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall WSCDeinstallProvider(int p0, int p1) {}
-void __stdcall WSCDeinstallProvider32(int p0, int p1) {}
+void __stdcall WSCDeinstallProvider32() {}
 void __stdcall WSCEnableNSProvider(int p0, int p1) {}
-void __stdcall WSCEnableNSProvider32(int p0, int p1) {}
-void __stdcall WSCEnumNameSpaceProviders32(int p0, int p1) {}
-void __stdcall WSCEnumNameSpaceProvidersEx32(int p0, int p1) {}
+void __stdcall WSCEnableNSProvider32() {}
+void __stdcall WSCEnumNameSpaceProviders32() {}
+void __stdcall WSCEnumNameSpaceProvidersEx32() {}
 void __stdcall WSCEnumProtocols(int p0, int p1, int p2, int p3) {}
-void __stdcall WSCEnumProtocols32(int p0, int p1, int p2, int p3) {}
+void __stdcall WSCEnumProtocols32() {}
 void __stdcall WSCGetApplicationCategory(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall WSCGetProviderInfo(int p0, int p1, int p2, int p3, int p4, int p5) {}
-void __stdcall WSCGetProviderInfo32(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall WSCGetProviderInfo32() {}
 void __stdcall WSCGetProviderPath(int p0, int p1, int p2, int p3) {}
-void __stdcall WSCGetProviderPath32(int p0, int p1, int p2, int p3) {}
+void __stdcall WSCGetProviderPath32() {}
 void __stdcall WSCInstallNameSpace(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall WSCInstallNameSpace32(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall WSCInstallNameSpace32() {}
 void __stdcall WSCInstallNameSpaceEx(int p0, int p1, int p2, int p3, int p4, int p5) {}
-void __stdcall WSCInstallNameSpaceEx32(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall WSCInstallNameSpaceEx32() {}
 void __stdcall WSCInstallProvider(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall WSCInstallProvider64_32(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall WSCInstallProviderAndChains64_32(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
+void __stdcall WSCInstallProvider64_32() {}
+void __stdcall WSCInstallProviderAndChains64_32() {}
 void __stdcall WSCSetApplicationCategory(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall WSCSetProviderInfo(int p0, int p1, int p2, int p3, int p4, int p5) {}
-void __stdcall WSCSetProviderInfo32(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall WSCSetProviderInfo32() {}
 void __stdcall WSCUnInstallNameSpace(int p0) {}
-void __stdcall WSCUnInstallNameSpace32(int p0) {}
+void __stdcall WSCUnInstallNameSpace32() {}
 void __stdcall WSCUpdateProvider(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall WSCUpdateProvider32(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall WSCUpdateProvider32() {}
 void __stdcall WSCWriteNameSpaceOrder(int p0, int p1) {}
-void __stdcall WSCWriteNameSpaceOrder32(int p0, int p1) {}
+void __stdcall WSCWriteNameSpaceOrder32() {}
 void __stdcall WSCWriteProviderOrder(int p0, int p1) {}
-void __stdcall WSCWriteProviderOrder32(int p0, int p1) {}
+void __stdcall WSCWriteProviderOrder32() {}
 void __stdcall __WSAFDIsSet(int p0, int p1) {}
 void __stdcall accept(int p0, int p1, int p2) {}
 void __stdcall bind(int p0, int p1, int p2) {}

@@ -244,8 +244,8 @@ void __stdcall GetClassInfoExA(int p0, int p1, int p2) {}
 void __stdcall GetClassInfoExW(int p0, int p1, int p2) {}
 void __stdcall GetClassInfoW(int p0, int p1, int p2) {}
 void __stdcall GetClassLongA(int p0, int p1) {}
-void __stdcall GetClassLongPtrA(int p0, int p1) {}
-void __stdcall GetClassLongPtrW(int p0, int p1) {}
+void __stdcall GetClassLongPtrA() {}
+void __stdcall GetClassLongPtrW() {}
 void __stdcall GetClassLongW(int p0, int p1) {}
 void __stdcall GetClassNameA(int p0, int p1, int p2) {}
 void __stdcall GetClassNameW(int p0, int p1, int p2) {}
@@ -402,8 +402,8 @@ void __stdcall GetWindowDpiHostingBehavior(int p0) {}
 void __stdcall GetWindowFeedbackSetting(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall GetWindowInfo(int p0, int p1) {}
 void __stdcall GetWindowLongA(int p0, int p1) {}
-void __stdcall GetWindowLongPtrA(int p0, int p1) {}
-void __stdcall GetWindowLongPtrW(int p0, int p1) {}
+void __stdcall GetWindowLongPtrA() {}
+void __stdcall GetWindowLongPtrW() {}
 void __stdcall GetWindowLongW(int p0, int p1) {}
 void __stdcall GetWindowModuleFileNameA(int p0, int p1, int p2) {}
 void __stdcall GetWindowModuleFileNameW(int p0, int p1, int p2) {}
@@ -612,8 +612,8 @@ void __stdcall SetCapture(int p0) {}
 void __stdcall SetCaretBlinkTime(int p0) {}
 void __stdcall SetCaretPos(int p0, int p1) {}
 void __stdcall SetClassLongA(int p0, int p1, int p2) {}
-void __stdcall SetClassLongPtrA(int p0, int p1, int p2) {}
-void __stdcall SetClassLongPtrW(int p0, int p1, int p2) {}
+void __stdcall SetClassLongPtrA() {}
+void __stdcall SetClassLongPtrW() {}
 void __stdcall SetClassLongW(int p0, int p1, int p2) {}
 void __stdcall SetClassWord(int p0, int p1, int p2) {}
 void __stdcall SetClipboardData(int p0, int p1) {}
@@ -673,8 +673,8 @@ void __stdcall SetWindowContextHelpId(int p0, int p1) {}
 void __stdcall SetWindowDisplayAffinity(int p0, int p1) {}
 void __stdcall SetWindowFeedbackSetting(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall SetWindowLongA(int p0, int p1, int p2) {}
-void __stdcall SetWindowLongPtrA(int p0, int p1, int p2) {}
-void __stdcall SetWindowLongPtrW(int p0, int p1, int p2) {}
+void __stdcall SetWindowLongPtrA() {}
+void __stdcall SetWindowLongPtrW() {}
 void __stdcall SetWindowLongW(int p0, int p1, int p2) {}
 void __stdcall SetWindowPlacement(int p0, int p1) {}
 void __stdcall SetWindowPos(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}

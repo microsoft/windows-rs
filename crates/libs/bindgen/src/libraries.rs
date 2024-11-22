@@ -1,12 +1,14 @@
 use super::*;
 
+#[doc(hidden)]
 pub enum CallingConvention {
     Stdcall(usize),
     Cdecl,
 }
 
 
-/// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
+// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
+#[doc(hidden)]
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
 
@@ -16,13 +18,13 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
 }
 
 fn combine_libraries(
-    reader: &metadata::Reader,
+    reader: &Reader,
     libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
 ) {
     for types in reader.values() {
         for ty in types.values() {
 
-        let Type::CppFn(item) = ty else {
+        let Some(item) = cpp_fn(ty) else {
             continue;
         };
 
@@ -38,7 +40,13 @@ fn combine_libraries(
         }
 
         if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-            let params = item.method.signature(&[]).size();
+            let arches = item.method.arches();
+            let params = if arches.is_empty() || arches.contains("x86") {
+             item.method.signature(item.namespace, &[]).size()
+            } else {
+                0
+            };
+
             libraries
                 .entry(library)
                 .or_default()
@@ -52,4 +60,23 @@ fn combine_libraries(
             unimplemented!();
         }
     }}
+}
+
+fn cpp_fn(types: &[Type]) -> Option<CppFn> {
+    let mut functions = vec![];
+
+    for ty in types {
+        if let Type::CppFn(item) = ty {
+            functions.push(item.clone());
+        }
+    }
+
+    for item in &functions {
+        let arches = item.method.arches();
+        if arches.is_empty() || arches.contains("x86") {
+            return Some(item.clone());
+        }
+    }
+
+    functions.first().cloned()
 }

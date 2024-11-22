@@ -167,7 +167,7 @@ void __stdcall RtlAbsoluteToSelfRelativeSD(int p0, int p1, int p2) {}
 void __stdcall RtlAddAccessAllowedAce(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlAddAccessAllowedAceEx(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall RtlAddAce(int p0, int p1, int p2, int p3, int p4) {}
-void __stdcall RtlAddGrowableFunctionTable(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall RtlAddGrowableFunctionTable() {}
 void __stdcall RtlAllocateAndInitializeSid(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
 void __stdcall RtlAllocateAndInitializeSidEx(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlAllocateHeap(int p0, int p1, int p2) {}
@@ -220,7 +220,7 @@ void __stdcall RtlDeleteAce(int p0, int p1) {}
 void __stdcall RtlDeleteElementGenericTable(int p0, int p1) {}
 void __stdcall RtlDeleteElementGenericTableAvl(int p0, int p1) {}
 void __stdcall RtlDeleteElementGenericTableAvlEx(int p0, int p1) {}
-void __stdcall RtlDeleteGrowableFunctionTable(int p0) {}
+void __stdcall RtlDeleteGrowableFunctionTable() {}
 void __stdcall RtlDeleteHashTable(int p0) {}
 void __stdcall RtlDeleteNoSplay(int p0, int p1) {}
 void __stdcall RtlDeleteRegistryValue(int p0, int p1, int p2) {}
@@ -228,7 +228,7 @@ void __stdcall RtlDestroyHeap(int p0) {}
 void __stdcall RtlDosPathNameToNtPathName_U_WithStatus(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlDowncaseUnicodeChar(int p0) {}
 void __stdcall RtlDowncaseUnicodeString(int p0, int p1, int p2) {}
-void __stdcall RtlDrainNonVolatileFlush(int p0) {}
+void __stdcall RtlDrainNonVolatileFlush() {}
 void __stdcall RtlDuplicateUnicodeString(int p0, int p1, int p2) {}
 void __stdcall RtlEndEnumerationHashTable(int p0, int p1) {}
 void __stdcall RtlEndStrongEnumerationHashTable(int p0, int p1) {}
@@ -250,7 +250,7 @@ void __stdcall RtlEthernetStringToAddressW(int p0, int p1, int p2) {}
 void __stdcall RtlExpandHashTable(int p0) {}
 void __stdcall RtlExtendCorrelationVector(int p0) {}
 void __stdcall RtlExtractBitMap(int p0, int p1, int p2, int p3) {}
-void __stdcall RtlFillNonVolatileMemory(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall RtlFillNonVolatileMemory() {}
 void __stdcall RtlFindClearBits(int p0, int p1, int p2) {}
 void __stdcall RtlFindClearBitsAndSet(int p0, int p1, int p2) {}
 void __stdcall RtlFindClearRuns(int p0, int p1, int p2, int p3) {}
@@ -263,11 +263,11 @@ void __stdcall RtlFindNextForwardRunClear(int p0, int p1, int p2) {}
 void __stdcall RtlFindSetBits(int p0, int p1, int p2) {}
 void __stdcall RtlFindSetBitsAndClear(int p0, int p1, int p2) {}
 void __stdcall RtlFirstEntrySList(int p0) {}
-void __stdcall RtlFlushNonVolatileMemory(int p0, int p1, int p2, int p3) {}
-void __stdcall RtlFlushNonVolatileMemoryRanges(int p0, int p1, int p2, int p3) {}
+void __stdcall RtlFlushNonVolatileMemory() {}
+void __stdcall RtlFlushNonVolatileMemoryRanges() {}
 void __stdcall RtlFreeAnsiString(int p0) {}
 void __stdcall RtlFreeHeap(int p0, int p1, int p2) {}
-void __stdcall RtlFreeNonVolatileToken(int p0) {}
+void __stdcall RtlFreeNonVolatileToken() {}
 void __stdcall RtlFreeOemString(int p0) {}
 void __stdcall RtlFreeSid(int p0) {}
 void __stdcall RtlFreeUTF8String(int p0) {}
@@ -286,7 +286,7 @@ void __stdcall RtlGetElementGenericTableAvl(int p0, int p1) {}
 void __stdcall RtlGetEnabledExtendedFeatures(int p0, int p1) {}
 void __stdcall RtlGetGroupSecurityDescriptor(int p0, int p1, int p2) {}
 void __stdcall RtlGetNextEntryHashTable(int p0, int p1) {}
-void __stdcall RtlGetNonVolatileToken(int p0, int p1, int p2) {}
+void __stdcall RtlGetNonVolatileToken() {}
 void __stdcall RtlGetNtProductType(int p0) {}
 void __stdcall RtlGetNtSystemRoot() {}
 void __stdcall RtlGetOwnerSecurityDescriptor(int p0, int p1, int p2) {}
@@ -296,7 +296,7 @@ void __stdcall RtlGetReturnAddressHijackTarget() {}
 void __stdcall RtlGetSaclSecurityDescriptor(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlGetSuiteMask() {}
 void __stdcall RtlGetVersion(int p0) {}
-void __stdcall RtlGrowFunctionTable(int p0, int p1) {}
+void __stdcall RtlGrowFunctionTable() {}
 void __stdcall RtlHashUnicodeString(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlIdentifierAuthoritySid(int p0) {}
 void __stdcall RtlIdnToAscii(int p0, int p1, int p2, int p3, int p4) {}
@@ -469,7 +469,7 @@ void __stdcall RtlValidateUnicodeString(int p0, int p1) {}
 void __stdcall RtlVerifyVersionInfo(int p0, int p1, int p2, int p3) {}
 void __stdcall RtlWalkFrameChain(int p0, int p1, int p2) {}
 void __stdcall RtlWeaklyEnumerateEntryHashTable(int p0, int p1) {}
-void __stdcall RtlWriteNonVolatileMemory(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall RtlWriteNonVolatileMemory() {}
 void __stdcall RtlWriteRegistryValue(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall RtlxAnsiStringToUnicodeSize(int p0) {}
 void __stdcall RtlxOemStringToUnicodeSize(int p0) {}
