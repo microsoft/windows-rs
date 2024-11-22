@@ -1,45 +1,45 @@
 #[inline]
-pub unsafe fn RmAddFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3, filteraction: RM_FILTER_ACTION) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RmAddFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> super::super::Foundation::WIN32_ERROR
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmAddFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR, filteraction : RM_FILTER_ACTION) -> super::super::Foundation:: WIN32_ERROR);
-    RmAddFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi(), core::mem::transmute(filteraction))
+    RmAddFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi(), filteraction)
 }
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmCancelCurrentTask(dwsessionhandle : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmCancelCurrentTask(core::mem::transmute(dwsessionhandle))
+    RmCancelCurrentTask(dwsessionhandle)
 }
 #[inline]
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmEndSession(dwsessionhandle : u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmEndSession(core::mem::transmute(dwsessionhandle))
+    RmEndSession(dwsessionhandle)
 }
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmGetFilterList(core::mem::transmute(dwsessionhandle), core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(cbfilterbufneeded))
+    RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded)
 }
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: *mut u32, pnprocinfo: *mut u32, rgaffectedapps: Option<*mut RM_PROCESS_INFO>, lpdwrebootreasons: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmGetList(dwsessionhandle : u32, pnprocinfoneeded : *mut u32, pnprocinfo : *mut u32, rgaffectedapps : *mut RM_PROCESS_INFO, lpdwrebootreasons : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    RmGetList(core::mem::transmute(dwsessionhandle), core::mem::transmute(pnprocinfoneeded), core::mem::transmute(pnprocinfo), core::mem::transmute(rgaffectedapps.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwrebootreasons))
+    RmGetList(dwsessionhandle, pnprocinfoneeded, pnprocinfo, core::mem::transmute(rgaffectedapps.unwrap_or(core::ptr::null_mut())), lpdwrebootreasons)
 }
 #[inline]
-pub unsafe fn RmJoinSession<P1>(psessionhandle: *mut u32, strsessionkey: P1) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RmJoinSession<P0>(psessionhandle: *mut u32, strsessionkey: P0) -> super::super::Foundation::WIN32_ERROR
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmJoinSession(psessionhandle : *mut u32, strsessionkey : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmJoinSession(core::mem::transmute(psessionhandle), strsessionkey.param().abi())
+    RmJoinSession(psessionhandle, strsessionkey.param().abi())
 }
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
     RmRegisterResources(
-        core::mem::transmute(dwsessionhandle),
+        dwsessionhandle,
         rgsfilenames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(rgsfilenames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         rgapplications.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -49,28 +49,28 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[w
     )
 }
 #[inline]
-pub unsafe fn RmRemoveFilter<P1, P3>(dwsessionhandle: u32, strmodulename: P1, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P3) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RmRemoveFilter<P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: Option<*const RM_UNIQUE_PROCESS>, strserviceshortname: P1) -> super::super::Foundation::WIN32_ERROR
 where
+    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRemoveFilter(dwsessionhandle : u32, strmodulename : windows_core::PCWSTR, pprocess : *const RM_UNIQUE_PROCESS, strserviceshortname : windows_core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmRemoveFilter(core::mem::transmute(dwsessionhandle), strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi())
+    RmRemoveFilter(dwsessionhandle, strmodulename.param().abi(), core::mem::transmute(pprocess.unwrap_or(core::ptr::null())), strserviceshortname.param().abi())
 }
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmRestart(dwsessionhandle : u32, dwrestartflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    RmRestart(core::mem::transmute(dwsessionhandle), core::mem::transmute(dwrestartflags), core::mem::transmute(fnstatus))
+    RmRestart(dwsessionhandle, dwrestartflags, fnstatus)
 }
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmShutdown(dwsessionhandle : u32, lactionflags : u32, fnstatus : RM_WRITE_STATUS_CALLBACK) -> super::super::Foundation:: WIN32_ERROR);
-    RmShutdown(core::mem::transmute(dwsessionhandle), core::mem::transmute(lactionflags), core::mem::transmute(fnstatus))
+    RmShutdown(dwsessionhandle, lactionflags, fnstatus)
 }
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: windows_core::PWSTR) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("rstrtmgr.dll" "system" fn RmStartSession(psessionhandle : *mut u32, dwsessionflags : u32, strsessionkey : windows_core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
-    RmStartSession(core::mem::transmute(psessionhandle), core::mem::transmute(dwsessionflags), core::mem::transmute(strsessionkey))
+    RmStartSession(psessionhandle, dwsessionflags, core::mem::transmute(strsessionkey))
 }
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
@@ -109,40 +109,70 @@ pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
 pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
 pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_APP_STATUS(pub i32);
 impl windows_core::TypeKind for RM_APP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RM_APP_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_APP_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_APP_TYPE(pub i32);
 impl windows_core::TypeKind for RM_APP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RM_APP_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_APP_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_FILTER_ACTION(pub i32);
 impl windows_core::TypeKind for RM_FILTER_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RM_FILTER_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_FILTER_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_FILTER_TRIGGER(pub i32);
 impl windows_core::TypeKind for RM_FILTER_TRIGGER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RM_FILTER_TRIGGER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_FILTER_TRIGGER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_REBOOT_REASON(pub i32);
 impl windows_core::TypeKind for RM_REBOOT_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RM_REBOOT_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_REBOOT_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
 impl windows_core::TypeKind for RM_SHUTDOWN_TYPE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for RM_SHUTDOWN_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RM_SHUTDOWN_TYPE").field(&self.0).finish()
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -152,13 +182,13 @@ pub struct RM_FILTER_INFO {
     pub cbNextOffset: u32,
     pub Anonymous: RM_FILTER_INFO_0,
 }
+impl windows_core::TypeKind for RM_FILTER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RM_FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RM_FILTER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -167,16 +197,16 @@ pub union RM_FILTER_INFO_0 {
     pub Process: RM_UNIQUE_PROCESS,
     pub strServiceShortName: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for RM_FILTER_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RM_FILTER_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RM_FILTER_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -186,26 +216,26 @@ pub struct RM_PROCESS_INFO {
     pub TSSessionId: u32,
     pub bRestartable: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for RM_PROCESS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for RM_PROCESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RM_PROCESS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::super::Foundation::FILETIME,
+}
+impl windows_core::TypeKind for RM_UNIQUE_PROCESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RM_UNIQUE_PROCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for RM_UNIQUE_PROCESS {
-    type TypeKind = windows_core::CopyType;
 }
 pub type RM_WRITE_STATUS_CALLBACK = Option<unsafe extern "system" fn(npercentcomplete: u32)>;

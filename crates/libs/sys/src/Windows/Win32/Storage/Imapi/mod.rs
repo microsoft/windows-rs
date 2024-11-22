@@ -2,9 +2,8 @@ windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPM
 #[cfg(feature = "Win32_System_AddressBook")]
 windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> windows_sys::core::HRESULT);
 windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_System_AddressBook")]
 windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, lpmapisup : *mut core::ffi::c_void, lpstg : * mut core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
 #[cfg(feature = "Win32_System_AddressBook")]
 windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> windows_sys::core::HRESULT);
@@ -695,5 +694,4 @@ pub const tagIMMPID_MP_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID
 pub const tagIMMPID_NMP_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
 pub const tagIMMPID_RPV_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
 pub const tagIMMPID_RP_STRUCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);
-#[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: *mut core::ffi::c_void)>;

@@ -1,7 +1,7 @@
 #[cfg(feature = "ApplicationModel_DataTransfer_DragDrop_Core")]
 pub mod Core;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
     pub const None: Self = Self(0u32);
@@ -15,8 +15,10 @@ impl DragDropModifiers {
 impl windows_core::TypeKind for DragDropModifiers {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DragDropModifiers {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
+impl core::fmt::Debug for DragDropModifiers {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DragDropModifiers").field(&self.0).finish()
+    }
 }
 impl DragDropModifiers {
     pub const fn contains(&self, other: Self) -> bool {
@@ -50,4 +52,7 @@ impl core::ops::Not for DragDropModifiers {
     fn not(self) -> Self {
         Self(self.0.not())
     }
+}
+impl windows_core::RuntimeType for DragDropModifiers {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
 }

@@ -14,9 +14,13 @@ windows_targets::link!("wintrust.dll" "system" fn CryptCATAllocSortedMemberInfo(
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFClose(pcdf : *mut CRYPTCATCDF) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributes(pcdf : *mut CRYPTCATCDF, pmember : *mut CRYPTCATMEMBER, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumAttributesWithCDFTag(pcdf : *const CRYPTCATCDF, pwszmembertag : windows_sys::core::PCWSTR, pmember : *const CRYPTCATMEMBER, pprevattr : *const CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumCatAttributes(pcdf : *mut CRYPTCATCDF, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembers(pcdf : *mut CRYPTCATCDF, pprevmember : *mut CRYPTCATMEMBER, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER);
+#[cfg(feature = "Win32_Security_Cryptography_Sip")]
+windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumMembersByCDFTagEx(pcdf : *const CRYPTCATCDF, pwszprevcdftag : windows_sys::core::PWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK, ppmember : *const *const CRYPTCATMEMBER, fcontinueonerror : super::super::super::Foundation:: BOOL, pvreserved : *const core::ffi::c_void) -> windows_sys::core::PWSTR);
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFOpen(pwszfilepath : windows_sys::core::PCWSTR, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATCDF);
 windows_targets::link!("wintrust.dll" "system" fn CryptCATCatalogInfoFromContext(hcatinfo : isize, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> super::super::super::Foundation:: BOOL);
 windows_targets::link!("wintrust.dll" "system" fn CryptCATClose(hcatalog : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
@@ -44,14 +48,14 @@ windows_targets::link!("wintrust.dll" "system" fn CryptCATStoreFromHandle(hcatal
 windows_targets::link!("wintrust.dll" "system" fn IsCatalogFile(hfile : super::super::super::Foundation:: HANDLE, pwszfilename : windows_sys::core::PCWSTR) -> super::super::super::Foundation:: BOOL);
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
-pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
-pub const CRYPTCAT_ATTR_DATAASCII: u32 = 65536u32;
-pub const CRYPTCAT_ATTR_DATABASE64: u32 = 131072u32;
-pub const CRYPTCAT_ATTR_DATAREPLACE: u32 = 262144u32;
-pub const CRYPTCAT_ATTR_NAMEASCII: u32 = 1u32;
-pub const CRYPTCAT_ATTR_NAMEOBJID: u32 = 2u32;
-pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: u32 = 16777216u32;
-pub const CRYPTCAT_ATTR_UNAUTHENTICATED: u32 = 536870912u32;
+pub const CRYPTCAT_ATTR_AUTHENTICATED: CRYPTCATATTRIBUTE_FLAGS = 268435456u32;
+pub const CRYPTCAT_ATTR_DATAASCII: CRYPTCATATTRIBUTE_FLAGS = 65536u32;
+pub const CRYPTCAT_ATTR_DATABASE64: CRYPTCATATTRIBUTE_FLAGS = 131072u32;
+pub const CRYPTCAT_ATTR_DATAREPLACE: CRYPTCATATTRIBUTE_FLAGS = 262144u32;
+pub const CRYPTCAT_ATTR_NAMEASCII: CRYPTCATATTRIBUTE_FLAGS = 1u32;
+pub const CRYPTCAT_ATTR_NAMEOBJID: CRYPTCATATTRIBUTE_FLAGS = 2u32;
+pub const CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY: CRYPTCATATTRIBUTE_FLAGS = 16777216u32;
+pub const CRYPTCAT_ATTR_UNAUTHENTICATED: CRYPTCATATTRIBUTE_FLAGS = 536870912u32;
 pub const CRYPTCAT_E_AREA_ATTRIBUTE: u32 = 131072u32;
 pub const CRYPTCAT_E_AREA_HEADER: u32 = 0u32;
 pub const CRYPTCAT_E_AREA_MEMBER: u32 = 65536u32;
@@ -81,6 +85,7 @@ pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = 512u32;
 pub const szOID_CATALOG_LIST: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.1");
 pub const szOID_CATALOG_LIST_MEMBER: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.2");
 pub const szOID_CATALOG_LIST_MEMBER2: windows_sys::core::PCSTR = windows_sys::core::s!("1.3.6.1.4.1.311.12.1.3");
+pub type CRYPTCATATTRIBUTE_FLAGS = u32;
 pub type CRYPTCAT_OPEN_FLAGS = u32;
 pub type CRYPTCAT_VERSION = u32;
 #[repr(C)]
@@ -94,7 +99,7 @@ pub struct CATALOG_INFO {
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_sys::core::PWSTR,
-    pub dwAttrTypeAndAction: u32,
+    pub dwAttrTypeAndAction: CRYPTCATATTRIBUTE_FLAGS,
     pub cbValue: u32,
     pub pbValue: *mut u8,
     pub dwReserved: u32,

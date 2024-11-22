@@ -644,7 +644,7 @@ pub struct AUTHENTICATEINFO {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[derive(Clone, Copy)]
 pub struct BINDINFO {
     pub cbSize: u32,
@@ -765,14 +765,14 @@ pub struct CSPLATFORM {
     pub dwProcessorArch: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub struct CUSTDATAITEM {
     pub guid: windows_sys::core::GUID,
@@ -805,7 +805,7 @@ pub struct ContextProperty {
     pub pUnk: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
@@ -877,7 +877,7 @@ pub struct FLAGGED_WORD_BLOB {
     pub asData: [u16; 1],
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
@@ -1053,7 +1053,7 @@ pub struct STATSTG {
     pub reserved: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct STGMEDIUM {
     pub tymed: u32,
@@ -1061,7 +1061,7 @@ pub struct STGMEDIUM {
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,

@@ -29,10 +29,10 @@ impl windows_core::RuntimeType for IDataProtectionProviderFactory {
 #[repr(C)]
 pub struct IDataProtectionProviderFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateOverloadExplicit: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProtectionProvider {
@@ -104,7 +104,7 @@ impl windows_core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
 }
 unsafe impl windows_core::Interface for DataProtectionProvider {
-    type Vtable = <IDataProtectionProvider as windows_core::Interface>::Vtable;
+    type Vtable = IDataProtectionProvider_Vtbl;
     const IID: windows_core::GUID = <IDataProtectionProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataProtectionProvider {

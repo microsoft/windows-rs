@@ -9,7 +9,7 @@ pub struct IDisplayAdapter_Vtbl {
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Graphics::DisplayAdapterId) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     Id: usize,
-    pub DeviceInterfacePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeviceInterfacePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SourceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PciVendorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub PciDeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -264,7 +264,7 @@ impl windows_core::RuntimeType for IDisplayMuxDevice {
 #[repr(C)]
 pub struct IDisplayMuxDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetAvailableMuxTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -285,8 +285,8 @@ impl windows_core::RuntimeType for IDisplayMuxDeviceStatics {
 #[repr(C)]
 pub struct IDisplayMuxDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDisplayPath, IDisplayPath_Vtbl, 0xb3dfd64a_7460_5cde_811b_d5ae9f3d9f84);
 impl windows_core::RuntimeType for IDisplayPath {
@@ -510,14 +510,14 @@ impl windows_core::RuntimeType for IDisplayTarget {
 pub struct IDisplayTarget_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Adapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeviceInterfacePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeviceInterfacePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub AdapterRelativeId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub IsConnected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsVirtualModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsVirtualTopologyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub UsageKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DisplayMonitorUsageKind) -> windows_core::HRESULT,
     pub MonitorPersistence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DisplayTargetPersistence) -> windows_core::HRESULT,
-    pub StableMonitorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StableMonitorId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub TryGetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -554,7 +554,10 @@ impl windows_core::RuntimeType for IDisplayTaskPool {
 pub struct IDisplayTaskPool_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
     pub ExecuteTask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ExecuteTask: usize,
 }
 windows_core::imp::define_interface!(IDisplayTaskPool2, IDisplayTaskPool2_Vtbl, 0x46b879b6_5d17_5955_a872_eb38003db586);
 impl windows_core::RuntimeType for IDisplayTaskPool2 {
@@ -640,7 +643,7 @@ pub struct IDisplayWireFormatStatics_Vtbl {
     CreateWithProperties: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayAdapter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayAdapter, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayAdapter {
@@ -649,14 +652,14 @@ impl DisplayAdapter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DeviceInterfacePath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceInterfacePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeviceInterfacePath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SourceCount(&self) -> windows_core::Result<u32> {
@@ -732,7 +735,7 @@ impl windows_core::RuntimeType for DisplayAdapter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayAdapter>();
 }
 unsafe impl windows_core::Interface for DisplayAdapter {
-    type Vtable = <IDisplayAdapter as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayAdapter_Vtbl;
     const IID: windows_core::GUID = <IDisplayAdapter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayAdapter {
@@ -741,7 +744,7 @@ impl windows_core::RuntimeName for DisplayAdapter {
 unsafe impl Send for DisplayAdapter {}
 unsafe impl Sync for DisplayAdapter {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayDevice {
@@ -809,11 +812,11 @@ impl DisplayDevice {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
-    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<P0, P1, P4>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P4, options: DisplayScanoutOptions) -> windows_core::Result<DisplayScanout>
+    pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<P0, P1, P2>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: DisplayScanoutOptions) -> windows_core::Result<DisplayScanout>
     where
         P0: windows_core::Param<DisplaySource>,
         P1: windows_core::Param<DisplaySurface>,
-        P4: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>,
+        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayDevice2>(self)?;
         unsafe {
@@ -826,7 +829,7 @@ impl DisplayDevice {
         let this = &windows_core::Interface::cast::<IDisplayDeviceRenderAdapter>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RenderAdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -834,7 +837,7 @@ impl windows_core::RuntimeType for DisplayDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayDevice>();
 }
 unsafe impl windows_core::Interface for DisplayDevice {
-    type Vtable = <IDisplayDevice as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayDevice_Vtbl;
     const IID: windows_core::GUID = <IDisplayDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayDevice {
@@ -843,7 +846,7 @@ impl windows_core::RuntimeName for DisplayDevice {
 unsafe impl Send for DisplayDevice {}
 unsafe impl Sync for DisplayDevice {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayFence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayFence {}
@@ -851,7 +854,7 @@ impl windows_core::RuntimeType for DisplayFence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
 }
 unsafe impl windows_core::Interface for DisplayFence {
-    type Vtable = <IDisplayFence as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayFence_Vtbl;
     const IID: windows_core::GUID = <IDisplayFence as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayFence {
@@ -860,11 +863,15 @@ impl windows_core::RuntimeName for DisplayFence {
 unsafe impl Send for DisplayFence {}
 unsafe impl Sync for DisplayFence {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManager, super::super::super::Foundation::IClosable);
 impl DisplayManager {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentTargets(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
@@ -956,7 +963,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -970,7 +977,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Disabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Disabled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveDisabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -984,7 +991,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -998,7 +1005,7 @@ impl DisplayManager {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PathsFailedOrInvalidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PathsFailedOrInvalidated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1037,10 +1044,6 @@ impl DisplayManager {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     fn IDisplayManagerStatics<R, F: FnOnce(&IDisplayManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayManager, IDisplayManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1050,7 +1053,7 @@ impl windows_core::RuntimeType for DisplayManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManager>();
 }
 unsafe impl windows_core::Interface for DisplayManager {
-    type Vtable = <IDisplayManager as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManager_Vtbl;
     const IID: windows_core::GUID = <IDisplayManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManager {
@@ -1059,7 +1062,7 @@ impl windows_core::RuntimeName for DisplayManager {
 unsafe impl Send for DisplayManager {}
 unsafe impl Sync for DisplayManager {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerChangedEventArgs {
@@ -1086,7 +1089,7 @@ impl windows_core::RuntimeType for DisplayManagerChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerChangedEventArgs {
-    type Vtable = <IDisplayManagerChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManagerChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDisplayManagerChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManagerChangedEventArgs {
@@ -1095,7 +1098,7 @@ impl windows_core::RuntimeName for DisplayManagerChangedEventArgs {
 unsafe impl Send for DisplayManagerChangedEventArgs {}
 unsafe impl Sync for DisplayManagerChangedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerDisabledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerDisabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerDisabledEventArgs {
@@ -1122,7 +1125,7 @@ impl windows_core::RuntimeType for DisplayManagerDisabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerDisabledEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerDisabledEventArgs {
-    type Vtable = <IDisplayManagerDisabledEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManagerDisabledEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDisplayManagerDisabledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManagerDisabledEventArgs {
@@ -1131,7 +1134,7 @@ impl windows_core::RuntimeName for DisplayManagerDisabledEventArgs {
 unsafe impl Send for DisplayManagerDisabledEventArgs {}
 unsafe impl Sync for DisplayManagerDisabledEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerEnabledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerEnabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerEnabledEventArgs {
@@ -1158,7 +1161,7 @@ impl windows_core::RuntimeType for DisplayManagerEnabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerEnabledEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerEnabledEventArgs {
-    type Vtable = <IDisplayManagerEnabledEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManagerEnabledEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDisplayManagerEnabledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
@@ -1167,7 +1170,7 @@ impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
 unsafe impl Send for DisplayManagerEnabledEventArgs {}
 unsafe impl Sync for DisplayManagerEnabledEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1194,7 +1197,7 @@ impl windows_core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventAr
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerPathsFailedOrInvalidatedEventArgs>();
 }
 unsafe impl windows_core::Interface for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    type Vtable = <IDisplayManagerPathsFailedOrInvalidatedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManagerPathsFailedOrInvalidatedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDisplayManagerPathsFailedOrInvalidatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1203,7 +1206,7 @@ impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventAr
 unsafe impl Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerResultWithState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayManagerResultWithState, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayManagerResultWithState {
@@ -1233,7 +1236,7 @@ impl windows_core::RuntimeType for DisplayManagerResultWithState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerResultWithState>();
 }
 unsafe impl windows_core::Interface for DisplayManagerResultWithState {
-    type Vtable = <IDisplayManagerResultWithState as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayManagerResultWithState_Vtbl;
     const IID: windows_core::GUID = <IDisplayManagerResultWithState as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayManagerResultWithState {
@@ -1242,7 +1245,7 @@ impl windows_core::RuntimeName for DisplayManagerResultWithState {
 unsafe impl Send for DisplayManagerResultWithState {}
 unsafe impl Sync for DisplayManagerResultWithState {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayModeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayModeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayModeInfo {
@@ -1251,7 +1254,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceResolution)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SourceResolution)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsStereo(&self) -> windows_core::Result<bool> {
@@ -1274,7 +1277,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TargetResolution)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TargetResolution)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -1282,7 +1285,7 @@ impl DisplayModeInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PresentationRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PresentationRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsInterlaced(&self) -> windows_core::Result<bool> {
@@ -1322,7 +1325,7 @@ impl DisplayModeInfo {
         let this = &windows_core::Interface::cast::<IDisplayModeInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalPresentationRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhysicalPresentationRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1330,7 +1333,7 @@ impl windows_core::RuntimeType for DisplayModeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayModeInfo>();
 }
 unsafe impl windows_core::Interface for DisplayModeInfo {
-    type Vtable = <IDisplayModeInfo as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayModeInfo_Vtbl;
     const IID: windows_core::GUID = <IDisplayModeInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayModeInfo {
@@ -1339,16 +1342,20 @@ impl windows_core::RuntimeName for DisplayModeInfo {
 unsafe impl Send for DisplayModeInfo {}
 unsafe impl Sync for DisplayModeInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayMuxDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayMuxDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayMuxDevice, super::super::super::Foundation::IClosable);
 impl DisplayMuxDevice {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsActive(&self) -> windows_core::Result<bool> {
@@ -1411,7 +1418,7 @@ impl DisplayMuxDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1421,7 +1428,7 @@ impl DisplayMuxDevice {
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IDisplayMuxDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromIdAsync(deviceinterfaceid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>> {
@@ -1429,10 +1436,6 @@ impl DisplayMuxDevice {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IDisplayMuxDeviceStatics<R, F: FnOnce(&IDisplayMuxDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DisplayMuxDevice, IDisplayMuxDeviceStatics> = windows_core::imp::FactoryCache::new();
@@ -1443,7 +1446,7 @@ impl windows_core::RuntimeType for DisplayMuxDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMuxDevice>();
 }
 unsafe impl windows_core::Interface for DisplayMuxDevice {
-    type Vtable = <IDisplayMuxDevice as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayMuxDevice_Vtbl;
     const IID: windows_core::GUID = <IDisplayMuxDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayMuxDevice {
@@ -1452,7 +1455,7 @@ impl windows_core::RuntimeName for DisplayMuxDevice {
 unsafe impl Send for DisplayMuxDevice {}
 unsafe impl Sync for DisplayMuxDevice {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPath(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayPath, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayPath {
@@ -1643,7 +1646,7 @@ impl windows_core::RuntimeType for DisplayPath {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPath>();
 }
 unsafe impl windows_core::Interface for DisplayPath {
-    type Vtable = <IDisplayPath as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayPath_Vtbl;
     const IID: windows_core::GUID = <IDisplayPath as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayPath {
@@ -1652,7 +1655,7 @@ impl windows_core::RuntimeName for DisplayPath {
 unsafe impl Send for DisplayPath {}
 unsafe impl Sync for DisplayPath {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPrimaryDescription(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayPrimaryDescription, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayPrimaryDescription {
@@ -1698,7 +1701,7 @@ impl DisplayPrimaryDescription {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MultisampleDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MultisampleDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1739,7 +1742,7 @@ impl windows_core::RuntimeType for DisplayPrimaryDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPrimaryDescription>();
 }
 unsafe impl windows_core::Interface for DisplayPrimaryDescription {
-    type Vtable = <IDisplayPrimaryDescription as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayPrimaryDescription_Vtbl;
     const IID: windows_core::GUID = <IDisplayPrimaryDescription as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayPrimaryDescription {
@@ -1748,7 +1751,7 @@ impl windows_core::RuntimeName for DisplayPrimaryDescription {
 unsafe impl Send for DisplayPrimaryDescription {}
 unsafe impl Sync for DisplayPrimaryDescription {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayScanout(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayScanout {}
@@ -1756,7 +1759,7 @@ impl windows_core::RuntimeType for DisplayScanout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
 }
 unsafe impl windows_core::Interface for DisplayScanout {
-    type Vtable = <IDisplayScanout as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayScanout_Vtbl;
     const IID: windows_core::GUID = <IDisplayScanout as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayScanout {
@@ -1765,7 +1768,7 @@ impl windows_core::RuntimeName for DisplayScanout {
 unsafe impl Send for DisplayScanout {}
 unsafe impl Sync for DisplayScanout {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySource, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplaySource {
@@ -1774,7 +1777,7 @@ impl DisplaySource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AdapterId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SourceId(&self) -> windows_core::Result<u32> {
@@ -1806,7 +1809,7 @@ impl DisplaySource {
         let this = &windows_core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -1818,7 +1821,7 @@ impl windows_core::RuntimeType for DisplaySource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySource>();
 }
 unsafe impl windows_core::Interface for DisplaySource {
-    type Vtable = <IDisplaySource as windows_core::Interface>::Vtable;
+    type Vtable = IDisplaySource_Vtbl;
     const IID: windows_core::GUID = <IDisplaySource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplaySource {
@@ -1827,7 +1830,7 @@ impl windows_core::RuntimeName for DisplaySource {
 unsafe impl Send for DisplaySource {}
 unsafe impl Sync for DisplaySource {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayState, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayState {
@@ -1954,7 +1957,7 @@ impl windows_core::RuntimeType for DisplayState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayState>();
 }
 unsafe impl windows_core::Interface for DisplayState {
-    type Vtable = <IDisplayState as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayState_Vtbl;
     const IID: windows_core::GUID = <IDisplayState as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayState {
@@ -1963,7 +1966,7 @@ impl windows_core::RuntimeName for DisplayState {
 unsafe impl Send for DisplayState {}
 unsafe impl Sync for DisplayState {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayStateOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayStateOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayStateOperationResult {
@@ -1986,7 +1989,7 @@ impl windows_core::RuntimeType for DisplayStateOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayStateOperationResult>();
 }
 unsafe impl windows_core::Interface for DisplayStateOperationResult {
-    type Vtable = <IDisplayStateOperationResult as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayStateOperationResult_Vtbl;
     const IID: windows_core::GUID = <IDisplayStateOperationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayStateOperationResult {
@@ -1995,7 +1998,7 @@ impl windows_core::RuntimeName for DisplayStateOperationResult {
 unsafe impl Send for DisplayStateOperationResult {}
 unsafe impl Sync for DisplayStateOperationResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySurface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplaySurface {}
@@ -2003,7 +2006,7 @@ impl windows_core::RuntimeType for DisplaySurface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
 }
 unsafe impl windows_core::Interface for DisplaySurface {
-    type Vtable = <IDisplaySurface as windows_core::Interface>::Vtable;
+    type Vtable = IDisplaySurface_Vtbl;
     const IID: windows_core::GUID = <IDisplaySurface as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplaySurface {
@@ -2012,7 +2015,7 @@ impl windows_core::RuntimeName for DisplaySurface {
 unsafe impl Send for DisplaySurface {}
 unsafe impl Sync for DisplaySurface {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTarget {
@@ -2027,7 +2030,7 @@ impl DisplayTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DeviceInterfacePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DeviceInterfacePath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AdapterRelativeId(&self) -> windows_core::Result<u32> {
@@ -2076,7 +2079,7 @@ impl DisplayTarget {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StableMonitorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).StableMonitorId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetMonitor(&self) -> windows_core::Result<super::DisplayMonitor> {
@@ -2126,7 +2129,7 @@ impl windows_core::RuntimeType for DisplayTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTarget>();
 }
 unsafe impl windows_core::Interface for DisplayTarget {
-    type Vtable = <IDisplayTarget as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayTarget_Vtbl;
     const IID: windows_core::GUID = <IDisplayTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayTarget {
@@ -2135,7 +2138,7 @@ impl windows_core::RuntimeName for DisplayTarget {
 unsafe impl Send for DisplayTarget {}
 unsafe impl Sync for DisplayTarget {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTask, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTask {
@@ -2153,9 +2156,9 @@ impl DisplayTask {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWait)(windows_core::Interface::as_raw(this), readyfence.param().abi(), readyfencevalue).ok() }
     }
-    pub fn SetSignal<P1>(&self, signalkind: DisplayTaskSignalKind, fence: P1) -> windows_core::Result<()>
+    pub fn SetSignal<P0>(&self, signalkind: DisplayTaskSignalKind, fence: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<DisplayFence>,
+        P0: windows_core::Param<DisplayFence>,
     {
         let this = &windows_core::Interface::cast::<IDisplayTask2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignal)(windows_core::Interface::as_raw(this), signalkind, fence.param().abi()).ok() }
@@ -2165,7 +2168,7 @@ impl windows_core::RuntimeType for DisplayTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTask>();
 }
 unsafe impl windows_core::Interface for DisplayTask {
-    type Vtable = <IDisplayTask as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayTask_Vtbl;
     const IID: windows_core::GUID = <IDisplayTask as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayTask {
@@ -2174,7 +2177,7 @@ impl windows_core::RuntimeName for DisplayTask {
 unsafe impl Send for DisplayTask {}
 unsafe impl Sync for DisplayTask {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskPool(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTaskPool, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTaskPool {
@@ -2185,6 +2188,7 @@ impl DisplayTaskPool {
             (windows_core::Interface::vtable(this).CreateTask)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn ExecuteTask<P0>(&self, task: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<DisplayTask>,
@@ -2207,7 +2211,7 @@ impl windows_core::RuntimeType for DisplayTaskPool {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskPool>();
 }
 unsafe impl windows_core::Interface for DisplayTaskPool {
-    type Vtable = <IDisplayTaskPool as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayTaskPool_Vtbl;
     const IID: windows_core::GUID = <IDisplayTaskPool as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayTaskPool {
@@ -2216,7 +2220,7 @@ impl windows_core::RuntimeName for DisplayTaskPool {
 unsafe impl Send for DisplayTaskPool {}
 unsafe impl Sync for DisplayTaskPool {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayTaskResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayTaskResult {
@@ -2246,7 +2250,7 @@ impl windows_core::RuntimeType for DisplayTaskResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskResult>();
 }
 unsafe impl windows_core::Interface for DisplayTaskResult {
-    type Vtable = <IDisplayTaskResult as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayTaskResult_Vtbl;
     const IID: windows_core::GUID = <IDisplayTaskResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayTaskResult {
@@ -2255,7 +2259,7 @@ impl windows_core::RuntimeName for DisplayTaskResult {
 unsafe impl Send for DisplayTaskResult {}
 unsafe impl Sync for DisplayTaskResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayView, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayView {
@@ -2303,7 +2307,7 @@ impl windows_core::RuntimeType for DisplayView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayView>();
 }
 unsafe impl windows_core::Interface for DisplayView {
-    type Vtable = <IDisplayView as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayView_Vtbl;
     const IID: windows_core::GUID = <IDisplayView as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayView {
@@ -2312,7 +2316,7 @@ impl windows_core::RuntimeName for DisplayView {
 unsafe impl Send for DisplayView {}
 unsafe impl Sync for DisplayView {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayWireFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayWireFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayWireFormat {
@@ -2388,7 +2392,7 @@ impl windows_core::RuntimeType for DisplayWireFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayWireFormat>();
 }
 unsafe impl windows_core::Interface for DisplayWireFormat {
-    type Vtable = <IDisplayWireFormat as windows_core::Interface>::Vtable;
+    type Vtable = IDisplayWireFormat_Vtbl;
     const IID: windows_core::GUID = <IDisplayWireFormat as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DisplayWireFormat {
@@ -2397,7 +2401,7 @@ impl windows_core::RuntimeName for DisplayWireFormat {
 unsafe impl Send for DisplayWireFormat {}
 unsafe impl Sync for DisplayWireFormat {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
     pub const None: Self = Self(0u32);
@@ -2411,8 +2415,10 @@ impl DisplayBitsPerChannel {
 impl windows_core::TypeKind for DisplayBitsPerChannel {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayBitsPerChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+impl core::fmt::Debug for DisplayBitsPerChannel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
+    }
 }
 impl DisplayBitsPerChannel {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2447,8 +2453,11 @@ impl core::ops::Not for DisplayBitsPerChannel {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayBitsPerChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayBitsPerChannel;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
     pub const FlipOverride: Self = Self(0i32);
@@ -2456,11 +2465,16 @@ impl DisplayDeviceCapability {
 impl windows_core::TypeKind for DisplayDeviceCapability {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayDeviceCapability {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayDeviceCapability").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayDeviceCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayDeviceCapability;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
     pub const None: Self = Self(0u32);
@@ -2470,8 +2484,10 @@ impl DisplayManagerOptions {
 impl windows_core::TypeKind for DisplayManagerOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayManagerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+impl core::fmt::Debug for DisplayManagerOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
+    }
 }
 impl DisplayManagerOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2506,8 +2522,11 @@ impl core::ops::Not for DisplayManagerOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayManagerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
     pub const Success: Self = Self(0i32);
@@ -2519,11 +2538,16 @@ impl DisplayManagerResult {
 impl windows_core::TypeKind for DisplayManagerResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayManagerResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayManagerResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayManagerResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayManagerResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
     pub const None: Self = Self(0u32);
@@ -2532,8 +2556,10 @@ impl DisplayModeQueryOptions {
 impl windows_core::TypeKind for DisplayModeQueryOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayModeQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+impl core::fmt::Debug for DisplayModeQueryOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
+    }
 }
 impl DisplayModeQueryOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2568,8 +2594,11 @@ impl core::ops::Not for DisplayModeQueryOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayModeQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayModeQueryOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
     pub const Identity: Self = Self(0i32);
@@ -2582,11 +2611,16 @@ impl DisplayPathScaling {
 impl windows_core::TypeKind for DisplayPathScaling {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayPathScaling {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayPathScaling").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayPathScaling {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathScaling;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2599,11 +2633,16 @@ impl DisplayPathStatus {
 impl windows_core::TypeKind for DisplayPathStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayPathStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayPathStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayPathStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPathStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
     pub const Success: Self = Self(0i32);
@@ -2616,11 +2655,16 @@ impl DisplayPresentStatus {
 impl windows_core::TypeKind for DisplayPresentStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayPresentStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayPresentStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayPresentStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayPresentStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
     pub const None: Self = Self(0i32);
@@ -2631,11 +2675,16 @@ impl DisplayRotation {
 impl windows_core::TypeKind for DisplayRotation {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayRotation {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayRotation").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayRotation;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
     pub const None: Self = Self(0u32);
@@ -2644,8 +2693,10 @@ impl DisplayScanoutOptions {
 impl windows_core::TypeKind for DisplayScanoutOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayScanoutOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+impl core::fmt::Debug for DisplayScanoutOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
+    }
 }
 impl DisplayScanoutOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2680,8 +2731,11 @@ impl core::ops::Not for DisplayScanoutOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayScanoutOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayScanoutOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
     pub const Active: Self = Self(0i32);
@@ -2693,11 +2747,16 @@ impl DisplaySourceStatus {
 impl windows_core::TypeKind for DisplaySourceStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplaySourceStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplaySourceStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplaySourceStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplaySourceStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
     pub const None: Self = Self(0u32);
@@ -2708,8 +2767,10 @@ impl DisplayStateApplyOptions {
 impl windows_core::TypeKind for DisplayStateApplyOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayStateApplyOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+impl core::fmt::Debug for DisplayStateApplyOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
+    }
 }
 impl DisplayStateApplyOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2744,8 +2805,11 @@ impl core::ops::Not for DisplayStateApplyOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayStateApplyOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateApplyOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
     pub const None: Self = Self(0u32);
@@ -2755,8 +2819,10 @@ impl DisplayStateFunctionalizeOptions {
 impl windows_core::TypeKind for DisplayStateFunctionalizeOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+impl core::fmt::Debug for DisplayStateFunctionalizeOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
+    }
 }
 impl DisplayStateFunctionalizeOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2791,8 +2857,11 @@ impl core::ops::Not for DisplayStateFunctionalizeOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for DisplayStateFunctionalizeOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateFunctionalizeOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -2807,11 +2876,16 @@ impl DisplayStateOperationStatus {
 impl windows_core::TypeKind for DisplayStateOperationStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayStateOperationStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayStateOperationStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayStateOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayStateOperationStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
     pub const None: Self = Self(0i32);
@@ -2822,11 +2896,16 @@ impl DisplayTargetPersistence {
 impl windows_core::TypeKind for DisplayTargetPersistence {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayTargetPersistence {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayTargetPersistence").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayTargetPersistence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTargetPersistence;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
     pub const OnPresentFlipAway: Self = Self(0i32);
@@ -2835,11 +2914,16 @@ impl DisplayTaskSignalKind {
 impl windows_core::TypeKind for DisplayTaskSignalKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayTaskSignalKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayTaskSignalKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayTaskSignalKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayTaskSignalKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
     pub const BT709: Self = Self(0i32);
@@ -2849,11 +2933,16 @@ impl DisplayWireFormatColorSpace {
 impl windows_core::TypeKind for DisplayWireFormatColorSpace {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayWireFormatColorSpace {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatColorSpace").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayWireFormatColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
     pub const Sdr: Self = Self(0i32);
@@ -2862,11 +2951,16 @@ impl DisplayWireFormatEotf {
 impl windows_core::TypeKind for DisplayWireFormatEotf {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayWireFormatEotf {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatEotf").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayWireFormatEotf {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatEotf;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
     pub const None: Self = Self(0i32);
@@ -2877,11 +2971,16 @@ impl DisplayWireFormatHdrMetadata {
 impl windows_core::TypeKind for DisplayWireFormatHdrMetadata {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayWireFormatHdrMetadata {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatHdrMetadata").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayWireFormatHdrMetadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatHdrMetadata;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
@@ -2893,18 +2992,32 @@ impl DisplayWireFormatPixelEncoding {
 impl windows_core::TypeKind for DisplayWireFormatPixelEncoding {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DisplayWireFormatPixelEncoding {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DisplayWireFormatPixelEncoding").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[cfg(feature = "Foundation_Numerics")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
     pub VerticalSyncsPerPresentation: i32,
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::TypeKind for DisplayPresentationRate {
     type TypeKind = windows_core::CopyType;
 }
+#[cfg(feature = "Foundation_Numerics")]
 impl windows_core::RuntimeType for DisplayPresentationRate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Display.Core.DisplayPresentationRate;struct(Windows.Foundation.Numerics.Rational;u4;u4);i4)");
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl Default for DisplayPresentationRate {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

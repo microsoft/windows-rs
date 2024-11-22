@@ -1,8 +1,5 @@
-#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 windows_targets::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 windows_targets::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_targets::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_targets::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
@@ -2921,7 +2918,6 @@ pub struct LINETRANSLATEOUTPUT {
     pub dwTranslateResults: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
@@ -2930,7 +2926,6 @@ pub struct MSP_EVENT_INFO {
     pub Anonymous: MSP_EVENT_INFO_0,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
@@ -2943,21 +2938,18 @@ pub union MSP_EVENT_INFO_0 {
     pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pASRTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
@@ -2967,7 +2959,6 @@ pub struct MSP_EVENT_INFO_0_1 {
     pub hrError: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pParentFileTerminal: *mut core::ffi::c_void,
@@ -2977,28 +2968,24 @@ pub struct MSP_EVENT_INFO_0_4 {
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pEvent: *mut core::ffi::c_void,
     pub lEventCode: i32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pToneTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_2 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct MSP_EVENT_INFO_0_6 {
     pub pTTSTerminal: *mut core::ffi::c_void,
@@ -3222,11 +3209,8 @@ pub struct VARSTRING {
 pub type ASYNC_COMPLETION = Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
 pub type LINECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = Option<unsafe extern "system" fn(lpstream: *mut core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAM = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAMEX = Option<unsafe extern "system" fn(lpvsupport: *mut core::ffi::c_void, lpstream: *mut core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut core::ffi::c_void, wkeyval: u16, lpadressbook: *mut core::ffi::c_void, lpptnef: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;

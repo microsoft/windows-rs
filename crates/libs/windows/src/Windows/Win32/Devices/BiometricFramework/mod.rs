@@ -6,50 +6,50 @@ pub unsafe fn WinBioAcquireFocus() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WinBioAsyncEnumBiometricUnits(frameworkhandle: u32, factor: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumBiometricUnits(frameworkhandle : u32, factor : u32) -> windows_core::HRESULT);
-    WinBioAsyncEnumBiometricUnits(core::mem::transmute(frameworkhandle), core::mem::transmute(factor)).ok()
+    WinBioAsyncEnumBiometricUnits(frameworkhandle, factor).ok()
 }
 #[inline]
 pub unsafe fn WinBioAsyncEnumDatabases(frameworkhandle: u32, factor: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumDatabases(frameworkhandle : u32, factor : u32) -> windows_core::HRESULT);
-    WinBioAsyncEnumDatabases(core::mem::transmute(frameworkhandle), core::mem::transmute(factor)).ok()
+    WinBioAsyncEnumDatabases(frameworkhandle, factor).ok()
 }
 #[inline]
 pub unsafe fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncEnumServiceProviders(frameworkhandle : u32, factor : u32) -> windows_core::HRESULT);
-    WinBioAsyncEnumServiceProviders(core::mem::transmute(frameworkhandle), core::mem::transmute(factor)).ok()
+    WinBioAsyncEnumServiceProviders(frameworkhandle, factor).ok()
 }
 #[inline]
 pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle : u32, changetypes : u32) -> windows_core::HRESULT);
-    WinBioAsyncMonitorFrameworkChanges(core::mem::transmute(frameworkhandle), core::mem::transmute(changetypes)).ok()
+    WinBioAsyncMonitorFrameworkChanges(frameworkhandle, changetypes).ok()
 }
 #[inline]
-pub unsafe fn WinBioAsyncOpenFramework<P1, P5>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P1, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P5, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn WinBioAsyncOpenFramework<P0, P1>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P1, frameworkhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<super::super::Foundation::HWND>,
-    P5: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenFramework(notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, frameworkhandle : *mut u32) -> windows_core::HRESULT);
-    WinBioAsyncOpenFramework(core::mem::transmute(notificationmethod), targetwindow.param().abi(), core::mem::transmute(messagecode), core::mem::transmute(callbackroutine), core::mem::transmute(userdata.unwrap_or(core::ptr::null())), asynchronousopen.param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioAsyncOpenFramework(notificationmethod, targetwindow.param().abi(), messagecode, callbackroutine, core::mem::transmute(userdata.unwrap_or(core::ptr::null())), asynchronousopen.param().abi(), core::mem::transmute(frameworkhandle.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn WinBioAsyncOpenSession<P7, P11>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P7, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P11, sessionhandle: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn WinBioAsyncOpenSession<P0, P1>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: P0, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: P1, sessionhandle: Option<*mut u32>) -> windows_core::Result<()>
 where
-    P7: windows_core::Param<super::super::Foundation::HWND>,
-    P11: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::super::Foundation:: HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : super::super::Foundation:: BOOL, sessionhandle : *mut u32) -> windows_core::HRESULT);
     WinBioAsyncOpenSession(
-        core::mem::transmute(factor),
-        core::mem::transmute(pooltype),
-        core::mem::transmute(flags),
+        factor,
+        pooltype,
+        flags,
         core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(databaseid.unwrap_or(core::ptr::null())),
-        core::mem::transmute(notificationmethod),
+        notificationmethod,
         targetwindow.param().abi(),
-        core::mem::transmute(messagecode),
-        core::mem::transmute(callbackroutine),
+        messagecode,
+        callbackroutine,
         core::mem::transmute(userdata.unwrap_or(core::ptr::null())),
         asynchronousopen.param().abi(),
         core::mem::transmute(sessionhandle.unwrap_or(core::ptr::null_mut())),
@@ -59,185 +59,185 @@ where
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCancel(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioCancel(core::mem::transmute(sessionhandle)).ok()
+    WinBioCancel(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: Option<*mut u32>, sample: *mut *mut WINBIO_BIR, samplesize: Option<*mut usize>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSample(sessionhandle : u32, purpose : u8, flags : u8, unitid : *mut u32, sample : *mut *mut WINBIO_BIR, samplesize : *mut usize, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioCaptureSample(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(sample), core::mem::transmute(samplesize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioCaptureSample(sessionhandle, purpose, flags, core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), sample, core::mem::transmute(samplesize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCaptureSampleWithCallback(sessionhandle : u32, purpose : u8, flags : u8, capturecallback : PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioCaptureSampleWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(purpose), core::mem::transmute(flags), core::mem::transmute(capturecallback), core::mem::transmute(capturecallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioCaptureSampleWithCallback(sessionhandle, purpose, flags, capturecallback, core::mem::transmute(capturecallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioCloseFramework(frameworkhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCloseFramework(frameworkhandle : u32) -> windows_core::HRESULT);
-    WinBioCloseFramework(core::mem::transmute(frameworkhandle)).ok()
+    WinBioCloseFramework(frameworkhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioCloseSession(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioCloseSession(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioCloseSession(core::mem::transmute(sessionhandle)).ok()
+    WinBioCloseSession(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    WinBioControlUnit(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioControlUnit(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), receivedatasize, core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : u32, unitid : u32, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    WinBioControlUnitPrivileged(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(component), core::mem::transmute(controlcode), core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), core::mem::transmute(receivedatasize), core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), receivedatasize, core::mem::transmute(operationstatus.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioDeleteTemplate(sessionhandle : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8) -> windows_core::HRESULT);
-    WinBioDeleteTemplate(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(identity), core::mem::transmute(subfactor)).ok()
+    WinBioDeleteTemplate(sessionhandle, unitid, identity, subfactor).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollBegin(sessionhandle : u32, subfactor : u8, unitid : u32) -> windows_core::HRESULT);
-    WinBioEnrollBegin(core::mem::transmute(sessionhandle), core::mem::transmute(subfactor), core::mem::transmute(unitid)).ok()
+    WinBioEnrollBegin(sessionhandle, subfactor, unitid).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCapture(sessionhandle : u32, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioEnrollCapture(core::mem::transmute(sessionhandle), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnrollCapture(sessionhandle, core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCaptureWithCallback(sessionhandle : u32, enrollcallback : PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioEnrollCaptureWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(enrollcallback), core::mem::transmute(enrollcallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioEnrollCaptureWithCallback(sessionhandle, enrollcallback, core::mem::transmute(enrollcallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollCommit(sessionhandle: u32, identity: Option<*mut WINBIO_IDENTITY>, isnewtemplate: Option<*mut u8>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollCommit(sessionhandle : u32, identity : *mut WINBIO_IDENTITY, isnewtemplate : *mut u8) -> windows_core::HRESULT);
-    WinBioEnrollCommit(core::mem::transmute(sessionhandle), core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(isnewtemplate.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnrollCommit(sessionhandle, core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(isnewtemplate.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollDiscard(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollDiscard(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioEnrollDiscard(core::mem::transmute(sessionhandle)).ok()
+    WinBioEnrollDiscard(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnrollSelect(sessionhandle : u32, selectorvalue : u64) -> windows_core::HRESULT);
-    WinBioEnrollSelect(core::mem::transmute(sessionhandle), core::mem::transmute(selectorvalue)).ok()
+    WinBioEnrollSelect(sessionhandle, selectorvalue).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnumBiometricUnits(factor: u32, unitschemaarray: *mut *mut WINBIO_UNIT_SCHEMA, unitcount: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnumBiometricUnits(factor : u32, unitschemaarray : *mut *mut WINBIO_UNIT_SCHEMA, unitcount : *mut usize) -> windows_core::HRESULT);
-    WinBioEnumBiometricUnits(core::mem::transmute(factor), core::mem::transmute(unitschemaarray), core::mem::transmute(unitcount)).ok()
+    WinBioEnumBiometricUnits(factor, unitschemaarray, unitcount).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnumDatabases(factor: u32, storageschemaarray: *mut *mut WINBIO_STORAGE_SCHEMA, storagecount: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnumDatabases(factor : u32, storageschemaarray : *mut *mut WINBIO_STORAGE_SCHEMA, storagecount : *mut usize) -> windows_core::HRESULT);
-    WinBioEnumDatabases(core::mem::transmute(factor), core::mem::transmute(storageschemaarray), core::mem::transmute(storagecount)).ok()
+    WinBioEnumDatabases(factor, storageschemaarray, storagecount).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnumEnrollments(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactorarray: *mut *mut u8, subfactorcount: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnumEnrollments(sessionhandle : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactorarray : *mut *mut u8, subfactorcount : *mut usize) -> windows_core::HRESULT);
-    WinBioEnumEnrollments(core::mem::transmute(sessionhandle), core::mem::transmute(unitid), core::mem::transmute(identity), core::mem::transmute(subfactorarray), core::mem::transmute(subfactorcount.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioEnumEnrollments(sessionhandle, unitid, identity, subfactorarray, core::mem::transmute(subfactorcount.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioEnumServiceProviders(factor: u32, bspschemaarray: *mut *mut WINBIO_BSP_SCHEMA, bspcount: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioEnumServiceProviders(factor : u32, bspschemaarray : *mut *mut WINBIO_BSP_SCHEMA, bspcount : *mut usize) -> windows_core::HRESULT);
-    WinBioEnumServiceProviders(core::mem::transmute(factor), core::mem::transmute(bspschemaarray), core::mem::transmute(bspcount)).ok()
+    WinBioEnumServiceProviders(factor, bspschemaarray, bspcount).ok()
 }
 #[inline]
 pub unsafe fn WinBioFree(address: *const core::ffi::c_void) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioFree(address : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioFree(core::mem::transmute(address)).ok()
+    WinBioFree(address).ok()
 }
 #[inline]
 pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> windows_core::Result<WINBIO_CREDENTIAL_STATE> {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WinBioGetCredentialState(core::mem::transmute(identity), core::mem::transmute(r#type), &mut result__).map(|| core::mem::transmute(result__))
+    WinBioGetCredentialState(core::mem::transmute(identity), r#type, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetDomainLogonSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE));
-    WinBioGetDomainLogonSetting(core::mem::transmute(value), core::mem::transmute(source))
+    WinBioGetDomainLogonSetting(value, source)
 }
 #[inline]
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetEnabledSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE));
-    WinBioGetEnabledSetting(core::mem::transmute(value), core::mem::transmute(source))
+    WinBioGetEnabledSetting(value, source)
 }
 #[inline]
 pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> windows_core::Result<u32> {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetEnrolledFactors(accountowner : *const WINBIO_IDENTITY, enrolledfactors : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WinBioGetEnrolledFactors(core::mem::transmute(accountowner), &mut result__).map(|| core::mem::transmute(result__))
+    WinBioGetEnrolledFactors(accountowner, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetLogonSetting(value : *mut u8, source : *mut WINBIO_SETTING_SOURCE));
-    WinBioGetLogonSetting(core::mem::transmute(value), core::mem::transmute(source))
+    WinBioGetLogonSetting(value, source)
 }
 #[inline]
 pub unsafe fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *mut *mut core::ffi::c_void, propertybuffersize: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioGetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *mut *mut core::ffi::c_void, propertybuffersize : *mut usize) -> windows_core::HRESULT);
-    WinBioGetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid), core::mem::transmute(identity.unwrap_or(core::ptr::null())), core::mem::transmute(subfactor), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioGetProperty(sessionhandle, propertytype, propertyid, unitid, core::mem::transmute(identity.unwrap_or(core::ptr::null())), subfactor, propertybuffer, core::mem::transmute(propertybuffersize.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioIdentify(sessionhandle: u32, unitid: Option<*mut u32>, identity: Option<*mut WINBIO_IDENTITY>, subfactor: Option<*mut u8>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioIdentify(sessionhandle : u32, unitid : *mut u32, identity : *mut WINBIO_IDENTITY, subfactor : *mut u8, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioIdentify(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(subfactor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioIdentify(sessionhandle, core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(identity.unwrap_or(core::ptr::null_mut())), core::mem::transmute(subfactor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioIdentifyWithCallback(sessionhandle : u32, identifycallback : PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioIdentifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identifycallback), core::mem::transmute(identifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioIdentifyWithCallback(sessionhandle, identifycallback, core::mem::transmute(identifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioImproveBegin(sessionhandle : u32, unitid : u32) -> windows_core::HRESULT);
-    WinBioImproveBegin(core::mem::transmute(sessionhandle), core::mem::transmute(unitid)).ok()
+    WinBioImproveBegin(sessionhandle, unitid).ok()
 }
 #[inline]
 pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioImproveEnd(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioImproveEnd(core::mem::transmute(sessionhandle)).ok()
+    WinBioImproveEnd(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32, unitid: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensor(sessionhandle : u32, unitid : *mut u32) -> windows_core::HRESULT);
-    WinBioLocateSensor(core::mem::transmute(sessionhandle), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioLocateSensor(sessionhandle, core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLocateSensorWithCallback(sessionhandle : u32, locatecallback : PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioLocateSensorWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(locatecallback), core::mem::transmute(locatecallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioLocateSensorWithCallback(sessionhandle, locatecallback, core::mem::transmute(locatecallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLockUnit(sessionhandle : u32, unitid : u32) -> windows_core::HRESULT);
-    WinBioLockUnit(core::mem::transmute(sessionhandle), core::mem::transmute(unitid)).ok()
+    WinBioLockUnit(sessionhandle, unitid).ok()
 }
 #[inline]
 pub unsafe fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioLogonIdentifiedUser(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioLogonIdentifiedUser(core::mem::transmute(sessionhandle)).ok()
+    WinBioLogonIdentifiedUser(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioMonitorPresence(sessionhandle : u32, unitid : u32) -> windows_core::HRESULT);
-    WinBioMonitorPresence(core::mem::transmute(sessionhandle), core::mem::transmute(unitid)).ok()
+    WinBioMonitorPresence(sessionhandle, unitid).ok()
 }
 #[inline]
 pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: Option<&[u32]>, databaseid: Option<*const windows_core::GUID>) -> windows_core::Result<u32> {
     windows_targets::link!("winbio.dll" "system" fn WinBioOpenSession(factor : u32, pooltype : WINBIO_POOL, flags : u32, unitarray : *const u32, unitcount : usize, databaseid : *const windows_core::GUID, sessionhandle : *mut u32) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WinBioOpenSession(core::mem::transmute(factor), core::mem::transmute(pooltype), core::mem::transmute(flags), core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(databaseid.unwrap_or(core::ptr::null())), &mut result__).map(|| core::mem::transmute(result__))
+    WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(databaseid.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioRegisterEventMonitor(sessionhandle : u32, eventmask : u32, eventcallback : PWINBIO_EVENT_CALLBACK, eventcallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioRegisterEventMonitor(core::mem::transmute(sessionhandle), core::mem::transmute(eventmask), core::mem::transmute(eventcallback), core::mem::transmute(eventcallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioRegisterEventMonitor(sessionhandle, eventmask, eventcallback, core::mem::transmute(eventcallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioReleaseFocus() -> windows_core::Result<()> {
@@ -257,42 +257,42 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioRemoveCredential(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE) -> windows_core::HRESULT);
-    WinBioRemoveCredential(core::mem::transmute(identity), core::mem::transmute(r#type)).ok()
+    WinBioRemoveCredential(core::mem::transmute(identity), r#type).ok()
 }
 #[inline]
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[u8], format: WINBIO_CREDENTIAL_FORMAT) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : *const u8, credentialsize : usize, format : WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT);
-    WinBioSetCredential(core::mem::transmute(r#type), core::mem::transmute(credential.as_ptr()), credential.len().try_into().unwrap(), core::mem::transmute(format)).ok()
+    WinBioSetCredential(r#type, core::mem::transmute(credential.as_ptr()), credential.len().try_into().unwrap(), format).ok()
 }
 #[inline]
 pub unsafe fn WinBioSetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: Option<*const WINBIO_IDENTITY>, subfactor: u8, propertybuffer: *const core::ffi::c_void, propertybuffersize: usize) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioSetProperty(sessionhandle : u32, propertytype : u32, propertyid : u32, unitid : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, propertybuffer : *const core::ffi::c_void, propertybuffersize : usize) -> windows_core::HRESULT);
-    WinBioSetProperty(core::mem::transmute(sessionhandle), core::mem::transmute(propertytype), core::mem::transmute(propertyid), core::mem::transmute(unitid), core::mem::transmute(identity.unwrap_or(core::ptr::null())), core::mem::transmute(subfactor), core::mem::transmute(propertybuffer), core::mem::transmute(propertybuffersize)).ok()
+    WinBioSetProperty(sessionhandle, propertytype, propertyid, unitid, core::mem::transmute(identity.unwrap_or(core::ptr::null())), subfactor, propertybuffer, propertybuffersize).ok()
 }
 #[inline]
 pub unsafe fn WinBioUnlockUnit(sessionhandle: u32, unitid: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioUnlockUnit(sessionhandle : u32, unitid : u32) -> windows_core::HRESULT);
-    WinBioUnlockUnit(core::mem::transmute(sessionhandle), core::mem::transmute(unitid)).ok()
+    WinBioUnlockUnit(sessionhandle, unitid).ok()
 }
 #[inline]
 pub unsafe fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioUnregisterEventMonitor(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioUnregisterEventMonitor(core::mem::transmute(sessionhandle)).ok()
+    WinBioUnregisterEventMonitor(sessionhandle).ok()
 }
 #[inline]
 pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: Option<*mut u32>, r#match: Option<*mut u8>, rejectdetail: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioVerify(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, unitid : *mut u32, r#match : *mut u8, rejectdetail : *mut u32) -> windows_core::HRESULT);
-    WinBioVerify(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(r#match.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
+    WinBioVerify(sessionhandle, identity, subfactor, core::mem::transmute(unitid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(r#match.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rejectdetail.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioVerifyWithCallback(sessionhandle : u32, identity : *const WINBIO_IDENTITY, subfactor : u8, verifycallback : PWINBIO_VERIFY_CALLBACK, verifycallbackcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    WinBioVerifyWithCallback(core::mem::transmute(sessionhandle), core::mem::transmute(identity), core::mem::transmute(subfactor), core::mem::transmute(verifycallback), core::mem::transmute(verifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
+    WinBioVerifyWithCallback(sessionhandle, identity, subfactor, verifycallback, core::mem::transmute(verifycallbackcontext.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinBioWait(sessionhandle: u32) -> windows_core::Result<()> {
     windows_targets::link!("winbio.dll" "system" fn WinBioWait(sessionhandle : u32) -> windows_core::HRESULT);
-    WinBioWait(core::mem::transmute(sessionhandle)).ok()
+    WinBioWait(sessionhandle).ok()
 }
 pub const FACILITY_NONE: u32 = 0u32;
 pub const FACILITY_WINBIO: u32 = 9u32;
@@ -448,58 +448,103 @@ pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_S
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
 impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY_ACTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_ANTI_SPOOF_POLICY_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
 impl windows_core::TypeKind for WINBIO_ASYNC_NOTIFICATION_METHOD {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_ASYNC_NOTIFICATION_METHOD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_ASYNC_NOTIFICATION_METHOD").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_COMPONENT(pub u32);
 impl windows_core::TypeKind for WINBIO_COMPONENT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_COMPONENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_COMPONENT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
 impl windows_core::TypeKind for WINBIO_CREDENTIAL_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_CREDENTIAL_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
 impl windows_core::TypeKind for WINBIO_CREDENTIAL_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_CREDENTIAL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
 impl windows_core::TypeKind for WINBIO_CREDENTIAL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_CREDENTIAL_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_CREDENTIAL_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
 impl windows_core::TypeKind for WINBIO_POLICY_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_POLICY_SOURCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_POLICY_SOURCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_POOL(pub u32);
 impl windows_core::TypeKind for WINBIO_POOL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WINBIO_POOL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_POOL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
 impl windows_core::TypeKind for WINBIO_SETTING_SOURCE {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for WINBIO_SETTING_SOURCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WINBIO_SETTING_SOURCE").field(&self.0).finish()
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -507,41 +552,41 @@ pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
+impl windows_core::TypeKind for WINBIO_ACCOUNT_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ACCOUNT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ACCOUNT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
+}
+impl windows_core::TypeKind for WINBIO_ADAPTER_INTERFACE_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ADAPTER_INTERFACE_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
+}
+impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ANTI_SPOOF_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ANTI_SPOOF_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -555,13 +600,13 @@ pub struct WINBIO_ASYNC_RESULT {
     pub UserData: *mut core::ffi::c_void,
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -588,31 +633,31 @@ pub union WINBIO_ASYNC_RESULT_0 {
     pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_19,
     pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_20,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: u32,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -623,13 +668,13 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -637,39 +682,39 @@ pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: u8,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub RejectDetail: u32,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -677,54 +722,54 @@ pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub Identity: WINBIO_IDENTITY,
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub SelectorValue: u64,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_13 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_14 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_14 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -733,40 +778,40 @@ pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub SubFactorCount: usize,
     pub SubFactorArray: *mut u8,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub Event: WINBIO_EVENT,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -778,13 +823,13 @@ pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -792,13 +837,13 @@ pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -808,13 +853,13 @@ pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_16 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_16 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -823,41 +868,41 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub ChangeType: u32,
     pub PresenceCount: usize,
     pub PresenceArray: *mut WINBIO_PRESENCE,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_18 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_18 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_18 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -869,45 +914,45 @@ pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
     pub Ticket: u64,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_15 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
     pub FormatIdentifier: u32,
@@ -925,16 +970,16 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub ImageCompressionAlg: u8,
     pub Reserved: u16,
 }
+impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_BDB_ANSI_381_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
     pub HorizontalLineLength: u16,
@@ -946,46 +991,46 @@ pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub ImpressionType: u8,
     pub Reserved: u8,
 }
+impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_BDB_ANSI_381_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BDB_ANSI_381_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
     pub StandardDataBlock: WINBIO_BIR_DATA,
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
+impl windows_core::TypeKind for WINBIO_BIR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_BIR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
+}
+impl windows_core::TypeKind for WINBIO_BIR_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_BIR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
     pub HeaderVersion: u8,
@@ -1000,44 +1045,44 @@ pub struct WINBIO_BIR_HEADER {
     pub BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
+impl windows_core::TypeKind for WINBIO_BIR_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_BIR_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
+}
+impl windows_core::TypeKind for WINBIO_BIR_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_BIR_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BIR_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BLANK_PAYLOAD {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for WINBIO_BLANK_PAYLOAD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_BLANK_PAYLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BLANK_PAYLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: u32,
     pub BspId: windows_core::GUID,
@@ -1045,31 +1090,31 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Vendor: [u16; 256],
     pub Version: WINBIO_VERSION,
 }
+impl windows_core::TypeKind for WINBIO_BSP_SCHEMA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_BSP_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_BSP_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CALIBRATION_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub CalibrationData: WINBIO_DATA,
+}
+impl windows_core::TypeKind for WINBIO_CALIBRATION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_CALIBRATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_CALIBRATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CAPTURE_DATA {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
@@ -1077,16 +1122,16 @@ pub struct WINBIO_CAPTURE_DATA {
     pub RejectDetail: u32,
     pub CaptureData: WINBIO_DATA,
 }
+impl windows_core::TypeKind for WINBIO_CAPTURE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_CAPTURE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_CAPTURE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_CAPTURE_PARAMETERS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1094,46 +1139,46 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: windows_core::GUID,
     pub Flags: u8,
 }
+impl windows_core::TypeKind for WINBIO_CAPTURE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_CAPTURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_CAPTURE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
+}
+impl windows_core::TypeKind for WINBIO_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_DIAGNOSTICS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub SensorStatus: u32,
     pub VendorDiagnostics: WINBIO_DATA,
 }
+impl windows_core::TypeKind for WINBIO_DIAGNOSTICS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_DIAGNOSTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_DIAGNOSTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub PayloadSize: u32,
     pub Purpose: u8,
@@ -1142,17 +1187,17 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub Flags: u8,
     pub NonceSize: u32,
 }
+impl windows_core::TypeKind for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ENGINE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1201,14 +1246,14 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WINBIO_ENGINE_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_ENGINE_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_ENGINE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1216,13 +1261,13 @@ pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
 }
+impl windows_core::TypeKind for WINBIO_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1231,26 +1276,26 @@ pub union WINBIO_EVENT_0 {
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
     pub Error: WINBIO_EVENT_0_2,
 }
+impl windows_core::TypeKind for WINBIO_EVENT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_2 {
     pub ErrorCode: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1260,27 +1305,27 @@ pub struct WINBIO_EVENT_0_1 {
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
+impl windows_core::TypeKind for WINBIO_EVENT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EVENT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_0 {
     pub UnitId: u32,
     pub RejectDetail: u32,
+}
+impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1289,13 +1334,13 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1306,57 +1351,57 @@ pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_ENGINE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1365,81 +1410,81 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: u8,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1451,13 +1496,13 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub SubFactor: u8,
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1468,45 +1513,45 @@ pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Iris: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2,
     pub Voice: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: windows_core::GUID,
     pub Data: [u32; 78],
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1515,13 +1560,13 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1536,13 +1581,13 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub Point3D: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0,
     pub StopCaptureAndShowCriticalFeedback: super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1551,26 +1596,26 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub Y: f64,
     pub Z: f64,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1579,13 +1624,13 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1596,85 +1641,85 @@ pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Iris: WINBIO_EXTENDED_SENSOR_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_SENSOR_INFO_0_3,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
     pub HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
     pub InfraredSensorRotationAngle: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::super::Foundation::RECT,
     pub FrameOffset: super::super::Foundation::POINT,
     pub MandatoryOrientation: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1683,13 +1728,13 @@ pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1700,97 +1745,97 @@ pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_STORAGE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
 }
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
+}
+impl windows_core::TypeKind for WINBIO_EXTENDED_UNIT_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_EXTENDED_UNIT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_EXTENDED_UNIT_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_FP_BU_STATE {
     pub SensorAttached: super::super::Foundation::BOOL,
     pub CreationResult: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for WINBIO_FP_BU_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_FP_BU_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_FP_BU_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -1842,45 +1887,45 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub DecryptSample: PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WINBIO_FRAMEWORK_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_FRAMEWORK_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_FRAMEWORK_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
     pub BiometricType: u32,
     pub MatchType: u32,
     pub ProtectionType: u32,
 }
+impl windows_core::TypeKind for WINBIO_GESTURE_METADATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_GESTURE_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_GESTURE_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_GET_INDICATOR {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub IndicatorStatus: u32,
 }
+impl windows_core::TypeKind for WINBIO_GET_INDICATOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_GET_INDICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_GET_INDICATOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1888,13 +1933,13 @@ pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
 }
+impl windows_core::TypeKind for WINBIO_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_IDENTITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1905,46 +1950,46 @@ pub union WINBIO_IDENTITY_0 {
     pub AccountSid: WINBIO_IDENTITY_0_0,
     pub SecureId: [u8; 32],
 }
+impl windows_core::TypeKind for WINBIO_IDENTITY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_IDENTITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_IDENTITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
+}
+impl windows_core::TypeKind for WINBIO_IDENTITY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_IDENTITY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_NOTIFY_WAKE {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub Reason: u32,
+}
+impl windows_core::TypeKind for WINBIO_NOTIFY_WAKE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_NOTIFY_WAKE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_NOTIFY_WAKE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PIPELINE {
     pub SensorHandle: super::super::Foundation::HANDLE,
     pub EngineHandle: super::super::Foundation::HANDLE,
@@ -1958,14 +2003,14 @@ pub struct WINBIO_PIPELINE {
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
 #[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WINBIO_PIPELINE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_PIPELINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_PIPELINE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1980,27 +2025,27 @@ pub struct WINBIO_PRESENCE {
     pub Properties: WINBIO_PRESENCE_PROPERTIES,
     pub Authorization: WINBIO_PRESENCE_0,
 }
+impl windows_core::TypeKind for WINBIO_PRESENCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_PRESENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
+}
+impl windows_core::TypeKind for WINBIO_PRESENCE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_PRESENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_PRESENCE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2008,45 +2053,45 @@ pub union WINBIO_PRESENCE_PROPERTIES {
     pub FacialFeatures: WINBIO_PRESENCE_PROPERTIES_0,
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
 }
+impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::super::Foundation::RECT,
     pub Distance: i32,
     pub OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0,
+}
+impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_PRESENCE_PROPERTIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: windows_core::GUID,
     pub Data: [u32; 78],
+}
+impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::super::Foundation::RECT,
     pub EyeBoundingBox_2: super::super::Foundation::RECT,
@@ -2054,28 +2099,28 @@ pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub PupilCenter_2: super::super::Foundation::POINT,
     pub Distance: i32,
 }
+impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_PRESENCE_PROPERTIES_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PRESENCE_PROPERTIES_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub PrivateSensorTypeInfo: WINBIO_DATA,
 }
+impl windows_core::TypeKind for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2087,46 +2132,46 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub PolicySize: usize,
     pub Policy: [u8; 128],
 }
+impl windows_core::TypeKind for WINBIO_PROTECTION_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_PROTECTION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_PROTECTION_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
+}
+impl windows_core::TypeKind for WINBIO_REGISTERED_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_REGISTERED_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_REGISTERED_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
     pub Size: u32,
     pub Flags: u32,
     pub ValidationTag: u64,
 }
+impl windows_core::TypeKind for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
     pub Version: u16,
@@ -2135,31 +2180,31 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA1Size: u32,
     pub IntermediateCA2Size: u32,
 }
+impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_SECURE_CONNECTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: u16,
     pub Flags: u16,
+}
+impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_SECURE_CONNECTION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SECURE_CONNECTION_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
@@ -2174,17 +2219,17 @@ pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub SupportedFormatEntries: u32,
     pub SupportedFormat: [WINBIO_REGISTERED_FORMAT; 1],
 }
+impl windows_core::TypeKind for WINBIO_SENSOR_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_SENSOR_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SENSOR_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SENSOR_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -2223,32 +2268,32 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WINBIO_SENSOR_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_SENSOR_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_SENSOR_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,
     pub IndicatorStatus: u32,
+}
+impl windows_core::TypeKind for WINBIO_SET_INDICATOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_SET_INDICATOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SET_INDICATOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_INTERFACE {
     pub Version: WINBIO_ADAPTER_INTERFACE_VERSION,
     pub Type: u32,
@@ -2286,17 +2331,17 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub UpdateRecordCommit: PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN,
 }
 #[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WINBIO_STORAGE_INTERFACE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
 impl Default for WINBIO_STORAGE_INTERFACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WINBIO_STORAGE_INTERFACE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_RECORD {
     pub Identity: *mut WINBIO_IDENTITY,
     pub SubFactor: u8,
@@ -2307,16 +2352,16 @@ pub struct WINBIO_STORAGE_RECORD {
     pub PayloadBlob: *mut u8,
     pub PayloadBlobSize: usize,
 }
+impl windows_core::TypeKind for WINBIO_STORAGE_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_STORAGE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_STORAGE_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: u32,
     pub DatabaseId: windows_core::GUID,
@@ -2325,32 +2370,32 @@ pub struct WINBIO_STORAGE_SCHEMA {
     pub FilePath: [u16; 256],
     pub ConnectionString: [u16; 256],
 }
+impl windows_core::TypeKind for WINBIO_STORAGE_SCHEMA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_STORAGE_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_STORAGE_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub PayloadSize: u32,
     pub WinBioHresult: windows_core::HRESULT,
     pub NumberOfAlgorithms: u32,
     pub AlgorithmData: WINBIO_DATA,
 }
+impl windows_core::TypeKind for WINBIO_SUPPORTED_ALGORITHMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_SUPPORTED_ALGORITHMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_SUPPORTED_ALGORITHMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: u32,
     pub PoolType: u32,
@@ -2364,57 +2409,72 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub SerialNumber: [u16; 256],
     pub FirmwareVersion: WINBIO_VERSION,
 }
+impl windows_core::TypeKind for WINBIO_UNIT_SCHEMA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WINBIO_UNIT_SCHEMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_UNIT_SCHEMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_UPDATE_FIRMWARE {
     pub PayloadSize: u32,
     pub FirmwareData: WINBIO_DATA,
+}
+impl windows_core::TypeKind for WINBIO_UPDATE_FIRMWARE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_UPDATE_FIRMWARE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_UPDATE_FIRMWARE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
+}
+impl windows_core::TypeKind for WINBIO_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WINBIO_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WINBIO_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_ENGINE_CONTEXT(pub isize);
+impl Default for WINIBIO_ENGINE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for WINIBIO_ENGINE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_SENSOR_CONTEXT(pub isize);
+impl Default for WINIBIO_SENSOR_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for WINIBIO_SENSOR_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINIBIO_STORAGE_CONTEXT(pub isize);
+impl Default for WINIBIO_STORAGE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for WINIBIO_STORAGE_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }

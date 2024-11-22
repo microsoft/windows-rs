@@ -1070,6 +1070,8 @@ pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = 3i32;
 pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = 2i32;
 pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = 3i32;
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = 1i32;
+pub const NET_IF_COMPARTMENT_ID_PRIMARY: u32 = 1u32;
+pub const NET_IF_COMPARTMENT_ID_UNSPECIFIED: u32 = 0u32;
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = 1i32;
 pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = 3i32;
 pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = 4i32;
@@ -2506,7 +2508,7 @@ pub struct NDIS_INTERFACE_INFORMATION {
     pub ifHCOutUcastOctets: u64,
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
-    pub CompartmentId: u32,
+    pub CompartmentId: NET_IF_COMPARTMENT_ID,
     pub SupportedStatistics: u32,
 }
 #[repr(C)]
@@ -3222,6 +3224,7 @@ pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
     pub ifAliasOffset: u16,
 }
+pub type NET_IF_COMPARTMENT_ID = u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NET_IF_RCV_ADDRESS_LH {

@@ -161,17 +161,17 @@ pub struct IIppAttributeValueStatics_Vtbl {
     pub CreateNameWithLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateNameWithLanguageArray: usize,
-    pub CreateTextWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateTextWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateTextWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateTextWithoutLanguageArray: usize,
-    pub CreateNameWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateNameWithoutLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateNameWithoutLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateNameWithoutLanguageArray: usize,
-    pub CreateKeyword: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateKeyword: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateKeywordArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -181,22 +181,22 @@ pub struct IIppAttributeValueStatics_Vtbl {
     pub CreateUriArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateUriArray: usize,
-    pub CreateUriSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateUriSchema: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateUriSchemaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateUriSchemaArray: usize,
-    pub CreateCharset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateCharset: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateCharsetArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateCharsetArray: usize,
-    pub CreateNaturalLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateNaturalLanguage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateNaturalLanguageArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateNaturalLanguageArray: usize,
-    pub CreateMimeMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateMimeMedia: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub CreateMimeMediaArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -228,7 +228,7 @@ impl windows_core::RuntimeType for IIppPrintDevice {
 #[repr(C)]
 pub struct IIppPrintDevice_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub PrinterUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub GetPrinterAttributesAsBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -255,8 +255,8 @@ impl windows_core::RuntimeType for IIppPrintDevice2 {
 pub struct IIppPrintDevice2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetMaxSupportedPdfSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub GetMaxSupportedPdfVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetMaxSupportedPdfVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub IsPdlPassthroughSupported: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
     pub GetPdlPassthroughProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIppPrintDevice3, IIppPrintDevice3_Vtbl, 0xb6258f6d_a46d_5e37_80ce_5f69d5544712);
@@ -286,7 +286,7 @@ pub struct IIppPrintDevice4_Vtbl {
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
     SetUserDefaultPrintTicket: usize,
     pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
 impl windows_core::RuntimeType for IIppPrintDeviceStatics {
@@ -295,10 +295,10 @@ impl windows_core::RuntimeType for IIppPrintDeviceStatics {
 #[repr(C)]
 pub struct IIppPrintDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FromId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIppResolution, IIppResolution_Vtbl, 0xcb493f86_6bf3_56f5_86ce_263d08aead63);
 impl windows_core::RuntimeType for IIppResolution {
@@ -340,8 +340,8 @@ impl windows_core::RuntimeType for IIppTextWithLanguage {
 #[repr(C)]
 pub struct IIppTextWithLanguage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IIppTextWithLanguageFactory, IIppTextWithLanguageFactory_Vtbl, 0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
 impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
@@ -350,7 +350,7 @@ impl windows_core::RuntimeType for IIppTextWithLanguageFactory {
 #[repr(C)]
 pub struct IIppTextWithLanguageFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPageConfigurationSettings, IPageConfigurationSettings_Vtbl, 0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9);
 impl windows_core::RuntimeType for IPageConfigurationSettings {
@@ -376,11 +376,11 @@ pub struct IPdlPassthroughProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedPdlContentTypes: usize,
     #[cfg(feature = "Graphics_Printing")]
-    pub StartPrintJobWithTaskOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartPrintJobWithTaskOptions: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     StartPrintJobWithTaskOptions: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub StartPrintJobWithPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub StartPrintJobWithPrintTicket: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     StartPrintJobWithPrintTicket: usize,
 }
@@ -414,8 +414,8 @@ impl windows_core::RuntimeType for IPrint3DDeviceStatics {
 #[repr(C)]
 pub struct IPrint3DDeviceStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPrintSchema, IPrintSchema_Vtbl, 0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
 impl windows_core::RuntimeType for IPrintSchema {
@@ -438,7 +438,7 @@ pub struct IPrintSchema_Vtbl {
     MergeAndValidateWithDefaultPrintTicketAsync: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeError(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppAttributeError, windows_core::IUnknown, windows_core::IInspectable);
 impl IppAttributeError {
@@ -469,7 +469,7 @@ impl windows_core::RuntimeType for IppAttributeError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeError>();
 }
 unsafe impl windows_core::Interface for IppAttributeError {
-    type Vtable = <IIppAttributeError as windows_core::Interface>::Vtable;
+    type Vtable = IIppAttributeError_Vtbl;
     const IID: windows_core::GUID = <IIppAttributeError as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppAttributeError {
@@ -478,7 +478,7 @@ impl windows_core::RuntimeName for IppAttributeError {
 unsafe impl Send for IppAttributeError {}
 unsafe impl Sync for IppAttributeError {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppAttributeValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IppAttributeValue {
@@ -971,7 +971,7 @@ impl windows_core::RuntimeType for IppAttributeValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeValue>();
 }
 unsafe impl windows_core::Interface for IppAttributeValue {
-    type Vtable = <IIppAttributeValue as windows_core::Interface>::Vtable;
+    type Vtable = IIppAttributeValue_Vtbl;
     const IID: windows_core::GUID = <IIppAttributeValue as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppAttributeValue {
@@ -980,7 +980,7 @@ impl windows_core::RuntimeName for IppAttributeValue {
 unsafe impl Send for IppAttributeValue {}
 unsafe impl Sync for IppAttributeValue {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppIntegerRange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppIntegerRange, windows_core::IUnknown, windows_core::IInspectable);
 impl IppIntegerRange {
@@ -1013,7 +1013,7 @@ impl windows_core::RuntimeType for IppIntegerRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppIntegerRange>();
 }
 unsafe impl windows_core::Interface for IppIntegerRange {
-    type Vtable = <IIppIntegerRange as windows_core::Interface>::Vtable;
+    type Vtable = IIppIntegerRange_Vtbl;
     const IID: windows_core::GUID = <IIppIntegerRange as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppIntegerRange {
@@ -1022,7 +1022,7 @@ impl windows_core::RuntimeName for IppIntegerRange {
 unsafe impl Send for IppIntegerRange {}
 unsafe impl Sync for IppIntegerRange {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppPrintDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppPrintDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl IppPrintDevice {
@@ -1030,7 +1030,7 @@ impl IppPrintDevice {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PrinterName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PrinterUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
@@ -1095,7 +1095,7 @@ impl IppPrintDevice {
         let this = &windows_core::Interface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMaxSupportedPdfVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetMaxSupportedPdfVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsPdlPassthroughSupported(&self, pdlcontenttype: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -1157,13 +1157,13 @@ impl IppPrintDevice {
         let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
@@ -1193,7 +1193,7 @@ impl windows_core::RuntimeType for IppPrintDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppPrintDevice>();
 }
 unsafe impl windows_core::Interface for IppPrintDevice {
-    type Vtable = <IIppPrintDevice as windows_core::Interface>::Vtable;
+    type Vtable = IIppPrintDevice_Vtbl;
     const IID: windows_core::GUID = <IIppPrintDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppPrintDevice {
@@ -1202,7 +1202,7 @@ impl windows_core::RuntimeName for IppPrintDevice {
 unsafe impl Send for IppPrintDevice {}
 unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppResolution(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppResolution, windows_core::IUnknown, windows_core::IInspectable);
 impl IppResolution {
@@ -1242,7 +1242,7 @@ impl windows_core::RuntimeType for IppResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppResolution>();
 }
 unsafe impl windows_core::Interface for IppResolution {
-    type Vtable = <IIppResolution as windows_core::Interface>::Vtable;
+    type Vtable = IIppResolution_Vtbl;
     const IID: windows_core::GUID = <IIppResolution as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppResolution {
@@ -1251,7 +1251,7 @@ impl windows_core::RuntimeName for IppResolution {
 unsafe impl Send for IppResolution {}
 unsafe impl Sync for IppResolution {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppSetAttributesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl IppSetAttributesResult {
@@ -1275,7 +1275,7 @@ impl windows_core::RuntimeType for IppSetAttributesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppSetAttributesResult>();
 }
 unsafe impl windows_core::Interface for IppSetAttributesResult {
-    type Vtable = <IIppSetAttributesResult as windows_core::Interface>::Vtable;
+    type Vtable = IIppSetAttributesResult_Vtbl;
     const IID: windows_core::GUID = <IIppSetAttributesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppSetAttributesResult {
@@ -1284,7 +1284,7 @@ impl windows_core::RuntimeName for IppSetAttributesResult {
 unsafe impl Send for IppSetAttributesResult {}
 unsafe impl Sync for IppSetAttributesResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppTextWithLanguage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(IppTextWithLanguage, windows_core::IUnknown, windows_core::IInspectable);
 impl IppTextWithLanguage {
@@ -1292,14 +1292,14 @@ impl IppTextWithLanguage {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateInstance(language: &windows_core::HSTRING, text: &windows_core::HSTRING) -> windows_core::Result<IppTextWithLanguage> {
@@ -1317,7 +1317,7 @@ impl windows_core::RuntimeType for IppTextWithLanguage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppTextWithLanguage>();
 }
 unsafe impl windows_core::Interface for IppTextWithLanguage {
-    type Vtable = <IIppTextWithLanguage as windows_core::Interface>::Vtable;
+    type Vtable = IIppTextWithLanguage_Vtbl;
     const IID: windows_core::GUID = <IIppTextWithLanguage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppTextWithLanguage {
@@ -1326,7 +1326,7 @@ impl windows_core::RuntimeName for IppTextWithLanguage {
 unsafe impl Send for IppTextWithLanguage {}
 unsafe impl Sync for IppTextWithLanguage {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PageConfigurationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PageConfigurationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PageConfigurationSettings {
@@ -1364,7 +1364,7 @@ impl windows_core::RuntimeType for PageConfigurationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPageConfigurationSettings>();
 }
 unsafe impl windows_core::Interface for PageConfigurationSettings {
-    type Vtable = <IPageConfigurationSettings as windows_core::Interface>::Vtable;
+    type Vtable = IPageConfigurationSettings_Vtbl;
     const IID: windows_core::GUID = <IPageConfigurationSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PageConfigurationSettings {
@@ -1373,7 +1373,7 @@ impl windows_core::RuntimeName for PageConfigurationSettings {
 unsafe impl Send for PageConfigurationSettings {}
 unsafe impl Sync for PageConfigurationSettings {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdlPassthroughProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl PdlPassthroughProvider {
@@ -1386,10 +1386,10 @@ impl PdlPassthroughProvider {
         }
     }
     #[cfg(feature = "Graphics_Printing")]
-    pub fn StartPrintJobWithTaskOptions<P2, P3>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, taskoptions: P2, pageconfigurationsettings: P3) -> windows_core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithTaskOptions<P0, P1>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, taskoptions: P0, pageconfigurationsettings: P1) -> windows_core::Result<PdlPassthroughTarget>
     where
-        P2: windows_core::Param<super::super::Graphics::Printing::PrintTaskOptions>,
-        P3: windows_core::Param<PageConfigurationSettings>,
+        P0: windows_core::Param<super::super::Graphics::Printing::PrintTaskOptions>,
+        P1: windows_core::Param<PageConfigurationSettings>,
     {
         let this = self;
         unsafe {
@@ -1398,10 +1398,10 @@ impl PdlPassthroughProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartPrintJobWithPrintTicket<P2, P3>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, printticket: P2, pageconfigurationsettings: P3) -> windows_core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithPrintTicket<P0, P1>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, printticket: P0, pageconfigurationsettings: P1) -> windows_core::Result<PdlPassthroughTarget>
     where
-        P2: windows_core::Param<super::super::Storage::Streams::IInputStream>,
-        P3: windows_core::Param<PageConfigurationSettings>,
+        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
+        P1: windows_core::Param<PageConfigurationSettings>,
     {
         let this = self;
         unsafe {
@@ -1414,7 +1414,7 @@ impl windows_core::RuntimeType for PdlPassthroughProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughProvider>();
 }
 unsafe impl windows_core::Interface for PdlPassthroughProvider {
-    type Vtable = <IPdlPassthroughProvider as windows_core::Interface>::Vtable;
+    type Vtable = IPdlPassthroughProvider_Vtbl;
     const IID: windows_core::GUID = <IPdlPassthroughProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PdlPassthroughProvider {
@@ -1423,11 +1423,15 @@ impl windows_core::RuntimeName for PdlPassthroughProvider {
 unsafe impl Send for PdlPassthroughProvider {}
 unsafe impl Sync for PdlPassthroughProvider {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdlPassthroughTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdlPassthroughTarget, super::super::Foundation::IClosable);
 impl PdlPassthroughTarget {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn PrintJobId(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
@@ -1447,16 +1451,12 @@ impl PdlPassthroughTarget {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Submit)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
 }
 impl windows_core::RuntimeType for PdlPassthroughTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughTarget>();
 }
 unsafe impl windows_core::Interface for PdlPassthroughTarget {
-    type Vtable = <IPdlPassthroughTarget as windows_core::Interface>::Vtable;
+    type Vtable = IPdlPassthroughTarget_Vtbl;
     const IID: windows_core::GUID = <IPdlPassthroughTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PdlPassthroughTarget {
@@ -1465,7 +1465,7 @@ impl windows_core::RuntimeName for PdlPassthroughTarget {
 unsafe impl Send for PdlPassthroughTarget {}
 unsafe impl Sync for PdlPassthroughTarget {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DDevice {
@@ -1485,7 +1485,7 @@ impl Print3DDevice {
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPrint3DDeviceStatics<R, F: FnOnce(&IPrint3DDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1497,7 +1497,7 @@ impl windows_core::RuntimeType for Print3DDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DDevice>();
 }
 unsafe impl windows_core::Interface for Print3DDevice {
-    type Vtable = <IPrint3DDevice as windows_core::Interface>::Vtable;
+    type Vtable = IPrint3DDevice_Vtbl;
     const IID: windows_core::GUID = <IPrint3DDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Print3DDevice {
@@ -1506,7 +1506,7 @@ impl windows_core::RuntimeName for Print3DDevice {
 unsafe impl Send for Print3DDevice {}
 unsafe impl Sync for Print3DDevice {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSchema(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSchema, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSchema {
@@ -1545,7 +1545,7 @@ impl windows_core::RuntimeType for PrintSchema {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSchema>();
 }
 unsafe impl windows_core::Interface for PrintSchema {
-    type Vtable = <IPrintSchema as windows_core::Interface>::Vtable;
+    type Vtable = IPrintSchema_Vtbl;
     const IID: windows_core::GUID = <IPrintSchema as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSchema {
@@ -1554,7 +1554,7 @@ impl windows_core::RuntimeName for PrintSchema {
 unsafe impl Send for PrintSchema {}
 unsafe impl Sync for PrintSchema {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
     pub const RequestEntityTooLarge: Self = Self(0i32);
@@ -1566,11 +1566,16 @@ impl IppAttributeErrorReason {
 impl windows_core::TypeKind for IppAttributeErrorReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IppAttributeErrorReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
     pub const Unsupported: Self = Self(0i32);
@@ -1598,11 +1603,16 @@ impl IppAttributeValueKind {
 impl windows_core::TypeKind for IppAttributeValueKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IppAttributeValueKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IppPrintDeviceKind(pub i32);
 impl IppPrintDeviceKind {
     pub const Printer: Self = Self(0i32);
@@ -1612,11 +1622,16 @@ impl IppPrintDeviceKind {
 impl windows_core::TypeKind for IppPrintDeviceKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IppPrintDeviceKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IppPrintDeviceKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IppPrintDeviceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);
@@ -1625,11 +1640,16 @@ impl IppResolutionUnit {
 impl windows_core::TypeKind for IppResolutionUnit {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IppResolutionUnit {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PageConfigurationSource(pub i32);
 impl PageConfigurationSource {
     pub const PrintJobConfiguration: Self = Self(0i32);
@@ -1637,6 +1657,11 @@ impl PageConfigurationSource {
 }
 impl windows_core::TypeKind for PageConfigurationSource {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PageConfigurationSource {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PageConfigurationSource").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for PageConfigurationSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");

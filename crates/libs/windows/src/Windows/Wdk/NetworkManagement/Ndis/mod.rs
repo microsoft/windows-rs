@@ -1,198 +1,198 @@
 #[inline]
-pub unsafe fn NdisAcquireReadWriteLock<P1>(lock: *mut NDIS_RW_LOCK, fwrite: P1, lockstate: *mut LOCK_STATE)
+pub unsafe fn NdisAcquireReadWriteLock<P0>(lock: *mut NDIS_RW_LOCK, fwrite: P0, lockstate: *mut LOCK_STATE)
 where
-    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisAcquireReadWriteLock(lock : *mut NDIS_RW_LOCK, fwrite : super::super::super::Win32::Foundation:: BOOLEAN, lockstate : *mut LOCK_STATE));
-    NdisAcquireReadWriteLock(core::mem::transmute(lock), fwrite.param().abi(), core::mem::transmute(lockstate))
+    NdisAcquireReadWriteLock(lock, fwrite.param().abi(), lockstate)
 }
 #[inline]
 pub unsafe fn NdisAllocateMemoryWithTag(virtualaddress: *mut *mut core::ffi::c_void, length: u32, tag: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisAllocateMemoryWithTag(virtualaddress : *mut *mut core::ffi::c_void, length : u32, tag : u32) -> i32);
-    NdisAllocateMemoryWithTag(core::mem::transmute(virtualaddress), core::mem::transmute(length), core::mem::transmute(tag))
+    NdisAllocateMemoryWithTag(virtualaddress, length, tag)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisCancelTimer(timer: *const NDIS_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
     windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
-    NdisCancelTimer(core::mem::transmute(timer), &mut result__);
+    NdisCancelTimer(timer, &mut result__);
     result__
 }
 #[inline]
 pub unsafe fn NdisClAddParty(ndisvchandle: *const core::ffi::c_void, protocolpartycontext: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClAddParty(ndisvchandle : *const core::ffi::c_void, protocolpartycontext : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisClAddParty(core::mem::transmute(ndisvchandle), core::mem::transmute(protocolpartycontext), core::mem::transmute(callparameters), core::mem::transmute(ndispartyhandle))
+    NdisClAddParty(ndisvchandle, protocolpartycontext, callparameters, ndispartyhandle)
 }
 #[inline]
 pub unsafe fn NdisClCloseAddressFamily(ndisafhandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClCloseAddressFamily(ndisafhandle : *const core::ffi::c_void) -> i32);
-    NdisClCloseAddressFamily(core::mem::transmute(ndisafhandle))
+    NdisClCloseAddressFamily(ndisafhandle)
 }
 #[inline]
 pub unsafe fn NdisClCloseCall(ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>, buffer: Option<*const core::ffi::c_void>, size: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClCloseCall(ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
-    NdisClCloseCall(core::mem::transmute(ndisvchandle), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+    NdisClCloseCall(ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisClDeregisterSap(ndissaphandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClDeregisterSap(ndissaphandle : *const core::ffi::c_void) -> i32);
-    NdisClDeregisterSap(core::mem::transmute(ndissaphandle))
+    NdisClDeregisterSap(ndissaphandle)
 }
 #[inline]
 pub unsafe fn NdisClDropParty(ndispartyhandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClDropParty(ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
-    NdisClDropParty(core::mem::transmute(ndispartyhandle), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+    NdisClDropParty(ndispartyhandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid: super::super::super::Win32::Foundation::UNICODE_STRING, protocolvccontext: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid : super::super::super::Win32::Foundation:: UNICODE_STRING, protocolvccontext : *mut *mut core::ffi::c_void) -> i32);
-    NdisClGetProtocolVcContextFromTapiCallId(core::mem::transmute(tapicallid), core::mem::transmute(protocolvccontext))
+    NdisClGetProtocolVcContextFromTapiCallId(core::mem::transmute(tapicallid), protocolvccontext)
 }
 #[inline]
 pub unsafe fn NdisClIncomingCallComplete(status: i32, ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisClIncomingCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisClIncomingCallComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisClIncomingCallComplete(status, ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisClMakeCall(ndisvchandle: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, protocolpartycontext: Option<*const core::ffi::c_void>, ndispartyhandle: Option<*mut *mut core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClMakeCall(ndisvchandle : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, protocolpartycontext : *const core::ffi::c_void, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisClMakeCall(core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters), core::mem::transmute(protocolpartycontext.unwrap_or(core::ptr::null())), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null_mut())))
+    NdisClMakeCall(ndisvchandle, callparameters, core::mem::transmute(protocolpartycontext.unwrap_or(core::ptr::null())), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisClModifyCallQoS(ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClModifyCallQoS(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-    NdisClModifyCallQoS(core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisClModifyCallQoS(ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisClRegisterSap(ndisafhandle: *const core::ffi::c_void, protocolsapcontext: *const core::ffi::c_void, sap: *const CO_SAP, ndissaphandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClRegisterSap(ndisafhandle : *const core::ffi::c_void, protocolsapcontext : *const core::ffi::c_void, sap : *const CO_SAP, ndissaphandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisClRegisterSap(core::mem::transmute(ndisafhandle), core::mem::transmute(protocolsapcontext), core::mem::transmute(sap), core::mem::transmute(ndissaphandle))
+    NdisClRegisterSap(ndisafhandle, protocolsapcontext, sap, ndissaphandle)
 }
 #[inline]
 pub unsafe fn NdisCloseConfiguration(configurationhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCloseConfiguration(configurationhandle : *const core::ffi::c_void));
-    NdisCloseConfiguration(core::mem::transmute(configurationhandle))
+    NdisCloseConfiguration(configurationhandle)
 }
 #[inline]
 pub unsafe fn NdisCloseFile(filehandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCloseFile(filehandle : *const core::ffi::c_void));
-    NdisCloseFile(core::mem::transmute(filehandle))
+    NdisCloseFile(filehandle)
 }
 #[inline]
 pub unsafe fn NdisCmActivateVc(ndisvchandle: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCmActivateVc(ndisvchandle : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS) -> i32);
-    NdisCmActivateVc(core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisCmActivateVc(ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmAddPartyComplete(status: i32, ndispartyhandle: *const core::ffi::c_void, callmgrpartycontext: Option<*const core::ffi::c_void>, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmAddPartyComplete(status : i32, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmAddPartyComplete(core::mem::transmute(status), core::mem::transmute(ndispartyhandle), core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), core::mem::transmute(callparameters))
+    NdisCmAddPartyComplete(status, ndispartyhandle, core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmCloseAddressFamilyComplete(status: i32, ndisafhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmCloseAddressFamilyComplete(status : i32, ndisafhandle : *const core::ffi::c_void));
-    NdisCmCloseAddressFamilyComplete(core::mem::transmute(status), core::mem::transmute(ndisafhandle))
+    NdisCmCloseAddressFamilyComplete(status, ndisafhandle)
 }
 #[inline]
 pub unsafe fn NdisCmCloseCallComplete(status: i32, ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmCloseCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void));
-    NdisCmCloseCallComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())))
+    NdisCmCloseCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn NdisCmDeactivateVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDeactivateVc(ndisvchandle : *const core::ffi::c_void) -> i32);
-    NdisCmDeactivateVc(core::mem::transmute(ndisvchandle))
+    NdisCmDeactivateVc(ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisCmDeregisterSapComplete(status: i32, ndissaphandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDeregisterSapComplete(status : i32, ndissaphandle : *const core::ffi::c_void));
-    NdisCmDeregisterSapComplete(core::mem::transmute(status), core::mem::transmute(ndissaphandle))
+    NdisCmDeregisterSapComplete(status, ndissaphandle)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchCallConnected(ndisvchandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchCallConnected(ndisvchandle : *const core::ffi::c_void));
-    NdisCmDispatchCallConnected(core::mem::transmute(ndisvchandle))
+    NdisCmDispatchCallConnected(ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingCall(ndissaphandle: *const core::ffi::c_void, ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCall(ndissaphandle : *const core::ffi::c_void, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-    NdisCmDispatchIncomingCall(core::mem::transmute(ndissaphandle), core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisCmDispatchIncomingCall(ndissaphandle, ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingCallQoSChange(ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCallQoSChange(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmDispatchIncomingCallQoSChange(core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisCmDispatchIncomingCallQoSChange(ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingCloseCall(closestatus: i32, ndisvchandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCloseCall(closestatus : i32, ndisvchandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
-    NdisCmDispatchIncomingCloseCall(core::mem::transmute(closestatus), core::mem::transmute(ndisvchandle), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+    NdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingDropParty(dropstatus: i32, ndispartyhandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingDropParty(dropstatus : i32, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
-    NdisCmDispatchIncomingDropParty(core::mem::transmute(dropstatus), core::mem::transmute(ndispartyhandle), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), core::mem::transmute(size))
+    NdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisCmDropPartyComplete(status: i32, ndispartyhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDropPartyComplete(status : i32, ndispartyhandle : *const core::ffi::c_void));
-    NdisCmDropPartyComplete(core::mem::transmute(status), core::mem::transmute(ndispartyhandle))
+    NdisCmDropPartyComplete(status, ndispartyhandle)
 }
 #[inline]
 pub unsafe fn NdisCmMakeCallComplete(status: i32, ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>, callmgrpartycontext: Option<*const core::ffi::c_void>, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmMakeCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmMakeCallComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), core::mem::transmute(callparameters))
+    NdisCmMakeCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmModifyCallQoSComplete(status: i32, ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmModifyCallQoSComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmModifyCallQoSComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisCmModifyCallQoSComplete(status, ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmOpenAddressFamilyComplete(status: i32, ndisafhandle: *const core::ffi::c_void, callmgrafcontext: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmOpenAddressFamilyComplete(status : i32, ndisafhandle : *const core::ffi::c_void, callmgrafcontext : *const core::ffi::c_void));
-    NdisCmOpenAddressFamilyComplete(core::mem::transmute(status), core::mem::transmute(ndisafhandle), core::mem::transmute(callmgrafcontext))
+    NdisCmOpenAddressFamilyComplete(status, ndisafhandle, callmgrafcontext)
 }
 #[inline]
 pub unsafe fn NdisCmRegisterSapComplete(status: i32, ndissaphandle: *const core::ffi::c_void, callmgrsapcontext: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmRegisterSapComplete(status : i32, ndissaphandle : *const core::ffi::c_void, callmgrsapcontext : *const core::ffi::c_void));
-    NdisCmRegisterSapComplete(core::mem::transmute(status), core::mem::transmute(ndissaphandle), core::mem::transmute(callmgrsapcontext))
+    NdisCmRegisterSapComplete(status, ndissaphandle, callmgrsapcontext)
 }
 #[inline]
 pub unsafe fn NdisCoAssignInstanceName(ndisvchandle: *const core::ffi::c_void, baseinstancename: *const super::super::super::Win32::Foundation::UNICODE_STRING, vcinstancename: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
-    NdisCoAssignInstanceName(core::mem::transmute(ndisvchandle), core::mem::transmute(baseinstancename), core::mem::transmute(vcinstancename.unwrap_or(core::ptr::null_mut())))
+    NdisCoAssignInstanceName(ndisvchandle, baseinstancename, core::mem::transmute(vcinstancename.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisCoCreateVc(ndisbindinghandle: *const core::ffi::c_void, ndisafhandle: Option<*const core::ffi::c_void>, protocolvccontext: *const core::ffi::c_void, ndisvchandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoCreateVc(ndisbindinghandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, protocolvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisCoCreateVc(core::mem::transmute(ndisbindinghandle), core::mem::transmute(ndisafhandle.unwrap_or(core::ptr::null())), core::mem::transmute(protocolvccontext), core::mem::transmute(ndisvchandle))
+    NdisCoCreateVc(ndisbindinghandle, core::mem::transmute(ndisafhandle.unwrap_or(core::ptr::null())), protocolvccontext, ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisCoDeleteVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoDeleteVc(ndisvchandle : *const core::ffi::c_void) -> i32);
-    NdisCoDeleteVc(core::mem::transmute(ndisvchandle))
+    NdisCoDeleteVc(ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisCoGetTapiCallId(ndisvchandle: *const core::ffi::c_void, tapicallid: *mut VAR_STRING) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoGetTapiCallId(ndisvchandle : *const core::ffi::c_void, tapicallid : *mut VAR_STRING) -> i32);
-    NdisCoGetTapiCallId(core::mem::transmute(ndisvchandle), core::mem::transmute(tapicallid))
+    NdisCoGetTapiCallId(ndisvchandle, tapicallid)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NdisCompleteDmaTransfer<P5>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P5)
+pub unsafe fn NdisCompleteDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
-    NdisCompleteDmaTransfer(core::mem::transmute(status), core::mem::transmute(ndisdmahandle), core::mem::transmute(buffer), core::mem::transmute(offset), core::mem::transmute(length), writetodevice.param().abi())
+    NdisCompleteDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.param().abi())
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisCopyBuffer(status: *mut i32, buffer: *mut *mut super::super::Foundation::MDL, poolhandle: *const core::ffi::c_void, memorydescriptor: *const core::ffi::c_void, offset: u32, length: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation:: MDL, poolhandle : *const core::ffi::c_void, memorydescriptor : *const core::ffi::c_void, offset : u32, length : u32));
-    NdisCopyBuffer(core::mem::transmute(status), core::mem::transmute(buffer), core::mem::transmute(poolhandle), core::mem::transmute(memorydescriptor), core::mem::transmute(offset), core::mem::transmute(length))
+    NdisCopyBuffer(status, buffer, poolhandle, memorydescriptor, offset, length)
 }
 #[inline]
 pub unsafe fn NdisDeregisterTdiCallBack() {
@@ -202,7 +202,7 @@ pub unsafe fn NdisDeregisterTdiCallBack() {
 #[inline]
 pub unsafe fn NdisFreeMemory(virtualaddress: *const core::ffi::c_void, length: u32, memoryflags: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisFreeMemory(virtualaddress : *const core::ffi::c_void, length : u32, memoryflags : u32));
-    NdisFreeMemory(core::mem::transmute(virtualaddress), core::mem::transmute(length), core::mem::transmute(memoryflags))
+    NdisFreeMemory(virtualaddress, length, memoryflags)
 }
 #[inline]
 pub unsafe fn NdisGeneratePartialCancelId() -> u8 {
@@ -212,7 +212,7 @@ pub unsafe fn NdisGeneratePartialCancelId() -> u8 {
 #[inline]
 pub unsafe fn NdisGetCurrentProcessorCounts(pidlecount: *mut u32, pkernelanduser: *mut u32, pindex: *mut u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisGetCurrentProcessorCounts(pidlecount : *mut u32, pkernelanduser : *mut u32, pindex : *mut u32));
-    NdisGetCurrentProcessorCounts(core::mem::transmute(pidlecount), core::mem::transmute(pkernelanduser), core::mem::transmute(pindex))
+    NdisGetCurrentProcessorCounts(pidlecount, pkernelanduser, pindex)
 }
 #[inline]
 pub unsafe fn NdisGetCurrentProcessorCpuUsage() -> u32 {
@@ -224,7 +224,7 @@ pub unsafe fn NdisGetCurrentProcessorCpuUsage() -> u32 {
 #[inline]
 pub unsafe fn NdisGetRoutineAddress(ndisroutinename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> *mut core::ffi::c_void {
     windows_targets::link!("ndis.sys" "system" fn NdisGetRoutineAddress(ndisroutinename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> *mut core::ffi::c_void);
-    NdisGetRoutineAddress(core::mem::transmute(ndisroutinename))
+    NdisGetRoutineAddress(ndisroutinename)
 }
 #[inline]
 pub unsafe fn NdisGetSharedDataAlignment() -> u32 {
@@ -239,27 +239,27 @@ pub unsafe fn NdisGetVersion() -> u32 {
 #[inline]
 pub unsafe fn NdisIMAssociateMiniport(driverhandle: *const core::ffi::c_void, protocolhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisIMAssociateMiniport(driverhandle : *const core::ffi::c_void, protocolhandle : *const core::ffi::c_void));
-    NdisIMAssociateMiniport(core::mem::transmute(driverhandle), core::mem::transmute(protocolhandle))
+    NdisIMAssociateMiniport(driverhandle, protocolhandle)
 }
 #[inline]
 pub unsafe fn NdisIMCancelInitializeDeviceInstance(driverhandle: *const core::ffi::c_void, deviceinstance: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisIMCancelInitializeDeviceInstance(driverhandle : *const core::ffi::c_void, deviceinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
-    NdisIMCancelInitializeDeviceInstance(core::mem::transmute(driverhandle), core::mem::transmute(deviceinstance))
+    NdisIMCancelInitializeDeviceInstance(driverhandle, deviceinstance)
 }
 #[inline]
 pub unsafe fn NdisIMDeInitializeDeviceInstance(ndisminiporthandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisIMDeInitializeDeviceInstance(ndisminiporthandle : *const core::ffi::c_void) -> i32);
-    NdisIMDeInitializeDeviceInstance(core::mem::transmute(ndisminiporthandle))
+    NdisIMDeInitializeDeviceInstance(ndisminiporthandle)
 }
 #[inline]
 pub unsafe fn NdisIMGetBindingContext(ndisbindinghandle: *const core::ffi::c_void) -> *mut core::ffi::c_void {
     windows_targets::link!("ndis.sys" "system" fn NdisIMGetBindingContext(ndisbindinghandle : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-    NdisIMGetBindingContext(core::mem::transmute(ndisbindinghandle))
+    NdisIMGetBindingContext(ndisbindinghandle)
 }
 #[inline]
 pub unsafe fn NdisIMInitializeDeviceInstanceEx(driverhandle: *const core::ffi::c_void, driverinstance: *const super::super::super::Win32::Foundation::UNICODE_STRING, devicecontext: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const core::ffi::c_void) -> i32);
-    NdisIMInitializeDeviceInstanceEx(core::mem::transmute(driverhandle), core::mem::transmute(driverinstance), core::mem::transmute(devicecontext.unwrap_or(core::ptr::null())))
+    NdisIMInitializeDeviceInstanceEx(driverhandle, driverinstance, core::mem::transmute(devicecontext.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -272,276 +272,276 @@ pub unsafe fn NdisInitializeEvent() -> NDIS_EVENT {
 #[inline]
 pub unsafe fn NdisInitializeReadWriteLock(lock: *mut NDIS_RW_LOCK) {
     windows_targets::link!("ndis.sys" "system" fn NdisInitializeReadWriteLock(lock : *mut NDIS_RW_LOCK));
-    NdisInitializeReadWriteLock(core::mem::transmute(lock))
+    NdisInitializeReadWriteLock(lock)
 }
 #[inline]
 pub unsafe fn NdisInitializeString(destination: *mut super::super::super::Win32::Foundation::UNICODE_STRING, source: *const u8) {
     windows_targets::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : *const u8));
-    NdisInitializeString(core::mem::transmute(destination), core::mem::transmute(source))
+    NdisInitializeString(destination, source)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisInitializeTimer(timer: *mut NDIS_TIMER, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Option<*const core::ffi::c_void>) {
     windows_targets::link!("ndis.sys" "system" fn NdisInitializeTimer(timer : *mut NDIS_TIMER, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
-    NdisInitializeTimer(core::mem::transmute(timer), core::mem::transmute(timerfunction), core::mem::transmute(functioncontext.unwrap_or(core::ptr::null())))
+    NdisInitializeTimer(timer, timerfunction, core::mem::transmute(functioncontext.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn NdisMAllocateSharedMemory<P2>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P2, virtualaddress: *mut *mut core::ffi::c_void, physicaladdress: *mut i64)
+pub unsafe fn NdisMAllocateSharedMemory<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, virtualaddress: *mut *mut core::ffi::c_void, physicaladdress: *mut i64)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *mut *mut core::ffi::c_void, physicaladdress : *mut i64));
-    NdisMAllocateSharedMemory(core::mem::transmute(miniportadapterhandle), core::mem::transmute(length), cached.param().abi(), core::mem::transmute(virtualaddress), core::mem::transmute(physicaladdress))
+    NdisMAllocateSharedMemory(miniportadapterhandle, length, cached.param().abi(), virtualaddress, physicaladdress)
 }
 #[inline]
-pub unsafe fn NdisMAllocateSharedMemoryAsync<P2>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P2, context: *const core::ffi::c_void) -> i32
+pub unsafe fn NdisMAllocateSharedMemoryAsync<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, context: *const core::ffi::c_void) -> i32
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const core::ffi::c_void) -> i32);
-    NdisMAllocateSharedMemoryAsync(core::mem::transmute(miniportadapterhandle), core::mem::transmute(length), cached.param().abi(), core::mem::transmute(context))
+    NdisMAllocateSharedMemoryAsync(miniportadapterhandle, length, cached.param().abi(), context)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMCancelTimer(timer: *const NDIS_MINIPORT_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
     windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = core::mem::zeroed();
-    NdisMCancelTimer(core::mem::transmute(timer), &mut result__);
+    NdisMCancelTimer(timer, &mut result__);
     result__
 }
 #[inline]
 pub unsafe fn NdisMCloseLog(loghandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMCloseLog(loghandle : *const core::ffi::c_void));
-    NdisMCloseLog(core::mem::transmute(loghandle))
+    NdisMCloseLog(loghandle)
 }
 #[inline]
 pub unsafe fn NdisMCmActivateVc(ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCmActivateVc(ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS) -> i32);
-    NdisMCmActivateVc(core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisMCmActivateVc(ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisMCmCreateVc(miniportadapterhandle: *const core::ffi::c_void, ndisafhandle: *const core::ffi::c_void, miniportvccontext: *const core::ffi::c_void, ndisvchandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCmCreateVc(miniportadapterhandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, miniportvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisMCmCreateVc(core::mem::transmute(miniportadapterhandle), core::mem::transmute(ndisafhandle), core::mem::transmute(miniportvccontext), core::mem::transmute(ndisvchandle))
+    NdisMCmCreateVc(miniportadapterhandle, ndisafhandle, miniportvccontext, ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisMCmDeactivateVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCmDeactivateVc(ndisvchandle : *const core::ffi::c_void) -> i32);
-    NdisMCmDeactivateVc(core::mem::transmute(ndisvchandle))
+    NdisMCmDeactivateVc(ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisMCmDeleteVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCmDeleteVc(ndisvchandle : *const core::ffi::c_void) -> i32);
-    NdisMCmDeleteVc(core::mem::transmute(ndisvchandle))
+    NdisMCmDeleteVc(ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisMCmRegisterAddressFamily(miniportadapterhandle: *mut core::ffi::c_void, addressfamily: *mut CO_ADDRESS_FAMILY, cmcharacteristics: *mut NDIS_CALL_MANAGER_CHARACTERISTICS, sizeofcmcharacteristics: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCmRegisterAddressFamily(miniportadapterhandle : *mut core::ffi::c_void, addressfamily : *mut CO_ADDRESS_FAMILY, cmcharacteristics : *mut NDIS_CALL_MANAGER_CHARACTERISTICS, sizeofcmcharacteristics : u32) -> i32);
-    NdisMCmRegisterAddressFamily(core::mem::transmute(miniportadapterhandle), core::mem::transmute(addressfamily), core::mem::transmute(cmcharacteristics), core::mem::transmute(sizeofcmcharacteristics))
+    NdisMCmRegisterAddressFamily(miniportadapterhandle, addressfamily, cmcharacteristics, sizeofcmcharacteristics)
 }
 #[inline]
 pub unsafe fn NdisMCoActivateVcComplete(status: i32, ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisMCoActivateVcComplete(status : i32, ndisvchandle : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisMCoActivateVcComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle), core::mem::transmute(callparameters))
+    NdisMCoActivateVcComplete(status, ndisvchandle, callparameters)
 }
 #[inline]
 pub unsafe fn NdisMCoDeactivateVcComplete(status: i32, ndisvchandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMCoDeactivateVcComplete(status : i32, ndisvchandle : *const core::ffi::c_void));
-    NdisMCoDeactivateVcComplete(core::mem::transmute(status), core::mem::transmute(ndisvchandle))
+    NdisMCoDeactivateVcComplete(status, ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisMCreateLog(miniportadapterhandle: *const core::ffi::c_void, size: u32, loghandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMCreateLog(miniportadapterhandle : *const core::ffi::c_void, size : u32, loghandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisMCreateLog(core::mem::transmute(miniportadapterhandle), core::mem::transmute(size), core::mem::transmute(loghandle))
+    NdisMCreateLog(miniportadapterhandle, size, loghandle)
 }
 #[inline]
 pub unsafe fn NdisMDeregisterDmaChannel(miniportdmahandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterDmaChannel(miniportdmahandle : *const core::ffi::c_void));
-    NdisMDeregisterDmaChannel(core::mem::transmute(miniportdmahandle))
+    NdisMDeregisterDmaChannel(miniportdmahandle)
 }
 #[inline]
 pub unsafe fn NdisMDeregisterIoPortRange(miniportadapterhandle: *const core::ffi::c_void, initialport: u32, numberofports: u32, portoffset: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMDeregisterIoPortRange(miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32, portoffset : *const core::ffi::c_void));
-    NdisMDeregisterIoPortRange(core::mem::transmute(miniportadapterhandle), core::mem::transmute(initialport), core::mem::transmute(numberofports), core::mem::transmute(portoffset))
+    NdisMDeregisterIoPortRange(miniportadapterhandle, initialport, numberofports, portoffset)
 }
 #[inline]
 pub unsafe fn NdisMFlushLog(loghandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMFlushLog(loghandle : *const core::ffi::c_void));
-    NdisMFlushLog(core::mem::transmute(loghandle))
+    NdisMFlushLog(loghandle)
 }
 #[inline]
-pub unsafe fn NdisMFreeSharedMemory<P2>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P2, virtualaddress: *const core::ffi::c_void, physicaladdress: i64)
+pub unsafe fn NdisMFreeSharedMemory<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, virtualaddress: *const core::ffi::c_void, physicaladdress: i64)
 where
-    P2: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const core::ffi::c_void, physicaladdress : i64));
-    NdisMFreeSharedMemory(core::mem::transmute(miniportadapterhandle), core::mem::transmute(length), cached.param().abi(), core::mem::transmute(virtualaddress), core::mem::transmute(physicaladdress))
+    NdisMFreeSharedMemory(miniportadapterhandle, length, cached.param().abi(), virtualaddress, physicaladdress)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
 pub unsafe fn NdisMGetDeviceProperty(miniportadapterhandle: *const core::ffi::c_void, physicaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, functionaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, nextdeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, allocatedresources: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>, allocatedresourcestranslated: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>) {
     windows_targets::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
-    NdisMGetDeviceProperty(core::mem::transmute(miniportadapterhandle), core::mem::transmute(physicaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(functionaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(nextdeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresources.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresourcestranslated.unwrap_or(core::ptr::null_mut())))
+    NdisMGetDeviceProperty(miniportadapterhandle, core::mem::transmute(physicaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(functionaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(nextdeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresources.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresourcestranslated.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisMGetDmaAlignment(miniportadapterhandle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMGetDmaAlignment(miniportadapterhandle : *const core::ffi::c_void) -> u32);
-    NdisMGetDmaAlignment(core::mem::transmute(miniportadapterhandle))
+    NdisMGetDmaAlignment(miniportadapterhandle)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMInitializeTimer(timer: *const NDIS_MINIPORT_TIMER, miniportadapterhandle: *const core::ffi::c_void, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMInitializeTimer(timer : *const NDIS_MINIPORT_TIMER, miniportadapterhandle : *const core::ffi::c_void, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
-    NdisMInitializeTimer(core::mem::transmute(timer), core::mem::transmute(miniportadapterhandle), core::mem::transmute(timerfunction), core::mem::transmute(functioncontext))
+    NdisMInitializeTimer(timer, miniportadapterhandle, timerfunction, functioncontext)
 }
 #[inline]
 pub unsafe fn NdisMMapIoSpace(virtualaddress: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, physicaladdress: i64, length: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMMapIoSpace(virtualaddress : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, physicaladdress : i64, length : u32) -> i32);
-    NdisMMapIoSpace(core::mem::transmute(virtualaddress), core::mem::transmute(miniportadapterhandle), core::mem::transmute(physicaladdress), core::mem::transmute(length))
+    NdisMMapIoSpace(virtualaddress, miniportadapterhandle, physicaladdress, length)
 }
 #[inline]
 pub unsafe fn NdisMQueryAdapterInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, miniporthandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, miniporthandle : *const core::ffi::c_void) -> i32);
-    NdisMQueryAdapterInstanceName(core::mem::transmute(padapterinstancename), core::mem::transmute(miniporthandle))
+    NdisMQueryAdapterInstanceName(padapterinstancename, miniporthandle)
 }
 #[inline]
 pub unsafe fn NdisMReadDmaCounter(miniportdmahandle: *const core::ffi::c_void) -> u32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMReadDmaCounter(miniportdmahandle : *const core::ffi::c_void) -> u32);
-    NdisMReadDmaCounter(core::mem::transmute(miniportdmahandle))
+    NdisMReadDmaCounter(miniportdmahandle)
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn NdisMRegisterDmaChannel<P3>(miniportdmahandle: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, dmachannel: u32, dma32bitaddresses: P3, dmadescription: *const NDIS_DMA_DESCRIPTION, maximumlength: u32) -> i32
+pub unsafe fn NdisMRegisterDmaChannel<P0>(miniportdmahandle: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, dmachannel: u32, dma32bitaddresses: P0, dmadescription: *const NDIS_DMA_DESCRIPTION, maximumlength: u32) -> i32
 where
-    P3: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisMRegisterDmaChannel(miniportdmahandle : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, dmachannel : u32, dma32bitaddresses : super::super::super::Win32::Foundation:: BOOLEAN, dmadescription : *const NDIS_DMA_DESCRIPTION, maximumlength : u32) -> i32);
-    NdisMRegisterDmaChannel(core::mem::transmute(miniportdmahandle), core::mem::transmute(miniportadapterhandle), core::mem::transmute(dmachannel), dma32bitaddresses.param().abi(), core::mem::transmute(dmadescription), core::mem::transmute(maximumlength))
+    NdisMRegisterDmaChannel(miniportdmahandle, miniportadapterhandle, dmachannel, dma32bitaddresses.param().abi(), dmadescription, maximumlength)
 }
 #[inline]
 pub unsafe fn NdisMRegisterIoPortRange(portoffset: *mut *mut core::ffi::c_void, miniportadapterhandle: *const core::ffi::c_void, initialport: u32, numberofports: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMRegisterIoPortRange(portoffset : *mut *mut core::ffi::c_void, miniportadapterhandle : *const core::ffi::c_void, initialport : u32, numberofports : u32) -> i32);
-    NdisMRegisterIoPortRange(core::mem::transmute(portoffset), core::mem::transmute(miniportadapterhandle), core::mem::transmute(initialport), core::mem::transmute(numberofports))
+    NdisMRegisterIoPortRange(portoffset, miniportadapterhandle, initialport, numberofports)
 }
 #[inline]
 pub unsafe fn NdisMRemoveMiniport(miniporthandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMRemoveMiniport(miniporthandle : *const core::ffi::c_void) -> i32);
-    NdisMRemoveMiniport(core::mem::transmute(miniporthandle))
+    NdisMRemoveMiniport(miniporthandle)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMSetPeriodicTimer(timer: *const NDIS_MINIPORT_TIMER, millisecondperiod: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisMSetPeriodicTimer(timer : *const NDIS_MINIPORT_TIMER, millisecondperiod : u32));
-    NdisMSetPeriodicTimer(core::mem::transmute(timer), core::mem::transmute(millisecondperiod))
+    NdisMSetPeriodicTimer(timer, millisecondperiod)
 }
 #[inline]
 pub unsafe fn NdisMSleep(microsecondstosleep: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisMSleep(microsecondstosleep : u32));
-    NdisMSleep(core::mem::transmute(microsecondstosleep))
+    NdisMSleep(microsecondstosleep)
 }
 #[inline]
 pub unsafe fn NdisMUnmapIoSpace(miniportadapterhandle: *const core::ffi::c_void, virtualaddress: *const core::ffi::c_void, length: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisMUnmapIoSpace(miniportadapterhandle : *const core::ffi::c_void, virtualaddress : *const core::ffi::c_void, length : u32));
-    NdisMUnmapIoSpace(core::mem::transmute(miniportadapterhandle), core::mem::transmute(virtualaddress), core::mem::transmute(length))
+    NdisMUnmapIoSpace(miniportadapterhandle, virtualaddress, length)
 }
 #[inline]
 pub unsafe fn NdisMWriteLogData(loghandle: *const core::ffi::c_void, logbuffer: *const core::ffi::c_void, logbuffersize: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisMWriteLogData(loghandle : *const core::ffi::c_void, logbuffer : *const core::ffi::c_void, logbuffersize : u32) -> i32);
-    NdisMWriteLogData(core::mem::transmute(loghandle), core::mem::transmute(logbuffer), core::mem::transmute(logbuffersize))
+    NdisMWriteLogData(loghandle, logbuffer, logbuffersize)
 }
 #[inline]
 pub unsafe fn NdisMapFile(status: *mut i32, mappedbuffer: *mut *mut core::ffi::c_void, filehandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisMapFile(status : *mut i32, mappedbuffer : *mut *mut core::ffi::c_void, filehandle : *const core::ffi::c_void));
-    NdisMapFile(core::mem::transmute(status), core::mem::transmute(mappedbuffer), core::mem::transmute(filehandle))
+    NdisMapFile(status, mappedbuffer, filehandle)
 }
 #[inline]
 pub unsafe fn NdisOpenConfigurationKeyByIndex(status: *mut i32, configurationhandle: *const core::ffi::c_void, index: u32, keyname: *mut super::super::super::Win32::Foundation::UNICODE_STRING, keyhandle: *mut *mut core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByIndex(status : *mut i32, configurationhandle : *const core::ffi::c_void, index : u32, keyname : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, keyhandle : *mut *mut core::ffi::c_void));
-    NdisOpenConfigurationKeyByIndex(core::mem::transmute(status), core::mem::transmute(configurationhandle), core::mem::transmute(index), core::mem::transmute(keyname), core::mem::transmute(keyhandle))
+    NdisOpenConfigurationKeyByIndex(status, configurationhandle, index, keyname, keyhandle)
 }
 #[inline]
 pub unsafe fn NdisOpenConfigurationKeyByName(status: *mut i32, configurationhandle: *const core::ffi::c_void, subkeyname: *const super::super::super::Win32::Foundation::UNICODE_STRING, subkeyhandle: *mut *mut core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByName(status : *mut i32, configurationhandle : *const core::ffi::c_void, subkeyname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, subkeyhandle : *mut *mut core::ffi::c_void));
-    NdisOpenConfigurationKeyByName(core::mem::transmute(status), core::mem::transmute(configurationhandle), core::mem::transmute(subkeyname), core::mem::transmute(subkeyhandle))
+    NdisOpenConfigurationKeyByName(status, configurationhandle, subkeyname, subkeyhandle)
 }
 #[inline]
 pub unsafe fn NdisOpenFile(status: *mut i32, filehandle: *mut *mut core::ffi::c_void, filelength: *mut u32, filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, highestacceptableaddress: i64) {
     windows_targets::link!("ndis.sys" "system" fn NdisOpenFile(status : *mut i32, filehandle : *mut *mut core::ffi::c_void, filelength : *mut u32, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, highestacceptableaddress : i64));
-    NdisOpenFile(core::mem::transmute(status), core::mem::transmute(filehandle), core::mem::transmute(filelength), core::mem::transmute(filename), core::mem::transmute(highestacceptableaddress))
+    NdisOpenFile(status, filehandle, filelength, filename, highestacceptableaddress)
 }
 #[inline]
 pub unsafe fn NdisQueryAdapterInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, ndisbindinghandle: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, ndisbindinghandle : *const core::ffi::c_void) -> i32);
-    NdisQueryAdapterInstanceName(core::mem::transmute(padapterinstancename), core::mem::transmute(ndisbindinghandle))
+    NdisQueryAdapterInstanceName(padapterinstancename, ndisbindinghandle)
 }
 #[inline]
 pub unsafe fn NdisQueryBindInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, bindingcontext: *const core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisQueryBindInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, bindingcontext : *const core::ffi::c_void) -> i32);
-    NdisQueryBindInstanceName(core::mem::transmute(padapterinstancename), core::mem::transmute(bindingcontext))
+    NdisQueryBindInstanceName(padapterinstancename, bindingcontext)
 }
 #[inline]
 pub unsafe fn NdisReEnumerateProtocolBindings(ndisprotocolhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisReEnumerateProtocolBindings(ndisprotocolhandle : *const core::ffi::c_void));
-    NdisReEnumerateProtocolBindings(core::mem::transmute(ndisprotocolhandle))
+    NdisReEnumerateProtocolBindings(ndisprotocolhandle)
 }
 #[inline]
 pub unsafe fn NdisReadConfiguration(status: *mut i32, parametervalue: *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle: *const core::ffi::c_void, keyword: *const super::super::super::Win32::Foundation::UNICODE_STRING, parametertype: NDIS_PARAMETER_TYPE) {
     windows_targets::link!("ndis.sys" "system" fn NdisReadConfiguration(status : *mut i32, parametervalue : *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametertype : NDIS_PARAMETER_TYPE));
-    NdisReadConfiguration(core::mem::transmute(status), core::mem::transmute(parametervalue), core::mem::transmute(configurationhandle), core::mem::transmute(keyword), core::mem::transmute(parametertype))
+    NdisReadConfiguration(status, parametervalue, configurationhandle, keyword, parametertype)
 }
 #[inline]
 pub unsafe fn NdisReadNetworkAddress(status: *mut i32, networkaddress: *mut *mut core::ffi::c_void, networkaddresslength: *mut u32, configurationhandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisReadNetworkAddress(status : *mut i32, networkaddress : *mut *mut core::ffi::c_void, networkaddresslength : *mut u32, configurationhandle : *const core::ffi::c_void));
-    NdisReadNetworkAddress(core::mem::transmute(status), core::mem::transmute(networkaddress), core::mem::transmute(networkaddresslength), core::mem::transmute(configurationhandle))
+    NdisReadNetworkAddress(status, networkaddress, networkaddresslength, configurationhandle)
 }
 #[inline]
 pub unsafe fn NdisRegisterTdiCallBack(registercallback: TDI_REGISTER_CALLBACK, pnphandler: TDI_PNP_HANDLER) {
     windows_targets::link!("ndis.sys" "system" fn NdisRegisterTdiCallBack(registercallback : TDI_REGISTER_CALLBACK, pnphandler : TDI_PNP_HANDLER));
-    NdisRegisterTdiCallBack(core::mem::transmute(registercallback), core::mem::transmute(pnphandler))
+    NdisRegisterTdiCallBack(registercallback, pnphandler)
 }
 #[inline]
 pub unsafe fn NdisReleaseReadWriteLock(lock: *mut NDIS_RW_LOCK, lockstate: *const LOCK_STATE) {
     windows_targets::link!("ndis.sys" "system" fn NdisReleaseReadWriteLock(lock : *mut NDIS_RW_LOCK, lockstate : *const LOCK_STATE));
-    NdisReleaseReadWriteLock(core::mem::transmute(lock), core::mem::transmute(lockstate))
+    NdisReleaseReadWriteLock(lock, lockstate)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisResetEvent(event: *const NDIS_EVENT) {
     windows_targets::link!("ndis.sys" "system" fn NdisResetEvent(event : *const NDIS_EVENT));
-    NdisResetEvent(core::mem::transmute(event))
+    NdisResetEvent(event)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetEvent(event: *const NDIS_EVENT) {
     windows_targets::link!("ndis.sys" "system" fn NdisSetEvent(event : *const NDIS_EVENT));
-    NdisSetEvent(core::mem::transmute(event))
+    NdisSetEvent(event)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetPeriodicTimer(ndistimer: *const NDIS_TIMER, millisecondsperiod: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisSetPeriodicTimer(ndistimer : *const NDIS_TIMER, millisecondsperiod : u32));
-    NdisSetPeriodicTimer(core::mem::transmute(ndistimer), core::mem::transmute(millisecondsperiod))
+    NdisSetPeriodicTimer(ndistimer, millisecondsperiod)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetTimer(timer: *const NDIS_TIMER, millisecondstodelay: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisSetTimer(timer : *const NDIS_TIMER, millisecondstodelay : u32));
-    NdisSetTimer(core::mem::transmute(timer), core::mem::transmute(millisecondstodelay))
+    NdisSetTimer(timer, millisecondstodelay)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetTimerEx(ndistimer: *const NDIS_TIMER, millisecondstodelay: u32, functioncontext: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisSetTimerEx(ndistimer : *const NDIS_TIMER, millisecondstodelay : u32, functioncontext : *const core::ffi::c_void));
-    NdisSetTimerEx(core::mem::transmute(ndistimer), core::mem::transmute(millisecondstodelay), core::mem::transmute(functioncontext))
+    NdisSetTimerEx(ndistimer, millisecondstodelay, functioncontext)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
-pub unsafe fn NdisSetupDmaTransfer<P5>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P5)
+pub unsafe fn NdisSetupDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
 where
-    P5: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P0: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
-    NdisSetupDmaTransfer(core::mem::transmute(status), core::mem::transmute(ndisdmahandle), core::mem::transmute(buffer), core::mem::transmute(offset), core::mem::transmute(length), writetodevice.param().abi())
+    NdisSetupDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.param().abi())
 }
 #[inline]
 pub unsafe fn NdisSystemProcessorCount() -> i8 {
@@ -551,33 +551,33 @@ pub unsafe fn NdisSystemProcessorCount() -> i8 {
 #[inline]
 pub unsafe fn NdisUnmapFile(filehandle: *const core::ffi::c_void) {
     windows_targets::link!("ndis.sys" "system" fn NdisUnmapFile(filehandle : *const core::ffi::c_void));
-    NdisUnmapFile(core::mem::transmute(filehandle))
+    NdisUnmapFile(filehandle)
 }
 #[inline]
 pub unsafe fn NdisUpdateSharedMemory(ndisadapterhandle: *mut core::ffi::c_void, length: u32, virtualaddress: *mut core::ffi::c_void, physicaladdress: i64) {
     windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapterhandle : *mut core::ffi::c_void, length : u32, virtualaddress : *mut core::ffi::c_void, physicaladdress : i64));
-    NdisUpdateSharedMemory(core::mem::transmute(ndisadapterhandle), core::mem::transmute(length), core::mem::transmute(virtualaddress), core::mem::transmute(physicaladdress))
+    NdisUpdateSharedMemory(ndisadapterhandle, length, virtualaddress, physicaladdress)
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisWaitEvent(event: *const NDIS_EVENT, mstowait: u32) -> super::super::super::Win32::Foundation::BOOLEAN {
     windows_targets::link!("ndis.sys" "system" fn NdisWaitEvent(event : *const NDIS_EVENT, mstowait : u32) -> super::super::super::Win32::Foundation:: BOOLEAN);
-    NdisWaitEvent(core::mem::transmute(event), core::mem::transmute(mstowait))
+    NdisWaitEvent(event, mstowait)
 }
 #[inline]
 pub unsafe fn NdisWriteConfiguration(status: *mut i32, configurationhandle: *const core::ffi::c_void, keyword: *const super::super::super::Win32::Foundation::UNICODE_STRING, parametervalue: *const NDIS_CONFIGURATION_PARAMETER) {
     windows_targets::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
-    NdisWriteConfiguration(core::mem::transmute(status), core::mem::transmute(configurationhandle), core::mem::transmute(keyword), core::mem::transmute(parametervalue))
+    NdisWriteConfiguration(status, configurationhandle, keyword, parametervalue)
 }
 #[inline]
 pub unsafe fn NdisWriteErrorLogEntry(ndisadapterhandle: *const core::ffi::c_void, errorcode: u32, numberoferrorvalues: u32) {
     windows_targets::link!("ndis.sys" "cdecl" fn NdisWriteErrorLogEntry(ndisadapterhandle : *const core::ffi::c_void, errorcode : u32, numberoferrorvalues : u32));
-    NdisWriteErrorLogEntry(core::mem::transmute(ndisadapterhandle), core::mem::transmute(errorcode), core::mem::transmute(numberoferrorvalues))
+    NdisWriteErrorLogEntry(ndisadapterhandle, errorcode, numberoferrorvalues)
 }
 #[inline]
 pub unsafe fn NdisWriteEventLogEntry(loghandle: *const core::ffi::c_void, eventcode: i32, uniqueeventvalue: u32, numstrings: u16, stringslist: Option<*const core::ffi::c_void>, datasize: u32, data: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const core::ffi::c_void, datasize : u32, data : *const core::ffi::c_void) -> i32);
-    NdisWriteEventLogEntry(core::mem::transmute(loghandle), core::mem::transmute(eventcode), core::mem::transmute(uniqueeventvalue), core::mem::transmute(numstrings), core::mem::transmute(stringslist.unwrap_or(core::ptr::null())), core::mem::transmute(datasize), core::mem::transmute(data.unwrap_or(core::ptr::null())))
+    NdisWriteEventLogEntry(loghandle, eventcode, uniqueeventvalue, numstrings, core::mem::transmute(stringslist.unwrap_or(core::ptr::null())), datasize, core::mem::transmute(data.unwrap_or(core::ptr::null())))
 }
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
 pub const BINARY_COMPATIBLE: u32 = 0u32;
@@ -2865,336 +2865,550 @@ pub const fPACKET_ALLOCATED_BY_NDIS: u32 = 128u32;
 pub const fPACKET_CONTAINS_MEDIA_SPECIFIC_INFO: u32 = 64u32;
 pub const fPACKET_WRAPPER_RESERVED: u32 = 63u32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_AUTHENTICATION_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_MEDIA_STREAM_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_NETWORK_INFRASTRUCTURE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_NETWORK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_POWER_MODE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_POWER_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_POWER_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_POWER_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_PRIVACY_FILTER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_RADIO_STATUS(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_RADIO_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_RADIO_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_RELOAD_DEFAULTS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_STATUS_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_STATUS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_STATUS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_11_WEP_STATUS(pub i32);
 impl windows_core::TypeKind for NDIS_802_11_WEP_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_11_WEP_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_WEP_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_802_5_RING_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_802_5_RING_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_802_5_RING_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_802_5_RING_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_CLASS_ID(pub i32);
 impl windows_core::TypeKind for NDIS_CLASS_ID {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_CLASS_ID {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_CLASS_ID").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_DEVICE_PNP_EVENT(pub i32);
 impl windows_core::TypeKind for NDIS_DEVICE_PNP_EVENT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_DEVICE_PNP_EVENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_DEVICE_PNP_EVENT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_DEVICE_POWER_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_DEVICE_POWER_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_DEVICE_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_ENVIRONMENT_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_ENVIRONMENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_ENVIRONMENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_ENVIRONMENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_ATTACHMENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_LCONNECTION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_RING_MGT_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_HARDWARE_STATUS(pub i32);
 impl windows_core::TypeKind for NDIS_HARDWARE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_HARDWARE_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_HARDWARE_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_INTERFACE_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_INTERFACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_INTERFACE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_INTERFACE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_INTERRUPT_MODERATION(pub i32);
 impl windows_core::TypeKind for NDIS_INTERRUPT_MODERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_INTERRUPT_MODERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_MEDIA_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_MEDIA_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_MEDIA_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_MEDIA_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_MEDIUM(pub i32);
 impl windows_core::TypeKind for NDIS_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_MEDIUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_MEDIUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_NETWORK_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PARAMETER_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_PARAMETER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PER_PACKET_INFO(pub i32);
 impl windows_core::TypeKind for NDIS_PER_PACKET_INFO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PER_PACKET_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PER_PACKET_INFO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
 impl windows_core::TypeKind for NDIS_PHYSICAL_MEDIUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PHYSICAL_MEDIUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_AUTHORIZATION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PORT_CONTROL_STATE(pub i32);
 impl windows_core::TypeKind for NDIS_PORT_CONTROL_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_CONTROL_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PORT_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_PORT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PORT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_POWER_PROFILE(pub i32);
 impl windows_core::TypeKind for NDIS_POWER_PROFILE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_POWER_PROFILE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_POWER_PROFILE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PROCESSOR_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_PROCESSOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PROCESSOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PROCESSOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_PROCESSOR_VENDOR(pub i32);
 impl windows_core::TypeKind for NDIS_PROCESSOR_VENDOR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_PROCESSOR_VENDOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_REQUEST_TYPE(pub i32);
 impl windows_core::TypeKind for NDIS_REQUEST_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_REQUEST_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
 impl windows_core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_SUPPORTED_PAUSE_FUNCTIONS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
 impl windows_core::TypeKind for NDIS_WAN_HEADER_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_HEADER_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
 impl windows_core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_MEDIUM_SUBTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NDIS_WAN_QUALITY(pub i32);
 impl windows_core::TypeKind for NDIS_WAN_QUALITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for NDIS_WAN_QUALITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_QUALITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OFFLOAD_CONF_ALGO(pub i32);
 impl windows_core::TypeKind for OFFLOAD_CONF_ALGO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OFFLOAD_CONF_ALGO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OFFLOAD_CONF_ALGO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
 impl windows_core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OFFLOAD_INTEGRITY_ALGO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OFFLOAD_OPERATION_E(pub i32);
 impl windows_core::TypeKind for OFFLOAD_OPERATION_E {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OFFLOAD_OPERATION_E {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OFFLOAD_OPERATION_E").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct UDP_ENCAP_TYPE(pub i32);
 impl windows_core::TypeKind for UDP_ENCAP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for UDP_ENCAP_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("UDP_ENCAP_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BINARY_DATA {
     pub Length: u16,
     pub Buffer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for BINARY_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BINARY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BINARY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSSID_INFO {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
+}
+impl windows_core::TypeKind for BSSID_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for BSSID_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for BSSID_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS {
     pub AddressSize: u32,
     pub Address: [u8; 1],
+}
+impl windows_core::TypeKind for CO_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS_FAMILY {
     pub AddressFamily: u32,
     pub MajorVersion: u32,
     pub MinorVersion: u32,
+}
+impl windows_core::TypeKind for CO_ADDRESS_FAMILY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_ADDRESS_FAMILY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_ADDRESS_FAMILY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_ADDRESS_LIST {
     pub NumberOfAddressesAvailable: u32,
     pub NumberOfAddresses: u32,
     pub AddressList: CO_ADDRESS,
+}
+impl windows_core::TypeKind for CO_ADDRESS_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_CALL_MANAGER_PARAMETERS {
     pub Transmit: super::super::super::Win32::Networking::WinSock::FLOWSPEC,
     pub Receive: super::super::super::Win32::Networking::WinSock::FLOWSPEC,
     pub CallMgrSpecific: CO_SPECIFIC_PARAMETERS,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for CO_CALL_MANAGER_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for CO_CALL_MANAGER_PARAMETERS {
@@ -3202,69 +3416,80 @@ impl Default for CO_CALL_MANAGER_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for CO_CALL_MANAGER_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_CALL_PARAMETERS(pub isize);
+impl Default for CO_CALL_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for CO_CALL_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_MEDIA_PARAMETERS(pub isize);
+impl Default for CO_MEDIA_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for CO_MEDIA_PARAMETERS {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_PVC {
     pub NdisAfHandle: *mut core::ffi::c_void,
     pub PvcParameters: CO_SPECIFIC_PARAMETERS,
+}
+impl windows_core::TypeKind for CO_PVC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_PVC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_PVC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_SAP {
     pub SapType: u32,
     pub SapLength: u32,
     pub Sap: [u8; 1],
+}
+impl windows_core::TypeKind for CO_SAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_SAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_SAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CO_SPECIFIC_PARAMETERS {
     pub ParamType: u32,
     pub Length: u32,
     pub Parameters: [u8; 1],
+}
+impl windows_core::TypeKind for CO_SPECIFIC_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CO_SPECIFIC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CO_SPECIFIC_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ETH_FILTER(pub isize);
+impl Default for ETH_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for ETH_FILTER {
     type TypeKind = windows_core::CopyType;
 }
@@ -3276,13 +3501,13 @@ pub struct FILTERDBS {
     pub YYYDB: *mut core::ffi::c_void,
     pub XXXDB: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for FILTERDBS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILTERDBS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTERDBS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3290,103 +3515,103 @@ pub union FILTERDBS_0 {
     pub EthDB: *mut ETH_FILTER,
     pub NullDB: *mut isize,
 }
+impl windows_core::TypeKind for FILTERDBS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILTERDBS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FILTERDBS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GEN_GET_NETCARD_TIME {
     pub ReadTime: u64,
+}
+impl windows_core::TypeKind for GEN_GET_NETCARD_TIME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for GEN_GET_NETCARD_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GEN_GET_NETCARD_TIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GEN_GET_TIME_CAPS {
     pub Flags: u32,
     pub ClockPrecision: u32,
+}
+impl windows_core::TypeKind for GEN_GET_TIME_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for GEN_GET_TIME_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GEN_GET_TIME_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCK_STATE {
     pub LockState: u16,
     pub OldIrql: u8,
+}
+impl windows_core::TypeKind for LOCK_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LOCK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOCK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEDIA_SPECIFIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub ClassId: NDIS_CLASS_ID,
     pub Size: u32,
     pub ClassInformation: [u8; 1],
 }
+impl windows_core::TypeKind for MEDIA_SPECIFIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MEDIA_SPECIFIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MEDIA_SPECIFIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_REQFI {
     pub Capabilities: u16,
     pub ListenInterval: u16,
     pub CurrentAPAddress: [u8; 6],
+}
+impl windows_core::TypeKind for NDIS_802_11_AI_REQFI {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_AI_REQFI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_AI_REQFI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_RESFI {
     pub Capabilities: u16,
     pub StatusCode: u16,
     pub AssociationId: u16,
+}
+impl windows_core::TypeKind for NDIS_802_11_AI_RESFI {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_AI_RESFI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_AI_RESFI {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub Length: u32,
     pub AvailableRequestFixedIEs: u16,
@@ -3398,87 +3623,87 @@ pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub ResponseIELength: u32,
     pub OffsetResponseIEs: u32,
 }
+impl windows_core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
     pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
+}
+impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_AUTHENTICATION_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Length: u32,
     pub Bssid: [u8; 6],
     pub Flags: u32,
+}
+impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST_EX {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_BSSID_LIST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CAPABILITY {
     pub Length: u32,
     pub Version: u32,
@@ -3486,16 +3711,16 @@ pub struct NDIS_802_11_CAPABILITY {
     pub NoOfAuthEncryptPairsSupported: u32,
     pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
 }
+impl windows_core::TypeKind for NDIS_802_11_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION {
     pub Length: u32,
     pub BeaconPeriod: u32,
@@ -3503,47 +3728,47 @@ pub struct NDIS_802_11_CONFIGURATION {
     pub DSConfig: u32,
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
+impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION_FH {
     pub Length: u32,
     pub HopPattern: u32,
     pub HopSet: u32,
     pub DwellTime: u32,
 }
+impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_CONFIGURATION_FH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_FIXED_IEs {
     pub Timestamp: [u8; 8],
     pub BeaconInterval: u16,
     pub Capabilities: u16,
+}
+impl windows_core::TypeKind for NDIS_802_11_FIXED_IEs {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_FIXED_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_FIXED_IEs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -3552,103 +3777,103 @@ pub struct NDIS_802_11_KEY {
     pub KeyRSC: u64,
     pub KeyMaterial: [u8; 1],
 }
+impl windows_core::TypeKind for NDIS_802_11_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_NETWORK_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
     pub NumberOfItems: u32,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID {
     pub Length: u32,
     pub BSSIDInfoCount: u32,
     pub BSSIDInfo: [BSSID_INFO; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_PMKID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_PMKID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_PMKID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
     pub Version: u32,
     pub NumCandidates: u32,
     pub CandidateList: [PMKID_CANDIDATE; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_REMOVE_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
     pub BSSID: [u8; 6],
+}
+impl windows_core::TypeKind for NDIS_802_11_REMOVE_KEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_REMOVE_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_REMOVE_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_SSID {
     pub SsidLength: u32,
     pub Ssid: [u8; 32],
+}
+impl windows_core::TypeKind for NDIS_802_11_SSID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_SSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_SSID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_STATISTICS {
     pub Length: u32,
     pub TransmittedFragmentCount: i64,
@@ -3676,26 +3901,26 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptSuccessCount: i64,
     pub DecryptFailureCount: i64,
 }
+impl windows_core::TypeKind for NDIS_802_11_STATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_STATISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_STATUS_INDICATION {
     pub StatusType: NDIS_802_11_STATUS_TYPE,
+}
+impl windows_core::TypeKind for NDIS_802_11_STATUS_INDICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_STATUS_INDICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_802_11_STATUS_INDICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3704,13 +3929,13 @@ pub struct NDIS_802_11_TEST {
     pub Type: u32,
     pub Anonymous: NDIS_802_11_TEST_0,
 }
+impl windows_core::TypeKind for NDIS_802_11_TEST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_TEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_802_11_TEST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3718,54 +3943,64 @@ pub union NDIS_802_11_TEST_0 {
     pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
     pub RssiTrigger: i32,
 }
+impl windows_core::TypeKind for NDIS_802_11_TEST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_TEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_TEST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_VARIABLE_IEs {
     pub ElementID: u8,
     pub Length: u8,
     pub data: [u8; 1],
+}
+impl windows_core::TypeKind for NDIS_802_11_VARIABLE_IEs {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_802_11_VARIABLE_IEs {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_VARIABLE_IEs {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_WEP {
     pub Length: u32,
     pub KeyIndex: u32,
     pub KeyLength: u32,
     pub KeyMaterial: [u8; 1],
 }
+impl windows_core::TypeKind for NDIS_802_11_WEP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_802_11_WEP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_802_11_WEP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_AF_LIST(pub isize);
+impl Default for NDIS_AF_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_AF_LIST {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_CALL_MANAGER_CHARACTERISTICS(pub isize);
+impl Default for NDIS_CALL_MANAGER_CHARACTERISTICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_CALL_MANAGER_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
@@ -3775,13 +4010,13 @@ pub struct NDIS_CONFIGURATION_PARAMETER {
     pub ParameterType: NDIS_PARAMETER_TYPE,
     pub ParameterData: NDIS_CONFIGURATION_PARAMETER_0,
 }
+impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_CONFIGURATION_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3790,16 +4025,16 @@ pub union NDIS_CONFIGURATION_PARAMETER_0 {
     pub StringData: super::super::super::Win32::Foundation::UNICODE_STRING,
     pub BinaryData: BINARY_DATA,
 }
+impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_CONFIGURATION_PARAMETER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_CONFIGURATION_PARAMETER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
     pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
@@ -3830,27 +4065,27 @@ pub struct NDIS_CO_DEVICE_PROFILE {
     pub ulUUISendUserUserInfoSize: u32,
     pub ulUUICallInfoSize: u32,
 }
+impl windows_core::TypeKind for NDIS_CO_DEVICE_PROFILE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_CO_DEVICE_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_CO_DEVICE_PROFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_CO_LINK_SPEED {
     pub Outbound: u32,
     pub Inbound: u32,
+}
+impl windows_core::TypeKind for NDIS_CO_LINK_SPEED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_CO_LINK_SPEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_CO_LINK_SPEED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -3863,18 +4098,18 @@ pub struct NDIS_DMA_BLOCK {
     pub InProgress: super::super::super::Win32::Foundation::BOOLEAN,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for NDIS_DMA_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for NDIS_DMA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for NDIS_DMA_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Wdk_System_SystemServices")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_DMA_DESCRIPTION {
     pub DemandMode: super::super::super::Win32::Foundation::BOOLEAN,
     pub AutoInitialize: super::super::super::Win32::Foundation::BOOLEAN,
@@ -3885,14 +4120,14 @@ pub struct NDIS_DMA_DESCRIPTION {
     pub DmaChannel: u32,
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
+impl windows_core::TypeKind for NDIS_DMA_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_System_SystemServices")]
 impl Default for NDIS_DMA_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Wdk_System_SystemServices")]
-impl windows_core::TypeKind for NDIS_DMA_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -3901,14 +4136,14 @@ pub struct NDIS_EVENT {
     pub Event: super::super::Foundation::KEVENT,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for NDIS_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for NDIS_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for NDIS_EVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3918,13 +4153,13 @@ pub struct NDIS_GUID {
     pub Size: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_GUID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_GUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_GUID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3932,16 +4167,16 @@ pub union NDIS_GUID_0 {
     pub Oid: u32,
     pub Status: i32,
 }
+impl windows_core::TypeKind for NDIS_GUID_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_GUID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_GUID_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -3949,72 +4184,72 @@ pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
+impl windows_core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
+}
+impl windows_core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
     pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
+}
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IPSEC_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -4022,21 +4257,25 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_IP_OPER_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATE {
@@ -4044,17 +4283,17 @@ impl Default for NDIS_IP_OPER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_IP_OPER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
     pub OperationalStatus: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_IP_OPER_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATUS {
@@ -4062,13 +4301,9 @@ impl Default for NDIS_IP_OPER_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_IP_OPER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -4076,32 +4311,32 @@ pub struct NDIS_IP_OPER_STATUS_INFO {
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_IP_OPER_STATUS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IRDA_PACKET_INFO {
     pub ExtraBOFs: u32,
     pub MinTurnAroundTime: u32,
+}
+impl windows_core::TypeKind for NDIS_IRDA_PACKET_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IRDA_PACKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_IRDA_PACKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaDuplexState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_DUPLEX_STATE,
@@ -4111,32 +4346,32 @@ pub struct NDIS_LINK_PARAMETERS {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_LINK_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_LINK_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_LINK_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_SPEED {
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
+}
+impl windows_core::TypeKind for NDIS_LINK_SPEED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_LINK_SPEED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_LINK_SPEED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_LINK_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_CONNECT_STATE,
@@ -4147,18 +4382,23 @@ pub struct NDIS_LINK_STATE {
     pub AutoNegotiationFlags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_LINK_STATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_LINK_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_LINK_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_MINIPORT_BLOCK(pub isize);
+impl Default for NDIS_MINIPORT_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_MINIPORT_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
@@ -4174,38 +4414,43 @@ pub struct NDIS_MINIPORT_TIMER {
     pub NextTimer: *mut NDIS_MINIPORT_TIMER,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for NDIS_MINIPORT_TIMER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 impl Default for NDIS_MINIPORT_TIMER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for NDIS_MINIPORT_TIMER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_M_DRIVER_BLOCK(pub isize);
+impl Default for NDIS_M_DRIVER_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_M_DRIVER_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OBJECT_HEADER {
     pub Type: u8,
     pub Revision: u8,
     pub Size: u16,
+}
+impl windows_core::TypeKind for NDIS_OBJECT_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_OBJECT_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
@@ -4214,16 +4459,16 @@ pub struct NDIS_OFFLOAD {
     pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub IPv4Checksum: u8,
@@ -4239,27 +4484,36 @@ pub struct NDIS_OFFLOAD_PARAMETERS {
     pub TcpConnectionIPv6: u8,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_OFFLOAD_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_OPEN_BLOCK(pub isize);
+impl Default for NDIS_OPEN_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_OPEN_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub OperationalStatus: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_OPER_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_OPER_STATE {
@@ -4267,22 +4521,18 @@ impl Default for NDIS_OPER_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_OPER_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_PACKET_8021Q_INFO {
     pub Anonymous: NDIS_PACKET_8021Q_INFO_0,
 }
+impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_PACKET_8021Q_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4290,29 +4540,29 @@ pub union NDIS_PACKET_8021Q_INFO_0 {
     pub TagHeader: NDIS_PACKET_8021Q_INFO_0_0,
     pub Value: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_PACKET_8021Q_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PACKET_8021Q_INFO_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_PACKET_8021Q_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PACKET_8021Q_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub DeviceType: u32,
@@ -4328,20 +4578,17 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub InterruptType: u32,
     pub MaxInterruptMessages: u32,
 }
+impl windows_core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_COUNTER_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for NDIS_PD_COUNTER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NDIS_PD_COUNTER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -4352,12 +4599,12 @@ impl Default for NDIS_PD_COUNTER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NDIS_PD_COUNTER_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_FILTER_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for NDIS_PD_FILTER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NDIS_PD_FILTER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -4368,12 +4615,12 @@ impl Default for NDIS_PD_FILTER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NDIS_PD_FILTER_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PD_PROVIDER_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for NDIS_PD_PROVIDER_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NDIS_PD_PROVIDER_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -4384,22 +4631,25 @@ impl Default for NDIS_PD_PROVIDER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NDIS_PD_PROVIDER_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PHYSICAL_ADDRESS_UNIT {
     pub PhysicalAddress: i64,
     pub Length: u32,
+}
+impl windows_core::TypeKind for NDIS_PHYSICAL_ADDRESS_UNIT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_PHYSICAL_ADDRESS_UNIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PHYSICAL_ADDRESS_UNIT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PM_PACKET_PATTERN {
     pub Priority: u32,
     pub Reserved: u32,
@@ -4408,49 +4658,46 @@ pub struct NDIS_PM_PACKET_PATTERN {
     pub PatternSize: u32,
     pub PatternFlags: u32,
 }
+impl windows_core::TypeKind for NDIS_PM_PACKET_PATTERN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_PM_PACKET_PATTERN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PM_PACKET_PATTERN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
+}
+impl windows_core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
+}
+impl windows_core::TypeKind for NDIS_PNP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_PNP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PNP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_POLL_HANDLE(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for NDIS_POLL_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl NDIS_POLL_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
@@ -4461,9 +4708,12 @@ impl Default for NDIS_POLL_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NDIS_POLL_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
@@ -4472,18 +4722,18 @@ pub struct NDIS_PORT {
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_PORT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_PORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: NDIS_OBJECT_HEADER,
     pub NumberOfPorts: u32,
@@ -4492,17 +4742,17 @@ pub struct NDIS_PORT_ARRAY {
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_PORT_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_PORT_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
@@ -4510,17 +4760,17 @@ pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
+impl windows_core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
@@ -4536,18 +4786,18 @@ pub struct NDIS_PORT_CHARACTERISTICS {
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_PORT_CHARACTERISTICS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_CHARACTERISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_PORT_CHARACTERISTICS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub MediaConnectState: super::super::super::Win32::NetworkManagement::Ndis::NET_IF_MEDIA_CONNECT_STATE,
@@ -4561,23 +4811,28 @@ pub struct NDIS_PORT_STATE {
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_PORT_STATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_PORT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_PORT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_PROTOCOL_BLOCK(pub isize);
+impl Default for NDIS_PROTOCOL_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_PROTOCOL_BLOCK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -4585,32 +4840,32 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
+impl windows_core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RECEIVE_HASH_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub CapabilitiesFlags: u32,
     pub NumberOfInterruptMessages: u32,
     pub NumberOfReceiveQueues: u32,
 }
+impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u16,
@@ -4621,13 +4876,13 @@ pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub HashSecretKeySize: u16,
     pub HashSecretKeyOffset: u32,
 }
+impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4635,13 +4890,13 @@ pub struct NDIS_RW_LOCK {
     pub Anonymous1: NDIS_RW_LOCK_0,
     pub Anonymous2: NDIS_RW_LOCK_1,
 }
+impl windows_core::TypeKind for NDIS_RW_LOCK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RW_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_RW_LOCK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4649,27 +4904,27 @@ pub union NDIS_RW_LOCK_0 {
     pub Anonymous: NDIS_RW_LOCK_0_0,
     pub Reserved: [u8; 16],
 }
+impl windows_core::TypeKind for NDIS_RW_LOCK_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RW_LOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_RW_LOCK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RW_LOCK_0_0 {
     pub SpinLock: usize,
     pub Context: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for NDIS_RW_LOCK_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_RW_LOCK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_RW_LOCK_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4678,28 +4933,28 @@ pub union NDIS_RW_LOCK_1 {
     pub RefCountEx: [u32; 128],
     pub Anonymous: NDIS_RW_LOCK_1_0,
 }
+impl windows_core::TypeKind for NDIS_RW_LOCK_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RW_LOCK_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_RW_LOCK_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_RW_LOCK_1_0 {
     pub RefCountLock: usize,
     pub SharedRefCount: u32,
     pub WriterWaiting: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for NDIS_RW_LOCK_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RW_LOCK_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_RW_LOCK_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4707,30 +4962,30 @@ pub union NDIS_RW_LOCK_REFCOUNT {
     pub RefCount: u32,
     pub cacheLine: [u8; 16],
 }
+impl windows_core::TypeKind for NDIS_RW_LOCK_REFCOUNT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_RW_LOCK_REFCOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_RW_LOCK_REFCOUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_SPIN_LOCK {
     pub SpinLock: usize,
     pub OldIrql: u8,
+}
+impl windows_core::TypeKind for NDIS_SPIN_LOCK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_SPIN_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_SPIN_LOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub SupportedStatistics: u32,
@@ -4753,47 +5008,47 @@ pub struct NDIS_STATISTICS_INFO {
     pub ifHCOutMulticastOctets: u64,
     pub ifHCOutBroadcastOctets: u64,
 }
+impl windows_core::TypeKind for NDIS_STATISTICS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_STATISTICS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_STATISTICS_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: u32,
     pub DataLength: u32,
     pub Data: [u8; 1],
+}
+impl windows_core::TypeKind for NDIS_STATISTICS_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_STATISTICS_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_STATISTICS_VALUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: u32,
     pub DataLength: u32,
     pub Length: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for NDIS_STATISTICS_VALUE_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_STATISTICS_VALUE_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_STATISTICS_VALUE_EX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -4801,98 +5056,98 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_CONNECTION_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     pub Anonymous: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0,
 }
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4901,129 +5156,129 @@ pub union NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
     pub Value: u32,
 }
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub TimeoutArrayLength: u32,
     pub TimeoutArray: [u32; 1],
 }
+impl windows_core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
@@ -5033,17 +5288,17 @@ pub struct NDIS_TIMER {
     pub Dpc: super::super::Foundation::KDPC,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for NDIS_TIMER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 impl Default for NDIS_TIMER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
-impl windows_core::TypeKind for NDIS_TIMER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
@@ -5052,16 +5307,16 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Reserved2: u64,
     pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
 }
+impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TIMESTAMP_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
     pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::super::Win32::Foundation::BOOLEAN,
@@ -5078,45 +5333,45 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub AllTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
     pub TaggedTransmitSw: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_VAR_DATA_DESC {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Offset: usize,
+}
+impl windows_core::TypeKind for NDIS_VAR_DATA_DESC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_VAR_DATA_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_VAR_DATA_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_FRAGMENT {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
+}
+impl windows_core::TypeKind for NDIS_WAN_FRAGMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WAN_FRAGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WAN_FRAGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_GET_STATS {
     pub LocalAddress: [u8; 6],
     pub BytesSent: u32,
@@ -5134,30 +5389,30 @@ pub struct NDIS_WAN_GET_STATS {
     pub BytesTransmittedCompressed: u32,
     pub BytesReceivedCompressed: u32,
 }
+impl windows_core::TypeKind for NDIS_WAN_GET_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WAN_GET_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WAN_GET_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_LINE_DOWN {
     pub RemoteAddress: [u8; 6],
     pub LocalAddress: [u8; 6],
+}
+impl windows_core::TypeKind for NDIS_WAN_LINE_DOWN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WAN_LINE_DOWN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WAN_LINE_DOWN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_LINE_UP {
     pub LinkSpeed: u32,
     pub MaximumTotalSize: u32,
@@ -5170,30 +5425,30 @@ pub struct NDIS_WAN_LINE_UP {
     pub ProtocolType: u16,
     pub DeviceName: super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+impl windows_core::TypeKind for NDIS_WAN_LINE_UP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WAN_LINE_UP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WAN_LINE_UP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WAN_PROTOCOL_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -5206,16 +5461,16 @@ pub struct NDIS_WLAN_BSSID {
     pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
     pub SupportedRates: [u8; 8],
 }
+impl windows_core::TypeKind for NDIS_WLAN_BSSID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WLAN_BSSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WLAN_BSSID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID_EX {
     pub Length: u32,
     pub MacAddress: [u8; 6],
@@ -5230,13 +5485,13 @@ pub struct NDIS_WLAN_BSSID_EX {
     pub IELength: u32,
     pub IEs: [u8; 1],
 }
+impl windows_core::TypeKind for NDIS_WLAN_BSSID_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WLAN_BSSID_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_WLAN_BSSID_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5249,14 +5504,14 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceName: [i8; 1],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5272,32 +5527,32 @@ pub struct NDIS_WMI_EVENT_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_WMI_EVENT_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_WMI_EVENT_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
     pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
+}
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
@@ -5306,16 +5561,16 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Send: u32,
     pub Receive: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Des: u32,
     pub Reserved: u32,
@@ -5326,16 +5581,16 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Send: u32,
     pub Receive: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -5343,13 +5598,13 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub IPv4Options: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5363,17 +5618,17 @@ pub struct NDIS_WMI_METHOD_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_WMI_METHOD_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_WMI_METHOD_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
@@ -5382,29 +5637,29 @@ pub struct NDIS_WMI_OFFLOAD {
     pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub SupportedRevision: u8,
     pub DataOffset: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_OUTPUT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_OUTPUT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for NDIS_WMI_OUTPUT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -5418,17 +5673,17 @@ pub struct NDIS_WMI_SET_HEADER {
     pub Padding: [u8; 4],
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl windows_core::TypeKind for NDIS_WMI_SET_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
-impl windows_core::TypeKind for NDIS_WMI_SET_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -5439,32 +5694,32 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub TcpConnectionOffloadCapacity: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
     pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -5473,16 +5728,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -5491,16 +5746,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub UdpChecksum: u32,
     pub IpChecksum: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -5508,16 +5763,16 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -5525,29 +5780,29 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -5555,45 +5810,45 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub TcpOptions: u32,
     pub IpOptions: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
+}
+impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -5601,134 +5856,144 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
 }
+impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WORK_ITEM {
     pub Context: *mut core::ffi::c_void,
     pub Routine: NDIS_PROC,
     pub WrapperReserved: [u8; 32],
+}
+impl windows_core::TypeKind for NDIS_WORK_ITEM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WORK_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NDIS_WORK_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDIS_WRAPPER_HANDLE(pub isize);
+impl Default for NDIS_WRAPPER_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NDIS_WRAPPER_HANDLE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS {
     pub AddressLength: u16,
     pub AddressType: u16,
     pub Address: [u8; 1],
+}
+impl windows_core::TypeKind for NETWORK_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP {
     pub sin_port: u16,
     pub IN_ADDR: u32,
     pub sin_zero: [u8; 8],
+}
+impl windows_core::TypeKind for NETWORK_ADDRESS_IP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_ADDRESS_IP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_ADDRESS_IP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP6 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
     pub sin6_addr: [u16; 8],
     pub sin6_scope_id: u32,
 }
+impl windows_core::TypeKind for NETWORK_ADDRESS_IP6 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for NETWORK_ADDRESS_IP6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_ADDRESS_IP6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IPX {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
     pub Socket: u16,
+}
+impl windows_core::TypeKind for NETWORK_ADDRESS_IPX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_ADDRESS_IPX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_ADDRESS_IPX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_LIST {
     pub AddressCount: i32,
     pub AddressType: u16,
     pub Address: [NETWORK_ADDRESS; 1],
+}
+impl windows_core::TypeKind for NETWORK_ADDRESS_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for NETWORK_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for NETWORK_ADDRESS_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NULL_FILTER(pub isize);
+impl Default for NULL_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for NULL_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_ALGO_INFO {
     pub algoIdentifier: u32,
     pub algoKeylen: u32,
     pub algoRounds: u32,
+}
+impl windows_core::TypeKind for OFFLOAD_ALGO_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OFFLOAD_ALGO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_ALGO_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -5746,16 +6011,16 @@ pub struct OFFLOAD_IPSEC_ADD_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
+impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OFFLOAD_IPSEC_ADD_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: u32,
     pub SrcMask: u32,
@@ -5775,57 +6040,57 @@ pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub KeyLen: u32,
     pub KeyMat: [u8; 1],
 }
+impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OFFLOAD_IPSEC_DELETE_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::super::super::Win32::Foundation::HANDLE,
     pub EncapTypeEntryOffldHandle: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
     pub DstEncapPort: u16,
+}
+impl windows_core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub Operation: OFFLOAD_OPERATION_E,
     pub SPI: u32,
@@ -5833,65 +6098,70 @@ pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub ConfAlgo: OFFLOAD_ALGO_INFO,
     pub Reserved: OFFLOAD_ALGO_INFO,
 }
+impl windows_core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OFFLOAD_SECURITY_ASSOCIATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PMKID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub Flags: u32,
+}
+impl windows_core::TypeKind for PMKID_CANDIDATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PMKID_CANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PMKID_CANDIDATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFERENCE {
     pub SpinLock: usize,
     pub ReferenceCount: u16,
     pub Closing: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for REFERENCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for REFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for REFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORT_HEADER_OFFSET {
     pub ProtocolType: u16,
     pub HeaderOffset: u16,
+}
+impl windows_core::TypeKind for TRANSPORT_HEADER_OFFSET {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TRANSPORT_HEADER_OFFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TRANSPORT_HEADER_OFFSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct TR_FILTER(pub isize);
+impl Default for TR_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 impl windows_core::TypeKind for TR_FILTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VAR_STRING {
     pub ulTotalSize: u32,
     pub ulNeededSize: u32,
@@ -5900,13 +6170,13 @@ pub struct VAR_STRING {
     pub ulStringSize: u32,
     pub ulStringOffset: u32,
 }
+impl windows_core::TypeKind for VAR_STRING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VAR_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VAR_STRING {
-    type TypeKind = windows_core::CopyType;
 }
 pub type CL_ADD_PARTY_COMPLETE_HANDLER = Option<unsafe extern "system" fn()>;
 pub type CL_CALL_CONNECTED_HANDLER = Option<unsafe extern "system" fn()>;

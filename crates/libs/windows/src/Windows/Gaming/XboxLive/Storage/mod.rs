@@ -18,7 +18,7 @@ impl windows_core::RuntimeType for IGameSaveBlobInfo {
 #[repr(C)]
 pub struct IGameSaveBlobInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameSaveBlobInfoGetResult, IGameSaveBlobInfoGetResult_Vtbl, 0xc7578582_3697_42bf_989c_665d923b5231);
@@ -52,10 +52,10 @@ impl windows_core::RuntimeType for IGameSaveContainer {
 #[repr(C)]
 pub struct IGameSaveContainer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Provider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub SubmitUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SubmitUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     SubmitUpdatesAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -67,10 +67,10 @@ pub struct IGameSaveContainer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub SubmitPropertySetUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SubmitPropertySetUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SubmitPropertySetUpdatesAsync: usize,
-    pub CreateBlobInfoQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateBlobInfoQuery: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 impl windows_core::RuntimeType for IGameSaveContainerInfo {
@@ -79,9 +79,9 @@ impl windows_core::RuntimeType for IGameSaveContainerInfo {
 #[repr(C)]
 pub struct IGameSaveContainerInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub TotalSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub LastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
     pub NeedsSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -129,10 +129,10 @@ pub struct IGameSaveProvider_Vtbl {
     pub User: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     User: usize,
-    pub CreateContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteContainerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateContainer: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteContainerAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateContainerInfoQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateContainerInfoQueryWithName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateContainerInfoQueryWithName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRemainingBytesInQuotaAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub ContainersChangedSinceLastSync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -157,16 +157,16 @@ impl windows_core::RuntimeType for IGameSaveProviderStatics {
 pub struct IGameSaveProviderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
-    pub GetForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetForUserAsync: usize,
     #[cfg(feature = "System")]
-    pub GetSyncOnDemandForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSyncOnDemandForUserAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetSyncOnDemandForUserAsync: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobGetResult {
@@ -190,7 +190,7 @@ impl windows_core::RuntimeType for GameSaveBlobGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobGetResult {
-    type Vtable = <IGameSaveBlobGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobGetResult {
@@ -199,7 +199,7 @@ impl windows_core::RuntimeName for GameSaveBlobGetResult {
 unsafe impl Send for GameSaveBlobGetResult {}
 unsafe impl Sync for GameSaveBlobGetResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfo {
@@ -207,7 +207,7 @@ impl GameSaveBlobInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -222,7 +222,7 @@ impl windows_core::RuntimeType for GameSaveBlobInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfo>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfo {
-    type Vtable = <IGameSaveBlobInfo as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfo_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfo {
@@ -231,7 +231,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfo {
 unsafe impl Send for GameSaveBlobInfo {}
 unsafe impl Sync for GameSaveBlobInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfoGetResult {
@@ -255,7 +255,7 @@ impl windows_core::RuntimeType for GameSaveBlobInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfoGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfoGetResult {
-    type Vtable = <IGameSaveBlobInfoGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfoGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfoGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfoGetResult {
@@ -264,7 +264,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfoGetResult {
 unsafe impl Send for GameSaveBlobInfoGetResult {}
 unsafe impl Sync for GameSaveBlobInfoGetResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveBlobInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveBlobInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveBlobInfoQuery {
@@ -294,7 +294,7 @@ impl windows_core::RuntimeType for GameSaveBlobInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveBlobInfoQuery>();
 }
 unsafe impl windows_core::Interface for GameSaveBlobInfoQuery {
-    type Vtable = <IGameSaveBlobInfoQuery as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveBlobInfoQuery_Vtbl;
     const IID: windows_core::GUID = <IGameSaveBlobInfoQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveBlobInfoQuery {
@@ -303,7 +303,7 @@ impl windows_core::RuntimeName for GameSaveBlobInfoQuery {
 unsafe impl Send for GameSaveBlobInfoQuery {}
 unsafe impl Sync for GameSaveBlobInfoQuery {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainer, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainer {
@@ -311,7 +311,7 @@ impl GameSaveContainer {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Provider(&self) -> windows_core::Result<GameSaveProvider> {
@@ -379,7 +379,7 @@ impl windows_core::RuntimeType for GameSaveContainer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainer>();
 }
 unsafe impl windows_core::Interface for GameSaveContainer {
-    type Vtable = <IGameSaveContainer as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainer_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainer {
@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for GameSaveContainer {
 unsafe impl Send for GameSaveContainer {}
 unsafe impl Sync for GameSaveContainer {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfo {
@@ -396,7 +396,7 @@ impl GameSaveContainerInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TotalSize(&self) -> windows_core::Result<u64> {
@@ -410,14 +410,14 @@ impl GameSaveContainerInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn LastModifiedTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastModifiedTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LastModifiedTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn NeedsSync(&self) -> windows_core::Result<bool> {
@@ -432,7 +432,7 @@ impl windows_core::RuntimeType for GameSaveContainerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfo>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfo {
-    type Vtable = <IGameSaveContainerInfo as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfo_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfo {
@@ -441,7 +441,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfo {
 unsafe impl Send for GameSaveContainerInfo {}
 unsafe impl Sync for GameSaveContainerInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfoGetResult {
@@ -465,7 +465,7 @@ impl windows_core::RuntimeType for GameSaveContainerInfoGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfoGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfoGetResult {
-    type Vtable = <IGameSaveContainerInfoGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfoGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfoGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfoGetResult {
@@ -474,7 +474,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfoGetResult {
 unsafe impl Send for GameSaveContainerInfoGetResult {}
 unsafe impl Sync for GameSaveContainerInfoGetResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveContainerInfoQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveContainerInfoQuery, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveContainerInfoQuery {
@@ -504,7 +504,7 @@ impl windows_core::RuntimeType for GameSaveContainerInfoQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveContainerInfoQuery>();
 }
 unsafe impl windows_core::Interface for GameSaveContainerInfoQuery {
-    type Vtable = <IGameSaveContainerInfoQuery as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveContainerInfoQuery_Vtbl;
     const IID: windows_core::GUID = <IGameSaveContainerInfoQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
@@ -513,7 +513,7 @@ impl windows_core::RuntimeName for GameSaveContainerInfoQuery {
 unsafe impl Send for GameSaveContainerInfoQuery {}
 unsafe impl Sync for GameSaveContainerInfoQuery {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveOperationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveOperationResult {
@@ -529,7 +529,7 @@ impl windows_core::RuntimeType for GameSaveOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveOperationResult>();
 }
 unsafe impl windows_core::Interface for GameSaveOperationResult {
-    type Vtable = <IGameSaveOperationResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveOperationResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveOperationResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveOperationResult {
@@ -538,7 +538,7 @@ impl windows_core::RuntimeName for GameSaveOperationResult {
 unsafe impl Send for GameSaveOperationResult {}
 unsafe impl Sync for GameSaveOperationResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveProvider {
@@ -622,7 +622,7 @@ impl windows_core::RuntimeType for GameSaveProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveProvider>();
 }
 unsafe impl windows_core::Interface for GameSaveProvider {
-    type Vtable = <IGameSaveProvider as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveProvider_Vtbl;
     const IID: windows_core::GUID = <IGameSaveProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveProvider {
@@ -631,7 +631,7 @@ impl windows_core::RuntimeName for GameSaveProvider {
 unsafe impl Send for GameSaveProvider {}
 unsafe impl Sync for GameSaveProvider {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameSaveProviderGetResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameSaveProviderGetResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GameSaveProviderGetResult {
@@ -654,7 +654,7 @@ impl windows_core::RuntimeType for GameSaveProviderGetResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameSaveProviderGetResult>();
 }
 unsafe impl windows_core::Interface for GameSaveProviderGetResult {
-    type Vtable = <IGameSaveProviderGetResult as windows_core::Interface>::Vtable;
+    type Vtable = IGameSaveProviderGetResult_Vtbl;
     const IID: windows_core::GUID = <IGameSaveProviderGetResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameSaveProviderGetResult {
@@ -663,7 +663,7 @@ impl windows_core::RuntimeName for GameSaveProviderGetResult {
 unsafe impl Send for GameSaveProviderGetResult {}
 unsafe impl Sync for GameSaveProviderGetResult {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -684,6 +684,11 @@ impl GameSaveErrorStatus {
 }
 impl windows_core::TypeKind for GameSaveErrorStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for GameSaveErrorStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");

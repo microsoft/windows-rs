@@ -2260,6 +2260,7 @@ pub struct ARM64_NT_NEON128_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
@@ -2277,6 +2278,7 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
@@ -2284,6 +2286,7 @@ pub union CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
@@ -2320,6 +2323,7 @@ pub struct CONTEXT_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub P1Home: u64,
@@ -2371,6 +2375,7 @@ pub struct CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
@@ -2378,6 +2383,7 @@ pub union CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
@@ -2707,7 +2713,7 @@ pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy)]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
@@ -5473,6 +5479,8 @@ pub type PGET_MODULE_BASE_ROUTINE = Option<unsafe extern "system" fn(hprocess: s
 pub type PGET_MODULE_BASE_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
 #[cfg(target_arch = "aarch64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 pub type PGET_TARGET_ATTRIBUTE_VALUE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, attribute: u32, attributedata: u64, attributevalue: *mut u64) -> super::super::super::Foundation::BOOL>;
 pub type PIMAGEHLP_STATUS_ROUTINE = Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: windows_sys::core::PCSTR, dllname: windows_sys::core::PCSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
 pub type PIMAGEHLP_STATUS_ROUTINE32 = Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: windows_sys::core::PCSTR, dllname: windows_sys::core::PCSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;

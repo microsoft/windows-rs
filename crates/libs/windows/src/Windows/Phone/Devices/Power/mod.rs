@@ -20,7 +20,7 @@ pub struct IBatteryStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Battery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 impl Battery {
@@ -35,7 +35,7 @@ impl Battery {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RemainingChargePercentChanged<P0>(&self, changehandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
@@ -45,7 +45,7 @@ impl Battery {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemainingChargePercentChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -67,7 +67,7 @@ impl windows_core::RuntimeType for Battery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
-    type Vtable = <IBattery as windows_core::Interface>::Vtable;
+    type Vtable = IBattery_Vtbl;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Battery {

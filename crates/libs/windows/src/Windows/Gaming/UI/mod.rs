@@ -19,10 +19,10 @@ impl windows_core::RuntimeType for IGameChatMessageReceivedEventArgs {
 #[repr(C)]
 pub struct IGameChatMessageReceivedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AppDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SenderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AppId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AppDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SenderName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Origin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameChatMessageOrigin) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
@@ -34,7 +34,7 @@ pub struct IGameChatOverlay_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DesiredPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GameChatOverlayPosition) -> windows_core::HRESULT,
     pub SetDesiredPosition: unsafe extern "system" fn(*mut core::ffi::c_void, GameChatOverlayPosition) -> windows_core::HRESULT,
-    pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, GameChatMessageOrigin) -> windows_core::HRESULT,
+    pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, GameChatMessageOrigin) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameChatOverlayMessageSource, IGameChatOverlayMessageSource_Vtbl, 0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 impl windows_core::RuntimeType for IGameChatOverlayMessageSource {
@@ -56,13 +56,10 @@ pub struct IGameChatOverlayStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDefault: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::define_interface!(IGameUIProviderActivatedEventArgs, IGameUIProviderActivatedEventArgs_Vtbl, 0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for IGameUIProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -83,7 +80,7 @@ impl GameBar {
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveVisibilityChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -95,7 +92,7 @@ impl GameBar {
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveIsInputRedirectedChanged(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -122,7 +119,7 @@ impl windows_core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatMessageReceivedEventArgs {
@@ -130,28 +127,28 @@ impl GameChatMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AppDisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SenderName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SenderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SenderName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Message(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Origin(&self) -> windows_core::Result<GameChatMessageOrigin> {
@@ -166,7 +163,7 @@ impl windows_core::RuntimeType for GameChatMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatMessageReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for GameChatMessageReceivedEventArgs {
-    type Vtable = <IGameChatMessageReceivedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatMessageReceivedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IGameChatMessageReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatMessageReceivedEventArgs {
@@ -175,7 +172,7 @@ impl windows_core::RuntimeName for GameChatMessageReceivedEventArgs {
 unsafe impl Send for GameChatMessageReceivedEventArgs {}
 unsafe impl Sync for GameChatMessageReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlay, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlay {
@@ -209,7 +206,7 @@ impl windows_core::RuntimeType for GameChatOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatOverlay>();
 }
 unsafe impl windows_core::Interface for GameChatOverlay {
-    type Vtable = <IGameChatOverlay as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatOverlay_Vtbl;
     const IID: windows_core::GUID = <IGameChatOverlay as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatOverlay {
@@ -218,7 +215,7 @@ impl windows_core::RuntimeName for GameChatOverlay {
 unsafe impl Send for GameChatOverlay {}
 unsafe impl Sync for GameChatOverlay {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameChatOverlayMessageSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlayMessageSource, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlayMessageSource {
@@ -236,7 +233,7 @@ impl GameChatOverlayMessageSource {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -252,7 +249,7 @@ impl windows_core::RuntimeType for GameChatOverlayMessageSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameChatOverlayMessageSource>();
 }
 unsafe impl windows_core::Interface for GameChatOverlayMessageSource {
-    type Vtable = <IGameChatOverlayMessageSource as windows_core::Interface>::Vtable;
+    type Vtable = IGameChatOverlayMessageSource_Vtbl;
     const IID: windows_core::GUID = <IGameChatOverlayMessageSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GameChatOverlayMessageSource {
@@ -260,15 +257,12 @@ impl windows_core::RuntimeName for GameChatOverlayMessageSource {
 }
 unsafe impl Send for GameChatOverlayMessageSource {}
 unsafe impl Sync for GameChatOverlayMessageSource {}
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameUIProviderActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(GameUIProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(GameUIProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl GameUIProviderActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
@@ -311,25 +305,20 @@ impl GameUIProviderActivatedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), results.param().abi()).ok() }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for GameUIProviderActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameUIProviderActivatedEventArgs>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for GameUIProviderActivatedEventArgs {
-    type Vtable = <IGameUIProviderActivatedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IGameUIProviderActivatedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IGameUIProviderActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Send for GameUIProviderActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Sync for GameUIProviderActivatedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
     pub const Voice: Self = Self(0i32);
@@ -338,11 +327,16 @@ impl GameChatMessageOrigin {
 impl windows_core::TypeKind for GameChatMessageOrigin {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameChatMessageOrigin {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
     pub const BottomCenter: Self = Self(0i32);
@@ -356,6 +350,11 @@ impl GameChatOverlayPosition {
 }
 impl windows_core::TypeKind for GameChatOverlayPosition {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for GameChatOverlayPosition {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");

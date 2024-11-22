@@ -5,10 +5,10 @@ impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticationMan
 #[repr(C)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetOneTimePassCodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UpdateWnsChannelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetOneTimePassCodeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UpdateWnsChannelAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetSessionsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -18,9 +18,9 @@ pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetSessionsAndUnregisteredAccountsAsync: usize,
     pub ApproveSessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, MicrosoftAccountMultiFactorSessionAuthenticationStatus, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ApproveSessionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, MicrosoftAccountMultiFactorSessionAuthenticationStatus, *mut core::ffi::c_void, *mut core::ffi::c_void, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApproveSessionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, MicrosoftAccountMultiFactorSessionAuthenticationStatus, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DenySessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DenySessionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DenySessionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorAuthenticatorStatics {
@@ -51,7 +51,7 @@ impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorOneTimeCodedInfo 
 #[repr(C)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub TimeInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub TimeToLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
@@ -63,9 +63,9 @@ impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorSessionInfo {
 #[repr(C)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub UserAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisplaySessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UserAccountId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub SessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub DisplaySessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub ApprovalStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> windows_core::HRESULT,
     pub AuthenticationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::HRESULT,
     pub RequestTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
@@ -89,7 +89,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
@@ -143,9 +143,9 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (windows_core::Interface::vtable(this).GetSessionsAndUnregisteredAccountsAsync)(windows_core::Interface::as_raw(this), useraccountidlist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApproveSessionUsingAuthSessionInfoAsync<P1>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    pub fn ApproveSessionUsingAuthSessionInfoAsync<P0>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
     where
-        P1: windows_core::Param<MicrosoftAccountMultiFactorSessionInfo>,
+        P0: windows_core::Param<MicrosoftAccountMultiFactorSessionInfo>,
     {
         let this = self;
         unsafe {
@@ -192,7 +192,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationMana
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorAuthenticationManager>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
-    type Vtable = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::Vtable;
+    type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
@@ -201,7 +201,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationMana
 unsafe impl Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
@@ -225,7 +225,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorGetSessionsResult>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
-    type Vtable = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::Vtable;
+    type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
@@ -234,7 +234,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult 
 unsafe impl Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorOneTimeCodedInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -242,21 +242,21 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Code)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Code)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TimeInterval(&self) -> windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn TimeToLive(&self) -> windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeToLive)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TimeToLive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ServiceResponse(&self) -> windows_core::Result<MicrosoftAccountMultiFactorServiceResponse> {
@@ -271,7 +271,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorOneTimeCodedInfo>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    type Vtable = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::Vtable;
+    type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -280,7 +280,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
 unsafe impl Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorSessionInfo {
@@ -288,21 +288,21 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UserAccountId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SessionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplaySessionId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplaySessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DisplaySessionId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ApprovalStatus(&self) -> windows_core::Result<MicrosoftAccountMultiFactorSessionApprovalStatus> {
@@ -323,14 +323,14 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RequestTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -338,7 +338,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorSessionInfo>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorSessionInfo {
-    type Vtable = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::Vtable;
+    type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
@@ -347,7 +347,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
 unsafe impl Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -379,7 +379,7 @@ impl windows_core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccoun
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    type Vtable = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as windows_core::Interface>::Vtable;
+    type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccoun
 unsafe impl Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 unsafe impl Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
     pub const User: Self = Self(0i32);
@@ -397,11 +397,16 @@ impl MicrosoftAccountMultiFactorAuthenticationType {
 impl windows_core::TypeKind for MicrosoftAccountMultiFactorAuthenticationType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
     pub const Success: Self = Self(0i32);
@@ -430,11 +435,16 @@ impl MicrosoftAccountMultiFactorServiceResponse {
 impl windows_core::TypeKind for MicrosoftAccountMultiFactorServiceResponse {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
     pub const Pending: Self = Self(0i32);
@@ -444,11 +454,16 @@ impl MicrosoftAccountMultiFactorSessionApprovalStatus {
 impl windows_core::TypeKind for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     pub const Authenticated: Self = Self(0i32);
@@ -456,6 +471,11 @@ impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
 }
 impl windows_core::TypeKind for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");

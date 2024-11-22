@@ -16,7 +16,7 @@ windows_targets::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *cons
 windows_targets::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut windows_sys::core::GUID) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
 windows_targets::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> super::super::super::Foundation:: BOOLEAN);
-windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut u64) -> u32);
+windows_targets::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_sys::core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut REGHANDLE) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventSetInformation(reghandle : REGHANDLE, informationclass : EVENT_INFO_CLASS, eventinformation : *const core::ffi::c_void, informationlength : u32) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventUnregister(reghandle : REGHANDLE) -> u32);
 windows_targets::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);

@@ -1339,7 +1339,7 @@ pub type HRECOLATTICE = *mut core::ffi::c_void;
 pub type HRECOWORDLIST = *mut core::ffi::c_void;
 pub const HandwrittenTextInsertion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 #[derive(Clone, Copy)]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
@@ -1348,14 +1348,14 @@ pub struct IEC_GESTUREINFO {
     pub Gestures: super::super::System::Variant::VARIANT,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 #[derive(Clone, Copy)]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
     pub RecognitionResult: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 #[derive(Clone, Copy)]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,

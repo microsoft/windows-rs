@@ -5,10 +5,7 @@ impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
 #[repr(C)]
 pub struct IVariablePhotoCapturedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
     pub Frame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    Frame: usize,
     pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
     pub UsedFrameControllerIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CapturedFrameControlValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -38,11 +35,10 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
     pub UpdateSettingsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoCapturedEventArgs {
-    #[cfg(feature = "Storage_Streams")]
     pub fn Frame(&self) -> windows_core::Result<super::CapturedFrame> {
         let this = self;
         unsafe {
@@ -54,7 +50,7 @@ impl VariablePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CaptureTimeOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CaptureTimeOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn UsedFrameControllerIndex(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
@@ -76,7 +72,7 @@ impl windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoCapturedEventArgs>();
 }
 unsafe impl windows_core::Interface for VariablePhotoCapturedEventArgs {
-    type Vtable = <IVariablePhotoCapturedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IVariablePhotoCapturedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
@@ -85,7 +81,7 @@ impl windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
 unsafe impl Send for VariablePhotoCapturedEventArgs {}
 unsafe impl Sync for VariablePhotoCapturedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoSequenceCapture {
@@ -117,7 +113,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhotoCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PhotoCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePhotoCaptured(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -131,7 +127,7 @@ impl VariablePhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -150,7 +146,7 @@ impl windows_core::RuntimeType for VariablePhotoSequenceCapture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceCapture>();
 }
 unsafe impl windows_core::Interface for VariablePhotoSequenceCapture {
-    type Vtable = <IVariablePhotoSequenceCapture as windows_core::Interface>::Vtable;
+    type Vtable = IVariablePhotoSequenceCapture_Vtbl;
     const IID: windows_core::GUID = <IVariablePhotoSequenceCapture as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VariablePhotoSequenceCapture {

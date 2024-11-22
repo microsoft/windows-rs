@@ -6,11 +6,11 @@ impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
 pub struct IGameControllerProviderInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetParentProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetParentProviderId: usize,
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     GetProviderId: usize,
 }
@@ -60,19 +60,19 @@ pub struct ILegacyGipGameControllerProviderStatics_Vtbl {
     #[cfg(not(feature = "Gaming_Input_Custom"))]
     FromGameControllerProvider: usize,
     #[cfg(feature = "System")]
-    pub PairPilotToCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PairPilotToCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     PairPilotToCopilot: usize,
     #[cfg(feature = "System")]
-    pub ClearPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearPairing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     ClearPairing: usize,
     #[cfg(feature = "System")]
-    pub IsPilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsPilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     IsPilot: usize,
     #[cfg(feature = "System")]
-    pub IsCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub IsCopilot: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     IsCopilot: usize,
 }
@@ -85,7 +85,7 @@ impl GameControllerProviderInfo {
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetParentProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetParentProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -95,7 +95,7 @@ impl GameControllerProviderInfo {
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -107,7 +107,7 @@ impl windows_core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LegacyGipGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LegacyGipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl LegacyGipGameControllerProvider {
@@ -202,10 +202,10 @@ impl LegacyGipGameControllerProvider {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn SetStandardControllerButtonRemapping<P0, P2>(&self, user: P0, previous: bool, remapping: P2) -> windows_core::Result<()>
+    pub fn SetStandardControllerButtonRemapping<P0, P1>(&self, user: P0, previous: bool, remapping: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, remapping.param().abi()).ok() }
@@ -261,7 +261,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsPilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -271,7 +271,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -283,7 +283,7 @@ impl windows_core::RuntimeType for LegacyGipGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILegacyGipGameControllerProvider>();
 }
 unsafe impl windows_core::Interface for LegacyGipGameControllerProvider {
-    type Vtable = <ILegacyGipGameControllerProvider as windows_core::Interface>::Vtable;
+    type Vtable = ILegacyGipGameControllerProvider_Vtbl;
     const IID: windows_core::GUID = <ILegacyGipGameControllerProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LegacyGipGameControllerProvider {
@@ -292,7 +292,7 @@ impl windows_core::RuntimeName for LegacyGipGameControllerProvider {
 unsafe impl Send for LegacyGipGameControllerProvider {}
 unsafe impl Sync for LegacyGipGameControllerProvider {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DeviceCommand(pub i32);
 impl DeviceCommand {
     pub const Reset: Self = Self(0i32);
@@ -300,11 +300,16 @@ impl DeviceCommand {
 impl windows_core::TypeKind for DeviceCommand {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DeviceCommand {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DeviceCommand").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for DeviceCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.DeviceCommand;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameControllerBatteryChargingState(pub i32);
 impl GameControllerBatteryChargingState {
     pub const Unknown: Self = Self(0i32);
@@ -315,11 +320,16 @@ impl GameControllerBatteryChargingState {
 impl windows_core::TypeKind for GameControllerBatteryChargingState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameControllerBatteryChargingState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameControllerBatteryChargingState").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameControllerBatteryChargingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryChargingState;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameControllerBatteryKind(pub i32);
 impl GameControllerBatteryKind {
     pub const Unknown: Self = Self(0i32);
@@ -330,11 +340,16 @@ impl GameControllerBatteryKind {
 impl windows_core::TypeKind for GameControllerBatteryKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameControllerBatteryKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameControllerBatteryKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameControllerBatteryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameControllerBatteryLevel(pub i32);
 impl GameControllerBatteryLevel {
     pub const Unknown: Self = Self(0i32);
@@ -346,11 +361,16 @@ impl GameControllerBatteryLevel {
 impl windows_core::TypeKind for GameControllerBatteryLevel {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameControllerBatteryLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameControllerBatteryLevel").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameControllerBatteryLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct GameControllerFirmwareCorruptReason(pub i32);
 impl GameControllerFirmwareCorruptReason {
     pub const Unknown: Self = Self(0i32);
@@ -364,11 +384,16 @@ impl GameControllerFirmwareCorruptReason {
 impl windows_core::TypeKind for GameControllerFirmwareCorruptReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for GameControllerFirmwareCorruptReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("GameControllerFirmwareCorruptReason").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HeadsetLevel(pub i32);
 impl HeadsetLevel {
     pub const Off: Self = Self(0i32);
@@ -379,11 +404,16 @@ impl HeadsetLevel {
 impl windows_core::TypeKind for HeadsetLevel {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HeadsetLevel {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HeadsetLevel").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for HeadsetLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct HeadsetOperation(pub i32);
 impl HeadsetOperation {
     pub const Geq: Self = Self(0i32);
@@ -396,11 +426,16 @@ impl HeadsetOperation {
 impl windows_core::TypeKind for HeadsetOperation {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for HeadsetOperation {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("HeadsetOperation").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for HeadsetOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RemappingButtonCategory(pub i32);
 impl RemappingButtonCategory {
     pub const ButtonSettings: Self = Self(0i32);
@@ -419,11 +454,16 @@ impl RemappingButtonCategory {
 impl windows_core::TypeKind for RemappingButtonCategory {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RemappingButtonCategory {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RemappingButtonCategory").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for RemappingButtonCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.RemappingButtonCategory;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HeadsetGeqGains {
     pub band1Gain: i32,
     pub band2Gain: i32,
@@ -436,4 +476,9 @@ impl windows_core::TypeKind for HeadsetGeqGains {
 }
 impl windows_core::RuntimeType for HeadsetGeqGains {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Preview.HeadsetGeqGains;i4;i4;i4;i4;i4)");
+}
+impl Default for HeadsetGeqGains {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

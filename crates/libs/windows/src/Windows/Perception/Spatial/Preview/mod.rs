@@ -48,7 +48,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
     TryCreateFrameOfReferenceWithPositionAndOrientation: usize,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialGraphInteropFrameOfReferencePreview {
@@ -63,7 +63,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).NodeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).NodeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -71,7 +71,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -79,7 +79,7 @@ impl windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGraphInteropFrameOfReferencePreview>();
 }
 unsafe impl windows_core::Interface for SpatialGraphInteropFrameOfReferencePreview {
-    type Vtable = <ISpatialGraphInteropFrameOfReferencePreview as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
     const IID: windows_core::GUID = <ISpatialGraphInteropFrameOfReferencePreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {

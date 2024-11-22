@@ -57,8 +57,8 @@ impl windows_core::RuntimeType for IAppDisplayInfo {
 #[repr(C)]
 pub struct IAppDisplayInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub GetLogo: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::Size, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -71,10 +71,10 @@ impl windows_core::RuntimeType for IAppInfo {
 #[repr(C)]
 pub struct IAppInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub AppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub DisplayInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppInfo2, IAppInfo2_Vtbl, 0xbe4b1f5a_2098_431b_bd25_b30878748d47);
 impl windows_core::RuntimeType for IAppInfo2 {
@@ -101,7 +101,7 @@ impl windows_core::RuntimeType for IAppInfo4 {
 #[repr(C)]
 pub struct IAppInfo4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SupportedFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SupportedFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppInfoStatics, IAppInfoStatics_Vtbl, 0xcf1f782a_e48b_4f0c_9b0b_79c3f8957dd7);
 impl windows_core::RuntimeType for IAppInfoStatics {
@@ -111,9 +111,9 @@ impl windows_core::RuntimeType for IAppInfoStatics {
 pub struct IAppInfoStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetFromAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFromAppUserModelId: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "System")]
-    pub GetFromAppUserModelIdForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetFromAppUserModelIdForUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetFromAppUserModelIdForUser: usize,
 }
@@ -168,7 +168,7 @@ impl windows_core::RuntimeType for IAppInstance {
 #[repr(C)]
 pub struct IAppInstance_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IsCurrentInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub RedirectActivationTo: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -184,7 +184,7 @@ pub struct IAppInstanceStatics_Vtbl {
     pub GetActivatedEventArgs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))]
     GetActivatedEventArgs: usize,
-    pub FindOrRegisterInstanceForKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindOrRegisterInstanceForKey: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub GetInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -219,8 +219,11 @@ pub struct IDesignModeStatics2_Vtbl {
     pub DesignMode2Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnteredBackgroundEventArgs, IEnteredBackgroundEventArgs_Vtbl, 0xf722dcc2_9827_403d_aaed_ecca9ac17398);
-impl windows_core::RuntimeType for IEnteredBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IEnteredBackgroundEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IEnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl IEnteredBackgroundEventArgs {
@@ -232,19 +235,22 @@ impl IEnteredBackgroundEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for IEnteredBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IEnteredBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
-}
 pub trait IEnteredBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
+impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
+}
 impl IEnteredBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IEnteredBackgroundEventArgs_Impl::GetDeferral(this) {
@@ -307,9 +313,9 @@ impl windows_core::RuntimeType for IFullTrustProcessLauncherStatics {
 pub struct IFullTrustProcessLauncherStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LaunchFullTrustProcessForCurrentAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFullTrustProcessForCurrentAppWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFullTrustProcessForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFullTrustProcessForAppWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFullTrustProcessForCurrentAppWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFullTrustProcessForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFullTrustProcessForAppWithParametersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IFullTrustProcessLauncherStatics2, IFullTrustProcessLauncherStatics2_Vtbl, 0x8b8ed72f_b65c_56cf_a1a7_2bf77cbc6ea8);
 impl windows_core::RuntimeType for IFullTrustProcessLauncherStatics2 {
@@ -318,12 +324,15 @@ impl windows_core::RuntimeType for IFullTrustProcessLauncherStatics2 {
 #[repr(C)]
 pub struct IFullTrustProcessLauncherStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub LaunchFullTrustProcessForCurrentAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LaunchFullTrustProcessForAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFullTrustProcessForCurrentAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub LaunchFullTrustProcessForAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILeavingBackgroundEventArgs, ILeavingBackgroundEventArgs_Vtbl, 0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
-impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ILeavingBackgroundEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(ILeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ILeavingBackgroundEventArgs {
@@ -335,19 +344,22 @@ impl ILeavingBackgroundEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ILeavingBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
-}
 pub trait ILeavingBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
 }
+impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
+}
 impl ILeavingBackgroundEventArgs_Vtbl {
-    pub const fn new<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ILeavingBackgroundEventArgs_Impl::GetDeferral(this) {
@@ -372,7 +384,7 @@ impl windows_core::RuntimeType for ILimitedAccessFeatureRequestResult {
 #[repr(C)]
 pub struct ILimitedAccessFeatureRequestResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FeatureId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FeatureId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LimitedAccessFeatureStatus) -> windows_core::HRESULT,
     pub EstimatedRemovalDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -383,7 +395,7 @@ impl windows_core::RuntimeType for ILimitedAccessFeaturesStatics {
 #[repr(C)]
 pub struct ILimitedAccessFeaturesStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TryUnlockFeature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryUnlockFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackage, IPackage_Vtbl, 0x163c792f_bd75_413c_bf23_b1fe7b95d825);
 impl windows_core::RuntimeType for IPackage {
@@ -393,9 +405,9 @@ impl windows_core::RuntimeType for IPackage {
 pub struct IPackage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub InstalledLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     InstalledLocation: usize,
     pub IsFramework: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -410,9 +422,9 @@ impl windows_core::RuntimeType for IPackage2 {
 #[repr(C)]
 pub struct IPackage2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PublisherDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PublisherDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Logo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsResourcePackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsBundle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
@@ -454,7 +466,7 @@ pub struct IPackage5_Vtbl {
     pub GetContentGroupsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetContentGroupsAsync: usize,
-    pub GetContentGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetContentGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub StageContentGroupsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -482,13 +494,13 @@ impl windows_core::RuntimeType for IPackage7 {
 #[repr(C)]
 pub struct IPackage7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub MutableLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     MutableLocation: usize,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub EffectiveLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     EffectiveLocation: usize,
 }
 windows_core::imp::define_interface!(IPackage8, IPackage8_Vtbl, 0x2c584f7b_ce2a_4be6_a093_77cfbb2a7ea1);
@@ -498,24 +510,24 @@ impl windows_core::RuntimeType for IPackage8 {
 #[repr(C)]
 pub struct IPackage8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub EffectiveExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     EffectiveExternalLocation: usize,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub MachineExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     MachineExternalLocation: usize,
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub UserExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Search"))]
+    #[cfg(not(feature = "Storage"))]
     UserExternalLocation: usize,
-    pub InstalledPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MutablePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EffectivePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EffectiveExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MachineExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub UserExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InstalledPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub MutablePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub EffectivePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub EffectiveExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub MachineExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub UserExternalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub GetLogoAsRandomAccessStreamReference: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::Size, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -537,7 +549,7 @@ pub struct IPackage9_Vtbl {
     pub FindRelatedPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindRelatedPackages: usize,
-    pub SourceUriSchemeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SourceUriSchemeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageCatalog, IPackageCatalog_Vtbl, 0x230a3751_9de3_4445_be74_91fb325abefe);
 impl windows_core::RuntimeType for IPackageCatalog {
@@ -566,7 +578,7 @@ pub struct IPackageCatalog2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageContentGroupStaging: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemovePackageContentGroupStaging: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
-    pub AddOptionalPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddOptionalPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageCatalog3, IPackageCatalog3_Vtbl, 0x96dd5c88_8837_43f9_9015_033434ba14f3);
 impl windows_core::RuntimeType for IPackageCatalog3 {
@@ -587,7 +599,7 @@ impl windows_core::RuntimeType for IPackageCatalog4 {
 #[repr(C)]
 pub struct IPackageCatalog4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AddResourcePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, AddResourcePackageOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddResourcePackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, AddResourcePackageOptions, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub RemoveResourcePackagesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -651,8 +663,11 @@ pub struct IPackageCatalogStatics_Vtbl {
     pub OpenForCurrentUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageCatalogStatics2, IPackageCatalogStatics2_Vtbl, 0x4c11c159_9a28_598c_b185_55e1899b2be4);
-impl windows_core::RuntimeType for IPackageCatalogStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IPackageCatalogStatics2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(IPackageCatalogStatics2, windows_core::IUnknown, windows_core::IInspectable);
 impl IPackageCatalogStatics2 {
@@ -667,19 +682,22 @@ impl IPackageCatalogStatics2 {
         }
     }
 }
+impl windows_core::RuntimeType for IPackageCatalogStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IPackageCatalogStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for IPackageCatalogStatics2 {
-    const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
-}
 pub trait IPackageCatalogStatics2_Impl: Sized + windows_core::IUnknownImpl {
     fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
 }
+impl windows_core::RuntimeName for IPackageCatalogStatics2 {
+    const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
+}
 impl IPackageCatalogStatics2_Vtbl {
-    pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> IPackageCatalogStatics2_Vtbl {
         unsafe extern "system" fn OpenForPackage<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::from_raw_borrowed(&package)) {
@@ -705,7 +723,7 @@ impl windows_core::RuntimeType for IPackageContentGroup {
 pub struct IPackageContentGroup_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Package: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageContentGroupState) -> windows_core::HRESULT,
     pub IsRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
@@ -721,7 +739,7 @@ pub struct IPackageContentGroupStagingEventArgs_Vtbl {
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub IsComplete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ErrorCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub ContentGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ContentGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub IsContentGroupRequired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageContentGroupStatics, IPackageContentGroupStatics_Vtbl, 0x70ee7619_5f12_4b92_b9ea_6ccada13bc75);
@@ -731,7 +749,7 @@ impl windows_core::RuntimeType for IPackageContentGroupStatics {
 #[repr(C)]
 pub struct IPackageContentGroupStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RequiredGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequiredGroupName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageId, IPackageId_Vtbl, 0x1adb665e_37c7_4790_9980_dd7ae74e8bb2);
 impl windows_core::RuntimeType for IPackageId {
@@ -740,17 +758,17 @@ impl windows_core::RuntimeType for IPackageId {
 #[repr(C)]
 pub struct IPackageId_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageVersion) -> windows_core::HRESULT,
     #[cfg(feature = "System")]
     pub Architecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::System::ProcessorArchitecture) -> windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     Architecture: usize,
-    pub ResourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PublisherId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ResourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Publisher: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub PublisherId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub FamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageIdWithMetadata, IPackageIdWithMetadata_Vtbl, 0x40577a7c_0c9e_443d_9074_855f5ce0a08d);
 impl windows_core::RuntimeType for IPackageIdWithMetadata {
@@ -759,8 +777,8 @@ impl windows_core::RuntimeType for IPackageIdWithMetadata {
 #[repr(C)]
 pub struct IPackageIdWithMetadata_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProductId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    pub Author: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageInstallingEventArgs, IPackageInstallingEventArgs_Vtbl, 0x97741eb7_ab7a_401a_8b61_eb0e7faff237);
 impl windows_core::RuntimeType for IPackageInstallingEventArgs {
@@ -880,8 +898,11 @@ impl windows_core::RuntimeType for IPackageWithMetadata {
 pub struct IPackageWithMetadata_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstallDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub GetThumbnailToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetThumbnailToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    #[cfg(feature = "deprecated")]
+    pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Launch: usize,
 }
 windows_core::imp::define_interface!(IStartupTask, IStartupTask_Vtbl, 0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17);
 impl windows_core::RuntimeType for IStartupTask {
@@ -893,7 +914,7 @@ pub struct IStartupTask_Vtbl {
     pub RequestEnableAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Disable: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut StartupTaskState) -> windows_core::HRESULT,
-    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TaskId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStartupTaskStatics, IStartupTaskStatics_Vtbl, 0xee5b60bd_a148_41a7_b26e_e8b88a1e62f8);
 impl windows_core::RuntimeType for IStartupTaskStatics {
@@ -906,11 +927,14 @@ pub struct IStartupTaskStatics_Vtbl {
     pub GetForCurrentPackageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetForCurrentPackageAsync: usize,
-    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISuspendingDeferral, ISuspendingDeferral_Vtbl, 0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
-impl windows_core::RuntimeType for ISuspendingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ISuspendingDeferral {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(ISuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl ISuspendingDeferral {
@@ -919,19 +943,22 @@ impl ISuspendingDeferral {
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ISuspendingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISuspendingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ISuspendingDeferral {
-    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
-}
 pub trait ISuspendingDeferral_Impl: Sized + windows_core::IUnknownImpl {
     fn Complete(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for ISuspendingDeferral {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
+}
 impl ISuspendingDeferral_Vtbl {
-    pub const fn new<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>() -> ISuspendingDeferral_Vtbl {
         unsafe extern "system" fn Complete<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISuspendingDeferral_Impl::Complete(this).into()
@@ -943,8 +970,11 @@ impl ISuspendingDeferral_Vtbl {
     }
 }
 windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
-impl windows_core::RuntimeType for ISuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ISuspendingEventArgs {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(ISuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ISuspendingEventArgs {
@@ -956,19 +986,22 @@ impl ISuspendingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ISuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ISuspendingEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
-}
 pub trait ISuspendingEventArgs_Impl: Sized + windows_core::IUnknownImpl {
     fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation>;
 }
+impl windows_core::RuntimeName for ISuspendingEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
+}
 impl ISuspendingEventArgs_Vtbl {
-    pub const fn new<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>() -> ISuspendingEventArgs_Vtbl {
         unsafe extern "system" fn SuspendingOperation<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISuspendingEventArgs_Impl::SuspendingOperation(this) {
@@ -990,8 +1023,11 @@ impl ISuspendingEventArgs_Vtbl {
     }
 }
 windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
-impl windows_core::RuntimeType for ISuspendingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ISuspendingOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
 windows_core::imp::interface_hierarchy!(ISuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ISuspendingOperation {
@@ -1006,9 +1042,12 @@ impl ISuspendingOperation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for ISuspendingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ISuspendingOperation_Vtbl {
@@ -1016,15 +1055,15 @@ pub struct ISuspendingOperation_Vtbl {
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
 }
-impl windows_core::RuntimeName for ISuspendingOperation {
-    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
-}
 pub trait ISuspendingOperation_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral>;
     fn Deadline(&self) -> windows_core::Result<super::Foundation::DateTime>;
 }
+impl windows_core::RuntimeName for ISuspendingOperation {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
+}
 impl ISuspendingOperation_Vtbl {
-    pub const fn new<Identity: ISuspendingOperation_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: ISuspendingOperation_Impl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl {
         unsafe extern "system" fn GetDeferral<Identity: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISuspendingOperation_Impl::GetDeferral(this) {
@@ -1057,7 +1096,7 @@ impl ISuspendingOperation_Vtbl {
     }
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDisplayInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppDisplayInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppDisplayInfo {
@@ -1065,14 +1104,14 @@ impl AppDisplayInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1088,7 +1127,7 @@ impl windows_core::RuntimeType for AppDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDisplayInfo>();
 }
 unsafe impl windows_core::Interface for AppDisplayInfo {
-    type Vtable = <IAppDisplayInfo as windows_core::Interface>::Vtable;
+    type Vtable = IAppDisplayInfo_Vtbl;
     const IID: windows_core::GUID = <IAppDisplayInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppDisplayInfo {
@@ -1097,7 +1136,7 @@ impl windows_core::RuntimeName for AppDisplayInfo {
 unsafe impl Send for AppDisplayInfo {}
 unsafe impl Sync for AppDisplayInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInfo {
@@ -1105,14 +1144,14 @@ impl AppInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayInfo(&self) -> windows_core::Result<AppDisplayInfo> {
@@ -1126,7 +1165,7 @@ impl AppInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Package(&self) -> windows_core::Result<Package> {
@@ -1181,7 +1220,7 @@ impl windows_core::RuntimeType for AppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInfo>();
 }
 unsafe impl windows_core::Interface for AppInfo {
-    type Vtable = <IAppInfo as windows_core::Interface>::Vtable;
+    type Vtable = IAppInfo_Vtbl;
     const IID: windows_core::GUID = <IAppInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInfo {
@@ -1190,7 +1229,7 @@ impl windows_core::RuntimeName for AppInfo {
 unsafe impl Send for AppInfo {}
 unsafe impl Sync for AppInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstallerInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstallerInfo {
@@ -1254,14 +1293,14 @@ impl AppInstallerInfo {
         let this = &windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LastChecked(&self) -> windows_core::Result<super::Foundation::DateTime> {
         let this = &windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastChecked)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).LastChecked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PausedUntil(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::DateTime>> {
@@ -1315,7 +1354,7 @@ impl windows_core::RuntimeType for AppInstallerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstallerInfo>();
 }
 unsafe impl windows_core::Interface for AppInstallerInfo {
-    type Vtable = <IAppInstallerInfo as windows_core::Interface>::Vtable;
+    type Vtable = IAppInstallerInfo_Vtbl;
     const IID: windows_core::GUID = <IAppInstallerInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInstallerInfo {
@@ -1324,7 +1363,7 @@ impl windows_core::RuntimeName for AppInstallerInfo {
 unsafe impl Send for AppInstallerInfo {}
 unsafe impl Sync for AppInstallerInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppInstance, windows_core::IUnknown, windows_core::IInspectable);
 impl AppInstance {
@@ -1332,7 +1371,7 @@ impl AppInstance {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Key)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Key)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsCurrentInstance(&self) -> windows_core::Result<bool> {
@@ -1384,7 +1423,7 @@ impl windows_core::RuntimeType for AppInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstance>();
 }
 unsafe impl windows_core::Interface for AppInstance {
-    type Vtable = <IAppInstance as windows_core::Interface>::Vtable;
+    type Vtable = IAppInstance_Vtbl;
     const IID: windows_core::GUID = <IAppInstance as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInstance {
@@ -1432,7 +1471,7 @@ impl windows_core::RuntimeName for DesignMode {
     const NAME: &'static str = "Windows.ApplicationModel.DesignMode";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, IEnteredBackgroundEventArgs);
 impl EnteredBackgroundEventArgs {
@@ -1448,7 +1487,7 @@ impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnteredBackgroundEventArgs>();
 }
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
-    type Vtable = <IEnteredBackgroundEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IEnteredBackgroundEventArgs_Vtbl;
     const IID: windows_core::GUID = <IEnteredBackgroundEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
@@ -1457,7 +1496,7 @@ impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
 unsafe impl Send for EnteredBackgroundEventArgs {}
 unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindRelatedPackagesOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindRelatedPackagesOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FindRelatedPackagesOptions {
@@ -1531,7 +1570,7 @@ impl windows_core::RuntimeType for FindRelatedPackagesOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindRelatedPackagesOptions>();
 }
 unsafe impl windows_core::Interface for FindRelatedPackagesOptions {
-    type Vtable = <IFindRelatedPackagesOptions as windows_core::Interface>::Vtable;
+    type Vtable = IFindRelatedPackagesOptions_Vtbl;
     const IID: windows_core::GUID = <IFindRelatedPackagesOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FindRelatedPackagesOptions {
@@ -1540,7 +1579,7 @@ impl windows_core::RuntimeName for FindRelatedPackagesOptions {
 unsafe impl Send for FindRelatedPackagesOptions {}
 unsafe impl Sync for FindRelatedPackagesOptions {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullTrustProcessLaunchResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullTrustProcessLaunchResult, windows_core::IUnknown, windows_core::IInspectable);
 impl FullTrustProcessLaunchResult {
@@ -1563,7 +1602,7 @@ impl windows_core::RuntimeType for FullTrustProcessLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullTrustProcessLaunchResult>();
 }
 unsafe impl windows_core::Interface for FullTrustProcessLaunchResult {
-    type Vtable = <IFullTrustProcessLaunchResult as windows_core::Interface>::Vtable;
+    type Vtable = IFullTrustProcessLaunchResult_Vtbl;
     const IID: windows_core::GUID = <IFullTrustProcessLaunchResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FullTrustProcessLaunchResult {
@@ -1622,7 +1661,7 @@ impl windows_core::RuntimeName for FullTrustProcessLauncher {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLauncher";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, ILeavingBackgroundEventArgs);
 impl LeavingBackgroundEventArgs {
@@ -1638,7 +1677,7 @@ impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILeavingBackgroundEventArgs>();
 }
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
-    type Vtable = <ILeavingBackgroundEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ILeavingBackgroundEventArgs_Vtbl;
     const IID: windows_core::GUID = <ILeavingBackgroundEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
@@ -1647,7 +1686,7 @@ impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
 unsafe impl Send for LeavingBackgroundEventArgs {}
 unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimitedAccessFeatureRequestResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LimitedAccessFeatureRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LimitedAccessFeatureRequestResult {
@@ -1655,7 +1694,7 @@ impl LimitedAccessFeatureRequestResult {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FeatureId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FeatureId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<LimitedAccessFeatureStatus> {
@@ -1677,7 +1716,7 @@ impl windows_core::RuntimeType for LimitedAccessFeatureRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILimitedAccessFeatureRequestResult>();
 }
 unsafe impl windows_core::Interface for LimitedAccessFeatureRequestResult {
-    type Vtable = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::Vtable;
+    type Vtable = ILimitedAccessFeatureRequestResult_Vtbl;
     const IID: windows_core::GUID = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LimitedAccessFeatureRequestResult {
@@ -1702,7 +1741,7 @@ impl windows_core::RuntimeName for LimitedAccessFeatures {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatures";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Package(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Package, windows_core::IUnknown, windows_core::IInspectable);
 impl Package {
@@ -1713,7 +1752,7 @@ impl Package {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn InstalledLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -1740,21 +1779,21 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PublisherDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublisherDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PublisherDisplayName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Logo(&self) -> windows_core::Result<super::Foundation::Uri> {
@@ -1796,7 +1835,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstalledDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).InstalledDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation_Collections"))]
@@ -1886,7 +1925,7 @@ impl Package {
             (windows_core::Interface::vtable(this).CheckUpdateAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn MutableLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -1894,7 +1933,7 @@ impl Package {
             (windows_core::Interface::vtable(this).MutableLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn EffectiveLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -1902,7 +1941,7 @@ impl Package {
             (windows_core::Interface::vtable(this).EffectiveLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn EffectiveExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1910,7 +1949,7 @@ impl Package {
             (windows_core::Interface::vtable(this).EffectiveExternalLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn MachineExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1918,7 +1957,7 @@ impl Package {
             (windows_core::Interface::vtable(this).MachineExternalLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Search")]
+    #[cfg(feature = "Storage")]
     pub fn UserExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1930,42 +1969,42 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstalledPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).InstalledPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MutablePath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MutablePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MutablePath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EffectivePath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EffectivePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EffectivePath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn EffectiveExternalPath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EffectiveExternalPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EffectiveExternalPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn MachineExternalPath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MachineExternalPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).MachineExternalPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UserExternalPath(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UserExternalPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UserExternalPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2006,7 +2045,7 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackage9>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SourceUriSchemeName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).SourceUriSchemeName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Current() -> windows_core::Result<Package> {
@@ -2019,16 +2058,17 @@ impl Package {
         let this = &windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstallDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).InstallDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetThumbnailToken(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailToken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).GetThumbnailToken)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "deprecated")]
     pub fn Launch(&self, parameters: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Launch)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parameters)).ok() }
@@ -2042,7 +2082,7 @@ impl windows_core::RuntimeType for Package {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackage>();
 }
 unsafe impl windows_core::Interface for Package {
-    type Vtable = <IPackage as windows_core::Interface>::Vtable;
+    type Vtable = IPackage_Vtbl;
     const IID: windows_core::GUID = <IPackage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Package {
@@ -2051,10 +2091,9 @@ impl windows_core::RuntimeName for Package {
 unsafe impl Send for Package {}
 unsafe impl Sync for Package {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalog(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalog, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PackageCatalog, IPackageCatalogStatics2);
 impl PackageCatalog {
     pub fn PackageStaging<P0>(&self, handler: P0) -> windows_core::Result<super::Foundation::EventRegistrationToken>
     where
@@ -2063,7 +2102,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStaging(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2077,7 +2116,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageInstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageInstalling(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2091,7 +2130,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageUpdating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUpdating(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2105,7 +2144,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageUninstalling)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageUninstalling(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2119,7 +2158,7 @@ impl PackageCatalog {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2133,7 +2172,7 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PackageContentGroupStaging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemovePackageContentGroupStaging(&self, token: super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -2210,14 +2249,14 @@ impl windows_core::RuntimeType for PackageCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalog>();
 }
 unsafe impl windows_core::Interface for PackageCatalog {
-    type Vtable = <IPackageCatalog as windows_core::Interface>::Vtable;
+    type Vtable = IPackageCatalog_Vtbl;
     const IID: windows_core::GUID = <IPackageCatalog as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalog";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogAddOptionalPackageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogAddOptionalPackageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogAddOptionalPackageResult {
@@ -2240,14 +2279,14 @@ impl windows_core::RuntimeType for PackageCatalogAddOptionalPackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogAddOptionalPackageResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogAddOptionalPackageResult {
-    type Vtable = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::Vtable;
+    type Vtable = IPackageCatalogAddOptionalPackageResult_Vtbl;
     const IID: windows_core::GUID = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogAddOptionalPackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogAddResourcePackageResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogAddResourcePackageResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogAddResourcePackageResult {
@@ -2277,7 +2316,7 @@ impl windows_core::RuntimeType for PackageCatalogAddResourcePackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogAddResourcePackageResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogAddResourcePackageResult {
-    type Vtable = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::Vtable;
+    type Vtable = IPackageCatalogAddResourcePackageResult_Vtbl;
     const IID: windows_core::GUID = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
@@ -2286,7 +2325,7 @@ impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
 unsafe impl Send for PackageCatalogAddResourcePackageResult {}
 unsafe impl Sync for PackageCatalogAddResourcePackageResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogRemoveOptionalPackagesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogRemoveOptionalPackagesResult {
@@ -2310,14 +2349,14 @@ impl windows_core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogRemoveOptionalPackagesResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogRemoveOptionalPackagesResult {
-    type Vtable = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::Vtable;
+    type Vtable = IPackageCatalogRemoveOptionalPackagesResult_Vtbl;
     const IID: windows_core::GUID = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveResourcePackagesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageCatalogRemoveResourcePackagesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageCatalogRemoveResourcePackagesResult {
@@ -2341,7 +2380,7 @@ impl windows_core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogRemoveResourcePackagesResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogRemoveResourcePackagesResult {
-    type Vtable = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::Vtable;
+    type Vtable = IPackageCatalogRemoveResourcePackagesResult_Vtbl;
     const IID: windows_core::GUID = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
@@ -2350,7 +2389,7 @@ impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
 unsafe impl Send for PackageCatalogRemoveResourcePackagesResult {}
 unsafe impl Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageContentGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageContentGroup {
@@ -2365,7 +2404,7 @@ impl PackageContentGroup {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn State(&self) -> windows_core::Result<PackageContentGroupState> {
@@ -2385,7 +2424,7 @@ impl PackageContentGroup {
     pub fn RequiredGroupName() -> windows_core::Result<windows_core::HSTRING> {
         Self::IPackageContentGroupStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequiredGroupName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).RequiredGroupName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPackageContentGroupStatics<R, F: FnOnce(&IPackageContentGroupStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2397,7 +2436,7 @@ impl windows_core::RuntimeType for PackageContentGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageContentGroup>();
 }
 unsafe impl windows_core::Interface for PackageContentGroup {
-    type Vtable = <IPackageContentGroup as windows_core::Interface>::Vtable;
+    type Vtable = IPackageContentGroup_Vtbl;
     const IID: windows_core::GUID = <IPackageContentGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageContentGroup {
@@ -2406,7 +2445,7 @@ impl windows_core::RuntimeName for PackageContentGroup {
 unsafe impl Send for PackageContentGroup {}
 unsafe impl Sync for PackageContentGroup {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroupStagingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageContentGroupStagingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageContentGroupStagingEventArgs {
@@ -2414,7 +2453,7 @@ impl PackageContentGroupStagingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Package(&self) -> windows_core::Result<Package> {
@@ -2449,7 +2488,7 @@ impl PackageContentGroupStagingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentGroupName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ContentGroupName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsContentGroupRequired(&self) -> windows_core::Result<bool> {
@@ -2464,7 +2503,7 @@ impl windows_core::RuntimeType for PackageContentGroupStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageContentGroupStagingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageContentGroupStagingEventArgs {
-    type Vtable = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageContentGroupStagingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
@@ -2473,7 +2512,7 @@ impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
 unsafe impl Send for PackageContentGroupStagingEventArgs {}
 unsafe impl Sync for PackageContentGroupStagingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageId(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageId, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageId {
@@ -2481,14 +2520,14 @@ impl PackageId {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Version(&self) -> windows_core::Result<PackageVersion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "System")]
@@ -2503,49 +2542,49 @@ impl PackageId {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ResourceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Publisher(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Publisher)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Publisher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PublisherId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PublisherId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).PublisherId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FullName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FullName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FullName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).FamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ProductId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackageIdWithMetadata>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Author(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPackageIdWithMetadata>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2553,7 +2592,7 @@ impl windows_core::RuntimeType for PackageId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageId>();
 }
 unsafe impl windows_core::Interface for PackageId {
-    type Vtable = <IPackageId as windows_core::Interface>::Vtable;
+    type Vtable = IPackageId_Vtbl;
     const IID: windows_core::GUID = <IPackageId as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageId {
@@ -2562,7 +2601,7 @@ impl windows_core::RuntimeName for PackageId {
 unsafe impl Send for PackageId {}
 unsafe impl Sync for PackageId {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageInstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageInstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageInstallingEventArgs {
@@ -2570,7 +2609,7 @@ impl PackageInstallingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Package(&self) -> windows_core::Result<Package> {
@@ -2606,7 +2645,7 @@ impl windows_core::RuntimeType for PackageInstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageInstallingEventArgs {
-    type Vtable = <IPackageInstallingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageInstallingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageInstallingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageInstallingEventArgs {
@@ -2615,7 +2654,7 @@ impl windows_core::RuntimeName for PackageInstallingEventArgs {
 unsafe impl Send for PackageInstallingEventArgs {}
 unsafe impl Sync for PackageInstallingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStagingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStagingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStagingEventArgs {
@@ -2623,7 +2662,7 @@ impl PackageStagingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Package(&self) -> windows_core::Result<Package> {
@@ -2659,7 +2698,7 @@ impl windows_core::RuntimeType for PackageStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStagingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageStagingEventArgs {
-    type Vtable = <IPackageStagingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageStagingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageStagingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStagingEventArgs {
@@ -2668,7 +2707,7 @@ impl windows_core::RuntimeName for PackageStagingEventArgs {
 unsafe impl Send for PackageStagingEventArgs {}
 unsafe impl Sync for PackageStagingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStatus {
@@ -2768,7 +2807,7 @@ impl windows_core::RuntimeType for PackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStatus>();
 }
 unsafe impl windows_core::Interface for PackageStatus {
-    type Vtable = <IPackageStatus as windows_core::Interface>::Vtable;
+    type Vtable = IPackageStatus_Vtbl;
     const IID: windows_core::GUID = <IPackageStatus as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStatus {
@@ -2777,7 +2816,7 @@ impl windows_core::RuntimeName for PackageStatus {
 unsafe impl Send for PackageStatus {}
 unsafe impl Sync for PackageStatus {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageStatusChangedEventArgs {
@@ -2793,7 +2832,7 @@ impl windows_core::RuntimeType for PackageStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStatusChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageStatusChangedEventArgs {
-    type Vtable = <IPackageStatusChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageStatusChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageStatusChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
@@ -2802,7 +2841,7 @@ impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
 unsafe impl Send for PackageStatusChangedEventArgs {}
 unsafe impl Sync for PackageStatusChangedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUninstallingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUninstallingEventArgs {
@@ -2810,7 +2849,7 @@ impl PackageUninstallingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Package(&self) -> windows_core::Result<Package> {
@@ -2846,7 +2885,7 @@ impl windows_core::RuntimeType for PackageUninstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUninstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageUninstallingEventArgs {
-    type Vtable = <IPackageUninstallingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageUninstallingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageUninstallingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUninstallingEventArgs {
@@ -2855,7 +2894,7 @@ impl windows_core::RuntimeName for PackageUninstallingEventArgs {
 unsafe impl Send for PackageUninstallingEventArgs {}
 unsafe impl Sync for PackageUninstallingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdateAvailabilityResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUpdateAvailabilityResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUpdateAvailabilityResult {
@@ -2878,7 +2917,7 @@ impl windows_core::RuntimeType for PackageUpdateAvailabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUpdateAvailabilityResult>();
 }
 unsafe impl windows_core::Interface for PackageUpdateAvailabilityResult {
-    type Vtable = <IPackageUpdateAvailabilityResult as windows_core::Interface>::Vtable;
+    type Vtable = IPackageUpdateAvailabilityResult_Vtbl;
     const IID: windows_core::GUID = <IPackageUpdateAvailabilityResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
@@ -2887,7 +2926,7 @@ impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
 unsafe impl Send for PackageUpdateAvailabilityResult {}
 unsafe impl Sync for PackageUpdateAvailabilityResult {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PackageUpdatingEventArgs {
@@ -2895,7 +2934,7 @@ impl PackageUpdatingEventArgs {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ActivityId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SourcePackage(&self) -> windows_core::Result<Package> {
@@ -2938,7 +2977,7 @@ impl windows_core::RuntimeType for PackageUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageUpdatingEventArgs {
-    type Vtable = <IPackageUpdatingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPackageUpdatingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPackageUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUpdatingEventArgs {
@@ -2947,7 +2986,7 @@ impl windows_core::RuntimeName for PackageUpdatingEventArgs {
 unsafe impl Send for PackageUpdatingEventArgs {}
 unsafe impl Sync for PackageUpdatingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTask(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StartupTask, windows_core::IUnknown, windows_core::IInspectable);
 impl StartupTask {
@@ -2973,7 +3012,7 @@ impl StartupTask {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).TaskId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2998,7 +3037,7 @@ impl windows_core::RuntimeType for StartupTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartupTask>();
 }
 unsafe impl windows_core::Interface for StartupTask {
-    type Vtable = <IStartupTask as windows_core::Interface>::Vtable;
+    type Vtable = IStartupTask_Vtbl;
     const IID: windows_core::GUID = <IStartupTask as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StartupTask {
@@ -3007,7 +3046,7 @@ impl windows_core::RuntimeName for StartupTask {
 unsafe impl Send for StartupTask {}
 unsafe impl Sync for StartupTask {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, ISuspendingDeferral);
 impl SuspendingDeferral {
@@ -3020,7 +3059,7 @@ impl windows_core::RuntimeType for SuspendingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingDeferral>();
 }
 unsafe impl windows_core::Interface for SuspendingDeferral {
-    type Vtable = <ISuspendingDeferral as windows_core::Interface>::Vtable;
+    type Vtable = ISuspendingDeferral_Vtbl;
     const IID: windows_core::GUID = <ISuspendingDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingDeferral {
@@ -3029,7 +3068,7 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 unsafe impl Send for SuspendingDeferral {}
 unsafe impl Sync for SuspendingDeferral {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISuspendingEventArgs);
 impl SuspendingEventArgs {
@@ -3045,7 +3084,7 @@ impl windows_core::RuntimeType for SuspendingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingEventArgs>();
 }
 unsafe impl windows_core::Interface for SuspendingEventArgs {
-    type Vtable = <ISuspendingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ISuspendingEventArgs_Vtbl;
     const IID: windows_core::GUID = <ISuspendingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingEventArgs {
@@ -3054,7 +3093,7 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 unsafe impl Send for SuspendingEventArgs {}
 unsafe impl Sync for SuspendingEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, ISuspendingOperation);
 impl SuspendingOperation {
@@ -3069,7 +3108,7 @@ impl SuspendingOperation {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -3077,7 +3116,7 @@ impl windows_core::RuntimeType for SuspendingOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingOperation>();
 }
 unsafe impl windows_core::Interface for SuspendingOperation {
-    type Vtable = <ISuspendingOperation as windows_core::Interface>::Vtable;
+    type Vtable = ISuspendingOperation_Vtbl;
     const IID: windows_core::GUID = <ISuspendingOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingOperation {
@@ -3086,7 +3125,7 @@ impl windows_core::RuntimeName for SuspendingOperation {
 unsafe impl Send for SuspendingOperation {}
 unsafe impl Sync for SuspendingOperation {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
     pub const None: Self = Self(0u32);
@@ -3096,8 +3135,10 @@ impl AddResourcePackageOptions {
 impl windows_core::TypeKind for AddResourcePackageOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl windows_core::RuntimeType for AddResourcePackageOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
+impl core::fmt::Debug for AddResourcePackageOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
+    }
 }
 impl AddResourcePackageOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3132,8 +3173,11 @@ impl core::ops::Not for AddResourcePackageOptions {
         Self(self.0.not())
     }
 }
+impl windows_core::RuntimeType for AddResourcePackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
     pub const Unknown: Self = Self(0i32);
@@ -3143,11 +3187,16 @@ impl AppExecutionContext {
 impl windows_core::TypeKind for AppExecutionContext {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AppExecutionContext {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AppExecutionContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
     pub const Default: Self = Self(0i32);
@@ -3156,11 +3205,16 @@ impl AppInstallerPolicySource {
 impl windows_core::TypeKind for AppInstallerPolicySource {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AppInstallerPolicySource {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
     pub const Success: Self = Self(0i32);
@@ -3171,11 +3225,16 @@ impl FullTrustLaunchResult {
 impl windows_core::TypeKind for FullTrustLaunchResult {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FullTrustLaunchResult {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -3186,11 +3245,16 @@ impl LimitedAccessFeatureStatus {
 impl windows_core::TypeKind for LimitedAccessFeatureStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for LimitedAccessFeatureStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
     pub const NotStaged: Self = Self(0i32);
@@ -3201,11 +3265,16 @@ impl PackageContentGroupState {
 impl windows_core::TypeKind for PackageContentGroupState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PackageContentGroupState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PackageRelationship(pub i32);
 impl PackageRelationship {
     pub const Dependencies: Self = Self(0i32);
@@ -3215,11 +3284,16 @@ impl PackageRelationship {
 impl windows_core::TypeKind for PackageRelationship {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PackageRelationship {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PackageRelationship").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PackageRelationship {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
     pub const None: Self = Self(0i32);
@@ -3231,11 +3305,16 @@ impl PackageSignatureKind {
 impl windows_core::TypeKind for PackageSignatureKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PackageSignatureKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
     pub const Unknown: Self = Self(0i32);
@@ -3247,11 +3326,16 @@ impl PackageUpdateAvailability {
 impl windows_core::TypeKind for PackageUpdateAvailability {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PackageUpdateAvailability {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
     pub const Disabled: Self = Self(0i32);
@@ -3263,11 +3347,16 @@ impl StartupTaskState {
 impl windows_core::TypeKind for StartupTaskState {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for StartupTaskState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("StartupTaskState").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for StartupTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -3277,8 +3366,13 @@ impl windows_core::TypeKind for PackageInstallProgress {
 impl windows_core::RuntimeType for PackageInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
 }
+impl Default for PackageInstallProgress {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
@@ -3290,4 +3384,9 @@ impl windows_core::TypeKind for PackageVersion {
 }
 impl windows_core::RuntimeType for PackageVersion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
+}
+impl Default for PackageVersion {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

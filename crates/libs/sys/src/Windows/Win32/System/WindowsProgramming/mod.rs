@@ -207,7 +207,6 @@ windows_targets::link!("dciman32.dll" "system" fn WinWatchNotify(hww : HWINWATCH
 windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
 windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut core::ffi::c_void, auditinfo : windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> windows_sys::core::HRESULT);
 windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const windows_sys::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> windows_sys::core::HRESULT);
@@ -378,31 +377,6 @@ pub const CODEINTEGRITY_OPTION_UMCI_ENABLED: u32 = 4u32;
 pub const CODEINTEGRITY_OPTION_UMCI_EXCLUSIONPATHS_ENABLED: u32 = 16u32;
 pub const COMMPROP_INITIALIZED: u32 = 3879531822u32;
 pub const CONTEXT_SIZE: u32 = 16u32;
-pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
-pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
-pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
-pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
-pub const COPY_FILE2_V2_DONT_COPY_JUNCTIONS: u32 = 1u32;
-pub const COPY_FILE2_V2_VALID_FLAGS: u32 = 1u32;
-pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: u32 = 8u32;
-pub const COPY_FILE_COPY_SYMLINK: u32 = 2048u32;
-pub const COPY_FILE_DIRECTORY: u32 = 128u32;
-pub const COPY_FILE_DISABLE_PRE_ALLOCATION: u32 = 67108864u32;
-pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: u32 = 33554432u32;
-pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: u32 = 134217728u32;
-pub const COPY_FILE_ENABLE_SPARSE_COPY: u32 = 536870912u32;
-pub const COPY_FILE_FAIL_IF_EXISTS: u32 = 1u32;
-pub const COPY_FILE_IGNORE_EDP_BLOCK: u32 = 4194304u32;
-pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: u32 = 8388608u32;
-pub const COPY_FILE_NO_BUFFERING: u32 = 4096u32;
-pub const COPY_FILE_NO_OFFLOAD: u32 = 262144u32;
-pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: u32 = 2097152u32;
-pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: u32 = 4u32;
-pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: u32 = 268435456u32;
-pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: u32 = 8192u32;
-pub const COPY_FILE_RESTARTABLE: u32 = 2u32;
-pub const COPY_FILE_RESUME_FROM_PAUSE: u32 = 16384u32;
-pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: u32 = 32768u32;
 pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = 768u32;
 pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = 1024u32;
 pub const CO_TL_NBF: u32 = 1024u32;
@@ -722,10 +696,6 @@ pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
 pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
 pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
 pub const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536u32;
-pub const PROGRESS_CANCEL: u32 = 1u32;
-pub const PROGRESS_CONTINUE: u32 = 0u32;
-pub const PROGRESS_QUIET: u32 = 3u32;
-pub const PROGRESS_STOP: u32 = 2u32;
 pub const PROTECTION_LEVEL_SAME: u32 = 4294967295u32;
 pub const PST_FAX: u32 = 33u32;
 pub const PST_LAT: u32 = 257u32;
@@ -927,7 +897,7 @@ pub const WM_INTERIM: u32 = 268u32;
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
 pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -935,21 +905,21 @@ impl CameraUIControlCaptureMode {
     pub const Video: Self = Self(2i32);
 }
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
     pub const Multiple: Self = Self(1i32);
 }
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
     pub const Linear: Self = Self(1i32);
 }
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -957,14 +927,14 @@ impl CameraUIControlPhotoFormat {
     pub const JpegXR: Self = Self(2i32);
 }
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
     pub const Wmv: Self = Self(1i32);
 }
 #[repr(transparent)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
@@ -1181,11 +1151,6 @@ pub struct FEATURE_ERROR {
     pub originName: windows_sys::core::PCSTR,
 }
 pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = *mut core::ffi::c_void;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct FILE_CASE_SENSITIVE_INFO {
-    pub Flags: u32,
-}
 pub type HWINWATCH = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1615,7 +1580,6 @@ pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hac
 pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
 pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
 pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
-#[cfg(feature = "Win32_System_Com")]
 pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut core::ffi::c_void, auditinfo: windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_sys::core::PCWSTR, packageversion: u64) -> windows_sys::core::HRESULT>;
 pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> windows_sys::core::HRESULT>;

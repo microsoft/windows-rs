@@ -131,15 +131,6 @@ pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
-impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-pub struct ISpatialSurfaceObserverStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestAccessAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -150,7 +141,7 @@ pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceInfo {
@@ -158,14 +149,14 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).UpdateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -186,9 +177,9 @@ impl SpatialSurfaceInfo {
             (windows_core::Interface::vtable(this).TryComputeLatestMeshAsync)(windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryComputeLatestMeshWithOptionsAsync<P1>(&self, maxtrianglespercubicmeter: f64, options: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
+    pub fn TryComputeLatestMeshWithOptionsAsync<P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
     where
-        P1: windows_core::Param<SpatialSurfaceMeshOptions>,
+        P0: windows_core::Param<SpatialSurfaceMeshOptions>,
     {
         let this = self;
         unsafe {
@@ -201,7 +192,7 @@ impl windows_core::RuntimeType for SpatialSurfaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceInfo>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceInfo {
-    type Vtable = <ISpatialSurfaceInfo as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialSurfaceInfo_Vtbl;
     const IID: windows_core::GUID = <ISpatialSurfaceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialSurfaceInfo {
@@ -210,7 +201,7 @@ impl windows_core::RuntimeName for SpatialSurfaceInfo {
 unsafe impl Send for SpatialSurfaceInfo {}
 unsafe impl Sync for SpatialSurfaceInfo {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMesh(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMesh, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMesh {
@@ -247,7 +238,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).VertexPositionScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).VertexPositionScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn VertexNormals(&self) -> windows_core::Result<SpatialSurfaceMeshBuffer> {
@@ -262,7 +253,7 @@ impl windows_core::RuntimeType for SpatialSurfaceMesh {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMesh>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMesh {
-    type Vtable = <ISpatialSurfaceMesh as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialSurfaceMesh_Vtbl;
     const IID: windows_core::GUID = <ISpatialSurfaceMesh as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialSurfaceMesh {
@@ -271,7 +262,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMesh {
 unsafe impl Send for SpatialSurfaceMesh {}
 unsafe impl Sync for SpatialSurfaceMesh {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshBuffer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMeshBuffer, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMeshBuffer {
@@ -310,7 +301,7 @@ impl windows_core::RuntimeType for SpatialSurfaceMeshBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMeshBuffer>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMeshBuffer {
-    type Vtable = <ISpatialSurfaceMeshBuffer as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialSurfaceMeshBuffer_Vtbl;
     const IID: windows_core::GUID = <ISpatialSurfaceMeshBuffer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialSurfaceMeshBuffer {
@@ -319,7 +310,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMeshBuffer {
 unsafe impl Send for SpatialSurfaceMeshBuffer {}
 unsafe impl Sync for SpatialSurfaceMeshBuffer {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceMeshOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceMeshOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceMeshOptions {
@@ -410,7 +401,7 @@ impl windows_core::RuntimeType for SpatialSurfaceMeshOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceMeshOptions>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceMeshOptions {
-    type Vtable = <ISpatialSurfaceMeshOptions as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialSurfaceMeshOptions_Vtbl;
     const IID: windows_core::GUID = <ISpatialSurfaceMeshOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialSurfaceMeshOptions {
@@ -419,7 +410,7 @@ impl windows_core::RuntimeName for SpatialSurfaceMeshOptions {
 unsafe impl Send for SpatialSurfaceMeshOptions {}
 unsafe impl Sync for SpatialSurfaceMeshOptions {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialSurfaceObserver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialSurfaceObserver, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialSurfaceObserver {
@@ -460,7 +451,7 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).ObservedSurfacesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -492,7 +483,7 @@ impl windows_core::RuntimeType for SpatialSurfaceObserver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialSurfaceObserver>();
 }
 unsafe impl windows_core::Interface for SpatialSurfaceObserver {
-    type Vtable = <ISpatialSurfaceObserver as windows_core::Interface>::Vtable;
+    type Vtable = ISpatialSurfaceObserver_Vtbl;
     const IID: windows_core::GUID = <ISpatialSurfaceObserver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialSurfaceObserver {

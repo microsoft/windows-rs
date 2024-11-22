@@ -1,15 +1,15 @@
 #[inline]
-pub unsafe fn AVIBuildFilterA<P2>(lpszfilter: &mut [u8], fsaving: P2) -> windows_core::Result<()>
+pub unsafe fn AVIBuildFilterA<P0>(lpszfilter: &mut [u8], fsaving: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn AVIBuildFilterW<P2>(lpszfilter: &mut [u16], fsaving: P2) -> windows_core::Result<()>
+pub unsafe fn AVIBuildFilterW<P0>(lpszfilter: &mut [u16], fsaving: P0) -> windows_core::Result<()>
 where
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
@@ -33,7 +33,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, psi : *const AVISTREAMINFOA) -> windows_core::HRESULT);
-    AVIFileCreateStreamA(pfile.param().abi(), core::mem::transmute(ppavi), core::mem::transmute(psi)).ok()
+    AVIFileCreateStreamA(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok()
 }
 #[inline]
 pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>
@@ -41,7 +41,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamW(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, psi : *const AVISTREAMINFOW) -> windows_core::HRESULT);
-    AVIFileCreateStreamW(pfile.param().abi(), core::mem::transmute(ppavi), core::mem::transmute(psi)).ok()
+    AVIFileCreateStreamW(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok()
 }
 #[inline]
 pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> windows_core::Result<()>
@@ -62,7 +62,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, fcctype : u32, lparam : i32) -> windows_core::HRESULT);
-    AVIFileGetStream(pfile.param().abi(), core::mem::transmute(ppavi), core::mem::transmute(fcctype), core::mem::transmute(lparam)).ok()
+    AVIFileGetStream(pfile.param().abi(), core::mem::transmute(ppavi), fcctype, lparam).ok()
 }
 #[inline]
 pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) -> windows_core::Result<()>
@@ -70,7 +70,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : * mut core::ffi::c_void, pfi : *mut AVIFILEINFOA, lsize : i32) -> windows_core::HRESULT);
-    AVIFileInfoA(pfile.param().abi(), core::mem::transmute(pfi), core::mem::transmute(lsize)).ok()
+    AVIFileInfoA(pfile.param().abi(), pfi, lsize).ok()
 }
 #[inline]
 pub unsafe fn AVIFileInfoW<P0>(pfile: P0, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>
@@ -78,7 +78,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : * mut core::ffi::c_void, pfi : *mut AVIFILEINFOW, lsize : i32) -> windows_core::HRESULT);
-    AVIFileInfoW(pfile.param().abi(), core::mem::transmute(pfi), core::mem::transmute(lsize)).ok()
+    AVIFileInfoW(pfile.param().abi(), pfi, lsize).ok()
 }
 #[inline]
 pub unsafe fn AVIFileInit() {
@@ -86,20 +86,20 @@ pub unsafe fn AVIFileInit() {
     AVIFileInit()
 }
 #[inline]
-pub unsafe fn AVIFileOpenA<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIFileOpenA<P0>(ppfile: *mut Option<IAVIFile>, szfile: P0, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn AVIFileOpenW<P1>(ppfile: *mut Option<IAVIFile>, szfile: P1, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIFileOpenW<P0>(ppfile: *mut Option<IAVIFile>, szfile: P0, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), core::mem::transmute(umode), core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>
@@ -107,7 +107,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileReadData(pfile : * mut core::ffi::c_void, ckid : u32, lpdata : *mut core::ffi::c_void, lpcbdata : *mut i32) -> windows_core::HRESULT);
-    AVIFileReadData(pfile.param().abi(), core::mem::transmute(ckid), core::mem::transmute(lpdata), core::mem::transmute(lpcbdata)).ok()
+    AVIFileReadData(pfile.param().abi(), ckid, lpdata, lpcbdata).ok()
 }
 #[inline]
 pub unsafe fn AVIFileRelease<P0>(pfile: P0) -> u32
@@ -123,7 +123,7 @@ where
     P0: windows_core::Param<IAVIFile>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileWriteData(pfile : * mut core::ffi::c_void, ckid : u32, lpdata : *const core::ffi::c_void, cbdata : i32) -> windows_core::HRESULT);
-    AVIFileWriteData(pfile.param().abi(), core::mem::transmute(ckid), core::mem::transmute(lpdata), core::mem::transmute(cbdata)).ok()
+    AVIFileWriteData(pfile.param().abi(), ckid, lpdata, cbdata).ok()
 }
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
@@ -132,12 +132,12 @@ pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
     AVIGetFromClipboard(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
-pub unsafe fn AVIMakeCompressedStream<P1>(ppscompressed: *mut Option<IAVIStream>, ppssource: P1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIMakeCompressedStream<P0>(ppscompressed: *mut Option<IAVIStream>, ppssource: P0, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<IAVIStream>,
+    P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut * mut core::ffi::c_void, ppssource : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), core::mem::transmute(lpoptions), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::Result<()> {
@@ -145,13 +145,13 @@ pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: 
     AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())).ok()
 }
 #[inline]
-pub unsafe fn AVIMakeStreamFromClipboard<P1>(cfformat: u32, hglobal: P1) -> windows_core::Result<IAVIStream>
+pub unsafe fn AVIMakeStreamFromClipboard<P0>(cfformat: u32, hglobal: P0) -> windows_core::Result<IAVIStream>
 where
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    AVIMakeStreamFromClipboard(core::mem::transmute(cfformat), hglobal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    AVIMakeStreamFromClipboard(cfformat, hglobal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> windows_core::Result<()>
@@ -162,13 +162,13 @@ where
     AVIPutFileOnClipboard(pf.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn AVISaveA<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveA<P0, P1>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P4: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
+    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVISaveOptions<P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
@@ -176,7 +176,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
-    AVISaveOptions(hwnd.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions))
+    AVISaveOptions(hwnd.param().abi(), uiflags, nstreams, core::mem::transmute(ppavi), plpoptions)
 }
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> windows_core::Result<()> {
@@ -189,7 +189,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
+    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
@@ -197,16 +197,16 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), core::mem::transmute(ppavi), core::mem::transmute(plpoptions)).ok()
+    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[inline]
-pub unsafe fn AVISaveW<P0, P4>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P4, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+pub unsafe fn AVISaveW<P0, P1>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), core::mem::transmute(lpfncallback), core::mem::transmute(nstreams), pfile.param().abi(), core::mem::transmute(lpoptions)).ok()
+    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamAddRef<P0>(pavi: P0) -> u32
@@ -222,12 +222,12 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : * mut core::ffi::c_void, lstart : i32, lend : i32, lrate : i32) -> windows_core::HRESULT);
-    AVIStreamBeginStreaming(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lend), core::mem::transmute(lrate)).ok()
+    AVIStreamBeginStreaming(pavi.param().abi(), lstart, lend, lrate).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamCreate(core::mem::transmute(ppavi), core::mem::transmute(lparam1), core::mem::transmute(lparam2), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::Result<()>
@@ -243,7 +243,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamFindSample(pavi : * mut core::ffi::c_void, lpos : i32, lflags : i32) -> i32);
-    AVIStreamFindSample(pavi.param().abi(), core::mem::transmute(lpos), core::mem::transmute(lflags))
+    AVIStreamFindSample(pavi.param().abi(), lpos, lflags)
 }
 #[inline]
 pub unsafe fn AVIStreamGetFrame<P0>(pg: P0, lpos: i32) -> *mut core::ffi::c_void
@@ -251,7 +251,7 @@ where
     P0: windows_core::Param<IGetFrame>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrame(pg : * mut core::ffi::c_void, lpos : i32) -> *mut core::ffi::c_void);
-    AVIStreamGetFrame(pg.param().abi(), core::mem::transmute(lpos))
+    AVIStreamGetFrame(pg.param().abi(), lpos)
 }
 #[inline]
 pub unsafe fn AVIStreamGetFrameClose<P0>(pg: P0) -> windows_core::Result<()>
@@ -276,7 +276,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : * mut core::ffi::c_void, psi : *mut AVISTREAMINFOA, lsize : i32) -> windows_core::HRESULT);
-    AVIStreamInfoA(pavi.param().abi(), core::mem::transmute(psi), core::mem::transmute(lsize)).ok()
+    AVIStreamInfoA(pavi.param().abi(), psi, lsize).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>
@@ -284,7 +284,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamInfoW(pavi : * mut core::ffi::c_void, psi : *mut AVISTREAMINFOW, lsize : i32) -> windows_core::HRESULT);
-    AVIStreamInfoW(pavi.param().abi(), core::mem::transmute(psi), core::mem::transmute(lsize)).ok()
+    AVIStreamInfoW(pavi.param().abi(), psi, lsize).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamLength<P0>(pavi: P0) -> i32
@@ -295,20 +295,20 @@ where
     AVIStreamLength(pavi.param().abi())
 }
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileA<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamOpenFromFileA<P0>(ppavi: *mut Option<IAVIStream>, szfile: P0, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileW<P1>(ppavi: *mut Option<IAVIStream>, szfile: P1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+pub unsafe fn AVIStreamOpenFromFileW<P0>(ppavi: *mut Option<IAVIStream>, szfile: P0, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), core::mem::transmute(fcctype), core::mem::transmute(lparam), core::mem::transmute(mode), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()>
@@ -316,7 +316,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamRead(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *mut core::ffi::c_void, cbbuffer : i32, plbytes : *mut i32, plsamples : *mut i32) -> windows_core::HRESULT);
-    AVIStreamRead(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+    AVIStreamRead(pavi.param().abi(), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()>
@@ -324,7 +324,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *mut core::ffi::c_void, lpcb : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadData(pavi.param().abi(), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcb)).ok()
+    AVIStreamReadData(pavi.param().abi(), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()>
@@ -332,7 +332,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *mut core::ffi::c_void, lpcbformat : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadFormat(pavi.param().abi(), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbformat)).ok()
+    AVIStreamReadFormat(pavi.param().abi(), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRelease<P0>(pavi: P0) -> u32
@@ -348,7 +348,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamSampleToTime(pavi : * mut core::ffi::c_void, lsample : i32) -> i32);
-    AVIStreamSampleToTime(pavi.param().abi(), core::mem::transmute(lsample))
+    AVIStreamSampleToTime(pavi.param().abi(), lsample)
 }
 #[inline]
 pub unsafe fn AVIStreamSetFormat<P0>(pavi: P0, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()>
@@ -356,7 +356,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamSetFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *const core::ffi::c_void, cbformat : i32) -> windows_core::HRESULT);
-    AVIStreamSetFormat(pavi.param().abi(), core::mem::transmute(lpos), core::mem::transmute(lpformat), core::mem::transmute(cbformat)).ok()
+    AVIStreamSetFormat(pavi.param().abi(), lpos, lpformat, cbformat).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamStart<P0>(pavi: P0) -> i32
@@ -372,7 +372,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamTimeToSample(pavi : * mut core::ffi::c_void, ltime : i32) -> i32);
-    AVIStreamTimeToSample(pavi.param().abi(), core::mem::transmute(ltime))
+    AVIStreamTimeToSample(pavi.param().abi(), ltime)
 }
 #[inline]
 pub unsafe fn AVIStreamWrite<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()>
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *const core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> windows_core::HRESULT);
-    AVIStreamWrite(pavi.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+    AVIStreamWrite(pavi.param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>
@@ -388,7 +388,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *const core::ffi::c_void, cb : i32) -> windows_core::HRESULT);
-    AVIStreamWriteData(pavi.param().abi(), core::mem::transmute(fcc), core::mem::transmute(lp), core::mem::transmute(cb)).ok()
+    AVIStreamWriteData(pavi.param().abi(), fcc, lp, cb).ok()
 }
 #[inline]
 pub unsafe fn CloseDriver<P0, P1, P2>(hdriver: P0, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
@@ -401,68 +401,68 @@ where
     CloseDriver(hdriver.param().abi(), lparam1.param().abi(), lparam2.param().abi())
 }
 #[inline]
-pub unsafe fn CreateEditableStream<P1>(ppseditable: *mut Option<IAVIStream>, pssource: P1) -> windows_core::Result<()>
+pub unsafe fn CreateEditableStream<P0>(ppseditable: *mut Option<IAVIStream>, pssource: P0) -> windows_core::Result<()>
 where
-    P1: windows_core::Param<IAVIStream>,
+    P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut * mut core::ffi::c_void, pssource : * mut core::ffi::c_void) -> windows_core::HRESULT);
     CreateEditableStream(core::mem::transmute(ppseditable), pssource.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DefDriverProc<P1, P3, P4>(dwdriveridentifier: usize, hdrvr: P1, umsg: u32, lparam1: P3, lparam2: P4) -> super::super::Foundation::LRESULT
+pub unsafe fn DefDriverProc<P0, P1, P2>(dwdriveridentifier: usize, hdrvr: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
 where
-    P1: windows_core::Param<HDRVR>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
-    P4: windows_core::Param<super::super::Foundation::LPARAM>,
+    P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    DefDriverProc(core::mem::transmute(dwdriveridentifier), hdrvr.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    DefDriverProc(dwdriveridentifier, hdrvr.param().abi(), umsg, lparam1.param().abi(), lparam2.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibBegin<P1>(hdd: isize, hdc: P1, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn DrawDibBegin<P0>(hdd: isize, hdc: P0, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-    DrawDibBegin(core::mem::transmute(hdd), hdc.param().abi(), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
+    DrawDibBegin(hdd, hdc.param().abi(), dxdst, dydst, lpbi, dxsrc, dysrc, wflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
-    DrawDibChangePalette(core::mem::transmute(hdd), core::mem::transmute(istart), lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr()))
+    DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr()))
 }
 #[inline]
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
-    DrawDibClose(core::mem::transmute(hdd))
+    DrawDibClose(hdd)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibDraw<P1>(hdd: isize, hdc: P1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn DrawDibDraw<P0>(hdd: isize, hdc: P0, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-    DrawDibDraw(core::mem::transmute(hdd), hdc.param().abi(), core::mem::transmute(xdst), core::mem::transmute(ydst), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi.unwrap_or(core::ptr::null())), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(wflags))
+    DrawDibDraw(hdd, hdc.param().abi(), xdst, ydst, dxdst, dydst, core::mem::transmute(lpbi.unwrap_or(core::ptr::null())), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), xsrc, ysrc, dxsrc, dysrc, wflags)
 }
 #[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
-    DrawDibEnd(core::mem::transmute(hdd))
+    DrawDibEnd(hdd)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut core::ffi::c_void {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
-    DrawDibGetBuffer(core::mem::transmute(hdd), core::mem::transmute(lpbi), core::mem::transmute(dwsize), core::mem::transmute(dwflags))
+    DrawDibGetBuffer(hdd, lpbi, dwsize, dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetPalette(hdd : isize) -> super::super::Graphics::Gdi:: HPALETTE);
-    DrawDibGetPalette(core::mem::transmute(hdd))
+    DrawDibGetPalette(hdd)
 }
 #[inline]
 pub unsafe fn DrawDibOpen() -> isize {
@@ -473,49 +473,49 @@ pub unsafe fn DrawDibOpen() -> isize {
 #[inline]
 pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
-    DrawDibProfileDisplay(core::mem::transmute(lpbi))
+    DrawDibProfileDisplay(lpbi)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibRealize<P1, P2>(hdd: isize, hdc: P1, fbackground: P2) -> u32
+pub unsafe fn DrawDibRealize<P0, P1>(hdd: isize, hdc: P0, fbackground: P1) -> u32
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HDC>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
-    DrawDibRealize(core::mem::transmute(hdd), hdc.param().abi(), fbackground.param().abi())
+    DrawDibRealize(hdd, hdc.param().abi(), fbackground.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibSetPalette<P1>(hdd: isize, hpal: P1) -> super::super::Foundation::BOOL
+pub unsafe fn DrawDibSetPalette<P0>(hdd: isize, hpal: P0) -> super::super::Foundation::BOOL
 where
-    P1: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
+    P0: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
-    DrawDibSetPalette(core::mem::transmute(hdd), hpal.param().abi())
+    DrawDibSetPalette(hdd, hpal.param().abi())
 }
 #[inline]
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
-    DrawDibStart(core::mem::transmute(hdd), core::mem::transmute(rate))
+    DrawDibStart(hdd, rate)
 }
 #[inline]
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
-    DrawDibStop(core::mem::transmute(hdd))
+    DrawDibStop(hdd)
 }
 #[inline]
 pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
-    DrawDibTime(core::mem::transmute(hdd), core::mem::transmute(lpddtime))
+    DrawDibTime(hdd, lpddtime)
 }
 #[inline]
-pub unsafe fn DriverCallback<P2>(dwcallback: usize, dwflags: u32, hdevice: P2, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL
+pub unsafe fn DriverCallback<P0>(dwcallback: usize, dwflags: u32, hdevice: P0, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<HDRVR>,
+    P0: windows_core::Param<HDRVR>,
 {
     windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
-    DriverCallback(core::mem::transmute(dwcallback), core::mem::transmute(dwflags), hdevice.param().abi(), core::mem::transmute(dwmsg), core::mem::transmute(dwuser), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    DriverCallback(dwcallback, dwflags, hdevice.param().abi(), dwmsg, dwuser, dwparam1, dwparam2)
 }
 #[inline]
 pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
@@ -540,7 +540,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : * mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    EditStreamCopy(pavi.param().abi(), core::mem::transmute(plstart), core::mem::transmute(pllength), core::mem::transmute(ppresult)).ok()
+    EditStreamCopy(pavi.param().abi(), plstart, pllength, core::mem::transmute(ppresult)).ok()
 }
 #[inline]
 pub unsafe fn EditStreamCut<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>
@@ -548,16 +548,16 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn EditStreamCut(pavi : * mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    EditStreamCut(pavi.param().abi(), core::mem::transmute(plstart), core::mem::transmute(pllength), core::mem::transmute(ppresult)).ok()
+    EditStreamCut(pavi.param().abi(), plstart, pllength, core::mem::transmute(ppresult)).ok()
 }
 #[inline]
-pub unsafe fn EditStreamPaste<P0, P3>(pavi: P0, plpos: *mut i32, pllength: *mut i32, pstream: P3, lstart: i32, lend: i32) -> windows_core::Result<()>
+pub unsafe fn EditStreamPaste<P0, P1>(pavi: P0, plpos: *mut i32, pllength: *mut i32, pstream: P1, lstart: i32, lend: i32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IAVIStream>,
-    P3: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : * mut core::ffi::c_void, plpos : *mut i32, pllength : *mut i32, pstream : * mut core::ffi::c_void, lstart : i32, lend : i32) -> windows_core::HRESULT);
-    EditStreamPaste(pavi.param().abi(), core::mem::transmute(plpos), core::mem::transmute(pllength), pstream.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lend)).ok()
+    EditStreamPaste(pavi.param().abi(), plpos, pllength, pstream.param().abi(), lstart, lend).ok()
 }
 #[inline]
 pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> windows_core::Result<()>
@@ -565,7 +565,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : * mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> windows_core::HRESULT);
-    EditStreamSetInfoA(pavi.param().abi(), core::mem::transmute(lpinfo), core::mem::transmute(cbinfo)).ok()
+    EditStreamSetInfoA(pavi.param().abi(), lpinfo, cbinfo).ok()
 }
 #[inline]
 pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>
@@ -573,7 +573,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn EditStreamSetInfoW(pavi : * mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> windows_core::HRESULT);
-    EditStreamSetInfoW(pavi.param().abi(), core::mem::transmute(lpinfo), core::mem::transmute(cbinfo)).ok()
+    EditStreamSetInfoW(pavi.param().abi(), lpinfo, cbinfo).ok()
 }
 #[inline]
 pub unsafe fn EditStreamSetNameA<P0, P1>(pavi: P0, lpszname: P1) -> windows_core::Result<()>
@@ -605,25 +605,25 @@ where
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
-    GetOpenFileNamePreviewA(core::mem::transmute(lpofn))
+    GetOpenFileNamePreviewA(lpofn)
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
-    GetOpenFileNamePreviewW(core::mem::transmute(lpofn))
+    GetOpenFileNamePreviewW(lpofn)
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
-    GetSaveFileNamePreviewA(core::mem::transmute(lpofn))
+    GetSaveFileNamePreviewA(lpofn)
 }
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
-    GetSaveFileNamePreviewW(core::mem::transmute(lpofn))
+    GetSaveFileNamePreviewW(lpofn)
 }
 #[inline]
 pub unsafe fn ICClose<P0>(hic: P0) -> super::super::Foundation::LRESULT
@@ -640,37 +640,23 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
-    ICCompress(
-        hic.param().abi(),
-        core::mem::transmute(dwflags),
-        core::mem::transmute(lpbioutput),
-        core::mem::transmute(lpdata),
-        core::mem::transmute(lpbiinput),
-        core::mem::transmute(lpbits),
-        core::mem::transmute(lpckid.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(lpdwflags.unwrap_or(core::ptr::null_mut())),
-        core::mem::transmute(lframenum),
-        core::mem::transmute(dwframesize),
-        core::mem::transmute(dwquality),
-        core::mem::transmute(lpbiprev.unwrap_or(core::ptr::null())),
-        core::mem::transmute(lpprev.unwrap_or(core::ptr::null())),
-    )
+    ICCompress(hic.param().abi(), dwflags, lpbioutput, lpdata, lpbiinput, lpbits, core::mem::transmute(lpckid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwflags.unwrap_or(core::ptr::null_mut())), lframenum, dwframesize, dwquality, core::mem::transmute(lpbiprev.unwrap_or(core::ptr::null())), core::mem::transmute(lpprev.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompressorChoose<P0, P5>(hwnd: P0, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P5) -> super::super::Foundation::BOOL
+pub unsafe fn ICCompressorChoose<P0, P1>(hwnd: P0, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P1) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P5: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    ICCompressorChoose(hwnd.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(pvin.unwrap_or(core::ptr::null())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(pc), lpsztitle.param().abi())
+    ICCompressorChoose(hwnd.param().abi(), uiflags, core::mem::transmute(pvin.unwrap_or(core::ptr::null())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), pc, lpsztitle.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
     windows_targets::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS));
-    ICCompressorFree(core::mem::transmute(pc))
+    ICCompressorFree(pc)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -679,7 +665,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
-    ICDecompress(hic.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpbiformat), core::mem::transmute(lpdata), core::mem::transmute(lpbi), core::mem::transmute(lpbits))
+    ICDecompress(hic.param().abi(), dwflags, lpbiformat, lpdata, lpbi, lpbits)
 }
 #[inline]
 pub unsafe fn ICDraw<P0>(hic: P0, dwflags: u32, lpformat: *const core::ffi::c_void, lpdata: Option<*const core::ffi::c_void>, cbdata: u32, ltime: i32) -> u32
@@ -687,19 +673,19 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
-    ICDraw(hic.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(lpformat), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), core::mem::transmute(cbdata), core::mem::transmute(ltime))
+    ICDraw(hic.param().abi(), dwflags, lpformat, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cbdata, ltime)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICDrawBegin<P0, P2, P3, P4>(hic: P0, dwflags: u32, hpal: P2, hwnd: P3, hdc: P4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
+pub unsafe fn ICDrawBegin<P0, P1, P2, P3>(hic: P0, dwflags: u32, hpal: P1, hwnd: P2, hdc: P3, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
 where
     P0: windows_core::Param<HIC>,
-    P2: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
-    P4: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
+    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P3: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
-    ICDrawBegin(hic.param().abi(), core::mem::transmute(dwflags), hpal.param().abi(), hwnd.param().abi(), hdc.param().abi(), core::mem::transmute(xdst), core::mem::transmute(ydst), core::mem::transmute(dxdst), core::mem::transmute(dydst), core::mem::transmute(lpbi), core::mem::transmute(xsrc), core::mem::transmute(ysrc), core::mem::transmute(dxsrc), core::mem::transmute(dysrc), core::mem::transmute(dwrate), core::mem::transmute(dwscale))
+    ICDrawBegin(hic.param().abi(), dwflags, hpal.param().abi(), hwnd.param().abi(), hdc.param().abi(), xdst, ydst, dxdst, dydst, lpbi, xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -708,7 +694,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
-    ICGetDisplayFormat(hic.param().abi(), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout), core::mem::transmute(bitdepth), core::mem::transmute(dx), core::mem::transmute(dy))
+    ICGetDisplayFormat(hic.param().abi(), lpbiin, lpbiout, bitdepth, dx, dy)
 }
 #[inline]
 pub unsafe fn ICGetInfo<P0>(hic: P0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT
@@ -716,7 +702,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
-    ICGetInfo(hic.param().abi(), core::mem::transmute(picinfo), core::mem::transmute(cb))
+    ICGetInfo(hic.param().abi(), picinfo, cb)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -725,7 +711,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
-    ICImageCompress(hic.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), core::mem::transmute(lquality), core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+    ICImageCompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), lquality, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -734,42 +720,42 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
-    ICImageDecompress(hic.param().abi(), core::mem::transmute(uiflags), core::mem::transmute(lpbiin), core::mem::transmute(lpbits), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())))
+    ICImageDecompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
-    ICInfo(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lpicinfo))
+    ICInfo(fcctype, fcchandler, lpicinfo)
 }
 #[inline]
-pub unsafe fn ICInstall<P2, P3>(fcctype: u32, fcchandler: u32, lparam: P2, szdesc: P3, wflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn ICInstall<P0, P1>(fcctype: u32, fcchandler: u32, lparam: P0, szdesc: P1, wflags: u32) -> super::super::Foundation::BOOL
 where
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
-    ICInstall(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), lparam.param().abi(), szdesc.param().abi(), core::mem::transmute(wflags))
+    ICInstall(fcctype, fcchandler, lparam.param().abi(), szdesc.param().abi(), wflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
-    ICLocate(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(lpbiin), core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), core::mem::transmute(wflags))
+    ICLocate(fcctype, fcchandler, lpbiin, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), wflags)
 }
 #[inline]
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
-    ICOpen(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(wmode))
+    ICOpen(fcctype, fcchandler, wmode)
 }
 #[inline]
 pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
-    ICOpenFunction(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(wmode), core::mem::transmute(lpfnhandler))
+    ICOpenFunction(fcctype, fcchandler, wmode, lpfnhandler)
 }
 #[inline]
 pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
-    ICRemove(core::mem::transmute(fcctype), core::mem::transmute(fcchandler), core::mem::transmute(wflags))
+    ICRemove(fcctype, fcchandler, wflags)
 }
 #[inline]
 pub unsafe fn ICSendMessage<P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
@@ -777,45 +763,45 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
-    ICSendMessage(hic.param().abi(), core::mem::transmute(msg), core::mem::transmute(dw1), core::mem::transmute(dw2))
+    ICSendMessage(hic.param().abi(), msg, dw1, dw2)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
     windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
-    ICSeqCompressFrame(core::mem::transmute(pc), core::mem::transmute(uiflags), core::mem::transmute(lpbits), core::mem::transmute(pfkey), core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+    ICSeqCompressFrame(pc, uiflags, lpbits, pfkey, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
-    ICSeqCompressFrameEnd(core::mem::transmute(pc))
+    ICSeqCompressFrameEnd(pc)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
     windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
-    ICSeqCompressFrameStart(core::mem::transmute(pc), core::mem::transmute(lpbiin))
+    ICSeqCompressFrameStart(pc, lpbiin)
 }
 #[inline]
-pub unsafe fn MCIWndCreateA<P0, P1, P3>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
+pub unsafe fn MCIWndCreateA<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCSTR) -> super::super::Foundation:: HWND);
-    MCIWndCreateA(hwndparent.param().abi(), hinstance.param().abi(), core::mem::transmute(dwstyle), szfile.param().abi())
+    MCIWndCreateA(hwndparent.param().abi(), hinstance.param().abi(), dwstyle, szfile.param().abi())
 }
 #[inline]
-pub unsafe fn MCIWndCreateW<P0, P1, P3>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P3) -> super::super::Foundation::HWND
+pub unsafe fn MCIWndCreateW<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
     P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCWSTR) -> super::super::Foundation:: HWND);
-    MCIWndCreateW(hwndparent.param().abi(), hinstance.param().abi(), core::mem::transmute(dwstyle), szfile.param().abi())
+    MCIWndCreateW(hwndparent.param().abi(), hinstance.param().abi(), dwstyle, szfile.param().abi())
 }
 #[inline]
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
@@ -833,14 +819,14 @@ where
     OpenDriver(szdrivername.param().abi(), szsectionname.param().abi(), lparam2.param().abi())
 }
 #[inline]
-pub unsafe fn SendDriverMessage<P0, P2, P3>(hdriver: P0, message: u32, lparam1: P2, lparam2: P3) -> super::super::Foundation::LRESULT
+pub unsafe fn SendDriverMessage<P0, P1, P2>(hdriver: P0, message: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
 where
     P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
     P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    SendDriverMessage(hdriver.param().abi(), core::mem::transmute(message), lparam1.param().abi(), lparam2.param().abi())
+    SendDriverMessage(hdriver.param().abi(), message, lparam1.param().abi(), lparam2.param().abi())
 }
 #[inline]
 pub unsafe fn VideoForWindowsVersion() -> u32 {
@@ -848,42 +834,42 @@ pub unsafe fn VideoForWindowsVersion() -> u32 {
     VideoForWindowsVersion()
 }
 #[inline]
-pub unsafe fn capCreateCaptureWindowA<P0, P6>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P6, nid: i32) -> super::super::Foundation::HWND
+pub unsafe fn capCreateCaptureWindowA<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P6: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : windows_core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
-    capCreateCaptureWindowA(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), hwndparent.param().abi(), core::mem::transmute(nid))
+    capCreateCaptureWindowA(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), nid)
 }
 #[inline]
-pub unsafe fn capCreateCaptureWindowW<P0, P6>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P6, nid: i32) -> super::super::Foundation::HWND
+pub unsafe fn capCreateCaptureWindowW<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P6: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
-    capCreateCaptureWindowW(lpszwindowname.param().abi(), core::mem::transmute(dwstyle), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(nwidth), core::mem::transmute(nheight), hwndparent.param().abi(), core::mem::transmute(nid))
+    capCreateCaptureWindowW(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), nid)
 }
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
     windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
-    capGetDriverDescriptionA(core::mem::transmute(wdriverindex), core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
+    capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
     windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
-    capGetDriverDescriptionW(core::mem::transmute(wdriverindex), core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
+    capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> u32);
-    joyGetDevCapsA(core::mem::transmute(ujoyid), core::mem::transmute(pjc), core::mem::transmute(cbjc))
+    joyGetDevCapsA(ujoyid, pjc, cbjc)
 }
 #[inline]
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> u32);
-    joyGetDevCapsW(core::mem::transmute(ujoyid), core::mem::transmute(pjc), core::mem::transmute(cbjc))
+    joyGetDevCapsW(ujoyid, pjc, cbjc)
 }
 #[inline]
 pub unsafe fn joyGetNumDevs() -> u32 {
@@ -893,36 +879,36 @@ pub unsafe fn joyGetNumDevs() -> u32 {
 #[inline]
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mut JOYINFO) -> u32);
-    joyGetPos(core::mem::transmute(ujoyid), core::mem::transmute(pji))
+    joyGetPos(ujoyid, pji)
 }
 #[inline]
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> u32);
-    joyGetPosEx(core::mem::transmute(ujoyid), core::mem::transmute(pji))
+    joyGetPosEx(ujoyid, pji)
 }
 #[inline]
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> u32);
-    joyGetThreshold(core::mem::transmute(ujoyid), core::mem::transmute(puthreshold))
+    joyGetThreshold(ujoyid, puthreshold)
 }
 #[inline]
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
-    joyReleaseCapture(core::mem::transmute(ujoyid))
+    joyReleaseCapture(ujoyid)
 }
 #[inline]
-pub unsafe fn joySetCapture<P0, P3>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P3) -> u32
+pub unsafe fn joySetCapture<P0, P1>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P1) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
-    joySetCapture(hwnd.param().abi(), core::mem::transmute(ujoyid), core::mem::transmute(uperiod), fchanged.param().abi())
+    joySetCapture(hwnd.param().abi(), ujoyid, uperiod, fchanged.param().abi())
 }
 #[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
-    joySetThreshold(core::mem::transmute(ujoyid), core::mem::transmute(uthreshold))
+    joySetThreshold(ujoyid, uthreshold)
 }
 #[inline]
 pub unsafe fn mciDriverNotify<P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
@@ -930,22 +916,22 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
-    mciDriverNotify(hwndcallback.param().abi(), core::mem::transmute(wdeviceid), core::mem::transmute(ustatus))
+    mciDriverNotify(hwndcallback.param().abi(), wdeviceid, ustatus)
 }
 #[inline]
 pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
-    mciDriverYield(core::mem::transmute(wdeviceid))
+    mciDriverYield(wdeviceid)
 }
 #[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
-    mciFreeCommandResource(core::mem::transmute(wtable))
+    mciFreeCommandResource(wtable)
 }
 #[inline]
 pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
     windows_targets::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super:: HTASK);
-    mciGetCreatorTask(core::mem::transmute(mciid))
+    mciGetCreatorTask(mciid)
 }
 #[inline]
 pub unsafe fn mciGetDeviceIDA<P0>(pszdevice: P0) -> u32
@@ -956,20 +942,20 @@ where
     mciGetDeviceIDA(pszdevice.param().abi())
 }
 #[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDA<P1>(dwelementid: u32, lpstrtype: P1) -> u32
+pub unsafe fn mciGetDeviceIDFromElementIDA<P0>(dwelementid: u32, lpstrtype: P0) -> u32
 where
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_core::PCSTR) -> u32);
-    mciGetDeviceIDFromElementIDA(core::mem::transmute(dwelementid), lpstrtype.param().abi())
+    mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.param().abi())
 }
 #[inline]
-pub unsafe fn mciGetDeviceIDFromElementIDW<P1>(dwelementid: u32, lpstrtype: P1) -> u32
+pub unsafe fn mciGetDeviceIDFromElementIDW<P0>(dwelementid: u32, lpstrtype: P0) -> u32
 where
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : u32, lpstrtype : windows_core::PCWSTR) -> u32);
-    mciGetDeviceIDFromElementIDW(core::mem::transmute(dwelementid), lpstrtype.param().abi())
+    mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.param().abi())
 }
 #[inline]
 pub unsafe fn mciGetDeviceIDW<P0>(pszdevice: P0) -> u32
@@ -982,22 +968,22 @@ where
 #[inline]
 pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     windows_targets::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
-    mciGetDriverData(core::mem::transmute(wdeviceid))
+    mciGetDriverData(wdeviceid)
 }
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
-    mciGetErrorStringA(core::mem::transmute(mcierr), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
+    mciGetErrorStringA(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
-    mciGetErrorStringW(core::mem::transmute(mcierr), core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
+    mciGetErrorStringW(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
     windows_targets::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
-    mciGetYieldProc(core::mem::transmute(mciid), core::mem::transmute(pdwyielddata))
+    mciGetYieldProc(mciid, pdwyielddata)
 }
 #[inline]
 pub unsafe fn mciLoadCommandResource<P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
@@ -1006,32 +992,32 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : windows_core::PCWSTR, wtype : u32) -> u32);
-    mciLoadCommandResource(hinstance.param().abi(), lpresname.param().abi(), core::mem::transmute(wtype))
+    mciLoadCommandResource(hinstance.param().abi(), lpresname.param().abi(), wtype)
 }
 #[inline]
 pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-    mciSendCommandA(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    mciSendCommandA(mciid, umsg, dwparam1, dwparam2)
 }
 #[inline]
 pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-    mciSendCommandW(core::mem::transmute(mciid), core::mem::transmute(umsg), core::mem::transmute(dwparam1), core::mem::transmute(dwparam2))
+    mciSendCommandW(mciid, umsg, dwparam1, dwparam2)
 }
 #[inline]
-pub unsafe fn mciSendStringA<P0, P3>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: P3) -> u32
+pub unsafe fn mciSendStringA<P0, P1>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: P1) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
     mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
 }
 #[inline]
-pub unsafe fn mciSendStringW<P0, P3>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: P3) -> u32
+pub unsafe fn mciSendStringW<P0, P1>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: P1) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
     mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
@@ -1039,12 +1025,12 @@ where
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
-    mciSetDriverData(core::mem::transmute(wdeviceid), core::mem::transmute(dwdata))
+    mciSetDriverData(wdeviceid, dwdata)
 }
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
-    mciSetYieldProc(core::mem::transmute(mciid), core::mem::transmute(fpyieldproc), core::mem::transmute(dwyielddata))
+    mciSetYieldProc(mciid, fpyieldproc, dwyielddata)
 }
 #[inline]
 pub unsafe fn mmDrvInstall<P0, P1>(hdriver: P0, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
@@ -1053,7 +1039,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : windows_core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
-    mmDrvInstall(hdriver.param().abi(), wszdrventry.param().abi(), core::mem::transmute(drvmessage), core::mem::transmute(wflags))
+    mmDrvInstall(hdriver.param().abi(), wszdrventry.param().abi(), drvmessage, wflags)
 }
 #[inline]
 pub unsafe fn mmGetCurrentTask() -> u32 {
@@ -1063,17 +1049,17 @@ pub unsafe fn mmGetCurrentTask() -> u32 {
 #[inline]
 pub unsafe fn mmTaskBlock(h: u32) {
     windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32));
-    mmTaskBlock(core::mem::transmute(h))
+    mmTaskBlock(h)
 }
 #[inline]
 pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     windows_targets::link!("winmm.dll" "system" fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
-    mmTaskCreate(core::mem::transmute(lpfn), core::mem::transmute(lph), core::mem::transmute(dwinst))
+    mmTaskCreate(lpfn, lph, dwinst)
 }
 #[inline]
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
-    mmTaskSignal(core::mem::transmute(h))
+    mmTaskSignal(h)
 }
 #[inline]
 pub unsafe fn mmTaskYield() {
@@ -1086,7 +1072,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
-    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fuadvance))
+    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fuadvance)
 }
 #[inline]
 pub unsafe fn mmioAscend<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32
@@ -1094,7 +1080,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
-    mmioAscend(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(fuascend))
+    mmioAscend(hmmio.param().abi(), pmmcki, fuascend)
 }
 #[inline]
 pub unsafe fn mmioClose<P0>(hmmio: P0, fuclose: u32) -> u32
@@ -1102,7 +1088,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> u32);
-    mmioClose(hmmio.param().abi(), core::mem::transmute(fuclose))
+    mmioClose(hmmio.param().abi(), fuclose)
 }
 #[inline]
 pub unsafe fn mmioCreateChunk<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32
@@ -1110,7 +1096,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> u32);
-    mmioCreateChunk(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(fucreate))
+    mmioCreateChunk(hmmio.param().abi(), pmmcki, fucreate)
 }
 #[inline]
 pub unsafe fn mmioDescend<P0>(hmmio: P0, pmmcki: *mut MMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> u32
@@ -1118,7 +1104,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
-    mmioDescend(hmmio.param().abi(), core::mem::transmute(pmmcki), core::mem::transmute(pmmckiparent.unwrap_or(core::ptr::null())), core::mem::transmute(fudescend))
+    mmioDescend(hmmio.param().abi(), pmmcki, core::mem::transmute(pmmckiparent.unwrap_or(core::ptr::null())), fudescend)
 }
 #[inline]
 pub unsafe fn mmioFlush<P0>(hmmio: P0, fuflush: u32) -> u32
@@ -1126,7 +1112,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
-    mmioFlush(hmmio.param().abi(), core::mem::transmute(fuflush))
+    mmioFlush(hmmio.param().abi(), fuflush)
 }
 #[inline]
 pub unsafe fn mmioGetInfo<P0>(hmmio: P0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32
@@ -1134,27 +1120,27 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
-    mmioGetInfo(hmmio.param().abi(), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
+    mmioGetInfo(hmmio.param().abi(), pmmioinfo, fuinfo)
 }
 #[inline]
 pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    mmioInstallIOProcA(core::mem::transmute(fccioproc), core::mem::transmute(pioproc), core::mem::transmute(dwflags))
+    mmioInstallIOProcA(fccioproc, pioproc, dwflags)
 }
 #[inline]
 pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
     windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-    mmioInstallIOProcW(core::mem::transmute(fccioproc), core::mem::transmute(pioproc), core::mem::transmute(dwflags))
+    mmioInstallIOProcW(fccioproc, pioproc, dwflags)
 }
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(fdwopen))
+    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
 }
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: Option<&mut [u16; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(fdwopen))
+    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
 }
 #[inline]
 pub unsafe fn mmioRead<P0>(hmmio: P0, pch: &mut [u8]) -> i32
@@ -1171,7 +1157,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fdwrename))
+    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
 }
 #[inline]
 pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1180,7 +1166,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), core::mem::transmute(fdwrename))
+    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
 }
 #[inline]
 pub unsafe fn mmioSeek<P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
@@ -1188,17 +1174,17 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
-    mmioSeek(hmmio.param().abi(), core::mem::transmute(loffset), core::mem::transmute(iorigin))
+    mmioSeek(hmmio.param().abi(), loffset, iorigin)
 }
 #[inline]
-pub unsafe fn mmioSendMessage<P0, P2, P3>(hmmio: P0, umsg: u32, lparam1: P2, lparam2: P3) -> super::super::Foundation::LRESULT
+pub unsafe fn mmioSendMessage<P0, P1, P2>(hmmio: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
 where
     P0: windows_core::Param<HMMIO>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
     P2: windows_core::Param<super::super::Foundation::LPARAM>,
-    P3: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
-    mmioSendMessage(hmmio.param().abi(), core::mem::transmute(umsg), lparam1.param().abi(), lparam2.param().abi())
+    mmioSendMessage(hmmio.param().abi(), umsg, lparam1.param().abi(), lparam2.param().abi())
 }
 #[inline]
 pub unsafe fn mmioSetBuffer<P0>(hmmio: P0, pchbuffer: Option<&mut [u8]>, fubuffer: u32) -> u32
@@ -1206,7 +1192,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
-    mmioSetBuffer(hmmio.param().abi(), core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(fubuffer))
+    mmioSetBuffer(hmmio.param().abi(), core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), fubuffer)
 }
 #[inline]
 pub unsafe fn mmioSetInfo<P0>(hmmio: P0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32
@@ -1214,7 +1200,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
-    mmioSetInfo(hmmio.param().abi(), core::mem::transmute(pmmioinfo), core::mem::transmute(fuinfo))
+    mmioSetInfo(hmmio.param().abi(), pmmioinfo, fuinfo)
 }
 #[inline]
 pub unsafe fn mmioStringToFOURCCA<P0>(sz: P0, uflags: u32) -> u32
@@ -1222,7 +1208,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_core::PCSTR, uflags : u32) -> u32);
-    mmioStringToFOURCCA(sz.param().abi(), core::mem::transmute(uflags))
+    mmioStringToFOURCCA(sz.param().abi(), uflags)
 }
 #[inline]
 pub unsafe fn mmioStringToFOURCCW<P0>(sz: P0, uflags: u32) -> u32
@@ -1230,7 +1216,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_core::PCWSTR, uflags : u32) -> u32);
-    mmioStringToFOURCCW(sz.param().abi(), core::mem::transmute(uflags))
+    mmioStringToFOURCCW(sz.param().abi(), uflags)
 }
 #[inline]
 pub unsafe fn mmioWrite<P0>(hmmio: P0, pch: &[u8]) -> i32
@@ -1247,29 +1233,35 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_core::PCWSTR, appname : windows_core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation:: HANDLE) -> i32);
-    sndOpenSound(eventname.param().abi(), appname.param().abi(), core::mem::transmute(flags), core::mem::transmute(filehandle))
+    sndOpenSound(eventname.param().abi(), appname.param().abi(), flags, filehandle)
 }
 windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIEditStream {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAVIEditStream, windows_core::IUnknown);
 impl IAVIEditStream {
     pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), core::mem::transmute(plstart), core::mem::transmute(pllength), core::mem::transmute(ppresult)).ok()
+        (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), plstart, pllength, core::mem::transmute(ppresult)).ok()
     }
     pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), core::mem::transmute(plstart), core::mem::transmute(pllength), core::mem::transmute(ppresult)).ok()
+        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), plstart, pllength, core::mem::transmute(ppresult)).ok()
     }
-    pub unsafe fn Paste<P2>(&self, plpos: *mut i32, pllength: *mut i32, pstream: P2, lstart: i32, lend: i32) -> windows_core::Result<()>
+    pub unsafe fn Paste<P0>(&self, plpos: *mut i32, pllength: *mut i32, pstream: P0, lstart: i32, lend: i32) -> windows_core::Result<()>
     where
-        P2: windows_core::Param<IAVIStream>,
+        P0: windows_core::Param<IAVIStream>,
     {
-        (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), core::mem::transmute(plpos), core::mem::transmute(pllength), pstream.param().abi(), core::mem::transmute(lstart), core::mem::transmute(lend)).ok()
+        (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), plpos, pllength, pstream.param().abi(), lstart, lend).ok()
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<IAVIStream> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lpinfo), core::mem::transmute(cbinfo)).ok()
+        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
     }
 }
 #[repr(C)]
@@ -1281,15 +1273,16 @@ pub struct IAVIEditStream_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
-pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
+pub trait IAVIEditStream_Impl: Sized + windows_core::IUnknownImpl {
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>;
     fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>;
     fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: Option<&IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAVIEditStream {}
 impl IAVIEditStream_Vtbl {
-    pub const fn new<Identity: IAVIEditStream_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAVIEditStream_Impl, const OFFSET: isize>() -> IAVIEditStream_Vtbl {
         unsafe extern "system" fn Cut<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAVIEditStream_Impl::Cut(this, core::mem::transmute_copy(&plstart), core::mem::transmute_copy(&pllength), core::mem::transmute_copy(&ppresult)).into()
@@ -1329,30 +1322,35 @@ impl IAVIEditStream_Vtbl {
         iid == &<IAVIEditStream as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAVIEditStream {}
 windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIFile {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAVIFile, windows_core::IUnknown);
 impl IAVIFile {
     pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), core::mem::transmute(pfi), core::mem::transmute(lsize)).ok()
+        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), pfi, lsize).ok()
     }
     pub unsafe fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), core::mem::transmute(fcctype), core::mem::transmute(lparam)).ok()
+        (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), fcctype, lparam).ok()
     }
     pub unsafe fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), core::mem::transmute(psi)).ok()
+        (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), psi).ok()
     }
     pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), core::mem::transmute(ckid), core::mem::transmute(lpdata), core::mem::transmute(cbdata)).ok()
+        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), ckid, lpdata, cbdata).ok()
     }
     pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), core::mem::transmute(ckid), core::mem::transmute(lpdata), core::mem::transmute(lpcbdata)).ok()
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), ckid, lpdata, lpcbdata).ok()
     }
     pub unsafe fn EndRecord(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndRecord)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DeleteStream)(windows_core::Interface::as_raw(self), core::mem::transmute(fcctype), core::mem::transmute(lparam)).ok()
+        (windows_core::Interface::vtable(self).DeleteStream)(windows_core::Interface::as_raw(self), fcctype, lparam).ok()
     }
 }
 #[repr(C)]
@@ -1366,7 +1364,7 @@ pub struct IAVIFile_Vtbl {
     pub EndRecord: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
 }
-pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
+pub trait IAVIFile_Impl: Sized + windows_core::IUnknownImpl {
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>;
     fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
     fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
@@ -1375,8 +1373,9 @@ pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
     fn EndRecord(&self) -> windows_core::Result<()>;
     fn DeleteStream(&self, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAVIFile {}
 impl IAVIFile_Vtbl {
-    pub const fn new<Identity: IAVIFile_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAVIFile_Impl, const OFFSET: isize>() -> IAVIFile_Vtbl {
         unsafe extern "system" fn Info<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAVIFile_Impl::Info(this, core::mem::transmute_copy(&pfi), core::mem::transmute_copy(&lsize)).into()
@@ -1420,7 +1419,6 @@ impl IAVIFile_Vtbl {
         iid == &<IAVIFile as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAVIFile {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IAVIPersistFile, IAVIPersistFile_Vtbl, 0x00020025_0000_0000_c000_000000000046);
 #[cfg(feature = "Win32_System_Com")]
@@ -1445,12 +1443,14 @@ pub struct IAVIPersistFile_Vtbl {
     pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IAVIPersistFile_Impl: super::super::System::Com::IPersistFile_Impl {
+pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersistFile_Impl {
     fn Reserved1(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IAVIPersistFile {}
+#[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile_Vtbl {
-    pub const fn new<Identity: IAVIPersistFile_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAVIPersistFile_Impl, const OFFSET: isize>() -> IAVIPersistFile_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: IAVIPersistFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAVIPersistFile_Impl::Reserved1(this).into()
@@ -1461,9 +1461,13 @@ impl IAVIPersistFile_Vtbl {
         iid == &<IAVIPersistFile as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersistFile as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IAVIPersistFile {}
 windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIStream {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAVIStream, windows_core::IUnknown);
 impl IAVIStream {
     pub unsafe fn Create<P0, P1>(&self, lparam1: P0, lparam2: P1) -> windows_core::Result<()>
@@ -1474,34 +1478,34 @@ impl IAVIStream {
         (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), lparam1.param().abi(), lparam2.param().abi()).ok()
     }
     pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), core::mem::transmute(psi), core::mem::transmute(lsize)).ok()
+        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), psi, lsize).ok()
     }
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
-        (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lflags))
+        (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), lpos, lflags)
     }
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbformat)).ok()
+        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
     }
     pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos), core::mem::transmute(lpformat), core::mem::transmute(cbformat)).ok()
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpos, lpformat, cbformat).ok()
     }
     pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(cbbuffer), core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples), core::mem::transmute(lpbuffer), core::mem::transmute(cbbuffer), core::mem::transmute(dwflags), core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lsamples)).ok()
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), lstart, lsamples).ok()
     }
     pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), core::mem::transmute(fcc), core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcb)).ok()
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
     }
     pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), core::mem::transmute(fcc), core::mem::transmute(lp), core::mem::transmute(cb)).ok()
+        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), fcc, lp, cb).ok()
     }
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(lpinfo), core::mem::transmute(cbinfo)).ok()
+        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
     }
 }
 #[repr(C)]
@@ -1519,7 +1523,7 @@ pub struct IAVIStream_Vtbl {
     pub WriteData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
-pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
+pub trait IAVIStream_Impl: Sized + windows_core::IUnknownImpl {
     fn Create(&self, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>;
     fn FindSample(&self, lpos: i32, lflags: i32) -> i32;
@@ -1532,8 +1536,9 @@ pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
     fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAVIStream {}
 impl IAVIStream_Vtbl {
-    pub const fn new<Identity: IAVIStream_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAVIStream_Impl, const OFFSET: isize>() -> IAVIStream_Vtbl {
         unsafe extern "system" fn Create<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAVIStream_Impl::Create(this, core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2)).into()
@@ -1597,12 +1602,17 @@ impl IAVIStream_Vtbl {
         iid == &<IAVIStream as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAVIStream {}
 windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIStreaming {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IAVIStreaming, windows_core::IUnknown);
 impl IAVIStreaming {
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lend), core::mem::transmute(lrate)).ok()
+        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok()
     }
     pub unsafe fn End(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok()
@@ -1614,12 +1624,13 @@ pub struct IAVIStreaming_Vtbl {
     pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IAVIStreaming_Impl: windows_core::IUnknownImpl {
+pub trait IAVIStreaming_Impl: Sized + windows_core::IUnknownImpl {
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IAVIStreaming {}
 impl IAVIStreaming_Vtbl {
-    pub const fn new<Identity: IAVIStreaming_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IAVIStreaming_Impl, const OFFSET: isize>() -> IAVIStreaming_Vtbl {
         unsafe extern "system" fn Begin<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IAVIStreaming_Impl::Begin(this, core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend), core::mem::transmute_copy(&lrate)).into()
@@ -1634,22 +1645,27 @@ impl IAVIStreaming_Vtbl {
         iid == &<IAVIStreaming as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IAVIStreaming {}
 windows_core::imp::define_interface!(IGetFrame, IGetFrame_Vtbl, 0x00020023_0000_0000_c000_000000000046);
+impl core::ops::Deref for IGetFrame {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IGetFrame, windows_core::IUnknown);
 impl IGetFrame {
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void {
-        (windows_core::Interface::vtable(self).GetFrame)(windows_core::Interface::as_raw(self), core::mem::transmute(lpos))
+        (windows_core::Interface::vtable(self).GetFrame)(windows_core::Interface::as_raw(self), lpos)
     }
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), core::mem::transmute(lstart), core::mem::transmute(lend), core::mem::transmute(lrate)).ok()
+        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok()
     }
     pub unsafe fn End(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), core::mem::transmute(lpbi), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), core::mem::transmute(x), core::mem::transmute(y), core::mem::transmute(dx), core::mem::transmute(dy)).ok()
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpbi, core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), x, y, dx, dy).ok()
     }
 }
 #[repr(C)]
@@ -1664,15 +1680,17 @@ pub struct IGetFrame_Vtbl {
     SetFormat: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IGetFrame_Impl: windows_core::IUnknownImpl {
+pub trait IGetFrame_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void;
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
     fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for IGetFrame {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGetFrame_Vtbl {
-    pub const fn new<Identity: IGetFrame_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IGetFrame_Impl, const OFFSET: isize>() -> IGetFrame_Vtbl {
         unsafe extern "system" fn GetFrame<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpos: i32) -> *mut core::ffi::c_void {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetFrame_Impl::GetFrame(this, core::mem::transmute_copy(&lpos))
@@ -1701,8 +1719,6 @@ impl IGetFrame_Vtbl {
         iid == &<IGetFrame as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::RuntimeName for IGetFrame {}
 pub const ACMDM_BASE: u32 = 24576u32;
 pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
 pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
@@ -6357,13 +6373,13 @@ pub struct ADPCMCOEFSET {
     pub iCoef1: i16,
     pub iCoef2: i16,
 }
+impl windows_core::TypeKind for ADPCMCOEFSET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ADPCMCOEFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ADPCMCOEFSET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6373,14 +6389,14 @@ pub struct ADPCMEWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ADPCMEWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for ADPCMEWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMEWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6392,14 +6408,14 @@ pub struct ADPCMWAVEFORMAT {
     pub aCoef: [ADPCMCOEFSET; 1],
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6408,14 +6424,14 @@ pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for APTXWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for APTXWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for APTXWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6424,14 +6440,14 @@ pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for AUDIOFILE_AF10WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6440,17 +6456,17 @@ pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for AUDIOFILE_AF36WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -6464,16 +6480,16 @@ pub struct AVICOMPRESSOPTIONS {
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
 }
+impl windows_core::TypeKind for AVICOMPRESSOPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVICOMPRESSOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVICOMPRESSOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -6488,16 +6504,16 @@ pub struct AVIFILEINFOA {
     pub dwEditCount: u32,
     pub szFileType: [i8; 64],
 }
+impl windows_core::TypeKind for AVIFILEINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVIFILEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFILEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOW {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -6512,16 +6528,16 @@ pub struct AVIFILEINFOW {
     pub dwEditCount: u32,
     pub szFileType: [u16; 64],
 }
+impl windows_core::TypeKind for AVIFILEINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVIFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFILEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -6542,16 +6558,16 @@ pub struct AVISTREAMINFOA {
     pub dwFormatChangeCount: u32,
     pub szName: [i8; 64],
 }
+impl windows_core::TypeKind for AVISTREAMINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVISTREAMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -6572,16 +6588,16 @@ pub struct AVISTREAMINFOW {
     pub dwFormatChangeCount: u32,
     pub szName: [u16; 64],
 }
+impl windows_core::TypeKind for AVISTREAMINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVISTREAMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
     pub fHasOverlay: super::super::Foundation::BOOL,
@@ -6595,32 +6611,32 @@ pub struct CAPDRIVERCAPS {
     pub hVideoExtIn: super::super::Foundation::HANDLE,
     pub hVideoExtOut: super::super::Foundation::HANDLE,
 }
+impl windows_core::TypeKind for CAPDRIVERCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CAPDRIVERCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPDRIVERCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: u32,
     pub lpData: *mut core::ffi::c_void,
     pub cbData: i32,
+}
+impl windows_core::TypeKind for CAPINFOCHUNK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CAPINFOCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPINFOCHUNK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
@@ -6642,17 +6658,17 @@ pub struct CAPSTATUS {
     pub wNumAudioAllocated: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CAPSTATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CAPSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CAPSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
     pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
@@ -6679,16 +6695,16 @@ pub struct CAPTUREPARMS {
     pub fDisableWriteCache: super::super::Foundation::BOOL,
     pub AVStreamMaster: u32,
 }
+impl windows_core::TypeKind for CAPTUREPARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CAPTUREPARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPTUREPARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: u32,
     pub dwSrcRectXMod: u32,
@@ -6700,17 +6716,17 @@ pub struct CHANNEL_CAPS {
     pub dwDstRectWidthMod: u32,
     pub dwDstRectHeightMod: u32,
 }
+impl windows_core::TypeKind for CHANNEL_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CHANNEL_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANNEL_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPVARS {
     pub cbSize: i32,
     pub dwFlags: u32,
@@ -6730,14 +6746,14 @@ pub struct COMPVARS {
     pub cbState: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for COMPVARS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for COMPVARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for COMPVARS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6747,14 +6763,14 @@ pub struct CONTRESCR10WAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CONTRESCR10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CONTRESCR10WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESCR10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6764,14 +6780,14 @@ pub struct CONTRESVQLPCWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CONTRESVQLPCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CONTRESVQLPCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESVQLPCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6781,14 +6797,14 @@ pub struct CREATIVEADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6798,14 +6814,14 @@ pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEFASTSPEECH10WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6815,14 +6831,14 @@ pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEFASTSPEECH8WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6831,14 +6847,14 @@ pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CSIMAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for CSIMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CSIMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6847,14 +6863,14 @@ pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIALOGICOKIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6864,14 +6880,14 @@ pub struct DIGIADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6880,14 +6896,14 @@ pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIFIXWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIFIXWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIFIXWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6897,14 +6913,14 @@ pub struct DIGIREALWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIREALWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIREALWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIREALWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6913,14 +6929,14 @@ pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGISTDWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGISTDWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGISTDWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6930,17 +6946,17 @@ pub struct DOLBYAC2WAVEFORMAT {
     pub nAuxBitsCode: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DOLBYAC2WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DOLBYAC2WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DOLBYAC2WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAWDIBTIME {
     pub timeCount: i32,
     pub timeDraw: i32,
@@ -6950,13 +6966,13 @@ pub struct DRAWDIBTIME {
     pub timeBlt: i32,
     pub timeSetDIBits: i32,
 }
+impl windows_core::TypeKind for DRAWDIBTIME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRAWDIBTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRAWDIBTIME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -6968,14 +6984,14 @@ pub struct DRMWAVEFORMAT {
     pub wfxSecure: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DRMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DRMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DRMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -6984,13 +7000,13 @@ pub struct DRVCONFIGINFO {
     pub lpszDCISectionName: windows_core::PCWSTR,
     pub lpszDCIAliasName: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for DRVCONFIGINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRVCONFIGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVCONFIGINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7000,13 +7016,13 @@ pub struct DRVCONFIGINFOEX {
     pub lpszDCIAliasName: windows_core::PCWSTR,
     pub dnDevNode: u32,
 }
+impl windows_core::TypeKind for DRVCONFIGINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRVCONFIGINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVCONFIGINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7014,13 +7030,13 @@ pub struct DRVM_IOCTL_DATA {
     pub dwSize: u32,
     pub dwCmd: u32,
 }
+impl windows_core::TypeKind for DRVM_IOCTL_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DRVM_IOCTL_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7030,14 +7046,14 @@ pub struct DVIADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DVIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DVIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DVIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7046,14 +7062,14 @@ pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ECHOSC1WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for ECHOSC1WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ECHOSC1WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7063,14 +7079,14 @@ pub struct EXBMINFOHEADER {
     pub biExtDataOffset: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for EXBMINFOHEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EXBMINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EXBMINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7080,14 +7096,14 @@ pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for FMTOWNS_SND_WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7097,14 +7113,14 @@ pub struct G721_ADPCMWAVEFORMAT {
     pub nAuxBlockSize: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for G721_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for G721_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G721_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7115,14 +7131,14 @@ pub struct G723_ADPCMWAVEFORMAT {
     pub nAuxBlockSize: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for G723_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for G723_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G723_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7132,21 +7148,18 @@ pub struct GSM610WAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for GSM610WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for GSM610WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for GSM610WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVR(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HDRVR {
-    type TypeKind = windows_core::CopyType;
-}
 impl HDRVR {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -7157,12 +7170,12 @@ impl Default for HDRVR {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HDRVR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIC(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HIC {
-    type TypeKind = windows_core::CopyType;
-}
 impl HIC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -7172,8 +7185,7 @@ impl windows_core::Free for HIC {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_targets::link!("msvfw32.dll" "system" fn ICClose(hic : *mut core::ffi::c_void) -> isize);
-            ICClose(self.0);
+            _ = ICClose(*self);
         }
     }
 }
@@ -7182,12 +7194,12 @@ impl Default for HIC {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HIC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMMIO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HMMIO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HMMIO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -7198,12 +7210,12 @@ impl Default for HMMIO {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HMMIO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HVIDEO(pub *mut core::ffi::c_void);
-impl windows_core::TypeKind for HVIDEO {
-    type TypeKind = windows_core::CopyType;
-}
 impl HVIDEO {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -7214,9 +7226,12 @@ impl Default for HVIDEO {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HVIDEO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7232,18 +7247,18 @@ pub struct ICCOMPRESS {
     pub lpPrev: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICCOMPRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICCOMPRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7263,18 +7278,18 @@ pub struct ICCOMPRESSFRAMES {
     pub PutData: isize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICCOMPRESSFRAMES {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICCOMPRESSFRAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESSFRAMES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7284,18 +7299,18 @@ pub struct ICDECOMPRESS {
     pub ckid: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDECOMPRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDECOMPRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7312,17 +7327,17 @@ pub struct ICDECOMPRESSEX {
     pub dySrc: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDECOMPRESSEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDECOMPRESSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESSEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAW {
     pub dwFlags: u32,
     pub lpFormat: *mut core::ffi::c_void,
@@ -7330,17 +7345,17 @@ pub struct ICDRAW {
     pub cbData: u32,
     pub lTime: i32,
 }
+impl windows_core::TypeKind for ICDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICDRAW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
@@ -7359,18 +7374,18 @@ pub struct ICDRAWBEGIN {
     pub dwScale: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDRAWBEGIN {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDRAWBEGIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWBEGIN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -7381,17 +7396,17 @@ pub struct ICDRAWSUGGEST {
     pub hicDecompressor: HIC,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDRAWSUGGEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDRAWSUGGEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWSUGGEST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICINFO {
     pub dwSize: u32,
     pub fccType: u32,
@@ -7403,16 +7418,16 @@ pub struct ICINFO {
     pub szDescription: [u16; 128],
     pub szDriver: [u16; 128],
 }
+impl windows_core::TypeKind for ICINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICOPEN {
     pub dwSize: u32,
     pub fccType: u32,
@@ -7424,17 +7439,17 @@ pub struct ICOPEN {
     pub pV2Reserved: *mut core::ffi::c_void,
     pub dnDevNode: u32,
 }
+impl windows_core::TypeKind for ICOPEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICOPEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICOPEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICPALETTE {
     pub dwFlags: u32,
     pub iStart: i32,
@@ -7442,29 +7457,29 @@ pub struct ICPALETTE {
     pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICPALETTE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
     pub lParam: super::super::Foundation::LPARAM,
     pub Status: isize,
 }
+impl windows_core::TypeKind for ICSETSTATUSPROC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICSETSTATUSPROC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ICSETSTATUSPROC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -7474,14 +7489,14 @@ pub struct IMAADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for IMAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for IMAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for IMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7514,13 +7529,13 @@ pub struct JOYCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+impl windows_core::TypeKind for JOYCAPS2A {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYCAPS2A {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7553,13 +7568,13 @@ pub struct JOYCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+impl windows_core::TypeKind for JOYCAPS2W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYCAPS2W {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7589,13 +7604,13 @@ pub struct JOYCAPSA {
     pub szRegKey: [i8; 32],
     pub szOEMVxD: [i8; 260],
 }
+impl windows_core::TypeKind for JOYCAPSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYCAPSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7625,13 +7640,13 @@ pub struct JOYCAPSW {
     pub szRegKey: [u16; 32],
     pub szOEMVxD: [u16; 260],
 }
+impl windows_core::TypeKind for JOYCAPSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYCAPSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7641,13 +7656,13 @@ pub struct JOYINFO {
     pub wZpos: u32,
     pub wButtons: u32,
 }
+impl windows_core::TypeKind for JOYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7666,13 +7681,13 @@ pub struct JOYINFOEX {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl windows_core::TypeKind for JOYINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JOYINFOEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7684,13 +7699,13 @@ pub struct JPEGINFOHEADER {
     pub JPEGHSubSampling: u32,
     pub JPEGVSubSampling: u32,
 }
+impl windows_core::TypeKind for JPEGINFOHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JPEGINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for JPEGINFOHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
@@ -7704,13 +7719,13 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7723,13 +7738,13 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7739,13 +7754,13 @@ pub struct MCI_ANIM_PLAY_PARMS {
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_ANIM_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7753,13 +7768,13 @@ pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_ANIM_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7767,13 +7782,13 @@ pub struct MCI_ANIM_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
+impl windows_core::TypeKind for MCI_ANIM_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7784,14 +7799,14 @@ pub struct MCI_ANIM_UPDATE_PARMS {
     pub hDC: super::super::Graphics::Gdi::HDC,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MCI_ANIM_UPDATE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for MCI_ANIM_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_ANIM_UPDATE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7801,13 +7816,13 @@ pub struct MCI_ANIM_WINDOW_PARMSA {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7817,13 +7832,13 @@ pub struct MCI_ANIM_WINDOW_PARMSW {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7832,13 +7847,13 @@ pub struct MCI_BREAK_PARMS {
     pub nVirtKey: i32,
     pub hwndBreak: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_BREAK_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_BREAK_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7847,13 +7862,13 @@ pub struct MCI_DGV_CAPTURE_PARMSA {
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_CAPTURE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7862,13 +7877,13 @@ pub struct MCI_DGV_CAPTURE_PARMSW {
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_CAPTURE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7880,13 +7895,13 @@ pub struct MCI_DGV_COPY_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_COPY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_COPY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_COPY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7894,13 +7909,13 @@ pub struct MCI_DGV_CUE_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_CUE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CUE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7912,13 +7927,13 @@ pub struct MCI_DGV_CUT_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_CUT_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_CUT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_CUT_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7930,13 +7945,13 @@ pub struct MCI_DGV_DELETE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_DELETE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_DELETE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7946,13 +7961,13 @@ pub struct MCI_DGV_INFO_PARMSA {
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_INFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_INFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7962,13 +7977,13 @@ pub struct MCI_DGV_INFO_PARMSW {
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_INFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7980,13 +7995,13 @@ pub struct MCI_DGV_LIST_PARMSA {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_LIST_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_LIST_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -7998,13 +8013,13 @@ pub struct MCI_DGV_LIST_PARMSW {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_LIST_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8013,13 +8028,13 @@ pub struct MCI_DGV_MONITOR_PARMS {
     pub dwSource: u32,
     pub dwMethod: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_MONITOR_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_MONITOR_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_MONITOR_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8032,13 +8047,13 @@ pub struct MCI_DGV_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8051,13 +8066,13 @@ pub struct MCI_DGV_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8068,13 +8083,13 @@ pub struct MCI_DGV_PASTE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_PASTE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_PASTE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_PASTE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8085,13 +8100,13 @@ pub struct MCI_DGV_QUALITY_PARMSA {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_QUALITY_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8102,13 +8117,13 @@ pub struct MCI_DGV_QUALITY_PARMSW {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8120,13 +8135,13 @@ pub struct MCI_DGV_RECORD_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_RECORD_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RECORD_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RECORD_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8134,13 +8149,13 @@ pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8149,13 +8164,13 @@ pub struct MCI_DGV_RESERVE_PARMSA {
     pub lpstrPath: windows_core::PSTR,
     pub dwSize: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RESERVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8164,13 +8179,13 @@ pub struct MCI_DGV_RESERVE_PARMSW {
     pub lpstrPath: windows_core::PWSTR,
     pub dwSize: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8179,13 +8194,13 @@ pub struct MCI_DGV_RESTORE_PARMSA {
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RESTORE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8194,13 +8209,13 @@ pub struct MCI_DGV_RESTORE_PARMSW {
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RESTORE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8209,13 +8224,13 @@ pub struct MCI_DGV_SAVE_PARMSA {
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8224,13 +8239,13 @@ pub struct MCI_DGV_SAVE_PARMSW {
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8242,13 +8257,13 @@ pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub lpstrAlgorithm: windows_core::PSTR,
     pub lpstrQuality: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETAUDIO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8260,13 +8275,13 @@ pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub lpstrAlgorithm: windows_core::PWSTR,
     pub lpstrQuality: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8279,13 +8294,13 @@ pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub lpstrQuality: windows_core::PSTR,
     pub dwSourceNumber: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETVIDEO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8298,13 +8313,13 @@ pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub lpstrQuality: windows_core::PWSTR,
     pub dwSourceNumber: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8315,13 +8330,13 @@ pub struct MCI_DGV_SET_PARMS {
     pub dwFileFormat: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8331,13 +8346,13 @@ pub struct MCI_DGV_SIGNAL_PARMS {
     pub dwPeriod: u32,
     pub dwUserParm: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SIGNAL_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_SIGNAL_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8349,13 +8364,13 @@ pub struct MCI_DGV_STATUS_PARMSA {
     pub lpstrDrive: windows_core::PSTR,
     pub dwReference: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_STATUS_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8367,13 +8382,13 @@ pub struct MCI_DGV_STATUS_PARMSW {
     pub lpstrDrive: windows_core::PWSTR,
     pub dwReference: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8381,13 +8396,13 @@ pub struct MCI_DGV_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -8398,14 +8413,14 @@ pub struct MCI_DGV_UPDATE_PARMS {
     pub hDC: super::super::Graphics::Gdi::HDC,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MCI_DGV_UPDATE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for MCI_DGV_UPDATE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_DGV_UPDATE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8415,13 +8430,13 @@ pub struct MCI_DGV_WINDOW_PARMSA {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8431,26 +8446,26 @@ pub struct MCI_DGV_WINDOW_PARMSW {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_GENERIC_PARMS {
     pub dwCallback: usize,
 }
+impl windows_core::TypeKind for MCI_GENERIC_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_GENERIC_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_GENERIC_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8459,13 +8474,13 @@ pub struct MCI_GETDEVCAPS_PARMS {
     pub dwReturn: u32,
     pub dwItem: u32,
 }
+impl windows_core::TypeKind for MCI_GETDEVCAPS_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_GETDEVCAPS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_GETDEVCAPS_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8474,13 +8489,13 @@ pub struct MCI_INFO_PARMSA {
     pub lpstrReturn: windows_core::PSTR,
     pub dwRetSize: u32,
 }
+impl windows_core::TypeKind for MCI_INFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_INFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8489,13 +8504,13 @@ pub struct MCI_INFO_PARMSW {
     pub lpstrReturn: windows_core::PWSTR,
     pub dwRetSize: u32,
 }
+impl windows_core::TypeKind for MCI_INFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8503,13 +8518,13 @@ pub struct MCI_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_LOAD_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_LOAD_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8517,13 +8532,13 @@ pub struct MCI_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_LOAD_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_LOAD_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8533,13 +8548,13 @@ pub struct MCI_OPEN_DRIVER_PARMS {
     pub wCustomCommandTable: u32,
     pub wType: u32,
 }
+impl windows_core::TypeKind for MCI_OPEN_DRIVER_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_DRIVER_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OPEN_DRIVER_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8550,13 +8565,13 @@ pub struct MCI_OPEN_PARMSA {
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8567,13 +8582,13 @@ pub struct MCI_OPEN_PARMSW {
     pub lpstrElementName: windows_core::PCWSTR,
     pub lpstrAlias: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8582,13 +8597,13 @@ pub struct MCI_OVLY_LOAD_PARMSA {
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8597,13 +8612,13 @@ pub struct MCI_OVLY_LOAD_PARMSW {
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8616,13 +8631,13 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8635,13 +8650,13 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8649,13 +8664,13 @@ pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_OVLY_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_RECT_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8664,13 +8679,13 @@ pub struct MCI_OVLY_SAVE_PARMSA {
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8679,13 +8694,13 @@ pub struct MCI_OVLY_SAVE_PARMSW {
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
 }
+impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8695,13 +8710,13 @@ pub struct MCI_OVLY_WINDOW_PARMSA {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8711,13 +8726,13 @@ pub struct MCI_OVLY_WINDOW_PARMSW {
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8726,13 +8741,13 @@ pub struct MCI_PLAY_PARMS {
     pub dwFrom: u32,
     pub dwTo: u32,
 }
+impl windows_core::TypeKind for MCI_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8741,13 +8756,13 @@ pub struct MCI_RECORD_PARMS {
     pub dwFrom: u32,
     pub dwTo: u32,
 }
+impl windows_core::TypeKind for MCI_RECORD_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_RECORD_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_RECORD_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8755,13 +8770,13 @@ pub struct MCI_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8769,13 +8784,13 @@ pub struct MCI_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8783,13 +8798,13 @@ pub struct MCI_SEEK_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
 }
+impl windows_core::TypeKind for MCI_SEEK_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SEEK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SEEK_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8803,13 +8818,13 @@ pub struct MCI_SEQ_SET_PARMS {
     pub dwMaster: u32,
     pub dwOffset: u32,
 }
+impl windows_core::TypeKind for MCI_SEQ_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SEQ_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SEQ_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8818,13 +8833,13 @@ pub struct MCI_SET_PARMS {
     pub dwTimeFormat: u32,
     pub dwAudio: u32,
 }
+impl windows_core::TypeKind for MCI_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8834,13 +8849,13 @@ pub struct MCI_STATUS_PARMS {
     pub dwItem: u32,
     pub dwTrack: u32,
 }
+impl windows_core::TypeKind for MCI_STATUS_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_STATUS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_STATUS_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8851,13 +8866,13 @@ pub struct MCI_SYSINFO_PARMSA {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
+impl windows_core::TypeKind for MCI_SYSINFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SYSINFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8868,13 +8883,13 @@ pub struct MCI_SYSINFO_PARMSW {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
+impl windows_core::TypeKind for MCI_SYSINFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SYSINFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8882,13 +8897,13 @@ pub struct MCI_VD_ESCAPE_PARMSA {
     pub dwCallback: usize,
     pub lpstrCommand: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_VD_ESCAPE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8896,13 +8911,13 @@ pub struct MCI_VD_ESCAPE_PARMSW {
     pub dwCallback: usize,
     pub lpstrCommand: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_VD_ESCAPE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8912,13 +8927,13 @@ pub struct MCI_VD_PLAY_PARMS {
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_VD_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_VD_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_VD_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8926,13 +8941,13 @@ pub struct MCI_VD_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
 }
+impl windows_core::TypeKind for MCI_VD_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_VD_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_VD_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8941,13 +8956,13 @@ pub struct MCI_WAVE_DELETE_PARMS {
     pub dwFrom: u32,
     pub dwTo: u32,
 }
+impl windows_core::TypeKind for MCI_WAVE_DELETE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_DELETE_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8959,13 +8974,13 @@ pub struct MCI_WAVE_OPEN_PARMSA {
     pub lpstrAlias: windows_core::PCSTR,
     pub dwBufferSeconds: u32,
 }
+impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -8977,13 +8992,13 @@ pub struct MCI_WAVE_OPEN_PARMSW {
     pub lpstrAlias: windows_core::PCWSTR,
     pub dwBufferSeconds: u32,
 }
+impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9004,13 +9019,13 @@ pub struct MCI_WAVE_SET_PARMS {
     pub wBitsPerSample: u16,
     pub wReserved5: u16,
 }
+impl windows_core::TypeKind for MCI_WAVE_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MCI_WAVE_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9020,14 +9035,14 @@ pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for MEDIASPACEADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9035,13 +9050,13 @@ pub struct MIDIOPENSTRMID {
     pub dwStreamID: u32,
     pub uDeviceID: u32,
 }
+impl windows_core::TypeKind for MIDIOPENSTRMID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MIDIOPENSTRMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MIDIOPENSTRMID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9054,14 +9069,14 @@ pub struct MIXEROPENDESC {
     pub dnDevNode: usize,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MIXEROPENDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for MIXEROPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MIXEROPENDESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9072,13 +9087,13 @@ pub struct MMCKINFO {
     pub dwDataOffset: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for MMCKINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MMCKINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMCKINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9100,13 +9115,13 @@ pub struct MMIOINFO {
     pub dwReserved2: u32,
     pub hmmio: HMMIO,
 }
+impl windows_core::TypeKind for MMIOINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MMIOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for MMIOINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9117,14 +9132,14 @@ pub struct MSAUDIO1WAVEFORMAT {
     pub wEncodeOptions: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MSAUDIO1WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for MSAUDIO1WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MSAUDIO1WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9134,14 +9149,14 @@ pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wSamplesPerBlock: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for NMS_VBXADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9150,14 +9165,14 @@ pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9166,14 +9181,14 @@ pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLICELPWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLICELPWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLICELPWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9182,14 +9197,14 @@ pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIGSMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIGSMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIGSMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9198,14 +9213,14 @@ pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIOPRWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIOPRWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIOPRWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9214,14 +9229,14 @@ pub struct OLISBCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLISBCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLISBCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLISBCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9231,14 +9246,14 @@ pub struct SIERRAADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for SIERRAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for SIERRAADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SIERRAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9248,14 +9263,14 @@ pub struct SONARCWAVEFORMAT {
     pub wCompType: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for SONARCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for SONARCWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SONARCWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9267,13 +9282,13 @@ pub struct TIMEREVENT {
     pub wFlags: u16,
     pub wReserved1: u16,
 }
+impl windows_core::TypeKind for TIMEREVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TIMEREVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for TIMEREVENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9285,17 +9300,17 @@ pub struct TRUESPEECHWAVEFORMAT {
     pub abReserved: [u8; 28],
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for TRUESPEECHWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for TRUESPEECHWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOHDR {
     pub lpData: *mut u8,
     pub dwBufferLength: u32,
@@ -9305,13 +9320,13 @@ pub struct VIDEOHDR {
     pub dwFlags: u32,
     pub dwReserved: [usize; 4],
 }
+impl windows_core::TypeKind for VIDEOHDR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VIDEOHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for VIDEOHDR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9325,14 +9340,14 @@ pub struct WAVEOPENDESC {
     pub dnDevNode: usize,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WAVEOPENDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WAVEOPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WAVEOPENDESC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9344,14 +9359,14 @@ pub struct WMAUDIO2WAVEFORMAT {
     pub dwSuperBlockAlign: u32,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WMAUDIO2WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WMAUDIO2WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO2WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9366,14 +9381,14 @@ pub struct WMAUDIO3WAVEFORMAT {
     pub wReserved3: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WMAUDIO3WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO3WAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -9382,17 +9397,17 @@ pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for YAMAHA_ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
     pub chFineTune: i8,
@@ -9402,13 +9417,13 @@ pub struct s_RIFFWAVE_inst {
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
 }
+impl windows_core::TypeKind for s_RIFFWAVE_inst {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for s_RIFFWAVE_inst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for s_RIFFWAVE_inst {
-    type TypeKind = windows_core::CopyType;
 }
 pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;

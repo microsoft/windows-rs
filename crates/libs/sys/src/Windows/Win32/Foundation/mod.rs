@@ -5570,6 +5570,17 @@ pub const NTE_TOKEN_KEYSET_STORAGE_FULL: windows_sys::core::HRESULT = 0x80090023
 pub const NTE_UI_REQUIRED: windows_sys::core::HRESULT = 0x8009002E_u32 as _;
 pub const NTE_USER_CANCELLED: windows_sys::core::HRESULT = 0x80090036_u32 as _;
 pub const NTE_VALIDATION_FAILED: windows_sys::core::HRESULT = 0x80090032_u32 as _;
+pub const OBJ_CASE_INSENSITIVE: OBJECT_ATTRIBUTE_FLAGS = 64u32;
+pub const OBJ_DONT_REPARSE: OBJECT_ATTRIBUTE_FLAGS = 4096u32;
+pub const OBJ_EXCLUSIVE: OBJECT_ATTRIBUTE_FLAGS = 32u32;
+pub const OBJ_FORCE_ACCESS_CHECK: OBJECT_ATTRIBUTE_FLAGS = 1024u32;
+pub const OBJ_IGNORE_IMPERSONATED_DEVICEMAP: OBJECT_ATTRIBUTE_FLAGS = 2048u32;
+pub const OBJ_INHERIT: OBJECT_ATTRIBUTE_FLAGS = 2u32;
+pub const OBJ_KERNEL_HANDLE: OBJECT_ATTRIBUTE_FLAGS = 512u32;
+pub const OBJ_OPENIF: OBJECT_ATTRIBUTE_FLAGS = 128u32;
+pub const OBJ_OPENLINK: OBJECT_ATTRIBUTE_FLAGS = 256u32;
+pub const OBJ_PERMANENT: OBJECT_ATTRIBUTE_FLAGS = 16u32;
+pub const OBJ_VALID_ATTRIBUTES: OBJECT_ATTRIBUTE_FLAGS = 8178u32;
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 pub const OLEOBJ_E_INVALIDVERB: windows_sys::core::HRESULT = 0x80040181_u32 as _;
 pub const OLEOBJ_E_LAST: i32 = -2147221105i32;
@@ -10175,6 +10186,7 @@ pub type GENERIC_ACCESS_RIGHTS = u32;
 pub type HANDLE_FLAGS = u32;
 pub type NTSTATUS_FACILITY_CODE = u32;
 pub type NTSTATUS_SEVERITY_CODE = u32;
+pub type OBJECT_ATTRIBUTE_FLAGS = u32;
 pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;
 #[repr(C)]
@@ -10216,6 +10228,12 @@ pub union DECIMAL_1 {
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DEVPROPKEY {
+    pub fmtid: windows_sys::core::GUID,
+    pub pid: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10267,6 +10285,12 @@ pub struct POINTL {
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PROPERTYKEY {
+    pub fmtid: windows_sys::core::GUID,
+    pub pid: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

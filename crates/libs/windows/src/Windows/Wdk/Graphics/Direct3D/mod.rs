@@ -1,33 +1,33 @@
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTAcquireKeyedMutex(core::mem::transmute(param0))
+    D3DKMTAcquireKeyedMutex(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTAcquireKeyedMutex2(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTAcquireKeyedMutex2(core::mem::transmute(param0))
+    D3DKMTAcquireKeyedMutex2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTAdjustFullscreenGamma(param0 : *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTAdjustFullscreenGamma(core::mem::transmute(param0))
+    D3DKMTAdjustFullscreenGamma(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCancelPresents(core::mem::transmute(param0))
+    D3DKMTCancelPresents(param0)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTChangeSurfacePointer(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTChangeSurfacePointer(param0 : *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTChangeSurfacePointer(core::mem::transmute(param0))
+    D3DKMTChangeSurfacePointer(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTChangeVideoMemoryReservation(core::mem::transmute(param0))
+    D3DKMTChangeVideoMemoryReservation(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Foundation::BOOLEAN {
@@ -37,299 +37,299 @@ pub unsafe fn D3DKMTCheckExclusiveOwnership() -> super::super::super::Win32::Fou
 #[inline]
 pub unsafe fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMonitorPowerState(param0 : *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckMonitorPowerState(core::mem::transmute(param0))
+    D3DKMTCheckMonitorPowerState(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckMultiPlaneOverlaySupport(core::mem::transmute(param0))
+    D3DKMTCheckMultiPlaneOverlaySupport(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport2(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckMultiPlaneOverlaySupport2(core::mem::transmute(param0))
+    D3DKMTCheckMultiPlaneOverlaySupport2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport3(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckMultiPlaneOverlaySupport3(core::mem::transmute(param0))
+    D3DKMTCheckMultiPlaneOverlaySupport3(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckOcclusion(param0 : *const D3DKMT_CHECKOCCLUSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckOcclusion(core::mem::transmute(param0))
+    D3DKMTCheckOcclusion(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckSharedResourceAccess(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckSharedResourceAccess(param0 : *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckSharedResourceAccess(core::mem::transmute(param0))
+    D3DKMTCheckSharedResourceAccess(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCheckVidPnExclusiveOwnership(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCheckVidPnExclusiveOwnership(param0 : *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCheckVidPnExclusiveOwnership(core::mem::transmute(param0))
+    D3DKMTCheckVidPnExclusiveOwnership(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCloseAdapter(param0: *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCloseAdapter(param0 : *const D3DKMT_CLOSEADAPTER) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCloseAdapter(core::mem::transmute(param0))
+    D3DKMTCloseAdapter(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTConfigureSharedResource(param0 : *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTConfigureSharedResource(core::mem::transmute(param0))
+    D3DKMTConfigureSharedResource(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateAllocation(core::mem::transmute(param0))
+    D3DKMTCreateAllocation(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateAllocation2(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateAllocation2(core::mem::transmute(param0))
+    D3DKMTCreateAllocation2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateContext(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateContext(core::mem::transmute(param0))
+    D3DKMTCreateContext(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateContextVirtual(core::mem::transmute(param0))
+    D3DKMTCreateContextVirtual(param0)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateDCFromMemory(core::mem::transmute(param0))
+    D3DKMTCreateDCFromMemory(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateDevice(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateDevice(core::mem::transmute(param0))
+    D3DKMTCreateDevice(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateHwContext(param0: *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateHwContext(core::mem::transmute(param0))
+    D3DKMTCreateHwContext(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateHwQueue(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateHwQueue(core::mem::transmute(param0))
+    D3DKMTCreateHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateKeyedMutex(core::mem::transmute(param0))
+    D3DKMTCreateKeyedMutex(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateKeyedMutex2(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateKeyedMutex2(core::mem::transmute(param0))
+    D3DKMTCreateKeyedMutex2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateOutputDupl(param0 : *const D3DKMT_CREATE_OUTPUTDUPL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateOutputDupl(core::mem::transmute(param0))
+    D3DKMTCreateOutputDupl(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateOverlay(param0: *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateOverlay(core::mem::transmute(param0))
+    D3DKMTCreateOverlay(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreatePagingQueue(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreatePagingQueue(core::mem::transmute(param0))
+    D3DKMTCreatePagingQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateProtectedSession(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateProtectedSession(core::mem::transmute(param0))
+    D3DKMTCreateProtectedSession(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateSynchronizationObject(core::mem::transmute(param0))
+    D3DKMTCreateSynchronizationObject(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTCreateSynchronizationObject2(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTCreateSynchronizationObject2(core::mem::transmute(param0))
+    D3DKMTCreateSynchronizationObject2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation(param0 : *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyAllocation(core::mem::transmute(param0))
+    D3DKMTDestroyAllocation(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyAllocation2(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation2(param0 : *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyAllocation2(core::mem::transmute(param0))
+    D3DKMTDestroyAllocation2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyContext(core::mem::transmute(param0))
+    D3DKMTDestroyContext(param0)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyDCFromMemory(param0 : *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyDCFromMemory(core::mem::transmute(param0))
+    D3DKMTDestroyDCFromMemory(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyDevice(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyDevice(param0 : *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyDevice(core::mem::transmute(param0))
+    D3DKMTDestroyDevice(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyHwContext(param0: *const D3DKMT_DESTROYHWCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyHwContext(param0 : *const D3DKMT_DESTROYHWCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyHwContext(core::mem::transmute(param0))
+    D3DKMTDestroyHwContext(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyHwQueue(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyHwQueue(param0 : *const D3DKMT_DESTROYHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyHwQueue(core::mem::transmute(param0))
+    D3DKMTDestroyHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyKeyedMutex(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyKeyedMutex(param0 : *const D3DKMT_DESTROYKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyKeyedMutex(core::mem::transmute(param0))
+    D3DKMTDestroyKeyedMutex(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyOutputDupl(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyOutputDupl(param0 : *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyOutputDupl(core::mem::transmute(param0))
+    D3DKMTDestroyOutputDupl(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyOverlay(param0 : *const D3DKMT_DESTROYOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyOverlay(core::mem::transmute(param0))
+    D3DKMTDestroyOverlay(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyPagingQueue(param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *mut D3DDDI_DESTROYPAGINGQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyPagingQueue(core::mem::transmute(param0))
+    D3DKMTDestroyPagingQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroyProtectedSession(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroyProtectedSession(core::mem::transmute(param0))
+    D3DKMTDestroyProtectedSession(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroySynchronizationObject(param0 : *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTDestroySynchronizationObject(core::mem::transmute(param0))
+    D3DKMTDestroySynchronizationObject(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters(param0: *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *mut D3DKMT_ENUMADAPTERS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTEnumAdapters(core::mem::transmute(param0))
+    D3DKMTEnumAdapters(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters2(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *mut D3DKMT_ENUMADAPTERS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTEnumAdapters2(core::mem::transmute(param0))
+    D3DKMTEnumAdapters2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTEnumAdapters3(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTEnumAdapters3(core::mem::transmute(param0))
+    D3DKMTEnumAdapters3(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEscape(param0 : *const D3DKMT_ESCAPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTEscape(core::mem::transmute(param0))
+    D3DKMTEscape(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTEvict(param0: *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTEvict(core::mem::transmute(param0))
+    D3DKMTEvict(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTFlipOverlay(param0 : *const D3DKMT_FLIPOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTFlipOverlay(core::mem::transmute(param0))
+    D3DKMTFlipOverlay(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTFlushHeapTransitions(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTFlushHeapTransitions(param0 : *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTFlushHeapTransitions(core::mem::transmute(param0))
+    D3DKMTFlushHeapTransitions(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTFreeGpuVirtualAddress(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTFreeGpuVirtualAddress(param0 : *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTFreeGpuVirtualAddress(core::mem::transmute(param0))
+    D3DKMTFreeGpuVirtualAddress(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetAllocationPriority(param0 : *const D3DKMT_GETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetAllocationPriority(core::mem::transmute(param0))
+    D3DKMTGetAllocationPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetContextInProcessSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetContextInProcessSchedulingPriority(core::mem::transmute(param0))
+    D3DKMTGetContextInProcessSchedulingPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetContextSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetContextSchedulingPriority(core::mem::transmute(param0))
+    D3DKMTGetContextSchedulingPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDWMVerticalBlankEvent(param0 : *const D3DKMT_GETVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetDWMVerticalBlankEvent(core::mem::transmute(param0))
+    D3DKMTGetDWMVerticalBlankEvent(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetDeviceState(param0: *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetDeviceState(core::mem::transmute(param0))
+    D3DKMTGetDeviceState(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetDisplayModeList(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetDisplayModeList(core::mem::transmute(param0))
+    D3DKMTGetDisplayModeList(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetMultiPlaneOverlayCaps(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetMultiPlaneOverlayCaps(core::mem::transmute(param0))
+    D3DKMTGetMultiPlaneOverlayCaps(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetMultisampleMethodList(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetMultisampleMethodList(core::mem::transmute(param0))
+    D3DKMTGetMultisampleMethodList(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetOverlayState(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetOverlayState(core::mem::transmute(param0))
+    D3DKMTGetOverlayState(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetPostCompositionCaps(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetPostCompositionCaps(core::mem::transmute(param0))
+    D3DKMTGetPostCompositionCaps(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetPresentHistory(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetPresentHistory(core::mem::transmute(param0))
+    D3DKMTGetPresentHistory(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetPresentQueueEvent(hadapter: u32, param1: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : u32, param1 : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetPresentQueueEvent(core::mem::transmute(hadapter), core::mem::transmute(param1))
+    D3DKMTGetPresentQueueEvent(hadapter, param1)
 }
 #[inline]
 pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetProcessDeviceRemovalSupport(core::mem::transmute(param0))
+    D3DKMTGetProcessDeviceRemovalSupport(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass<P0>(param0: P0, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -337,310 +337,310 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetProcessSchedulingPriorityClass(param0.param().abi(), core::mem::transmute(param1))
+    D3DKMTGetProcessSchedulingPriorityClass(param0.param().abi(), param1)
 }
 #[inline]
 pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetResourcePresentPrivateDriverData(core::mem::transmute(param0))
+    D3DKMTGetResourcePresentPrivateDriverData(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetRuntimeData(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *mut D3DKMT_GETRUNTIMEDATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetRuntimeData(core::mem::transmute(param0))
+    D3DKMTGetRuntimeData(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetScanLine(param0: *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetScanLine(core::mem::transmute(param0))
+    D3DKMTGetScanLine(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetSharedPrimaryHandle(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetSharedPrimaryHandle(core::mem::transmute(param0))
+    D3DKMTGetSharedPrimaryHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTGetSharedResourceAdapterLuid(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTGetSharedResourceAdapterLuid(core::mem::transmute(param0))
+    D3DKMTGetSharedResourceAdapterLuid(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTInvalidateActiveVidPn(param0 : *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTInvalidateActiveVidPn(core::mem::transmute(param0))
+    D3DKMTInvalidateActiveVidPn(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTInvalidateCache(param0 : *const D3DKMT_INVALIDATECACHE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTInvalidateCache(core::mem::transmute(param0))
+    D3DKMTInvalidateCache(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTLock(param0: *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTLock(core::mem::transmute(param0))
+    D3DKMTLock(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTLock2(param0: *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTLock2(core::mem::transmute(param0))
+    D3DKMTLock2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTMakeResident(param0: *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut D3DDDI_MAKERESIDENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTMakeResident(core::mem::transmute(param0))
+    D3DKMTMakeResident(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTMapGpuVirtualAddress(param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTMapGpuVirtualAddress(core::mem::transmute(param0))
+    D3DKMTMapGpuVirtualAddress(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTMarkDeviceAsError(param0 : *const D3DKMT_MARKDEVICEASERROR) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTMarkDeviceAsError(core::mem::transmute(param0))
+    D3DKMTMarkDeviceAsError(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOfferAllocations(param0 : *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOfferAllocations(core::mem::transmute(param0))
+    D3DKMTOfferAllocations(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromDeviceName(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenAdapterFromDeviceName(core::mem::transmute(param0))
+    D3DKMTOpenAdapterFromDeviceName(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenAdapterFromGdiDisplayName(core::mem::transmute(param0))
+    D3DKMTOpenAdapterFromGdiDisplayName(param0)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenAdapterFromHdc(core::mem::transmute(param0))
+    D3DKMTOpenAdapterFromHdc(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromLuid(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenAdapterFromLuid(core::mem::transmute(param0))
+    D3DKMTOpenAdapterFromLuid(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenKeyedMutex(core::mem::transmute(param0))
+    D3DKMTOpenKeyedMutex(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutex2(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenKeyedMutex2(core::mem::transmute(param0))
+    D3DKMTOpenKeyedMutex2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenKeyedMutexFromNtHandle(core::mem::transmute(param0))
+    D3DKMTOpenKeyedMutexFromNtHandle(param0)
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenNtHandleFromName(core::mem::transmute(param0))
+    D3DKMTOpenNtHandleFromName(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenProtectedSessionFromNtHandle(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenProtectedSessionFromNtHandle(core::mem::transmute(param0))
+    D3DKMTOpenProtectedSessionFromNtHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResource(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenResource(core::mem::transmute(param0))
+    D3DKMTOpenResource(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResource2(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenResource2(core::mem::transmute(param0))
+    D3DKMTOpenResource2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenResourceFromNtHandle(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenResourceFromNtHandle(core::mem::transmute(param0))
+    D3DKMTOpenResourceFromNtHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenSyncObjectFromNtHandle(core::mem::transmute(param0))
+    D3DKMTOpenSyncObjectFromNtHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenSyncObjectFromNtHandle2(core::mem::transmute(param0))
+    D3DKMTOpenSyncObjectFromNtHandle2(param0)
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenSyncObjectNtHandleFromName(core::mem::transmute(param0))
+    D3DKMTOpenSyncObjectNtHandleFromName(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOpenSynchronizationObject(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOpenSynchronizationObject(core::mem::transmute(param0))
+    D3DKMTOpenSynchronizationObject(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetFrameInfo(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplGetFrameInfo(core::mem::transmute(param0))
+    D3DKMTOutputDuplGetFrameInfo(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetMetaData(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplGetMetaData(core::mem::transmute(param0))
+    D3DKMTOutputDuplGetMetaData(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplGetPointerShapeData(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplGetPointerShapeData(core::mem::transmute(param0))
+    D3DKMTOutputDuplGetPointerShapeData(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplPresent(param0 : *const D3DKMT_OUTPUTDUPLPRESENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplPresent(core::mem::transmute(param0))
+    D3DKMTOutputDuplPresent(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTOutputDuplPresentToHwQueue(param0 : *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplPresentToHwQueue(core::mem::transmute(param0))
+    D3DKMTOutputDuplPresentToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTOutputDuplReleaseFrame(param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTOutputDuplReleaseFrame(core::mem::transmute(param0))
+    D3DKMTOutputDuplReleaseFrame(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPollDisplayChildren(param0 : *const D3DKMT_POLLDISPLAYCHILDREN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPollDisplayChildren(core::mem::transmute(param0))
+    D3DKMTPollDisplayChildren(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPresent(param0: *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPresent(core::mem::transmute(param0))
+    D3DKMTPresent(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPresentMultiPlaneOverlay(core::mem::transmute(param0))
+    D3DKMTPresentMultiPlaneOverlay(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay2(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPresentMultiPlaneOverlay2(core::mem::transmute(param0))
+    D3DKMTPresentMultiPlaneOverlay2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPresentMultiPlaneOverlay3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay3(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPresentMultiPlaneOverlay3(core::mem::transmute(param0))
+    D3DKMTPresentMultiPlaneOverlay3(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTPresentRedirected(param0 : *const D3DKMT_PRESENT_REDIRECTED) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTPresentRedirected(core::mem::transmute(param0))
+    D3DKMTPresentRedirected(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryAdapterInfo(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *mut D3DKMT_QUERYADAPTERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryAdapterInfo(core::mem::transmute(param0))
+    D3DKMTQueryAdapterInfo(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryAllocationResidency(param0 : *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryAllocationResidency(core::mem::transmute(param0))
+    D3DKMTQueryAllocationResidency(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryClockCalibration(param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut D3DKMT_QUERYCLOCKCALIBRATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryClockCalibration(core::mem::transmute(param0))
+    D3DKMTQueryClockCalibration(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryFSEBlock(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryFSEBlock(core::mem::transmute(param0))
+    D3DKMTQueryFSEBlock(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProcessOfferInfo(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryProcessOfferInfo(core::mem::transmute(param0))
+    D3DKMTQueryProcessOfferInfo(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryProtectedSessionInfoFromNtHandle(core::mem::transmute(param0))
+    D3DKMTQueryProtectedSessionInfoFromNtHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryProtectedSessionStatus(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryProtectedSessionStatus(core::mem::transmute(param0))
+    D3DKMTQueryProtectedSessionStatus(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(core::mem::transmute(param0))
+    D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfo(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryResourceInfo(core::mem::transmute(param0))
+    D3DKMTQueryResourceInfo(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryResourceInfoFromNtHandle(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryResourceInfoFromNtHandle(core::mem::transmute(param0))
+    D3DKMTQueryResourceInfoFromNtHandle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryStatistics(param0 : *const D3DKMT_QUERYSTATISTICS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryStatistics(core::mem::transmute(param0))
+    D3DKMTQueryStatistics(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryVidPnExclusiveOwnership(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryVidPnExclusiveOwnership(core::mem::transmute(param0))
+    D3DKMTQueryVidPnExclusiveOwnership(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTQueryVideoMemoryInfo(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTQueryVideoMemoryInfo(core::mem::transmute(param0))
+    D3DKMTQueryVideoMemoryInfo(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReclaimAllocations(core::mem::transmute(param0))
+    D3DKMTReclaimAllocations(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReclaimAllocations2(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReclaimAllocations2(core::mem::transmute(param0))
+    D3DKMTReclaimAllocations2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTRegisterTrimNotification(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTRegisterTrimNotification(core::mem::transmute(param0))
+    D3DKMTRegisterTrimNotification(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTRegisterVailProcess(param0: *const windows_core::GUID) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const windows_core::GUID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTRegisterVailProcess(core::mem::transmute(param0))
+    D3DKMTRegisterVailProcess(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReleaseKeyedMutex(core::mem::transmute(param0))
+    D3DKMTReleaseKeyedMutex(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReleaseKeyedMutex2(core::mem::transmute(param0))
+    D3DKMTReleaseKeyedMutex2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners<P0>(param0: P0) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -653,57 +653,57 @@ where
 #[inline]
 pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTRender(core::mem::transmute(param0))
+    D3DKMTRender(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTReserveGpuVirtualAddress(param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTReserveGpuVirtualAddress(core::mem::transmute(param0))
+    D3DKMTReserveGpuVirtualAddress(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetAllocationPriority(param0 : *const D3DKMT_SETALLOCATIONPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetAllocationPriority(core::mem::transmute(param0))
+    D3DKMTSetAllocationPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetContextInProcessSchedulingPriority(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetContextInProcessSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetContextInProcessSchedulingPriority(core::mem::transmute(param0))
+    D3DKMTSetContextInProcessSchedulingPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetContextSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetContextSchedulingPriority(core::mem::transmute(param0))
+    D3DKMTSetContextSchedulingPriority(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetDisplayMode(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *mut D3DKMT_SETDISPLAYMODE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetDisplayMode(core::mem::transmute(param0))
+    D3DKMTSetDisplayMode(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetDisplayPrivateDriverFormat(param0 : *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetDisplayPrivateDriverFormat(core::mem::transmute(param0))
+    D3DKMTSetDisplayPrivateDriverFormat(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetFSEBlock(param0: *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetFSEBlock(param0 : *const D3DKMT_SETFSEBLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetFSEBlock(core::mem::transmute(param0))
+    D3DKMTSetFSEBlock(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetGammaRamp(param0: *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetGammaRamp(param0 : *const D3DKMT_SETGAMMARAMP) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetGammaRamp(core::mem::transmute(param0))
+    D3DKMTSetGammaRamp(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetHwProtectionTeardownRecovery(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetHwProtectionTeardownRecovery(param0 : *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetHwProtectionTeardownRecovery(core::mem::transmute(param0))
+    D3DKMTSetHwProtectionTeardownRecovery(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetMonitorColorSpaceTransform(param0 : *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetMonitorColorSpaceTransform(core::mem::transmute(param0))
+    D3DKMTSetMonitorColorSpaceTransform(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetProcessSchedulingPriorityClass<P0>(param0: P0, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -711,183 +711,183 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::super::super::Win32::Foundation:: HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetProcessSchedulingPriorityClass(param0.param().abi(), core::mem::transmute(param1))
+    D3DKMTSetProcessSchedulingPriorityClass(param0.param().abi(), param1)
 }
 #[inline]
 pub unsafe fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetQueuedLimit(param0 : *const D3DKMT_SETQUEUEDLIMIT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetQueuedLimit(core::mem::transmute(param0))
+    D3DKMTSetQueuedLimit(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetStablePowerState(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetStablePowerState(param0 : *const D3DKMT_SETSTABLEPOWERSTATE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetStablePowerState(core::mem::transmute(param0))
+    D3DKMTSetStablePowerState(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetSyncRefreshCountWaitTarget(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetSyncRefreshCountWaitTarget(param0 : *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetSyncRefreshCountWaitTarget(core::mem::transmute(param0))
+    D3DKMTSetSyncRefreshCountWaitTarget(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceHwProtection(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceHwProtection(param0 : *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetVidPnSourceHwProtection(core::mem::transmute(param0))
+    D3DKMTSetVidPnSourceHwProtection(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetVidPnSourceOwner(core::mem::transmute(param0))
+    D3DKMTSetVidPnSourceOwner(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetVidPnSourceOwner1(core::mem::transmute(param0))
+    D3DKMTSetVidPnSourceOwner1(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSetVidPnSourceOwner2(core::mem::transmute(param0))
+    D3DKMTSetVidPnSourceOwner2(param0)
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTShareObjects(hobjects.len().try_into().unwrap(), core::mem::transmute(hobjects.as_ptr()), core::mem::transmute(pobjectattributes), core::mem::transmute(dwdesiredaccess), core::mem::transmute(phsharednthandle))
+    D3DKMTShareObjects(hobjects.len().try_into().unwrap(), core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, phsharednthandle)
 }
 #[inline]
 pub unsafe fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSharedPrimaryLockNotification(core::mem::transmute(param0))
+    D3DKMTSharedPrimaryLockNotification(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSharedPrimaryUnLockNotification(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryUnLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSharedPrimaryUnLockNotification(core::mem::transmute(param0))
+    D3DKMTSharedPrimaryUnLockNotification(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObject(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSignalSynchronizationObject(core::mem::transmute(param0))
+    D3DKMTSignalSynchronizationObject(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObject2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSignalSynchronizationObject2(core::mem::transmute(param0))
+    D3DKMTSignalSynchronizationObject2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromCpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromCpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSignalSynchronizationObjectFromCpu(core::mem::transmute(param0))
+    D3DKMTSignalSynchronizationObjectFromCpu(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSignalSynchronizationObjectFromGpu(core::mem::transmute(param0))
+    D3DKMTSignalSynchronizationObjectFromGpu(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSignalSynchronizationObjectFromGpu2(core::mem::transmute(param0))
+    D3DKMTSignalSynchronizationObjectFromGpu2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitCommand(param0: *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitCommand(param0 : *const D3DKMT_SUBMITCOMMAND) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitCommand(core::mem::transmute(param0))
+    D3DKMTSubmitCommand(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitCommandToHwQueue(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitCommandToHwQueue(param0 : *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitCommandToHwQueue(core::mem::transmute(param0))
+    D3DKMTSubmitCommandToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentBltToHwQueue(param0 : *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitPresentBltToHwQueue(core::mem::transmute(param0))
+    D3DKMTSubmitPresentBltToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitPresentToHwQueue(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitPresentToHwQueue(core::mem::transmute(param0))
+    D3DKMTSubmitPresentToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitSignalSyncObjectsToHwQueue(core::mem::transmute(param0))
+    D3DKMTSubmitSignalSyncObjectsToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTSubmitWaitForSyncObjectsToHwQueue(core::mem::transmute(param0))
+    D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTTrimProcessCommitment(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTTrimProcessCommitment(core::mem::transmute(param0))
+    D3DKMTTrimProcessCommitment(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnlock(param0 : *const D3DKMT_UNLOCK) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUnlock(core::mem::transmute(param0))
+    D3DKMTUnlock(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnlock2(param0 : *const D3DKMT_UNLOCK2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUnlock2(core::mem::transmute(param0))
+    D3DKMTUnlock2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUnregisterTrimNotification(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUnregisterTrimNotification(core::mem::transmute(param0))
+    D3DKMTUnregisterTrimNotification(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUpdateAllocationProperty(param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut D3DDDI_UPDATEALLOCPROPERTY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUpdateAllocationProperty(core::mem::transmute(param0))
+    D3DKMTUpdateAllocationProperty(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateGpuVirtualAddress(param0 : *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUpdateGpuVirtualAddress(core::mem::transmute(param0))
+    D3DKMTUpdateGpuVirtualAddress(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTUpdateOverlay(param0: *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTUpdateOverlay(param0 : *const D3DKMT_UPDATEOVERLAY) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTUpdateOverlay(core::mem::transmute(param0))
+    D3DKMTUpdateOverlay(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForIdle(param0 : *const D3DKMT_WAITFORIDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForIdle(core::mem::transmute(param0))
+    D3DKMTWaitForIdle(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObject(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForSynchronizationObject(core::mem::transmute(param0))
+    D3DKMTWaitForSynchronizationObject(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObject2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject2(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForSynchronizationObject2(core::mem::transmute(param0))
+    D3DKMTWaitForSynchronizationObject2(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObjectFromCpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromCpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForSynchronizationObjectFromCpu(core::mem::transmute(param0))
+    D3DKMTWaitForSynchronizationObjectFromCpu(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForSynchronizationObjectFromGpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromGpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForSynchronizationObjectFromGpu(core::mem::transmute(param0))
+    D3DKMTWaitForSynchronizationObjectFromGpu(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForVerticalBlankEvent(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForVerticalBlankEvent(core::mem::transmute(param0))
+    D3DKMTWaitForVerticalBlankEvent(param0)
 }
 #[inline]
 pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    D3DKMTWaitForVerticalBlankEvent2(core::mem::transmute(param0))
+    D3DKMTWaitForVerticalBlankEvent2(param0)
 }
 pub const D3DCLEAR_COMPUTERECTS: i32 = 8i32;
 pub const D3DDDIFMT_A1: D3DDDIFORMAT = D3DDDIFORMAT(118u32);
@@ -2669,862 +2669,1577 @@ pub const _NT_D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
 pub const _NT_RTPATCHFLAG_HASINFO: i32 = 2i32;
 pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDIFORMAT(pub u32);
 impl windows_core::TypeKind for D3DDDIFORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDIFORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDIFORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDIMULTISAMPLE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDIMULTISAMPLE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDIMULTISAMPLE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDIMULTISAMPLE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_COLOR_SPACE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_COLOR_SPACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_COLOR_SPACE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_COLOR_SPACE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_DOORBELLSTATUS(pub i32);
 impl windows_core::TypeKind for D3DDDI_DOORBELLSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_DOORBELLSTATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_DOORBELLSTATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_DRIVERESCAPETYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_DRIVERESCAPETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_DRIVERESCAPETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_DRIVERESCAPETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_FLIPINTERVAL_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_FLIPINTERVAL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_FLIPINTERVAL_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_FLIPINTERVAL_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_GAMMARAMP_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_GAMMARAMP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_GAMMARAMP_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_GAMMARAMP_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_HDR_METADATA_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_HDR_METADATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_HDR_METADATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_HDR_METADATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_OFFER_PRIORITY(pub i32);
 impl windows_core::TypeKind for D3DDDI_OFFER_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_OFFER_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_OFFER_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_PAGINGQUEUE_PRIORITY(pub i32);
 impl windows_core::TypeKind for D3DDDI_PAGINGQUEUE_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_PAGINGQUEUE_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_PAGINGQUEUE_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_POOL(pub i32);
 impl windows_core::TypeKind for D3DDDI_POOL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_POOL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_POOL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_QUERYREGISTRY_STATUS(pub i32);
 impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_QUERYREGISTRY_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_QUERYREGISTRY_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_QUERYREGISTRY_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_QUERYREGISTRY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_QUERYREGISTRY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_RECLAIM_RESULT(pub i32);
 impl windows_core::TypeKind for D3DDDI_RECLAIM_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_RECLAIM_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_RECLAIM_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_ROTATION(pub i32);
 impl windows_core::TypeKind for D3DDDI_ROTATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_ROTATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_ROTATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_SCANLINEORDERING(pub i32);
 impl windows_core::TypeKind for D3DDDI_SCANLINEORDERING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_SCANLINEORDERING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_SCANLINEORDERING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_SYNCHRONIZATIONOBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(pub i32);
 impl windows_core::TypeKind for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DHAL_DP2OPERATION(pub i32);
 impl windows_core::TypeKind for D3DHAL_DP2OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DHAL_DP2OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DHAL_DP2OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
 impl windows_core::TypeKind for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_COLOR_BASIS(pub i32);
 impl windows_core::TypeKind for D3DKMDT_COLOR_BASIS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_COLOR_BASIS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_COLOR_BASIS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
 impl windows_core::TypeKind for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_GDISURFACETYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_GDISURFACETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_GDISURFACETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_GDISURFACETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
 impl windows_core::TypeKind for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_GTFCOMPLIANCE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_GTFCOMPLIANCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_GTFCOMPLIANCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_GTFCOMPLIANCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MODE_PREFERENCE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MODE_PREFERENCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MODE_PREFERENCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MODE_PREFERENCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MODE_PRUNING_REASON(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MODE_PRUNING_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MODE_PRUNING_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MODE_PRUNING_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_CAPABILITIES_ORIGIN").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_CONNECTIVITY_CHECKS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_DESCRIPTOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_ORIENTATION(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_ORIENTATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_ORIENTATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_ORIENTATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_ORIENTATION_AWARENESS(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_ORIENTATION_AWARENESS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_MONITOR_TIMING_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_MONITOR_TIMING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_MONITOR_TIMING_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_MONITOR_TIMING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_PIXEL_VALUE_ACCESS_MODE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_PIXEL_VALUE_ACCESS_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_STANDARDALLOCATION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_STANDARDALLOCATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_STANDARDALLOCATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_STANDARDALLOCATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_TEXT_RENDERING_FORMAT(pub i32);
 impl windows_core::TypeKind for D3DKMDT_TEXT_RENDERING_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_TEXT_RENDERING_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_TEXT_RENDERING_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDEO_SIGNAL_STANDARD(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_STANDARD {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDEO_SIGNAL_STANDARD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDEO_SIGNAL_STANDARD").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_PRESENT_PATH_CONTENT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_PRESENT_PATH_ROTATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_PRESENT_PATH_SCALING").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMDT_VIDPN_SOURCE_MODE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ALLOCATIONRESIDENCYSTATUS(pub i32);
 impl windows_core::TypeKind for D3DKMT_ALLOCATIONRESIDENCYSTATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ALLOCATIONRESIDENCYSTATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ALLOCATIONRESIDENCYSTATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_AUXILIARYPRESENTINFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_AUXILIARYPRESENTINFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_AUXILIARYPRESENTINFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_BRIGHTNESS_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_BRIGHTNESS_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_BRIGHTNESS_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_CANCEL_PRESENTS_OPERATION(pub i32);
 impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_CANCEL_PRESENTS_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_CANCEL_PRESENTS_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_CLIENTHINT(pub i32);
 impl windows_core::TypeKind for D3DKMT_CLIENTHINT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_CLIENTHINT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_CLIENTHINT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(pub i32);
 impl windows_core::TypeKind for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DEFRAG_ESCAPE_OPERATION(pub i32);
 impl windows_core::TypeKind for D3DKMT_DEFRAG_ESCAPE_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DEFRAG_ESCAPE_OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DEFRAG_ESCAPE_OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DEVICEESCAPE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_DEVICEESCAPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DEVICEESCAPE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DEVICEESCAPE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DEVICEEXECUTION_STATE(pub i32);
 impl windows_core::TypeKind for D3DKMT_DEVICEEXECUTION_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DEVICEEXECUTION_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DEVICEEXECUTION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DEVICESTATE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_DEVICESTATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DEVICESTATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DEVICESTATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DEVICE_ERROR_REASON(pub i32);
 impl windows_core::TypeKind for D3DKMT_DEVICE_ERROR_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DEVICE_ERROR_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DEVICE_ERROR_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DMMESCAPETYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_DMMESCAPETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DMMESCAPETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DMMESCAPETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_DRIVERVERSION(pub i32);
 impl windows_core::TypeKind for D3DKMT_DRIVERVERSION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_DRIVERVERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_DRIVERVERSION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ESCAPETYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_ESCAPETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ESCAPETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ESCAPETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(pub i32);
 impl windows_core::TypeKind for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ESCAPE_PFN_CONTROL_COMMAND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(pub i32);
 impl windows_core::TypeKind for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_STATE(pub i32);
 impl windows_core::TypeKind for D3DKMT_GPU_PREFERENCE_QUERY_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_GPU_PREFERENCE_QUERY_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_GPU_PREFERENCE_QUERY_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_GPU_PREFERENCE_QUERY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MEMORY_SEGMENT_GROUP(pub i32);
 impl windows_core::TypeKind for D3DKMT_MEMORY_SEGMENT_GROUP {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MEMORY_SEGMENT_GROUP {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MEMORY_SEGMENT_GROUP").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MIRACAST_DEVICE_STATUS(pub i32);
 impl windows_core::TypeKind for D3DKMT_MIRACAST_DEVICE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MIRACAST_DEVICE_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MIRACAST_DEVICE_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(pub i32);
 impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MIRACAST_DRIVER_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_MIRACAST_DRIVER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MIRACAST_DRIVER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MIRACAST_DRIVER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_BLEND(pub i32);
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_BLEND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_BLEND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MULTIPLANE_OVERLAY_BLEND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_FLAGS(pub i32);
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MULTIPLANE_OVERLAY_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(pub i32);
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(pub i32);
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
 impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_OFFER_PRIORITY(pub i32);
 impl windows_core::TypeKind for D3DKMT_OFFER_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_OFFER_PRIORITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_OFFER_PRIORITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_OUTPUTDUPL_METADATATYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_METADATATYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_OUTPUTDUPL_METADATATYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_OUTPUTDUPL_METADATATYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_PNP_KEY_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_PNP_KEY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_PNP_KEY_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_PNP_KEY_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_PRESENT_MODEL(pub i32);
 impl windows_core::TypeKind for D3DKMT_PRESENT_MODEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_PRESENT_MODEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_PRESENT_MODEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_PROCESS_VERIFIER_OPTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_PROTECTED_SESSION_STATUS(pub i32);
 impl windows_core::TypeKind for D3DKMT_PROTECTED_SESSION_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_PROTECTED_SESSION_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_PROTECTED_SESSION_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUERYSTATISTICS_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUERYSTATISTICS_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUERYSTATISTICS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_QUEUEDLIMIT_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_QUEUEDLIMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_QUEUEDLIMIT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_QUEUEDLIMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_SCHEDULINGPRIORITYCLASS(pub i32);
 impl windows_core::TypeKind for D3DKMT_SCHEDULINGPRIORITYCLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_SCHEDULINGPRIORITYCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_SCHEDULINGPRIORITYCLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_STANDARDALLOCATIONTYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_STANDARDALLOCATIONTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_STANDARDALLOCATIONTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_STANDARDALLOCATIONTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_TDRDBGCTRLTYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_TDRDBGCTRLTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_TDRDBGCTRLTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_TDRDBGCTRLTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_VAD_ESCAPE_COMMAND(pub i32);
 impl windows_core::TypeKind for D3DKMT_VAD_ESCAPE_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_VAD_ESCAPE_COMMAND {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_VAD_ESCAPE_COMMAND").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_VERIFIER_OPTION_MODE(pub i32);
 impl windows_core::TypeKind for D3DKMT_VERIFIER_OPTION_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_VERIFIER_OPTION_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_VERIFIER_OPTION_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_VIDMMESCAPETYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_VIDMMESCAPETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_VIDMMESCAPETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_VIDMMESCAPETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_TYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_VIDPNSOURCEOWNER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_VIDPNSOURCEOWNER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DKMT_VIDSCHESCAPETYPE(pub i32);
 impl windows_core::TypeKind for D3DKMT_VIDSCHESCAPETYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DKMT_VIDSCHESCAPETYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DKMT_VIDSCHESCAPETYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DNTHAL_DP2OPERATION(pub i32);
 impl windows_core::TypeKind for D3DNTHAL_DP2OPERATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DNTHAL_DP2OPERATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DNTHAL_DP2OPERATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct D3DVSD_TOKENTYPE(pub i32);
 impl windows_core::TypeKind for D3DVSD_TOKENTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for D3DVSD_TOKENTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("D3DVSD_TOKENTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(pub i32);
 impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(pub i32);
 impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(pub i32);
 impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(pub i32);
 impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
 impl windows_core::TypeKind for DXGKDT_OPM_DVI_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKDT_OPM_DVI_CHARACTERISTICS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKDT_OPM_DVI_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_CERTIFICATE_TYPE(pub i32);
 impl windows_core::TypeKind for DXGKMDT_CERTIFICATE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_CERTIFICATE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_CERTIFICATE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_ACP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_ACP_PROTECTION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_CGMSA(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_CGMSA {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_CGMSA {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_CGMSA").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_CONNECTOR_TYPE(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_CONNECTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_CONNECTOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_CONNECTOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_DPCP_PROTECTION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_HDCP_FLAG(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_FLAG {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_HDCP_FLAG {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_HDCP_FLAG").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_HDCP_PROTECTION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_INTERLEAVE_FORMAT(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_INTERLEAVE_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_INTERLEAVE_FORMAT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_INTERLEAVE_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_PROTECTION_STANDARD(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_PROTECTION_STANDARD {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_PROTECTION_STANDARD {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_PROTECTION_STANDARD").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_PROTECTION_TYPE(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_PROTECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_PROTECTION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_PROTECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_STATUS(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
 impl windows_core::TypeKind for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(pub i32);
 impl windows_core::TypeKind for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(pub i32);
 impl windows_core::TypeKind for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKMT_POWER_SHARED_TYPE(pub i32);
 impl windows_core::TypeKind for DXGKMT_POWER_SHARED_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKMT_POWER_SHARED_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKMT_POWER_SHARED_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGKVGPU_ESCAPE_TYPE(pub i32);
 impl windows_core::TypeKind for DXGKVGPU_ESCAPE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGKVGPU_ESCAPE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGKVGPU_ESCAPE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
 impl windows_core::TypeKind for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_BACKLIGHT_OPTIMIZATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_CHILD_DEVICE_HPD_AWARENESS(pub i32);
 impl windows_core::TypeKind for DXGK_CHILD_DEVICE_HPD_AWARENESS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_CHILD_DEVICE_HPD_AWARENESS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_CHILD_DEVICE_HPD_AWARENESS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_DISPLAY_DESCRIPTOR_TYPE(pub u8);
 impl windows_core::TypeKind for DXGK_DISPLAY_DESCRIPTOR_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_DISPLAY_DESCRIPTOR_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_DISPLAY_DESCRIPTOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_DISPLAY_TECHNOLOGY(pub u8);
 impl windows_core::TypeKind for DXGK_DISPLAY_TECHNOLOGY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_DISPLAY_TECHNOLOGY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_DISPLAY_TECHNOLOGY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_DISPLAY_USAGE(pub u8);
 impl windows_core::TypeKind for DXGK_DISPLAY_USAGE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_DISPLAY_USAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_DISPLAY_USAGE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_ENGINE_TYPE(pub i32);
 impl windows_core::TypeKind for DXGK_ENGINE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_ENGINE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_ENGINE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_GENERAL_ERROR_CODE(pub i32);
 impl windows_core::TypeKind for DXGK_GENERAL_ERROR_CODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_GENERAL_ERROR_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_GENERAL_ERROR_CODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_MIRACAST_CHUNK_TYPE(pub i32);
 impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_MIRACAST_CHUNK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_MIRACAST_CHUNK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_PAGE_FAULT_FLAGS(pub i32);
 impl windows_core::TypeKind for DXGK_PAGE_FAULT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_PAGE_FAULT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_PAGE_FAULT_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_PTE_PAGE_SIZE(pub i32);
 impl windows_core::TypeKind for DXGK_PTE_PAGE_SIZE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_PTE_PAGE_SIZE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_PTE_PAGE_SIZE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DXGK_RENDER_PIPELINE_STAGE(pub i32);
 impl windows_core::TypeKind for DXGK_RENDER_PIPELINE_STAGE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DXGK_RENDER_PIPELINE_STAGE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DXGK_RENDER_PIPELINE_STAGE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KMTQUERYADAPTERINFOTYPE(pub i32);
 impl windows_core::TypeKind for KMTQUERYADAPTERINFOTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KMTQUERYADAPTERINFOTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KMTQUERYADAPTERINFOTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KMTUMDVERSION(pub i32);
 impl windows_core::TypeKind for KMTUMDVERSION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KMTUMDVERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KMTUMDVERSION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct KMT_DISPLAY_UMD_VERSION(pub i32);
 impl windows_core::TypeKind for KMT_DISPLAY_UMD_VERSION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for KMT_DISPLAY_UMD_VERSION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("KMT_DISPLAY_UMD_VERSION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_STATUS(pub i32);
 impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OUTPUTDUPL_CONTEXT_DEBUG_STATUS").field(&self.0).finish()
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -3585,14 +4300,14 @@ pub struct D3DCAPS8 {
     pub MaxPixelShaderValue: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DCAPS8 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DCAPS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DCAPS8 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3611,13 +4326,13 @@ pub struct D3DDDIARG_CREATERESOURCE {
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
+impl windows_core::TypeKind for D3DDDIARG_CREATERESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDIARG_CREATERESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDIARG_CREATERESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3637,26 +4352,26 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
+impl windows_core::TypeKind for D3DDDIARG_CREATERESOURCE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDIARG_CREATERESOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDIARG_CREATERESOURCE2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3664,39 +4379,39 @@ pub union D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCK2FLAGS {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_LOCK2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3704,39 +4419,39 @@ pub union D3DDDICB_LOCK2FLAGS_0 {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_LOCK2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDICB_LOCK2FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_LOCK2FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCKFLAGS {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_LOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3744,39 +4459,39 @@ pub union D3DDDICB_LOCKFLAGS_0 {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_LOCKFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDICB_LOCKFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_LOCKFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_SIGNALFLAGS {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_SIGNALFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3784,39 +4499,39 @@ pub union D3DDDICB_SIGNALFLAGS_0 {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDICB_SIGNALFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDICB_SIGNALFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDICB_SIGNALFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0,
 }
+impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3824,42 +4539,42 @@ pub union D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0,
     pub Value: u64,
 }
+impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDIRECT {
     pub left: i32,
     pub top: i32,
     pub right: i32,
     pub bottom: i32,
 }
+impl windows_core::TypeKind for D3DDDIRECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDIRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDIRECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3871,13 +4586,13 @@ pub struct D3DDDI_ALLOCATIONINFO {
     pub VidPnSourceId: u32,
     pub Flags: D3DDDI_ALLOCATIONINFO_0,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3885,26 +4600,26 @@ pub union D3DDDI_ALLOCATIONINFO_0 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_ALLOCATIONINFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3919,13 +4634,13 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_2,
     pub Reserved: [usize; 5],
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3933,13 +4648,13 @@ pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::super::super::Win32::Foundation::HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3947,13 +4662,13 @@ pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Priority: u32,
     pub Unused: usize,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3961,26 +4676,26 @@ pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONINFO2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_ALLOCATIONINFO2_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3988,13 +4703,13 @@ pub struct D3DDDI_ALLOCATIONLIST {
     pub hAllocation: u32,
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4002,39 +4717,39 @@ pub union D3DDDI_ALLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ALLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_ALLOCATIONLIST_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONLIST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATECONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4042,39 +4757,39 @@ pub union D3DDDI_CREATECONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATECONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_CREATECONTEXTFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATECONTEXTFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4082,39 +4797,39 @@ pub union D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4122,26 +4837,26 @@ pub union D3DDDI_CREATEHWQUEUEFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4154,70 +4869,70 @@ pub struct D3DDDI_CREATENATIVEFENCEINFO {
     pub hSyncObject: u32,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
+impl windows_core::TypeKind for D3DDDI_CREATENATIVEFENCEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_CREATENATIVEFENCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_CREATENATIVEFENCEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DESTROYPAGINGQUEUE {
     pub hPagingQueue: u32,
+}
+impl windows_core::TypeKind for D3DDDI_DESTROYPAGINGQUEUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_DESTROYPAGINGQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_DESTROYPAGINGQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hSyncObject: u32,
     pub hKmdCpuEvent: u64,
     pub Usage: [u32; 8],
 }
+impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hAllocation: u32,
+}
+impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hResource: u32,
+}
+impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4226,26 +4941,26 @@ pub struct D3DDDI_DXGI_RGB {
     pub Green: f32,
     pub Blue: f32,
 }
+impl windows_core::TypeKind for D3DDDI_DXGI_RGB {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_DXGI_RGB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_DXGI_RGB {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ESCAPEFLAGS {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ESCAPEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4253,39 +4968,39 @@ pub union D3DDDI_ESCAPEFLAGS_0 {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_ESCAPEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_ESCAPEFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_ESCAPEFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_EVICT_FLAGS {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_EVICT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4293,26 +5008,26 @@ pub union D3DDDI_EVICT_FLAGS_0 {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_EVICT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_EVICT_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_EVICT_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -4321,46 +5036,46 @@ pub struct D3DDDI_GAMMA_RAMP_DXGI_1 {
     pub Offset: D3DDDI_DXGI_RGB,
     pub GammaCurve: [D3DDDI_DXGI_RGB; 1025],
 }
+impl windows_core::TypeKind for D3DDDI_GAMMA_RAMP_DXGI_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_GAMMA_RAMP_DXGI_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_GAMMA_RAMP_DXGI_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
     pub Blue: [u16; 256],
+}
+impl windows_core::TypeKind for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: u32,
     pub PrivateDriverDataSize: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -4371,29 +5086,29 @@ pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub MaxContentLightLevel: u16,
     pub MaxFrameAverageLightLevel: u16,
 }
+impl windows_core::TypeKind for D3DDDI_HDR_METADATA_HDR10 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_HDR_METADATA_HDR10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
+}
+impl windows_core::TypeKind for D3DDDI_HDR_METADATA_HDR10PLUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_HDR_METADATA_HDR10PLUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: u32,
     pub DstRect: D3DDDIRECT,
@@ -4401,13 +5116,13 @@ pub struct D3DDDI_KERNELOVERLAYINFO {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
+impl windows_core::TypeKind for D3DDDI_KERNELOVERLAYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_KERNELOVERLAYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_KERNELOVERLAYINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4420,26 +5135,26 @@ pub struct D3DDDI_MAKERESIDENT {
     pub PagingFenceValue: u64,
     pub NumBytesToTrim: u64,
 }
+impl windows_core::TypeKind for D3DDDI_MAKERESIDENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_MAKERESIDENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_MAKERESIDENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_MAKERESIDENT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4447,26 +5162,26 @@ pub union D3DDDI_MAKERESIDENT_FLAGS_0 {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_MAKERESIDENT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_MAKERESIDENT_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4485,55 +5200,55 @@ pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub VirtualAddress: u64,
     pub PagingFenceValue: u64,
 }
+impl windows_core::TypeKind for D3DDDI_MAPGPUVIRTUALADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_MAPGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_MAPGPUVIRTUALADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
+}
+impl windows_core::TypeKind for D3DDDI_MULTISAMPLINGMETHOD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_MULTISAMPLINGMETHOD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_MULTISAMPLINGMETHOD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
     pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: u64,
     pub MonitoredValueGpuVa: u64,
+}
+impl windows_core::TypeKind for D3DDDI_NATIVEFENCEMAPPING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_NATIVEFENCEMAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_NATIVEFENCEMAPPING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_OFFER_FLAGS {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_OFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4541,44 +5256,44 @@ pub union D3DDDI_OFFER_FLAGS_0 {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_OFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_OFFER_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_OFFER_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: u32,
     pub pPrivateDriverData: *const core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
+}
+impl windows_core::TypeKind for D3DDDI_OPENALLOCATIONINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_OPENALLOCATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_OPENALLOCATIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -4586,13 +5301,13 @@ pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub GpuVirtualAddress: u64,
     pub Reserved: [usize; 6],
 }
+impl windows_core::TypeKind for D3DDDI_OPENALLOCATIONINFO2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_OPENALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_OPENALLOCATIONINFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4604,13 +5319,13 @@ pub struct D3DDDI_PATCHLOCATIONLIST {
     pub PatchOffset: u32,
     pub SplitOffset: u32,
 }
+impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_PATCHLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4618,39 +5333,39 @@ pub union D3DDDI_PATCHLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_PATCHLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_PATCHLOCATIONLIST_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_PATCHLOCATIONLIST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4658,26 +5373,26 @@ pub union D3DDDI_QUERYREGISTRY_FLAGS_0 {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4691,13 +5406,13 @@ pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub Status: D3DDDI_QUERYREGISTRY_STATUS,
     pub Anonymous: D3DDDI_QUERYREGISTRY_INFO_0,
 }
+impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_QUERYREGISTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4707,27 +5422,27 @@ pub union D3DDDI_QUERYREGISTRY_INFO_0 {
     pub OutputString: [u16; 1],
     pub OutputBinary: [u8; 1],
 }
+impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_QUERYREGISTRY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_QUERYREGISTRY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
+}
+impl windows_core::TypeKind for D3DDDI_RATIONAL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_RATIONAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RATIONAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4742,13 +5457,13 @@ pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub VirtualAddress: u64,
     pub Anonymous4: D3DDDI_RESERVEGPUVIRTUALADDRESS_3,
 }
+impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4756,13 +5471,13 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     pub hPagingQueue: u32,
     pub hAdapter: u32,
 }
+impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4770,13 +5485,13 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     pub ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
     pub Reserved0: u32,
 }
+impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4784,13 +5499,13 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     pub DriverProtection: u64,
     pub Reserved1: u64,
 }
+impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4798,26 +5513,26 @@ pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     pub PagingFenceValue: u64,
     pub Reserved2: u64,
 }
+impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESOURCEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4825,39 +5540,39 @@ pub union D3DDDI_RESOURCEFLAGS_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESOURCEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_RESOURCEFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESOURCEFLAGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4865,39 +5580,39 @@ pub union D3DDDI_RESOURCEFLAGS2_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_RESOURCEFLAGS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_RESOURCEFLAGS2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_RESOURCEFLAGS2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0,
 }
+impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SEGMENTPREFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4905,29 +5620,29 @@ pub union D3DDDI_SEGMENTPREFERENCE_0 {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SEGMENTPREFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SEGMENTPREFERENCE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SEGMENTPREFERENCE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SURFACEINFO {
     pub Width: u32,
     pub Height: u32,
@@ -4936,13 +5651,13 @@ pub struct D3DDDI_SURFACEINFO {
     pub SysMemPitch: u32,
     pub SysMemSlicePitch: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SURFACEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SURFACEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SURFACEINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4950,13 +5665,13 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4965,53 +5680,53 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub Reserved: [u32; 16],
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5021,13 +5736,13 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5040,42 +5755,42 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub FenceValue: u64,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub InitialFenceValue: u64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
@@ -5083,16 +5798,16 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: u32,
     pub VidPnTargetId: u32,
@@ -5102,66 +5817,66 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub EngineAffinity: u32,
     pub Padding: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub Reserved: [u64; 8],
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5169,39 +5884,39 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5209,26 +5924,26 @@ pub union D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5241,13 +5956,13 @@ pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub PagingFenceValue: u64,
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEALLOCPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5255,39 +5970,39 @@ pub union D3DDDI_UPDATEALLOCPROPERTY_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0_0,
     pub PropertyMaskValue: u32,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5295,26 +6010,26 @@ pub union D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5322,13 +6037,13 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     pub OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
     pub Anonymous: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5338,28 +6053,28 @@ pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2,
     pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: u64,
     pub SizeInBytes: u64,
     pub DestAddress: u64,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5372,16 +6087,16 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
     pub DriverProtection: u64,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
@@ -5389,13 +6104,13 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub AllocationOffsetInBytes: u64,
     pub AllocationSizeInBytes: u64,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5404,26 +6119,26 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub SizeInBytes: u64,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5431,30 +6146,30 @@ pub union D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDEVICEDESC_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5471,18 +6186,18 @@ pub struct D3DDEVICEDESC_V1 {
     pub dwMaxVertexCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DDEVICEDESC_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DDEVICEDESC_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DDEVICEDESC_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDEVICEDESC_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5507,14 +6222,14 @@ pub struct D3DDEVICEDESC_V2 {
     pub dwMaxStippleHeight: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DDEVICEDESC_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DDEVICEDESC_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DDEVICEDESC_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -5556,33 +6271,33 @@ pub struct D3DDEVICEDESC_V3 {
     pub wMaxSimultaneousTextures: u16,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DDEVICEDESC_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DDEVICEDESC_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DDEVICEDESC_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub SegmentId: u32,
     pub Padding: u32,
     pub SegmentOffset: u64,
+}
+impl windows_core::TypeKind for D3DGPU_PHYSICAL_ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DGPU_PHYSICAL_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DGPU_PHYSICAL_ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DHAL_CONTEXTCREATECB,
@@ -5621,18 +6336,18 @@ pub struct D3DHAL_CALLBACKS {
     pub dwReserved9: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5643,18 +6358,18 @@ pub struct D3DHAL_CALLBACKS2 {
     pub DrawPrimitives: LPD3DHAL_DRAWPRIMITIVESCB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CALLBACKS2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CALLBACKS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CALLBACKS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5664,14 +6379,14 @@ pub struct D3DHAL_CALLBACKS3 {
     pub DrawPrimitives2: LPD3DHAL_DRAWPRIMITIVES2CB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CALLBACKS3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CALLBACKS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CALLBACKS3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -5687,18 +6402,18 @@ pub struct D3DHAL_CLEAR2DATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_CLEAR2DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_CLEAR2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_CLEAR2DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CLEARDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -5709,29 +6424,29 @@ pub struct D3DHAL_CLEARDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_CLEARDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_CLEARDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_CLEARDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
+impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_CLIPPEDTRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_CLIPPEDTRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5750,14 +6465,14 @@ impl Clone for D3DHAL_CONTEXTCREATEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5767,14 +6482,14 @@ pub union D3DHAL_CONTEXTCREATEDATA_0 {
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5789,14 +6504,14 @@ impl Clone for D3DHAL_CONTEXTCREATEDATA_1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_1 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5811,14 +6526,14 @@ impl Clone for D3DHAL_CONTEXTCREATEDATA_2 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_2 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5828,42 +6543,42 @@ pub union D3DHAL_CONTEXTCREATEDATA_3 {
     pub dwrstates: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_CONTEXTCREATEDATA_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_CONTEXTCREATEDATA_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DHAL_CONTEXTDESTROYALLDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_CONTEXTDESTROYALLDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_CONTEXTDESTROYALLDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DHAL_CONTEXTDESTROYDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_CONTEXTDESTROYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_CONTEXTDESTROYDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5891,13 +6606,13 @@ pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
+impl windows_core::TypeKind for D3DHAL_D3DDX6EXTENDEDCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_D3DDX6EXTENDEDCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_D3DDX6EXTENDEDCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -5934,20 +6649,24 @@ pub struct D3DHAL_D3DEXTENDEDCAPS {
     pub dwReserved3: u32,
     pub dwReserved4: u32,
 }
+impl windows_core::TypeKind for D3DHAL_D3DEXTENDEDCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_D3DEXTENDEDCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_D3DEXTENDEDCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2ADDDIRTYBOX {
     pub dwSurface: u32,
     pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2ADDDIRTYBOX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2ADDDIRTYBOX {
@@ -5955,26 +6674,22 @@ impl Default for D3DHAL_DP2ADDDIRTYBOX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2ADDDIRTYBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
+}
+impl windows_core::TypeKind for D3DHAL_DP2ADDDIRTYRECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2ADDDIRTYRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2ADDDIRTYRECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -5984,17 +6699,17 @@ pub struct D3DHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2BLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2BLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2BLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2BUFFERBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -6003,14 +6718,14 @@ pub struct D3DHAL_DP2BUFFERBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2BUFFERBLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2BUFFERBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2BUFFERBLT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6021,28 +6736,28 @@ pub struct D3DHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
+impl windows_core::TypeKind for D3DHAL_DP2CLEAR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2CLEAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CLEAR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2COLORFILL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2COLORFILL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2COLORFILL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6051,13 +6766,13 @@ pub struct D3DHAL_DP2COMMAND {
     pub bReserved: u8,
     pub Anonymous: D3DHAL_DP2COMMAND_0,
 }
+impl windows_core::TypeKind for D3DHAL_DP2COMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2COMMAND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6065,17 +6780,17 @@ pub union D3DHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
+impl windows_core::TypeKind for D3DHAL_DP2COMMAND_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2COMPOSERECTS {
     pub SrcSurfaceHandle: u32,
     pub DstSurfaceHandle: u32,
@@ -6087,48 +6802,52 @@ pub struct D3DHAL_DP2COMPOSERECTS {
     pub YOffset: i32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2COMPOSERECTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2COMPOSERECTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2COMPOSERECTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2CREATELIGHT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2CREATELIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CREATELIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2CREATEPIXELSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2CREATEPIXELSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CREATEPIXELSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATEQUERY {
     pub dwQueryID: u32,
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2CREATEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2CREATEQUERY {
@@ -6136,69 +6855,65 @@ impl Default for D3DHAL_DP2CREATEQUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2CREATEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADER {
     pub dwHandle: u32,
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2CREATEVERTEXSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADERDECL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2CREATEVERTEXSHADERDECL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADERDECL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2DELETEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2DELETEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2DELETEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub BaseVertexIndex: i32,
@@ -6208,18 +6923,18 @@ pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub BaseVertexOffset: i32,
@@ -6229,22 +6944,26 @@ pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub VStart: u32,
     pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2DRAWPRIMITIVE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2DRAWPRIMITIVE {
@@ -6252,17 +6971,17 @@ impl Default for D3DHAL_DP2DRAWPRIMITIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2DRAWPRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub FirstVertexOffset: u32,
     pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2DRAWPRIMITIVE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2DRAWPRIMITIVE2 {
@@ -6270,58 +6989,58 @@ impl Default for D3DHAL_DP2DRAWPRIMITIVE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2DRAWPRIMITIVE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2DRAWRECTPATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2DRAWRECTPATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2DRAWRECTPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2DRAWTRIPATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2DRAWTRIPATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2DRAWTRIPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2EXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2GENERATEMIPSUBLEVELS {
     pub hSurface: u32,
     pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2GENERATEMIPSUBLEVELS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2GENERATEMIPSUBLEVELS {
@@ -6329,133 +7048,129 @@ impl Default for D3DHAL_DP2GENERATEMIPSUBLEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2GENERATEMIPSUBLEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDLINELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2INDEXEDLINELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDLINELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
+}
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDLINESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2INDEXEDLINESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDLINESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
+}
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2INDEXEDTRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLELIST {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
     pub wFlags: u16,
 }
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLELIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2INDEXEDTRIANGLELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
+}
+impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2ISSUEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2ISSUEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2ISSUEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2LINELIST {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2LINELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2LINELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2LINELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2LINESTRIP {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2LINESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2LINESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2LINESTRIP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
@@ -6465,41 +7180,41 @@ pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl windows_core::TypeKind for D3DHAL_DP2MULTIPLYTRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl windows_core::TypeKind for D3DHAL_DP2MULTIPLYTRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2PIXELSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2PIXELSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2PIXELSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2POINTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2POINTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6509,14 +7224,14 @@ pub struct D3DHAL_DP2RENDERSTATE {
     pub Anonymous: D3DHAL_DP2RENDERSTATE_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2RENDERSTATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2RENDERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2RENDERSTATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6526,44 +7241,44 @@ pub union D3DHAL_DP2RENDERSTATE_0 {
     pub dwState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2RENDERSTATE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2RENDERSTATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2RENDERSTATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2RESPONSE {
     pub bCommand: u8,
     pub bReserved: u8,
     pub wStateCount: u16,
     pub dwTotalSize: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2RESPONSEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2RESPONSEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2RESPONSEQUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6571,213 +7286,213 @@ pub struct D3DHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
+impl windows_core::TypeKind for D3DHAL_DP2SETCLIPPLANE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2SETCLIPPLANE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETCLIPPLANE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETDEPTHSTENCIL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETDEPTHSTENCIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETDEPTHSTENCIL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETINDICES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETINDICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETINDICES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub dwDataType: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETLIGHT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETLIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETLIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETPALETTE {
     pub dwPaletteHandle: u32,
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETPALETTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETPIXELSHADERCONST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETPIXELSHADERCONST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETPIXELSHADERCONST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETPRIORITY {
     pub dwDDSurface: u32,
     pub dwPriority: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETRENDERTARGET {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETRENDERTARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETRENDERTARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETRENDERTARGET2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETRENDERTARGET2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETRENDERTARGET2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETSTREAMSOURCE {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETSTREAMSOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETSTREAMSOURCE2 {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwOffset: u32,
     pub dwStride: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2SETSTREAMSOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCEFREQ {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETSTREAMSOURCEFREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCEFREQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCEUM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETSTREAMSOURCEUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETSTREAMSOURCEUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETTEXLOD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETTEXLOD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2SETTEXLOD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
@@ -6787,49 +7502,53 @@ pub struct D3DHAL_DP2SETTRANSFORM {
     pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl windows_core::TypeKind for D3DHAL_DP2SETTRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl windows_core::TypeKind for D3DHAL_DP2SETTRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2SETVERTEXSHADERCONST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2SETVERTEXSHADERCONST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SETVERTEXSHADERCONST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2STARTVERTEX {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2STARTVERTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2STARTVERTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2STARTVERTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2STATESET {
     pub dwOperation: u32,
     pub dwParam: u32,
     pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2STATESET {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2STATESET {
@@ -6837,12 +7556,8 @@ impl Default for D3DHAL_DP2STATESET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2STATESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -6852,16 +7567,16 @@ pub struct D3DHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2SURFACEBLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2SURFACEBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2SURFACEBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -6869,128 +7584,128 @@ pub struct D3DHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2TEXBLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2TEXBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TEXBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TEXTURESTAGESTATE {
     pub wStage: u16,
     pub TSState: u16,
     pub dwValue: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2TEXTURESTAGESTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2TEXTURESTAGESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TEXTURESTAGESTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2TRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2TRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2TRIANGLEFAN_IMM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2TRIANGLEFAN_IMM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TRIANGLEFAN_IMM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2TRIANGLELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2TRIANGLELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TRIANGLELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2TRIANGLESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2TRIANGLESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2TRIANGLESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2UPDATEPALETTE {
     pub dwPaletteHandle: u32,
     pub wStartIndex: u16,
     pub wNumEntries: u16,
+}
+impl windows_core::TypeKind for D3DHAL_DP2UPDATEPALETTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2UPDATEPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2UPDATEPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
+}
+impl windows_core::TypeKind for D3DHAL_DP2VERTEXSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_DP2VERTEXSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2VERTEXSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2VIEWPORTINFO {
     pub dwX: u32,
     pub dwY: u32,
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2VIEWPORTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2VIEWPORTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_DP2VIEWPORTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DP2VOLUMEBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -7001,14 +7716,14 @@ pub struct D3DHAL_DP2VOLUMEBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DP2VOLUMEBLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DP2VOLUMEBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DP2VOLUMEBLT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7016,13 +7731,13 @@ pub struct D3DHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2WINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2WINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2WINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7030,13 +7745,13 @@ pub struct D3DHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
+impl windows_core::TypeKind for D3DHAL_DP2ZRANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DP2ZRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DP2ZRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7053,14 +7768,14 @@ pub struct D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7070,14 +7785,14 @@ pub union D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     pub dwFVFControl: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7093,14 +7808,14 @@ pub struct D3DHAL_DRAWONEPRIMITIVEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DRAWONEPRIMITIVEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DRAWONEPRIMITIVEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DRAWONEPRIMITIVEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7110,30 +7825,30 @@ pub union D3DHAL_DRAWONEPRIMITIVEDATA_0 {
     pub dwFVFControl: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wNumStateChanges: u16,
     pub wPrimitiveType: u16,
     pub wVertexType: u16,
     pub wNumVertices: u16,
 }
+impl windows_core::TypeKind for D3DHAL_DRAWPRIMCOUNTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DRAWPRIMCOUNTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DRAWPRIMCOUNTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7155,14 +7870,14 @@ pub struct D3DHAL_DRAWPRIMITIVES2DATA {
     pub dwErrorOffset: u32,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_DRAWPRIMITIVES2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7172,14 +7887,14 @@ pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpVertices: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7189,17 +7904,17 @@ pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_DRAWPRIMITIVES2DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVES2DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_DRAWPRIMITIVESDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -7207,13 +7922,13 @@ pub struct D3DHAL_DRAWPRIMITIVESDATA {
     pub dwFVFControl: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVESDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_DRAWPRIMITIVESDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_DRAWPRIMITIVESDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7225,18 +7940,18 @@ pub struct D3DHAL_GETSTATEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DHAL_GETSTATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DHAL_GETSTATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DHAL_GETSTATEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
     pub hwCaps: D3DDEVICEDESC_V1,
@@ -7246,18 +7961,18 @@ pub struct D3DHAL_GLOBALDRIVERDATA {
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl windows_core::TypeKind for D3DHAL_GLOBALDRIVERDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl Default for D3DHAL_GLOBALDRIVERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl windows_core::TypeKind for D3DHAL_GLOBALDRIVERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
@@ -7269,18 +7984,24 @@ pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl Clone for D3DHAL_RENDERPRIMITIVEDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl windows_core::TypeKind for D3DHAL_RENDERPRIMITIVEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl Default for D3DHAL_RENDERPRIMITIVEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl windows_core::TypeKind for D3DHAL_RENDERPRIMITIVEDATA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
@@ -7289,29 +8010,35 @@ pub struct D3DHAL_RENDERSTATEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl Clone for D3DHAL_RENDERSTATEDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DHAL_RENDERSTATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DHAL_RENDERSTATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DHAL_RENDERSTATEDATA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_SCENECAPTUREDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DHAL_SCENECAPTUREDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7328,14 +8055,14 @@ impl Clone for D3DHAL_SETRENDERTARGETDATA {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7350,14 +8077,14 @@ impl Clone for D3DHAL_SETRENDERTARGETDATA_0 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_0 {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -7372,18 +8099,18 @@ impl Clone for D3DHAL_SETRENDERTARGETDATA_1 {
     }
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl Default for D3DHAL_SETRENDERTARGETDATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-impl windows_core::TypeKind for D3DHAL_SETRENDERTARGETDATA_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub lpDDS: core::mem::ManuallyDrop<Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
@@ -7391,64 +8118,70 @@ pub struct D3DHAL_TEXTURECREATEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl Clone for D3DHAL_TEXTURECREATEDATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DHAL_TEXTURECREATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DHAL_TEXTURECREATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DHAL_TEXTURECREATEDATA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: u32,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DHAL_TEXTUREDESTROYDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DHAL_TEXTUREDESTROYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_TEXTUREDESTROYDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub lpDDS: usize,
     pub dwHandle: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DHAL_TEXTUREGETSURFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_TEXTUREGETSURFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_TEXTUREGETSURFDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: u32,
     pub dwHandle2: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DHAL_TEXTURESWAPDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_TEXTURESWAPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_TEXTURESWAPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -7456,27 +8189,27 @@ pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwNumPasses: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_2DREGION {
     pub cx: u32,
     pub cy: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_2DREGION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_2DREGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_2DREGION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7485,13 +8218,13 @@ pub struct D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     pub ScalarMultiplier: f32,
     pub LookupTable1D: [D3DDDI_DXGI_RGB; 4096],
 }
+impl windows_core::TypeKind for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_3x4_COLORSPACE_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7503,59 +8236,59 @@ pub struct D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     pub StageControlLookupTable1DRegamma: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL,
     pub LookupTable1DRegamma: [D3DDDI_DXGI_RGB; 4096],
 }
+impl windows_core::TypeKind for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     pub FirstChannel: u32,
     pub SecondChannel: u32,
     pub ThirdChannel: u32,
     pub FourthChannel: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_DISPLAYMODE_FLAGS {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_DISPLAYMODE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_DISPLAYMODE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_DISPLAYMODE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinVSyncFreq: D3DDDI_RATIONAL,
     pub MaxVSyncFreq: D3DDDI_RATIONAL,
     pub MinHSyncFreq: D3DDDI_RATIONAL,
     pub MaxHSyncFreq: D3DDDI_RATIONAL,
 }
+impl windows_core::TypeKind for D3DKMDT_FREQUENCY_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_FREQUENCY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_FREQUENCY_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7564,13 +8297,13 @@ pub struct D3DKMDT_GAMMA_RAMP {
     pub DataSize: usize,
     pub Data: D3DKMDT_GAMMA_RAMP_0,
 }
+impl windows_core::TypeKind for D3DKMDT_GAMMA_RAMP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GAMMA_RAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_GAMMA_RAMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7581,13 +8314,13 @@ pub union D3DKMDT_GAMMA_RAMP_0 {
     pub pMatrixV2: *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2,
     pub pRaw: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMDT_GAMMA_RAMP_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GAMMA_RAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_GAMMA_RAMP_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7599,26 +8332,26 @@ pub struct D3DKMDT_GDISURFACEDATA {
     pub Flags: D3DKMDT_GDISURFACEFLAGS,
     pub Pitch: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_GDISURFACEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GDISURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_GDISURFACEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMDT_GDISURFACEFLAGS {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GDISURFACEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7626,29 +8359,29 @@ pub union D3DKMDT_GDISURFACEFLAGS_0 {
     pub Anonymous: D3DKMDT_GDISURFACEFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GDISURFACEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_GDISURFACEFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_GDISURFACEFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PrimSurfSize: D3DKMDT_2DREGION,
     pub VisibleRegionSize: D3DKMDT_2DREGION,
@@ -7657,16 +8390,16 @@ pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub ColorBasis: D3DKMDT_COLOR_BASIS,
     pub PixelValueAccessMode: D3DKMDT_PIXEL_VALUE_ACCESS_MODE,
 }
+impl windows_core::TypeKind for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: u32,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
@@ -7674,13 +8407,13 @@ pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub pData: *mut core::ffi::c_void,
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
 }
+impl windows_core::TypeKind for D3DKMDT_MONITOR_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_MONITOR_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_MONITOR_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7690,13 +8423,13 @@ pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE {
     pub ConstraintType: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT,
     pub Constraint: D3DKMDT_MONITOR_FREQUENCY_RANGE_0,
 }
+impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7704,13 +8437,13 @@ pub union D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     pub ActiveSize: D3DKMDT_2DREGION,
     pub MaxPixelRate: usize,
 }
+impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_MONITOR_FREQUENCY_RANGE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7722,62 +8455,62 @@ pub struct D3DKMDT_MONITOR_SOURCE_MODE {
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
     pub Preference: D3DKMDT_MODE_PREFERENCE,
 }
+impl windows_core::TypeKind for D3DKMDT_MONITOR_SOURCE_MODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_MONITOR_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_MONITOR_SOURCE_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_PALETTEDATA {
     pub Red: u8,
     pub Green: u8,
     pub Blue: u8,
     pub Unused: u8,
 }
+impl windows_core::TypeKind for D3DKMDT_PALETTEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_PALETTEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_PALETTEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_PREEMPTION_CAPS {
     pub GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
+}
+impl windows_core::TypeKind for D3DKMDT_PREEMPTION_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_PREEMPTION_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_PREEMPTION_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
     pub Format: D3DDDIFORMAT,
     pub Pitch: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_SHADOWSURFACEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_SHADOWSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_SHADOWSURFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -7785,45 +8518,45 @@ pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub RefreshRate: D3DDDI_RATIONAL,
     pub VidPnSourceId: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_SHAREDPRIMARYSURFACEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_SHAREDPRIMARYSURFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_STAGINGSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
     pub Pitch: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_STAGINGSURFACEDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_STAGINGSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_STAGINGSURFACEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDEO_PRESENT_SOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDEO_PRESENT_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDEO_PRESENT_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: u32,
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
@@ -7831,13 +8564,13 @@ pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub MonitorOrientationAwareness: D3DKMDT_MONITOR_ORIENTATION_AWARENESS,
     pub SupportsSdtvModes: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDEO_PRESENT_TARGET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDEO_PRESENT_TARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDEO_PRESENT_TARGET {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7850,13 +8583,13 @@ pub struct D3DKMDT_VIDEO_SIGNAL_INFO {
     pub PixelRate: usize,
     pub Anonymous: D3DKMDT_VIDEO_SIGNAL_INFO_0,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7864,39 +8597,39 @@ pub union D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     pub AdditionalSignalInfo: D3DKMDT_VIDEO_SIGNAL_INFO_0_0,
     pub ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDPN_HW_CAPABILITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDPN_HW_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDPN_HW_CAPABILITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7913,84 +8646,84 @@ pub struct D3DKMDT_VIDPN_PRESENT_PATH {
     pub CopyProtection: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION,
     pub GammaRamp: D3DKMDT_GAMMA_RAMP,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
     pub APSTriggerBits: u32,
     pub OEMCopyProtection: [u8; 256],
     pub CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
     pub ScalingSupport: D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT,
     pub Rotation: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION,
     pub RotationSupport: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7999,13 +8732,13 @@ pub struct D3DKMDT_VIDPN_SOURCE_MODE {
     pub Type: D3DKMDT_VIDPN_SOURCE_MODE_TYPE,
     pub Format: D3DKMDT_VIDPN_SOURCE_MODE_0,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8013,13 +8746,13 @@ pub union D3DKMDT_VIDPN_SOURCE_MODE_0 {
     pub Graphics: D3DKMDT_GRAPHICS_RENDERING_FORMAT,
     pub Text: D3DKMDT_TEXT_RENDERING_FORMAT,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_SOURCE_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDPN_SOURCE_MODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8029,13 +8762,13 @@ pub struct D3DKMDT_VIDPN_TARGET_MODE {
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0,
     pub MinimumVSyncFreq: D3DDDI_RATIONAL,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_TARGET_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8043,42 +8776,42 @@ pub union D3DKMDT_VIDPN_TARGET_MODE_0 {
     pub WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
     pub Anonymous: D3DKMDT_VIDPN_TARGET_MODE_0_0,
 }
+impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIDPN_TARGET_MODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_VIDPN_TARGET_MODE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
     pub Size: u64,
     pub Alignment: u32,
     pub DriverSegmentId: u32,
     pub PrivateDriverData: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_VIRTUALGPUSURFACEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_VIRTUALGPUSURFACEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMDT_VIRTUALGPUSURFACEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8086,45 +8819,45 @@ pub union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     pub Anonymous: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     pub _bitfield: i32,
+}
+impl windows_core::TypeKind for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub hKeyedMutex: u32,
     pub Key: u64,
     pub pTimeout: *mut i64,
     pub FenceValue: u64,
 }
+impl windows_core::TypeKind for D3DKMT_ACQUIREKEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ACQUIREKEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ACQUIREKEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub hKeyedMutex: u32,
     pub Key: u64,
@@ -8133,87 +8866,87 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_ACQUIREKEYEDMUTEX2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ACQUIREKEYEDMUTEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ACQUIREKEYEDMUTEX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
     pub Activate: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERADDRESS {
     pub BusNumber: u32,
     pub DeviceNumber: u32,
     pub FunctionNumber: u32,
+}
+impl windows_core::TypeKind for D3DKMT_ADAPTERADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ADAPTERADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTERADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub NumOfSources: u32,
     pub bPrecisePresentRegionsPreferred: super::super::super::Win32::Foundation::BOOL,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTERINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERREGISTRYINFO {
     pub AdapterString: [u16; 260],
     pub BiosString: [u16; 260],
     pub DacType: [u16; 260],
     pub ChipType: [u16; 260],
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTERREGISTRYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTERREGISTRYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTERREGISTRYINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_ADAPTERTYPE {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTERTYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8221,29 +8954,29 @@ pub union D3DKMT_ADAPTERTYPE_0 {
     pub Anonymous: D3DKMT_ADAPTERTYPE_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTERTYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERTYPE_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ADAPTERTYPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTERTYPE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_PERFDATA {
     pub PhysicalAdapterIndex: u32,
     pub MemoryFrequency: u64,
@@ -8256,16 +8989,16 @@ pub struct D3DKMT_ADAPTER_PERFDATA {
     pub Temperature: u32,
     pub PowerStateOverride: u8,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_PERFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_PERFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTER_PERFDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub PhysicalAdapterIndex: u32,
     pub MaxMemoryBandwidth: u64,
@@ -8274,13 +9007,13 @@ pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub TemperatureMax: u32,
     pub TemperatureWarning: u32,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_PERFDATACAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_PERFDATACAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTER_PERFDATACAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8289,13 +9022,13 @@ pub struct D3DKMT_ADAPTER_VERIFIER_OPTION {
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_ADAPTER_VERIFIER_OPTION_DATA,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_VERIFIER_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8303,13 +9036,13 @@ pub union D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS,
     pub VidMmTrimInterval: D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_OPTION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8317,41 +9050,41 @@ pub union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     pub MinimumTrimInterval: u64,
     pub MaximumTrimInterval: u64,
     pub IdleTrimInterval: u64,
 }
+impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8361,70 +9094,70 @@ pub struct D3DKMT_ADJUSTFULLSCREENGAMMA {
     pub Scale: D3DDDI_DXGI_RGB,
     pub Offset: D3DDDI_DXGI_RGB,
 }
+impl windows_core::TypeKind for D3DKMT_ADJUSTFULLSCREENGAMMA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ADJUSTFULLSCREENGAMMA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ADJUSTFULLSCREENGAMMA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO {
     pub size: u32,
     pub r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
+}
+impl windows_core::TypeKind for D3DKMT_AUXILIARYPRESENTINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_AUXILIARYPRESENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_AUXILIARYPRESENTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_BDDFALLBACK_CTL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_BDDFALLBACK_CTL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_BDDFALLBACK_CTL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BLOCKLIST_INFO {
     pub Size: u32,
     pub BlockList: [u16; 1],
+}
+impl windows_core::TypeKind for D3DKMT_BLOCKLIST_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_BLOCKLIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_BLOCKLIST_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
     pub EventId: u64,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
+impl windows_core::TypeKind for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8433,13 +9166,13 @@ pub struct D3DKMT_BRIGHTNESS_INFO {
     pub ChildUid: u32,
     pub Anonymous: D3DKMT_BRIGHTNESS_INFO_0,
 }
+impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_BRIGHTNESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8455,41 +9188,41 @@ pub union D3DKMT_BRIGHTNESS_INFO_0 {
     pub GetBrightnessMillinits: DXGK_BRIGHTNESS_GET_OUT,
     pub SetBrightnessMillinits: DXGK_BRIGHTNESS_SET_IN,
 }
+impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_BRIGHTNESS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     pub LevelCount: u8,
     pub BrightnessLevels: [u8; 256],
+}
+impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BUDGETCHANGENOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Budget: u64,
+}
+impl windows_core::TypeKind for D3DKMT_BUDGETCHANGENOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_BUDGETCHANGENOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_BUDGETCHANGENOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8502,26 +9235,26 @@ pub struct D3DKMT_CANCEL_PRESENTS {
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
     pub BindId: u64,
 }
+impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CANCEL_PRESENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS {
     pub Anonymous: D3DKMT_CANCEL_PRESENTS_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8529,30 +9262,30 @@ pub union D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     pub ReprogramInterrupt: D3DKMT_CANCEL_PRESENTS_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
@@ -8562,17 +9295,17 @@ pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub Pitch: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for D3DKMT_CHANGESURFACEPOINTER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for D3DKMT_CHANGESURFACEPOINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for D3DKMT_CHANGESURFACEPOINTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -8580,27 +9313,27 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub Reservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECKMONITORPOWERSTATE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CHECKMONITORPOWERSTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CHECKMONITORPOWERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CHECKMONITORPOWERSTATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8611,13 +9344,13 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
+impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8629,13 +9362,13 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
+impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8649,73 +9382,73 @@ pub struct D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
     pub ReturnInfo: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO,
 }
+impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::super::super::Win32::Foundation::HWND,
+}
+impl windows_core::TypeKind for D3DKMT_CHECKOCCLUSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CHECKOCCLUSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECKOCCLUSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
     pub hResource: u32,
     pub ClientPid: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CHECKSHAREDRESOURCEACCESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CHECKSHAREDRESOURCEACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECKSHAREDRESOURCEACCESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub hResource: u32,
     pub CompSurfaceLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -8723,16 +9456,16 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub VidPnSourceId: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub LayerIndex: u32,
     pub hResource: u32,
@@ -8740,26 +9473,26 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub VidPnSourceId: u32,
     pub pPlaneAttributes: *mut D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3,
 }
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0,
 }
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8767,55 +9500,55 @@ pub union D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     pub Anonymous: D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CLOSEADAPTER {
     pub hAdapter: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CLOSEADAPTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CLOSEADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CLOSEADAPTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     pub hPrivateData: u64,
+}
+impl windows_core::TypeKind for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: u32,
     pub hResource: u32,
@@ -8823,13 +9556,13 @@ pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AllowAccess: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for D3DKMT_CONFIGURESHAREDRESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CONFIGURESHAREDRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CONFIGURESHAREDRESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8837,26 +9570,26 @@ pub struct D3DKMT_CONNECT_DOORBELL {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_CONNECT_DOORBELL_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CONNECT_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8864,39 +9597,39 @@ pub union D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CONNECT_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CPDRIVERNAME {
     pub ContentProtectionFileName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_CPDRIVERNAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CPDRIVERNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CPDRIVERNAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8913,13 +9646,13 @@ pub struct D3DKMT_CREATEALLOCATION {
     pub Flags: D3DKMT_CREATEALLOCATIONFLAGS,
     pub hPrivateRuntimeResourceHandle: super::super::super::Win32::Foundation::HANDLE,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8927,13 +9660,13 @@ pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
     pub pPrivateDriverData: *const core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEALLOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8941,26 +9674,26 @@ pub union D3DKMT_CREATEALLOCATION_1 {
     pub pAllocationInfo: *mut D3DDDI_ALLOCATIONINFO,
     pub pAllocationInfo2: *mut D3DDDI_ALLOCATIONINFO2,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEALLOCATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEALLOCATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEALLOCATIONFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CREATEALLOCATIONFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CREATEALLOCATIONFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEALLOCATIONFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8981,13 +9714,13 @@ pub struct D3DKMT_CREATECONTEXT {
     pub PatchLocationListSize: u32,
     pub CommandBuffer: u64,
 }
+impl windows_core::TypeKind for D3DKMT_CREATECONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATECONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATECONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9001,17 +9734,17 @@ pub struct D3DKMT_CREATECONTEXTVIRTUAL {
     pub ClientHint: D3DKMT_CLIENTHINT,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATECONTEXTVIRTUAL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATECONTEXTVIRTUAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATECONTEXTVIRTUAL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut core::ffi::c_void,
     pub Format: D3DDDIFORMAT,
@@ -9024,14 +9757,14 @@ pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for D3DKMT_CREATEDCFROMMEMORY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for D3DKMT_CREATEDCFROMMEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for D3DKMT_CREATEDCFROMMEMORY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9046,13 +9779,13 @@ pub struct D3DKMT_CREATEDEVICE {
     pub pPatchLocationList: *mut D3DDDI_PATCHLOCATIONLIST,
     pub PatchLocationListSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEDEVICE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9060,26 +9793,26 @@ pub union D3DKMT_CREATEDEVICE_0 {
     pub hAdapter: u32,
     pub pAdapter: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEDEVICE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEDEVICE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEDEVICE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEDEVICEFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CREATEDEVICEFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CREATEDEVICEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEDEVICEFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9092,13 +9825,13 @@ pub struct D3DKMT_CREATEHWCONTEXT {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub hHwContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEHWCONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEHWCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEHWCONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9112,28 +9845,28 @@ pub struct D3DKMT_CREATEHWQUEUE {
     pub HwQueueProgressFenceCPUVirtualAddress: *mut core::ffi::c_void,
     pub HwQueueProgressFenceGPUVirtualAddress: u64,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEHWQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEKEYEDMUTEX {
     pub InitialValue: u64,
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEKEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9145,26 +9878,26 @@ pub struct D3DKMT_CREATEKEYEDMUTEX2 {
     pub PrivateRuntimeDataSize: u32,
     pub Flags: D3DKMT_CREATEKEYEDMUTEX2_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEKEYEDMUTEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9172,26 +9905,26 @@ pub union D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9199,32 +9932,32 @@ pub struct D3DKMT_CREATENATIVEFENCE {
     pub hDevice: u32,
     pub Info: D3DDDI_CREATENATIVEFENCEINFO,
 }
+impl windows_core::TypeKind for D3DKMT_CREATENATIVEFENCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATENATIVEFENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATENATIVEFENCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEOVERLAY {
     pub VidPnSourceId: u32,
     pub hDevice: u32,
     pub OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
     pub hOverlay: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEOVERLAY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEOVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEOVERLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub hDevice: u32,
     pub Priority: D3DDDI_PAGINGQUEUE_PRIORITY,
@@ -9233,16 +9966,16 @@ pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub PhysicalAdapterIndex: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEPAGINGQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEPAGINGQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATEPAGINGQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hDevice: u32,
     pub hSyncObject: u32,
@@ -9252,13 +9985,13 @@ pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub PrivateRuntimeDataSize: u32,
     pub hHandle: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATEPROTECTEDSESSION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATEPROTECTEDSESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATEPROTECTEDSESSION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9267,39 +10000,39 @@ pub struct D3DKMT_CREATESTANDARDALLOCATION {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATION_0,
     pub Flags: D3DKMT_CREATESTANDARDALLOCATIONFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESTANDARDALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
     pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESTANDARDALLOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9307,42 +10040,42 @@ pub union D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATESYNCFILE {
     pub hDevice: u32,
     pub hMonitoredFence: u32,
     pub FenceValue: u64,
     pub hSyncFile: u64,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESYNCFILE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESYNCFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESYNCFILE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9351,13 +10084,13 @@ pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO,
     pub hSyncObject: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9366,13 +10099,13 @@ pub struct D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     pub Info: D3DDDI_SYNCHRONIZATIONOBJECTINFO2,
     pub hSyncObject: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATESYNCHRONIZATIONOBJECT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9387,26 +10120,26 @@ pub struct D3DKMT_CREATE_DOORBELL {
     pub DoorbellSecondaryCPUVirtualAddress: *mut core::ffi::c_void,
     pub DoorbellStatusCPUVirtualAddress: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATE_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATE_DOORBELL_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9414,26 +10147,26 @@ pub union D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     pub Anonymous: D3DKMT_CREATE_DOORBELL_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9445,70 +10178,70 @@ pub struct D3DKMT_CREATE_OUTPUTDUPL {
     pub KeyedMutexs: [D3DKMT_OUTPUTDUPL_KEYEDMUTEX; 3],
     pub Flags: D3DKMT_OUTPUTDUPLCREATIONFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_CREATE_OUTPUTDUPL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_CREATE_OUTPUTDUPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CREATE_OUTPUTDUPL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     pub SupportTier: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER,
+}
+impl windows_core::TypeKind for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CURRENTDISPLAYMODE {
     pub VidPnSourceId: u32,
     pub DisplayMode: D3DKMT_DISPLAYMODE,
+}
+impl windows_core::TypeKind for D3DKMT_CURRENTDISPLAYMODE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_CURRENTDISPLAYMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_CURRENTDISPLAYMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     pub Length: u32,
     pub Buffer: [u8; 1],
+}
+impl windows_core::TypeKind for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYALLOCATION {
     pub hDevice: u32,
     pub hResource: u32,
     pub phAllocationList: *const u32,
     pub AllocationCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_DESTROYALLOCATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DESTROYALLOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DESTROYALLOCATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9519,33 +10252,37 @@ pub struct D3DKMT_DESTROYALLOCATION2 {
     pub AllocationCount: u32,
     pub Flags: D3DDDICB_DESTROYALLOCATION2FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_DESTROYALLOCATION2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DESTROYALLOCATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYALLOCATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYCONTEXT {
     pub hContext: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYCONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hBitmap: super::super::super::Win32::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for D3DKMT_DESTROYDCFROMMEMORY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for D3DKMT_DESTROYDCFROMMEMORY {
@@ -9553,129 +10290,125 @@ impl Default for D3DKMT_DESTROYDCFROMMEMORY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for D3DKMT_DESTROYDCFROMMEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYDEVICE {
     pub hDevice: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYDEVICE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYHWCONTEXT {
     pub hHwContext: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYHWCONTEXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYHWCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYHWCONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYHWQUEUE {
     pub hHwQueue: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYHWQUEUE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYHWQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYKEYEDMUTEX {
     pub hKeyedMutex: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYKEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYKEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYKEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYOVERLAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYOVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYOVERLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYPROTECTEDSESSION {
     pub hHandle: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYPROTECTEDSESSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYPROTECTEDSESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYPROTECTEDSESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     pub hSyncObject: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROY_DOORBELL {
     pub hHwQueue: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DESTROY_DOORBELL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DESTROY_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DESTROY_DOORBELL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub bDestroyAllContexts: super::super::super::Win32::Foundation::BOOL,
 }
+impl windows_core::TypeKind for D3DKMT_DESTROY_OUTPUTDUPL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DESTROY_OUTPUTDUPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DESTROY_OUTPUTDUPL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9687,68 +10420,68 @@ pub struct D3DKMT_DEVICEPAGEFAULT_STATE {
     pub FaultErrorCode: DXGK_FAULT_ERROR_CODE,
     pub FaultedVirtualAddress: u64,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICEPAGEFAULT_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICEPAGEFAULT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICEPAGEFAULT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: u32,
     pub bQueuedPresentLimitReached: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_QUEUE_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_STATE {
     pub VidPnSourceId: u32,
     pub PresentStats: D3DKMT_PRESENT_STATS,
+}
+impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_STATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEVICEPRESENT_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_STATE_DWM {
     pub VidPnSourceId: u32,
     pub PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
+}
+impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_STATE_DWM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEVICEPRESENT_STATE_DWM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICEPRESENT_STATE_DWM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DEVICERESET_STATE {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICERESET_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9756,26 +10489,26 @@ pub union D3DKMT_DEVICERESET_STATE_0 {
     pub Anonymous: D3DKMT_DEVICERESET_STATE_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICERESET_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICERESET_STATE_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEVICERESET_STATE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DEVICERESET_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -9783,43 +10516,43 @@ pub struct D3DKMT_DEVICE_ESCAPE {
     pub Type: D3DKMT_DEVICEESCAPE_TYPE,
     pub Anonymous: D3DKMT_DEVICE_ESCAPE_0,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICE_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DEVICE_ESCAPE_0 {
     pub VidPnFromAllocation: D3DKMT_DEVICE_ESCAPE_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICE_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_ESCAPE_0_0 {
     pub hPrimaryAllocation: u32,
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DEVICE_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICE_ESCAPE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_IDS {
     pub VendorID: u32,
     pub DeviceID: u32,
@@ -9828,43 +10561,43 @@ pub struct D3DKMT_DEVICE_IDS {
     pub RevisionID: u32,
     pub BusType: u32,
 }
+impl windows_core::TypeKind for D3DKMT_DEVICE_IDS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DEVICE_IDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DEVICE_IDS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_DIRECTFLIP_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DIRECTFLIP_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DIRECTFLIP_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DIRTYREGIONS {
     pub NumRects: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 16],
+}
+impl windows_core::TypeKind for D3DKMT_DIRTYREGIONS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DIRTYREGIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DIRTYREGIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -9876,41 +10609,41 @@ pub struct D3DKMT_DISPLAYMODE {
     pub DisplayFixedOutput: u32,
     pub Flags: D3DKMDT_DISPLAYMODE_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_DISPLAYMODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DISPLAYMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DISPLAYMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAYMODELIST {
     pub VidPnSourceId: u32,
     pub ModeCount: u32,
     pub pModeList: [D3DKMT_DISPLAYMODE; 1],
+}
+impl windows_core::TypeKind for D3DKMT_DISPLAYMODELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DISPLAYMODELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DISPLAYMODELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_CAPS {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DISPLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -9918,95 +10651,95 @@ pub union D3DKMT_DISPLAY_CAPS_0 {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0_0,
     pub Value: u64,
 }
+impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DISPLAY_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
+impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DISPLAY_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DISPLAY_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     pub Version: KMT_DISPLAY_UMD_VERSION,
     pub UmdFileName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DLIST_DRIVER_NAME {
     pub DListFileName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_DLIST_DRIVER_NAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DLIST_DRIVER_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DLIST_DRIVER_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DMM_ESCAPE {
     pub Type: D3DKMT_DMMESCAPETYPE,
     pub ProvidedBufferSize: usize,
     pub MinRequiredBufferSize: usize,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for D3DKMT_DMM_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DMM_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DMM_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
     pub bForceFullScreenDirty: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_DOD_SET_DIRTYRECT_MODE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DOD_SET_DIRTYRECT_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DOD_SET_DIRTYRECT_MODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0,
 }
+impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DRIVERCAPS_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -10014,67 +10747,67 @@ pub union D3DKMT_DRIVERCAPS_EXT_0 {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DRIVERCAPS_EXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_DRIVERCAPS_EXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DRIVERCAPS_EXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DRIVER_DESCRIPTION {
     pub DriverDescription: [u16; 4096],
+}
+impl windows_core::TypeKind for D3DKMT_DRIVER_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_DRIVER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_DRIVER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS {
     pub NumAdapters: u32,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
+}
+impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ENUMADAPTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS2 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
+}
+impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ENUMADAPTERS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10083,13 +10816,13 @@ pub struct D3DKMT_ENUMADAPTERS3 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
 }
+impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ENUMADAPTERS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10097,26 +10830,26 @@ pub union D3DKMT_ENUMADAPTERS_FILTER {
     pub Anonymous: D3DKMT_ENUMADAPTERS_FILTER_0,
     pub Value: u64,
 }
+impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS_FILTER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ENUMADAPTERS_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS_FILTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS_FILTER_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS_FILTER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ENUMADAPTERS_FILTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ENUMADAPTERS_FILTER_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10129,16 +10862,16 @@ pub struct D3DKMT_ESCAPE {
     pub PrivateDriverDataSize: u32,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
     pub VidPnSourceId: u32,
@@ -10147,13 +10880,13 @@ pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub BaseDesktopDuration: u32,
     pub Reserved: [u8; 16],
 }
+impl windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10164,13 +10897,13 @@ pub struct D3DKMT_EVICT {
     pub Flags: D3DDDI_EVICT_FLAGS,
     pub NumBytesToTrim: u64,
 }
+impl windows_core::TypeKind for D3DKMT_EVICT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_EVICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_EVICT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10179,26 +10912,26 @@ pub struct D3DKMT_EVICTION_CRITERIA {
     pub MaximumSize: u64,
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0,
 }
+impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_EVICTION_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_EVICTION_CRITERIA_0 {
     pub Anonymous: D3DKMT_EVICTION_CRITERIA_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_EVICTION_CRITERIA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10206,55 +10939,55 @@ pub union D3DKMT_EVICTION_CRITERIA_0_0 {
     pub Flags: D3DKMT_EVICTION_CRITERIA_0_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_EVICTION_CRITERIA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_EVICTION_CRITERIA_0_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_EVICTION_CRITERIA_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_EVICTION_CRITERIA_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     pub Key: u64,
+}
+impl windows_core::TypeKind for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FENCE_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPINFOFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_FLIPINFOFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FLIPINFOFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPINFOFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
     pub flipManagerTracingId: u32,
@@ -10267,13 +11000,13 @@ pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub WasCanceled: super::super::super::Win32::Foundation::BOOL,
     pub ConvertedToNonIFlip: super::super::super::Win32::Foundation::BOOL,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10282,13 +11015,13 @@ pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     pub PresentAtQpc: u64,
     pub Flags: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10296,26 +11029,26 @@ pub union D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     pub Anonymous: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10351,13 +11084,13 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     pub ColorSpace: D3DDDI_COLOR_SPACE_TYPE,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10365,13 +11098,13 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10380,13 +11113,13 @@ pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     pub HDRMetaDataType: D3DDDI_HDR_METADATA_TYPE,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10394,26 +11127,26 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     pub HDRMetaDataHDR10: D3DDDI_HDR_METADATA_HDR10,
     pub HDRMetaDataHDR10Plus: D3DDDI_HDR_METADATA_HDR10PLUS,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10421,29 +11154,29 @@ pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
@@ -10451,59 +11184,59 @@ pub struct D3DKMT_FLIPOVERLAY {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_FLIPOVERLAY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_FLIPOVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPOVERLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPQUEUEINFO {
     pub MaxHardwareFlipQueueLength: u32,
     pub MaxSoftwareFlipQueueLength: u32,
     pub FlipFlags: D3DKMT_FLIPINFOFLAGS,
+}
+impl windows_core::TypeKind for D3DKMT_FLIPQUEUEINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FLIPQUEUEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLIPQUEUEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLUSHHEAPTRANSITIONS {
     pub hAdapter: u32,
+}
+impl windows_core::TypeKind for D3DKMT_FLUSHHEAPTRANSITIONS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FLUSHHEAPTRANSITIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FLUSHHEAPTRANSITIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
     pub hAdapter: u32,
     pub BaseAddress: u64,
     pub Size: u64,
+}
+impl windows_core::TypeKind for D3DKMT_FREEGPUVIRTUALADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_FREEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_FREEGPUVIRTUALADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -10511,31 +11244,31 @@ pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub ScrollOffset: super::super::super::Win32::Foundation::POINT,
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
+impl windows_core::TypeKind for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     pub hlsurf: u64,
     pub dwDirtyFlags: u32,
     pub uiCookie: u64,
+}
+impl windows_core::TypeKind for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -10543,41 +11276,41 @@ pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub AllocationCount: u32,
     pub pPriorities: *mut u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETALLOCATIONPRIORITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETALLOCATIONPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETALLOCATIONPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
+}
+impl windows_core::TypeKind for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
+}
+impl windows_core::TypeKind for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10586,13 +11319,13 @@ pub struct D3DKMT_GETDEVICESTATE {
     pub StateType: D3DKMT_DEVICESTATE_TYPE,
     pub Anonymous: D3DKMT_GETDEVICESTATE_0,
 }
+impl windows_core::TypeKind for D3DKMT_GETDEVICESTATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETDEVICESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GETDEVICESTATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10604,32 +11337,32 @@ pub union D3DKMT_GETDEVICESTATE_0 {
     pub PageFaultState: D3DKMT_DEVICEPAGEFAULT_STATE,
     pub PresentQueueState: D3DKMT_DEVICEPRESENT_QUEUE_STATE,
 }
+impl windows_core::TypeKind for D3DKMT_GETDEVICESTATE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETDEVICESTATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETDEVICESTATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETDISPLAYMODELIST {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub pModeList: *mut D3DKMT_DISPLAYMODE,
     pub ModeCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETDISPLAYMODELIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETDISPLAYMODELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETDISPLAYMODELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -10639,31 +11372,31 @@ pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub pMethodList: *mut D3DKMT_MULTISAMPLEMETHOD,
     pub MethodCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETMULTISAMPLEMETHODLIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETMULTISAMPLEMETHODLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETMULTISAMPLEMETHODLIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub OverlayEnabled: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_GETOVERLAYSTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETOVERLAYSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETOVERLAYSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETPRESENTHISTORY {
     pub hAdapter: u32,
     pub ProvidedSize: u32,
@@ -10671,134 +11404,134 @@ pub struct D3DKMT_GETPRESENTHISTORY {
     pub pTokens: *mut D3DKMT_PRESENTHISTORYTOKEN,
     pub NumTokens: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETPRESENTHISTORY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETPRESENTHISTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETPRESENTHISTORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub Support: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETRUNTIMEDATA {
     pub hAdapter: u32,
     pub hGlobalShare: u32,
     pub pRuntimeData: *mut core::ffi::c_void,
     pub RuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETRUNTIMEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETRUNTIMEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETRUNTIMEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub InVerticalBlank: super::super::super::Win32::Foundation::BOOLEAN,
     pub ScanLine: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GETSCANLINE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETSCANLINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETSCANLINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub hSharedPrimary: u32,
+}
+impl windows_core::TypeKind for D3DKMT_GETSHAREDPRIMARYHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETSHAREDPRIMARYHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETSHAREDPRIMARYHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hGlobalShare: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
+}
+impl windows_core::TypeKind for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub hAdapter: u32,
     pub hDevice: u32,
     pub VidPnSourceId: u32,
     pub phEvent: *mut isize,
 }
+impl windows_core::TypeKind for D3DKMT_GETVERTICALBLANKEVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GETVERTICALBLANKEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GETVERTICALBLANKEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: u32,
     pub bFailedDwmAcquireVidPn: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GET_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
+}
+impl windows_core::TypeKind for D3DKMT_GET_GPUMMU_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GET_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GET_GPUMMU_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10812,13 +11545,13 @@ pub struct D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     pub MaxStretchFactor: f32,
     pub MaxShrinkFactor: f32,
 }
+impl windows_core::TypeKind for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -10828,13 +11561,13 @@ pub struct D3DKMT_GET_POST_COMPOSITION_CAPS {
     pub MaxStretchFactor: f32,
     pub MaxShrinkFactor: f32,
 }
+impl windows_core::TypeKind for D3DKMT_GET_POST_COMPOSITION_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GET_POST_COMPOSITION_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GET_POST_COMPOSITION_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10847,28 +11580,28 @@ pub struct D3DKMT_GET_PTE {
     pub Pte: [DXGK_PTE; 64],
     pub NumValidEntries: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GET_PTE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GET_PTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GET_PTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub NumSegments: u32,
     pub SegmentCaps: [D3DKMT_SEGMENT_CAPS; 32],
 }
+impl windows_core::TypeKind for D3DKMT_GET_SEGMENT_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GET_SEGMENT_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GET_SEGMENT_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10876,13 +11609,13 @@ pub struct D3DKMT_GPUMMU_CAPS {
     pub Flags: D3DKMT_GPUMMU_CAPS_0,
     pub VirtualAddressBitCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10890,180 +11623,180 @@ pub union D3DKMT_GPUMMU_CAPS_0 {
     pub Anonymous: D3DKMT_GPUMMU_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_GPUMMU_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GPUMMU_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GPUMMU_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GPUMMU_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GPUVERSION {
     pub PhysicalAdapterIndex: u32,
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
+}
+impl windows_core::TypeKind for D3DKMT_GPUVERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_GPUVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_GPUVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: super::super::super::Win32::Foundation::BOOLEAN,
     pub Reserved: u32,
+}
+impl windows_core::TypeKind for D3DKMT_HISTORY_BUFFER_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_HISTORY_BUFFER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_HISTORY_BUFFER_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_HWDRM_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_HWDRM_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_HWDRM_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub bUserPreferenceQuery: super::super::super::Win32::Foundation::BOOL,
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
+impl windows_core::TypeKind for D3DKMT_HYBRID_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_HYBRID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_HYBRID_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_INDEPENDENTFLIP_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_INDEPENDENTFLIP_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_INVALIDATEACTIVEVIDPN {
     pub hAdapter: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
+}
+impl windows_core::TypeKind for D3DKMT_INVALIDATEACTIVEVIDPN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_INVALIDATEACTIVEVIDPN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_INVALIDATEACTIVEVIDPN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_INVALIDATECACHE {
     pub hDevice: u32,
     pub hAllocation: u32,
     pub Offset: usize,
     pub Length: usize,
 }
+impl windows_core::TypeKind for D3DKMT_INVALIDATECACHE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_INVALIDATECACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_INVALIDATECACHE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_KMD_DRIVER_VERSION {
     pub DriverVersion: i64,
+}
+impl windows_core::TypeKind for D3DKMT_KMD_DRIVER_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_KMD_DRIVER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_KMD_DRIVER_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11077,13 +11810,13 @@ pub struct D3DKMT_LOCK {
     pub Flags: D3DDDICB_LOCKFLAGS,
     pub GpuVirtualAddress: u64,
 }
+impl windows_core::TypeKind for D3DKMT_LOCK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_LOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_LOCK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11093,40 +11826,40 @@ pub struct D3DKMT_LOCK2 {
     pub Flags: D3DDDICB_LOCK2FLAGS,
     pub pData: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_LOCK2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_LOCK2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_LOCK2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MARKDEVICEASERROR {
     pub hDevice: u32,
     pub Reason: D3DKMT_DEVICE_ERROR_REASON,
+}
+impl windows_core::TypeKind for D3DKMT_MARKDEVICEASERROR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MARKDEVICEASERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MARKDEVICEASERROR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     pub MiracastCompanionDriverName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11135,198 +11868,198 @@ pub struct D3DKMT_MIRACAST_CHUNK_DATA {
     pub PrivateDriverDataSize: u32,
     pub PrivateDriverData: [u8; 1],
 }
+impl windows_core::TypeKind for D3DKMT_MIRACAST_CHUNK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MIRACAST_CHUNK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MIRACAST_CHUNK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub HdcpSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub DefaultControlPort: u32,
     pub UsesIhvSolution: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     pub State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
+}
+impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub TargetId: u32,
     pub StopReason: u32,
+}
+impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::super::super::Win32::Foundation::POINT,
     pub DestRect: super::super::super::Win32::Foundation::RECT,
+}
+impl windows_core::TypeKind for D3DKMT_MOVE_RECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MOVE_RECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MOVE_RECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MPO3DDI_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MPO3DDI_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MPO3DDI_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MPO3DDI_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MPOKERNELCAPS_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MPOKERNELCAPS_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MPOKERNELCAPS_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub KernelSupported: super::super::super::Win32::Foundation::BOOL,
     pub HudSupported: super::super::super::Win32::Foundation::BOOL,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: super::super::super::Win32::Foundation::BOOL,
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub LayerIndex: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
     pub hAllocation: u32,
     pub PlaneAttributes: D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11345,16 +12078,16 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY3 {
     pub FlipToFenceValue: u64,
     pub FlipAwayFenceValue: u64,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -11372,16 +12105,16 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub StereoFlipMode: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE,
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -11400,16 +12133,16 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub Reserved1: u32,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub Flags: u32,
     pub SrcRect: super::super::super::Win32::Foundation::RECT,
@@ -11423,26 +12156,26 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub StretchQuality: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY,
     pub SDRWhiteLevel: u32,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11450,26 +12183,26 @@ pub union D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11479,26 +12212,26 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     pub DstRect: super::super::super::Win32::Foundation::RECT,
     pub Rotation: D3DDDI_ROTATION,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11506,26 +12239,26 @@ pub union D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     pub Anonymous: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11533,28 +12266,28 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     pub VidPnSourceId: u32,
     pub PostComposition: D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION,
 }
+impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTISAMPLEMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for D3DKMT_MULTISAMPLEMETHOD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_MULTISAMPLEMETHOD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_MULTISAMPLEMETHOD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -11562,16 +12295,16 @@ pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
     pub NodeData: DXGK_NODEMETADATA,
 }
+impl windows_core::TypeKind for D3DKMT_NODEMETADATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_NODEMETADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_NODE_PERFDATA {
     pub NodeOrdinal: u32,
     pub PhysicalAdapterIndex: u32,
@@ -11583,13 +12316,13 @@ pub struct D3DKMT_NODE_PERFDATA {
     pub VoltageMaxOC: u32,
     pub MaxTransitionLatency: u64,
 }
+impl windows_core::TypeKind for D3DKMT_NODE_PERFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_NODE_PERFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_NODE_PERFDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11597,26 +12330,26 @@ pub struct D3DKMT_NOTIFY_WORK_SUBMISSION {
     pub hHwQueue: u32,
     pub Flags: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11624,26 +12357,26 @@ pub union D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     pub Anonymous: D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11655,26 +12388,26 @@ pub struct D3DKMT_OFFERALLOCATIONS {
     pub Priority: D3DKMT_OFFER_PRIORITY,
     pub Flags: D3DKMT_OFFER_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_OFFERALLOCATIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OFFERALLOCATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OFFERALLOCATIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OFFER_FLAGS {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11682,61 +12415,61 @@ pub union D3DKMT_OFFER_FLAGS_0 {
     pub Anonymous: D3DKMT_OFFER_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OFFER_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OFFER_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub pDeviceName: windows_core::PCWSTR,
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
+}
+impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMDEVICENAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENADAPTERFROMDEVICENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMDEVICENAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub hAdapter: u32,
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
     pub hAdapter: u32,
@@ -11744,89 +12477,89 @@ pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub VidPnSourceId: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMHDC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for D3DKMT_OPENADAPTERFROMHDC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMHDC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hAdapter: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMLUID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENADAPTERFROMLUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENADAPTERFROMLUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENGLINFO {
     pub UmdOpenGlIcdFileName: [u16; 260],
     pub Version: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENGLINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENGLINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENGLINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEX {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENKEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub hSharedHandle: u32,
     pub hKeyedMutex: u32,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEX2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENKEYEDMUTEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEX2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hKeyedMutex: u32,
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11838,45 +12571,45 @@ pub struct D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     pub hSyncObject: u32,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
 }
+impl windows_core::TypeKind for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+impl windows_core::TypeKind for D3DKMT_OPENNTHANDLEFROMNAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 impl Default for D3DKMT_OPENNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for D3DKMT_OPENNTHANDLEFROMNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hHandle: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11893,13 +12626,13 @@ pub struct D3DKMT_OPENRESOURCE {
     pub TotalPrivateDriverDataBufferSize: u32,
     pub hResource: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OPENRESOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENRESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OPENRESOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11907,16 +12640,16 @@ pub union D3DKMT_OPENRESOURCE_0 {
     pub pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
     pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
 }
+impl windows_core::TypeKind for D3DKMT_OPENRESOURCE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENRESOURCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENRESOURCE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -11934,42 +12667,42 @@ pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub KeyedMutexPrivateRuntimeDataSize: u32,
     pub hSyncObject: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OPENRESOURCEFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENRESOURCEFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENRESOURCEFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     pub hSharedHandle: u32,
     pub hSyncObject: u32,
     pub Reserved: [u64; 8],
+}
+impl windows_core::TypeKind for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub hSyncObject: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11980,13 +12713,13 @@ pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     pub hSyncObject: u32,
     pub Anonymous: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0,
 }
+impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -11994,49 +12727,49 @@ pub union D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     pub MonitoredFence: D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: u64,
     pub EngineAffinity: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
+impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 impl Default for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
     pub Width: u32,
@@ -12044,40 +12777,40 @@ pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Pitch: u32,
     pub HotSpot: super::super::super::Win32::Foundation::POINT,
 }
+impl windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     pub VidPnSourceId: u32,
     pub OutputDuplicationCount: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12085,26 +12818,26 @@ pub union D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12118,26 +12851,26 @@ pub struct D3DKMT_OUTPUTDUPLPRESENT {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLPRESENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12145,26 +12878,26 @@ pub union D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12177,16 +12910,16 @@ pub struct D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     pub Flags: D3DKMT_OUTPUTDUPLPRESENTFLAGS,
     pub hIndirectHwQueue: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -12197,31 +12930,31 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub TotalMetadataBufferSize: u32,
     pub PointerShapeBufferSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_FRAMEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPL_FRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_FRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub FrameInfo: D3DKMT_OUTPUTDUPL_FRAMEINFO,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -12230,29 +12963,29 @@ pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub BufferSizeRequired: u32,
     pub ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
@@ -12261,45 +12994,45 @@ pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferSizeRequired: u32,
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_METADATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPL_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_METADATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::super::super::Win32::Foundation::POINT,
     pub Visible: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_POINTER_POSITION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub NextKeyMutexIdx: u32,
+}
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Size: u32,
     pub SessionProcessCount: u32,
@@ -12309,16 +13042,16 @@ pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Padding: u32,
     pub OutputDuplDebugInfos: [OUTPUTDUPL_CONTEXT_DEBUG_INFO; 1],
 }
+impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_SNAPSHOT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_OUTPUTDUPL_SNAPSHOT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub IndexBitCount: u32,
     pub IndexMask: u64,
@@ -12326,80 +13059,80 @@ pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub LowerLevelsMask: u64,
     pub EntryCoverageInPages: u64,
 }
+impl windows_core::TypeKind for D3DKMT_PAGE_TABLE_LEVEL_DESC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PAGE_TABLE_LEVEL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PAGE_TABLE_LEVEL_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_PANELFITTER_SUPPORT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PANELFITTER_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PANELFITTER_SUPPORT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: super::super::super::Win32::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for D3DKMT_PARAVIRTUALIZATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PARAVIRTUALIZATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PARAVIRTUALIZATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
     pub Count: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PHYSICAL_ADAPTER_COUNT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PHYSICAL_ADAPTER_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PHYSICAL_ADAPTER_COUNT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PINDIRECTFLIPRESOURCES {
     pub hDevice: u32,
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
+}
+impl windows_core::TypeKind for D3DKMT_PINDIRECTFLIPRESOURCES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PINDIRECTFLIPRESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PINDIRECTFLIPRESOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12407,39 +13140,39 @@ pub union D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12447,40 +13180,40 @@ pub union D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     pub Anonymous: D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_POLLDISPLAYCHILDREN {
     pub hAdapter: u32,
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_POLLDISPLAYCHILDREN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_POLLDISPLAYCHILDREN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_POLLDISPLAYCHILDREN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12511,13 +13244,13 @@ pub struct D3DKMT_PRESENT {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub bOptimizeForComposition: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12525,13 +13258,13 @@ pub union D3DKMT_PRESENT_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12539,26 +13272,26 @@ pub union D3DKMT_PRESENT_1 {
     pub hAdapter: u32,
     pub hIndirectContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTFLAGS {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12566,26 +13299,26 @@ pub union D3DKMT_PRESENTFLAGS_0 {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENTFLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PRESENTFLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENTFLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12595,13 +13328,13 @@ pub struct D3DKMT_PRESENTHISTORYTOKEN {
     pub CompositionBindingId: u64,
     pub Token: D3DKMT_PRESENTHISTORYTOKEN_0,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12616,13 +13349,13 @@ pub union D3DKMT_PRESENTHISTORYTOKEN_0 {
     pub FlipManager: D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN,
     pub SurfaceComplete: D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENTHISTORYTOKEN_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12638,13 +13371,13 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY,
     pub Duration: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12652,13 +13385,13 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12675,13 +13408,13 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     pub pPresentPlanes: *mut D3DKMT_MULTIPLANE_OVERLAY2,
     pub Duration: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12689,13 +13422,13 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY2_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12715,26 +13448,26 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub pHDRMetaData: *const core::ffi::c_void,
     pub BoostRefreshRateMultiplier: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12742,26 +13475,26 @@ pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12775,26 +13508,26 @@ pub struct D3DKMT_PRESENT_REDIRECTED {
     pub PrivateDriverDataSize: u32,
     pub pPrivateDriverData: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_REDIRECTED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12802,45 +13535,45 @@ pub union D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     pub Anonymous: D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_RGNS {
     pub DirtyRectCount: u32,
     pub pDirtyRects: *const super::super::super::Win32::Foundation::RECT,
     pub MoveRectCount: u32,
     pub pMoveRects: *const D3DKMT_MOVE_RECT,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_RGNS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_RGNS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_RGNS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -12848,16 +13581,16 @@ pub struct D3DKMT_PRESENT_STATS {
     pub SyncQPCTime: i64,
     pub SyncGPUTime: i64,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS_DWM {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -12866,16 +13599,16 @@ pub struct D3DKMT_PRESENT_STATS_DWM {
     pub SyncQPCTime: i64,
     pub CustomPresentDuration: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_STATS_DWM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_STATS_DWM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PRESENT_STATS_DWM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub cbSize: u32,
     pub PresentCount: u32,
@@ -12887,13 +13620,13 @@ pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub VirtualSyncRefreshCount: u32,
     pub VirtualSyncQPCTime: i64,
 }
+impl windows_core::TypeKind for D3DKMT_PRESENT_STATS_DWM2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PRESENT_STATS_DWM2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PRESENT_STATS_DWM2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12903,13 +13636,13 @@ pub struct D3DKMT_PROCESS_VERIFIER_OPTION {
     pub Mode: D3DKMT_VERIFIER_OPTION_MODE,
     pub Data: D3DKMT_PROCESS_VERIFIER_OPTION_DATA,
 }
+impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PROCESS_VERIFIER_OPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12917,13 +13650,13 @@ pub union D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     pub VidMmFlags: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS,
     pub VidMmRestrictBudget: D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET,
 }
+impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_OPTION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -12931,59 +13664,59 @@ pub union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     pub Anonymous: D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     pub LocalBudget: u64,
     pub NonLocalBudget: u64,
+}
+impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYADAPTERINFO {
     pub hAdapter: u32,
     pub Type: KMTQUERYADAPTERINFOTYPE,
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYADAPTERINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYADAPTERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYADAPTERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -12991,13 +13724,13 @@ pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub AllocationCount: u32,
     pub pResidencyStatus: *mut D3DKMT_ALLOCATIONRESIDENCYSTATUS,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYALLOCATIONRESIDENCY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYALLOCATIONRESIDENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYALLOCATIONRESIDENCY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -13007,13 +13740,13 @@ pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub PhysicalAdapterIndex: u32,
     pub ClockData: DXGK_GPUCLOCKDATA,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYCLOCKCALIBRATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYCLOCKCALIBRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYCLOCKCALIBRATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13023,13 +13756,13 @@ pub struct D3DKMT_QUERYFSEBLOCK {
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_QUERYFSEBLOCKFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYFSEBLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13037,45 +13770,45 @@ pub union D3DKMT_QUERYFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_QUERYFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCKFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYFSEBLOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCKFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYFSEBLOCKFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub cbSize: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub DecommitUniqueness: u64,
     pub DecommittableBytes: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYPROCESSOFFERINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYPROCESSOFFERINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYPROCESSOFFERINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -13083,44 +13816,44 @@ pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub pPrivateRuntimeData: *const core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     pub hHandle: u32,
     pub Status: D3DKMT_PROTECTED_SESSION_STATUS,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYRESOURCEINFO {
     pub hDevice: u32,
     pub hGlobalShare: u32,
@@ -13130,16 +13863,16 @@ pub struct D3DKMT_QUERYRESOURCEINFO {
     pub ResourcePrivateDriverDataSize: u32,
     pub NumAllocations: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYRESOURCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -13149,13 +13882,13 @@ pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub ResourcePrivateDriverDataSize: u32,
     pub NumAllocations: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13166,13 +13899,13 @@ pub struct D3DKMT_QUERYSTATISTICS {
     pub QueryResult: D3DKMT_QUERYSTATISTICS_RESULT,
     pub Anonymous: D3DKMT_QUERYSTATISTICS_0,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13195,13 +13928,13 @@ pub union D3DKMT_QUERYSTATISTICS_0 {
     pub QueryNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
     pub QueryProcessNode2: D3DKMT_QUERYSTATISTICS_QUERY_NODE2,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13225,26 +13958,26 @@ pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     pub Flags: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS,
     pub Reserved: [u64; 7],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13252,103 +13985,103 @@ pub union D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     pub Anonymous: D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0,
     pub Value: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     pub TotalBytesEvictedFromProcess: u64,
     pub BytesBySegmentPreference: [u64; 5],
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_COUNTER {
     pub Count: u32,
     pub Bytes: u64,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_COUNTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_COUNTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     pub Size: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub AllocationListBytes: u32,
     pub PatchLocationListBytes: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
     pub PacketPreempted: u32,
     pub PacketFaulted: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
     pub TotalBytesEvicted: u64,
     pub AllocsCommitted: u32,
     pub AllocsResident: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_MEMORY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub AllocatedBytes: u64,
     pub FreeBytes: u64,
@@ -13356,61 +14089,61 @@ pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub ModifiedBytes: u64,
     pub StandbyBytes: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub NodePerfData: D3DKMT_NODE_PERFDATA,
     pub Reserved: [u32; 3],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     pub QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
     pub DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub AdapterPerfData: D3DKMT_ADAPTER_PERFDATA,
     pub AdapterPerfDataCaps: D3DKMT_ADAPTER_PERFDATACAPS,
     pub GpuVersion: D3DKMT_GPUVERSION,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub PreferApertureForRead: [u64; 5],
     pub PreferAperture: [u64; 5],
@@ -13418,29 +14151,29 @@ pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub RemovePagesFromWorkingSetOnPaging: u64,
     pub MigrationEnabled: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     pub PreemptionCounter: [u32; 16],
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub NbSegments: u32,
     pub NodeCount: u32,
@@ -13452,45 +14185,45 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub ProcessInterferenceCounters: D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS,
     pub ClientHint: D3DKMT_CLIENTHINT,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     pub NodeCount: u32,
     pub VidPnSourceCount: u32,
     pub SystemMemory: D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY,
     pub Reserved: [u64; 7],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     pub InterferenceCount: [u64; 9],
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub RunningTime: i64,
     pub ContextSwitch: u32,
@@ -13498,32 +14231,32 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub PacketStatistics: D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     pub Budget: u64,
     pub Requested: u64,
     pub Usage: u64,
     pub Demoted: [u64; 5],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub BytesCommitted: u64,
     pub MaximumWorkingSet: u64,
@@ -13534,29 +14267,29 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub _Policy: D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     pub UseMRU: u64,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub Frame: u32,
     pub CancelledFrame: u32,
@@ -13568,175 +14301,175 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub VSyncOffNoPhaseTotalTimeMs: u64,
     pub Reserved: [u64; 4],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     pub PhysicalAdapterIndex: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     pub PhysicalAdapterIndex: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     pub NodeId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_NODE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_NODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     pub PhysicalAdapterIndex: u16,
     pub NodeOrdinal: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     pub PhysicalAdapterIndex: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     pub SegmentId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -13755,16 +14488,16 @@ pub union D3DKMT_QUERYSTATISTICS_RESULT {
     pub SegmentUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
     pub SegmentGroupUsageInformation: D3DKMT_QUERYSTATISTICS_MEMORY_USAGE,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub CommitLimit: u64,
     pub BytesCommitted: u64,
@@ -13777,42 +14510,42 @@ pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub SegmentProperties: D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1,
     pub Reserved: [u64; 5],
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub BytesAllocated: u64,
     pub BytesReserved: u64,
@@ -13826,47 +14559,47 @@ pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub SectionBytesReserved: u64,
     pub BytesZeroed: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     pub AllocsCommitted: u32,
     pub AllocsResidentInP: [D3DKMT_QUERYSTATISTICS_COUNTER; 5],
     pub AllocsResidentInNonPreferred: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub TotalBytesEvictedDueToPreparation: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub Reserved: [u64; 8],
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub Created: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub Destroyed: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -13876,16 +14609,16 @@ pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub MigratedFail: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbLocks: u32,
     pub NbLocksWaitFlag: u32,
@@ -13895,16 +14628,16 @@ pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbLocksLinearization: u32,
     pub NbComplexLocks: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_LOCKS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_LOCKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_LOCKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub Faults: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub FaultsFirstTimeAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -13925,16 +14658,16 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub EvictionsDueToPurge: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesFilled: u64,
     pub BytesDiscarded: u64,
@@ -13945,16 +14678,16 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesTransferredFromApertureToMemory: u64,
     pub BytesTransferredFromMemoryToAperture: u64,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub BroadcastStall: u32,
     pub NbDMAPrepared: u32,
@@ -13962,16 +14695,16 @@ pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub ImmediateHighestPreparationPass: u32,
     pub AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PREPRATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_PREPRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_PREPRATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbCall: u32,
     pub NbAllocationsReferenced: u32,
@@ -13988,16 +14721,16 @@ pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbAllocationWithNonPreferredResources: u32,
     pub NbAllocationInsertedInMigrationTable: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbAllocationsRenamed: u32,
     pub NbAllocationsShrinked: u32,
@@ -14009,46 +14742,46 @@ pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbFailuresDueToLowResource: u32,
     pub NbFailuresDueToNonRetiredLimit: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_RENAMING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_RENAMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_RENAMING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     pub NbRangesAcquired: u32,
     pub NbRangesReleased: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub TerminatedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub TerminatedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub DestroyedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub DestroyedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYSTATSTICS_TERMINATIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hAdapter: u32,
@@ -14059,16 +14792,16 @@ pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub AvailableForReservation: u64,
     pub PhysicalAdapterIndex: u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYVIDEOMEMORYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYVIDEOMEMORYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYVIDEOMEMORYINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub hWindow: super::super::super::Win32::Foundation::HWND,
@@ -14076,40 +14809,40 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
+impl windows_core::TypeKind for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     pub AdapterUniqueGUID: [u16; 40],
+}
+impl windows_core::TypeKind for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_DEVICE_IDS {
     pub PhysicalAdapterIndex: u32,
     pub DeviceIds: D3DKMT_DEVICE_IDS,
+}
+impl windows_core::TypeKind for D3DKMT_QUERY_DEVICE_IDS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERY_DEVICE_IDS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_QUERY_DEVICE_IDS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14117,59 +14850,59 @@ pub struct D3DKMT_QUERY_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub Caps: D3DKMT_GPUMMU_CAPS,
 }
+impl windows_core::TypeKind for D3DKMT_QUERY_GPUMMU_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERY_GPUMMU_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERY_GPUMMU_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     pub MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
+}
+impl windows_core::TypeKind for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     pub PhysicalAdapterIndex: u32,
     pub PnPKeyType: D3DKMT_PNP_KEY_TYPE,
     pub pDest: windows_core::PWSTR,
     pub pCchDest: *mut u32,
 }
+impl windows_core::TypeKind for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_SCANOUT_CAPS {
     pub VidPnSourceId: u32,
     pub Caps: u32,
+}
+impl windows_core::TypeKind for D3DKMT_QUERY_SCANOUT_CAPS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_QUERY_SCANOUT_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_QUERY_SCANOUT_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: u32,
     pub pResources: *mut u32,
@@ -14177,13 +14910,13 @@ pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub NumAllocations: u32,
 }
+impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RECLAIMALLOCATIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14195,13 +14928,13 @@ pub struct D3DKMT_RECLAIMALLOCATIONS2 {
     pub Anonymous: D3DKMT_RECLAIMALLOCATIONS2_0,
     pub PagingFenceValue: u64,
 }
+impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RECLAIMALLOCATIONS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14209,32 +14942,32 @@ pub union D3DKMT_RECLAIMALLOCATIONS2_0 {
     pub pDiscarded: *mut super::super::super::Win32::Foundation::BOOL,
     pub pResults: *mut D3DDDI_RECLAIM_RESULT,
 }
+impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RECLAIMALLOCATIONS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_RECLAIMALLOCATIONS2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     pub hDevice: u32,
     pub Callback: PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK,
     pub Context: *mut core::ffi::c_void,
     pub Handle: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_REGISTERBUDGETCHANGENOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub hDevice: u32,
@@ -14242,31 +14975,31 @@ pub struct D3DKMT_REGISTERTRIMNOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Handle: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for D3DKMT_REGISTERTRIMNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_REGISTERTRIMNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_REGISTERTRIMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX {
     pub hKeyedMutex: u32,
     pub Key: u64,
     pub FenceValue: u64,
+}
+impl windows_core::TypeKind for D3DKMT_RELEASEKEYEDMUTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_RELEASEKEYEDMUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_RELEASEKEYEDMUTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub hKeyedMutex: u32,
     pub Key: u64,
@@ -14274,13 +15007,13 @@ pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub pPrivateRuntimeData: *mut core::ffi::c_void,
     pub PrivateRuntimeDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_RELEASEKEYEDMUTEX2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RELEASEKEYEDMUTEX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_RELEASEKEYEDMUTEX2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14305,13 +15038,13 @@ pub struct D3DKMT_RENDER {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
 }
+impl windows_core::TypeKind for D3DKMT_RENDER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RENDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_RENDER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14319,44 +15052,44 @@ pub union D3DKMT_RENDER_0 {
     pub hDevice: u32,
     pub hContext: u32,
 }
+impl windows_core::TypeKind for D3DKMT_RENDER_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_RENDER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_RENDER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RENDERFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_RENDERFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_RENDERFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_RENDERFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     pub Param1: usize,
     pub Param2: usize,
     pub Param3: usize,
+}
+impl windows_core::TypeKind for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SCATTERBLT {
     pub hLogicalSurfaceDestination: u64,
     pub hDestinationCompSurfDWM: i64,
@@ -14364,30 +15097,30 @@ pub struct D3DKMT_SCATTERBLT {
     pub SourceRect: super::super::super::Win32::Foundation::RECT,
     pub DestinationOffset: super::super::super::Win32::Foundation::POINT,
 }
+impl windows_core::TypeKind for D3DKMT_SCATTERBLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SCATTERBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SCATTERBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SCATTERBLTS {
     pub NumBlts: u32,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
+}
+impl windows_core::TypeKind for D3DKMT_SCATTERBLTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SCATTERBLTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SCATTERBLTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub PhysicalAdapterIndex: u32,
     pub LegacyInfo: D3DKMT_SEGMENTSIZEINFO,
@@ -14395,31 +15128,31 @@ pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub NonLocalMemory: u64,
     pub NonBudgetMemory: u64,
 }
+impl windows_core::TypeKind for D3DKMT_SEGMENTGROUPSIZEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SEGMENTGROUPSIZEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SEGMENTGROUPSIZEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENTSIZEINFO {
     pub DedicatedVideoMemorySize: u64,
     pub DedicatedSystemMemorySize: u64,
     pub SharedSystemMemorySize: u64,
+}
+impl windows_core::TypeKind for D3DKMT_SEGMENTSIZEINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SEGMENTSIZEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SEGMENTSIZEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: u64,
     pub PageSize: u32,
@@ -14428,16 +15161,16 @@ pub struct D3DKMT_SEGMENT_CAPS {
     pub bReservedSysMem: super::super::super::Win32::Foundation::BOOLEAN,
     pub BudgetGroup: D3DKMT_MEMORY_SEGMENT_GROUP,
 }
+impl windows_core::TypeKind for D3DKMT_SEGMENT_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SEGMENT_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SEGMENT_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub hDevice: u32,
     pub hResource: u32,
@@ -14445,44 +15178,44 @@ pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub AllocationCount: u32,
     pub pPriorities: *const u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETALLOCATIONPRIORITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETALLOCATIONPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETALLOCATIONPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
+}
+impl windows_core::TypeKind for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: u32,
     pub Priority: i32,
+}
+impl windows_core::TypeKind for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYMODE {
     pub hDevice: u32,
     pub hPrimaryAllocation: u32,
@@ -14491,42 +15224,42 @@ pub struct D3DKMT_SETDISPLAYMODE {
     pub PrivateDriverFormatAttribute: u32,
     pub Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_SETDISPLAYMODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETDISPLAYMODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETDISPLAYMODE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYMODE_FLAGS {
     pub _bitfield1: u8,
     pub _bitfield2: u32,
+}
+impl windows_core::TypeKind for D3DKMT_SETDISPLAYMODE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETDISPLAYMODE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETDISPLAYMODE_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     pub hDevice: u32,
     pub VidPnSourceId: u32,
     pub PrivateDriverFormatAttribute: u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14536,13 +15269,13 @@ pub struct D3DKMT_SETFSEBLOCK {
     pub VidPnSourceId: u32,
     pub Flags: D3DKMT_SETFSEBLOCKFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_SETFSEBLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETFSEBLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETFSEBLOCK {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14550,26 +15283,26 @@ pub union D3DKMT_SETFSEBLOCKFLAGS {
     pub Anonymous: D3DKMT_SETFSEBLOCKFLAGS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETFSEBLOCKFLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETFSEBLOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETFSEBLOCKFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_SETFSEBLOCKFLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETFSEBLOCKFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETFSEBLOCKFLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14580,13 +15313,13 @@ pub struct D3DKMT_SETGAMMARAMP {
     pub Anonymous: D3DKMT_SETGAMMARAMP_0,
     pub Size: u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETGAMMARAMP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETGAMMARAMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETGAMMARAMP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14594,27 +15327,27 @@ pub union D3DKMT_SETGAMMARAMP_0 {
     pub pGammaRampRgb256x3x16: *mut D3DDDI_GAMMA_RAMP_RGB256x3x16,
     pub pGammaRampDXGI1: *mut D3DDDI_GAMMA_RAMP_DXGI_1,
 }
+impl windows_core::TypeKind for D3DKMT_SETGAMMARAMP_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETGAMMARAMP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETGAMMARAMP_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: u32,
     pub Recovered: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14623,13 +15356,13 @@ pub struct D3DKMT_SETQUEUEDLIMIT {
     pub Type: D3DKMT_QUEUEDLIMIT_TYPE,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0,
 }
+impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETQUEUEDLIMIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14637,88 +15370,88 @@ pub union D3DKMT_SETQUEUEDLIMIT_0 {
     pub QueuedPresentLimit: u32,
     pub Anonymous: D3DKMT_SETQUEUEDLIMIT_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETQUEUEDLIMIT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
     pub VidPnSourceId: u32,
     pub QueuedPendingFlipLimit: u32,
+}
+impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETQUEUEDLIMIT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETQUEUEDLIMIT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: u32,
     pub Enabled: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_SETSTABLEPOWERSTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETSTABLEPOWERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETSTABLEPOWERSTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub hAdapter: u32,
     pub hDevice: u32,
     pub VidPnSourceId: u32,
     pub TargetSyncRefreshCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub hAdapter: u32,
     pub VidPnSourceId: u32,
     pub HwProtected: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEHWPROTECTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub hDevice: u32,
     pub pType: *const D3DKMT_VIDPNSOURCEOWNER_TYPE,
     pub pVidPnSourceId: *const u32,
     pub VidPnSourceCount: u32,
 }
+impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETVIDPNSOURCEOWNER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14726,13 +15459,13 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER1 {
     pub Version0: D3DKMT_SETVIDPNSOURCEOWNER,
     pub Flags: D3DKMT_VIDPNSOURCEOWNER_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETVIDPNSOURCEOWNER1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14740,13 +15473,13 @@ pub struct D3DKMT_SETVIDPNSOURCEOWNER2 {
     pub Version1: D3DKMT_SETVIDPNSOURCEOWNER1,
     pub pVidPnSourceNtHandles: *const isize,
 }
+impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SETVIDPNSOURCEOWNER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SETVIDPNSOURCEOWNER2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14757,71 +15490,71 @@ pub struct D3DKMT_SET_COLORSPACE_TRANSFORM {
     pub Size: u32,
     pub Anonymous: D3DKMT_SET_COLORSPACE_TRANSFORM_0,
 }
+impl windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     pub pColorSpaceTransform: *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM,
 }
+impl windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
     pub LockRect: super::super::super::Win32::Foundation::RECTL,
+}
+impl windows_core::TypeKind for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub hDevice: u32,
     pub hObject: u32,
     pub Reserved: u64,
     pub hVailProcessNtHandle: u64,
 }
+impl windows_core::TypeKind for D3DKMT_SHAREOBJECTWITHHOST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SHAREOBJECTWITHHOST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SHAREOBJECTWITHHOST {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14831,13 +15564,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     pub ObjectHandleArray: [u32; 32],
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14850,13 +15583,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     pub BroadcastContext: [u32; 64],
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0,
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14865,26 +15598,26 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     pub CpuEventHandle: super::super::super::Win32::Foundation::HANDLE,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
+}
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14895,13 +15628,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     pub FenceValueArray: *const u64,
     pub Flags: D3DDDICB_SIGNALFLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14911,13 +15644,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     pub ObjectHandleArray: *const u32,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14925,13 +15658,13 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14943,13 +15676,13 @@ pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub BroadcastContextArray: *const u32,
     pub Anonymous: D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0,
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14959,29 +15692,29 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub MonitoredFenceValueArray: *const u64,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     pub Size: usize,
+}
+impl windows_core::TypeKind for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMAND {
     pub Commands: u64,
     pub CommandLength: u32,
@@ -14996,29 +15729,29 @@ pub struct D3DKMT_SUBMITCOMMAND {
     pub NumHistoryBuffers: u32,
     pub HistoryBufferArray: *mut u32,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITCOMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITCOMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SUBMITCOMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMANDFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_SUBMITCOMMANDFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SUBMITCOMMANDFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SUBMITCOMMANDFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub hHwQueue: u32,
     pub HwQueueProgressFenceId: u64,
@@ -15029,13 +15762,13 @@ pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub NumPrimaries: u32,
     pub WrittenPrimaries: *const u32,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SUBMITCOMMANDTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15044,13 +15777,13 @@ pub struct D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     pub HwQueueProgressFenceId: u64,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SUBMITPRESENTBLTTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15058,13 +15791,13 @@ pub struct D3DKMT_SUBMITPRESENTTOHWQUEUE {
     pub hHwQueues: *mut u32,
     pub PrivatePresentData: D3DKMT_PRESENT,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITPRESENTTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITPRESENTTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SUBMITPRESENTTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15076,42 +15809,42 @@ pub struct D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     pub ObjectHandleArray: *const u32,
     pub FenceValueArray: *const u64,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub hHwQueue: u32,
     pub ObjectCount: u32,
     pub ObjectHandleArray: *const u32,
     pub FenceValueArray: *const u64,
 }
+impl windows_core::TypeKind for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
+}
+impl windows_core::TypeKind for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15119,26 +15852,26 @@ pub struct D3DKMT_TDRDBGCTRL_ESCAPE {
     pub TdrControl: D3DKMT_TDRDBGCTRLTYPE,
     pub Anonymous: D3DKMT_TDRDBGCTRL_ESCAPE_0,
 }
+impl windows_core::TypeKind for D3DKMT_TDRDBGCTRL_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TDRDBGCTRL_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_TDRDBGCTRL_ESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     pub NodeOrdinal: u32,
 }
+impl windows_core::TypeKind for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -15147,13 +15880,13 @@ pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub EngineType: DXGK_ENGINE_TYPE,
     pub Support: super::super::super::Win32::Foundation::BOOL,
 }
+impl windows_core::TypeKind for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_TRACKEDWORKLOAD_SUPPORT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15162,13 +15895,13 @@ pub struct D3DKMT_TRIMNOTIFICATION {
     pub Flags: D3DDDI_TRIMRESIDENCYSET_FLAGS,
     pub NumBytesToTrim: u64,
 }
+impl windows_core::TypeKind for D3DKMT_TRIMNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TRIMNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_TRIMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15179,13 +15912,13 @@ pub struct D3DKMT_TRIMPROCESSCOMMITMENT {
     pub DecommitRequested: u64,
     pub NumBytesDecommitted: u64,
 }
+impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TRIMPROCESSCOMMITMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15193,124 +15926,124 @@ pub union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     pub Anonymous: D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UMDFILENAMEINFO {
     pub Version: KMTUMDVERSION,
     pub UmdFileName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_UMDFILENAMEINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UMDFILENAMEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UMDFILENAMEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UMD_DRIVER_VERSION {
     pub DriverVersion: i64,
+}
+impl windows_core::TypeKind for D3DKMT_UMD_DRIVER_VERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UMD_DRIVER_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UMD_DRIVER_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNLOCK {
     pub hDevice: u32,
     pub NumAllocations: u32,
     pub phAllocations: *const u32,
+}
+impl windows_core::TypeKind for D3DKMT_UNLOCK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UNLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UNLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNLOCK2 {
     pub hDevice: u32,
     pub hAllocation: u32,
+}
+impl windows_core::TypeKind for D3DKMT_UNLOCK2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UNLOCK2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UNLOCK2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
     pub hDevice: u32,
     pub ResourceCount: u32,
     pub pResourceList: *mut u32,
+}
+impl windows_core::TypeKind for D3DKMT_UNPINDIRECTFLIPRESOURCES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UNPINDIRECTFLIPRESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UNPINDIRECTFLIPRESOURCES {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNREGISTERTRIMNOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
     pub Callback: PFND3DKMT_TRIMNOTIFICATIONCALLBACK,
+}
+impl windows_core::TypeKind for D3DKMT_UNREGISTERTRIMNOTIFICATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UNREGISTERTRIMNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_UNREGISTERTRIMNOTIFICATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15325,13 +16058,13 @@ pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS {
     pub FenceValue: u64,
     pub Flags: D3DKMT_UPDATEGPUVIRTUALADDRESS_0,
 }
+impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15339,44 +16072,44 @@ pub union D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     pub Anonymous: D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UPDATEOVERLAY {
     pub hDevice: u32,
     pub hOverlay: u32,
     pub OverlayInfo: D3DDDI_KERNELOVERLAYINFO,
+}
+impl windows_core::TypeKind for D3DKMT_UPDATEOVERLAY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_UPDATEOVERLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_UPDATEOVERLAY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VAD_DESC {
     pub VadIndex: u32,
     pub VadAddress: u64,
@@ -15385,16 +16118,16 @@ pub struct D3DKMT_VAD_DESC {
     pub StartAddress: u64,
     pub EndAddress: u64,
 }
+impl windows_core::TypeKind for D3DKMT_VAD_DESC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VAD_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VAD_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VA_RANGE_DESC {
     pub VadAddress: u64,
     pub VaRangeIndex: u32,
@@ -15407,26 +16140,26 @@ pub struct D3DKMT_VA_RANGE_DESC {
     pub OwnerOffset: u64,
     pub Protection: u32,
 }
+impl windows_core::TypeKind for D3DKMT_VA_RANGE_DESC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VA_RANGE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VA_RANGE_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VGPUINTERFACEID {
     pub VirtualGpuIntefaceId: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_VGPUINTERFACEID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VGPUINTERFACEID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VGPUINTERFACEID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15434,13 +16167,13 @@ pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15461,16 +16194,16 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub VerifyIntegrity: D3DKMT_VIDMM_ESCAPE_0_12,
     pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_13,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
     pub SegmentId: u32,
@@ -15479,83 +16212,83 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub LargestGapBefore: u64,
     pub LargestGapAfter: u64,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_10 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_10 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub hPagingQueue: u32,
     pub PhysicalAdapterIndex: u32,
     pub Milliseconds: u32,
     pub PagingFenceValue: u64,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_11 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub TimerValue: i64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_13 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_13 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub NtHandle: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub ResourceHandle: u32,
     pub AllocationHandle: u32,
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub NumBytesToTrim: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_7 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_7 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15564,13 +16297,13 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
     pub Status: super::super::super::Win32::Foundation::NTSTATUS,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15582,66 +16315,66 @@ pub union D3DKMT_VIDMM_ESCAPE_0_3_0 {
     pub GetPte: D3DKMT_GET_PTE,
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
     pub NumVads: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_4 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15649,94 +16382,94 @@ pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub MinTrimInterval: u32,
     pub MaxTrimInterval: u32,
     pub IdleTrimInterval: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_8 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub hProcess: super::super::super::Win32::Foundation::HANDLE,
     pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_5 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub SegmentId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_12 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub bFlush: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0,
 }
+impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15744,26 +16477,26 @@ pub union D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     pub Anonymous: D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15772,13 +16505,13 @@ pub struct D3DKMT_VIDSCH_ESCAPE {
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0,
     pub VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
 }
+impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDSCH_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15792,13 +16525,13 @@ pub union D3DKMT_VIDSCH_ESCAPE_0 {
     pub TdrLimit: D3DKMT_VIDSCH_ESCAPE_0_1,
     pub PfnControl: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND,
 }
+impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDSCH_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15806,94 +16539,94 @@ pub struct D3DKMT_VIDSCH_ESCAPE_0_0 {
     pub TdrControl: u32,
     pub Anonymous: D3DKMT_VIDSCH_ESCAPE_0_0_0,
 }
+impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDSCH_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     pub NodeOrdinal: u32,
 }
+impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
     pub Count: u32,
     pub Time: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDSCH_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIDSCH_ESCAPE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIRTUALADDRESSFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIRTUALADDRESSFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIRTUALADDRESSFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIRTUALADDRESSFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIRTUALADDRESSINFO {
     pub VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
+}
+impl windows_core::TypeKind for D3DKMT_VIRTUALADDRESSINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIRTUALADDRESSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_VIRTUALADDRESSINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORIDLE {
     pub hDevice: u32,
+}
+impl windows_core::TypeKind for D3DKMT_WAITFORIDLE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WAITFORIDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WAITFORIDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     pub hContext: u32,
     pub ObjectCount: u32,
     pub ObjectHandleArray: [u32; 32],
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15903,13 +16636,13 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     pub ObjectHandleArray: [u32; 32],
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0,
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15917,26 +16650,26 @@ pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     pub Fence: D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
+}
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15948,13 +16681,13 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     pub hAsyncEvent: super::super::super::Win32::Foundation::HANDLE,
     pub Flags: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS,
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15964,13 +16697,13 @@ pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     pub ObjectHandleArray: *const u32,
     pub Anonymous: D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0,
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -15979,31 +16712,31 @@ pub union D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     pub FenceValue: u64,
     pub Reserved: [u64; 8],
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
     pub hAdapter: u32,
     pub hDevice: u32,
     pub VidPnSourceId: u32,
+}
+impl windows_core::TypeKind for D3DKMT_WAITFORVERTICALBLANKEVENT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WAITFORVERTICALBLANKEVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WAITFORVERTICALBLANKEVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub hAdapter: u32,
     pub hDevice: u32,
@@ -16011,13 +16744,13 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub NumObjects: u32,
     pub ObjectHandleArray: [isize; 8],
 }
+impl windows_core::TypeKind for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16025,13 +16758,13 @@ pub struct D3DKMT_WDDM_1_2_CAPS {
     pub PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_1_2_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16039,39 +16772,39 @@ pub union D3DKMT_WDDM_1_2_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_2_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_1_2_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WDDM_1_2_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WDDM_1_2_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_1_3_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16079,39 +16812,39 @@ pub union D3DKMT_WDDM_1_3_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_1_3_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_1_3_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_1_3_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_0_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16119,39 +16852,39 @@ pub union D3DKMT_WDDM_2_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_0_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_0_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_0_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_7_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16159,39 +16892,39 @@ pub union D3DKMT_WDDM_2_7_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_7_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_7_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_7_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_9_CAPS {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_9_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16199,39 +16932,39 @@ pub union D3DKMT_WDDM_2_9_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_9_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_2_9_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_2_9_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_0_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_0_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16239,39 +16972,39 @@ pub union D3DKMT_WDDM_3_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_0_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_0_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_3_0_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_1_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -16279,94 +17012,94 @@ pub union D3DKMT_WDDM_3_1_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_1_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DKMT_WDDM_3_1_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WDDM_3_1_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WORKINGSETFLAGS {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_WORKINGSETFLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WORKINGSETFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WORKINGSETFLAGS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WORKINGSETINFO {
     pub Flags: D3DKMT_WORKINGSETFLAGS,
     pub MinimumWorkingSetPercentile: u32,
     pub MaximumWorkingSetPercentile: u32,
+}
+impl windows_core::TypeKind for D3DKMT_WORKINGSETINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WORKINGSETINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WORKINGSETINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WSAUMDIMAGENAME {
     pub WsaUmdImageName: [u16; 260],
+}
+impl windows_core::TypeKind for D3DKMT_WSAUMDIMAGENAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_WSAUMDIMAGENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_WSAUMDIMAGENAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_XBOX {
     pub IsXBOX: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_XBOX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_XBOX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DKMT_XBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
+}
+impl windows_core::TypeKind for D3DLINEPATTERN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DLINEPATTERN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DLINEPATTERN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -16408,18 +17141,18 @@ pub struct D3DNTDEVICEDESC_V3 {
     pub wMaxSimultaneousTextures: u16,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTDEVICEDESC_V3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTDEVICEDESC_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTDEVICEDESC_V3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -16436,18 +17169,18 @@ pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwMaxVertexCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHALDEVICEDESC_V1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHALDEVICEDESC_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHALDEVICEDESC_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -16472,18 +17205,18 @@ pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwMaxStippleHeight: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHALDEVICEDESC_V2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHALDEVICEDESC_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHALDEVICEDESC_V2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: LPD3DNTHAL_CONTEXTCREATECB,
@@ -16522,18 +17255,18 @@ pub struct D3DNTHAL_CALLBACKS {
     pub dwReserved9: usize,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CALLBACKS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CALLBACKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CALLBACKS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -16544,18 +17277,18 @@ pub struct D3DNTHAL_CALLBACKS2 {
     pub dwReserved4: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CALLBACKS2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CALLBACKS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CALLBACKS2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -16565,14 +17298,14 @@ pub struct D3DNTHAL_CALLBACKS3 {
     pub DrawPrimitives2: LPD3DNTHAL_DRAWPRIMITIVES2CB,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl windows_core::TypeKind for D3DNTHAL_CALLBACKS3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl Default for D3DNTHAL_CALLBACKS3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl windows_core::TypeKind for D3DNTHAL_CALLBACKS3 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -16588,29 +17321,29 @@ pub struct D3DNTHAL_CLEAR2DATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_CLEAR2DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_CLEAR2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_CLEAR2DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
     pub FirstVertexOffset: u32,
     pub dwEdgeFlags: u32,
     pub PrimitiveCount: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_CLIPPEDTRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_CLIPPEDTRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_CLIPPEDTRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -16624,14 +17357,14 @@ pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CONTEXTCREATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -16641,14 +17374,14 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -16658,14 +17391,14 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -16675,42 +17408,42 @@ pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTCREATEDATA_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CONTEXTDESTROYALLDATA {
     pub dwPID: u32,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTDESTROYALLDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_CONTEXTDESTROYALLDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTDESTROYALLDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_CONTEXTDESTROYDATA {
     pub dwhContext: usize,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DNTHAL_CONTEXTDESTROYDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_CONTEXTDESTROYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_CONTEXTDESTROYDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16738,13 +17471,13 @@ pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
     pub wMaxTextureBlendStages: u16,
     pub wMaxSimultaneousTextures: u16,
 }
+impl windows_core::TypeKind for D3DNTHAL_D3DDX6EXTENDEDCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_D3DDX6EXTENDEDCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_D3DDX6EXTENDEDCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16781,20 +17514,24 @@ pub struct D3DNTHAL_D3DEXTENDEDCAPS {
     pub dwReserved3: u32,
     pub dwReserved4: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_D3DEXTENDEDCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_D3DEXTENDEDCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_D3DEXTENDEDCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2ADDDIRTYBOX {
     pub dwSurface: u32,
     pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2ADDDIRTYBOX {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2ADDDIRTYBOX {
@@ -16802,26 +17539,22 @@ impl Default for D3DNTHAL_DP2ADDDIRTYBOX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2ADDDIRTYBOX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2ADDDIRTYRECT {
     pub dwSurface: u32,
     pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2ADDDIRTYRECT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2ADDDIRTYRECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2ADDDIRTYRECT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2BLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -16831,17 +17564,17 @@ pub struct D3DNTHAL_DP2BLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2BLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2BLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2BLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2BUFFERBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -16850,14 +17583,14 @@ pub struct D3DNTHAL_DP2BUFFERBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2BUFFERBLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2BUFFERBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2BUFFERBLT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -16868,28 +17601,28 @@ pub struct D3DNTHAL_DP2CLEAR {
     pub dwFillStencil: u32,
     pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2CLEAR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2CLEAR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CLEAR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2COLORFILL {
     pub dwSurface: u32,
     pub rRect: super::super::super::Win32::Foundation::RECTL,
     pub Color: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2COLORFILL {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2COLORFILL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2COLORFILL {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16898,13 +17631,13 @@ pub struct D3DNTHAL_DP2COMMAND {
     pub bReserved: u8,
     pub Anonymous: D3DNTHAL_DP2COMMAND_0,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2COMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2COMMAND {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -16912,17 +17645,17 @@ pub union D3DNTHAL_DP2COMMAND_0 {
     pub wPrimitiveCount: u16,
     pub wStateCount: u16,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2COMMAND_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2COMMAND_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2COMPOSERECTS {
     pub SrcSurfaceHandle: u32,
     pub DstSurfaceHandle: u32,
@@ -16934,48 +17667,52 @@ pub struct D3DNTHAL_DP2COMPOSERECTS {
     pub YOffset: i32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2COMPOSERECTS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2COMPOSERECTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2COMPOSERECTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATELIGHT {
     pub dwIndex: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATELIGHT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2CREATELIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATELIGHT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATEPIXELSHADER {
     pub dwHandle: u32,
     pub dwCodeSize: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATEPIXELSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2CREATEPIXELSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATEPIXELSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATEQUERY {
     pub dwQueryID: u32,
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2CREATEQUERY {
@@ -16983,69 +17720,65 @@ impl Default for D3DNTHAL_DP2CREATEQUERY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADER {
     pub dwHandle: u32,
     pub dwDeclSize: u32,
     pub dwCodeSize: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2CREATEVERTEXSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
     pub dwHandle: u32,
     pub dwNumVertexElements: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
     pub dwHandle: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DELETEQUERY {
     pub dwQueryID: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2DELETEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2DELETEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2DELETEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub BaseVertexIndex: i32,
@@ -17055,18 +17788,18 @@ pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub BaseVertexOffset: i32,
@@ -17076,22 +17809,26 @@ pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub PrimitiveCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub VStart: u32,
     pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWPRIMITIVE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2DRAWPRIMITIVE {
@@ -17099,17 +17836,17 @@ impl Default for D3DNTHAL_DP2DRAWPRIMITIVE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWPRIMITIVE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
     pub FirstVertexOffset: u32,
     pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWPRIMITIVE2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2DRAWPRIMITIVE2 {
@@ -17117,58 +17854,58 @@ impl Default for D3DNTHAL_DP2DRAWPRIMITIVE2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWPRIMITIVE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWRECTPATCH {
     pub Handle: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWRECTPATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2DRAWRECTPATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWRECTPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2DRAWTRIPATCH {
     pub Handle: u32,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2DRAWTRIPATCH {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2DRAWTRIPATCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2DRAWTRIPATCH {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2EXT {
     pub dwExtToken: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2EXT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2EXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
     pub hSurface: u32,
     pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
@@ -17176,133 +17913,129 @@ impl Default for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDLINELIST {
     pub wV1: u16,
     pub wV2: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDLINELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2INDEXEDLINELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDLINELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDLINESTRIP {
     pub wV: [u16; 2],
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDLINESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2INDEXEDLINESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDLINESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     pub wV: [u16; 3],
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
     pub wFlags: u16,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     pub wV1: u16,
     pub wV2: u16,
     pub wV3: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     pub wV: [u16; 3],
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2ISSUEQUERY {
     pub dwQueryID: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2ISSUEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2ISSUEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2ISSUEQUERY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2LINELIST {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2LINELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2LINELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2LINELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2LINESTRIP {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2LINESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2LINESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2LINESTRIP {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
@@ -17312,41 +18045,41 @@ pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl windows_core::TypeKind for D3DNTHAL_DP2MULTIPLYTRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl windows_core::TypeKind for D3DNTHAL_DP2MULTIPLYTRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2PIXELSHADER {
     pub dwHandle: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2PIXELSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2PIXELSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2PIXELSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2POINTS {
     pub wCount: u16,
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2POINTS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2POINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2POINTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -17356,14 +18089,14 @@ pub struct D3DNTHAL_DP2RENDERSTATE {
     pub Anonymous: D3DNTHAL_DP2RENDERSTATE_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2RENDERSTATE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2RENDERSTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2RENDERSTATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -17373,44 +18106,44 @@ pub union D3DNTHAL_DP2RENDERSTATE_0 {
     pub dwState: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2RENDERSTATE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2RENDERSTATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2RENDERSTATE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2RESPONSE {
     pub bCommand: u8,
     pub bReserved: u8,
     pub wStateCount: u16,
     pub dwTotalSize: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2RESPONSEQUERY {
     pub dwQueryID: u32,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2RESPONSEQUERY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2RESPONSEQUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2RESPONSEQUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17418,55 +18151,55 @@ pub struct D3DNTHAL_DP2SETCLIPPLANE {
     pub dwIndex: u32,
     pub plane: [f32; 4],
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2SETCLIPPLANE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2SETCLIPPLANE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETCLIPPLANE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwFlags: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETDEPTHSTENCIL {
     pub hZBuffer: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETDEPTHSTENCIL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETDEPTHSTENCIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETDEPTHSTENCIL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETINDICES {
     pub dwVBHandle: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETINDICES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETINDICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2SETINDICES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17474,13 +18207,13 @@ pub struct D3DNTHAL_DP2SETLIGHT {
     pub dwIndex: u32,
     pub Anonymous: D3DNTHAL_DP2SETLIGHT_0,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2SETLIGHT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2SETLIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2SETLIGHT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -17488,157 +18221,157 @@ pub union D3DNTHAL_DP2SETLIGHT_0 {
     pub lightData: u32,
     pub dwDataType: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2SETLIGHT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2SETLIGHT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETLIGHT_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETPALETTE {
     pub dwPaletteHandle: u32,
     pub dwPaletteFlags: u32,
     pub dwSurfaceHandle: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETPALETTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETPIXELSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETPIXELSHADERCONST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETPIXELSHADERCONST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETPIXELSHADERCONST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETPRIORITY {
     pub dwDDDestSurface: u32,
     pub dwPriority: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETPRIORITY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETPRIORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETPRIORITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETRENDERTARGET {
     pub hRenderTarget: u32,
     pub hZBuffer: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETRENDERTARGET {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETRENDERTARGET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETRENDERTARGET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETRENDERTARGET2 {
     pub RTIndex: u32,
     pub hRenderTarget: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETRENDERTARGET2 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETRENDERTARGET2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETRENDERTARGET2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCE {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETSTREAMSOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCE2 {
     pub dwStream: u32,
     pub dwVBHandle: u32,
     pub dwOffset: u32,
     pub dwStride: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCE2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2SETSTREAMSOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCE2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
     pub dwStream: u32,
     pub dwDivider: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETSTREAMSOURCEUM {
     pub dwStream: u32,
     pub dwStride: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCEUM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETSTREAMSOURCEUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETSTREAMSOURCEUM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETTEXLOD {
     pub dwDDSurface: u32,
     pub dwLOD: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETTEXLOD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETTEXLOD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2SETTEXLOD {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
@@ -17648,49 +18381,53 @@ pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl windows_core::TypeKind for D3DNTHAL_DP2SETTRANSFORM {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DNTHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
-impl windows_core::TypeKind for D3DNTHAL_DP2SETTRANSFORM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SETVERTEXSHADERCONST {
     pub dwRegister: u32,
     pub dwCount: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2SETVERTEXSHADERCONST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2SETVERTEXSHADERCONST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SETVERTEXSHADERCONST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2STARTVERTEX {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2STARTVERTEX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2STARTVERTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2STARTVERTEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2STATESET {
     pub dwOperation: u32,
     pub dwParam: u32,
     pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2STATESET {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2STATESET {
@@ -17698,12 +18435,8 @@ impl Default for D3DNTHAL_DP2STATESET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2STATESET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwSource: u32,
     pub rSource: super::super::super::Win32::Foundation::RECTL,
@@ -17713,16 +18446,16 @@ pub struct D3DNTHAL_DP2SURFACEBLT {
     pub dwDestMipLevel: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2SURFACEBLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2SURFACEBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2SURFACEBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TEXBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -17730,128 +18463,128 @@ pub struct D3DNTHAL_DP2TEXBLT {
     pub rSrc: super::super::super::Win32::Foundation::RECTL,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2TEXBLT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2TEXBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TEXBLT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TEXTURESTAGESTATE {
     pub wStage: u16,
     pub TSState: u16,
     pub dwValue: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2TEXTURESTAGESTATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2TEXTURESTAGESTATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TEXTURESTAGESTATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TRIANGLEFAN {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLEFAN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2TRIANGLEFAN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLEFAN {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TRIANGLEFAN_IMM {
     pub dwEdgeFlags: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLEFAN_IMM {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2TRIANGLEFAN_IMM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLEFAN_IMM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TRIANGLELIST {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLELIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2TRIANGLELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLELIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2TRIANGLESTRIP {
     pub wVStart: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLESTRIP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2TRIANGLESTRIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2TRIANGLESTRIP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2UPDATEPALETTE {
     pub dwPaletteHandle: u32,
     pub wStartIndex: u16,
     pub wNumEntries: u16,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2UPDATEPALETTE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2UPDATEPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2UPDATEPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2VERTEXSHADER {
     pub dwHandle: u32,
+}
+impl windows_core::TypeKind for D3DNTHAL_DP2VERTEXSHADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_DP2VERTEXSHADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2VERTEXSHADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2VIEWPORTINFO {
     pub dwX: u32,
     pub dwY: u32,
     pub dwWidth: u32,
     pub dwHeight: u32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2VIEWPORTINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2VIEWPORTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_DP2VIEWPORTINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_DP2VOLUMEBLT {
     pub dwDDDestSurface: u32,
     pub dwDDSrcSurface: u32,
@@ -17862,14 +18595,14 @@ pub struct D3DNTHAL_DP2VOLUMEBLT {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for D3DNTHAL_DP2VOLUMEBLT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for D3DNTHAL_DP2VOLUMEBLT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for D3DNTHAL_DP2VOLUMEBLT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17877,13 +18610,13 @@ pub struct D3DNTHAL_DP2WINFO {
     pub dvWNear: f32,
     pub dvWFar: f32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2WINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2WINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2WINFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -17891,13 +18624,13 @@ pub struct D3DNTHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
 }
+impl windows_core::TypeKind for D3DNTHAL_DP2ZRANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_DP2ZRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for D3DNTHAL_DP2ZRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -17919,14 +18652,14 @@ pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwErrorOffset: u32,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -17936,14 +18669,14 @@ pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpVertices: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -17953,18 +18686,18 @@ pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
     pub hwCaps: D3DNTHALDEVICEDESC_V1,
@@ -17974,33 +18707,33 @@ pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl windows_core::TypeKind for D3DNTHAL_GLOBALDRIVERDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 impl Default for D3DNTHAL_GLOBALDRIVERDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
-impl windows_core::TypeKind for D3DNTHAL_GLOBALDRIVERDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_SCENECAPTUREDATA {
     pub dwhContext: usize,
     pub dwFlag: u32,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DNTHAL_SCENECAPTUREDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_SCENECAPTUREDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_SCENECAPTUREDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
@@ -18008,80 +18741,80 @@ pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub ddrval: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for D3DNTHAL_SETRENDERTARGETDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for D3DNTHAL_SETRENDERTARGETDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for D3DNTHAL_SETRENDERTARGETDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DNTHAL_TEXTURECREATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_TEXTURECREATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_TEXTURECREATEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_TEXTUREDESTROYDATA {
     pub dwhContext: usize,
     pub dwHandle: usize,
     pub ddrval: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for D3DNTHAL_TEXTUREDESTROYDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DNTHAL_TEXTUREDESTROYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_TEXTUREDESTROYDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_TEXTUREGETSURFDATA {
     pub dwhContext: usize,
     pub hDDS: super::super::super::Win32::Foundation::HANDLE,
     pub dwHandle: usize,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DNTHAL_TEXTUREGETSURFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_TEXTUREGETSURFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_TEXTUREGETSURFDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_TEXTURESWAPDATA {
     pub dwhContext: usize,
     pub dwHandle1: usize,
     pub dwHandle2: usize,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DNTHAL_TEXTURESWAPDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_TEXTURESWAPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_TEXTURESWAPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -18089,85 +18822,85 @@ pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     pub dwNumPasses: u32,
     pub ddrval: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
+}
+impl windows_core::TypeKind for DDNT_DEFERRED_AGP_AWARE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_DEFERRED_AGP_AWARE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_DEFERRED_AGP_AWARE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_DXVERSION {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for DDNT_DXVERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_DXVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_DXVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
+}
+impl windows_core::TypeKind for DDNT_FREE_DEFERRED_AGP_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_FREE_DEFERRED_AGP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_FREE_DEFERRED_AGP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETADAPTERGROUPDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub ulUniqueAdapterGroupId: usize,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl windows_core::TypeKind for DDNT_GETADAPTERGROUPDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DDNT_GETADAPTERGROUPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_GETADAPTERGROUPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETD3DQUERYCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
+}
+impl windows_core::TypeKind for DDNT_GETD3DQUERYCOUNTDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_GETD3DQUERYCOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DDNT_GETD3DQUERYCOUNTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -18177,14 +18910,14 @@ pub struct DDNT_GETD3DQUERYDATA {
     pub Anonymous: DDNT_GETD3DQUERYDATA_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DDNT_GETD3DQUERYDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DDNT_GETD3DQUERYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DDNT_GETD3DQUERYDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -18194,68 +18927,72 @@ pub union DDNT_GETD3DQUERYDATA_0 {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DDNT_GETD3DQUERYDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DDNT_GETD3DQUERYDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DDNT_GETD3DQUERYDATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETDDIVERSIONDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
+}
+impl windows_core::TypeKind for DDNT_GETDDIVERSIONDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_GETDDIVERSIONDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_GETDDIVERSIONDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETDRIVERINFO2DATA {
     pub dwReserved: u32,
     pub dwMagic: u32,
     pub dwType: u32,
     pub dwExpectedSize: u32,
 }
+impl windows_core::TypeKind for DDNT_GETDRIVERINFO2DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DDNT_GETDRIVERINFO2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_GETDRIVERINFO2DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETEXTENDEDMODECOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwModeCount: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for DDNT_GETEXTENDEDMODECOUNTDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DDNT_GETEXTENDEDMODECOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DDNT_GETEXTENDEDMODECOUNTDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETEXTENDEDMODEDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwModeIndex: u32,
     pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DDNT_GETEXTENDEDMODEDATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DDNT_GETEXTENDEDMODEDATA {
@@ -18263,24 +19000,20 @@ impl Default for DDNT_GETEXTENDEDMODEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DDNT_GETEXTENDEDMODEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_GETFORMATCOUNTDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
+impl windows_core::TypeKind for DDNT_GETFORMATCOUNTDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DDNT_GETFORMATCOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DDNT_GETFORMATCOUNTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -18291,18 +19024,18 @@ pub struct DDNT_GETFORMATDATA {
     pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for DDNT_GETFORMATDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for DDNT_GETFORMATDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for DDNT_GETFORMATDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
     pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
@@ -18310,86 +19043,86 @@ pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     pub QualityLevels: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DEFERRED_AGP_AWARE_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
+}
+impl windows_core::TypeKind for DD_DEFERRED_AGP_AWARE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_DEFERRED_AGP_AWARE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_DEFERRED_AGP_AWARE_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_DXVERSION {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for DD_DXVERSION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_DXVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_DXVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_FREE_DEFERRED_AGP_DATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwProcessId: u32,
+}
+impl windows_core::TypeKind for DD_FREE_DEFERRED_AGP_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_FREE_DEFERRED_AGP_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_FREE_DEFERRED_AGP_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETADAPTERGROUPDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub ulUniqueAdapterGroupId: usize,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl windows_core::TypeKind for DD_GETADAPTERGROUPDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DD_GETADAPTERGROUPDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_GETADAPTERGROUPDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETD3DQUERYCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwNumQueries: u32,
+}
+impl windows_core::TypeKind for DD_GETD3DQUERYCOUNTDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_GETD3DQUERYCOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DD_GETD3DQUERYCOUNTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -18399,14 +19132,14 @@ pub struct DD_GETD3DQUERYDATA {
     pub Anonymous: DD_GETD3DQUERYDATA_0,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DD_GETD3DQUERYDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DD_GETD3DQUERYDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DD_GETD3DQUERYDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -18416,68 +19149,72 @@ pub union DD_GETD3DQUERYDATA_0 {
     pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DD_GETD3DQUERYDATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DD_GETD3DQUERYDATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DD_GETD3DQUERYDATA_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETDDIVERSIONDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwDXVersion: u32,
     pub dwDDIVersion: u32,
+}
+impl windows_core::TypeKind for DD_GETDDIVERSIONDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_GETDDIVERSIONDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_GETDDIVERSIONDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETDRIVERINFO2DATA {
     pub dwReserved: u32,
     pub dwMagic: u32,
     pub dwType: u32,
     pub dwExpectedSize: u32,
 }
+impl windows_core::TypeKind for DD_GETDRIVERINFO2DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DD_GETDRIVERINFO2DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_GETDRIVERINFO2DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETEXTENDEDMODECOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwModeCount: u32,
     pub dwReserved: u32,
+}
+impl windows_core::TypeKind for DD_GETEXTENDEDMODECOUNTDATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DD_GETEXTENDEDMODECOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DD_GETEXTENDEDMODECOUNTDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETEXTENDEDMODEDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwModeIndex: u32,
     pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DD_GETEXTENDEDMODEDATA {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DD_GETEXTENDEDMODEDATA {
@@ -18485,24 +19222,20 @@ impl Default for DD_GETEXTENDEDMODEDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DD_GETEXTENDEDMODEDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_GETFORMATCOUNTDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub dwFormatCount: u32,
     pub dwReserved: u32,
 }
+impl windows_core::TypeKind for DD_GETFORMATCOUNTDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DD_GETFORMATCOUNTDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DD_GETFORMATCOUNTDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -18513,18 +19246,18 @@ pub struct DD_GETFORMATDATA {
     pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl windows_core::TypeKind for DD_GETFORMATDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl Default for DD_GETFORMATDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-impl windows_core::TypeKind for DD_GETFORMATDATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
     pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
@@ -18532,14 +19265,14 @@ pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
     pub QualityLevels: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl windows_core::TypeKind for DD_MULTISAMPLEQUALITYLEVELSDATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl Default for DD_MULTISAMPLEQUALITYLEVELSDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-impl windows_core::TypeKind for DD_MULTISAMPLEQUALITYLEVELSDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18554,68 +19287,68 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous3: DISPLAYID_DETAILED_TIMING_TYPE_I_2,
     pub VerticalSyncWidth: u16,
 }
+impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DISPLAYID_DETAILED_TIMING_TYPE_I {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
+impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
 }
+impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: u32,
     pub FirstEntry: u32,
     pub NumEntries: u32,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
 }
+impl windows_core::TypeKind for DXGKARG_SETPALETTE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKARG_SETPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKARG_SETPALETTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18634,13 +19367,13 @@ pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: [u32; 4],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18654,13 +19387,13 @@ pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub ulFrequencyNumerator: u32,
     pub ulFrequencyDenominator: u32,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18671,13 +19404,13 @@ pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18690,13 +19423,13 @@ pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub Reserved2: [u8; 16],
     pub Reserved3: [u8; 16],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18707,13 +19440,13 @@ pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18722,26 +19455,26 @@ pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub TargetId: u32,
     pub Vos: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     pub abEncryptedParameters: [u8; 256],
+}
+impl windows_core::TypeKind for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18753,39 +19486,39 @@ pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub cbParametersSize: u32,
     pub abParameters: [u8; 4056],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_GET_INFO_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_GET_INFO_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKMDT_OPM_GET_INFO_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
+}
+impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_OMAC {
     pub abOMAC: [u8; 16],
+}
+impl windows_core::TypeKind for DXGKMDT_OPM_OMAC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKMDT_OPM_OMAC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_OMAC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18794,26 +19527,26 @@ pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub ulStatusFlags: u32,
     pub OutputId: u64,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_OUTPUT_ID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_OUTPUT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKMDT_OPM_OUTPUT_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
+}
+impl windows_core::TypeKind for DXGKMDT_OPM_RANDOM_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_RANDOM_NUMBER {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18822,13 +19555,13 @@ pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub cbRequestedInformationSize: u32,
     pub abRequestedInformation: [u8; 4076],
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_REQUESTED_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_REQUESTED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_REQUESTED_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18844,26 +19577,26 @@ pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulReserved2: [u32; 4],
     pub ulReserved3: u32,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18873,13 +19606,13 @@ pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub Reserved: u32,
     pub Reserved2: u32,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -18890,41 +19623,41 @@ pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub ulReserved: u32,
     pub ulReserved2: u32,
 }
+impl windows_core::TypeKind for DXGKMDT_OPM_STANDARD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKMDT_OPM_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKMDT_OPM_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_HEAD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_HEAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_HEAD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_core::GUID,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_INITIALIZE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_INITIALIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_INITIALIZE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -18933,13 +19666,13 @@ pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKVGPU_ESCAPE_PAUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -18947,111 +19680,111 @@ pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_PAUSE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_PAUSE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_RELEASE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_RELEASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_RELEASE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::super::super::Win32::Foundation::LUID,
     pub Flags: u32,
+}
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_RESUME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGKVGPU_ESCAPE_RESUME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_RESUME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
     pub Size: u32,
 }
+impl windows_core::TypeKind for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19066,13 +19799,13 @@ pub struct DXGK_ADAPTER_PERFDATA {
     pub Temperature: u32,
     pub PowerStateOverride: u8,
 }
+impl windows_core::TypeKind for DXGK_ADAPTER_PERFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_ADAPTER_PERFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_ADAPTER_PERFDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19083,13 +19816,13 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub TemperatureMax: u32,
     pub TemperatureWarning: u32,
 }
+impl windows_core::TypeKind for DXGK_ADAPTER_PERFDATACAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_ADAPTER_PERFDATACAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_ADAPTER_PERFDATACAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19098,26 +19831,26 @@ pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightEffective: u16,
     pub GammaRamp: D3DDDI_GAMMA_RAMP_RGB256x3x16,
 }
+impl windows_core::TypeKind for DXGK_BACKLIGHT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BACKLIGHT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BACKLIGHT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19125,26 +19858,26 @@ pub union DXGK_BRIGHTNESS_CAPS_0 {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_CAPS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_CAPS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19154,13 +19887,13 @@ pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub PreferredMaximumBrightness: u32,
     pub SupportedRanges: [DXGK_BRIGHTNESS_NIT_RANGE; 16],
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19168,13 +19901,13 @@ pub struct DXGK_BRIGHTNESS_GET_OUT {
     pub CurrentBrightnessMillinits: u32,
     pub TargetBrightnessMillinits: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_GET_OUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_GET_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_GET_OUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19183,13 +19916,13 @@ pub struct DXGK_BRIGHTNESS_NIT_RANGE {
     pub MaximumLevelMillinit: u32,
     pub StepSizeMillinit: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_NIT_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_NIT_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_NIT_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19200,13 +19933,13 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
     pub Chromaticity: DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY,
     pub ColorTemperature: f32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19214,26 +19947,26 @@ pub union DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     pub Flags: DXGK_BRIGHTNESS_SENSOR_DATA_0_0,
     pub ValidSensorValues: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19241,13 +19974,13 @@ pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityX: f32,
     pub ChromaticityY: f32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19256,26 +19989,26 @@ pub struct DXGK_BRIGHTNESS_SET_IN {
     pub TransitionTimeMs: u32,
     pub SensorReadings: DXGK_BRIGHTNESS_SENSOR_DATA,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_SET_IN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_SET_IN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_SET_IN {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_STATE {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19283,29 +20016,29 @@ pub union DXGK_BRIGHTNESS_STATE_0 {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_BRIGHTNESS_STATE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_BRIGHTNESS_STATE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_DISPLAY_INFORMATION {
     pub Width: u32,
     pub Height: u32,
@@ -19315,16 +20048,16 @@ pub struct DXGK_DISPLAY_INFORMATION {
     pub TargetId: u32,
     pub AcpiId: u32,
 }
+impl windows_core::TypeKind for DXGK_DISPLAY_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_DISPLAY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_DISPLAY_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub ReadOnlyMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub NoExecuteMemorySupported: super::super::super::Win32::Foundation::BOOLEAN,
@@ -19337,26 +20070,26 @@ pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub PageTableLevelCount: u32,
     pub PageTableLevelDesk: [D3DKMT_PAGE_TABLE_LEVEL_DESC; 6],
 }
+impl windows_core::TypeKind for DXGK_ESCAPE_GPUMMUCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_ESCAPE_GPUMMUCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_ESCAPE_GPUMMUCAPS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE {
     pub Anonymous: DXGK_FAULT_ERROR_CODE_0,
 }
+impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_FAULT_ERROR_CODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19364,39 +20097,39 @@ pub union DXGK_FAULT_ERROR_CODE_0 {
     pub Anonymous1: DXGK_FAULT_ERROR_CODE_0_0,
     pub Anonymous2: DXGK_FAULT_ERROR_CODE_0_1,
 }
+impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_FAULT_ERROR_CODE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_FAULT_ERROR_CODE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_FAULT_ERROR_CODE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_FAULT_ERROR_CODE_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19406,26 +20139,26 @@ pub struct DXGK_GPUCLOCKDATA {
     pub CpuClockCounter: u64,
     pub Flags: DXGK_GPUCLOCKDATA_FLAGS,
 }
+impl windows_core::TypeKind for DXGK_GPUCLOCKDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_GPUCLOCKDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_GPUCLOCKDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0,
 }
+impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_GPUCLOCKDATA_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19433,26 +20166,26 @@ pub union DXGK_GPUCLOCKDATA_FLAGS_0 {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_GPUCLOCKDATA_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_GPUCLOCKDATA_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19460,17 +20193,17 @@ pub struct DXGK_GPUVERSION {
     pub BiosVersion: [u16; 32],
     pub GpuArchitecture: [u16; 32],
 }
+impl windows_core::TypeKind for DXGK_GPUVERSION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_GPUVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_GPUVERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
     pub PrivateHandle: *mut core::ffi::c_void,
@@ -19480,18 +20213,18 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub InitialComponentStateCb: PDXGK_INITIAL_COMPONENT_STATE,
 }
 #[cfg(feature = "Win32_System_Power")]
+impl windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Power")]
 impl Default for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Power")]
-impl windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Power")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut core::ffi::c_void,
     pub InitialGrfxPowerState: super::super::super::Win32::System::Power::DEVICE_POWER_STATE,
@@ -19499,14 +20232,14 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
 }
 #[cfg(feature = "Win32_System_Power")]
+impl windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Power")]
 impl Default for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Power")]
-impl windows_core::TypeKind for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19514,26 +20247,26 @@ pub union DXGK_MIRACAST_CHUNK_ID {
     pub Anonymous: DXGK_MIRACAST_CHUNK_ID_0,
     pub Value: u64,
 }
+impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_ID {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MIRACAST_CHUNK_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_ID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_ID_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGK_MIRACAST_CHUNK_ID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_ID_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19543,13 +20276,13 @@ pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub ProcessingTime: u32,
     pub EncodeRate: u32,
 }
+impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MIRACAST_CHUNK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MIRACAST_CHUNK_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19557,26 +20290,26 @@ pub union DXGK_MONITORLINKINFO_CAPABILITIES {
     pub Anonymous: DXGK_MONITORLINKINFO_CAPABILITIES_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_MONITORLINKINFO_CAPABILITIES {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MONITORLINKINFO_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MONITORLINKINFO_CAPABILITIES {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_MONITORLINKINFO_CAPABILITIES_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MONITORLINKINFO_CAPABILITIES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19584,26 +20317,26 @@ pub union DXGK_MONITORLINKINFO_USAGEHINTS {
     pub Anonymous: DXGK_MONITORLINKINFO_USAGEHINTS_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_MONITORLINKINFO_USAGEHINTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MONITORLINKINFO_USAGEHINTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MONITORLINKINFO_USAGEHINTS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_MONITORLINKINFO_USAGEHINTS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19614,26 +20347,26 @@ pub struct DXGK_NODEMETADATA {
     pub GpuMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
     pub IoMmuSupported: super::super::super::Win32::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for DXGK_NODEMETADATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_NODEMETADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_NODEMETADATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA_FLAGS {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0,
 }
+impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_NODEMETADATA_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19641,26 +20374,26 @@ pub union DXGK_NODEMETADATA_FLAGS_0 {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0_0,
     pub Value: u32,
 }
+impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_NODEMETADATA_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_NODEMETADATA_FLAGS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_NODEMETADATA_FLAGS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -19673,13 +20406,13 @@ pub struct DXGK_NODE_PERFDATA {
     pub VoltageMaxOC: u32,
     pub MaxTransitionLatency: u64,
 }
+impl windows_core::TypeKind for DXGK_NODE_PERFDATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_NODE_PERFDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_NODE_PERFDATA {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19687,13 +20420,13 @@ pub struct DXGK_PTE {
     pub Anonymous1: DXGK_PTE_0,
     pub Anonymous2: DXGK_PTE_1,
 }
+impl windows_core::TypeKind for DXGK_PTE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_PTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_PTE {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19701,26 +20434,26 @@ pub union DXGK_PTE_0 {
     pub Anonymous: DXGK_PTE_0_0,
     pub Flags: u64,
 }
+impl windows_core::TypeKind for DXGK_PTE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_PTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_PTE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DXGK_PTE_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DXGK_PTE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_PTE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19728,13 +20461,13 @@ pub union DXGK_PTE_1 {
     pub PageAddress: u64,
     pub PageTableAddress: u64,
 }
+impl windows_core::TypeKind for DXGK_PTE_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_PTE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DXGK_PTE_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -19743,29 +20476,29 @@ pub struct DXGK_TARGETMODE_DETAIL_TIMING {
     pub TimingId: u32,
     pub DetailTiming: DISPLAYID_DETAILED_TIMING_TYPE_I,
 }
+impl windows_core::TypeKind for DXGK_TARGETMODE_DETAIL_TIMING {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DXGK_TARGETMODE_DETAIL_TIMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DXGK_TARGETMODE_DETAIL_TIMING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::super::super::Win32::Foundation::LUID,
+}
+impl windows_core::TypeKind for GPUP_DRIVER_ESCAPE_INPUT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for GPUP_DRIVER_ESCAPE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for GPUP_DRIVER_ESCAPE_INPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
     pub ProcessID: super::super::super::Win32::Foundation::HANDLE,
@@ -19774,27 +20507,27 @@ pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub LastMouseTime: i64,
     pub ProcessName: [i8; 16],
 }
+impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _NT_D3DLINEPATTERN {
     pub wRepeatFactor: u16,
     pub wLinePattern: u16,
+}
+impl windows_core::TypeKind for _NT_D3DLINEPATTERN {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for _NT_D3DLINEPATTERN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for _NT_D3DLINEPATTERN {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_CLEAR2CB = Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
@@ -19944,7 +20677,7 @@ pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mu
 pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -19953,7 +20686,7 @@ pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(p
 pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -20010,7 +20743,7 @@ pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::super::super::Win32::Foundation::NTSTATUS>;

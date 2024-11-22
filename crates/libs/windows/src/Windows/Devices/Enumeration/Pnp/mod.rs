@@ -6,7 +6,7 @@ impl windows_core::RuntimeType for IPnpObject {
 pub struct IPnpObject_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PnpObjectType) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -21,7 +21,7 @@ impl windows_core::RuntimeType for IPnpObjectStatics {
 pub struct IPnpObjectStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateFromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIdAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
@@ -29,7 +29,7 @@ pub struct IPnpObjectStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindAllAsyncAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAllAsyncAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsyncAqsFilter: usize,
     #[cfg(feature = "Foundation_Collections")]
@@ -37,7 +37,7 @@ pub struct IPnpObjectStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWatcher: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateWatcherAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateWatcherAqsFilter: unsafe extern "system" fn(*mut core::ffi::c_void, PnpObjectType, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWatcherAqsFilter: usize,
 }
@@ -49,7 +49,7 @@ impl windows_core::RuntimeType for IPnpObjectUpdate {
 pub struct IPnpObjectUpdate_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PnpObjectType) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -77,7 +77,7 @@ pub struct IPnpObjectWatcher_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObject, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObject {
@@ -92,7 +92,7 @@ impl PnpObject {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -111,9 +111,9 @@ impl PnpObject {
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), updateinfo.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIdAsync<P2>(r#type: PnpObjectType, id: &windows_core::HSTRING, requestedproperties: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
+    pub fn CreateFromIdAsync<P0>(r#type: PnpObjectType, id: &windows_core::HSTRING, requestedproperties: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
     where
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -121,9 +121,9 @@ impl PnpObject {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync<P1>(r#type: PnpObjectType, requestedproperties: P1) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn FindAllAsync<P0>(r#type: PnpObjectType, requestedproperties: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -131,9 +131,9 @@ impl PnpObject {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncAqsFilter<P1>(r#type: PnpObjectType, requestedproperties: P1, aqsfilter: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
+    pub fn FindAllAsyncAqsFilter<P0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -141,9 +141,9 @@ impl PnpObject {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcher<P1>(r#type: PnpObjectType, requestedproperties: P1) -> windows_core::Result<PnpObjectWatcher>
+    pub fn CreateWatcher<P0>(r#type: PnpObjectType, requestedproperties: P0) -> windows_core::Result<PnpObjectWatcher>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,9 +151,9 @@ impl PnpObject {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherAqsFilter<P1>(r#type: PnpObjectType, requestedproperties: P1, aqsfilter: &windows_core::HSTRING) -> windows_core::Result<PnpObjectWatcher>
+    pub fn CreateWatcherAqsFilter<P0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &windows_core::HSTRING) -> windows_core::Result<PnpObjectWatcher>
     where
-        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -169,7 +169,7 @@ impl windows_core::RuntimeType for PnpObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObject>();
 }
 unsafe impl windows_core::Interface for PnpObject {
-    type Vtable = <IPnpObject as windows_core::Interface>::Vtable;
+    type Vtable = IPnpObject_Vtbl;
     const IID: windows_core::GUID = <IPnpObject as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PnpObject {
@@ -179,12 +179,12 @@ unsafe impl Send for PnpObject {}
 unsafe impl Sync for PnpObject {}
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectCollection(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView<PnpObject>);
+windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable, super::super::super::Foundation::Collections::IVectorView::<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable<PnpObject>);
+windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable::<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
     #[cfg(feature = "Foundation_Collections")]
@@ -195,6 +195,7 @@ impl PnpObjectCollection {
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> windows_core::Result<PnpObject> {
         let this = self;
         unsafe {
@@ -202,6 +203,7 @@ impl PnpObjectCollection {
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
@@ -209,6 +211,7 @@ impl PnpObjectCollection {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<PnpObject>,
@@ -219,6 +222,7 @@ impl PnpObjectCollection {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [Option<PnpObject>]) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
@@ -233,7 +237,7 @@ impl windows_core::RuntimeType for PnpObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PnpObjectCollection {
-    type Vtable = <super::super::super::Foundation::Collections::IVectorView<PnpObject> as windows_core::Interface>::Vtable;
+    type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<PnpObject>;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<PnpObject> as windows_core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -241,13 +245,9 @@ impl windows_core::RuntimeName for PnpObjectCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl Send for PnpObjectCollection {}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl Sync for PnpObjectCollection {}
-#[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for PnpObjectCollection {
     type Item = PnpObject;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
         IntoIterator::into_iter(&self)
     }
@@ -255,13 +255,17 @@ impl IntoIterator for PnpObjectCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl IntoIterator for &PnpObjectCollection {
     type Item = PnpObject;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
     fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
+        super::super::super::Foundation::Collections::VectorViewIterator::new(windows_core::Interface::cast(self).ok())
     }
 }
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Send for PnpObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl Sync for PnpObjectCollection {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectUpdate, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectUpdate {
@@ -276,7 +280,7 @@ impl PnpObjectUpdate {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -292,7 +296,7 @@ impl windows_core::RuntimeType for PnpObjectUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectUpdate>();
 }
 unsafe impl windows_core::Interface for PnpObjectUpdate {
-    type Vtable = <IPnpObjectUpdate as windows_core::Interface>::Vtable;
+    type Vtable = IPnpObjectUpdate_Vtbl;
     const IID: windows_core::GUID = <IPnpObjectUpdate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PnpObjectUpdate {
@@ -301,7 +305,7 @@ impl windows_core::RuntimeName for PnpObjectUpdate {
 unsafe impl Send for PnpObjectUpdate {}
 unsafe impl Sync for PnpObjectUpdate {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PnpObjectWatcher {
@@ -312,7 +316,7 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -326,7 +330,7 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -340,7 +344,7 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -354,7 +358,7 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -368,7 +372,7 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveStopped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -395,7 +399,7 @@ impl windows_core::RuntimeType for PnpObjectWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectWatcher>();
 }
 unsafe impl windows_core::Interface for PnpObjectWatcher {
-    type Vtable = <IPnpObjectWatcher as windows_core::Interface>::Vtable;
+    type Vtable = IPnpObjectWatcher_Vtbl;
     const IID: windows_core::GUID = <IPnpObjectWatcher as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PnpObjectWatcher {
@@ -404,7 +408,7 @@ impl windows_core::RuntimeName for PnpObjectWatcher {
 unsafe impl Send for PnpObjectWatcher {}
 unsafe impl Sync for PnpObjectWatcher {}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
     pub const Unknown: Self = Self(0i32);
@@ -420,6 +424,11 @@ impl PnpObjectType {
 }
 impl windows_core::TypeKind for PnpObjectType {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PnpObjectType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PnpObjectType").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for PnpObjectType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");

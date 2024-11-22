@@ -12,7 +12,7 @@ windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCrea
 #[cfg(feature = "Win32_Devices_Properties")]
 windows_targets::link!("api-ms-win-devices-query-l1-1-1.dll" "system" fn DevCreateObjectQueryFromIdsEx(objecttype : DEV_OBJECT_TYPE, pszzobjectids : windows_sys::core::PCWSTR, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount : u32, pextendedparameters : *const DEV_QUERY_PARAMETER, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Devices_Properties")]
-windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFindProperty(pkey : *const super::Properties:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : windows_sys::core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
+windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFindProperty(pkey : *const super::super::Foundation:: DEVPROPKEY, store : super::Properties:: DEVPROPSTORE, pszlocalename : windows_sys::core::PCWSTR, cproperties : u32, pproperties : *const super::Properties:: DEVPROPERTY) -> *mut super::Properties:: DEVPROPERTY);
 #[cfg(feature = "Win32_Devices_Properties")]
 windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevFreeObjectProperties(cpropertycount : u32, pproperties : *const super::Properties:: DEVPROPERTY));
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -117,7 +117,7 @@ pub struct DEV_OBJECT {
 #[cfg(feature = "Win32_Devices_Properties")]
 #[derive(Clone, Copy)]
 pub struct DEV_QUERY_PARAMETER {
-    pub Key: super::Properties::DEVPROPKEY,
+    pub Key: super::super::Foundation::DEVPROPKEY,
     pub Type: super::Properties::DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,

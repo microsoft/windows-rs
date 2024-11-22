@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -16,7 +16,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[inline]
 pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -25,7 +25,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), core::mem::transmute(ppiunk)).ok()
+    LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk).ok()
 }
 #[inline]
 pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -33,28 +33,34 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    LoadIFilterEx(pwcspath.param().abi(), core::mem::transmute(dwflags), core::mem::transmute(riid), core::mem::transmute(ppiunk)).ok()
+    LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk).ok()
 }
 windows_core::imp::define_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);
+impl core::ops::Deref for IFilter {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IFilter, windows_core::IUnknown);
 impl IFilter {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
-        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), core::mem::transmute(grfflags), aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), core::mem::transmute(pflags))
+        (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), core::mem::transmute(aattributes.as_ptr()), pflags)
     }
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        (windows_core::Interface::vtable(self).GetChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pstat))
+        (windows_core::Interface::vtable(self).GetChunk)(windows_core::Interface::as_raw(self), pstat)
     }
     pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: windows_core::PWSTR) -> i32 {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pcwcbuffer), core::mem::transmute(awcbuffer))
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), pcwcbuffer, core::mem::transmute(awcbuffer))
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropvalue))
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pppropvalue)
     }
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32 {
-        (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), core::mem::transmute(riid), core::mem::transmute(ppunk))
+        (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, ppunk)
     }
 }
 #[repr(C)]
@@ -76,7 +82,7 @@ pub struct IFilter_Vtbl {
     pub BindRegion: unsafe extern "system" fn(*mut core::ffi::c_void, FILTERREGION, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> i32,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub trait IFilter_Impl: windows_core::IUnknownImpl {
+pub trait IFilter_Impl: Sized + windows_core::IUnknownImpl {
     fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32;
     fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32;
     fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: windows_core::PWSTR) -> i32;
@@ -84,8 +90,10 @@ pub trait IFilter_Impl: windows_core::IUnknownImpl {
     fn BindRegion(&self, origpos: &FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> i32;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IFilter {}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IFilter_Vtbl {
-    pub const fn new<Identity: IFilter_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IFilter_Impl, const OFFSET: isize>() -> IFilter_Vtbl {
         unsafe extern "system" fn Init<Identity: IFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IFilter_Impl::Init(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&cattributes), core::mem::transmute_copy(&aattributes), core::mem::transmute_copy(&pflags))
@@ -119,23 +127,27 @@ impl IFilter_Vtbl {
         iid == &<IFilter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IFilter {}
 windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
+impl core::ops::Deref for IPhraseSink {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
-    pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>
+    pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), core::mem::transmute(cwcnoun), pwcmodifier.param().abi(), core::mem::transmute(cwcmodifier), core::mem::transmute(ulattachmenttype)).ok()
+        (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok()
     }
     pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), core::mem::transmute(cwcphrase)).ok()
+        (windows_core::Interface::vtable(self).PutPhrase)(windows_core::Interface::as_raw(self), pwcphrase.param().abi(), cwcphrase).ok()
     }
 }
 #[repr(C)]
@@ -144,12 +156,13 @@ pub struct IPhraseSink_Vtbl {
     pub PutSmallPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
     pub PutPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-pub trait IPhraseSink_Impl: windows_core::IUnknownImpl {
+pub trait IPhraseSink_Impl: Sized + windows_core::IUnknownImpl {
     fn PutSmallPhrase(&self, pwcnoun: &windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: &windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>;
     fn PutPhrase(&self, pwcphrase: &windows_core::PCWSTR, cwcphrase: u32) -> windows_core::Result<()>;
 }
+impl windows_core::RuntimeName for IPhraseSink {}
 impl IPhraseSink_Vtbl {
-    pub const fn new<Identity: IPhraseSink_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: IPhraseSink_Impl, const OFFSET: isize>() -> IPhraseSink_Vtbl {
         unsafe extern "system" fn PutSmallPhrase<Identity: IPhraseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcnoun: windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IPhraseSink_Impl::PutSmallPhrase(this, core::mem::transmute(&pwcnoun), core::mem::transmute_copy(&cwcnoun), core::mem::transmute(&pwcmodifier), core::mem::transmute_copy(&cwcmodifier), core::mem::transmute_copy(&ulattachmenttype)).into()
@@ -168,7 +181,6 @@ impl IPhraseSink_Vtbl {
         iid == &<IPhraseSink as windows_core::Interface>::IID
     }
 }
-impl windows_core::RuntimeName for IPhraseSink {}
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
@@ -349,43 +361,73 @@ pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CHUNKSTATE(pub i32);
 impl windows_core::TypeKind for CHUNKSTATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CHUNKSTATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CHUNKSTATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 impl windows_core::TypeKind for CHUNK_BREAKTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CHUNK_BREAKTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CHUNK_BREAKTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DBKINDENUM(pub i32);
 impl windows_core::TypeKind for DBKINDENUM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DBKINDENUM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DBKINDENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IFILTER_FLAGS(pub i32);
 impl windows_core::TypeKind for IFILTER_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IFILTER_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IFILTER_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IFILTER_INIT(pub i32);
 impl windows_core::TypeKind for IFILTER_INIT {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IFILTER_INIT {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IFILTER_INIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
 impl windows_core::TypeKind for WORDREP_BREAK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WORDREP_BREAK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WORDREP_BREAK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -403,14 +445,14 @@ pub struct CI_STATE {
     pub cSecQDocuments: u32,
     pub dwPropCacheSize: u32,
 }
+impl windows_core::TypeKind for CI_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CI_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CI_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -420,14 +462,14 @@ pub struct DBID {
     pub uName: DBID_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBID {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -437,14 +479,14 @@ pub union DBID_0 {
     pub pguid: *mut windows_core::GUID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBID_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -454,14 +496,14 @@ pub union DBID_1 {
     pub ulPropid: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for DBID_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for DBID_1 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -472,14 +514,14 @@ pub struct DBID {
     pub uName: DBID_1,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBID {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for DBID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -489,14 +531,14 @@ pub union DBID_0 {
     pub pguid: *mut windows_core::GUID,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBID_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for DBID_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
@@ -506,29 +548,29 @@ pub union DBID_1 {
     pub ulPropid: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for DBID_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for DBID_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for DBID_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
     pub cwcExtent: u32,
 }
+impl windows_core::TypeKind for FILTERREGION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FILTERREGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for FILTERREGION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -538,14 +580,14 @@ pub struct FULLPROPSPEC {
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for FULLPROPSPEC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for FULLPROPSPEC {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -561,12 +603,12 @@ pub struct STAT_CHUNK {
     pub cwcLenSource: u32,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl windows_core::TypeKind for STAT_CHUNK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl windows_core::TypeKind for STAT_CHUNK {
-    type TypeKind = windows_core::CopyType;
 }

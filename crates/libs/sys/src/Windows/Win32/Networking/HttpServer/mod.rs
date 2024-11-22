@@ -1217,6 +1217,12 @@ pub struct HTTP_UNKNOWN_HEADER {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct HTTP_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct HTTP_WSK_API_TIMINGS {
     pub ConnectCount: u64,
     pub ConnectSum: u64,

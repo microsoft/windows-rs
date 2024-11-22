@@ -6,29 +6,29 @@ where
     windows_targets::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, currentstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     NtCancelTimer(timerhandle.param().abi(), core::mem::transmute(currentstate.unwrap_or(core::ptr::null_mut())))
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NtCreateTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, timertype: super::super::super::Win32::System::Kernel::TIMER_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtCreateTimer(core::mem::transmute(timerhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(timertype))
+    NtCreateTimer(timerhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), timertype)
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NtOpenEvent(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtOpenEvent(core::mem::transmute(eventhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes))
+    NtOpenEvent(eventhandle, desiredaccess, objectattributes)
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn NtOpenProcess(processhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, clientid: Option<*const super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtOpenProcess(core::mem::transmute(processhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes), core::mem::transmute(clientid.unwrap_or(core::ptr::null())))
+    NtOpenProcess(processhandle, desiredaccess, objectattributes, core::mem::transmute(clientid.unwrap_or(core::ptr::null())))
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NtOpenTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn NtOpenTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtOpenTimer(core::mem::transmute(timerhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes))
+    NtOpenTimer(timerhandle, desiredaccess, objectattributes)
 }
 #[inline]
 pub unsafe fn NtQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -36,7 +36,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryInformationProcess(processhandle.param().abi(), core::mem::transmute(processinformationclass), core::mem::transmute(processinformation), core::mem::transmute(processinformationlength), core::mem::transmute(returnlength))
+    NtQueryInformationProcess(processhandle.param().abi(), processinformationclass, processinformation, processinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn NtQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -44,7 +44,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryInformationThread(threadhandle.param().abi(), core::mem::transmute(threadinformationclass), core::mem::transmute(threadinformation), core::mem::transmute(threadinformationlength), core::mem::transmute(returnlength))
+    NtQueryInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn NtSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -52,17 +52,17 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetInformationThread(threadhandle.param().abi(), core::mem::transmute(threadinformationclass), core::mem::transmute(threadinformation), core::mem::transmute(threadinformationlength))
+    NtSetInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn NtSetTimer<P0, P4>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P4, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn NtSetTimer<P0, P1>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P1, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetTimer(timerhandle.param().abi(), core::mem::transmute(duetime), core::mem::transmute(timerapcroutine), core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), core::mem::transmute(period), core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
+    NtSetTimer(timerhandle.param().abi(), duetime, timerapcroutine, core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), period, core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NtSetTimerEx<P0>(timerhandle: P0, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Option<*mut core::ffi::c_void>, timersetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -70,7 +70,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtSetTimerEx(timerhandle.param().abi(), core::mem::transmute(timersetinformationclass), core::mem::transmute(timersetinformation.unwrap_or(core::ptr::null_mut())), core::mem::transmute(timersetinformationlength))
+    NtSetTimerEx(timerhandle.param().abi(), timersetinformationclass, core::mem::transmute(timersetinformation.unwrap_or(core::ptr::null_mut())), timersetinformationlength)
 }
 #[inline]
 pub unsafe fn NtTerminateProcess<P0, P1>(processhandle: P0, exitstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -88,7 +88,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation:: HANDLE, alertable : super::super::super::Win32::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtWaitForSingleObject(handle.param().abi(), alertable.param().abi(), core::mem::transmute(timeout))
+    NtWaitForSingleObject(handle.param().abi(), alertable.param().abi(), timeout)
 }
 #[inline]
 pub unsafe fn ZwCancelTimer<P0>(timerhandle: P0, currentstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -98,29 +98,29 @@ where
     windows_targets::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, currentstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
     ZwCancelTimer(timerhandle.param().abi(), core::mem::transmute(currentstate.unwrap_or(core::ptr::null_mut())))
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ZwCreateTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: Option<*const super::super::Foundation::OBJECT_ATTRIBUTES>, timertype: super::super::super::Win32::System::Kernel::TIMER_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel:: TIMER_TYPE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwCreateTimer(core::mem::transmute(timerhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), core::mem::transmute(timertype))
+    ZwCreateTimer(timerhandle, desiredaccess, core::mem::transmute(objectattributes.unwrap_or(core::ptr::null())), timertype)
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ZwOpenEvent(eventhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenEvent(core::mem::transmute(eventhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes))
+    ZwOpenEvent(eventhandle, desiredaccess, objectattributes)
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn ZwOpenProcess(processhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, clientid: Option<*const super::super::super::Win32::System::WindowsProgramming::CLIENT_ID>) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, clientid : *const super::super::super::Win32::System::WindowsProgramming:: CLIENT_ID) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenProcess(core::mem::transmute(processhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes), core::mem::transmute(clientid.unwrap_or(core::ptr::null())))
+    ZwOpenProcess(processhandle, desiredaccess, objectattributes, core::mem::transmute(clientid.unwrap_or(core::ptr::null())))
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ZwOpenTimer(timerhandle: *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess: u32, objectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation::NTSTATUS {
     windows_targets::link!("ntdll.dll" "system" fn ZwOpenTimer(timerhandle : *mut super::super::super::Win32::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwOpenTimer(core::mem::transmute(timerhandle), core::mem::transmute(desiredaccess), core::mem::transmute(objectattributes))
+    ZwOpenTimer(timerhandle, desiredaccess, objectattributes)
 }
 #[inline]
 pub unsafe fn ZwQueryInformationProcess<P0>(processhandle: P0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -128,7 +128,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryInformationProcess(processhandle : super::super::super::Win32::Foundation:: HANDLE, processinformationclass : PROCESSINFOCLASS, processinformation : *mut core::ffi::c_void, processinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryInformationProcess(processhandle.param().abi(), core::mem::transmute(processinformationclass), core::mem::transmute(processinformation), core::mem::transmute(processinformationlength), core::mem::transmute(returnlength))
+    ZwQueryInformationProcess(processhandle.param().abi(), processinformationclass, processinformation, processinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn ZwQueryInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *mut core::ffi::c_void, threadinformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -136,7 +136,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwQueryInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *mut core::ffi::c_void, threadinformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwQueryInformationThread(threadhandle.param().abi(), core::mem::transmute(threadinformationclass), core::mem::transmute(threadinformation), core::mem::transmute(threadinformationlength), core::mem::transmute(returnlength))
+    ZwQueryInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength, returnlength)
 }
 #[inline]
 pub unsafe fn ZwSetInformationThread<P0>(threadhandle: P0, threadinformationclass: THREADINFOCLASS, threadinformation: *const core::ffi::c_void, threadinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -144,17 +144,17 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation:: HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetInformationThread(threadhandle.param().abi(), core::mem::transmute(threadinformationclass), core::mem::transmute(threadinformation), core::mem::transmute(threadinformationlength))
+    ZwSetInformationThread(threadhandle.param().abi(), threadinformationclass, threadinformation, threadinformationlength)
 }
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
-pub unsafe fn ZwSetTimer<P0, P4>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P4, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
+pub unsafe fn ZwSetTimer<P0, P1>(timerhandle: P0, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: P1, period: i32, previousstate: Option<*mut super::super::super::Win32::Foundation::BOOLEAN>) -> super::super::super::Win32::Foundation::NTSTATUS
 where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
-    P4: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
+    P1: windows_core::Param<super::super::super::Win32::Foundation::BOOLEAN>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation:: HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices:: PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : super::super::super::Win32::Foundation:: BOOLEAN, period : i32, previousstate : *mut super::super::super::Win32::Foundation:: BOOLEAN) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetTimer(timerhandle.param().abi(), core::mem::transmute(duetime), core::mem::transmute(timerapcroutine), core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), core::mem::transmute(period), core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
+    ZwSetTimer(timerhandle.param().abi(), duetime, timerapcroutine, core::mem::transmute(timercontext.unwrap_or(core::ptr::null())), resumetimer.param().abi(), period, core::mem::transmute(previousstate.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ZwSetTimerEx<P0>(timerhandle: P0, timersetinformationclass: TIMER_SET_INFORMATION_CLASS, timersetinformation: Option<*mut core::ffi::c_void>, timersetinformationlength: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -162,7 +162,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwSetTimerEx(timerhandle : super::super::super::Win32::Foundation:: HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwSetTimerEx(timerhandle.param().abi(), core::mem::transmute(timersetinformationclass), core::mem::transmute(timersetinformation.unwrap_or(core::ptr::null_mut())), core::mem::transmute(timersetinformationlength))
+    ZwSetTimerEx(timerhandle.param().abi(), timersetinformationclass, core::mem::transmute(timersetinformation.unwrap_or(core::ptr::null_mut())), timersetinformationlength)
 }
 #[inline]
 pub unsafe fn ZwTerminateProcess<P0, P1>(processhandle: P0, exitstatus: P1) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -301,20 +301,35 @@ pub const ThreadWow64Context: THREADINFOCLASS = THREADINFOCLASS(29i32);
 pub const ThreadZeroTlsCell: THREADINFOCLASS = THREADINFOCLASS(10i32);
 pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROCESSINFOCLASS(pub i32);
 impl windows_core::TypeKind for PROCESSINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROCESSINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROCESSINFOCLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct THREADINFOCLASS(pub i32);
 impl windows_core::TypeKind for THREADINFOCLASS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for THREADINFOCLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("THREADINFOCLASS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for TIMER_SET_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for TIMER_SET_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("TIMER_SET_INFORMATION_CLASS").field(&self.0).finish()
+    }
 }
