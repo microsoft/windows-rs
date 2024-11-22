@@ -7,5 +7,5 @@ fn file_not_found() {
 #[test]
 #[should_panic(expected = "invalid option `-etc`")]
 fn invalid_option() {
-     windows_bindgen::bindgen(["-etc"]);
+    windows_bindgen::bindgen(["-etc"]);
 }
