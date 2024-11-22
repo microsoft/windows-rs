@@ -178,11 +178,7 @@ where
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
     let includes = TypeMap::filter(reader, &filter);
-
-      //dbg!(&includes[&TypeName("Windows.Win32.Networking.HttpServer", "HTTP_VERSION")]);
-
     let references = References::new(reader, references);
-
     let derive = Derive::new(reader, &derive);
 
     let config = Box::leak(Box::new(Config {

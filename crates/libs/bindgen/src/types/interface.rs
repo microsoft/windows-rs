@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum InterfaceKind {
     None,
     Default,
@@ -15,11 +15,37 @@ pub enum MethodOrName {
     Name(&'static str),
 }
 
-#[derive(Clone, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Clone, Debug)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
     pub kind: InterfaceKind,
+}
+
+impl PartialEq for Interface {
+    fn eq(&self, other: &Self) -> bool {
+        self.def == other.def
+    }
+}
+
+impl Eq for Interface {}
+
+impl std::hash::Hash for Interface {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.def.hash(state);
+    }
+}
+
+impl Ord for Interface {
+    fn cmp(&self, other: &Self) -> Ordering {
+        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+    }
+}
+
+impl PartialOrd for Interface {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
 }
 
 impl Interface {

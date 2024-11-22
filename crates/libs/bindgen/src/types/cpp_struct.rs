@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Hash)]
+#[derive(Clone, Debug)]
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: &'static str,
@@ -17,6 +17,20 @@ impl Ord for CppStruct {
 impl PartialOrd for CppStruct {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
+    }
+}
+
+impl PartialEq for CppStruct {
+    fn eq(&self, other: &Self) -> bool {
+        self.def == other.def
+    }
+}
+
+impl Eq for CppStruct {}
+
+impl std::hash::Hash for CppStruct {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.def.hash(state);
     }
 }
 

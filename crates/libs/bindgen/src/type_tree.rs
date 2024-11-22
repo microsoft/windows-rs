@@ -13,7 +13,8 @@ impl TypeTree {
         let mut tree = Self::with_namespace("");
 
         for (tn, types) in dependencies.iter() {
-             tree.insert_namespace(tn.namespace()).types.extend(types.iter().cloned());
+            let tree = tree.insert_namespace(tn.namespace());
+            types.iter().for_each(|ty|{tree.types.insert(ty.clone());});
         }
 
         tree
