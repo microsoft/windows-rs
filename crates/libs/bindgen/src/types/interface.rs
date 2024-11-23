@@ -496,6 +496,14 @@ impl Interface {
             ty.dependencies(dependencies);
         }
 
+        for method in self.def.methods() {
+            for ty in method.signature(self.def.namespace(), &self.generics).types() {
+                if ty.is_core() {
+                    ty.dependencies(dependencies);
+                }
+            }
+        }
+
         // TODO: have "Foundation" dependencies as required?
         // match TypeName(self.def.namespace(), self.def.name()) {
         //     TypeName::IIterable => _ = dependencies.insert(TypeName::IIterator.namespace(), TypeName::IIterator.name()),

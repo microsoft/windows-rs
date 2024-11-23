@@ -540,21 +540,21 @@ impl Type {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        fn underlying_type(ty: &Type) -> &Type {
-            match ty {
+    pub fn decay(&self) -> &Self {
+            match self {
                 Type::PtrMut(ty, _) => ty,
                 Type::PtrConst(ty, _) => ty,
-                Type::ArrayFixed(ty, _) => underlying_type(ty),
+                Type::ArrayFixed(ty, _) => ty.decay(),
                 Type::Array(ty) => ty,
                 Type::ArrayRef(ty) => ty,
                 Type::ConstRef(ty) => ty,
                 Type::PrimitiveOrEnum(_, ty) => ty,
-                _ => ty,
+                _ => self,
             }
-        }
+    }
 
-        let ty = underlying_type(self);
+    pub fn dependencies(&self, dependencies: &mut TypeMap) {
+        let ty = self.decay();
         let mut nested = false;
 
         if let Self::CppStruct(ty) = ty {
@@ -609,6 +609,10 @@ impl Type {
             Self::IUnknown => {
                 Self::GUID.dependencies(dependencies);
                 Self::HRESULT.dependencies(dependencies);
+            }
+
+            Self::Object => {
+                Self::IUnknown.dependencies(dependencies);
             }
 
             _ => {}
@@ -950,6 +954,20 @@ impl Type {
 
             _ => TypeName("", ""),
         }
+    }
+
+    pub fn is_core(&self) -> bool {
+        matches!(self, 
+            Self::PSTR | 
+            Self::PCSTR | 
+            Self::PWSTR | 
+            Self::PCWSTR | 
+            Self::GUID | 
+            Self::HRESULT | 
+            Self::IUnknown | 
+            Self::Object |
+            Self::BSTR | 
+            Self::String  )
     }
 }
 

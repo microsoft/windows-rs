@@ -431,6 +431,14 @@ impl CppInterface {
         for interface in &base_interfaces {
             interface.dependencies(dependencies);
         }
+
+        for method in self.def.methods() {
+            for ty in method.signature(self.def.namespace(), &[]).types() {
+                if ty.is_core() {
+                    ty.dependencies(dependencies);
+                }
+            }
+        }
     }
 
     pub fn base_interfaces(&self) -> Vec<Type> {

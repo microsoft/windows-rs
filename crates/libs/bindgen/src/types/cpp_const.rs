@@ -133,7 +133,7 @@ impl CppConst {
     }
 
     pub fn dependencies(&self, dependencies: &mut TypeMap) {
-        self.field.ty(None).dependencies(dependencies);
+        self.field.ty(None).to_const_type().dependencies(dependencies);
     }
 }
 

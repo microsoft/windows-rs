@@ -21,6 +21,10 @@ impl Signature {
             .for_each(|(ty, _)| ty.dependencies(dependencies));
     }
 
+    pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
+        std::iter::once(&self.return_type.0).chain(self.params.iter().map(|(ty,_)|ty)).map(|ty|ty.decay())
+    }
+
     //    pub fn included
 }
 
