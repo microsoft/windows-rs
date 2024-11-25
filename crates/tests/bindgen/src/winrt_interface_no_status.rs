@@ -58,18 +58,6 @@ impl IAsyncInfo {
         }
     }
 }
-#[repr(C)]
-pub struct IAsyncInfo_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    get_Status: usize,
-    pub ErrorCode: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut windows_core::HRESULT,
-    ) -> windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
@@ -131,4 +119,16 @@ impl IAsyncInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncInfo as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IAsyncInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    get_Status: usize,
+    pub ErrorCode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }

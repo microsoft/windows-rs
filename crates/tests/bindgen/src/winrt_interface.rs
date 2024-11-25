@@ -33,14 +33,6 @@ impl IStringable {
         }
     }
 }
-#[repr(C)]
-pub struct IStringable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
@@ -71,4 +63,12 @@ impl IStringable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStringable as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IStringable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ToString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }

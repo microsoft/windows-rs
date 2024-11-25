@@ -29,11 +29,6 @@ impl IClosable {
         }
     }
 }
-#[repr(C)]
-pub struct IClosable_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
 }
@@ -56,6 +51,11 @@ impl IClosable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IClosable as windows_core::Interface>::IID
     }
+}
+#[repr(C)]
+pub struct IClosable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDeferral,
