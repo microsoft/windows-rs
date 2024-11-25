@@ -23,8 +23,8 @@ fn main() {
     test("--out class_factory.rs --filter IClassFactory --flat --no-comment");
     test("--out class_factory_sys.rs --filter IClassFactory --sys --flat --no-comment");
 
-    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat --no-deps --no-comment");
-    test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --no-deps --flat --no-comment");
+    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat --no-comment");
+    //test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --flat --no-comment");
 
     test("--out multi.rs --filter HTTP_VERSION  --flat --no-comment");
 
@@ -51,10 +51,10 @@ fn main() {
     // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat --no-comment");
 
     // Generate functions and include dependencies automatically.
-    test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
+    test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-comment");
 
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
-    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
+    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
     // Same as 'deps2.rs' but `--no-deps` is implied.
     test("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
@@ -107,7 +107,7 @@ fn main() {
     // TODO test class with collection default interface
 
     // TODO: probably want to avoid generating dependencies on windows and windows-sys - just windows-core/result/string/targets
-    // 1. so in that model --sys bindings imply --no-deps and the latter is only useful for removing the above dependencies for non-sys bindings
+    // 1. so in that model --sys bindings imply and the latter is only useful for removing the above dependencies for non-sys bindings
 
     // Same as 'deps3.rs' but with dependency on `windows-core` for core types. TODO: what about other types found in windows?
     // test("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --no-comment");

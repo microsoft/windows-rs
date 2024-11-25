@@ -857,31 +857,23 @@ impl Type {
 }
 
 impl Type {
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    fn write_no_deps(&self, writer: &Writer) -> TokenStream {
+        if !writer.config.sys  || writer.config.package {
+            return quote! {};
+        }
+
         match self {
-            Self::Struct(item) => item.write(writer),
-            Self::Enum(item) => item.write(writer),
-            Self::Interface(item) => item.write(writer),
-            Self::CppStruct(item) => item.write(writer),
-            Self::CppEnum(item) => item.write(writer),
-            Self::CppFn(item) => item.write(writer),
-            Self::CppConst(item) => item.write(writer),
-            Self::CppDelegate(item) => item.write(writer),
-            Self::Delegate(item) => item.write(writer),
-            Self::Class(item) => item.write(writer),
-            Self::CppInterface(item) => item.write(writer),
+            Self::HRESULT  => quote! { pub type HRESULT = i32; },
 
-            Self::HRESULT if writer.config.no_deps => quote! { pub type HRESULT = i32; },
-
-            Self::PWSTR if writer.config.no_deps => quote! { pub type PWSTR = *mut u16; },
-            Self::PCSTR if writer.config.no_deps => quote! { pub type PCSTR = *const u8; },
-            Self::PSTR if writer.config.no_deps => quote! { pub type PSTR = *mut u8; },
-            Self::PCWSTR if writer.config.no_deps => quote! { pub type PCWSTR = *const u16; },
-            Self::BSTR if writer.config.no_deps => quote! { pub type BSTR = *const u16; },
-            Self::String if writer.config.no_deps => {
+            Self::PWSTR  => quote! { pub type PWSTR = *mut u16; },
+            Self::PCSTR  => quote! { pub type PCSTR = *const u8; },
+            Self::PSTR  => quote! { pub type PSTR = *mut u8; },
+            Self::PCWSTR  => quote! { pub type PCWSTR = *const u16; },
+            Self::BSTR  => quote! { pub type BSTR = *const u16; },
+            Self::String  => {
                 quote! { pub type HSTRING = *mut core::ffi::c_void; }
             }
-            Self::GUID if writer.config.no_deps => quote! {
+            Self::GUID  => quote! {
                 #[repr(C)]
                 #[derive(Clone, Copy)]
                 pub struct GUID {
@@ -896,7 +888,7 @@ impl Type {
                     }
                 }
             },
-            Self::IUnknown if writer.config.no_deps => quote! {
+            Self::IUnknown  => quote! {
                 pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
                 #[repr(C)]
                 pub struct IUnknown_Vtbl {
@@ -905,7 +897,7 @@ impl Type {
                     pub Release: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> u32,
                 }
             },
-            Self::Object if writer.config.no_deps => quote! {
+            Self::Object  => quote! {
                 pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
                 #[repr(C)]
                 pub struct IInspectable_Vtbl {
@@ -917,6 +909,24 @@ impl Type {
             },
 
             _ => quote! {},
+        }
+    }
+
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Self::Struct(item) => item.write(writer),
+            Self::Enum(item) => item.write(writer),
+            Self::Interface(item) => item.write(writer),
+            Self::CppStruct(item) => item.write(writer),
+            Self::CppEnum(item) => item.write(writer),
+            Self::CppFn(item) => item.write(writer),
+            Self::CppConst(item) => item.write(writer),
+            Self::CppDelegate(item) => item.write(writer),
+            Self::Delegate(item) => item.write(writer),
+            Self::Class(item) => item.write(writer),
+            Self::CppInterface(item) => item.write(writer),
+
+            _ => self.write_no_deps(writer),
         }
     }
 

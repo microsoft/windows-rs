@@ -241,7 +241,7 @@ fn write_vtbl(output: &Path, filter: &[&str]) {
 
 fn bindgen(output: &Path, filter: &[&str], config: &[&str]) {
     let output: &str = output.as_os_str().to_str().unwrap();
-    let mut args = vec!["--no-deps", "--in", "default", "--out", output, "--filter"];
+    let mut args = vec!["--in", "default", "--out", output, "--filter"];
     args.extend_from_slice(filter);
     args.extend_from_slice(&["--no-comment"]);
     args.extend_from_slice(config);

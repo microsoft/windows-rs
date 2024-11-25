@@ -2,20 +2,22 @@ use super::*;
 
 impl Writer {
     pub fn write_core(&self) -> TokenStream {
-        if self.config.no_deps {
-            if self.config.flat {
-                quote! {}
+        if self.config.sys {
+            if self.config.package {
+                quote! { windows_sys::core:: }
             } else {
-                let mut tokens = TokenStream::new();
-
-                for _ in 0..self.namespace.split('.').count() {
-                    tokens.push_str("super::");
+                if self.config.flat {
+                    quote! {}
+                } else {
+                    let mut tokens = TokenStream::new();
+    
+                    for _ in 0..self.namespace.split('.').count() {
+                        tokens.push_str("super::");
+                    }
+    
+                    tokens
                 }
-
-                tokens
             }
-        } else if self.config.sys {
-            quote! { windows_sys::core:: }
         } else {
             quote! { windows_core:: }
         }
