@@ -20,7 +20,11 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
     std::fs::write("lib.rs", "").unwrap();
 
-  //  test("--out unknown.rs --filter IDispatch --flat --no-comment");
+    test("--out class_factory.rs --filter IClassFactory --flat --no-comment");
+    test("--out class_factory_sys.rs --filter IClassFactory --sys --flat --no-comment");
+
+    //test("--out class_factory_no_deps.rs --filter IClassFactory --flat --no-deps --no-comment");
+    test("--out class_factory_sys_no_deps.rs --filter IClassFactory --sys --no-deps --flat --no-comment");
 
     test("--out multi.rs --filter HTTP_VERSION  --flat --no-comment");
 

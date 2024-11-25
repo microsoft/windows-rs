@@ -180,6 +180,7 @@ where
 
     let reader = Reader::new(expand_input(&input));
     let filter = Filter::new(reader, &include, &exclude);
+    // TODO: for consistency we should allow filter includes to mention core types like "BSTR", "IUnknown", etc.
     let includes = TypeMap::filter(reader, &filter);
     let references = References::new(reader, references);
     let derive = Derive::new(reader, &derive);
