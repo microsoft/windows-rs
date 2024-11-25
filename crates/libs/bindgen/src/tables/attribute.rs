@@ -42,7 +42,7 @@ impl Attribute {
                 Type::U32 => Value::U32(values.read_u32()),
                 Type::I64 => Value::I64(values.read_i64()),
                 Type::U64 => Value::U64(values.read_u64()),
-                Type::String => Value::String(values.read_str().to_string()),
+                Type::String => Value::Str(values.read_str()),
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::CppEnum(item) => {
                     let underlying_type = item.def.underlying_type();
@@ -70,7 +70,7 @@ impl Attribute {
                 ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
                 ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
                 ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
-                ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
+                ELEMENT_TYPE_STRING => Value::Str(values.read_str()),
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let tn = TypeName::parse(name);
