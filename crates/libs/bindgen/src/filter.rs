@@ -104,7 +104,7 @@ fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, i
         return;
     }
 
-    panic!("windows-bindgen: invalid type filter `{filter}`");
+    panic!("invalid type filter `{filter}`");
 }
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {

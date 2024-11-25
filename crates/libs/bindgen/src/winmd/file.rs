@@ -131,7 +131,7 @@ impl File {
                 b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
                 b"#GUID" => {}
                 b"#US" => {}
-                rest => panic!("windows-bindgen: {rest:?}"),
+                rest => panic!("{rest:?}"),
             }
             let mut padding = 4 - stream_name.len() % 4;
             if padding == 0 {
@@ -541,7 +541,7 @@ impl File {
             0..=3 => (initial_byte & 0x7f, 1),
             4..=5 => (initial_byte & 0x3f, 2),
             6 => (initial_byte & 0x1f, 4),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         };
 
         let mut blob_size = blob_size as usize;

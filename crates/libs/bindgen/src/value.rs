@@ -42,7 +42,7 @@ impl Value {
                 tokens.push('\"');
                 tokens.into()
             }
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 }

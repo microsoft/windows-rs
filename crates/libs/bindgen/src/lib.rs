@@ -128,13 +128,13 @@ where
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--implement" => implement = true,
-                _ => panic!("windows-bindgen: invalid option `{arg}`"),
+                _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
                 if output.is_empty() {
                     output = arg.to_string();
                 } else {
-                    panic!("windows-bindgen: too many outputs");
+                    panic!("too many outputs");
                 }
             }
             ArgKind::Input => input.push(arg.as_str()),
@@ -157,25 +157,25 @@ where
     }
 
     if !sys && no_deps {
-        panic!("windows-bindgen: `--no-deps` requires the `--sys` option");
+        panic!("`--no-deps` requires the `--sys` option");
     }
 
     if package && flat {
-        panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
+        panic!("cannot combine `--package` and `--flat` options");
     }
 
     if input.is_empty() {
-        panic!("windows-bindgen: one `--in` is required");
+        panic!("one `--in` is required");
     };
 
     if output.is_empty() {
-        panic!("windows-bindgen: one `--out` is required");
+        panic!("one `--out` is required");
     };
 
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        panic!("windows-bindgen: at least one `--filter` is required");
+        panic!("at least one `--filter` is required");
     }
 
     let reader = Reader::new(expand_input(&input));
@@ -287,7 +287,7 @@ fn expand_input(input: &[&str]) -> Vec<File> {
 
             for path in path
                 .read_dir()
-                .unwrap_or_else(|_| panic!("windows-bindgen: failed to read directory `{input}`"))
+                .unwrap_or_else(|_| panic!("failed to read directory `{input}`"))
                 .flatten()
                 .map(|entry| entry.path())
             {
@@ -301,7 +301,7 @@ fn expand_input(input: &[&str]) -> Vec<File> {
             }
 
             if result.len() == prev_len {
-                panic!("windows-bindgen: failed to find files in directory `{input}`");
+                panic!("failed to find files in directory `{input}`");
             }
         } else {
             result.push(input.to_string());
@@ -334,10 +334,10 @@ fn expand_input(input: &[&str]) -> Vec<File> {
 
     input.extend(paths.iter().map(|path| {
         let bytes = std::fs::read(path)
-            .unwrap_or_else(|_| panic!("windows-bindgen: failed to read binary file `{path}`"));
+            .unwrap_or_else(|_| panic!("failed to read binary file `{path}`"));
 
         File::new(bytes)
-            .unwrap_or_else(|| panic!("windows-bindgen: failed to read .winmd format `{path}`"))
+            .unwrap_or_else(|| panic!("failed to read .winmd format `{path}`"))
     }));
 
     input

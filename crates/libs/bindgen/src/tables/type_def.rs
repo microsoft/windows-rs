@@ -60,7 +60,7 @@ impl TypeDef {
         let field = self
             .fields()
             .next()
-            .expect("windows-bindgen: field not found");
+            .expect("field not found");
         if let Some(constant) = field.constant() {
             constant.ty()
         } else {

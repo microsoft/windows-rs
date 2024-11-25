@@ -168,7 +168,7 @@ impl Type {
         {
             item
         } else {
-            panic!("windows-bindgen: type not found: {code_name}")
+            panic!("type not found: {code_name}")
         }
     }
 
@@ -244,7 +244,7 @@ impl Type {
                     .reader()
                     .with_full_name(code_name.namespace(), code_name.name())
                     .next()
-                    .unwrap_or_else(|| panic!("windows-bindgen: type not found: {code_name}"));
+                    .unwrap_or_else(|| panic!("type not found: {code_name}"));
 
                 let mut item_generics = vec![];
 
@@ -255,7 +255,7 @@ impl Type {
                 item.set_generics(item_generics);
                 item
             }
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -289,7 +289,7 @@ impl Type {
             Self::PtrMut(ty, pointers) => Self::PtrMut(ty.clone(), pointers - 1),
             Self::PSTR | Self::PCSTR => Self::U8,
             Self::PWSTR | Self::PCWSTR => Self::U16,
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -407,7 +407,7 @@ impl Type {
                     item.write_name(writer)
                 }
             }
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -440,7 +440,7 @@ impl Type {
             }
             Self::CppInterface(item) => item.write_impl_name(writer),
             Self::Interface(item) => item.write_impl_name(writer),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -511,7 +511,7 @@ impl Type {
             Self::Enum(item) => item.runtime_signature(),
             Self::Interface(item) => item.runtime_signature(),
             Self::Struct(item) => item.runtime_signature(),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -934,7 +934,7 @@ impl Type {
         match self {
             Self::Interface(item) => item.generics = generics,
             Self::Delegate(item) => item.generics = generics,
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 

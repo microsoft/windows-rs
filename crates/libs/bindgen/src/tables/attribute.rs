@@ -52,7 +52,7 @@ impl Attribute {
                     let underlying_type = item.def.underlying_type();
                     values.read_integer(underlying_type)
                 }
-                rest => panic!("windows-bindgen: {rest:?}"),
+                rest => panic!("{rest:?}"),
             };
 
             args.push(("", arg));
@@ -82,7 +82,7 @@ impl Attribute {
                     let underlying_type = def.underlying_type();
                     values.read_integer(underlying_type)
                 }
-                rest => panic!("windows-bindgen: {rest:?}"),
+                rest => panic!("{rest:?}"),
             };
             args.push((name, arg));
         }

@@ -15,7 +15,7 @@ macro_rules! code {
                 let (kind, row) = (code & ((1 << $size) - 1), (code >> $size) - 1);
                 match kind {
                     $($code => Self::$table($table(Row::new(file, row))),)*
-                    rest => panic!("windows-bindgen: {rest:?}"),
+                    rest => panic!("{rest:?}"),
                 }
             }
         }
@@ -84,7 +84,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 
@@ -92,7 +92,7 @@ impl TypeDefOrRef {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 

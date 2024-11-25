@@ -7,7 +7,7 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
 
     file.lines()
         .map(|line| {
-            line.unwrap_or_else(|_| panic!("windows-bindgen: failed to read file lines `{path}`"))
+            line.unwrap_or_else(|_| panic!("failed to read file lines `{path}`"))
         })
         .collect()
 }
@@ -15,11 +15,11 @@ pub fn read_file_lines(path: &str) -> Vec<String> {
 pub fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
     if let Some(parent) = std::path::Path::new(path).parent() {
         std::fs::create_dir_all(parent)
-            .unwrap_or_else(|_| panic!("windows-bindgen: failed to create directory `{path}`"));
+            .unwrap_or_else(|_| panic!("failed to create directory `{path}`"));
     }
 
     std::fs::write(path, contents)
-        .unwrap_or_else(|_| panic!("windows-bindgen: failed to write file `{path}`"));
+        .unwrap_or_else(|_| panic!("failed to write file `{path}`"));
 }
 
 // pub fn directory(path: &str) -> &str {

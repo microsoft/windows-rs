@@ -318,7 +318,7 @@ impl CppInterface {
                             quote! { base__: #ty::new::<Identity>(), }
                         }
                     }
-                    rest => unimplemented!("{rest:?}"),
+                    rest => panic!("{rest:?}"),
                 }
             });
 
@@ -460,7 +460,7 @@ impl CppInterface {
                     bases.insert(0, Type::IUnknown);
                     break;
                 }
-                rest => unimplemented!("{rest:?}"),
+                rest => panic!("{rest:?}"),
             }
         }
 

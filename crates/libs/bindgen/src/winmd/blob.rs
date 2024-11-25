@@ -101,7 +101,7 @@ impl Blob {
         match self.read_u8() {
             0 => false,
             1 => true,
-            _ => panic!("windows-bindgen: illegal bool value"),
+            _ => panic!("illegal bool value"),
         }
     }
 
@@ -175,7 +175,7 @@ impl Blob {
             Type::U32 => Value::U32(self.read_u32()),
             Type::I64 => Value::I64(self.read_i64()),
             Type::U64 => Value::U64(self.read_u64()),
-            _ => panic!("windows-bindgen: type is not an integer"),
+            _ => panic!("type is not an integer"),
         }
     }
 

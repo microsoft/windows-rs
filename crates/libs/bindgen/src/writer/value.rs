@@ -100,7 +100,7 @@ fn read_literal(input: &str) -> (&str, &str) {
     }
 
     let Some(start) = start else {
-        unimplemented!();
+        panic!();
     };
 
     (&input[start..end], &input[end..])

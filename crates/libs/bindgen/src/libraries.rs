@@ -55,7 +55,7 @@ fn combine_libraries(
                     .or_default()
                     .insert(name, CallingConvention::Cdecl);
             } else {
-                unimplemented!();
+                panic!();
             }
         }
     }

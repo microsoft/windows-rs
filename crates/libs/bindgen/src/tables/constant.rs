@@ -9,7 +9,7 @@ impl std::fmt::Debug for Constant {
 impl Constant {
     pub fn ty(&self) -> Type {
         Type::from_element_type(self.usize(0))
-            .unwrap_or_else(|| panic!("windows-bindgen: `Constant` type invalid"))
+            .unwrap_or_else(|| panic!("`Constant` type invalid"))
     }
 
     pub fn value(&self) -> Value {
@@ -27,7 +27,7 @@ impl Constant {
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
             Type::String => Value::String(blob.read_utf16()),
-            rest => panic!("windows-bindgen: {rest:?}"),
+            rest => panic!("{rest:?}"),
         }
     }
 }

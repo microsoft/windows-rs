@@ -114,13 +114,13 @@ impl<R: AsRow + Into<HasAttribute>> HasAttributes for R {
             fn unwrap_u16(value: &Value) -> u16 {
                 match value {
                     Value::U16(value) => *value,
-                    rest => unimplemented!("{rest:?}"),
+                    rest => panic!("{rest:?}"),
                 }
             }
             fn unwrap_u8(value: &Value) -> u8 {
                 match value {
                     Value::U8(value) => *value,
-                    rest => unimplemented!("{rest:?}"),
+                    rest => panic!("{rest:?}"),
                 }
             }
 

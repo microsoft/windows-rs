@@ -45,7 +45,7 @@ impl CppFn {
         } else if impl_flags.contains(PInvokeAttributes::CallConvCdecl) {
             "cdecl"
         } else {
-            unimplemented!()
+            panic!()
         };
 
         let signature = self.method.signature(self.namespace, &[]);
